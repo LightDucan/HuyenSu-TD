@@ -76,3 +76,14 @@ Object pooling được hoãn có chủ đích: Phase 2 hiện chỉ có một e
 | P4-04 | Damage/AoE/Slow/Stun/Root/MultiHit | Codex | Auditor | DONE |
 | P4-05 | Skill data templates | Gemini Pro | Hero Designer | DONE |
 | P4-A4 | Audit #4 | Codex Auditor | Architect Skill | DONE |
+
+## Phase 5 — Hero Progression
+
+| ID | Task | Worker chính | Hỗ trợ | Trạng thái |
+|---|---|---|---|---|
+| P5-01 | Level 1–100 + cooldown | Codex | Architect Skill | DONE |
+| P5-02 | Trùng Sinh / Tái Sinh / Huyền Sử state | Codex | Auditor | DONE |
+| P5-03 | Stat calculator | Codex | Auditor | DONE |
+| P5-04 | Progression UI | Antigravity | UI task riêng | BACKLOG |
+| P5-05 | Local save progression | Codex | Auditor | BACKLOG |
+| P5-A | Progression Audit | Codex Auditor | Architect Skill | BACKLOG |

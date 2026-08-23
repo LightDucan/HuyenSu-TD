@@ -14,9 +14,9 @@ Tạo vertical slice Tower Defense Tam Quốc: Hero là tower mang hình tướn
 ## Trạng thái hiện tại
 
 - Current Phase: **9 — MVP Vertical Slice**
-- Current Codex task: **P9-02 — Hợp nhất P9-A02 và thực hiện Full Audit #5 cho MVP Vertical Slice**.
+- Current Codex task: **DONE: P9-02 — Full Audit #5 cho MVP Vertical Slice**.
 - Current Antigravity task: **NONE — P9-A02 đã bàn giao và audit đạt; đang chờ task tiếp theo**.
-- Lần kiểm tra gần nhất: P9-A02 đạt 28/28 tests, production build, kiểm tra đủ 20 PNG RGBA 128×128 và baseline của 10 Hero sprite tại Y=112; không có dependency mới.
+- Lần kiểm tra gần nhất: Full Audit #5 đạt — chọn và thực chiến đủ 5 Hero với đúng data/stats/range/skill; hoàn tất 10 Wave với 43 hạ, 0 thoát, Thành 10 HP; x1/x3 và HUD ổn định; không có hero-specific combat code; 28/28 tests và production build đạt.
 
 ## Phases và checkpoint
 
@@ -31,7 +31,7 @@ Tạo vertical slice Tower Defense Tam Quốc: Hero là tower mang hình tướn
 | 6 | P6 | Weapon/Gem modifier và save equipment | DONE | Codex | Equipment Audit | `hero/equipment-v1` |
 | 7 | P7 | Hero UI | DONE | Antigravity + Codex | UI Audit | `ui/hero-v1` |
 | 8 | P8 | Battle HUD kết nối dữ liệu thật | DONE | Antigravity + Codex | HUD Audit | `ui/battle-v1` |
-| 9 | P9 | Vertical slice: 5 Hero, 3 Enemy, 10 Wave, 5–8 Skill, local save, x1/x3, Win/Lose | IN PROGRESS | Codex + Antigravity content | Full Audit #5 | `v0.1.0-playable` |
+| 9 | P9 | Vertical slice: 5 Hero, 3 Enemy, 10 Wave, 5–8 Skill, local save, x1/x3, Win/Lose | DONE | Codex + Antigravity content | Full Audit #5 — PASS | `v0.1.0-playable` |
 
 ## Phase 9 task tracker
 
@@ -40,6 +40,7 @@ Tạo vertical slice Tower Defense Tam Quốc: Hero là tower mang hình tướn
 | P9-01 | Tích hợp lựa chọn 5 Hero data-driven vào Bridge, HUD, Hero Detail và Battle Scene | DONE | Codex | 28/28 tests, build và UI interaction audit | `217a122` |
 | P9-A01 | Chuẩn bị 5 Hero, 3 Enemy, 10 Wave, Skill combinations và asset checklist | DONE | Antigravity + Codex audit | Content/data contract audit | `cd43096` |
 | P9-A02 | Bộ placeholder 5 portrait, 10 Hero sprite và 5 skill VFX | DONE | Antigravity + Codex audit | PNG/baseline audit, 28/28 tests và build | `169a88d`, `ef6bd59` |
+| P9-02 | Audit toàn bộ MVP Vertical Slice và xác nhận playable checkpoint | DONE | Codex | Full Audit #5: 5 Hero, 10 Wave, x1/x3, HUD, architecture, test/build | `v0.1.0-playable` |
 
 ## Quy tắc cập nhật
 

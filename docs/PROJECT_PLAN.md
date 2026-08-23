@@ -15,8 +15,8 @@ Tạo vertical slice Tower Defense Tam Quốc: Hero là tower mang hình tướn
 
 - Current Phase: **5 — Hero Progression**
 - Current Codex task: **P5-A — Progression Audit (chờ Progression UI hoặc quyết định bỏ UI khỏi checkpoint)**
-- Current Antigravity task: **CHƯA GIAO**
-- Lần kiểm tra gần nhất: worktree sạch sau commit `7df524a`.
+- Current Antigravity task: **P5-04 — UI hỗ trợ Phase 5**; phạm vi dự kiến `src/ui/**`; branch/SHA chưa được báo.
+- Lần kiểm tra gần nhất: worktree sạch trước khi worker bắt đầu thay đổi.
 
 ## Phases và checkpoint
 

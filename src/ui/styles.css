@@ -1,0 +1,56 @@
+:root {
+  color: #f8fafc;
+  background: #0f172a;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* { box-sizing: border-box; }
+
+body { margin: 0; min-width: 320px; min-height: 100vh; }
+button { font: inherit; }
+
+.app-shell {
+  width: min(100%, 1180px);
+  margin: 0 auto;
+  padding: 18px;
+}
+
+.top-bar {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+h1 { margin: 0; font-size: clamp(1.35rem, 3vw, 2rem); }
+.eyebrow { margin: 0 0 4px; color: #fbbf24; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; }
+.battle-status { display: flex; gap: 16px; color: #cbd5e1; }
+.speed-controls { display: flex; gap: 8px; }
+.speed-controls button {
+  border: 1px solid #475569;
+  border-radius: 8px;
+  padding: 8px 14px;
+  color: #e2e8f0;
+  background: #1e293b;
+  cursor: pointer;
+}
+.speed-controls button.active { border-color: #fbbf24; color: #111827; background: #fbbf24; }
+
+.game-frame {
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  background: #1f3b2d;
+  box-shadow: 0 18px 60px rgb(0 0 0 / 0.35);
+}
+.game-frame canvas { display: block; }
+
+@media (max-width: 700px) {
+  .top-bar { grid-template-columns: 1fr auto; }
+  .battle-status { grid-column: 1 / -1; grid-row: 2; }
+}

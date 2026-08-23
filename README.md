@@ -4,7 +4,7 @@ Huyền Sử TD là game tower defense chủ đề Tam Quốc. Mỗi Hero là m�
 
 ## Trạng thái
 
-Dự án đang ở **Phase 0 — Khóa thiết kế**. Chưa bắt đầu gameplay code cho đến khi Audit #1 xác nhận các luật, schema và ranh giới MVP nhất quán.
+Dự án đã hoàn thành **Phase 1 — Technical Prototype**. Prototype hiện có React + Phaser, grid 12×10, fixed path, một enemy di chuyển, Battle Clock x1/x3 và React–Phaser Bridge theo snapshot.
 
 ## Luật cốt lõi
 
@@ -26,6 +26,7 @@ Chi tiết đầy đủ: [Game Rules](docs/game-rules.md).
 - [MVP và giới hạn phạm vi](docs/mvp-scope.md)
 - [Task Board](docs/task-board.md)
 - [Audit #1](docs/audits/audit-01-foundation.md)
+- [Audit #2](docs/audits/audit-02-technical-prototype.md)
 
 ## Checkpoint
 
@@ -39,4 +40,4 @@ Chi tiết đầy đủ: [Game Rules](docs/game-rules.md).
 
 ## Bước tiếp theo
 
-Sau khi Audit #1 đạt, bắt đầu Phase 1 bằng Vite + React + TypeScript, tích hợp Phaser, tạo Game Clock và prototype một enemy di chuyển trên fixed path.
+Tiếp theo là Phase 2: Hero placement, tile validation, targeting, normal attack, crit, enemy HP/death và combat tests. Combat Core phải qua Audit #3 trước khi mở rộng gameplay.

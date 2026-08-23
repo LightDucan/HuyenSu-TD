@@ -7,6 +7,8 @@ export type CombatEnemy = {
   hp: number
   maxHp: number
   alive: boolean
+  slow?: { ratio: number; remainingMs: number }
+  immobilizedRemainingMs?: number
 }
 
 export type HeroCombatStats = Readonly<{

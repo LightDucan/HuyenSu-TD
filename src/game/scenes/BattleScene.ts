@@ -80,9 +80,22 @@ export class BattleScene extends Phaser.Scene {
     for (let index = this.enemies.length - 1; index >= 0; index -= 1) {
       const visual = this.enemies[index]
       const definition = enemyDefinitions[visual.definitionId]
-      const progress = Math.min(visual.state.pathProgress + (definition.moveSpeed * deltaMs) / 1000 / this.pathLength, 1)
+      this.updateEnemyStatus(visual.state, deltaMs)
+      const speedMultiplier = visual.state.immobilizedRemainingMs ? 0 : 1 - (visual.state.slow?.ratio ?? 0)
+      const progress = Math.min(visual.state.pathProgress + (definition.moveSpeed * speedMultiplier * deltaMs) / 1000 / this.pathLength, 1)
       this.positionEnemy(visual, progress)
       if (progress === 1) this.removeEnemy(index, 'escaped')
+    }
+  }
+
+  private updateEnemyStatus(enemy: CombatEnemy, deltaMs: number): void {
+    if (enemy.slow) {
+      enemy.slow.remainingMs -= deltaMs
+      if (enemy.slow.remainingMs <= 0) delete enemy.slow
+    }
+    if (enemy.immobilizedRemainingMs) {
+      enemy.immobilizedRemainingMs = Math.max(0, enemy.immobilizedRemainingMs - deltaMs)
+      if (enemy.immobilizedRemainingMs === 0) delete enemy.immobilizedRemainingMs
     }
   }
 

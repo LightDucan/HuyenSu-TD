@@ -4,7 +4,7 @@ Huyền Sử TD là game tower defense chủ đề Tam Quốc. Mỗi Hero là m�
 
 ## Trạng thái
 
-Dự án đã hoàn thành **Phase 3 — Wave**. Battle có 10 wave, ba loại enemy, spawn theo group, bộ đếm theo loại và điều kiện Win/Lose.
+Dự án đã hoàn thành **Phase 4 — Hero Skill**. Hero dùng skill theo số đòn; Skill Effects có thể ghép lại từ Damage, AoE, Slow, Stun, Root và MultiHit.
 
 ## Luật cốt lõi
 

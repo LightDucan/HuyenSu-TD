@@ -70,9 +70,9 @@ Object pooling được hoãn có chủ đích: Phase 2 hiện chỉ có một e
 
 | ID | Task | Worker chính | Hỗ trợ | Trạng thái |
 |---|---|---|---|---|
-| P4-01 | Attack Counter | Codex | Architect Skill | NEXT |
-| P4-02 | Trigger 3/5/7/10 data-driven | Codex | Auditor | BACKLOG |
-| P4-03 | Skill Effect framework | Codex | Architect Skill | BACKLOG |
-| P4-04 | Damage/AoE/Slow/Stun/Root/MultiHit | Codex | Auditor | BACKLOG |
-| P4-05 | Skill data templates | Gemini Pro | Hero Designer | BACKLOG |
-| P4-A4 | Audit #4 | Codex Auditor | Architect Skill | BACKLOG |
+| P4-01 | Attack Counter | Codex | Architect Skill | DONE |
+| P4-02 | Trigger 3/5/7/10 data-driven | Codex | Auditor | DONE |
+| P4-03 | Skill Effect framework | Codex | Architect Skill | DONE |
+| P4-04 | Damage/AoE/Slow/Stun/Root/MultiHit | Codex | Auditor | DONE |
+| P4-05 | Skill data templates | Gemini Pro | Hero Designer | DONE |
+| P4-A4 | Audit #4 | Codex Auditor | Architect Skill | DONE |

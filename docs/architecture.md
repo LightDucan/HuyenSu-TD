@@ -1,5 +1,9 @@
 # Kiến trúc V1
 
+## Đọc trước cho worker
+
+`docs/ARCHITECTURE.md` trong Antigravity rules trỏ tới chính file này trên Windows (hệ thống không phân biệt chữ hoa/thường). Đọc toàn bộ file trước task; không thay đổi Core Architecture nếu task không ghi rõ quyền đó.
+
 ## Mục tiêu
 
 Giữ Combat Core nhỏ, kiểm thử được và data-driven; skin, VFX và UI có thể thay đổi mà không sửa luật chiến đấu.

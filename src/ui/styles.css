@@ -1054,4 +1054,400 @@ h1 { margin: 0; font-size: clamp(1.35rem, 3vw, 2rem); }
   }
 }
 
+/* ==========================================================================
+   Battle HUD: Top City Bar & Bottom Player HUD (Phase 8 - Task P8-A01)
+   ========================================================================== */
+
+/* Top City Bar */
+.top-city-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 14px 20px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.city-info-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.city-name-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.city-icon {
+  font-size: 1.25rem;
+}
+
+.city-name {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #f8fafc;
+  font-weight: 700;
+}
+
+.defense-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  background: #334155;
+  color: #93c5fd;
+  border-radius: 4px;
+  border: 1px solid #475569;
+}
+
+.difficulty-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  background: #78350f;
+  color: #fde68a;
+  border-radius: 4px;
+  border: 1px solid #b45309;
+}
+
+.city-hp-bar-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.hp-label {
+  font-weight: 600;
+}
+
+.hp-value {
+  font-weight: 700;
+  color: #22c55e;
+}
+
+.battle-summary-counts {
+  font-size: 0.78rem;
+  color: #64748b;
+}
+
+.wave-counter-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 18px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 10px;
+}
+
+.wave-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #94a3b8;
+  letter-spacing: 0.08em;
+}
+
+.wave-number {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #fbbf24;
+}
+
+.wave-total {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #64748b;
+}
+
+.status-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-top: 2px;
+}
+
+.tag-won {
+  background: #065f46;
+  color: #a7f3d0;
+}
+
+.tag-lost {
+  background: #7f1d1d;
+  color: #fecaca;
+}
+
+.enemy-counters-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.enemy-box-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  color: #94a3b8;
+  letter-spacing: 0.06em;
+}
+
+.enemy-category-chips {
+  display: flex;
+  gap: 8px;
+}
+
+.enemy-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  font-size: 0.82rem;
+}
+
+.chip-sword {
+  border-color: #3b82f6;
+}
+
+.chip-archer {
+  border-color: #10b981;
+}
+
+.chip-other {
+  border-color: #a855f7;
+}
+
+.chip-name {
+  color: #94a3b8;
+}
+
+.chip-count {
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+/* Bottom Player HUD */
+.bottom-player-hud {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 14px 20px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  margin-top: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+.player-profile-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.player-avatar-box {
+  width: 44px;
+  height: 44px;
+  background: #312e81;
+  border: 1px solid #4338ca;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.player-name-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.player-name {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #f8fafc;
+}
+
+.player-level-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  background: #065f46;
+  color: #a7f3d0;
+  border-radius: 4px;
+}
+
+.player-resources {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.resource-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #f1f5f9;
+}
+
+.hero-selection-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.section-mini-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #94a3b8;
+  letter-spacing: 0.06em;
+}
+
+.hero-slot-list {
+  display: flex;
+  gap: 8px;
+}
+
+.hero-slot-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  color: #f8fafc;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hero-slot-card:hover {
+  border-color: #fbbf24;
+  background: #1e1b4b;
+}
+
+.hero-slot-card.deployed {
+  border-color: #10b981;
+}
+
+.hero-slot-avatar {
+  font-size: 1.25rem;
+}
+
+.hero-slot-meta {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.hero-slot-name {
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.hero-slot-status {
+  font-size: 0.72rem;
+}
+
+.status-deployed {
+  color: #34d399;
+}
+
+.status-ready {
+  color: #fbbf24;
+}
+
+.battle-controls-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-hud-control {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: #0f172a;
+  border: 1px solid #475569;
+  border-radius: 8px;
+  color: #e2e8f0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-hud-control:hover {
+  border-color: #fbbf24;
+  background: #1e293b;
+}
+
+.btn-auto.auto-active {
+  background: #1e3a8a;
+  border-color: #3b82f6;
+  color: #93c5fd;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.4);
+}
+
+.speed-toggle-group {
+  display: flex;
+  gap: 6px;
+}
+
+.speed-btn {
+  padding: 8px 14px;
+  background: #0f172a;
+  border: 1px solid #475569;
+  border-radius: 8px;
+  color: #e2e8f0;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.speed-btn.active {
+  background: #fbbf24;
+  border-color: #fbbf24;
+  color: #0f172a;
+}
+
+.btn-hero-detail {
+  background: #1e1b4b;
+  border-color: #fbbf24;
+  color: #fbbf24;
+}
+
+.btn-hero-detail:hover {
+  background: #fbbf24;
+  color: #0f172a;
+  box-shadow: 0 0 12px rgba(251, 191, 36, 0.35);
+}
+
+@media (max-width: 820px) {
+  .top-city-bar, .bottom-player-hud {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .enemy-counters-box {
+    align-items: flex-start;
+  }
+}
+
+
 

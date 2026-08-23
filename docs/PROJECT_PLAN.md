@@ -13,10 +13,10 @@ Tạo vertical slice Tower Defense Tam Quốc: Hero là tower mang hình tướn
 
 ## Trạng thái hiện tại
 
-- Current Phase: **7 — Hero UI**
-- Current Codex task: **P7-01 — Chờ bàn giao Figma P6-A02 để audit và lập kế hoạch tích hợp Hero Detail/Equipment UI**.
-- Current Antigravity task: **P6-A02 — Figma Hero Detail & Equipment Final**; worker Antigravity đang thực hiện. Bàn giao Figma không được thay đổi Core/Combat/Progression; chờ link/file và SHA nếu có thay đổi repo.
-- Lần kiểm tra gần nhất: Equipment domain, local save và battle loadout đã qua 23/23 tests và production build; không có dependency mới.
+- Current Phase: **8 — Battle HUD**
+- Current Codex task: **P8-01 — Thiết kế Battle Snapshot/HUD kết nối dữ liệu thật**.
+- Current Antigravity task: **NONE** — P7-A01 Hero Detail & Equipment UI đã audit và merge từ `antigravity/p7-a01-hero-detail-ui`.
+- Lần kiểm tra gần nhất: Hero Detail UI interaction đã pass; 23/23 tests và production build thành công; không có dependency mới.
 
 ## Phases và checkpoint
 
@@ -29,8 +29,8 @@ Tạo vertical slice Tower Defense Tam Quốc: Hero là tower mang hình tướn
 | 4 | P4 | Attack Counter và Skill Effects dùng chung | DONE | Codex | Audit #4 | `core/skill-system-v1` |
 | 5 | P5 | Level, cooldown, Rebirth, Reincarnation, Legendary, stat calculator, local save | DONE | Codex + Antigravity UI | Progression Audit | `hero/progression-v1` |
 | 6 | P6 | Weapon/Gem modifier và save equipment | DONE | Codex | Equipment Audit | `hero/equipment-v1` |
-| 7 | P7 | Hero UI | IN PROGRESS | Antigravity + Codex | UI Audit | `ui/hero-v1` |
-| 8 | P8 | Battle HUD kết nối dữ liệu thật | TODO | Antigravity + Codex | HUD Audit | `ui/battle-v1` |
+| 7 | P7 | Hero UI | DONE | Antigravity + Codex | UI Audit | `ui/hero-v1` |
+| 8 | P8 | Battle HUD kết nối dữ liệu thật | IN PROGRESS | Codex | HUD Audit | `ui/battle-v1` |
 
 ## Quy tắc cập nhật
 

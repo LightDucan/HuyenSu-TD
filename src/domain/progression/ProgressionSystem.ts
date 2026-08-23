@@ -24,7 +24,8 @@ export function canAdvanceStage(state: HeroProgression): boolean {
 
 export function advanceStage(state: HeroProgression): HeroProgression {
   if (!canAdvanceStage(state)) throw new Error('Hero must reach level 100 before advancing')
-  return { stage: nextStage[state.stage], level: 1 }
+  const stage = state.stage as Exclude<HeroStage, 'legendary'>
+  return { stage: nextStage[stage], level: 1 }
 }
 
 export function stageStatMultiplier(stage: HeroStage): number {

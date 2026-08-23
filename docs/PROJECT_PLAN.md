@@ -14,9 +14,9 @@ Tạo vertical slice Tower Defense Tam Quốc: Hero là tower mang hình tướn
 ## Trạng thái hiện tại
 
 - Current Phase: **6 — Equipment**
-- Current Codex task: **P6-01 — Thiết kế modifier Weapon/Gem dùng chung, không thêm rarity hoặc random affix**.
-- Current Antigravity task: **P6-A02**; worker Antigravity đang thực hiện. Chờ mô tả phạm vi, branch và SHA để audit; không có quyền sửa Core/Combat/Progression.
-- Lần kiểm tra gần nhất: Progression UI đã qua 18/18 tests và production build sau audit; không có dependency mới.
+- Current Codex task: **P6-A — Equipment Audit và checkpoint `hero/equipment-v1`**.
+- Current Antigravity task: **P6-A02 — Figma Hero Detail & Equipment Final**; worker Antigravity đang thực hiện. Bàn giao Figma không được thay đổi Core/Combat/Progression; chờ link/file và SHA nếu có thay đổi repo.
+- Lần kiểm tra gần nhất: Equipment domain, local save và battle loadout đã qua 23/23 tests và production build; không có dependency mới.
 
 ## Phases và checkpoint
 

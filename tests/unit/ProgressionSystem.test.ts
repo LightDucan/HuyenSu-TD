@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { advanceStage, canUpgrade, stageStatMultiplier, upgradeLevel } from '../../src/domain/progression/ProgressionSystem'
 import { calculateHeroStats } from '../../src/domain/progression/StatCalculator'
+import { loadProgression, saveHeroProgression, type StorageLike } from '../../src/domain/progression/ProgressionStorage'
 
 describe('ProgressionSystem', () => {
   it('keeps upgrade cooldown independent from battle time', () => {
@@ -26,5 +27,14 @@ describe('ProgressionSystem', () => {
       { attackSpeed: 0.2 },
     )
     expect(stats).toMatchObject({ hp: 138, atk: 33, range: 110, attackSpeed: 1.2, crit: 0.1, critDamage: 1.5 })
+  })
+
+  it('persists progression locally and recovers safely from invalid saves', () => {
+    const values = new Map<string, string>()
+    const storage: StorageLike = { getItem: (key) => values.get(key) ?? null, setItem: (key, value) => { values.set(key, value) } }
+    saveHeroProgression(storage, 'quan-vu', { stage: 'rebirth', level: 12, upgradeReadyAt: 500 })
+    expect(loadProgression(storage).heroes['quan-vu']).toMatchObject({ stage: 'rebirth', level: 12 })
+    values.set('huyen-su-td/progression-v1', '{bad-json')
+    expect(loadProgression(storage)).toEqual({ version: 1, heroes: {} })
   })
 })

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import type { GameSpeed } from '../domain/clock/GameClock'
 import { battleBridge, type BattleSnapshot } from '../game/bridge/BattleBridge'
 import { createGame } from '../game/createGame'
+import { HeroDetailModal } from './HeroDetailModal'
 import { HeroProgressionPanel } from './HeroProgressionPanel'
 
 const initialSnapshot: BattleSnapshot = {
@@ -20,6 +21,7 @@ const initialSnapshot: BattleSnapshot = {
 export function App() {
   const gameHostRef = useRef<HTMLDivElement>(null)
   const [snapshot, setSnapshot] = useState(initialSnapshot)
+  const [isHeroDetailOpen, setIsHeroDetailOpen] = useState(false)
 
   useEffect(() => {
     if (!gameHostRef.current) return
@@ -50,17 +52,26 @@ export function App() {
           <span>Hạ: {snapshot.enemiesDefeated}</span>
           <span>Thoát: {snapshot.enemiesEscaped}</span>
         </div>
-        <div className="speed-controls" aria-label="Tốc độ trận đấu">
-          {([1, 3] as const).map((speed) => (
-            <button
-              className={snapshot.speed === speed ? 'active' : ''}
-              key={speed}
-              onClick={() => setSpeed(speed)}
-              type="button"
-            >
-              x{speed}
-            </button>
-          ))}
+        <div className="header-actions">
+          <button
+            type="button"
+            className="hero-detail-trigger-btn"
+            onClick={() => setIsHeroDetailOpen(true)}
+          >
+            🗡️ Chi Tiết Tướng
+          </button>
+          <div className="speed-controls" aria-label="Tốc độ trận đấu">
+            {([1, 3] as const).map((speed) => (
+              <button
+                className={snapshot.speed === speed ? 'active' : ''}
+                key={speed}
+                onClick={() => setSpeed(speed)}
+                type="button"
+              >
+                x{speed}
+              </button>
+            ))}
+          </div>
         </div>
       </header>
       <p className="hint">
@@ -69,7 +80,13 @@ export function App() {
       <section className="game-frame" ref={gameHostRef} aria-label="Battle Scene" />
 
       <HeroProgressionPanel />
+
+      <HeroDetailModal
+        isOpen={isHeroDetailOpen}
+        onClose={() => setIsHeroDetailOpen(false)}
+      />
     </main>
   )
 }
+
 

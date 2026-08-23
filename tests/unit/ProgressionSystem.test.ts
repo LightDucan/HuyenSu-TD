@@ -10,6 +10,14 @@ describe('ProgressionSystem', () => {
     expect(canUpgrade(state, 1_500)).toBe(true)
   })
 
+  it('can disable cooldown without deleting the enabled implementation', () => {
+    const staleCooldown = { stage: 'normal', level: 1, upgradeReadyAt: 99_999 } as const
+
+    expect(canUpgrade(staleCooldown, 1_000, false)).toBe(true)
+    expect(upgradeLevel(staleCooldown, 1_000, 500, false)).toEqual({ stage: 'normal', level: 2 })
+    expect(canUpgrade(staleCooldown, 1_000, true)).toBe(false)
+  })
+
   it('advances stage only at level 100 and resets to level 1', () => {
     expect(advanceStage({ stage: 'rebirth', level: 100 })).toEqual({ stage: 'reincarnation', level: 1 })
     expect(() => advanceStage({ stage: 'normal', level: 99 })).toThrow()

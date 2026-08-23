@@ -10,6 +10,7 @@ import {
   upgradeLevel,
 } from '../domain/progression/ProgressionSystem'
 import { loadProgression, saveHeroProgression } from '../domain/progression/ProgressionStorage'
+import { featureFlags } from '../config/features'
 
 export type UpgradeButtonState = 'ready' | 'cooldown' | 'max_level'
 
@@ -36,7 +37,7 @@ const UPGRADE_COOLDOWN_MS = 3000
 function initialProgression(heroId: string, stage: HeroStage, level: number, cooldownMs: number): HeroProgression {
   const saved = typeof window === 'undefined' ? undefined : loadProgression(window.localStorage).heroes[heroId]
   if (saved) return saved
-  return { stage, level, ...(cooldownMs > 0 ? { upgradeReadyAt: Date.now() + cooldownMs } : {}) }
+  return { stage, level, ...(featureFlags.upgradeCooldownEnabled && cooldownMs > 0 ? { upgradeReadyAt: Date.now() + cooldownMs } : {}) }
 }
 
 export function HeroProgressionPanel({
@@ -63,10 +64,10 @@ export function HeroProgressionPanel({
   const isLegendary = progression.stage === 'legendary'
   const isMaxLevel = progression.level >= MAX_HERO_LEVEL
   const cooldownRemainingMs = Math.max(0, (progression.upgradeReadyAt ?? currentTimeMs) - currentTimeMs)
-  const isCooldown = cooldownRemainingMs > 0
+  const isCooldown = featureFlags.upgradeCooldownEnabled && cooldownRemainingMs > 0
 
   useEffect(() => {
-    if (!progression.upgradeReadyAt || progression.upgradeReadyAt <= Date.now()) return
+    if (!featureFlags.upgradeCooldownEnabled || !progression.upgradeReadyAt || progression.upgradeReadyAt <= Date.now()) return
     const interval = window.setInterval(() => setCurrentTimeMs(Date.now()), 100)
     return () => window.clearInterval(interval)
   }, [progression.upgradeReadyAt])
@@ -79,8 +80,8 @@ export function HeroProgressionPanel({
 
   const handleUpgradeClick = () => {
     const nowMs = Date.now()
-    if (!canUpgrade(progression, nowMs)) return
-    const next = upgradeLevel(progression, nowMs, UPGRADE_COOLDOWN_MS)
+    if (!canUpgrade(progression, nowMs, featureFlags.upgradeCooldownEnabled)) return
+    const next = upgradeLevel(progression, nowMs, UPGRADE_COOLDOWN_MS, featureFlags.upgradeCooldownEnabled)
     setProgression(next)
     setCurrentTimeMs(nowMs)
     saveHeroProgression(window.localStorage, heroId, next)

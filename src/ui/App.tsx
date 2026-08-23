@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { equipmentDefinitions } from '../data/equipment/definitions'
 import { heroDefinitions } from '../data/heroes/definitions'
+import { featureFlags } from '../config/features'
 import type { GameSpeed } from '../domain/clock/GameClock'
 import { loadEquipment, saveHeroEquipment } from '../domain/equipment/EquipmentStorage'
 import { resolveEquipmentModifiers, type EquipmentSlot, type HeroEquipment } from '../domain/equipment/EquipmentSystem'
@@ -18,7 +19,7 @@ const initialSnapshot: BattleSnapshot = {
   enemiesSpawned: 0,
   enemiesEscaped: 0,
   enemiesDefeated: 0,
-  heroPlaced: false,
+  placedHeroes: [],
   selectedHeroId: 'quan-vu',
   wave: 1,
   totalWaves: 10,
@@ -41,6 +42,7 @@ export function App() {
   const hudData = toBattleHudData(snapshot)
   const heroOptions = Object.values(heroDefinitions).map(({ id, name }) => ({ id, name }))
   const selectedHeroName = heroDefinitions[hudData.selectedHeroId]?.name ?? 'Hero'
+  const selectedPlacement = hudData.placedHeroes.find(({ heroId }) => heroId === hudData.selectedHeroId)
 
   useEffect(() => {
     if (!gameHostRef.current) return
@@ -57,7 +59,7 @@ export function App() {
   const setSpeed = (speed: GameSpeed) => battleBridge.setSpeed(speed)
 
   const handleHeroSelect = (heroId: string) => {
-    if (snapshot.heroPlaced || !heroDefinitions[heroId]) return
+    if (!heroDefinitions[heroId]) return
     battleBridge.setSelectedHeroId(heroId)
     setProgression(loadProgression(window.localStorage).heroes[heroId] ?? { stage: 'normal', level: 1 })
     setEquipment(loadEquipment(window.localStorage).heroes[heroId] ?? {})
@@ -65,8 +67,8 @@ export function App() {
 
   const handleUpgradeRequest = (heroId: string) => {
     const nowMs = Date.now()
-    if (!canUpgrade(progression, nowMs)) return
-    const next = upgradeLevel(progression, nowMs, 3000)
+    if (!canUpgrade(progression, nowMs, featureFlags.upgradeCooldownEnabled)) return
+    const next = upgradeLevel(progression, nowMs, 3000, featureFlags.upgradeCooldownEnabled)
     saveHeroProgression(window.localStorage, heroId, next)
     setProgression(next)
   }
@@ -99,7 +101,13 @@ export function App() {
       <TopCityBar data={hudData} />
 
       <p className="hint">
-        {snapshot.battleStatus === 'won' ? 'Chiến thắng! Đã hoàn thành 10 wave.' : snapshot.battleStatus === 'lost' ? 'Thất bại: Thành đã bị phá.' : snapshot.heroPlaced ? `${selectedHeroName} đang tự động chiến đấu.` : `Chọn một ô xanh để đặt ${selectedHeroName}.`}
+        {snapshot.battleStatus === 'won'
+          ? 'Chiến thắng! Đã hoàn thành 10 wave.'
+          : snapshot.battleStatus === 'lost'
+            ? 'Thất bại: Thành đã bị phá.'
+            : selectedPlacement
+              ? `Chọn ô hợp lệ để di chuyển ${selectedHeroName}. Đã triển khai ${snapshot.placedHeroes.length}/${heroOptions.length} Hero.`
+              : `Chọn ô hợp lệ để đặt ${selectedHeroName}. Đã triển khai ${snapshot.placedHeroes.length}/${heroOptions.length} Hero.`}
       </p>
 
       {/* Battle Canvas */}

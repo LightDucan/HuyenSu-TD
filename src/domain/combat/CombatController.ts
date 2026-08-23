@@ -9,11 +9,19 @@ export class CombatController {
   private readonly attackCounter: AttackCounter
 
   constructor(
-    private readonly heroPosition: Vector2,
+    private heroPosition: Vector2,
     private readonly stats: HeroCombatStats,
     private readonly random: () => number = Math.random,
     skillTriggerHits = 999_999,
   ) { this.attackCounter = new AttackCounter(skillTriggerHits) }
+
+  reposition(position: Vector2): void {
+    this.heroPosition = position
+  }
+
+  getSkillCharge(): number {
+    return this.attackCounter.getCurrentHits()
+  }
 
   update(deltaMs: number, enemies: readonly CombatEnemy[]): CombatTickResult | undefined {
     this.cooldownRemainingMs = Math.max(0, this.cooldownRemainingMs - deltaMs)

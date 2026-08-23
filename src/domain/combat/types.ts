@@ -23,3 +23,5 @@ export type AttackResult = Readonly<{
   critical: boolean
   killed: boolean
 }>
+
+export type CombatTickResult = Readonly<{ attack: AttackResult; skillTriggered: boolean }>

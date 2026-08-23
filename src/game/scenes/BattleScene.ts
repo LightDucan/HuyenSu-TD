@@ -7,6 +7,8 @@ import { GameClock } from '../../domain/clock/GameClock'
 import { CombatController } from '../../domain/combat/CombatController'
 import type { CombatEnemy, Vector2 } from '../../domain/combat/types'
 import { WaveManager } from '../../domain/waves/WaveManager'
+import { skillDefinitions } from '../../data/skills/definitions'
+import { resolveSkill } from '../../domain/skills/SkillResolver'
 import { battleBridge } from '../bridge/BattleBridge'
 
 type EnemyVisual = { state: CombatEnemy; definitionId: string; body: Phaser.GameObjects.Arc; hpBar: Phaser.GameObjects.Rectangle }
@@ -47,7 +49,10 @@ export class BattleScene extends Phaser.Scene {
     const scaledDelta = this.gameClock.scale(delta)
     this.waveManager.update(scaledDelta).forEach((definitionId) => this.spawnEnemy(definitionId))
     const attack = this.combatController?.update(scaledDelta, this.enemies.map((enemy) => enemy.state))
-    if (attack) this.onAttack(attack.targetId, attack.damage, attack.critical, attack.killed)
+    if (attack) {
+      this.onAttack(attack.attack.targetId, attack.attack.damage, attack.attack.critical, attack.attack.killed)
+      if (attack.skillTriggered) this.onSkill()
+    }
     this.moveEnemies(scaledDelta)
     if (this.battleStatus === 'running' && this.waveManager.completeWhenNoEnemiesRemain(this.enemies.length)) {
       if (this.waveManager.getStatus() === 'won') this.battleStatus = 'won'
@@ -104,6 +109,18 @@ export class BattleScene extends Phaser.Scene {
     else this.emitSnapshot()
   }
 
+  private onSkill(): void {
+    if (!this.heroVisual) return
+    const result = resolveSkill(skillDefinitions[quanVu.activeSkillId], this.heroVisual, quanVu.baseStats, this.enemies.map((enemy) => enemy.state))
+    this.heroVisual.setAlpha(0.45)
+    this.tweens.add({ targets: this.heroVisual, alpha: 1, duration: 180 })
+    result.killedEnemyIds.forEach((id) => {
+      const index = this.enemies.findIndex((enemy) => enemy.state.id === id)
+      if (index >= 0) this.removeEnemy(index, 'defeated')
+    })
+    if (result.affectedEnemyIds.length > result.killedEnemyIds.length) this.emitSnapshot()
+  }
+
   private removeEnemy(index: number, reason: 'defeated' | 'escaped'): void {
     const [enemy] = this.enemies.splice(index, 1)
     enemy.body.setVisible(false); enemy.hpBar.setVisible(false); enemy.state.alive = false
@@ -133,7 +150,7 @@ export class BattleScene extends Phaser.Scene {
     const body = this.add.circle(0, 0, 24, 0x2563eb).setStrokeStyle(3, 0xdbeafe)
     const label = this.add.text(0, 0, 'QV', { color: '#ffffff', fontSize: '14px', fontStyle: 'bold' }).setOrigin(0.5)
     this.heroVisual = this.add.container(position.x, position.y, [body, label])
-    this.combatController = new CombatController(position, quanVu.baseStats)
+    this.combatController = new CombatController(position, quanVu.baseStats, Math.random, quanVu.skillTriggerHits)
     this.emitSnapshot()
   }
 

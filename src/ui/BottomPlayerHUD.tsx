@@ -2,7 +2,7 @@ import type { GameSpeed } from '../domain/clock/GameClock'
 import type { BattleHudData } from '../game/bridge/BattleHudContract'
 
 export interface BottomPlayerHUDProps {
-  data: Pick<BattleHudData, 'speed' | 'heroPlaced' | 'selectedHeroId'>
+  data: Pick<BattleHudData, 'speed' | 'placedHeroes' | 'selectedHeroId'>
   heroes: readonly Readonly<{ id: string; name: string }>[]
   onSpeedChange: (speed: GameSpeed) => void
   onHeroSelect: (heroId: string) => void
@@ -23,20 +23,21 @@ export function BottomPlayerHUD({
         <div className="hero-slot-list">
           {heroes.map((hero) => {
             const isSelected = hero.id === data.selectedHeroId
+            const placement = data.placedHeroes.find((item) => item.heroId === hero.id)
+            const isDeployed = placement != null
             return (
               <button
                 type="button"
                 key={hero.id}
-                className={`hero-slot-card ${isSelected ? 'selected' : ''} ${data.heroPlaced && isSelected ? 'deployed' : 'ready'}`}
-                disabled={data.heroPlaced && !isSelected}
-                onClick={() => data.heroPlaced ? onOpenHeroDetail() : onHeroSelect(hero.id)}
-                title={data.heroPlaced ? 'Đội hình đã được triển khai' : `Chọn ${hero.name}`}
+                className={`hero-slot-card ${isSelected ? 'selected' : ''} ${isDeployed ? 'deployed' : 'ready'}`}
+                onClick={() => onHeroSelect(hero.id)}
+                title={isDeployed ? `Chọn ${hero.name} để di chuyển` : `Chọn ${hero.name} để triển khai`}
               >
                 <div className="hero-slot-avatar">⚔️</div>
                 <div className="hero-slot-meta">
                   <span className="hero-slot-name">{hero.name}</span>
-                  <span className={`hero-slot-status ${data.heroPlaced && isSelected ? 'status-deployed' : 'status-ready'}`}>
-                    {data.heroPlaced && isSelected ? 'Đang tác chiến' : isSelected ? 'Đã chọn' : 'Sẵn sàng'}
+                  <span className={`hero-slot-status ${isDeployed ? 'status-deployed' : 'status-ready'}`}>
+                    {isDeployed ? (isSelected ? 'Chọn ô để di chuyển' : 'Đã triển khai') : isSelected ? 'Đã chọn để đặt' : 'Trong Hero Deck'}
                   </span>
                 </div>
               </button>

@@ -1,12 +1,13 @@
 import type { GameSpeed } from '../../domain/clock/GameClock'
 import type { EnemyCategory } from '../../data/enemies/definitions'
+import type { HeroPlacement } from '../../domain/placement/HeroPlacementRegistry'
 
 export type BattleSnapshot = Readonly<{
   speed: GameSpeed
   enemiesSpawned: number
   enemiesEscaped: number
   enemiesDefeated: number
-  heroPlaced: boolean
+  placedHeroes: readonly HeroPlacement[]
   selectedHeroId: string
   wave: number
   totalWaves: number

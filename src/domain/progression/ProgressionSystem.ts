@@ -9,13 +9,16 @@ const nextStage: Record<Exclude<HeroStage, 'legendary'>, HeroStage> = {
   reincarnation: 'legendary',
 }
 
-export function canUpgrade(state: HeroProgression, nowMs: number): boolean {
-  return state.level < MAX_HERO_LEVEL && (state.upgradeReadyAt == null || nowMs >= state.upgradeReadyAt)
+export function canUpgrade(state: HeroProgression, nowMs: number, cooldownEnabled = true): boolean {
+  return state.level < MAX_HERO_LEVEL && (!cooldownEnabled || state.upgradeReadyAt == null || nowMs >= state.upgradeReadyAt)
 }
 
-export function upgradeLevel(state: HeroProgression, nowMs: number, cooldownMs: number): HeroProgression {
-  if (!canUpgrade(state, nowMs)) throw new Error('Hero is not ready to upgrade')
-  return { ...state, level: state.level + 1, upgradeReadyAt: nowMs + cooldownMs }
+export function upgradeLevel(state: HeroProgression, nowMs: number, cooldownMs: number, cooldownEnabled = true): HeroProgression {
+  if (!canUpgrade(state, nowMs, cooldownEnabled)) throw new Error('Hero is not ready to upgrade')
+  const { upgradeReadyAt: _upgradeReadyAt, ...withoutCooldown } = state
+  return cooldownEnabled
+    ? { ...withoutCooldown, level: state.level + 1, upgradeReadyAt: nowMs + cooldownMs }
+    : { ...withoutCooldown, level: state.level + 1 }
 }
 
 export function canAdvanceStage(state: HeroProgression): boolean {

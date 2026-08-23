@@ -1,5 +1,6 @@
 import type { EnemyCategory } from '../../data/enemies/definitions'
 import type { GameSpeed } from '../../domain/clock/GameClock'
+import type { HeroPlacement } from '../../domain/placement/HeroPlacementRegistry'
 import type { BattleSnapshot } from './BattleBridge'
 
 export type BattleHudData = Readonly<{
@@ -8,7 +9,7 @@ export type BattleHudData = Readonly<{
   totalWaves: number
   cityHp: number
   battleStatus: 'running' | 'won' | 'lost'
-  heroPlaced: boolean
+  placedHeroes: readonly HeroPlacement[]
   selectedHeroId: string
   enemiesDefeated: number
   enemiesEscaped: number
@@ -22,7 +23,7 @@ export function toBattleHudData(snapshot: BattleSnapshot): BattleHudData {
     totalWaves: snapshot.totalWaves,
     cityHp: snapshot.cityHp,
     battleStatus: snapshot.battleStatus,
-    heroPlaced: snapshot.heroPlaced,
+    placedHeroes: snapshot.placedHeroes,
     selectedHeroId: snapshot.selectedHeroId,
     enemiesDefeated: snapshot.enemiesDefeated,
     enemiesEscaped: snapshot.enemiesEscaped,

@@ -61,4 +61,21 @@ describe('CombatController', () => {
     expect(controller.update(499, [target])).toBeUndefined()
     expect(controller.update(1, [target])).toBeDefined()
   })
+
+  it('preserves attack cooldown and skill charge when repositioned', () => {
+    const target = enemy({ position: { x: 20, y: 0 }, hp: 500, maxHp: 500 })
+    const controller = new CombatController({ x: 0, y: 0 }, stats, () => 0.9, 3)
+
+    expect(controller.update(0, [target])?.skillTriggered).toBe(false)
+    expect(controller.getSkillCharge()).toBe(1)
+
+    controller.reposition({ x: 100, y: 0 })
+    target.position = { x: 120, y: 0 }
+
+    expect(controller.update(499, [target])).toBeUndefined()
+    expect(controller.getSkillCharge()).toBe(1)
+    expect(controller.update(1, [target])?.skillTriggered).toBe(false)
+    expect(controller.update(500, [target])?.skillTriggered).toBe(true)
+    expect(controller.getSkillCharge()).toBe(0)
+  })
 })

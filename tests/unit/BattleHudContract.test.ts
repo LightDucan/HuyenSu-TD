@@ -10,7 +10,10 @@ describe('BattleHudContract', () => {
       totalWaves: 10,
       cityHp: 8,
       battleStatus: 'running',
-      heroPlaced: true,
+      placedHeroes: [
+        { heroId: 'quan-vu', slotId: 'slot-3-7' },
+        { heroId: 'trieu-van', slotId: 'slot-4-7' },
+      ],
       selectedHeroId: 'trieu-van',
       enemiesSpawned: 11,
       enemiesDefeated: 7,
@@ -22,7 +25,10 @@ describe('BattleHudContract', () => {
       totalWaves: 10,
       cityHp: 8,
       battleStatus: 'running',
-      heroPlaced: true,
+      placedHeroes: [
+        { heroId: 'quan-vu', slotId: 'slot-3-7' },
+        { heroId: 'trieu-van', slotId: 'slot-4-7' },
+      ],
       selectedHeroId: 'trieu-van',
       enemiesDefeated: 7,
       enemiesEscaped: 1,

@@ -3,6 +3,7 @@ import { equipmentDefinitions } from '../data/equipment/definitions'
 import { heroDefinitions, quanVu } from '../data/heroes/definitions'
 import { heroPassives, type PassiveDefinition } from '../data/passives/definitions'
 import { skillDefinitions } from '../data/skills/definitions'
+import { featureFlags } from '../config/features'
 import { loadEquipment } from '../domain/equipment/EquipmentStorage'
 import {
   resolveEquipmentModifiers,
@@ -88,7 +89,7 @@ export function HeroDetailModal({
 
   // Timer for cooldown display
   useEffect(() => {
-    if (!activeProgression.upgradeReadyAt || activeProgression.upgradeReadyAt <= Date.now()) return
+    if (!featureFlags.upgradeCooldownEnabled || !activeProgression.upgradeReadyAt || activeProgression.upgradeReadyAt <= Date.now()) return
     const interval = window.setInterval(() => setCurrentTimeMs(Date.now()), 100)
     return () => window.clearInterval(interval)
   }, [activeProgression.upgradeReadyAt])
@@ -121,7 +122,7 @@ export function HeroDetailModal({
     0,
     (activeProgression.upgradeReadyAt ?? currentTimeMs) - currentTimeMs,
   )
-  const isCooldown = cooldownRemainingMs > 0
+  const isCooldown = featureFlags.upgradeCooldownEnabled && cooldownRemainingMs > 0
   const cooldownSeconds = (cooldownRemainingMs / 1000).toFixed(1)
 
   const weaponItem = activeEquipment.weaponId
@@ -388,7 +389,7 @@ export function HeroDetailModal({
                 <button
                   type="button"
                   className={`btn-action upgrade-btn ${isMaxLevel ? 'max' : isCooldown ? 'cooldown' : 'ready'}`}
-                  disabled={!canUpgrade(activeProgression, currentTimeMs)}
+                  disabled={!canUpgrade(activeProgression, currentTimeMs, featureFlags.upgradeCooldownEnabled)}
                   onClick={handleUpgrade}
                 >
                   {isMaxLevel

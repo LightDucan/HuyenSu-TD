@@ -13,9 +13,20 @@ import { loadProgression } from '../../domain/progression/ProgressionStorage'
 import { WaveManager } from '../../domain/waves/WaveManager'
 import { skillDefinitions } from '../../data/skills/definitions'
 import { resolveSkill } from '../../domain/skills/SkillResolver'
+import { HeroPlacementRegistry } from '../../domain/placement/HeroPlacementRegistry'
 import { battleBridge } from '../bridge/BattleBridge'
 
 type EnemyVisual = { state: CombatEnemy; definitionId: string; body: Phaser.GameObjects.Arc; hpBar: Phaser.GameObjects.Rectangle }
+type PlacementTileRuntime = { id: string; center: Vector2; marker: Phaser.GameObjects.Rectangle }
+type PlacedHeroRuntime = {
+  definition: HeroDefinition
+  stats: HeroDefinition['baseStats']
+  combatController: CombatController
+  visual: Phaser.GameObjects.Container
+  rangeVisual: Phaser.GameObjects.Arc
+  position: Vector2
+  slotId: string
+}
 const INITIAL_CITY_HP = 10
 
 export class BattleScene extends Phaser.Scene {
@@ -28,12 +39,10 @@ export class BattleScene extends Phaser.Scene {
   private cityHp = INITIAL_CITY_HP
   private enemiesDefeated = 0
   private enemiesEscaped = 0
-  private heroPlaced = false
   private battleStatus: 'running' | 'won' | 'lost' = 'running'
-  private combatController?: CombatController
-  private heroVisual?: Phaser.GameObjects.Container
-  private heroStats = quanVu.baseStats
-  private activeHero: HeroDefinition = quanVu
+  private readonly placedHeroes = new Map<string, PlacedHeroRuntime>()
+  private readonly placementTiles = new Map<string, PlacementTileRuntime>()
+  private placementRegistry!: HeroPlacementRegistry
   private removeSpeedListener?: () => void
   private removeHeroSelectionListener?: () => void
 
@@ -44,11 +53,15 @@ export class BattleScene extends Phaser.Scene {
     this.drawGrid()
     this.path = this.createFixedPath()
     this.pathLength = this.path.getLength()
+    this.placementRegistry = new HeroPlacementRegistry(
+      prototypeMap.placementTiles.map((tile) => this.placementSlotId(tile.column, tile.row)),
+    )
     this.createPlacementTiles()
     this.gameClock.setSpeed(battleBridge.getSpeed())
     this.removeSpeedListener = battleBridge.onSpeedChange((speed) => { this.gameClock.setSpeed(speed); this.emitSnapshot() })
     this.removeHeroSelectionListener = battleBridge.onHeroSelectionChange(() => {
-      if (!this.heroPlaced) this.emitSnapshot()
+      this.refreshPlacementMarkers()
+      this.emitSnapshot()
     })
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
       this.removeSpeedListener?.()
@@ -58,13 +71,14 @@ export class BattleScene extends Phaser.Scene {
   }
 
   update(_time: number, delta: number): void {
-    if (this.battleStatus !== 'running' || !this.heroPlaced) return
+    if (this.battleStatus !== 'running' || this.placedHeroes.size === 0) return
     const scaledDelta = this.gameClock.scale(delta)
     this.waveManager.update(scaledDelta).forEach((definitionId) => this.spawnEnemy(definitionId))
-    const attack = this.combatController?.update(scaledDelta, this.enemies.map((enemy) => enemy.state))
-    if (attack) {
-      this.onAttack(attack.attack.targetId, attack.attack.damage, attack.attack.critical, attack.attack.killed)
-      if (attack.skillTriggered) this.onSkill()
+    for (const hero of this.placedHeroes.values()) {
+      const attack = hero.combatController.update(scaledDelta, this.enemies.map((enemy) => enemy.state))
+      if (!attack) continue
+      this.onAttack(hero, attack.attack.targetId, attack.attack.damage, attack.attack.critical, attack.attack.killed)
+      if (attack.skillTriggered) this.onSkill(hero)
     }
     this.moveEnemies(scaledDelta)
     if (this.battleStatus === 'running' && this.waveManager.completeWhenNoEnemiesRemain(this.enemies.length)) {
@@ -120,12 +134,12 @@ export class BattleScene extends Phaser.Scene {
     visual.state.pathProgress = progress
   }
 
-  private onAttack(targetId: string, damage: number, critical: boolean, killed: boolean): void {
+  private onAttack(hero: PlacedHeroRuntime, targetId: string, damage: number, critical: boolean, killed: boolean): void {
     const index = this.enemies.findIndex((enemy) => enemy.state.id === targetId)
     if (index < 0) return
     const enemy = this.enemies[index]
-    this.heroVisual?.setScale(1.16)
-    this.tweens.add({ targets: this.heroVisual, scale: 1, duration: 90 })
+    hero.visual.setScale(1.16)
+    this.tweens.add({ targets: hero.visual, scale: 1, duration: 90 })
     enemy.body.setFillStyle(critical ? 0xfbbf24 : 0xf87171)
     this.time.delayedCall(80, () => enemy.body.active && enemy.body.setFillStyle(enemyDefinitions[enemy.definitionId].color))
     const damageText = this.add.text(enemy.body.x, enemy.body.y - 34, `${critical ? 'CRIT ' : ''}-${Math.round(damage)}`, { color: critical ? '#fde047' : '#ffffff', fontSize: '14px', fontStyle: 'bold' }).setOrigin(0.5)
@@ -135,11 +149,10 @@ export class BattleScene extends Phaser.Scene {
     else this.emitSnapshot()
   }
 
-  private onSkill(): void {
-    if (!this.heroVisual) return
-    const result = resolveSkill(skillDefinitions[this.activeHero.activeSkillId], this.heroVisual, this.heroStats, this.enemies.map((enemy) => enemy.state))
-    this.heroVisual.setAlpha(0.45)
-    this.tweens.add({ targets: this.heroVisual, alpha: 1, duration: 180 })
+  private onSkill(hero: PlacedHeroRuntime): void {
+    const result = resolveSkill(skillDefinitions[hero.definition.activeSkillId], hero.position, hero.stats, this.enemies.map((enemy) => enemy.state))
+    hero.visual.setAlpha(0.45)
+    this.tweens.add({ targets: hero.visual, alpha: 1, duration: 180 })
     result.killedEnemyIds.forEach((id) => {
       const index = this.enemies.findIndex((enemy) => enemy.state.id === id)
       if (index >= 0) this.removeEnemy(index, 'defeated')
@@ -164,25 +177,79 @@ export class BattleScene extends Phaser.Scene {
     const cellWidth = prototypeMap.width / prototypeMap.grid.columns
     const cellHeight = prototypeMap.height / prototypeMap.grid.rows
     prototypeMap.placementTiles.forEach((tile) => {
+      const id = this.placementSlotId(tile.column, tile.row)
       const center = { x: (tile.column + 0.5) * cellWidth, y: (tile.row + 0.5) * cellHeight }
       const marker = this.add.rectangle(center.x, center.y, cellWidth - 10, cellHeight - 10, 0x38bdf8, 0.16).setStrokeStyle(2, 0x7dd3fc, 0.55).setInteractive({ useHandCursor: true })
-      marker.on('pointerdown', () => { if (!this.heroPlaced) { this.placeHero(center); marker.disableInteractive().setVisible(false) } })
+      marker.on('pointerdown', () => this.placeOrMoveSelectedHero(id))
+      this.placementTiles.set(id, { id, center, marker })
     })
   }
 
-  private placeHero(position: Vector2): void {
-    this.heroPlaced = true
-    this.activeHero = heroDefinitions[battleBridge.getSelectedHeroId()] ?? quanVu
-    const progression = loadProgression(window.localStorage).heroes[this.activeHero.id] ?? { stage: 'normal', level: 1 }
-    const equipment = loadEquipment(window.localStorage).heroes[this.activeHero.id] ?? {}
-    this.heroStats = calculateHeroLoadoutStats(this.activeHero.baseStats, progression, equipment, equipmentDefinitions)
-    this.add.circle(position.x, position.y, this.heroStats.range, 0x38bdf8, 0.08).setStrokeStyle(2, 0x7dd3fc, 0.5)
-    const body = this.add.circle(0, 0, 24, 0x2563eb).setStrokeStyle(3, 0xdbeafe)
-    const initials = this.activeHero.name.split(' ').map((part) => part[0]).join('').slice(-2).toUpperCase()
-    const label = this.add.text(0, 0, initials, { color: '#ffffff', fontSize: '14px', fontStyle: 'bold' }).setOrigin(0.5)
-    this.heroVisual = this.add.container(position.x, position.y, [body, label])
-    this.combatController = new CombatController(position, this.heroStats, Math.random, this.activeHero.skillTriggerHits)
+  private placementSlotId(column: number, row: number): string {
+    return `slot-${column}-${row}`
+  }
+
+  private placeOrMoveSelectedHero(slotId: string): void {
+    const definition = heroDefinitions[battleBridge.getSelectedHeroId()] ?? quanVu
+    const tile = this.placementTiles.get(slotId)
+    if (!tile) return
+
+    const result = this.placementRegistry.place(definition.id, slotId)
+    if (result.recalledHeroId) this.recallHero(result.recalledHeroId)
+
+    const existing = this.placedHeroes.get(definition.id)
+    if (existing) this.repositionHero(existing, tile.center, slotId)
+    else this.placedHeroes.set(definition.id, this.createHeroRuntime(definition, tile.center, slotId))
+
+    this.refreshPlacementMarkers()
     this.emitSnapshot()
+  }
+
+  private createHeroRuntime(definition: HeroDefinition, position: Vector2, slotId: string): PlacedHeroRuntime {
+    const progression = loadProgression(window.localStorage).heroes[definition.id] ?? { stage: 'normal', level: 1 }
+    const equipment = loadEquipment(window.localStorage).heroes[definition.id] ?? {}
+    const stats = calculateHeroLoadoutStats(definition.baseStats, progression, equipment, equipmentDefinitions)
+    const rangeVisual = this.add.circle(position.x, position.y, stats.range, 0x38bdf8, 0.08).setStrokeStyle(2, 0x7dd3fc, 0.5)
+    const body = this.add.circle(0, 0, 24, 0x2563eb).setStrokeStyle(3, 0xdbeafe)
+    const initials = definition.name.split(' ').map((part) => part[0]).join('').slice(-2).toUpperCase()
+    const label = this.add.text(0, 0, initials, { color: '#ffffff', fontSize: '14px', fontStyle: 'bold' }).setOrigin(0.5)
+    const visual = this.add.container(position.x, position.y, [body, label])
+    return {
+      definition,
+      stats,
+      combatController: new CombatController(position, stats, Math.random, definition.skillTriggerHits),
+      visual,
+      rangeVisual,
+      position,
+      slotId,
+    }
+  }
+
+  private repositionHero(hero: PlacedHeroRuntime, position: Vector2, slotId: string): void {
+    hero.position = position
+    hero.slotId = slotId
+    hero.combatController.reposition(position)
+    hero.visual.setPosition(position.x, position.y)
+    hero.rangeVisual.setPosition(position.x, position.y)
+  }
+
+  private recallHero(heroId: string): void {
+    const hero = this.placedHeroes.get(heroId)
+    if (!hero) return
+    hero.visual.destroy(true)
+    hero.rangeVisual.destroy()
+    this.placedHeroes.delete(heroId)
+  }
+
+  private refreshPlacementMarkers(): void {
+    const selectedHeroId = battleBridge.getSelectedHeroId()
+    this.placementTiles.forEach((tile) => {
+      const occupantId = this.placementRegistry.getHeroAt(tile.id)
+      const isSelectedHero = occupantId === selectedHeroId
+      tile.marker
+        .setFillStyle(isSelectedHero ? 0xfbbf24 : occupantId ? 0x10b981 : 0x38bdf8, occupantId ? 0.28 : 0.16)
+        .setStrokeStyle(2, isSelectedHero ? 0xfde047 : occupantId ? 0x6ee7b7 : 0x7dd3fc, 0.7)
+    })
   }
 
   private createFixedPath(): Phaser.Curves.Path {
@@ -212,8 +279,8 @@ export class BattleScene extends Phaser.Scene {
   private emitSnapshot(): void {
     battleBridge.emitSnapshot({
       speed: this.gameClock.getSpeed(), enemiesSpawned: this.enemies.length + this.enemiesDefeated + this.enemiesEscaped,
-      enemiesEscaped: this.enemiesEscaped, enemiesDefeated: this.enemiesDefeated, heroPlaced: this.heroPlaced,
-      selectedHeroId: this.heroPlaced ? this.activeHero.id : battleBridge.getSelectedHeroId(),
+      enemiesEscaped: this.enemiesEscaped, enemiesDefeated: this.enemiesDefeated,
+      placedHeroes: this.placementRegistry.getPlacements(), selectedHeroId: battleBridge.getSelectedHeroId(),
       wave: this.waveManager.getCurrentWaveNumber(), totalWaves: this.waveManager.getTotalWaves(), cityHp: this.cityHp,
       battleStatus: this.battleStatus, remainingByCategory: this.remainingByCategory(),
     })

@@ -1,4 +1,5 @@
 import type { GameSpeed } from '../../domain/clock/GameClock'
+import type { EnemyCategory } from '../../data/enemies/definitions'
 
 export type BattleSnapshot = Readonly<{
   speed: GameSpeed
@@ -6,6 +7,11 @@ export type BattleSnapshot = Readonly<{
   enemiesEscaped: number
   enemiesDefeated: number
   heroPlaced: boolean
+  wave: number
+  totalWaves: number
+  cityHp: number
+  battleStatus: 'running' | 'won' | 'lost'
+  remainingByCategory: Record<EnemyCategory, number>
 }>
 
 type SnapshotListener = (snapshot: BattleSnapshot) => void

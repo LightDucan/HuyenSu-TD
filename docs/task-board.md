@@ -58,10 +58,10 @@ Object pooling được hoãn có chủ đích: Phase 2 hiện chỉ có một e
 
 | ID | Task | Worker chính | Hỗ trợ | Trạng thái |
 |---|---|---|---|---|
-| P3-01 | Wave Manager | Codex | Architect Skill | NEXT |
-| P3-02 | Spawn groups | Codex | Auditor | BACKLOG |
-| P3-03 | Counter enemy theo loại | Gemini Pro | React UI | BACKLOG |
-| P3-04 | Ba enemy mẫu | Gemini Pro | Data Contract | BACKLOG |
-| P3-05 | 10 wave test | Codex | Auditor | BACKLOG |
-| P3-06 | Win/Lose | Codex | React UI | BACKLOG |
+| P3-01 | Wave Manager | Codex | Architect Skill | DONE |
+| P3-02 | Spawn groups | Codex | Auditor | DONE |
+| P3-03 | Counter enemy theo loại | Gemini Pro | React UI | DONE |
+| P3-04 | Ba enemy mẫu | Gemini Pro | Data Contract | DONE |
+| P3-05 | 10 wave test | Codex | Auditor | NEXT |
+| P3-06 | Win/Lose | Codex | React UI | DONE |
 | P3-A | Wave Audit | Codex Auditor | Architect Skill | BACKLOG |

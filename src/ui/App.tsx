@@ -9,6 +9,11 @@ const initialSnapshot: BattleSnapshot = {
   enemiesEscaped: 0,
   enemiesDefeated: 0,
   heroPlaced: false,
+  wave: 1,
+  totalWaves: 10,
+  cityHp: 10,
+  battleStatus: 'running',
+  remainingByCategory: { sword: 0, archer: 0, other: 0 },
 }
 
 export function App() {
@@ -37,7 +42,10 @@ export function App() {
           <h1>Huyền Sử TD</h1>
         </div>
         <div className="battle-status" aria-live="polite">
-          <span>Enemy: {snapshot.enemiesSpawned}</span>
+          <span>Wave: {snapshot.wave}/{snapshot.totalWaves}</span>
+          <span>Thành: {snapshot.cityHp}</span>
+          <span>⚔ {snapshot.remainingByCategory.sword}</span>
+          <span>🏹 {snapshot.remainingByCategory.archer}</span>
           <span>Hạ: {snapshot.enemiesDefeated}</span>
           <span>Thoát: {snapshot.enemiesEscaped}</span>
         </div>
@@ -54,7 +62,9 @@ export function App() {
           ))}
         </div>
       </header>
-      <p className="hint">{snapshot.heroPlaced ? 'Quan Vũ đang tự động chiến đấu.' : 'Chọn một ô xanh để đặt Quan Vũ.'}</p>
+      <p className="hint">
+        {snapshot.battleStatus === 'won' ? 'Chiến thắng! Đã hoàn thành 10 wave.' : snapshot.battleStatus === 'lost' ? 'Thất bại: Thành đã bị phá.' : snapshot.heroPlaced ? 'Quan Vũ đang tự động chiến đấu.' : 'Chọn một ô xanh để đặt Quan Vũ.'}
+      </p>
       <section className="game-frame" ref={gameHostRef} aria-label="Battle Scene" />
     </main>
   )

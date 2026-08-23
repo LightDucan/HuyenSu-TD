@@ -1,5 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
+import { equipmentDefinitions } from '../data/equipment/definitions'
+import { quanVu } from '../data/heroes/quanVu'
 import type { GameSpeed } from '../domain/clock/GameClock'
+import { loadEquipment, saveHeroEquipment } from '../domain/equipment/EquipmentStorage'
+import { resolveEquipmentModifiers, type EquipmentSlot, type HeroEquipment } from '../domain/equipment/EquipmentSystem'
+import { advanceStage, canAdvanceStage, canUpgrade, type HeroProgression, upgradeLevel } from '../domain/progression/ProgressionSystem'
+import { loadProgression, saveHeroProgression } from '../domain/progression/ProgressionStorage'
 import { battleBridge, type BattleSnapshot } from '../game/bridge/BattleBridge'
 import { createGame } from '../game/createGame'
 import { HeroDetailModal } from './HeroDetailModal'
@@ -22,6 +28,12 @@ export function App() {
   const gameHostRef = useRef<HTMLDivElement>(null)
   const [snapshot, setSnapshot] = useState(initialSnapshot)
   const [isHeroDetailOpen, setIsHeroDetailOpen] = useState(false)
+  const [progression, setProgression] = useState<HeroProgression>(() =>
+    loadProgression(window.localStorage).heroes[quanVu.id] ?? { stage: 'normal', level: 1 },
+  )
+  const [equipment, setEquipment] = useState<HeroEquipment>(() =>
+    loadEquipment(window.localStorage).heroes[quanVu.id] ?? {},
+  )
 
   useEffect(() => {
     if (!gameHostRef.current) return
@@ -36,6 +48,36 @@ export function App() {
   }, [])
 
   const setSpeed = (speed: GameSpeed) => battleBridge.setSpeed(speed)
+
+  const handleUpgradeRequest = (heroId: string) => {
+    const nowMs = Date.now()
+    if (!canUpgrade(progression, nowMs)) return
+    const next = upgradeLevel(progression, nowMs, 3000)
+    saveHeroProgression(window.localStorage, heroId, next)
+    setProgression(next)
+  }
+
+  const handleAdvanceStageRequest = (heroId: string) => {
+    if (!canAdvanceStage(progression)) return
+    const next = advanceStage(progression)
+    saveHeroProgression(window.localStorage, heroId, next)
+    setProgression(next)
+  }
+
+  const handleEquipRequest = (heroId: string, slot: EquipmentSlot, itemId: string) => {
+    const item = equipmentDefinitions[itemId]
+    if (!item || item.slot !== slot) return
+    const next = slot === 'weapon' ? { ...equipment, weaponId: itemId } : { ...equipment, gemId: itemId }
+    resolveEquipmentModifiers(next, equipmentDefinitions)
+    saveHeroEquipment(window.localStorage, heroId, next)
+    setEquipment(next)
+  }
+
+  const handleUnequipRequest = (heroId: string, slot: EquipmentSlot) => {
+    const next = slot === 'weapon' ? { ...equipment, weaponId: undefined } : { ...equipment, gemId: undefined }
+    saveHeroEquipment(window.localStorage, heroId, next)
+    setEquipment(next)
+  }
 
   return (
     <main className="app-shell">
@@ -84,6 +126,12 @@ export function App() {
       <HeroDetailModal
         isOpen={isHeroDetailOpen}
         onClose={() => setIsHeroDetailOpen(false)}
+        progression={progression}
+        equipment={equipment}
+        onUpgradeRequest={handleUpgradeRequest}
+        onAdvanceStageRequest={handleAdvanceStageRequest}
+        onEquipRequest={handleEquipRequest}
+        onUnequipRequest={handleUnequipRequest}
       />
     </main>
   )

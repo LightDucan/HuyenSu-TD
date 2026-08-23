@@ -14,8 +14,8 @@ Tạo vertical slice Tower Defense Tam Quốc: Hero là tower mang hình tướn
 ## Trạng thái hiện tại
 
 - Current Phase: **8 — Battle HUD**
-- Current Codex task: **P8-01 — Thiết kế Battle Snapshot/HUD kết nối dữ liệu thật**.
-- Current Antigravity task: **NONE** — P7-A01 Hero Detail & Equipment UI đã audit và merge từ `antigravity/p7-a01-hero-detail-ui`.
+- Current Codex task: **P8-01 — Battle HUD contract và snapshot mapping dữ liệu thật**.
+- Current Antigravity task: **Battle HUD layout/UI**; chỉ `src/ui/**`, nhận `BattleHudData` qua props, không đụng Battle Core; chờ branch/SHA để audit.
 - Lần kiểm tra gần nhất: Hero Detail UI interaction đã pass; 23/23 tests và production build thành công; không có dependency mới.
 
 ## Phases và checkpoint

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import type { GameSpeed } from '../domain/clock/GameClock'
 import { battleBridge, type BattleSnapshot } from '../game/bridge/BattleBridge'
 import { createGame } from '../game/createGame'
+import { HeroProgressionPanel } from './HeroProgressionPanel'
 
 const initialSnapshot: BattleSnapshot = {
   speed: 1,
@@ -66,6 +67,9 @@ export function App() {
         {snapshot.battleStatus === 'won' ? 'Chiến thắng! Đã hoàn thành 10 wave.' : snapshot.battleStatus === 'lost' ? 'Thất bại: Thành đã bị phá.' : snapshot.heroPlaced ? 'Quan Vũ đang tự động chiến đấu.' : 'Chọn một ô xanh để đặt Quan Vũ.'}
       </p>
       <section className="game-frame" ref={gameHostRef} aria-label="Battle Scene" />
+
+      <HeroProgressionPanel />
     </main>
   )
 }
+

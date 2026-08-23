@@ -1,49 +1,26 @@
-import type { EnemyCategory } from '../data/enemies/definitions'
+import type { BattleHudData } from '../game/bridge/BattleHudContract'
 
 export interface TopCityBarProps {
-  cityName?: string
-  defenseLevel?: number | string
-  difficulty?: string
-  cityHp: number
-  wave: number
-  totalWaves: number
-  remainingByCategory: Record<EnemyCategory, number>
-  enemiesDefeated?: number
-  enemiesEscaped?: number
-  battleStatus?: 'running' | 'won' | 'lost'
+  data: BattleHudData
 }
 
-export function TopCityBar({
-  cityName = 'Kinh Châu Thành',
-  defenseLevel = 'Cấp 1',
-  difficulty = 'Thường',
-  cityHp,
-  wave,
-  totalWaves,
-  remainingByCategory,
-  enemiesDefeated = 0,
-  enemiesEscaped = 0,
-  battleStatus = 'running',
-}: TopCityBarProps) {
-  const swordCount = remainingByCategory.sword ?? 0
-  const archerCount = remainingByCategory.archer ?? 0
-  const otherCount = remainingByCategory.other ?? 0
+export function TopCityBar({ data }: TopCityBarProps) {
+  const swordCount = data.remainingByCategory.sword ?? 0
+  const archerCount = data.remainingByCategory.archer ?? 0
+  const otherCount = data.remainingByCategory.other ?? 0
 
   return (
     <header className="top-city-bar" aria-label="Thông tin Thành trì và Đợt quái">
-      {/* 1. Tên thành / Cấp phòng thủ / Độ khó */}
       <div className="city-info-group">
         <div className="city-name-row">
           <span className="city-icon" aria-hidden="true">🏯</span>
-          <h2 className="city-name">{cityName}</h2>
-          <span className="defense-badge">{defenseLevel}</span>
-          <span className="difficulty-badge">{difficulty}</span>
+          <h2 className="city-name">Thành trì</h2>
         </div>
         <div className="city-hp-bar-container">
           <span className="hp-label">Thành trì HP:</span>
-          <span className="hp-value">{cityHp}</span>
+          <span className="hp-value">{data.cityHp}</span>
           <span className="battle-summary-counts">
-            (Hạ: {enemiesDefeated} | Thoát: {enemiesEscaped})
+            (Hạ: {data.enemiesDefeated} | Thoát: {data.enemiesEscaped})
           </span>
         </div>
       </div>
@@ -52,10 +29,10 @@ export function TopCityBar({
       <div className="wave-counter-box" aria-live="polite">
         <span className="wave-label">Tiến trình đợt</span>
         <span className="wave-number">
-          Đợt {wave}<span className="wave-total">/{totalWaves}</span>
+          Đợt {data.wave}<span className="wave-total">/{data.totalWaves}</span>
         </span>
-        {battleStatus === 'won' && <span className="status-tag tag-won">Thắng</span>}
-        {battleStatus === 'lost' && <span className="status-tag tag-lost">Bại</span>}
+        {data.battleStatus === 'won' && <span className="status-tag tag-won">Thắng</span>}
+        {data.battleStatus === 'lost' && <span className="status-tag tag-lost">Bại</span>}
       </div>
 
       {/* 3. Enemy Remaining Counter theo loại */}

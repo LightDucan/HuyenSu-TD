@@ -7,9 +7,12 @@ import { resolveEquipmentModifiers, type EquipmentSlot, type HeroEquipment } fro
 import { advanceStage, canAdvanceStage, canUpgrade, type HeroProgression, upgradeLevel } from '../domain/progression/ProgressionSystem'
 import { loadProgression, saveHeroProgression } from '../domain/progression/ProgressionStorage'
 import { battleBridge, type BattleSnapshot } from '../game/bridge/BattleBridge'
+import { toBattleHudData } from '../game/bridge/BattleHudContract'
 import { createGame } from '../game/createGame'
+import { BottomPlayerHUD } from './BottomPlayerHUD'
 import { HeroDetailModal } from './HeroDetailModal'
 import { HeroProgressionPanel } from './HeroProgressionPanel'
+import { TopCityBar } from './TopCityBar'
 
 const initialSnapshot: BattleSnapshot = {
   speed: 1,
@@ -34,6 +37,7 @@ export function App() {
   const [equipment, setEquipment] = useState<HeroEquipment>(() =>
     loadEquipment(window.localStorage).heroes[quanVu.id] ?? {},
   )
+  const hudData = toBattleHudData(snapshot)
 
   useEffect(() => {
     if (!gameHostRef.current) return
@@ -81,45 +85,22 @@ export function App() {
 
   return (
     <main className="app-shell">
-      <header className="top-bar">
-        <div>
-          <p className="eyebrow">Technical Prototype</p>
-          <h1>Huyền Sử TD</h1>
-        </div>
-        <div className="battle-status" aria-live="polite">
-          <span>Wave: {snapshot.wave}/{snapshot.totalWaves}</span>
-          <span>Thành: {snapshot.cityHp}</span>
-          <span>⚔ {snapshot.remainingByCategory.sword}</span>
-          <span>🏹 {snapshot.remainingByCategory.archer}</span>
-          <span>Hạ: {snapshot.enemiesDefeated}</span>
-          <span>Thoát: {snapshot.enemiesEscaped}</span>
-        </div>
-        <div className="header-actions">
-          <button
-            type="button"
-            className="hero-detail-trigger-btn"
-            onClick={() => setIsHeroDetailOpen(true)}
-          >
-            🗡️ Chi Tiết Tướng
-          </button>
-          <div className="speed-controls" aria-label="Tốc độ trận đấu">
-            {([1, 3] as const).map((speed) => (
-              <button
-                className={snapshot.speed === speed ? 'active' : ''}
-                key={speed}
-                onClick={() => setSpeed(speed)}
-                type="button"
-              >
-                x{speed}
-              </button>
-            ))}
-          </div>
-        </div>
-      </header>
+      {/* Top City Bar */}
+      <TopCityBar data={hudData} />
+
       <p className="hint">
         {snapshot.battleStatus === 'won' ? 'Chiến thắng! Đã hoàn thành 10 wave.' : snapshot.battleStatus === 'lost' ? 'Thất bại: Thành đã bị phá.' : snapshot.heroPlaced ? 'Quan Vũ đang tự động chiến đấu.' : 'Chọn một ô xanh để đặt Quan Vũ.'}
       </p>
+
+      {/* Battle Canvas */}
       <section className="game-frame" ref={gameHostRef} aria-label="Battle Scene" />
+
+      {/* Bottom Player HUD */}
+      <BottomPlayerHUD
+        data={hudData}
+        onSpeedChange={setSpeed}
+        onOpenHeroDetail={() => setIsHeroDetailOpen(true)}
+      />
 
       <HeroProgressionPanel />
 
@@ -136,5 +117,3 @@ export function App() {
     </main>
   )
 }
-
-

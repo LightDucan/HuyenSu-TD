@@ -15,7 +15,7 @@ Tạo vertical slice Tower Defense Tam Quốc: Hero là tower mang hình tướn
 
 - Current Phase: **6 — Equipment**
 - Current Codex task: **P6-01 — Thiết kế modifier Weapon/Gem dùng chung, không thêm rarity hoặc random affix**.
-- Current Antigravity task: **NONE** — P5-A01 Progression UI đã audit và merge từ `antigravity/p5-a01-progression-ui` (`f091e27`, sửa kiến trúc: `0e1a6c7`).
+- Current Antigravity task: **P6-A01 — Equipment UI Prework**; worker Antigravity, phạm vi cho phép `src/ui/**` và dữ liệu UI cần thiết; chờ branch/SHA để audit.
 - Lần kiểm tra gần nhất: Progression UI đã qua 18/18 tests và production build sau audit; không có dependency mới.
 
 ## Phases và checkpoint

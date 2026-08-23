@@ -28,6 +28,7 @@ button { font: inherit; }
 h1 { margin: 0; font-size: clamp(1.35rem, 3vw, 2rem); }
 .eyebrow { margin: 0 0 4px; color: #fbbf24; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; }
 .battle-status { display: flex; gap: 16px; color: #cbd5e1; }
+.hint { margin: -4px 0 12px; color: #93c5fd; font-size: 0.9rem; }
 .speed-controls { display: flex; gap: 8px; }
 .speed-controls button {
   border: 1px solid #475569;

@@ -4,6 +4,8 @@ export type BattleSnapshot = Readonly<{
   speed: GameSpeed
   enemiesSpawned: number
   enemiesEscaped: number
+  enemiesDefeated: number
+  heroPlaced: boolean
 }>
 
 type SnapshotListener = (snapshot: BattleSnapshot) => void

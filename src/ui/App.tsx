@@ -7,6 +7,8 @@ const initialSnapshot: BattleSnapshot = {
   speed: 1,
   enemiesSpawned: 0,
   enemiesEscaped: 0,
+  enemiesDefeated: 0,
+  heroPlaced: false,
 }
 
 export function App() {
@@ -36,6 +38,7 @@ export function App() {
         </div>
         <div className="battle-status" aria-live="polite">
           <span>Enemy: {snapshot.enemiesSpawned}</span>
+          <span>Hạ: {snapshot.enemiesDefeated}</span>
           <span>Thoát: {snapshot.enemiesEscaped}</span>
         </div>
         <div className="speed-controls" aria-label="Tốc độ trận đấu">
@@ -51,6 +54,7 @@ export function App() {
           ))}
         </div>
       </header>
+      <p className="hint">{snapshot.heroPlaced ? 'Quan Vũ đang tự động chiến đấu.' : 'Chọn một ô xanh để đặt Quan Vũ.'}</p>
       <section className="game-frame" ref={gameHostRef} aria-label="Battle Scene" />
     </main>
   )

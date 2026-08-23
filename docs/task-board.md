@@ -1,6 +1,6 @@
 # Task Board
 
-Trạng thái: `DONE`, `NEXT`, `BACKLOG`, `BLOCKED`.
+Trạng thái: `DONE`, `NEXT`, `BACKLOG`, `DEFERRED`, `BLOCKED`.
 
 ## Phase 0 — Khóa thiết kế
 
@@ -39,15 +39,29 @@ Prototype đạt khi một enemy xuất hiện, đi hết fixed path và Battle 
 
 | ID | Task | Worker chính | Hỗ trợ | Trạng thái |
 |---|---|---|---|---|
-| P2-01 | Hero data mẫu | Gemini Pro | Hero Designer | NEXT |
-| P2-02 | Hero placement | Codex | Architect Skill | BACKLOG |
-| P2-03 | Tile validation | Codex | — | BACKLOG |
-| P2-04 | Range circle | Gemini Pro | Phaser | BACKLOG |
-| P2-05 | Target selection | Codex | Auditor | BACKLOG |
-| P2-06 | Normal Attack | Codex | Architect Skill | BACKLOG |
-| P2-07 | Crit + Damage | Codex | Auditor | BACKLOG |
-| P2-08 | Enemy HP + Death | Codex | — | BACKLOG |
-| P2-09 | Attack animation hook | Codex | Phaser | BACKLOG |
-| P2-10 | Object pooling | Codex | Auditor | BACKLOG |
-| P2-11 | Combat tests | Codex | Auditor | BACKLOG |
-| P2-A3 | Audit #3 | Codex Auditor | Architect Skill | BACKLOG |
+| P2-01 | Hero data mẫu | Gemini Pro | Hero Designer | DONE |
+| P2-02 | Hero placement | Codex | Architect Skill | DONE |
+| P2-03 | Tile validation | Codex | — | DONE |
+| P2-04 | Range circle | Gemini Pro | Phaser | DONE |
+| P2-05 | Target selection | Codex | Auditor | DONE |
+| P2-06 | Normal Attack | Codex | Architect Skill | DONE |
+| P2-07 | Crit + Damage | Codex | Auditor | DONE |
+| P2-08 | Enemy HP + Death | Codex | — | DONE |
+| P2-09 | Attack animation hook | Codex | Phaser | DONE |
+| P2-10 | Object pooling | Codex | Auditor | DEFERRED |
+| P2-11 | Combat tests | Codex | Auditor | DONE |
+| P2-A3 | Audit #3 | Codex Auditor | Architect Skill | DONE |
+
+Object pooling được hoãn có chủ đích: Phase 2 hiện chỉ có một enemy và không tạo projectile object. Pool sẽ được thêm khi Wave/VFX tạo object lặp lại; thêm ngay lúc này không tạo lợi ích đo được.
+
+## Phase 3 — Wave
+
+| ID | Task | Worker chính | Hỗ trợ | Trạng thái |
+|---|---|---|---|---|
+| P3-01 | Wave Manager | Codex | Architect Skill | NEXT |
+| P3-02 | Spawn groups | Codex | Auditor | BACKLOG |
+| P3-03 | Counter enemy theo loại | Gemini Pro | React UI | BACKLOG |
+| P3-04 | Ba enemy mẫu | Gemini Pro | Data Contract | BACKLOG |
+| P3-05 | 10 wave test | Codex | Auditor | BACKLOG |
+| P3-06 | Win/Lose | Codex | React UI | BACKLOG |
+| P3-A | Wave Audit | Codex Auditor | Architect Skill | BACKLOG |

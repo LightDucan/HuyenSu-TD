@@ -15,4 +15,12 @@ export const prototypeMap = {
     { x: 780, y: 520 },
     { x: 1024, y: 520 },
   ] satisfies PathPoint[],
+  placementTiles: [
+    { column: 3, row: 7 },
+    { column: 4, row: 7 },
+    { column: 5, row: 6 },
+    { column: 6, row: 6 },
+    { column: 7, row: 5 },
+    { column: 8, row: 4 },
+  ],
 } as const

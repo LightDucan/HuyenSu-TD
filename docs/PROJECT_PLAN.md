@@ -13,10 +13,10 @@ Tạo vertical slice Tower Defense Tam Quốc: Hero là tower mang hình tướn
 
 ## Trạng thái hiện tại
 
-- Current Phase: **8 — Battle HUD**
-- Current Codex task: **P8-01 — Battle HUD contract và snapshot mapping dữ liệu thật**.
-- Current Antigravity task: **Battle HUD layout/UI**; chỉ `src/ui/**`, nhận `BattleHudData` qua props, không đụng Battle Core; chờ branch/SHA để audit.
-- Lần kiểm tra gần nhất: Hero Detail UI interaction đã pass; 23/23 tests và production build thành công; không có dependency mới.
+- Current Phase: **9 — MVP Vertical Slice**
+- Current Codex task: **P9-01 — Tích hợp MVP content vào luồng chơi và chuẩn bị Full Audit #5**.
+- Current Antigravity task: **NONE** — P8-A01 Battle HUD và P9-A01 MVP Content Preparation đã audit và merge.
+- Lần kiểm tra gần nhất: P8/P9 đạt 27/27 tests, production build và UI interaction audit; không có dependency mới.
 
 ## Phases và checkpoint
 
@@ -30,7 +30,8 @@ Tạo vertical slice Tower Defense Tam Quốc: Hero là tower mang hình tướn
 | 5 | P5 | Level, cooldown, Rebirth, Reincarnation, Legendary, stat calculator, local save | DONE | Codex + Antigravity UI | Progression Audit | `hero/progression-v1` |
 | 6 | P6 | Weapon/Gem modifier và save equipment | DONE | Codex | Equipment Audit | `hero/equipment-v1` |
 | 7 | P7 | Hero UI | DONE | Antigravity + Codex | UI Audit | `ui/hero-v1` |
-| 8 | P8 | Battle HUD kết nối dữ liệu thật | IN PROGRESS | Codex | HUD Audit | `ui/battle-v1` |
+| 8 | P8 | Battle HUD kết nối dữ liệu thật | DONE | Antigravity + Codex | HUD Audit | `ui/battle-v1` |
+| 9 | P9 | Vertical slice: 5 Hero, 3 Enemy, 10 Wave, 5–8 Skill, local save, x1/x3, Win/Lose | IN PROGRESS | Codex + Antigravity content | Full Audit #5 | `v0.1.0-playable` |
 
 ## Quy tắc cập nhật
 

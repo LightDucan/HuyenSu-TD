@@ -1,4 +1,5 @@
 import Phaser from 'phaser'
+import { equipmentDefinitions } from '../../data/equipment/definitions'
 import { enemyDefinitions, type EnemyCategory } from '../../data/enemies/definitions'
 import { quanVu } from '../../data/heroes/quanVu'
 import { prototypeMap } from '../../data/maps/prototypeMap'
@@ -6,6 +7,9 @@ import { prototypeWaves } from '../../data/waves/prototypeWaves'
 import { GameClock } from '../../domain/clock/GameClock'
 import { CombatController } from '../../domain/combat/CombatController'
 import type { CombatEnemy, Vector2 } from '../../domain/combat/types'
+import { loadEquipment } from '../../domain/equipment/EquipmentStorage'
+import { calculateHeroLoadoutStats } from '../../domain/equipment/HeroLoadout'
+import { loadProgression } from '../../domain/progression/ProgressionStorage'
 import { WaveManager } from '../../domain/waves/WaveManager'
 import { skillDefinitions } from '../../data/skills/definitions'
 import { resolveSkill } from '../../domain/skills/SkillResolver'
@@ -28,6 +32,7 @@ export class BattleScene extends Phaser.Scene {
   private battleStatus: 'running' | 'won' | 'lost' = 'running'
   private combatController?: CombatController
   private heroVisual?: Phaser.GameObjects.Container
+  private heroStats = quanVu.baseStats
   private removeSpeedListener?: () => void
 
   constructor() { super('battle') }
@@ -124,7 +129,7 @@ export class BattleScene extends Phaser.Scene {
 
   private onSkill(): void {
     if (!this.heroVisual) return
-    const result = resolveSkill(skillDefinitions[quanVu.activeSkillId], this.heroVisual, quanVu.baseStats, this.enemies.map((enemy) => enemy.state))
+    const result = resolveSkill(skillDefinitions[quanVu.activeSkillId], this.heroVisual, this.heroStats, this.enemies.map((enemy) => enemy.state))
     this.heroVisual.setAlpha(0.45)
     this.tweens.add({ targets: this.heroVisual, alpha: 1, duration: 180 })
     result.killedEnemyIds.forEach((id) => {
@@ -159,11 +164,14 @@ export class BattleScene extends Phaser.Scene {
 
   private placeHero(position: Vector2): void {
     this.heroPlaced = true
-    this.add.circle(position.x, position.y, quanVu.baseStats.range, 0x38bdf8, 0.08).setStrokeStyle(2, 0x7dd3fc, 0.5)
+    const progression = loadProgression(window.localStorage).heroes[quanVu.id] ?? { stage: 'normal', level: 1 }
+    const equipment = loadEquipment(window.localStorage).heroes[quanVu.id] ?? {}
+    this.heroStats = calculateHeroLoadoutStats(quanVu.baseStats, progression, equipment, equipmentDefinitions)
+    this.add.circle(position.x, position.y, this.heroStats.range, 0x38bdf8, 0.08).setStrokeStyle(2, 0x7dd3fc, 0.5)
     const body = this.add.circle(0, 0, 24, 0x2563eb).setStrokeStyle(3, 0xdbeafe)
     const label = this.add.text(0, 0, 'QV', { color: '#ffffff', fontSize: '14px', fontStyle: 'bold' }).setOrigin(0.5)
     this.heroVisual = this.add.container(position.x, position.y, [body, label])
-    this.combatController = new CombatController(position, quanVu.baseStats, Math.random, quanVu.skillTriggerHits)
+    this.combatController = new CombatController(position, this.heroStats, Math.random, quanVu.skillTriggerHits)
     this.emitSnapshot()
   }
 

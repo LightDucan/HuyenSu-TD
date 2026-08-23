@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { equipmentDefinitions } from '../../src/data/equipment/definitions'
 import { resolveEquipmentModifiers } from '../../src/domain/equipment/EquipmentSystem'
 import { EQUIPMENT_STORAGE_KEY, loadEquipment, saveHeroEquipment } from '../../src/domain/equipment/EquipmentStorage'
+import { calculateHeroLoadoutStats } from '../../src/domain/equipment/HeroLoadout'
 import type { StorageLike } from '../../src/domain/progression/ProgressionStorage'
 
 describe('EquipmentSystem', () => {
@@ -12,6 +13,15 @@ describe('EquipmentSystem', () => {
 
   it('rejects equipment placed in the wrong slot', () => {
     expect(() => resolveEquipmentModifiers({ weaponId: 'swift-jade' }, equipmentDefinitions)).toThrow('Weapon slot')
+  })
+
+  it('applies equipped modifiers through the shared stat calculator', () => {
+    expect(calculateHeroLoadoutStats(
+      { hp: 100, atk: 20, range: 100, attackSpeed: 1, crit: 0.1, critDamage: 1.5 },
+      { stage: 'normal', level: 1 },
+      { weaponId: 'green-dragon-blade', gemId: 'swift-jade' },
+      equipmentDefinitions,
+    )).toMatchObject({ hp: 100, atk: 32, range: 108, attackSpeed: 1.15, crit: 0.1, critDamage: 1.5 })
   })
 
   it('persists locally and recovers from invalid saves', () => {

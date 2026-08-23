@@ -3,7 +3,7 @@ import { equipmentDefinitions } from '../data/equipment/definitions'
 import { quanVu } from '../data/heroes/quanVu'
 import { heroPassives, type PassiveDefinition } from '../data/passives/definitions'
 import { skillDefinitions } from '../data/skills/definitions'
-import { loadEquipment, saveHeroEquipment } from '../domain/equipment/EquipmentStorage'
+import { loadEquipment } from '../domain/equipment/EquipmentStorage'
 import {
   resolveEquipmentModifiers,
   type EquipmentDefinition,
@@ -11,15 +11,13 @@ import {
   type HeroEquipment,
 } from '../domain/equipment/EquipmentSystem'
 import { calculateHeroLoadoutStats } from '../domain/equipment/HeroLoadout'
-import { loadProgression, saveHeroProgression } from '../domain/progression/ProgressionStorage'
+import { loadProgression } from '../domain/progression/ProgressionStorage'
 import {
-  advanceStage,
   canAdvanceStage,
   canUpgrade,
   MAX_HERO_LEVEL,
   type HeroProgression,
   type HeroStage,
-  upgradeLevel,
 } from '../domain/progression/ProgressionSystem'
 import { calculateHeroStats } from '../domain/progression/StatCalculator'
 
@@ -27,6 +25,12 @@ export interface HeroDetailModalProps {
   isOpen: boolean
   onClose: () => void
   heroId?: string
+  progression?: HeroProgression
+  equipment?: HeroEquipment
+  onUpgradeRequest?: (heroId: string) => void
+  onAdvanceStageRequest?: (heroId: string) => void
+  onEquipRequest?: (heroId: string, slot: EquipmentSlot, itemId: string) => void
+  onUnequipRequest?: (heroId: string, slot: EquipmentSlot) => void
 }
 
 const STAGE_LABELS: Record<HeroStage, { name: string; title: string; order: number }> = {
@@ -37,46 +41,69 @@ const STAGE_LABELS: Record<HeroStage, { name: string; title: string; order: numb
 }
 
 const STAGES: readonly HeroStage[] = ['normal', 'rebirth', 'reincarnation', 'legendary']
-const UPGRADE_COOLDOWN_MS = 3000
 
-export function HeroDetailModal({ isOpen, onClose, heroId = quanVu.id }: HeroDetailModalProps) {
-  const [progression, setProgression] = useState<HeroProgression>(() => {
-    if (typeof window === 'undefined') return { stage: 'normal', level: 1 }
-    const saved = loadProgression(window.localStorage).heroes[heroId]
-    return saved ?? { stage: 'normal', level: 1 }
-  })
+function readSavedProgression(heroId: string): HeroProgression {
+  if (typeof window === 'undefined') return { stage: 'normal', level: 1 }
+  return loadProgression(window.localStorage).heroes[heroId] ?? { stage: 'normal', level: 1 }
+}
 
-  const [equipment, setEquipment] = useState<HeroEquipment>(() => {
-    if (typeof window === 'undefined') return {}
-    const saved = loadEquipment(window.localStorage).heroes[heroId]
-    return saved ?? {}
-  })
+function readSavedEquipment(heroId: string): HeroEquipment {
+  if (typeof window === 'undefined') return {}
+  return loadEquipment(window.localStorage).heroes[heroId] ?? {}
+}
 
+export function HeroDetailModal({
+  isOpen,
+  onClose,
+  heroId = quanVu.id,
+  progression: propProgression,
+  equipment: propEquipment,
+  onUpgradeRequest,
+  onAdvanceStageRequest,
+  onEquipRequest,
+  onUnequipRequest,
+}: HeroDetailModalProps) {
+  const [localProgression, setLocalProgression] = useState<HeroProgression>(() =>
+    readSavedProgression(heroId),
+  )
+  const [localEquipment, setLocalEquipment] = useState<HeroEquipment>(() =>
+    readSavedEquipment(heroId),
+  )
   const [currentTimeMs, setCurrentTimeMs] = useState(() => Date.now())
   const [pickingSlot, setPickingSlot] = useState<EquipmentSlot | null>(null)
 
-  // Reload data whenever modal opens
+  // Re-read storage snapshots when modal opens if not provided via props
   useEffect(() => {
-    if (!isOpen || typeof window === 'undefined') return
-    const progSave = loadProgression(window.localStorage).heroes[heroId]
-    if (progSave) setProgression(progSave)
-    const equipSave = loadEquipment(window.localStorage).heroes[heroId]
-    if (equipSave) setEquipment(equipSave)
-  }, [isOpen, heroId])
+    if (!isOpen) return
+    if (!propProgression) {
+      setLocalProgression(readSavedProgression(heroId))
+    }
+    if (!propEquipment) {
+      setLocalEquipment(readSavedEquipment(heroId))
+    }
+  }, [isOpen, heroId, propProgression, propEquipment])
 
-  // Timer for progression cooldown
+  const activeProgression = propProgression ?? localProgression
+  const activeEquipment = propEquipment ?? localEquipment
+
+  // Timer for cooldown display
   useEffect(() => {
-    if (!progression.upgradeReadyAt || progression.upgradeReadyAt <= Date.now()) return
+    if (!activeProgression.upgradeReadyAt || activeProgression.upgradeReadyAt <= Date.now()) return
     const interval = window.setInterval(() => setCurrentTimeMs(Date.now()), 100)
     return () => window.clearInterval(interval)
-  }, [progression.upgradeReadyAt])
+  }, [activeProgression.upgradeReadyAt])
 
   if (!isOpen) return null
 
-  // Calculate stats via Core domain functions
-  const baseScaledStats = calculateHeroStats(quanVu.baseStats, progression)
-  const finalStats = calculateHeroLoadoutStats(quanVu.baseStats, progression, equipment, equipmentDefinitions)
-  const resolvedModifiers = resolveEquipmentModifiers(equipment, equipmentDefinitions)
+  // Pure display calculations via Core domain helpers
+  const baseScaledStats = calculateHeroStats(quanVu.baseStats, activeProgression)
+  const finalStats = calculateHeroLoadoutStats(
+    quanVu.baseStats,
+    activeProgression,
+    activeEquipment,
+    equipmentDefinitions,
+  )
+  const resolvedModifiers = resolveEquipmentModifiers(activeEquipment, equipmentDefinitions)
 
   const activeSkill = skillDefinitions[quanVu.activeSkillId]
   const passive: PassiveDefinition = heroPassives[heroId] ?? {
@@ -86,53 +113,38 @@ export function HeroDetailModal({ isOpen, onClose, heroId = quanVu.id }: HeroDet
     requiredStage: 'legendary',
   }
 
-  const isLegendary = progression.stage === 'legendary'
-  const isMaxLevel = progression.level >= MAX_HERO_LEVEL
-  const cooldownRemainingMs = Math.max(0, (progression.upgradeReadyAt ?? currentTimeMs) - currentTimeMs)
+  const isLegendary = activeProgression.stage === 'legendary'
+  const isMaxLevel = activeProgression.level >= MAX_HERO_LEVEL
+  const cooldownRemainingMs = Math.max(
+    0,
+    (activeProgression.upgradeReadyAt ?? currentTimeMs) - currentTimeMs,
+  )
   const isCooldown = cooldownRemainingMs > 0
   const cooldownSeconds = (cooldownRemainingMs / 1000).toFixed(1)
 
-  const weaponItem = equipment.weaponId ? equipmentDefinitions[equipment.weaponId] : null
-  const gemItem = equipment.gemId ? equipmentDefinitions[equipment.gemId] : null
+  const weaponItem = activeEquipment.weaponId
+    ? equipmentDefinitions[activeEquipment.weaponId]
+    : null
+  const gemItem = activeEquipment.gemId ? equipmentDefinitions[activeEquipment.gemId] : null
 
-  // Progression handlers
+  // Passive callbacks: emit request only, never mutate state directly
   const handleUpgrade = () => {
-    const nowMs = Date.now()
-    if (!canUpgrade(progression, nowMs)) return
-    const next = upgradeLevel(progression, nowMs, UPGRADE_COOLDOWN_MS)
-    setProgression(next)
-    setCurrentTimeMs(nowMs)
-    saveHeroProgression(window.localStorage, heroId, next)
+    onUpgradeRequest?.(heroId)
   }
 
   const handleAdvanceStage = () => {
-    if (!canAdvanceStage(progression)) return
-    const next = advanceStage(progression)
-    setProgression(next)
-    saveHeroProgression(window.localStorage, heroId, next)
+    onAdvanceStageRequest?.(heroId)
   }
 
-  // Equipment handlers
   const handleEquipItem = (item: EquipmentDefinition) => {
-    const next: HeroEquipment =
-      item.slot === 'weapon'
-        ? { ...equipment, weaponId: item.id }
-        : { ...equipment, gemId: item.id }
-    setEquipment(next)
-    saveHeroEquipment(window.localStorage, heroId, next)
+    onEquipRequest?.(heroId, item.slot, item.id)
     setPickingSlot(null)
   }
 
   const handleUnequipItem = (slot: EquipmentSlot) => {
-    const next: HeroEquipment =
-      slot === 'weapon'
-        ? { ...equipment, weaponId: undefined }
-        : { ...equipment, gemId: undefined }
-    setEquipment(next)
-    saveHeroEquipment(window.localStorage, heroId, next)
+    onUnequipRequest?.(heroId, slot)
   }
 
-  // List of candidate items for picking slot
   const candidateItems = Object.values(equipmentDefinitions).filter(
     (item) => pickingSlot && item.slot === pickingSlot,
   )
@@ -140,7 +152,12 @@ export function HeroDetailModal({ isOpen, onClose, heroId = quanVu.id }: HeroDet
   const formatBonus = (val?: number) => (val && val > 0 ? `+${val}` : null)
 
   return (
-    <div className="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="hero-detail-title">
+    <div
+      className="modal-backdrop"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="hero-detail-title"
+    >
       <div className="hero-detail-modal">
         {/* Modal Header */}
         <div className="modal-header">
@@ -164,7 +181,9 @@ export function HeroDetailModal({ isOpen, onClose, heroId = quanVu.id }: HeroDet
             {/* Hero Card */}
             <div className="hero-portrait-card">
               <div className="hero-avatar">
-                <span className="avatar-icon" aria-hidden="true">🗡️</span>
+                <span className="avatar-icon" aria-hidden="true">
+                  🗡️
+                </span>
               </div>
               <div className="hero-meta">
                 <h3 className="hero-name">{quanVu.name}</h3>
@@ -211,7 +230,9 @@ export function HeroDetailModal({ isOpen, onClose, heroId = quanVu.id }: HeroDet
                           <span className="mod-chip">Tầm đánh: +{weaponItem.modifiers.range}</span>
                         )}
                         {weaponItem.modifiers.attackSpeed && (
-                          <span className="mod-chip">Tốc đánh: +{weaponItem.modifiers.attackSpeed}</span>
+                          <span className="mod-chip">
+                            Tốc đánh: +{weaponItem.modifiers.attackSpeed}
+                          </span>
                         )}
                       </div>
                     </div>
@@ -261,7 +282,9 @@ export function HeroDetailModal({ isOpen, onClose, heroId = quanVu.id }: HeroDet
                           <span className="mod-chip">Tầm đánh: +{gemItem.modifiers.range}</span>
                         )}
                         {gemItem.modifiers.attackSpeed && (
-                          <span className="mod-chip">Tốc đánh: +{gemItem.modifiers.attackSpeed}</span>
+                          <span className="mod-chip">
+                            Tốc đánh: +{gemItem.modifiers.attackSpeed}
+                          </span>
                         )}
                       </div>
                     </div>
@@ -290,11 +313,14 @@ export function HeroDetailModal({ isOpen, onClose, heroId = quanVu.id }: HeroDet
                 </div>
                 <h5 className="skill-title">{activeSkill?.name ?? 'Kỹ Năng'}</h5>
                 <p className="skill-desc">
-                  {activeSkill?.effects.map((e) => {
-                    if (e.type === 'damage') return `Sát thương x${e.atkMultiplier}`
-                    if (e.type === 'aoe') return `Quét bán kính ${e.radius}px (tối đa ${e.maxTargets ?? 'hết'} mục tiêu)`
-                    return e.type
-                  }).join(' • ')}
+                  {activeSkill?.effects
+                    .map((e) => {
+                      if (e.type === 'damage') return `Sát thương x${e.atkMultiplier}`
+                      if (e.type === 'aoe')
+                        return `Quét bán kính ${e.radius}px (tối đa ${e.maxTargets ?? 'hết'} mục tiêu)`
+                      return e.type
+                    })
+                    .join(' • ')}
                 </p>
               </div>
 
@@ -302,14 +328,18 @@ export function HeroDetailModal({ isOpen, onClose, heroId = quanVu.id }: HeroDet
               <div className={`skill-item passive-skill ${isLegendary ? 'unlocked' : 'locked'}`}>
                 <div className="skill-header">
                   <span className="skill-badge passive-badge">🌟 Passive Huyền Sử</span>
-                  <span className={`passive-status ${isLegendary ? 'status-open' : 'status-locked'}`}>
+                  <span
+                    className={`passive-status ${isLegendary ? 'status-open' : 'status-locked'}`}
+                  >
                     {isLegendary ? '✨ Đã Mở Khóa' : '🔒 Đang Khóa'}
                   </span>
                 </div>
                 <h5 className="skill-title">{passive.name}</h5>
                 <p className="skill-desc">{passive.description}</p>
                 {!isLegendary && (
-                  <span className="passive-lock-tip">Yêu cầu: Đạt cảnh giới Huyền Sử để kích hoạt.</span>
+                  <span className="passive-lock-tip">
+                    Yêu cầu: Đạt cảnh giới Huyền Sử để kích hoạt.
+                  </span>
                 )}
               </div>
             </div>
@@ -323,14 +353,13 @@ export function HeroDetailModal({ isOpen, onClose, heroId = quanVu.id }: HeroDet
                 <div>
                   <span className="box-label">Cấp độ & Cảnh giới</span>
                   <div className={`level-display ${isCooldown ? 'level-cooldown' : ''}`}>
-                    Lv. {progression.level} <span className="level-max">/ {MAX_HERO_LEVEL}</span>
+                    Lv. {activeProgression.level}{' '}
+                    <span className="level-max">/ {MAX_HERO_LEVEL}</span>
                   </div>
                 </div>
 
                 {isCooldown && (
-                  <div className="cooldown-pill">
-                    ⏳ Đang hồi ({cooldownSeconds}s)
-                  </div>
+                  <div className="cooldown-pill">⏳ Đang hồi ({cooldownSeconds}s)</div>
                 )}
               </div>
 
@@ -338,8 +367,8 @@ export function HeroDetailModal({ isOpen, onClose, heroId = quanVu.id }: HeroDet
               <div className="stage-chips-row">
                 {STAGES.map((s) => {
                   const meta = STAGE_LABELS[s]
-                  const isActive = progression.stage === s
-                  const isPassed = STAGES.indexOf(s) < STAGES.indexOf(progression.stage)
+                  const isActive = activeProgression.stage === s
+                  const isPassed = STAGES.indexOf(s) < STAGES.indexOf(activeProgression.stage)
                   return (
                     <div
                       key={s}
@@ -352,18 +381,22 @@ export function HeroDetailModal({ isOpen, onClose, heroId = quanVu.id }: HeroDet
                 })}
               </div>
 
-              {/* Action Buttons */}
+              {/* Action Buttons: Emit requests */}
               <div className="progression-actions-row">
                 <button
                   type="button"
                   className={`btn-action upgrade-btn ${isMaxLevel ? 'max' : isCooldown ? 'cooldown' : 'ready'}`}
-                  disabled={!canUpgrade(progression, currentTimeMs)}
+                  disabled={!canUpgrade(activeProgression, currentTimeMs)}
                   onClick={handleUpgrade}
                 >
-                  {isMaxLevel ? 'Đạt Cấp Tối Đa' : isCooldown ? `Hồi Chiêu (${cooldownSeconds}s)` : '⬆ Nâng Cấp'}
+                  {isMaxLevel
+                    ? 'Đạt Cấp Tối Đa'
+                    : isCooldown
+                      ? `Hồi Chiêu (${cooldownSeconds}s)`
+                      : '⬆ Nâng Cấp'}
                 </button>
 
-                {canAdvanceStage(progression) && (
+                {canAdvanceStage(activeProgression) && (
                   <button
                     type="button"
                     className="btn-action advance-btn"
@@ -400,7 +433,9 @@ export function HeroDetailModal({ isOpen, onClose, heroId = quanVu.id }: HeroDet
                     <td className="stat-name">Sát thương (ATK)</td>
                     <td>{baseScaledStats.atk}</td>
                     <td className="bonus-col">
-                      {formatBonus((resolvedModifiers.weapon.atk ?? 0) + (resolvedModifiers.gem.atk ?? 0)) ?? '—'}
+                      {formatBonus(
+                        (resolvedModifiers.weapon.atk ?? 0) + (resolvedModifiers.gem.atk ?? 0),
+                      ) ?? '—'}
                     </td>
                     <td className="final-col">{finalStats.atk}</td>
                   </tr>
@@ -408,7 +443,10 @@ export function HeroDetailModal({ isOpen, onClose, heroId = quanVu.id }: HeroDet
                     <td className="stat-name">Tốc đánh (ASPD)</td>
                     <td>{baseScaledStats.attackSpeed.toFixed(2)}</td>
                     <td className="bonus-col">
-                      {formatBonus((resolvedModifiers.weapon.attackSpeed ?? 0) + (resolvedModifiers.gem.attackSpeed ?? 0)) ?? '—'}
+                      {formatBonus(
+                        (resolvedModifiers.weapon.attackSpeed ?? 0) +
+                          (resolvedModifiers.gem.attackSpeed ?? 0),
+                      ) ?? '—'}
                     </td>
                     <td className="final-col">{finalStats.attackSpeed.toFixed(2)}</td>
                   </tr>
@@ -416,7 +454,9 @@ export function HeroDetailModal({ isOpen, onClose, heroId = quanVu.id }: HeroDet
                     <td className="stat-name">Tầm đánh (Range)</td>
                     <td>{baseScaledStats.range}</td>
                     <td className="bonus-col">
-                      {formatBonus((resolvedModifiers.weapon.range ?? 0) + (resolvedModifiers.gem.range ?? 0)) ?? '—'}
+                      {formatBonus(
+                        (resolvedModifiers.weapon.range ?? 0) + (resolvedModifiers.gem.range ?? 0),
+                      ) ?? '—'}
                     </td>
                     <td className="final-col">{finalStats.range}</td>
                   </tr>
@@ -456,8 +496,8 @@ export function HeroDetailModal({ isOpen, onClose, heroId = quanVu.id }: HeroDet
                   candidateItems.map((item) => {
                     const isCurrentlyEquipped =
                       pickingSlot === 'weapon'
-                        ? equipment.weaponId === item.id
-                        : equipment.gemId === item.id
+                        ? activeEquipment.weaponId === item.id
+                        : activeEquipment.gemId === item.id
                     return (
                       <button
                         type="button"

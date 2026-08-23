@@ -47,7 +47,7 @@
 ## 5. Tiến Hóa (Progression Stages)
 * **Thường (Normal, Lv 1–100)**: Tướng quân áo giáp vải bọc nẹp đồng sơ khởi, rèn luyện đòn kiếm và tăng trưởng ATK/HP cơ bản.
 * **Trùng Sinh (Rebirth, Lv 1–100)**: Uy danh vang dội khắp 65 thành; mở rộng tầm ảnh hưởng của chiêu thức, hệ số tăng trưởng chỉ số tăng bậc.
-* **Tái Sinh (Reincarnation, Lv 1–100)**: Trưng Vương xưng đế uy nghiêm, khoác hoàng bào giáp vàng rực rỡ; chỉ số đạt ngưỡng đỉnh phong.
+* **Tái Sinh (Reincarnation, Lv 1–100)**: Trưng Vương xưng vương uy nghiêm, khoác hoàng bào giáp vàng rực rỡ; chỉ số đạt ngưỡng đỉnh phong.
 
 ---
 

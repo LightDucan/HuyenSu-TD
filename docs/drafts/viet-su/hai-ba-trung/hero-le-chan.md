@@ -59,7 +59,7 @@
 ---
 
 ## 7. Nguồn & Mức Độ Tin Cậy Lịch Sử (Sources & Reliability)
-* **Mức độ tin cậy lịch sử**: **Có sử liệu & Thần tích ngọc phả địa phương ghi chép đậm nét** (Ghi nhận công tích khai hoang lập ấp An Biên và tướng lĩnh Hai Bà Trưng trong Đại Nam Nhất Thống Chí, Thần phả Đền Nghè và di tích lịch sử cấp Quốc gia tại Hải Phòng).
+* **Mức độ tin cậy lịch sử**: **Có truyền thống lịch sử và di tích địa phương ghi nhận; nhiều chi tiết tiểu sử chủ yếu dựa trên thần tích/ngọc phả/truyền thuyết địa phương.**
 * **Danh sách nguồn tham chiếu**:
   1. **Đại Nam Nhất Thống Chí** (Tập Hải Dương, tỉnh Hải Phòng).
   2. **Thần phả Nữ tướng Lê Chân** tại Đền Nghè (phường An Biên, quận Lê Chân, TP. Hải Phòng).

@@ -1,6 +1,15 @@
 import { useEffect, useState } from 'react'
 import { heroPassives, type PassiveDefinition } from '../data/passives/definitions'
-import { MAX_HERO_LEVEL, type HeroStage } from '../domain/progression/ProgressionSystem'
+import {
+  advanceStage,
+  canAdvanceStage,
+  canUpgrade,
+  MAX_HERO_LEVEL,
+  type HeroProgression,
+  type HeroStage,
+  upgradeLevel,
+} from '../domain/progression/ProgressionSystem'
+import { loadProgression, saveHeroProgression } from '../domain/progression/ProgressionStorage'
 
 export type UpgradeButtonState = 'ready' | 'cooldown' | 'max_level'
 
@@ -22,6 +31,13 @@ const STAGE_LABELS: Record<HeroStage, { name: string; title: string; order: numb
 }
 
 const STAGES: readonly HeroStage[] = ['normal', 'rebirth', 'reincarnation', 'legendary']
+const UPGRADE_COOLDOWN_MS = 3000
+
+function initialProgression(heroId: string, stage: HeroStage, level: number, cooldownMs: number): HeroProgression {
+  const saved = typeof window === 'undefined' ? undefined : loadProgression(window.localStorage).heroes[heroId]
+  if (saved) return saved
+  return { stage, level, ...(cooldownMs > 0 ? { upgradeReadyAt: Date.now() + cooldownMs } : {}) }
+}
 
 export function HeroProgressionPanel({
   heroId = 'quan-vu',
@@ -32,9 +48,10 @@ export function HeroProgressionPanel({
   onUpgrade,
   onAdvanceStage,
 }: HeroProgressionPanelProps) {
-  const [stage, setStage] = useState<HeroStage>(initialStage)
-  const [level, setLevel] = useState<number>(initialLevel)
-  const [cooldownRemainingMs, setCooldownRemainingMs] = useState<number>(initialCooldownMs)
+  const [progression, setProgression] = useState<HeroProgression>(() =>
+    initialProgression(heroId, initialStage, initialLevel, initialCooldownMs),
+  )
+  const [currentTimeMs, setCurrentTimeMs] = useState(() => Date.now())
 
   const passive: PassiveDefinition = heroPassives[heroId] ?? {
     id: 'default-passive',
@@ -43,25 +60,17 @@ export function HeroProgressionPanel({
     requiredStage: 'legendary',
   }
 
-  const isLegendary = stage === 'legendary'
-  const isMaxLevel = level >= MAX_HERO_LEVEL
+  const isLegendary = progression.stage === 'legendary'
+  const isMaxLevel = progression.level >= MAX_HERO_LEVEL
+  const cooldownRemainingMs = Math.max(0, (progression.upgradeReadyAt ?? currentTimeMs) - currentTimeMs)
   const isCooldown = cooldownRemainingMs > 0
 
-  // Tick countdown timer for cooldown
   useEffect(() => {
-    if (cooldownRemainingMs <= 0) return
+    if (!progression.upgradeReadyAt || progression.upgradeReadyAt <= Date.now()) return
+    const interval = window.setInterval(() => setCurrentTimeMs(Date.now()), 100)
+    return () => window.clearInterval(interval)
+  }, [progression.upgradeReadyAt])
 
-    const interval = setInterval(() => {
-      setCooldownRemainingMs((prev) => {
-        const next = prev - 100
-        return next > 0 ? next : 0
-      })
-    }, 100)
-
-    return () => clearInterval(interval)
-  }, [cooldownRemainingMs])
-
-  // Determine upgrade button state
   const buttonState: UpgradeButtonState = isMaxLevel
     ? 'max_level'
     : isCooldown
@@ -69,27 +78,21 @@ export function HeroProgressionPanel({
       : 'ready'
 
   const handleUpgradeClick = () => {
-    if (buttonState !== 'ready') return
-    const next = Math.min(level + 1, MAX_HERO_LEVEL)
-    setLevel(next)
-    // 3 second cooldown for demonstration
-    setCooldownRemainingMs(3000)
-    onUpgrade?.(next)
+    const nowMs = Date.now()
+    if (!canUpgrade(progression, nowMs)) return
+    const next = upgradeLevel(progression, nowMs, UPGRADE_COOLDOWN_MS)
+    setProgression(next)
+    setCurrentTimeMs(nowMs)
+    saveHeroProgression(window.localStorage, heroId, next)
+    onUpgrade?.(next.level)
   }
 
   const handleAdvanceStage = () => {
-    const currentIndex = STAGES.indexOf(stage)
-    if (currentIndex < STAGES.length - 1) {
-      const nextStage = STAGES[currentIndex + 1]
-      setStage(nextStage)
-      setLevel(1)
-      setCooldownRemainingMs(0)
-      onAdvanceStage?.(nextStage)
-    }
-  }
-
-  const handleSetStage = (targetStage: HeroStage) => {
-    setStage(targetStage)
+    if (!canAdvanceStage(progression)) return
+    const next = advanceStage(progression)
+    setProgression(next)
+    saveHeroProgression(window.localStorage, heroId, next)
+    onAdvanceStage?.(next.stage)
   }
 
   const cooldownSeconds = (cooldownRemainingMs / 1000).toFixed(1)
@@ -106,7 +109,7 @@ export function HeroProgressionPanel({
         <div className={`level-badge-container ${isCooldown ? 'level-cooldown' : ''}`}>
           <span className="level-label">Cấp độ</span>
           <span className={`level-value ${isCooldown ? 'level-cooldown' : ''}`}>
-            Lv. {level} <span className="level-max">/ {MAX_HERO_LEVEL}</span>
+            Lv. {progression.level} <span className="level-max">/ {MAX_HERO_LEVEL}</span>
           </span>
           {isCooldown && <span className="cooldown-tag">Đang hồi ({cooldownSeconds}s)</span>}
         </div>
@@ -118,22 +121,21 @@ export function HeroProgressionPanel({
         <div className="stage-list" role="list">
           {STAGES.map((s) => {
             const meta = STAGE_LABELS[s]
-            const isActive = stage === s
-            const isPassed = STAGES.indexOf(s) < STAGES.indexOf(stage)
+            const isActive = progression.stage === s
+            const isPassed = STAGES.indexOf(s) < STAGES.indexOf(progression.stage)
             return (
-              <button
-                type="button"
+              <div
                 key={s}
                 className={`stage-card ${isActive ? 'active' : ''} ${isPassed ? 'passed' : ''}`}
-                onClick={() => handleSetStage(s)}
                 aria-current={isActive ? 'step' : undefined}
+                role="listitem"
               >
                 <span className="stage-order">Giai đoạn {meta.order}</span>
                 <span className="stage-name">{meta.name}</span>
                 <span className="stage-title">({meta.title})</span>
                 {isActive && <span className="stage-badge current">Hiện tại</span>}
                 {isPassed && <span className="stage-badge done">✓ Đã qua</span>}
-              </button>
+              </div>
             )
           })}
         </div>
@@ -191,24 +193,6 @@ export function HeroProgressionPanel({
           )}
         </div>
 
-        {/* Demo state helper controls */}
-        <div className="demo-controls" aria-label="Điều khiển thử nghiệm UI">
-          <span className="demo-label">Thử nghiệm trạng thái:</span>
-          <button
-            type="button"
-            className="demo-btn"
-            onClick={() => setCooldownRemainingMs((prev) => (prev > 0 ? 0 : 5000))}
-          >
-            {isCooldown ? 'Tắt Cooldown' : 'Bật Cooldown 5s'}
-          </button>
-          <button
-            type="button"
-            className="demo-btn"
-            onClick={() => setLevel((prev) => (prev >= MAX_HERO_LEVEL ? 1 : MAX_HERO_LEVEL))}
-          >
-            {level === MAX_HERO_LEVEL ? 'Đặt Lv. 1' : 'Đặt Lv. 100 (Max)'}
-          </button>
-        </div>
       </div>
     </section>
   )

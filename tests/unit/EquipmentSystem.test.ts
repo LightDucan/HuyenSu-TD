@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { equipmentDefinitions } from '../../src/data/equipment/definitions'
-import { resolveEquipmentModifiers } from '../../src/domain/equipment/EquipmentSystem'
+import { resolveEquipmentModifiers, validateEquipmentDefinition } from '../../src/domain/equipment/EquipmentSystem'
 import { EQUIPMENT_STORAGE_KEY, loadEquipment, saveHeroEquipment } from '../../src/domain/equipment/EquipmentStorage'
 import { calculateHeroLoadoutStats } from '../../src/domain/equipment/HeroLoadout'
 import type { StorageLike } from '../../src/domain/progression/ProgressionStorage'
@@ -13,6 +13,12 @@ describe('EquipmentSystem', () => {
 
   it('rejects equipment placed in the wrong slot', () => {
     expect(() => resolveEquipmentModifiers({ weaponId: 'swift-jade' }, equipmentDefinitions)).toThrow('Weapon slot')
+  })
+
+  it('validates the allowed modifier boundary and unknown equipment ids', () => {
+    expect(() => validateEquipmentDefinition({ id: 'bad', slot: 'gem', name: 'Bad', modifiers: {} })).toThrow('at least one')
+    expect(() => validateEquipmentDefinition({ id: 'bad', slot: 'gem', name: 'Bad', modifiers: { atk: -1 } })).toThrow('Invalid')
+    expect(() => resolveEquipmentModifiers({ gemId: 'missing' }, equipmentDefinitions)).toThrow('Unknown gem')
   })
 
   it('applies equipped modifiers through the shared stat calculator', () => {

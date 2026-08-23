@@ -85,5 +85,5 @@ Object pooling được hoãn có chủ đích: Phase 2 hiện chỉ có một e
 | P5-02 | Trùng Sinh / Tái Sinh / Huyền Sử state | Codex | Auditor | DONE |
 | P5-03 | Stat calculator | Codex | Auditor | DONE |
 | P5-04 | Progression UI | Antigravity | UI task riêng | BACKLOG |
-| P5-05 | Local save progression | Codex | Auditor | BACKLOG |
+| P5-05 | Local save progression | Codex | Auditor | DONE |
 | P5-A | Progression Audit | Codex Auditor | Architect Skill | BACKLOG |

@@ -35,7 +35,7 @@
 
 ## 4. Active Skill (Kỹ Năng Kích Hoạt)
 * **Tên kỹ năng**: **Trống Đồng Lệnh Vương** *(hoặc Hịch Truyền Mê Linh)*
-* **Cơ chế kích hoạt**: Tự động kích hoạt sau mỗi **5 đòn đánh thường**.
+* **Cơ chế kích hoạt**: Tự động kích hoạt sau mỗi **5 đòn đánh thường** *(thuộc mốc chuẩn: 3 / 5 / 7 / 10)*.
 * **Hiệu ứng dùng chung (Shared Effects)**:
   * `{ type: 'aoe', radius: 170, maxTargets: 4 }` — Sóng xung kích chấn động bán kính 170px lên tối đa 4 mục tiêu.
   * `{ type: 'damage', atkMultiplier: 2.2 }` — Gây sát thương bằng 220% ATK.
@@ -58,9 +58,11 @@
 
 ---
 
-## 7. Nguồn Tham Chiếu Nghiên Cứu (References)
-1. **Đại Việt Sử Ký Toàn Thư** (Ngoại kỷ, Quyển III: *Kỷ Trưng Nữ Vương*).
-2. **Khâm Định Việt Sử Thông Giám Cương Mục** (Tiền biên, Quyển II).
-3. **Hậu Hán Thư** (Phạm Diệp, Quyển 86: *Nam Man Tây Nam Di liệt truyện*; Quyển 24: *Mã Viện liệt truyện*).
-4. **Bảo tàng Lịch sử Quốc gia Việt Nam** — Tư liệu & hiện vật khảo cổ học Văn hóa Đông Sơn (Vũ khí đồng, Trống đồng Mê Linh/Cổ Loa).
-5. **Di tích Quốc gia đặc biệt Đền Hai Bà Trưng** (Mê Linh, Hà Nội và Hát Môn, Phúc Thọ, Hà Nội).
+## 7. Nguồn & Mức Độ Tin Cậy Lịch Sử (Sources & Reliability)
+* **Mức độ tin cậy lịch sử**: **Có sử liệu chính thức & rất rõ ràng** (Được cả chính sử Việt Nam và sử liệu cổ đại phương Bắc ghi chép chi tiết, khảo cổ học chứng thực thời kỳ Đông Sơn).
+* **Danh sách nguồn tham chiếu**:
+  1. **Đại Việt Sử Ký Toàn Thư** (Ngoại kỷ, Quyển III: *Kỷ Trưng Nữ Vương*).
+  2. **Khâm Định Việt Sử Thông Giám Cương Mục** (Tiền biên, Quyển II).
+  3. **Hậu Hán Thư** (Phạm Diệp, Quyển 86: *Nam Man Tây Nam Di liệt truyện*; Quyển 24: *Mã Viện liệt truyện*).
+  4. **Bảo tàng Lịch sử Quốc gia Việt Nam** — Tư liệu & hiện vật khảo cổ học Văn hóa Đông Sơn (Vũ khí đồng, Trống đồng Mê Linh/Cổ Loa).
+  5. **Di tích Quốc gia đặc biệt Đền Hai Bà Trưng** (Mê Linh, Hà Nội và Hát Môn, Phúc Thọ, Hà Nội).

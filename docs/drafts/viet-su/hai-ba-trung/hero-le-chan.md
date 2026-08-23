@@ -1,23 +1,23 @@
-# Hero Concept: Lê Chân (Chưởng Quản Binh Quyền Nữ Tướng)
+# Hero Concept: Lê Chân (Nữ Tướng An Biên)
 
 ## 1. Danh Tính (Identity)
 * **Tên**: Lê Chân (Thánh Chân Công Chúa / Chưởng Quản Binh Quyền)
 * **Thời kỳ**: Thời Hai Bà Trưng (Khởi nghĩa năm 40 SCN – 43 SCN)
-* **Vai trò hình ảnh**: Nữ tướng dũng mãnh kiên cường vùng duyên hải; giáp vảy cá ánh đồng xám đen và dải lụa đỏ thắt eo; tay cầm trảm mã đao/đại đao sắc lạnh, thể hiện khí phách nữ tướng khai hoang lập ấp kiêm thống lĩnh thủy bộ binh.
+* **Vai trò hình ảnh**: Nữ tướng dũng mãnh kiên cường vùng duyên hải; giáp vảy cá ánh đồng xám đen và dải lụa đỏ thắt eo; tay cầm vũ khí trảm đao/dao chiến đồng sắc lạnh, thể hiện khí phách nữ tướng khai hoang lập ấp kiêm thống lĩnh thủy bộ binh.
 * **Ghi chú lịch sử ngắn**: 
   Nữ tướng Lê Chân quê gốc ở làng Vẻ Thủy (Đông Triều, Quảng Ninh). Do căm thù Thái thú Tô Định bức hại gia đình, bà đã cùng gia binh xuôi dòng xuống vùng ven biển khai khẩn đất hoang, lập nên trang An Biên (tiền thân của thành phố Hải Phòng ngày nay). Khi Hai Bà Trưng dấy binh, bà đem toàn bộ quân lính An Biên hưởng ứng, được phong làm Chưởng quản Binh quyền nội bộ, lập nhiều chiến công hiển hách đánh tan quân Tô Định và chặn đánh quyết liệt quân xâm lược Mã Viện.
 * **Ranh giới lịch sử vs sáng tạo game**:
   * *Phần lịch sử*: Thân thế khai sáng vùng đất Hải Phòng, nữ tướng xuất sắc trong hàng ngũ tướng lĩnh Hai Bà Trưng, tài thao lược thủy bộ, trận chiến phòng thủ kiên cường trên sông và vùng ven biển.
-  * *Phần sáng tạo game*: Định hình hình tượng nữ chiến binh dùng Trảm Đao uy lực, bộ kỹ năng cản phá và khống chế (Root / AoE Slash) mô phỏng những ngọn sóng triều duyên hải An Biên.
+  * *Phần sáng tạo game*: Định hình hình tượng nữ chiến binh dùng *đại đao / trảm mã đao* là tạo hình sáng tạo game nhằm gia tăng độ nhận diện và chất cản phá trong gameplay; mô tả nền tảng lịch sử thực tế của thời kỳ này là **dao chiến đồng / gươm đồng Đông Sơn**. Bộ kỹ năng cản phá và khống chế (Root / AoE Slash) mô phỏng những ngọn sóng triều duyên hải An Biên.
 
 ---
 
 ## 2. Đánh Thường (Normal Attack)
 * **Quy tắc bắt buộc**: Single-target duy nhất. Không AoE, không Stun, không Slow, không Root.
-* **Vũ khí**: Trảm Mã Đao / Song Đao đồng Lạc Việt.
+* **Vũ khí**: Dao chiến đồng Lạc Việt / Gươm bản rộng (Tạo hình game: Trảm Đao Lạc Việt).
 * **Tầm đánh**: Cận chiến tầm gần – trung (`near-melee / mid-melee`, tầm đánh khoảng 150 – 160 px).
 * **Animation Front View**:
-  * *Tư thế*: Đứng thế tấn vững chắc như bàn thạch, vung đường đao chém dứt khoát ngang ngực mục tiêu đơn lẻ phía trước.
+  * *Tư thế*: Đứng thế tấn vững chắc như bàn thạch, vung đường đao/dao chiến chém dứt khoát ngang ngực mục tiêu đơn lẻ phía trước.
 
 ---
 
@@ -35,7 +35,7 @@
 
 ## 4. Active Skill (Kỹ Năng Kích Hoạt)
 * **Tên kỹ năng**: **Sóng Trào Hải Tần** *(hoặc Hải Tần Trảm)*
-* **Cơ chế kích hoạt**: Tự động kích hoạt sau mỗi **5 đòn đánh thường**.
+* **Cơ chế kích hoạt**: Tự động kích hoạt sau mỗi **5 đòn đánh thường** *(thuộc mốc chuẩn: 3 / 5 / 7 / 10)*.
 * **Hiệu ứng dùng chung (Shared Effects)**:
   * `{ type: 'aoe', radius: 160, maxTargets: 3 }` — Quét đao hình vòng cung sóng cuộn bán kính 160px lên tối đa 3 mục tiêu.
   * `{ type: 'damage', atkMultiplier: 2.0 }` — Gây sát thương bằng 200% ATK.
@@ -58,9 +58,11 @@
 
 ---
 
-## 7. Nguồn Tham Chiếu Nghiên Cứu (References)
-1. **Đại Nam Nhất Thống Chí** (Tập Hải Dương, tỉnh Hải Phòng).
-2. **Thần phả Nữ tướng Lê Chân** tại Đền Nghè (phường An Biên, quận Lê Chân, TP. Hải Phòng).
-3. **Bảo tàng Hải Phòng** & Các nghiên cứu của Hội Khoa học Lịch sử Hải Phòng.
-4. **Viện Sử học Việt Nam** — Các bài khảo cứu về khởi nghĩa Hai Bà Trưng và các nữ tướng thời Trưng Vương.
-5. **Di tích Đền Nghè & Đình An Biên** (Di tích Lịch sử cấp Quốc gia, Hải Phòng).
+## 7. Nguồn & Mức Độ Tin Cậy Lịch Sử (Sources & Reliability)
+* **Mức độ tin cậy lịch sử**: **Có sử liệu & Thần tích ngọc phả địa phương ghi chép đậm nét** (Ghi nhận công tích khai hoang lập ấp An Biên và tướng lĩnh Hai Bà Trưng trong Đại Nam Nhất Thống Chí, Thần phả Đền Nghè và di tích lịch sử cấp Quốc gia tại Hải Phòng).
+* **Danh sách nguồn tham chiếu**:
+  1. **Đại Nam Nhất Thống Chí** (Tập Hải Dương, tỉnh Hải Phòng).
+  2. **Thần phả Nữ tướng Lê Chân** tại Đền Nghè (phường An Biên, quận Lê Chân, TP. Hải Phòng).
+  3. **Bảo tàng Hải Phòng** & Các nghiên cứu của Hội Khoa học Lịch sử Hải Phòng.
+  4. **Viện Sử học Việt Nam** — Các bài khảo cứu về khởi nghĩa Hai Bà Trưng và các nữ tướng thời Trưng Vương.
+  5. **Di tích Đền Nghè & Đình An Biên** (Di tích Lịch sử cấp Quốc gia, Hải Phòng).

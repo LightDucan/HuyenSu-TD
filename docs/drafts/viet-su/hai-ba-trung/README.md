@@ -7,8 +7,11 @@ Cuộc khởi nghĩa Hai Bà Trưng vào mùa xuân năm Canh Tý (năm 40 SCN) 
 
 ### 1.2. Định vị văn hóa & mỹ thuật (Thời kỳ Văn hóa Đông Sơn muộn)
 * **Trang phục & Giáp trụ**: Mang đậm dấu ấn thời kỳ chuyển tiếp văn hóa Đông Sơn: Giáp ngực đồng/da thuộc nẹp viền đồng, hộ tâm phiến tròn khắc hoa văn mặt trời/chim Lạc, váy xẻ/quần túm gọn gàng cơ động cho chiến đấu, khăn xếp/khăn vấn đầu đội mũ lông chim hoặc trâm cài đồng.
-* **Vũ khí**: Trống đồng chỉ huy, dao găm cán chữ T, giáo đồng, gươm đồng cán tượng người/thú, nỏ đồng nhiều mũi tên, trảm đao.
+* **Vũ khí**: Trống đồng chỉ huy, dao găm cán chữ T, giáo đồng, gươm đồng cán tượng người/thú, nỏ đồng Lạc Việt / nỏ Cổ Loa, dao chiến đồng.
 * **Tôn trọng lịch sử & Phân định sáng tạo**: Giữ vững tinh thần tôn kính tiền nhân, phân biệt rạch ròi giữa ghi chép chính sử và thần tích/truyền thuyết dân gian, không biến huyền tích thành sự thật lịch sử.
+  * Danh hiệu *"Bình Khôi Tướng Quân"* của Trưng Nhị là danh hiệu lưu truyền trong dân gian/thần tích hoặc tên đặt trong game, không coi là chức danh chính sử đã xác nhận.
+  * Vũ khí *đại đao / trảm mã đao* của Lê Chân là tạo hình sáng tạo game để tạo chất chiến binh cản phá; mô tả nền tảng lịch sử thực tế của thời kỳ này là dao chiến đồng / gươm đồng Đông Sơn.
+  * Vũ khí của Trưng Nhị được thống nhất là **Nỏ Lạc Việt** (cơ chế bắn nỏ liên hoàn tầm xa).
 
 ---
 
@@ -31,7 +34,7 @@ Mỗi nhân vật được thiết kế chặt chẽ theo 6 khối quy định c
 1. **Danh tính**: Tên, thời kỳ, vai trò tạo hình, ghi chú lịch sử, ranh giới lịch sử vs sáng tạo game.
 2. **Đánh thường**: Single-target duy nhất (không AoE/CC), vũ khí, tầm đánh, animation Front View.
 3. **Chỉ số core**: HP, ATK, Range, AttackSpeed, Crit, CritDamage (không có DEF; phân cấp Thấp / Trung bình / Cao).
-4. **Active Skill**: Kích hoạt sau 3/4/5/6/7 đòn; dùng chung hiệu ứng hệ thống (Damage, AoE, Slow, Stun, Root, MultiHit); không code riêng.
+4. **Active Skill**: Kích hoạt sau **3 / 5 / 7 / 10** đòn (chỉ chọn 1 trong 4 mốc chuẩn này); dùng chung hiệu ứng hệ thống (Damage, AoE, Slow, Stun, Root, MultiHit); không code riêng.
 5. **Tiến Hóa**: Normal $\rightarrow$ Rebirth $\rightarrow$ Reincarnation (hướng thăng tiến chỉ số, không tạo cơ chế mới).
 6. **Huyền Sử**: Passive đặc biệt khi đạt cảnh giới Huyền Sử (ghi chú rõ "Chờ shared passive system").
 
@@ -40,6 +43,6 @@ Mỗi nhân vật được thiết kế chặt chẽ theo 6 khối quy định c
 ## 4. Tài Liệu Chi Tiết Trong Thư Mục
 
 * [hero-trung-trac.md](hero-trung-trac.md) — Hồ sơ Hero Trưng Trắc (Trưng Nữ Vương)
-* [hero-trung-nhi.md](hero-trung-nhi.md) — Hồ sơ Hero Trưng Nhị (Bình Khôi Tướng Quân)
-* [hero-le-chan.md](hero-le-chan.md) — Hồ sơ Hero Lê Chân (Chưởng Quản Binh Quyền Nữ Tướng)
+* [hero-trung-nhi.md](hero-trung-nhi.md) — Hồ sơ Hero Trưng Nhị (Tướng Tiên Phong / Nỏ Lạc Việt)
+* [hero-le-chan.md](hero-le-chan.md) — Hồ sơ Hero Lê Chân (Nữ Tướng An Biên)
 * [visual-prompts-and-assets.md](visual-prompts-and-assets.md) — Bộ Prompts chuẩn hóa hình ảnh (Portrait, Idle, Attack, Skill VFX trên Canvas 128×128, Baseline Y=112)

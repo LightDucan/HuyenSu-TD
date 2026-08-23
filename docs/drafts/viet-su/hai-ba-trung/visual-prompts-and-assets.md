@@ -31,23 +31,23 @@ Tài liệu đặc tả Prompt đồ họa và thông số kỹ thuật chuẩn 
 
 ---
 
-## 2. Trưng Nhị (`trung-nhi`)
+## 2. Trưng Nhị (`trung-nhi`) — Nỏ Lạc Việt (Crossbow)
 
 ### 2.1. Portrait (128×128 px)
 * **Prompt**:
-  > `pixel art portrait bust of ancient Vietnamese female general Trung Nhi, agile archer commander, jade green headband with small bronze feather pin, dark cyan and jade tunic with leather trim, determined youthful expression, sharp observant eyes, 128x128 pixels, transparent background, crisp pixel art, authentic Dong Son cultural accents, original design.`
+  > `pixel art portrait bust of ancient Vietnamese female general Trung Nhi, master crossbow commander, jade green headband with small bronze feather pin, dark cyan and jade tunic with leather trim, determined youthful expression, sharp observant eyes, 128x128 pixels, transparent background, crisp pixel art, authentic Dong Son cultural accents, original design.`
 
 ### 2.2. Idle Sprite (128×128 px, Baseline Y=112)
 * **Prompt**:
-  > `pixel art full-body character sprite of ancient Vietnamese female archer general Trung Nhi, standing idle pose facing front view, holding curved wooden recurve bow in left hand, quiver of bronze arrows on back, wearing jade green and navy combat attire with light leather and bronze armor, feet grounded on baseline Y=112, small contact shadow at Y=112, 128x128 canvas, transparent background, clean pixel edges.`
+  > `pixel art full-body character sprite of ancient Vietnamese female crossbow general Trung Nhi, standing idle pose facing front view, holding ancient Lac Viet wooden and bronze crossbow in two hands across chest, quiver of bronze bolts on hip, wearing jade green and navy combat attire with light leather and bronze armor, feet grounded on baseline Y=112, small contact shadow at Y=112, 128x128 canvas, transparent background, clean pixel edges.`
 
 ### 2.3. Attack Sprite (128×128 px, Baseline Y=112)
 * **Prompt**:
-  > `pixel art full-body character sprite of Trung Nhi in rapid shooting attack pose facing front view, drawing ancient bow to full draw aiming forward right, nocked glowing bronze arrow ready to release, dynamic archer posture, feet firmly grounded on baseline Y=112, 128x128 canvas, transparent background, crisp action silhouette.`
+  > `pixel art full-body character sprite of Trung Nhi in rapid crossbow shooting attack pose facing front view, aiming ancient Dong Son bronze crossbow forward right, launching glowing bronze crossbow bolt with muzzle flash, dynamic combat posture, feet firmly grounded on baseline Y=112, 128x128 canvas, transparent background, crisp action silhouette.`
 
 ### 2.4. Skill VFX — Liên Hoàn Lạc Tiễn (128×128 px)
 * **Prompt**:
-  > `isolated pixel art visual effect of triple rapid arrow volley, three glowing jade-cyan energy projectile streaks flying forward with trailing wind lines and frost-slow sparks, high-speed piercing effect, 128x128 canvas, transparent background, bright luminous projectile VFX, no character.`
+  > `isolated pixel art visual effect of triple rapid crossbow bolt volley, three glowing jade-cyan energy bolt projectile streaks flying forward with trailing wind lines and frost-slow sparks, high-speed piercing effect, 128x128 canvas, transparent background, bright luminous projectile VFX, no character.`
 
 ---
 
@@ -59,7 +59,7 @@ Tài liệu đặc tả Prompt đồ họa và thông số kỹ thuật chuẩn 
 
 ### 3.2. Idle Sprite (128×128 px, Baseline Y=112)
 * **Prompt**:
-  > `pixel art full-body character sprite of female general Le Chan, standing idle pose facing front view, holding large heavy bronze broadsword / falchion resting near side, wearing fish-scale bronze armor over deep blue tunic with crimson waist sash, heavy combat boots, feet grounded firmly on baseline Y=112, contact shadow at Y=112, 128x128 canvas, transparent background, sturdy resolute stance.`
+  > `pixel art full-body character sprite of female general Le Chan, standing idle pose facing front view, holding large heavy bronze broadsword / war knife resting near side, fish-scale bronze armor over deep blue tunic with crimson waist sash, heavy combat boots, feet grounded firmly on baseline Y=112, contact shadow at Y=112, 128x128 canvas, transparent background, sturdy resolute stance.`
 
 ### 3.3. Attack Sprite (128×128 px, Baseline Y=112)
 * **Prompt**:
@@ -76,5 +76,5 @@ Tài liệu đặc tả Prompt đồ họa và thông số kỹ thuật chuẩn 
 | Hero | Portrait Check | Idle Baseline (Y=112) | Attack Baseline (Y=112) | VFX Tách Rời |
 |---|---|---|---|---|
 | **Trưng Trắc** | Concept Sẵn Sàng (128x128) | Chuẩn Y=112, Front View | Chuẩn Y=112, Front View | Trống Đồng Lệnh Vương (Tách riêng) |
-| **Trưng Nhị** | Concept Sẵn Sàng (128x128) | Chuẩn Y=112, Front View | Chuẩn Y=112, Front View | Liên Hoàn Lạc Tiễn (Tách riêng) |
+| **Trưng Nhị** | Concept Sẵn Sàng (128x128) | Chuẩn Y=112, Front View, Nỏ Lạc Việt | Chuẩn Y=112, Front View, Nỏ Lạc Việt | Liên Hoàn Lạc Tiễn (Tách riêng) |
 | **Lê Chân** | Concept Sẵn Sàng (128x128) | Chuẩn Y=112, Front View | Chuẩn Y=112, Front View | Sóng Trào Hải Tần (Tách riêng) |

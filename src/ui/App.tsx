@@ -7,6 +7,7 @@ import { resolveEquipmentModifiers, type EquipmentSlot, type HeroEquipment } fro
 import { advanceStage, canAdvanceStage, canUpgrade, type HeroProgression, upgradeLevel } from '../domain/progression/ProgressionSystem'
 import { loadProgression, saveHeroProgression } from '../domain/progression/ProgressionStorage'
 import { battleBridge, type BattleSnapshot } from '../game/bridge/BattleBridge'
+import { toBattleHudData } from '../game/bridge/BattleHudContract'
 import { createGame } from '../game/createGame'
 import { BottomPlayerHUD } from './BottomPlayerHUD'
 import { HeroDetailModal } from './HeroDetailModal'
@@ -36,6 +37,7 @@ export function App() {
   const [equipment, setEquipment] = useState<HeroEquipment>(() =>
     loadEquipment(window.localStorage).heroes[quanVu.id] ?? {},
   )
+  const hudData = toBattleHudData(snapshot)
 
   useEffect(() => {
     if (!gameHostRef.current) return
@@ -84,18 +86,7 @@ export function App() {
   return (
     <main className="app-shell">
       {/* Top City Bar */}
-      <TopCityBar
-        cityName="Kinh Châu Thành"
-        defenseLevel="Cấp 1"
-        difficulty="Thường"
-        cityHp={snapshot.cityHp}
-        wave={snapshot.wave}
-        totalWaves={snapshot.totalWaves}
-        remainingByCategory={snapshot.remainingByCategory}
-        enemiesDefeated={snapshot.enemiesDefeated}
-        enemiesEscaped={snapshot.enemiesEscaped}
-        battleStatus={snapshot.battleStatus}
-      />
+      <TopCityBar data={hudData} />
 
       <p className="hint">
         {snapshot.battleStatus === 'won' ? 'Chiến thắng! Đã hoàn thành 10 wave.' : snapshot.battleStatus === 'lost' ? 'Thất bại: Thành đã bị phá.' : snapshot.heroPlaced ? 'Quan Vũ đang tự động chiến đấu.' : 'Chọn một ô xanh để đặt Quan Vũ.'}
@@ -106,14 +97,9 @@ export function App() {
 
       {/* Bottom Player HUD */}
       <BottomPlayerHUD
-        playerName="Chúa Công"
-        playerLevel={1}
-        gold={1000}
-        food={500}
-        currentSpeed={snapshot.speed}
+        data={hudData}
         onSpeedChange={setSpeed}
         onOpenHeroDetail={() => setIsHeroDetailOpen(true)}
-        heroPlaced={snapshot.heroPlaced}
       />
 
       <HeroProgressionPanel />

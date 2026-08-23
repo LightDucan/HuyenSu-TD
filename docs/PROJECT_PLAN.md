@@ -13,8 +13,8 @@ Tạo vertical slice Tower Defense Tam Quốc: Hero là tower mang hình tướn
 
 ## Trạng thái hiện tại
 
-- Current Phase: **5 — Hero Progression**
-- Current Codex task: **P5-A — Audit cuối và tạo checkpoint `hero/progression-v1`**.
+- Current Phase: **6 — Equipment**
+- Current Codex task: **P6-01 — Thiết kế modifier Weapon/Gem dùng chung, không thêm rarity hoặc random affix**.
 - Current Antigravity task: **NONE** — P5-A01 Progression UI đã audit và merge từ `antigravity/p5-a01-progression-ui` (`f091e27`, sửa kiến trúc: `0e1a6c7`).
 - Lần kiểm tra gần nhất: Progression UI đã qua 18/18 tests và production build sau audit; không có dependency mới.
 
@@ -27,8 +27,8 @@ Tạo vertical slice Tower Defense Tam Quốc: Hero là tower mang hình tướn
 | 2 | P2 | Placement, targeting, normal attack, crit, HP/death | DONE | Codex | Audit #3 | `core/tower-defense-loop-v1` |
 | 3 | P3 | Wave manager, 3 enemy, 10 wave, counter, Win/Lose | DONE | Codex | Wave Audit | `core/wave-v1` |
 | 4 | P4 | Attack Counter và Skill Effects dùng chung | DONE | Codex | Audit #4 | `core/skill-system-v1` |
-| 5 | P5 | Level, cooldown, Rebirth, Reincarnation, Legendary, stat calculator, local save | IN PROGRESS | Codex | Progression Audit | `hero/progression-v1` |
-| 6 | P6 | Weapon/Gem modifier và save equipment | TODO | Codex | Equipment Audit | `hero/equipment-v1` |
+| 5 | P5 | Level, cooldown, Rebirth, Reincarnation, Legendary, stat calculator, local save | DONE | Codex + Antigravity UI | Progression Audit | `hero/progression-v1` |
+| 6 | P6 | Weapon/Gem modifier và save equipment | IN PROGRESS | Codex | Equipment Audit | `hero/equipment-v1` |
 | 7 | P7 | Hero UI | TODO | Antigravity + Codex | UI Audit | `ui/hero-v1` |
 | 8 | P8 | Battle HUD kết nối dữ liệu thật | TODO | Antigravity + Codex | HUD Audit | `ui/battle-v1` |
 

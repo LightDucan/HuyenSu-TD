@@ -9,6 +9,7 @@ export type BattleHudData = Readonly<{
   cityHp: number
   battleStatus: 'running' | 'won' | 'lost'
   heroPlaced: boolean
+  selectedHeroId: string
   enemiesDefeated: number
   enemiesEscaped: number
   remainingByCategory: Readonly<Record<EnemyCategory, number>>
@@ -22,6 +23,7 @@ export function toBattleHudData(snapshot: BattleSnapshot): BattleHudData {
     cityHp: snapshot.cityHp,
     battleStatus: snapshot.battleStatus,
     heroPlaced: snapshot.heroPlaced,
+    selectedHeroId: snapshot.selectedHeroId,
     enemiesDefeated: snapshot.enemiesDefeated,
     enemiesEscaped: snapshot.enemiesEscaped,
     remainingByCategory: snapshot.remainingByCategory,

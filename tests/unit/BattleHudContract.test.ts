@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+import { BattleBridge } from '../../src/game/bridge/BattleBridge'
 import { toBattleHudData } from '../../src/game/bridge/BattleHudContract'
 
 describe('BattleHudContract', () => {
@@ -10,6 +11,7 @@ describe('BattleHudContract', () => {
       cityHp: 8,
       battleStatus: 'running',
       heroPlaced: true,
+      selectedHeroId: 'trieu-van',
       enemiesSpawned: 11,
       enemiesDefeated: 7,
       enemiesEscaped: 1,
@@ -21,9 +23,23 @@ describe('BattleHudContract', () => {
       cityHp: 8,
       battleStatus: 'running',
       heroPlaced: true,
+      selectedHeroId: 'trieu-van',
       enemiesDefeated: 7,
       enemiesEscaped: 1,
       remainingByCategory: { sword: 2, archer: 1, other: 0 },
     })
+  })
+
+  it('publishes a selected Hero change once and keeps it available to the Scene', () => {
+    const bridge = new BattleBridge()
+    const selections: string[] = []
+    const unsubscribe = bridge.onHeroSelectionChange((heroId) => selections.push(heroId))
+
+    bridge.setSelectedHeroId('trieu-van')
+    bridge.setSelectedHeroId('trieu-van')
+
+    expect(bridge.getSelectedHeroId()).toBe('trieu-van')
+    expect(selections).toEqual(['trieu-van'])
+    unsubscribe()
   })
 })

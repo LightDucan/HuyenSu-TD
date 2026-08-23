@@ -14,8 +14,8 @@ Tạo vertical slice Tower Defense Tam Quốc: Hero là tower mang hình tướn
 ## Trạng thái hiện tại
 
 - Current Phase: **9 — MVP Vertical Slice**
-- Current Codex task: **P9-01 — Tích hợp MVP content vào luồng chơi và chuẩn bị Full Audit #5**.
-- Current Antigravity task: **NONE** — P8-A01 Battle HUD và P9-A01 MVP Content Preparation đã audit và merge.
+- Current Codex task: **P9-01 — Tích hợp lựa chọn 5 Hero data-driven vào Bridge, HUD, Hero Detail và Battle Scene**.
+- Current Antigravity task: **PLANNED: P9-A02 — MVP Hero Asset Placeholder Pack**; chỉ `src/assets/**` và tài liệu asset được giao, không đụng Core/Bridge/Domain.
 - Lần kiểm tra gần nhất: P8/P9 đạt 27/27 tests, production build và UI interaction audit; không có dependency mới.
 
 ## Phases và checkpoint

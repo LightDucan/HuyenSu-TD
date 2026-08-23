@@ -19,6 +19,7 @@ Contract code: `src/game/bridge/BattleHudContract.ts`.
 | `cityHp` | HP Thành hiện tại | Battle Scene |
 | `battleStatus` | `running`, `won`, `lost` | Battle Scene |
 | `heroPlaced` | Hero đã được đặt hay chưa | Battle Scene |
+| `selectedHeroId` | Hero đang được chọn/đã triển khai | Battle Bridge + Battle Scene |
 | `enemiesDefeated`, `enemiesEscaped` | Bộ đếm kết quả | Battle Scene |
 | `remainingByCategory` | Số sword/archer/other đang active | Enemy state snapshot |
 
@@ -27,6 +28,7 @@ Contract code: `src/game/bridge/BattleHudContract.ts`.
 - `BattleHud` chỉ nhận `data: BattleHudData` và callback speed nếu task yêu cầu.
 - Không import `BattleScene`, `CombatController`, `GameClock`, `WaveManager`, local storage hoặc data combat trực tiếp.
 - Không tính lại wave, enemy count, city HP hay trạng thái Win/Lose trong UI.
+- UI gửi yêu cầu chọn Hero qua `BattleBridge.setSelectedHeroId`; Scene vẫn là nơi chốt Hero khi placement.
 - Chỉ dùng các field trong contract; nếu thiếu field, báo Codex bổ sung Bridge contract.
 - Không thêm gameplay, dependency hoặc sửa `src/game/**`.
 

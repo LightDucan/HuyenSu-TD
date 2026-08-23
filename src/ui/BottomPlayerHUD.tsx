@@ -2,14 +2,18 @@ import type { GameSpeed } from '../domain/clock/GameClock'
 import type { BattleHudData } from '../game/bridge/BattleHudContract'
 
 export interface BottomPlayerHUDProps {
-  data: Pick<BattleHudData, 'speed' | 'heroPlaced'>
+  data: Pick<BattleHudData, 'speed' | 'heroPlaced' | 'selectedHeroId'>
+  heroes: readonly Readonly<{ id: string; name: string }>[]
   onSpeedChange: (speed: GameSpeed) => void
+  onHeroSelect: (heroId: string) => void
   onOpenHeroDetail: () => void
 }
 
 export function BottomPlayerHUD({
   data,
+  heroes,
   onSpeedChange,
+  onHeroSelect,
   onOpenHeroDetail,
 }: BottomPlayerHUDProps) {
   return (
@@ -17,20 +21,27 @@ export function BottomPlayerHUD({
       <div className="hero-selection-section" aria-label="Khu vực chọn tướng triển khai">
         <span className="section-mini-label">Đội hình xuất trận</span>
         <div className="hero-slot-list">
-          <button
-            type="button"
-            className={`hero-slot-card ${data.heroPlaced ? 'deployed' : 'ready'}`}
-            onClick={onOpenHeroDetail}
-            title="Nhấn để xem chi tiết tướng"
-          >
-            <div className="hero-slot-avatar">🗡️</div>
-            <div className="hero-slot-meta">
-              <span className="hero-slot-name">Tướng chủ lực</span>
-              <span className={`hero-slot-status ${data.heroPlaced ? 'status-deployed' : 'status-ready'}`}>
-                {data.heroPlaced ? 'Đang tác chiến' : 'Chưa đặt map'}
-              </span>
-            </div>
-          </button>
+          {heroes.map((hero) => {
+            const isSelected = hero.id === data.selectedHeroId
+            return (
+              <button
+                type="button"
+                key={hero.id}
+                className={`hero-slot-card ${isSelected ? 'selected' : ''} ${data.heroPlaced && isSelected ? 'deployed' : 'ready'}`}
+                disabled={data.heroPlaced && !isSelected}
+                onClick={() => data.heroPlaced ? onOpenHeroDetail() : onHeroSelect(hero.id)}
+                title={data.heroPlaced ? 'Đội hình đã được triển khai' : `Chọn ${hero.name}`}
+              >
+                <div className="hero-slot-avatar">⚔️</div>
+                <div className="hero-slot-meta">
+                  <span className="hero-slot-name">{hero.name}</span>
+                  <span className={`hero-slot-status ${data.heroPlaced && isSelected ? 'status-deployed' : 'status-ready'}`}>
+                    {data.heroPlaced && isSelected ? 'Đang tác chiến' : isSelected ? 'Đã chọn' : 'Sẵn sàng'}
+                  </span>
+                </div>
+              </button>
+            )
+          })}
         </div>
       </div>
 

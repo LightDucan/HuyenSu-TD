@@ -7,6 +7,7 @@ export type BattleSnapshot = Readonly<{
   enemiesEscaped: number
   enemiesDefeated: number
   heroPlaced: boolean
+  selectedHeroId: string
   wave: number
   totalWaves: number
   cityHp: number
@@ -18,8 +19,10 @@ type SnapshotListener = (snapshot: BattleSnapshot) => void
 
 export class BattleBridge {
   private speed: GameSpeed = 1
+  private selectedHeroId = 'quan-vu'
   private snapshotListeners = new Set<SnapshotListener>()
   private speedListeners = new Set<(speed: GameSpeed) => void>()
+  private heroSelectionListeners = new Set<(heroId: string) => void>()
 
   setSpeed(speed: GameSpeed): void {
     if (this.speed === speed) return
@@ -34,6 +37,21 @@ export class BattleBridge {
   onSpeedChange(listener: (speed: GameSpeed) => void): () => void {
     this.speedListeners.add(listener)
     return () => this.speedListeners.delete(listener)
+  }
+
+  setSelectedHeroId(heroId: string): void {
+    if (this.selectedHeroId === heroId) return
+    this.selectedHeroId = heroId
+    this.heroSelectionListeners.forEach((listener) => listener(heroId))
+  }
+
+  getSelectedHeroId(): string {
+    return this.selectedHeroId
+  }
+
+  onHeroSelectionChange(listener: (heroId: string) => void): () => void {
+    this.heroSelectionListeners.add(listener)
+    return () => this.heroSelectionListeners.delete(listener)
   }
 
   emitSnapshot(snapshot: BattleSnapshot): void {

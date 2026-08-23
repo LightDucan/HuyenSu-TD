@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { equipmentDefinitions } from '../data/equipment/definitions'
-import { quanVu } from '../data/heroes/quanVu'
+import { heroDefinitions } from '../data/heroes/definitions'
 import type { GameSpeed } from '../domain/clock/GameClock'
 import { loadEquipment, saveHeroEquipment } from '../domain/equipment/EquipmentStorage'
 import { resolveEquipmentModifiers, type EquipmentSlot, type HeroEquipment } from '../domain/equipment/EquipmentSystem'
@@ -11,7 +11,6 @@ import { toBattleHudData } from '../game/bridge/BattleHudContract'
 import { createGame } from '../game/createGame'
 import { BottomPlayerHUD } from './BottomPlayerHUD'
 import { HeroDetailModal } from './HeroDetailModal'
-import { HeroProgressionPanel } from './HeroProgressionPanel'
 import { TopCityBar } from './TopCityBar'
 
 const initialSnapshot: BattleSnapshot = {
@@ -20,6 +19,7 @@ const initialSnapshot: BattleSnapshot = {
   enemiesEscaped: 0,
   enemiesDefeated: 0,
   heroPlaced: false,
+  selectedHeroId: 'quan-vu',
   wave: 1,
   totalWaves: 10,
   cityHp: 10,
@@ -28,16 +28,19 @@ const initialSnapshot: BattleSnapshot = {
 }
 
 export function App() {
+  const initialHeroId = battleBridge.getSelectedHeroId()
   const gameHostRef = useRef<HTMLDivElement>(null)
   const [snapshot, setSnapshot] = useState(initialSnapshot)
   const [isHeroDetailOpen, setIsHeroDetailOpen] = useState(false)
   const [progression, setProgression] = useState<HeroProgression>(() =>
-    loadProgression(window.localStorage).heroes[quanVu.id] ?? { stage: 'normal', level: 1 },
+    loadProgression(window.localStorage).heroes[initialHeroId] ?? { stage: 'normal', level: 1 },
   )
   const [equipment, setEquipment] = useState<HeroEquipment>(() =>
-    loadEquipment(window.localStorage).heroes[quanVu.id] ?? {},
+    loadEquipment(window.localStorage).heroes[initialHeroId] ?? {},
   )
   const hudData = toBattleHudData(snapshot)
+  const heroOptions = Object.values(heroDefinitions).map(({ id, name }) => ({ id, name }))
+  const selectedHeroName = heroDefinitions[hudData.selectedHeroId]?.name ?? 'Hero'
 
   useEffect(() => {
     if (!gameHostRef.current) return
@@ -52,6 +55,13 @@ export function App() {
   }, [])
 
   const setSpeed = (speed: GameSpeed) => battleBridge.setSpeed(speed)
+
+  const handleHeroSelect = (heroId: string) => {
+    if (snapshot.heroPlaced || !heroDefinitions[heroId]) return
+    battleBridge.setSelectedHeroId(heroId)
+    setProgression(loadProgression(window.localStorage).heroes[heroId] ?? { stage: 'normal', level: 1 })
+    setEquipment(loadEquipment(window.localStorage).heroes[heroId] ?? {})
+  }
 
   const handleUpgradeRequest = (heroId: string) => {
     const nowMs = Date.now()
@@ -89,7 +99,7 @@ export function App() {
       <TopCityBar data={hudData} />
 
       <p className="hint">
-        {snapshot.battleStatus === 'won' ? 'Chiến thắng! Đã hoàn thành 10 wave.' : snapshot.battleStatus === 'lost' ? 'Thất bại: Thành đã bị phá.' : snapshot.heroPlaced ? 'Quan Vũ đang tự động chiến đấu.' : 'Chọn một ô xanh để đặt Quan Vũ.'}
+        {snapshot.battleStatus === 'won' ? 'Chiến thắng! Đã hoàn thành 10 wave.' : snapshot.battleStatus === 'lost' ? 'Thất bại: Thành đã bị phá.' : snapshot.heroPlaced ? `${selectedHeroName} đang tự động chiến đấu.` : `Chọn một ô xanh để đặt ${selectedHeroName}.`}
       </p>
 
       {/* Battle Canvas */}
@@ -98,15 +108,16 @@ export function App() {
       {/* Bottom Player HUD */}
       <BottomPlayerHUD
         data={hudData}
+        heroes={heroOptions}
         onSpeedChange={setSpeed}
+        onHeroSelect={handleHeroSelect}
         onOpenHeroDetail={() => setIsHeroDetailOpen(true)}
       />
-
-      <HeroProgressionPanel />
 
       <HeroDetailModal
         isOpen={isHeroDetailOpen}
         onClose={() => setIsHeroDetailOpen(false)}
+        heroId={hudData.selectedHeroId}
         progression={progression}
         equipment={equipment}
         onUpgradeRequest={handleUpgradeRequest}

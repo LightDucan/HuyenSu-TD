@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { equipmentDefinitions } from '../data/equipment/definitions'
-import { quanVu } from '../data/heroes/quanVu'
+import { heroDefinitions, quanVu } from '../data/heroes/definitions'
 import { heroPassives, type PassiveDefinition } from '../data/passives/definitions'
 import { skillDefinitions } from '../data/skills/definitions'
 import { loadEquipment } from '../domain/equipment/EquipmentStorage'
@@ -95,17 +95,19 @@ export function HeroDetailModal({
 
   if (!isOpen) return null
 
+  const hero = heroDefinitions[heroId] ?? quanVu
+
   // Pure display calculations via Core domain helpers
-  const baseScaledStats = calculateHeroStats(quanVu.baseStats, activeProgression)
+  const baseScaledStats = calculateHeroStats(hero.baseStats, activeProgression)
   const finalStats = calculateHeroLoadoutStats(
-    quanVu.baseStats,
+    hero.baseStats,
     activeProgression,
     activeEquipment,
     equipmentDefinitions,
   )
   const resolvedModifiers = resolveEquipmentModifiers(activeEquipment, equipmentDefinitions)
 
-  const activeSkill = skillDefinitions[quanVu.activeSkillId]
+  const activeSkill = skillDefinitions[hero.activeSkillId]
   const passive: PassiveDefinition = heroPassives[heroId] ?? {
     id: 'default-passive',
     name: 'Huyền Sử Chi Lực',
@@ -163,10 +165,10 @@ export function HeroDetailModal({
         <div className="modal-header">
           <div className="modal-title-group">
             <h2 id="hero-detail-title" className="modal-title">
-              Chi Tiết Anh Hùng: {quanVu.name}
+              Chi Tiết Anh Hùng: {hero.name}
             </h2>
             <span className="hero-tagline">
-              Phe: {quanVu.faction} • Vai trò: {quanVu.archetype}
+              Phe: {hero.faction} • Vai trò: {hero.archetype}
             </span>
           </div>
           <button type="button" className="modal-close-btn" onClick={onClose} aria-label="Đóng">
@@ -186,8 +188,8 @@ export function HeroDetailModal({
                 </span>
               </div>
               <div className="hero-meta">
-                <h3 className="hero-name">{quanVu.name}</h3>
-                <span className="skin-label">Trang phục: {quanVu.presentation.skinId}</span>
+                <h3 className="hero-name">{hero.name}</h3>
+                <span className="skin-label">Trang phục: {hero.presentation.skinId}</span>
               </div>
             </div>
 
@@ -309,7 +311,7 @@ export function HeroDetailModal({
               <div className="skill-item active-skill">
                 <div className="skill-header">
                   <span className="skill-badge active-badge">⚡ Kỹ Năng Chủ Động</span>
-                  <span className="skill-trigger">Tự động sau {quanVu.skillTriggerHits} đòn</span>
+                  <span className="skill-trigger">Tự động sau {hero.skillTriggerHits} đòn</span>
                 </div>
                 <h5 className="skill-title">{activeSkill?.name ?? 'Kỹ Năng'}</h5>
                 <p className="skill-desc">

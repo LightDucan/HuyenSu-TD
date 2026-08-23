@@ -1,7 +1,7 @@
 import Phaser from 'phaser'
 import { equipmentDefinitions } from '../../data/equipment/definitions'
 import { enemyDefinitions, type EnemyCategory } from '../../data/enemies/definitions'
-import { quanVu } from '../../data/heroes/quanVu'
+import { heroDefinitions, quanVu, type HeroDefinition } from '../../data/heroes/definitions'
 import { prototypeMap } from '../../data/maps/prototypeMap'
 import { prototypeWaves } from '../../data/waves/prototypeWaves'
 import { GameClock } from '../../domain/clock/GameClock'
@@ -33,7 +33,9 @@ export class BattleScene extends Phaser.Scene {
   private combatController?: CombatController
   private heroVisual?: Phaser.GameObjects.Container
   private heroStats = quanVu.baseStats
+  private activeHero: HeroDefinition = quanVu
   private removeSpeedListener?: () => void
+  private removeHeroSelectionListener?: () => void
 
   constructor() { super('battle') }
 
@@ -45,7 +47,13 @@ export class BattleScene extends Phaser.Scene {
     this.createPlacementTiles()
     this.gameClock.setSpeed(battleBridge.getSpeed())
     this.removeSpeedListener = battleBridge.onSpeedChange((speed) => { this.gameClock.setSpeed(speed); this.emitSnapshot() })
-    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.removeSpeedListener?.())
+    this.removeHeroSelectionListener = battleBridge.onHeroSelectionChange(() => {
+      if (!this.heroPlaced) this.emitSnapshot()
+    })
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
+      this.removeSpeedListener?.()
+      this.removeHeroSelectionListener?.()
+    })
     this.emitSnapshot()
   }
 
@@ -129,7 +137,7 @@ export class BattleScene extends Phaser.Scene {
 
   private onSkill(): void {
     if (!this.heroVisual) return
-    const result = resolveSkill(skillDefinitions[quanVu.activeSkillId], this.heroVisual, this.heroStats, this.enemies.map((enemy) => enemy.state))
+    const result = resolveSkill(skillDefinitions[this.activeHero.activeSkillId], this.heroVisual, this.heroStats, this.enemies.map((enemy) => enemy.state))
     this.heroVisual.setAlpha(0.45)
     this.tweens.add({ targets: this.heroVisual, alpha: 1, duration: 180 })
     result.killedEnemyIds.forEach((id) => {
@@ -164,14 +172,16 @@ export class BattleScene extends Phaser.Scene {
 
   private placeHero(position: Vector2): void {
     this.heroPlaced = true
-    const progression = loadProgression(window.localStorage).heroes[quanVu.id] ?? { stage: 'normal', level: 1 }
-    const equipment = loadEquipment(window.localStorage).heroes[quanVu.id] ?? {}
-    this.heroStats = calculateHeroLoadoutStats(quanVu.baseStats, progression, equipment, equipmentDefinitions)
+    this.activeHero = heroDefinitions[battleBridge.getSelectedHeroId()] ?? quanVu
+    const progression = loadProgression(window.localStorage).heroes[this.activeHero.id] ?? { stage: 'normal', level: 1 }
+    const equipment = loadEquipment(window.localStorage).heroes[this.activeHero.id] ?? {}
+    this.heroStats = calculateHeroLoadoutStats(this.activeHero.baseStats, progression, equipment, equipmentDefinitions)
     this.add.circle(position.x, position.y, this.heroStats.range, 0x38bdf8, 0.08).setStrokeStyle(2, 0x7dd3fc, 0.5)
     const body = this.add.circle(0, 0, 24, 0x2563eb).setStrokeStyle(3, 0xdbeafe)
-    const label = this.add.text(0, 0, 'QV', { color: '#ffffff', fontSize: '14px', fontStyle: 'bold' }).setOrigin(0.5)
+    const initials = this.activeHero.name.split(' ').map((part) => part[0]).join('').slice(-2).toUpperCase()
+    const label = this.add.text(0, 0, initials, { color: '#ffffff', fontSize: '14px', fontStyle: 'bold' }).setOrigin(0.5)
     this.heroVisual = this.add.container(position.x, position.y, [body, label])
-    this.combatController = new CombatController(position, this.heroStats, Math.random, quanVu.skillTriggerHits)
+    this.combatController = new CombatController(position, this.heroStats, Math.random, this.activeHero.skillTriggerHits)
     this.emitSnapshot()
   }
 
@@ -203,6 +213,7 @@ export class BattleScene extends Phaser.Scene {
     battleBridge.emitSnapshot({
       speed: this.gameClock.getSpeed(), enemiesSpawned: this.enemies.length + this.enemiesDefeated + this.enemiesEscaped,
       enemiesEscaped: this.enemiesEscaped, enemiesDefeated: this.enemiesDefeated, heroPlaced: this.heroPlaced,
+      selectedHeroId: this.heroPlaced ? this.activeHero.id : battleBridge.getSelectedHeroId(),
       wave: this.waveManager.getCurrentWaveNumber(), totalWaves: this.waveManager.getTotalWaves(), cityHp: this.cityHp,
       battleStatus: this.battleStatus, remainingByCategory: this.remainingByCategory(),
     })

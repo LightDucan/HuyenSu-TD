@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { WaveManager } from '../../src/domain/waves/WaveManager'
+import { prototypeWaves } from '../../src/data/waves/prototypeWaves'
 
 const waves = [
   { id: 'one', groups: [{ enemyId: 'sword', count: 2, startDelayMs: 0, spawnIntervalMs: 100 }] },
@@ -24,5 +25,26 @@ describe('WaveManager', () => {
     manager.update(0)
     expect(manager.completeWhenNoEnemiesRemain(0)).toBe(true)
     expect(manager.getStatus()).toBe('won')
+  })
+
+  it('can complete all ten prototype waves without skipping a wave', () => {
+    const manager = new WaveManager(prototypeWaves)
+    let spawned = 0
+    let guard = 0
+
+    while (manager.getStatus() !== 'won' && guard < 200) {
+      spawned += manager.update(10_000).length
+      manager.completeWhenNoEnemiesRemain(0)
+      guard += 1
+    }
+
+    expect(manager.getStatus()).toBe('won')
+    expect(manager.getCurrentWaveNumber()).toBe(10)
+    expect(spawned).toBe(prototypeWaves.flatMap((wave) => wave.groups).reduce((total, group) => total + group.count, 0))
+  })
+
+  it('rejects invalid wave definitions', () => {
+    expect(() => new WaveManager([{ id: 'bad', groups: [{ enemyId: 'x', count: 0, startDelayMs: 0, spawnIntervalMs: 100 }] }])).toThrow(RangeError)
+    expect(() => new WaveManager([{ id: 'bad', groups: [{ enemyId: 'x', count: 1, startDelayMs: 0, spawnIntervalMs: 0 }] }])).toThrow(RangeError)
   })
 })

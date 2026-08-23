@@ -43,7 +43,7 @@ export class BattleScene extends Phaser.Scene {
   }
 
   update(_time: number, delta: number): void {
-    if (this.battleStatus !== 'running') return
+    if (this.battleStatus !== 'running' || !this.heroPlaced) return
     const scaledDelta = this.gameClock.scale(delta)
     this.waveManager.update(scaledDelta).forEach((definitionId) => this.spawnEnemy(definitionId))
     const attack = this.combatController?.update(scaledDelta, this.enemies.map((enemy) => enemy.state))

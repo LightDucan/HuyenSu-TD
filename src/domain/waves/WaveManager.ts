@@ -12,6 +12,10 @@ export class WaveManager {
 
   constructor(private readonly waves: readonly WaveDefinition[]) {
     if (waves.length === 0) throw new Error('At least one wave is required')
+    waves.forEach((wave) => wave.groups.forEach((group) => {
+      if (!Number.isInteger(group.count) || group.count < 1) throw new RangeError('Wave group count must be a positive integer')
+      if (group.startDelayMs < 0 || group.spawnIntervalMs <= 0) throw new RangeError('Wave timings must be valid positive durations')
+    }))
     this.groups = this.createGroups()
   }
 

@@ -4,7 +4,7 @@ Huyền Sử TD là game tower defense chủ đề Tam Quốc. Mỗi Hero là m�
 
 ## Trạng thái
 
-Dự án đã hoàn thành **Phase 2 — Tower Defense Core**. Người chơi có thể đặt Quan Vũ vào tile hợp lệ; Hero tự chọn mục tiêu, đánh thường, xử lý crit và tiêu diệt enemy bằng Combat Core độc lập với Phaser.
+Dự án đã hoàn thành **Phase 3 — Wave**. Battle có 10 wave, ba loại enemy, spawn theo group, bộ đếm theo loại và điều kiện Win/Lose.
 
 ## Luật cốt lõi
 
@@ -28,6 +28,7 @@ Chi tiết đầy đủ: [Game Rules](docs/game-rules.md).
 - [Audit #1](docs/audits/audit-01-foundation.md)
 - [Audit #2](docs/audits/audit-02-technical-prototype.md)
 - [Audit #3](docs/audits/audit-03-tower-defense-core.md)
+- [Wave Audit](docs/audits/audit-04-wave.md)
 
 ## Checkpoint
 
@@ -41,4 +42,4 @@ Chi tiết đầy đủ: [Game Rules](docs/game-rules.md).
 
 ## Bước tiếp theo
 
-Tiếp theo là Phase 3: Wave Manager, spawn groups, ba enemy mẫu, bộ đếm theo loại, 10 wave test và Win/Lose.
+Tiếp theo là Phase 4: Attack Counter và Skill Effects ghép được để Hero tự dùng skill sau số đòn đã định.

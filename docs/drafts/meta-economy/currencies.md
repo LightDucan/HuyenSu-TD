@@ -1,7 +1,7 @@
 # Hệ Thống Tiền Tệ Meta (Currencies & Wallet Management)
 
 ## 1. Yêu Cầu Đã Duyệt (Approved Requirements)
-Hệ thống Kinh Tế Meta quy chuẩn 3 loại tiền tệ chính, luôn hiển thị trên thanh Header Wallet:
+Hệ thống Kinh Tế Meta quy chuẩn **đúng 2 loại tiền tệ (Currencies)** chính thuộc ví người chơi (Player Wallet):
 1. **Vàng (Gold)**:
    * *Bản chất*: Tiền tệ phổ thông chính kiếm được thông qua việc tiêu diệt quái, vượt Wave, hoàn thành màn chơi hoặc trúng thưởng Gacha.
    * *Mục đích sử dụng*: Chi trả phí quay Gacha Gold, phí ghép trang bị (Equipment Merging — nếu có phí), nâng cấp công trình ngoài trận.
@@ -12,14 +12,16 @@ Hệ thống Kinh Tế Meta quy chuẩn 3 loại tiền tệ chính, luôn hiể
      * Phần thưởng **hoàn thành ải** (màn chơi / stage clear).
      * Ngoài ra có thể có thêm quà thành tựu, quà mốc cốt truyện hoặc sự kiện đặc biệt (nếu có).
    * *Mục đích sử dụng*: Mua các vật phẩm đặc biệt trong kỳ trân các (Lệnh Hiệu Triệu, gói Binh Phù cao cấp, Skin danh tướng).
-3. **Quân Lệnh (Command Energy)**:
-   * *Bản chất*: Thể lực chỉ huy xuất trận (chi tiết quy chuẩn tại [command-energy.md](command-energy.md)).
-   * *Mục đích sử dụng*: Tiêu hao cố định **1 Quân Lệnh** cho mỗi Wave chiến đấu bắt đầu.
+
+> [!NOTE]
+> **Phân định rõ ràng Tiền Tệ vs Thể Lực**:
+> - **Quân Lệnh (Command Energy)** là **Tài nguyên Thể lực (Energy Resource)** có cơ chế hồi phục tự nhiên và chu kỳ riêng biệt (chi tiết tại [command-energy.md](command-energy.md)), **không thuộc hệ Currency và không nằm trong Player Wallet**.
+> - Thanh Header HUD trên cùng của game vẫn hiển thị đồng thời cả 2 loại tiền tệ (Vàng, KNB) và tài nguyên Quân Lệnh (`current / max`) để người chơi dễ theo dõi.
 
 ---
 
 ## 2. Dependencies (Phụ Thuộc Hệ Thống — Codex xác nhận)
-* **Module Quản Lý Ví (Wallet Management — Codex xác nhận)**: Quản lý số dư và thực hiện các giao dịch trừ/cộng nguyên tử (atomic balance mutations).
+* **Module Quản Lý Ví (Wallet Management — Codex xác nhận)**: Quản lý số dư 2 loại tiền tệ (Vàng, KNB) và thực hiện các giao dịch trừ/cộng nguyên tử (atomic balance mutations).
 * **Cơ Chế Kết Toán Trận Đánh (Battle Settlement Bridge — Codex xác nhận)**: Nhận kết quả từ trận đánh sau mỗi Wave/Màn để cộng Vàng/KNB thưởng vào ví.
 * **Gacha & Merging Modules (Codex xác nhận)**: Kiểm tra `hasEnoughCurrency(cost)` trước khi kích hoạt logic quay thưởng hoặc ghép đồ.
 
@@ -27,7 +29,7 @@ Hệ thống Kinh Tế Meta quy chuẩn 3 loại tiền tệ chính, luôn hiể
 
 ## 3. UI Flow (Luồng Giao Diện Người Dùng)
 1. **Hiển thị số dư thời gian thực**:
-   * Thanh Wallet trên cùng luôn cập nhật ngay khi có biến động tài chính.
+   * Thanh Header HUD trên cùng luôn cập nhật ngay khi có biến động tài chính.
    * Hiệu ứng chữ số nhảy mượt mà (Floating Numbers VFX: `+500 💰` hoặc `-1,000 💰`).
 2. **Kiểm tra và cảnh báo giao dịch**:
    * Khi người chơi thực hiện thao tác tốn phí (ví dụ: Quay 10 lần Gacha tốn lượng Vàng theo cấu hình):
@@ -41,13 +43,11 @@ Hệ thống Kinh Tế Meta quy chuẩn 3 loại tiền tệ chính, luôn hiể
 *(Mô tả định hướng cấu trúc dữ liệu — Codex xác nhận và quyết định schema runtime chính thức)*
 
 ```ts
-export type CurrencyType = 'gold' | 'knb' | 'command_energy';
+export type CurrencyType = 'gold' | 'knb';
 
 export type PlayerWalletData = {
   gold: number;
   knb: number;
-  commandEnergy: number;
-  maxCommandEnergy: number;
 };
 
 export type WalletTransactionRequest = {

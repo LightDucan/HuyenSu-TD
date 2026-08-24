@@ -48,5 +48,5 @@
 ## 3. Lộ Trình Phối Hợp Đề Xuất (Next Steps for Codex & Antigravity)
 
 * **Bước 1 (Codex)**: Đánh giá tài liệu thiết kế META-A00, phê duyệt các mốc thông số trong bảng quyết định mở.
-* **Bước 2 (Codex)**: Xây dựng các module nghiệp vụ Meta (Quản lý ví Vàng/KNB/Quân Lệnh, Kho đồ, Binh Phù, Lệnh Hiệu Triệu, Logic ghép đồ, Xử lý Gacha Drop Table).
-* **Bước 3 (Antigravity)**: Hiện thực hóa giao diện React UI (Header Wallet, Bottom Bar 2 Tab, Merge Modal, Batch Use Modal, Gacha Screen) tích hợp trực tiếp với Callbacks do Codex cung cấp.
+* **Bước 2 (Codex)**: Xây dựng các module nghiệp vụ Meta (Quản lý ví Vàng/KNB, Trạng thái Thể lực Quân Lệnh, Kho đồ, Binh Phù, Lệnh Hiệu Triệu, Logic ghép đồ, Xử lý Gacha Drop Table).
+* **Bước 3 (Antigravity)**: Hiện thực hóa giao diện React UI (Header HUD, Bottom Bar 2 Tab, Merge Modal, Batch Use Modal, Gacha Screen) tích hợp trực tiếp với Callbacks do Codex cung cấp.

@@ -1,10 +1,10 @@
-# Giao Diện Ví Tiền Tệ & Hành Trang (Wallet & Inventory UI Spec)
+# Giao Diện Ví Tiền Tệ, Thể Lực & Hành Trang (Header HUD & Inventory UI Spec)
 
 ## 1. Yêu Cầu Đã Duyệt (Approved Requirements)
-* **Thanh Wallet Thường Trực**: Luôn hiển thị trên cùng (Header Bar) ở mọi màn hình:
-  * **Vàng (Gold)**: Biểu tượng thỏi vàng / đồng xu vàng.
-  * **Kim Nguyên Bảo (KNB / Ingot)**: Biểu tượng đĩnh bạc/vàng quý.
-  * **Quân Lệnh (Command Energy)**: Biểu tượng Lệnh Bài, hiển thị `Hiện tại / Giới hạn` (ví dụ: `45 / 60` hoặc `75 / 60` khi Overflow).
+* **Thanh Header HUD Thường Trực**: Luôn hiển thị trên cùng (Header Bar) ở mọi màn hình, thể hiện 2 loại Tiền tệ (Vàng, KNB) cùng Tài nguyên Thể lực (Quân Lệnh):
+  * **Vàng (Gold — Currency)**: Biểu tượng thỏi vàng / đồng xu vàng.
+  * **Kim Nguyên Bảo (KNB / Ingot — Currency)**: Biểu tượng đĩnh bạc/vàng quý.
+  * **Quân Lệnh (Command Energy — Energy Resource)**: Biểu tượng Lệnh Bài, hiển thị `Hiện tại / Giới hạn` (ví dụ: `45 / 60` hoặc `75 / 60` khi Overflow).
 * **Khu vực Dưới Trận (Bottom Player HUD Area)**:
   * Phân chia thành **2 Tab chuyển đổi linh hoạt**:
     * **Tab 1: Đội Hình**: Dùng để quản lý, chọn thẻ bài Hero, đặt Hero lên bản đồ và di chuyển vị trí Hero.
@@ -13,7 +13,8 @@
 ---
 
 ## 2. Dependencies (Phụ Thuộc Hệ Thống — Codex xác nhận)
-* **Trạng Thái Ví (Wallet State — Codex xác nhận)**: Cung cấp snapshot số dư Vàng, KNB, Quân Lệnh.
+* **Trạng Thái Ví (Wallet State — Codex xác nhận)**: Cung cấp snapshot số dư 2 loại tiền tệ (Vàng, KNB).
+* **Trạng Thái Quân Lệnh (Command Energy State — Codex xác nhận)**: Cung cấp snapshot trạng thái thể lực Quân Lệnh (current, max, regen timer, overflow).
 * **Kho Đồ (Inventory Management — Codex xác nhận)**: Cung cấp danh sách item (Vũ khí, Ngọc, Vật phẩm tiêu hao) kèm số lượng `count`.
 * **Module Quản Lý Triển Khai (Placement Management — Codex xác nhận)**: Nhận lệnh đặt/di chuyển Hero từ Tab Đội Hình.
 * **Module Tiến Trình Tướng & Trang Bị (Hero Progression & Equipment — Codex xác nhận)**: Tương tác trang bị Vũ Khí/Ngọc từ Tab Hành Trang sang Hero.
@@ -41,15 +42,21 @@
 *(Mô tả định hướng cấu trúc dữ liệu — Codex xác nhận và quyết định schema runtime chính thức)*
 
 ```ts
-export type WalletSnapshot = {
+export type PlayerWalletSnapshot = {
   gold: number;
   knb: number;
-  commandEnergy: {
-    current: number;
-    max: number;
-    isOverflow: boolean;
-    secondsToNextRegen: number; // 0 nếu current >= max
-  };
+};
+
+export type CommandEnergySnapshot = {
+  current: number;
+  max: number;
+  isOverflow: boolean;
+  secondsToNextRegen: number; // 0 nếu current >= max
+};
+
+export type HeaderHUDSnapshot = {
+  wallet: PlayerWalletSnapshot;
+  commandEnergy: CommandEnergySnapshot;
 };
 
 export type InventoryItemType = 'weapon' | 'gem' | 'consumable' | 'special';
@@ -78,7 +85,7 @@ export type InventoryItemSlot = {
 
 ## 5. Wireframes Dạng Văn Bản (Text-Based Wireframes)
 
-### 5.1. Wireframe Thanh Wallet (Header Bar)
+### 5.1. Wireframe Thanh Header HUD (Header Bar)
 ```text
 +---------------------------------------------------------------------------------------------------+
 |  [AVATAR] Chủ Công Lv.12  |  [💰 Vàng] 45,200  |  [💎 KNB] 1,250  |  [📜 Quân Lệnh] 58/60 (01:15)  |

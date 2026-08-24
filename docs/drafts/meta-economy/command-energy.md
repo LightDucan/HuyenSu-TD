@@ -1,7 +1,7 @@
-# Cơ Chế Quân Lệnh (Command Energy Mechanics)
+# Cơ Chế Tài Nguyên Quân Lệnh (Command Energy Resource Mechanics)
 
 ## 1. Yêu Cầu Đã Khóa (Locked Rules)
-Hệ thống Quân Lệnh (Thể lực chỉ huy) tuân thủ chặt chẽ các quy tắc đã được chốt:
+Hệ thống Quân Lệnh (Tài nguyên Thể lực / Energy Resource) tuân thủ chặt chẽ các quy tắc đã được chốt:
 1. **Mức Giới hạn cơ bản (Base Max Energy - LOCKED)**: **60 Quân Lệnh** là mức trần thể lực cơ bản ban đầu của tài khoản.
 2. **Chi phí khởi động Wave**: Tốn chính xác **1 Quân Lệnh** để bắt đầu mỗi Wave chiến đấu.
 3. **Tốc độ hồi phục tự nhiên**:
@@ -22,12 +22,12 @@ Hệ thống Quân Lệnh (Thể lực chỉ huy) tuân thủ chặt chẽ các 
 ## 2. Dependencies (Phụ Thuộc Hệ Thống — Codex xác nhận)
 * **Module Đồng Hồ Thời Gian Thực (Real-time Clock Service — Codex xác nhận)**: Theo dõi `lastTimestamp` để tính toán thời gian hồi phục khi đang mở game hoặc khi mở lại game (Offline recovery calculation).
 * **Module Quản Lý Wave (Wave Manager — Codex xác nhận)**: Trước khi kích hoạt `startWave()`, kiểm tra điều kiện trừ 1 Quân Lệnh.
-* **Bộ Điều Khiển Auto Wave (Auto Wave Controller — Codex xác nhận)**: Giao tiếp với Wallet State để xác định có tiếp tục kích hoạt đợt quái tiếp theo hay không.
+* **Bộ Điều Khiển Auto Wave (Auto Wave Controller — Codex xác nhận)**: Giao tiếp với Command Energy State để xác định có tiếp tục kích hoạt đợt quái tiếp theo hay không.
 
 ---
 
 ## 3. UI Flow (Luồng Giao Diện Người Dùng)
-1. **Trạng thái trên Thanh Wallet**:
+1. **Trạng thái trên Thanh Header HUD**:
    * Khi `current < max`: Hiển thị `58 / 60 (01:45)` kèm thanh tiến độ tròn hoặc thanh ngang nhỏ bên dưới.
    * Khi `current >= max`: Hiển thị `60 / 60 (Đầy)` hoặc `75 / 60 (Ngừng hồi)` với màu vàng cam nổi bật.
 2. **Nút Bắt Đầu Wave / Auto Wave**:

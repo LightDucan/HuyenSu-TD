@@ -105,7 +105,7 @@ export type InventoryItemSlot = {
 | [TAB: ĐỘI HÌNH] | [TAB: HÀNH TRANG (Active)]   | Bộ lọc: [Tất Cả] [Vũ Khí] [Ngọc] [Tiêu Hao] (14/50) |
 +---------------------------------------------------------------------------------------------------+
 | [Thanh Long Đao] | [Huyết Ngọc] | [Bạch Ngọc]  | [Tiểu Binh Phù] | [Trung Binh Phù] | [Lệnh Hiệu Triệu] |
-| Lv.1 (ATK+15)    | Lv.2 (ATK+25)| Lv.1 (ASPD+5)| x12             | x4               | x1                |
+| Lv.1 (ATK+15)    | Lv.2 (ATK+25)| Lv.1 (ASPD+0.05)| x12          | x4               | x1                |
 | [Ghép (2/3)]     | [Đang đeo]   | [Trang Bị]   | [Dùng]          | [Dùng]           | [Dùng]            |
 +---------------------------------------------------------------------------------------------------+
 ```

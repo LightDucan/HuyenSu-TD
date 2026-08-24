@@ -11,9 +11,17 @@
 | **5. Equipment** | Bảng chỉ số Flat Bonus chuẩn (Lv1 – Lv10) | • Lv.1: ATK+15, Range+10, ASPD+0.05<br>• Lv.2: ATK+28, Range+18, ASPD+0.09<br>• ... Lv.10: ATK+200, Range+120, ASPD+0.60 | **Chờ Game Design & Codex chốt** (Tuyệt đối không dùng % cho Equipment thường). |
 | **6. Equipment** | Phí Vàng khi ghép 3 $\rightarrow$ 1 | • Tuyến tính: $100 \times \text{Level}$<br>• Cố định: 300 Vàng/lần ghép<br>• Miễn phí ghép (0 Vàng) | **Chờ Game Design & Codex chốt**. |
 | **7. Deployment** | Mốc Cấp người chơi tăng thêm Slot Hero | • Cấp 15: Mở Slot 6 $\rightarrow$ Cấp 30: Mở Slot 7<br>• Mở sẵn 7 Slot từ đầu, Lệnh Hiệu Triệu mở lên 8, 9, 10 | **Chờ Game Design & Codex chốt**. |
-| **8. Lệnh Hiệu Triệu** | Mức trần tối đa sử dụng cho 1 tài khoản | • Tối đa 3 cái (tăng từ 7 lên 10 Hero)<br>• Tối đa 5 cái (tăng từ 7 lên 12 Hero) | **Chờ Game Design & Codex chốt** (Phải $\le$ tổng số ô đặt của Map). |
-| **9. Quân Lệnh** | Mức trần Overflow tối đa | • Tối đa 999 Quân Lệnh<br>• Tối đa 9,999 Quân Lệnh<br>• Không giới hạn trần | **Chờ Game Design & Codex chốt**. |
-| **10. Hành Trang** | Dung lượng ô chứa tối đa (Inventory Slots) | • 50 ô (có thể mở rộng bằng Vàng/KNB)<br>• 100 ô cố định<br>• Không giới hạn số ô chứa | **Chờ Game Design & Codex chốt**. |
+| **8. Deployment** | Số lượng ô Placement Tiles chuẩn trên Map | • 8 ô<br>• 10 ô<br>• 12 ô | **Chờ Game Design & Codex chốt**. |
+| **9. Lệnh Hiệu Triệu** | Mức trần tối đa sử dụng cho 1 tài khoản | • Tối đa 3 cái (tăng từ 7 lên 10 Hero)<br>• Tối đa 5 cái (tăng từ 7 lên 12 Hero) | **Chờ Game Design & Codex chốt** (Phải $\le$ tổng số ô đặt của Map). |
+| **10. Lệnh Hiệu Triệu** | Nguồn phân phối Lệnh Hiệu Triệu | • Quà cốt truyện mốc Chapter 1/2/3<br>• Tiệm KNB giới hạn 1 cái/tháng | **Chờ Game Design & Codex chốt**. |
+| **11. Quân Lệnh** | Mức Giới hạn cơ bản (Base Max Energy) | • 20 Quân Lệnh<br>• 30 Quân Lệnh | **Chờ Game Design & Codex chốt**. |
+| **12. Quân Lệnh** | Tăng Max Energy theo Cấp người chơi | • +1 Max Energy mỗi cấp<br>• +5 Max Energy mỗi 10 cấp<br>• Cố định không tăng theo cấp | **Chờ Game Design & Codex chốt**. |
+| **13. Quân Lệnh** | Mức trần Overflow tối đa | • Tối đa 999 Quân Lệnh<br>• Tối đa 9,999 Quân Lệnh<br>• Không giới hạn trần | **Chờ Game Design & Codex chốt**. |
+| **14. Binh Phù** | Nguồn thu Binh Phù ngoài Gacha Gold | • Tiệm Tạp Hóa (mua bằng Vàng/KNB)<br>• Phần thưởng nhiệm vụ ngày/tuần<br>• Chỉ duy nhất qua Gacha Gold | **Chờ Game Design & Codex chốt**. |
+| **15. Tiền Tệ** | Giới hạn số dư Vàng tối đa (Gold Cap) | • 99,999,999 Vàng<br>• Không giới hạn số dư | **Chờ Game Design & Codex chốt**. |
+| **16. Tiền Tệ** | Nguồn thu nhàn rỗi (Offline Idle Rewards) | • Doanh trại tự sản sinh Vàng theo giờ<br>• Không có doanh trại nhàn rỗi (thuần chơi tay) | **Chờ Game Design & Codex chốt**. |
+| **17. Hành Trang** | Dung lượng ô chứa tối đa (Inventory Slots) | • 50 ô (có thể mở rộng bằng Vàng/KNB)<br>• 100 ô cố định<br>• Không giới hạn số ô chứa | **Chờ Game Design & Codex chốt**. |
+| **18. Hành Trang** | Quy tắc xếp chồng vật phẩm (Stacking) | • Tiêu hao (Binh Phù) stack 999, Trang bị độc lập mỗi ô<br>• Cho phép trang bị cùng ID/Lv gộp ô | **Chờ Game Design & Codex chốt**. |
 
 ---
 

@@ -89,4 +89,4 @@ export type SummoningDecreeUseResult = {
 
 ## 7. Quyết Định Còn Mở (Open Decisions)
 1. **Nguồn phân phối Lệnh Hiệu Triệu**: Được tặng qua mốc cốt truyện hoàn thành Chapter 1/2/3, hay bán trong tiệm KNB giới hạn 1 cái/tháng?
-2. **Hiệu ứng đồ họa**: Có thêm hoạt cảnh triệu hồi đặc biệt khi mở rộng slot hay dùng popup tiêu chuẩn?
+2. **Hiệu ứng đồ họa**: Có thêm hoạt cảnh hiệu triệu đặc biệt khi mở rộng slot hay dùng popup tiêu chuẩn?

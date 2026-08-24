@@ -26,7 +26,7 @@ Hệ thống Kinh Tế Meta quy chuẩn 3 loại tiền tệ chính, luôn hiể
    * Thanh Wallet trên cùng luôn cập nhật ngay khi có biến động tài chính.
    * Hiệu ứng chữ số nhảy mượt mà (Floating Numbers VFX: `+500 💰` hoặc `-1,000 💰`).
 2. **Kiểm tra và cảnh báo giao dịch**:
-   * Khi người chơi thực hiện thao tác tốn phí (ví dụ: Quay 10 lần Gacha = 9,000 Vàng):
+   * Khi người chơi thực hiện thao tác tốn phí (ví dụ: Quay 10 lần Gacha tốn lượng Vàng theo cấu hình):
      * *Đủ tiền*: Nút bấm sáng rõ $\rightarrow$ Trừ tiền $\rightarrow$ Thực hiện hành động.
      * *Thiếu tiền*: Số tiền hiển thị màu đỏ nhấp nháy $\rightarrow$ Khi bấm vào hiện Toast thông báo: *"Không đủ Vàng để thực hiện thao tác!"*.
 

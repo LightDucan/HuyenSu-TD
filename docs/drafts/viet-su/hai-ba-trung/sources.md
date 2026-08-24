@@ -30,20 +30,20 @@
 
 | Đối tượng / Yếu tố | Mức độ tin cậy lịch sử | Nhận định học thuật & Căn cứ |
 |---|---|---|
-| **Cuộc khởi nghĩa Hai Bà Trưng (40 SCN)** | **Sự thật lịch sử xác thực 100%** | Đồng thuận tuyệt đối giữa chính sử Việt Nam (*Toàn Thư*, *Cương Mục*) và sử liệu Trung Quốc (*Hậu Hán Thư*). |
-| **Trưng Trắc & Trưng Nhị** | **Nhân vật lịch sử xác thực** | Lãnh đạo tối cao cuộc khởi nghĩa; Trưng Trắc xưng vương định đô Mê Linh. |
-| **Chiến dịch Lãng Bạc – Cẩm Khê (42–43 SCN)** | **Sự thật lịch sử xác thực** | Trận địa kháng chiến chống quân Mã Viện được cả hai phía sử sách ghi nhận. |
-| **Phục Ba Tướng quân Mã Viện** | **Nhân vật lịch sử xác thực** | Danh tướng Đông Hán chỉ huy đạo quân xâm lược. |
-| **Nữ tướng Lê Chân** | **Có truyền thống lịch sử & di tích xác thực; tiểu sử dựa trên thần phả/dân gian** | Có công khai phá trang An Biên (Hải Phòng), tham gia khởi nghĩa; các trận đánh cụ thể ghi chép đậm nét trong thần phả Đền Nghè. |
-| **Thi Sách** | **Nhân vật lịch sử xác thực** | Có ghi nhận trong *Hậu Hán Thư* và *Toàn Thư* là con Lạc tướng Chu Diên, chồng Trưng Trắc; nguyên nhân bị giết có dị bản giữa các nguồn. |
+| **Cuộc khởi nghĩa Hai Bà Trưng (40 SCN)** | **Được nhiều nguồn sử liệu ghi nhận rõ** | Được nhiều nguồn sử liệu ghi nhận rõ từ cả chính sử Việt Nam (*Toàn Thư*, *Cương Mục*) và sử liệu cổ đại phương Bắc (*Hậu Hán Thư*). |
+| **Trưng Trắc & Trưng Nhị** | **Được nhiều nguồn sử liệu ghi nhận rõ** | Lãnh đạo tối cao cuộc khởi nghĩa; Trưng Trắc xưng vương định đô Mê Linh. |
+| **Chiến dịch Lãng Bạc – Cẩm Khê (42–43 SCN)** | **Được nhiều nguồn sử liệu ghi nhận rõ** | Trận địa kháng chiến chống quân Mã Viện được cả hai phía sử sách ghi nhận. |
+| **Phục Ba Tướng quân Mã Viện** | **Được nhiều nguồn sử liệu ghi nhận rõ** | Danh tướng Đông Hán chỉ huy đạo quân xâm lược. |
+| **Nữ tướng Lê Chân** | **Có truyền thống lịch sử & di tích địa phương ghi nhận; nhiều chi tiết tiểu sử chủ yếu dựa trên thần tích/ngọc phả/truyền thuyết địa phương.** | Có công khai phá trang An Biên (Hải Phòng), tham gia khởi nghĩa; các trận đánh cụ thể ghi chép đậm nét trong thần phả Đền Nghè. |
+| **Thi Sách** | **Được nhiều nguồn sử liệu ghi nhận rõ** | Có ghi nhận trong *Hậu Hán Thư* và *Toàn Thư* là con Lạc tướng Chu Diên, chồng Trưng Trắc; nguyên nhân bị giết có dị bản giữa các nguồn. |
 | **Nữ tướng Bát Nàn, Thánh Thiên** | **Chủ yếu dựa trên thần tích & tín ngưỡng dân gian** | Không xuất hiện trong chính sử thời Hán; được lưu giữ bền vững qua hệ thống đền thờ, thần phả và ngọc phả địa phương. |
 
 ---
 
 ## 3. Các Điểm Chưa Chắc Chắn & Dị Bản Lịch Sử Cần Lưu Ý
 
-1. **Vị trí chính xác của Lãng Bạc & Cẩm Khê**:
-   * *Lãng Bạc*: Một số nhà nghiên cứu xác định là vùng đầm lầy phía Tây Hồ (Hà Nội), một số ý kiến khác cho rằng ở vùng Tiên Sơn/Tiên Du (Bắc Ninh). Trong game, định hình theo concept đầm lầy ngập nước hiểm trở đặc trưng châu thổ sông Hồng.
+1. **Vị trí và địa hình chi tiết của Lãng Bạc & Cẩm Khê**:
+   * *Lãng Bạc*: Một số nhà nghiên cứu xác định là vùng đầm lầy phía Tây Hồ (Hà Nội), một số ý kiến khác cho rằng ở vùng Tiên Sơn/Tiên Du (Bắc Ninh). Do vị trí và địa hình chi tiết còn có nhiều cách xác định khác nhau trong giới nghiên cứu, việc thiết kế **Map đầm lầy Lãng Bạc** là **diễn giải mỹ thuật của game** nhằm tái hiện trực quan không gian chiến trường sông nước - đầm lầy hiểm trở đặc trưng của vùng châu thổ sông Hồng thời cổ đại.
    * *Cẩm Khê*: Sử cũ có thuyết cho là vùng Ba Vì (Hà Tây cũ), có thuyết cho là vùng Yên Lạc (Vĩnh Phúc).
 2. **Trang bị vũ khí thực tế giữa hai bên**:
    * Nghĩa quân Lạc Việt sử dụng vũ khí đồng Đông Sơn (gươm, giáo, nỏ đồng, dao găm) kết hợp voi chiến và thuyền mảng bản địa.

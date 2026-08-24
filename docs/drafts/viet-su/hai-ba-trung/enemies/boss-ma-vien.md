@@ -22,7 +22,7 @@
   * Tay phải cầm bảo kiếm lệnh cán khảm ngọc hoặc trường thương thống lĩnh.
 * **Mô tả Animation Front View**:
   * *Tư thế di chuyển*: Bước đi oai vệ, đĩnh đạc, áp đảo của một viên đại tướng già dạn dày bách chiến trên baseline Y=112; áo choàng bay nhẹ theo từng bước tiến; toát ra khí thế áp bức của đạo quân viễn chinh.
-  * *Tư thế ngã gục*: Bảo kiếm cắm xuống đất, ngã gục xuống bùn lầy Lãng Bạc khi cạn kiệt sinh lực.
+  * *Tư thế khi hết HP (Thất trận)*: Thất thế trước hỏa lực phòng thủ kiên cường của nghĩa quân, Mã Viện bị đánh lui, cắm bảo kiếm xuống đất chống đỡ, quỳ gối rồi lui khỏi chiến tuyến (không mô tả tử trận tại Lãng Bạc).
 
 ---
 
@@ -32,6 +32,7 @@
   * Là đối thủ quân sự lớn nhất của Hai Bà Trưng trong cuộc kháng chiến Lãng Bạc – Cẩm Khê.
 * **Phần sáng tạo game**:
   * Thiết kế thành Boss cuối cùng của Chương I theo đúng quy chuẩn kiến trúc hiện tại: **Chỉ di chuyển fixed path, không tấn công Hero, không có skill riêng hay Boss AI phức tạp**. Thử thách của Boss tập trung ở lượng sinh lực khổng lồ và áp lực thời gian/khoảng cách tiến đến cổng thành.
+  * Tôn trọng lịch sử: Khi hết sinh lực trong màn chơi, Boss chỉ bị đánh lui và rút quân khỏi trận địa phòng thủ này, không khẳng định thay đổi kết quả lịch sử chung.
 
 ---
 

@@ -19,20 +19,21 @@ Hai Bà Trưng cùng các nữ tướng (Trưng Nhị, Lê Chân, Thánh Thiên,
 * **Phần lịch sử chắc chắn**:
   * Mã Viện làm Phục Ba Tướng quân đem quân thủy bộ tiến đánh đất Giao Chỉ năm 42 SCN.
   * Hai Bà Trưng cùng các tướng lĩnh trực tiếp chỉ huy nghĩa quân kháng cự quyết liệt tại Lãng Bạc và Cẩm Khê.
-  * Địa hình đầm lầy Lãng Bạc gây nhiều khó khăn, lam chướng dịch bệnh cho quân phương Bắc (*"Dưới nước thì lụt lội, trên trời thì mây mù bốc lên..."* — *Hậu Hán Thư*).
-* **Phần sáng tạo game**:
+  * Quân Hán gặp nhiều khó khăn vì khí hậu lam chướng và sức cản phá của nghĩa quân (*"Dưới nước thì lụt lội, trên trời thì mây mù bốc lên..."* — *Hậu Hán Thư*).
+* **Phần sáng tạo game & Diễn giải mỹ thuật**:
   * Thiết kế chuỗi 10 Wave chiến thuật cố định theo mô hình Tower Defense để người chơi sử dụng đội hình 5 Hero (Trưng Trắc, Trưng Nhị, Lê Chân...) dàn trận cản phá các đợt tiến quân của giặc.
-  * Định hình cấu trúc Boss Mã Viện đi theo tuyến đường cố định và có lượng máu cao nhằm thử thách hỏa lực phối hợp của Hero.
+  * **Diễn giải mỹ thuật Map đầm lầy**: Bối cảnh đầm lầy Lãng Bạc là diễn giải mỹ thuật của game nhằm tái hiện không gian trận địa sông nước - đầm lầy đặc trưng cổ xưa, vì vị trí địa lý chính xác và địa hình chi tiết của Lãng Bạc trong sử liệu cổ vẫn còn nhiều giả thuyết khác nhau.
+  * **Boss Mã Viện**: Định hình Boss đi fixed path với lượng HP lớn. Khi bị tiêu diệt (hết HP), Boss bị đánh lui, chống kiếm rút lui khỏi chiến tuyến chứ không tử trận tại màn chơi, đảm bảo sự tôn trọng tiến trình lịch sử.
 
 ---
 
 ## 3. Diễn Biến Cốt Truyện (Narrative Flow)
 
 * **Đoạn mở đầu (Opening Narrative)**:
-  > *"Mùa xuân năm Nhâm Dần (42 SCN), vua Hán phong Mã Viện làm Phục Ba Tướng quân, điều động đại binh nam hạ hòng tái lập ách đô hộ. Giặc tràn qua ải biên ải, khói lửa ngút trời hướng về Mê Linh. Trưng Nữ Vương cùng muôn dân Lạc Việt quyết dấy binh gìn giữ non sông, bày trận tại phòng tuyến Lãng Bạc đầm lầy hiểm trở!"*
+  > *"Mùa xuân năm Nhâm Dần (42 SCN), vua Hán phong Mã Viện làm Phục Ba Tướng quân, điều động đại binh nam hạ hòng tái lập ách đô hộ. Giặc tràn qua biên ải, khói lửa ngút trời hướng về Mê Linh. Trưng Nữ Vương cùng muôn dân Lạc Việt quyết dấy binh gìn giữ non sông, bày trận tại phòng tuyến Lãng Bạc hiểm trở!"*
 
-* **Đoạn kết chiến thắng (Victory Narrative)**:
-  > *"Trống đồng vang dậy non sông! Trước ý chí kiên cường và trận địa phòng thủ bất khả xâm phạm của nghĩa quân Lạc Việt, đại quân tinh nhuệ của giặc tan vỡ, soái kỳ Mã Viện ngã gục trên đầm lầy Lãng Bạc. Đất nước giữ vững bờ cõi tự do, rạng danh khí phách Trưng Vương!"*
+* **Đoạn kết chiến thắng chiến thuật (Tactical Victory Narrative)**:
+  > *"Trống đồng vang dội trận địa! Dưới sự chỉ huy kiên cường của Hai Bà Trưng và các tướng lĩnh, nghĩa quân Lạc Việt đã đẩy lùi đợt tiến công tổng lực của giặc, giữ vững phòng tuyến Doanh Lũy Mê Linh trong trận đánh này. Tướng giặc Mã Viện thất thế buộc phải thu quân rút khỏi chiến tuyến. Đây là thắng lợi chiến thuật quan trọng của trận địa phòng thủ; cuộc kháng chiến bảo vệ non sông vẫn tiếp diễn đầy cam go và bất khuất!"*
 
 * **Đoạn kết thất bại (Defeat Narrative)**:
   > *"Phòng tuyến bị xuyên thủng, thành lũy Mê Linh chìm trong biển lửa. Tuy nhiên, tinh thần bất khuất của Hai Bà Trưng và các nữ tướng Lạc Việt đời đời bất diệt, thề cùng non sông phục thù!"*
@@ -41,7 +42,7 @@ Hai Bà Trưng cùng các nữ tướng (Trưng Nhị, Lê Chân, Thánh Thiên,
 
 ## 4. Map Theme & Thiết Kế Chiến Trường (Battle Scene Concept)
 
-* **Tên Map**: **Đầm Lầy Lãng Bạc** (`map-lang-bac-marsh`)
+* **Tên Map**: **Đầm Lầy Lãng Bạc** (`map-lang-bac-marsh`) *(Diễn giải mỹ thuật của game về chiến trường cổ)*
 * **Tone màu chủ đạo**: Xanh rêu đầm lầy, nâu đất đỏ phù sa, màu cỏ sậy hoang sơ kết hợp hoa văn cọc gỗ và chòi canh Lạc Việt.
 * **Mô tả bố cục (Layout Narrative)**:
   * **Điểm xuất phát địch (Entrance)**: Phía Đông Bắc bản đồ — lối mòn từ bờ sông/rừng rậm nơi thuyền chiến và bộ binh Hán đổ bộ.

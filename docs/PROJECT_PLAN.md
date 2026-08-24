@@ -7,16 +7,16 @@ Tạo vertical slice Tower Defense Tam Quốc: Hero là tower mang hình tướn
 ## WorkTree
 
 - Repository: `HuyenSu-TD`
-- Branch hiện tại: `codex/meta-c00-architecture-plan`
+- Branch hiện tại: `codex/p10-c01-meta-foundation`
 - Worktree Codex hiện tại: `C:\Users\PC\Documents\Codex\2026-08-23\referenced-chatgpt-conversation-this-is-an\HuyenSu-TD\work\main-integration`
 - Quy tắc worker Antigravity: [ANTIGRAVITY_RULES.md](ANTIGRAVITY_RULES.md)
 
 ## Trạng thái hiện tại
 
-- Current Phase: **META Architecture Gate — trước Phase 10**
-- Current Codex task: **META-C00 — Meta Game Architecture & Roadmap Contract — DONE, chờ Audit**.
+- Current Phase: **10 — Meta Foundation**
+- Current Codex task: **P10-C01 — Meta Foundation — DONE, chờ Audit**.
 - Current Antigravity task: **META-A00 CONSISTENCY FIX**.
-- Lần kiểm tra gần nhất: META-C00 khóa schema/ownership và roadmap Meta Game; không thay source, dependency hay save runtime hiện tại.
+- Lần kiểm tra gần nhất: P10-C01 tạo Profile/Wallet/Inventory/Energy/Deployment boundaries và Meta V1 repository; 51/51 tests, build, preview và migration-safety audit đạt.
 
 ## Phases và checkpoint
 
@@ -43,7 +43,7 @@ Tạo vertical slice Tower Defense Tam Quốc: Hero là tower mang hình tướn
 
 | Phase | Task ID | Nội dung | Trạng thái | Dependency | Worker chính | Audit checkpoint | Commit checkpoint | Rủi ro chính |
 |---|---|---|---|---|---|---|---|---|
-| 10 — Meta Foundation | P10 | Profile, Meta repository boundary, wallet/inventory/energy/capacity contracts tối thiểu | TODO | Phase 9 + META-C00 | Codex | Schema validation, ownership, local-save isolation, no Core regression | `meta/foundation-v1` | Nhiều nguồn truth và save không nhất quán |
+| 10 — Meta Foundation | P10 | Profile, Meta repository boundary, wallet/inventory/energy/capacity contracts tối thiểu | DONE — chờ Audit | Phase 9 + META-C00 | Codex | Schema validation, ownership, local-save isolation, no Core regression — PASS | `codex/p10-c01-meta-foundation` | Nhiều nguồn truth và save không nhất quán |
 | 11 — Reward Economy | P11 | Reward transaction, Wallet grant/spend và Inventory grant | TODO | Phase 10 | Codex | Atomic grant/spend, idempotency, no negative/duplicate balance | `meta/reward-economy-v1` | Inflation hoặc duplicate reward |
 | 12 — Quân Lệnh & Auto Wave | P12 | Real-time regen, overflow, Wave cost và Auto Wave gate | TODO | Phase 10–11 + OD-01 | Codex | Base cap 60, 2 phút/điểm, overflow, hidden time, x1/x3 independence, auto/manual parity | `meta/command-energy-v1` | Clock exploit, double spend hoặc auto-loop |
 | 13 — Deployment Capacity & Lệnh Hiệu Triệu | P13 | Capacity calculator, permanent entitlement và placement gate | TODO | Phase 10–11 + OD-02/OD-08 | Codex | Base 7, mỗi Lệnh Hiệu Triệu +1, effective cap ≤ map slots, reposition free | `meta/deployment-capacity-v1` | Meta/Battle placement desync |

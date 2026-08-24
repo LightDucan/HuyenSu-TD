@@ -6,8 +6,9 @@ META-C00 không thay save đang chạy:
 
 - Progression V1: `huyen-su-td/progression-v1`
 - Equipment V1: `huyen-su-td/equipment-v1`
+- Meta V1 foundation: `huyen-su-td/meta-v1` (P10-C01; versioned envelope, chưa chạy migration)
 
-Các key/schema Meta hoặc Equipment V2 chỉ được tạo trong phase implementation tương ứng sau khi tên key được audit.
+Equipment V2 key/schema chỉ được tạo trong phase implementation tương ứng sau khi tên key được audit. Meta V1 loader không tự chuyển đổi hoặc overwrite save version khác.
 
 ## Envelope mục tiêu khái niệm
 

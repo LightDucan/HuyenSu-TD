@@ -53,21 +53,21 @@ Hệ thống phân phối và lưu trữ vật phẩm **Chiêu Hiền Lệnh** t
 |       [📜 ICON CHIÊU HIỀN LỆNH]                                                                   |
 |       Tên vật phẩm: Chiêu Hiền Lệnh                                                               |
 |       Công dụng: Dùng để chiêu mộ Danh Tướng tại Chiêu Hiền Các                                   |
-|       Số lượng đang sở hữu: 2 cái                                                                 |
+|       Số lượng đang sở hữu: [Current] cái                                                         |
 |                                                                                                   |
 |  -----------------------------------------------------------------------------------------------  |
 |                                                                                                   |
 |   DANH SÁCH NGUỒN NHẬN KHẢ DỤNG:                                                                  |
 |                                                                                                   |
 |   1. ẢI CHIẾN DỊCH CHƯA VƯỢT (First Clear)                                                        |
-|      • Ải 1-8: Cửa Rừng Hát Môn  | Phần thưởng: +1 Chiêu Hiền Lệnh    ==>  [ ĐẾN ẢI NÀY ]         |
-|      • Ải 1-10: Căn Cứ Mê Linh   | Phần thưởng: +2 Chiêu Hiền Lệnh    ==>  [ ĐẾN ẢI NÀY ]         |
+|      • [Tên Ải Chiến Dịch]  | Phần thưởng: +[N] Chiêu Hiền Lệnh        ==>  [ ĐẾN ẢI NÀY ]         |
+|      • [Tên Ải Chiến Dịch]  | Phần thưởng: +[N] Chiêu Hiền Lệnh        ==>  [ ĐẾN ẢI NÀY ]         |
 |                                                                                                   |
 |   2. RƯƠNG THƯỞNG HOÀN THÀNH CHƯƠNG (Chapter Milestone)                                           |
-|      • Rương Chapter 1: Khởi Nghĩa Mê Linh (Đạt 30★)                 ==>  [ NHẬN RƯƠNG (+5 📜) ]  |
+|      • Rương [Tên Chapter] (Đạt [Current]/[Required]★)                ==>  [ NHẬN RƯƠNG (+[N] 📜) ]|
 |                                                                                                   |
 |   3. KỲ TRÂN CÁC (Đổi Bằng Kim Nguyên Bảo)                                                        |
-|      • Giá bán: [💎 KNB] 150 KNB / 1 Chiêu Hiền Lệnh                  ==>  [ MUA NHANH ]          |
+|      • Giá bán: [💎 KNB] [Mức giá KNB theo cấu hình] / 1 Chiêu Hiền Lệnh ==> [ MUA NHANH ]       |
 |                                                                                                   |
 +---------------------------------------------------------------------------------------------------+
 |                                         [ ĐÓNG LẠI ]                                              |

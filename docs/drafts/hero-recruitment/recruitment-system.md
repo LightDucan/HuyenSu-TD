@@ -37,7 +37,7 @@ Hệ thống Chiêu Mộ Danh Tướng (Chiêu Hiền Các) tuân thủ chặt c
    * Từ Main Menu $\rightarrow$ Nhấp vào biểu tượng **[Chiêu Hiền Các]** $\rightarrow$ Màn hình sảnh chiêu mộ hiển thị banner danh tướng đang xuất hiện.
 2. **Thực hiện Chiêu Mộ**:
    * Nút **[Chiêu Mộ 1 Lần]**: Tiêu hao 1 Chiêu Hiền Lệnh (hoặc KNB tương ứng nếu cho phép).
-   * Nút **[Chiêu Mộ 10 Lần]**: Tiêu hao 10 Chiêu Hiền Lệnh (ưu đãi đảm bảo phẩm chất theo cấu hình mở).
+   * Nút **[Chiêu Mộ 10 Lần]**: Tiêu hao 10 Chiêu Hiền Lệnh (thực hiện chiêu mộ hàng loạt; cơ chế pity/guarantee là tham số mở, do Game Design & Codex quyết định).
    * Khi nhấp nút:
      * *Đủ lệnh bài*: Khóa nút $\rightarrow$ Gửi request lên Core $\rightarrow$ Phát hoạt cảnh Lệnh Bài Hoàng Kim khai mở.
      * *Thiếu lệnh bài*: Mở Modal thông báo thiếu Chiêu Hiền Lệnh kèm nút dẫn tới nguồn nhận hoặc đổi bằng KNB.
@@ -53,23 +53,23 @@ Hệ thống Chiêu Mộ Danh Tướng (Chiêu Hiền Các) tuân thủ chặt c
 
 ```text
 +---------------------------------------------------------------------------------------------------+
-|  [VỀ TRANG CHỦ]      CHIÊU HIỀN CÁC - THU THẬP DANH TƯỚNG        | [📜 Chiêu Hiền Lệnh]: 12 cái   |
+|  [VỀ TRANG CHỦ]      CHIÊU HIỀN CÁC - THU THẬP DANH TƯỚNG        | [📜 Chiêu Hiền Lệnh]: [Current] |
 +---------------------------------------------------------------------------------------------------+
 |                                                                                                   |
 |     +---------------------------------------------------------------------------------------+     |
 |     |                                                                                       |     |
 |     |                      [ BANNER NGHỆ THUẬT DANH TƯỚNG ĐẠI VIỆT ]                        |     |
 |     |                                                                                       |     |
-|     |     "Hùng tâm quật khởi, triệu tập anh hùng bốn phương bảo vệ non sông Đạt Việt"      |     |
+|     |     "Hùng tâm quật khởi, triệu tập anh hùng bốn phương bảo vệ non sông Đất Việt"      |     |
 |     |                                                                                       |     |
 |     |      Danh sách xuất hiện:                                                             |     |
-|     |      • Trưng Trắc (Cung Thủ Huyền Thoại)                                              |     |
-|     |      • Trưng Nhị (Chiến Binh Trợ Chiến)                                               |     |
-|     |      • Lê Chân (Nữ Tướng Tiên Phong)                                                  |     |
+|     |      • Trưng Trắc                                                                     |     |
+|     |      • Trưng Nhị                                                                      |     |
+|     |      • Lê Chân                                                                        |     |
 |     |                                                                                       |     |
 |     +---------------------------------------------------------------------------------------+     |
 |                                                                                                   |
-|     Tiến trình bảo hiểm (Pity): Đã chiêu mộ [ 4 / 10 ] lượt (Đảm bảo Danh Tướng ở lượt 10)       |
+|     Tiến trình bảo hiểm (Pity): [Pity theo config nếu được duyệt]                                 |
 |                                                                                                   |
 |  -----------------------------------------------------------------------------------------------  |
 |                                                                                                   |
@@ -99,12 +99,11 @@ Hệ thống Chiêu Mộ Danh Tướng (Chiêu Hiền Các) tuân thủ chặt c
 |                                                                                                   |
 |                                 ✨ TƯỚNG MỚI ĐÃ MỞ KHÓA ✨                                         |
 |                                    Tên: Trưng Trắc (1★)                                           |
-|                               Phẩm chất: Danh Tướng Cốt Truyện                                    |
 |                                                                                                   |
 |             "Một xin rửa sạch nước thù, hai xin đem lại nghiệp xưa họ Hùng!"                      |
 |                                                                                                   |
-|   Chỉ số cơ bản ban đầu:                                                                          |
-|   • HP: 1,200   • ATK: 95   • Range: 180   • ASPD: 1.00 đòn/s   • Crit: 5%   • CritDmg: 150%    |
+|   Chỉ số cơ bản khởi đầu 1★:                                                                      |
+|   • [6 Core Stats (HP, ATK, Range, ASPD, Crit, CritDmg) hiển thị theo Hero Data đã duyệt]         |
 |                                                                                                   |
 +---------------------------------------------------------------------------------------------------+
 |             [ CHIÊU MỘ TIẾP ]              |              [ VÀO ĐỘI HÌNH ]                        |
@@ -129,13 +128,13 @@ Hệ thống Chiêu Mộ Danh Tướng (Chiêu Hiền Các) tuân thủ chặt c
 |                                               V                                                   |
 |                             +-----------------------------------+                                 |
 |                             |   🧩 [ICON MẢNH TRƯNG NHỊ]        |                                 |
-|                             |        NHẬN ĐƯỢC: +30 MẢNH        |                                 |
+|                             |        NHẬN ĐƯỢC: + [N MẢNH]      |                                 |
 |                             +-----------------------------------+                                 |
 |                                                                                                   |
 |                  Thông báo: Danh tướng này đã có trong Đội Hình của bạn.                          |
 |             Hệ thống tự động quy đổi thành Mảnh Danh Tướng dùng để NÂNG SAO!                     |
 |                                                                                                   |
-|             Tiến trình Mảnh Trưng Nhị hiện tại: [ 30 / 50 Mảnh ] (Cần 20 mảnh để lên 2★)          |
+|             Tiến trình Mảnh Trưng Nhị hiện tại: [Current] / [Required] Mảnh                       |
 |                                                                                                   |
 +---------------------------------------------------------------------------------------------------+
 |             [ CHIÊU MỘ TIẾP ]              |              [ XEM TƯỚNG NÂNG SAO ]                  |
@@ -162,8 +161,8 @@ export type SingleRecruitResult =
       isDuplicate: true;
       heroId: string;
       heroName: string;
-      shardItemId: string; // e.g. 'shard_hero_trung_nhi'
-      shardsConvertedCount: number; // e.g. 30 mảnh
+      shardItemId: `shard_hero_${string}`; // e.g. 'shard_hero_trung_nhi'
+      shardsConvertedCount: number; // Định mức [N Mảnh] quy đổi theo cấu hình Core
       newTotalShards: number;
     };
 
@@ -176,7 +175,7 @@ export type RecruitmentBatchResponse = {
   };
   remainingDecrees: number;
   results: SingleRecruitResult[];
-  pityCounter: number;
+  pityCounter?: number; // Tùy chọn nếu hệ thống Pity được duyệt
 };
 ```
 
@@ -185,4 +184,4 @@ export type RecruitmentBatchResponse = {
 ## 6. Rủi Ro & Ràng Buộc Kỹ Thuật (Risks & Constraints)
 
 * **Tuyệt đối không sinh kết quả ngẫu nhiên tại Client**: React component chỉ gửi `onRecruitRequest(count: 1 | 10)` và render chính xác mảng `results` do Domain Core trả về.
-* **Bảo toàn dữ liệu khi mở 10 lần liên tiếp**: Nếu trong 10 lượt quay ra 1 tướng mới và ngay sau đó lại ra tiếp tướng đó ở lượt thứ 5, Core phải xử lý lượt đầu là `Unlock Hero` và lượt sau là `Convert to Shards`.
+* **Bảo toàn dữ liệu khi mở 10 lần liên tiếp**: Nếu trong 10 lượt quay ra 1 tướng mới và ngay sau đó lại ra tiếp tướng đó ở lượt tiếp theo, Core phải xử lý lượt đầu là `Unlock Hero` và lượt sau là `Convert to Shards`.

@@ -7,16 +7,16 @@ Tạo vertical slice Tower Defense Tam Quốc: Hero là tower mang hình tướn
 ## WorkTree
 
 - Repository: `HuyenSu-TD`
-- Branch hiện tại: `main`
+- Branch hiện tại: `codex/meta-c00-architecture-plan`
 - Worktree Codex hiện tại: `C:\Users\PC\Documents\Codex\2026-08-23\referenced-chatgpt-conversation-this-is-an\HuyenSu-TD\work\main-integration`
 - Quy tắc worker Antigravity: [ANTIGRAVITY_RULES.md](ANTIGRAVITY_RULES.md)
 
 ## Trạng thái hiện tại
 
-- Current Phase: **9 — MVP Vertical Slice**
-- Current Codex task: **META-C00 — Meta Game Architecture & Roadmap Contract**.
+- Current Phase: **META Architecture Gate — trước Phase 10**
+- Current Codex task: **META-C00 — Meta Game Architecture & Roadmap Contract — DONE, chờ Audit**.
 - Current Antigravity task: **VS-HBT-02 FINAL FIX**.
-- Lần kiểm tra gần nhất: P9-C03 đã merge vào `main` — source commit `16f33f0`, merge commit `680854e`; 43/43 tests, production build, preview HTTP 200 và `git diff --check` đạt.
+- Lần kiểm tra gần nhất: META-C00 khóa schema/ownership và roadmap Meta Game; không thay source, dependency hay save runtime hiện tại.
 
 ## Phases và checkpoint
 
@@ -32,6 +32,25 @@ Tạo vertical slice Tower Defense Tam Quốc: Hero là tower mang hình tướn
 | 7 | P7 | Hero UI | DONE | Antigravity + Codex | UI Audit | `ui/hero-v1` |
 | 8 | P8 | Battle HUD kết nối dữ liệu thật | DONE | Antigravity + Codex | HUD Audit | `ui/battle-v1` |
 | 9 | P9 | Vertical slice: 5 Hero, 3 Enemy, 10 Wave, 5–8 Skill, local save, x1/x3, Win/Lose | DONE | Codex + Antigravity content | Full Audit #5 — PASS | `v0.1.0-playable` |
+
+## Meta Game architecture checkpoint
+
+| Task ID | Nội dung | Trạng thái | Worker chính | Audit checkpoint | Commit checkpoint |
+|---|---|---|---|---|---|
+| META-C00 | Architecture, schema và roadmap contract cho Meta Game | DONE — chờ Audit | Codex | Docs-only boundary, locked/open decisions, Phase 10–17 dependency audit | `codex/meta-c00-architecture-plan` |
+
+## Roadmap Phase 10–17
+
+| Phase | Task ID | Nội dung | Trạng thái | Dependency | Worker chính | Audit checkpoint | Commit checkpoint | Rủi ro chính |
+|---|---|---|---|---|---|---|---|---|
+| 10 — Meta Foundation | P10 | Profile, Meta repository boundary, wallet/inventory/energy/capacity contracts tối thiểu | TODO | Phase 9 + META-C00 | Codex | Schema validation, ownership, local-save isolation, no Core regression | `meta/foundation-v1` | Nhiều nguồn truth và save không nhất quán |
+| 11 — Reward Economy | P11 | Reward transaction, Wallet grant/spend và Inventory grant | TODO | Phase 10 | Codex | Atomic grant/spend, idempotency, no negative/duplicate balance | `meta/reward-economy-v1` | Inflation hoặc duplicate reward |
+| 12 — Quân Lệnh & Auto Wave | P12 | Real-time regen, overflow, Wave cost và Auto Wave gate | TODO | Phase 10–11 + OD-01 | Codex | 2 phút/điểm, cap/overflow, hidden time, x1/x3 independence, auto/manual parity | `meta/command-energy-v1` | Clock exploit, double spend hoặc auto-loop |
+| 13 — Deployment Capacity & Lệnh Hiệu Triệu | P13 | Capacity calculator, permanent entitlement và placement gate | TODO | Phase 10–11 + OD-02/OD-08 | Codex | Effective cap ≤ map slots, reposition free, collision/recall giữ đúng | `meta/deployment-capacity-v1` | Meta/Battle placement desync |
+| 14 — Inventory & Equipment V2 | P14 | Equipment instances, Level 1–10, merge 3 và migration V1 | TODO | Phase 10–11 + save contract + OD-06 | Codex + Antigravity UI | Migration/rollback, merge atomicity, signature weapon policy, shared stats | `meta/equipment-v2` | Mất/nhân đôi item khi migration |
+| 15 — Gacha Gold | P15 | Gold pull transaction và reward pool đã khóa | TODO | Phase 11 + Phase 14 + OD-05/OD-07 | Codex + Antigravity data/UI | Weighted pool, Gold spend, inventory grant, low-rate Binh Phù, simulation | `meta/gacha-gold-v1` | Rate sai, inflation và duplicate grant |
+| 16 — Kim Nguyên Bảo Shop & Cooldown | P16 | Premium earning/shop, Lệnh Hiệu Triệu, item đặc thù và cooldown shortening | TODO | Phase 11–15 + OD-04/OD-08 | Codex + Antigravity UI | Earn/spend audit, offline-time policy, cooldown flag compatibility | `meta/kim-nguyen-bao-shop-v1` | Premium economy hoặc timer bị khai thác |
+| 17 — Economy Simulation & Balance | P17 | Simulation toàn nền kinh tế và khóa balance table | TODO | Phase 11–16 + toàn bộ open decisions liên quan | Codex | Deterministic simulations, sink/source curves, regression thresholds | `meta/economy-balance-v1` | Balance assumptions không phản ánh gameplay thật |
 
 ## Phase 9 task tracker
 

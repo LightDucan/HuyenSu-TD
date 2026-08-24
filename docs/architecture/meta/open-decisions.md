@@ -4,14 +4,14 @@ Các mục dưới đây chưa được phép hard-code. Mỗi mục phải có 
 
 | ID | Quyết định còn mở | Cần khóa trước |
 |---|---|---|
-| OD-01 | Công thức cap Quân Lệnh theo Player Level; ví dụ Lv1=60 và Lv20=80 hiện lệch toán học | Phase 12 |
-| OD-02 | Công thức deployment cap theo Player Level | Phase 13 |
+| OD-01 | Công thức bonus Quân Lệnh theo Player Level; base cap `60` đã LOCKED | Phase 12 |
+| OD-02 | Công thức bonus deployment capacity theo Player Level; base `7` đã LOCKED | Phase 13 |
 | OD-03 | Nguồn Player EXP và bảng Level | Phase 10/11 |
 | OD-04 | Kim Nguyên Bảo có tiếp tục tính theo thời gian khi tab/app ẩn hay không | Phase 16 |
 | OD-05 | Giá Gacha Gold, tỷ lệ từng reward và pity | Phase 15 |
 | OD-06 | Flat bonus Equipment ở từng Level 1–10 | Phase 14 |
 | OD-07 | Lượng Vàng trả lại từ reward Gacha | Phase 15 |
-| OD-08 | Giới hạn tối đa số Lệnh Hiệu Triệu có thể áp dụng | Phase 13/16 |
+| OD-08 | Giới hạn tối đa số Lệnh Hiệu Triệu có thể áp dụng; mỗi item `+1` đã LOCKED | Phase 13/16 |
 
 ## Quy tắc đóng decision
 

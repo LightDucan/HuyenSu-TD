@@ -33,6 +33,7 @@ Battle Domain + Phaser
 - React không sở hữu wallet, inventory, energy, capacity hoặc combat truth.
 - Meta Domain không import React hoặc Phaser.
 - Battle GameClock chỉ điều khiển x1/x3. Mọi thời gian Meta dùng thời gian thực.
+- Wallet có đúng hai currency: Gold và KNB. Command Energy là resource riêng, chỉ hiển thị chung với Wallet trên HUD.
 - Bắt đầu Wave là điểm tích hợp: Meta xác nhận/tiêu Quân Lệnh trước, sau đó mới phát command bắt đầu Wave.
 - Deployment capacity giới hạn lệnh đặt mới; Battle Domain vẫn xác thực placement slot và occupancy.
 - Mọi thay đổi nhiều miền phải là một transaction logic: hoặc tất cả thành công, hoặc không miền nào đổi.

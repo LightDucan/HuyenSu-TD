@@ -20,7 +20,7 @@ type PlayerProfile = {
 
 - `playerId` là ID local ổn định; META-C00 không thêm account/server.
 - `playerLevel >= 1`, `playerExp >= 0`, `summonOrderCount >= 0`.
-- `summonOrderCount` là số nâng cấp vĩnh viễn từ **Lệnh Hiệu Triệu**, không phải số item tiêu hao còn trong inventory.
+- `summonOrderCount` là số **Lệnh Hiệu Triệu** đã áp dụng; mỗi điểm tăng vĩnh viễn `+1 deployment capacity`, không phải số item còn trong inventory.
 - Profile chỉ lưu dữ liệu gốc. Command Energy cap và deployment cap được calculator riêng suy ra từ profile + config.
 
 ## Command/query dự kiến

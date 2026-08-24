@@ -2,15 +2,16 @@
 
 ## Wallet
 
-Hai tiền tệ đã khóa:
+Wallet có đúng hai currency đã khóa, không có currency thứ ba:
 
 ```ts
-type CurrencyId = 'gold' | 'kim-nguyen-bao'
+type CurrencyId = 'gold' | 'knb'
 type Wallet = { balances: Record<CurrencyId, number> }
 ```
 
-- **Vàng** dùng cho Gacha Gold và các sink được duyệt sau.
-- **Kim Nguyên Bảo** nhận từ thời gian chơi/hoàn thành ải; dùng mua item đặc thù và Lệnh Hiệu Triệu. Tương lai có thể rút ngắn Hero upgrade cooldown.
+- **Gold (Vàng)** dùng cho Gacha Gold và các sink được duyệt sau.
+- **KNB (Kim Nguyên Bảo)** nhận từ thời gian chơi/hoàn thành ải; dùng mua item đặc thù và Lệnh Hiệu Triệu. Tương lai có thể rút ngắn Hero upgrade cooldown.
+- **Command Energy (Quân Lệnh) không phải currency và không thuộc Wallet**; đây là resource/state riêng. Wallet và Command Energy chỉ được hiển thị chung trên HUD qua các snapshot tách biệt.
 - Balance là số nguyên không âm. Không cho phép spend khiến balance âm.
 - Wallet tài nguyên luôn hiển thị trên HUD qua snapshot; UI không tự cộng/trừ.
 

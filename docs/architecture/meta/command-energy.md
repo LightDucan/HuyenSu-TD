@@ -4,7 +4,7 @@
 
 - Tốn `1` Quân Lệnh để bắt đầu `1` Wave.
 - Hồi tự nhiên `1` điểm mỗi `2 phút` thời gian thực.
-- Cap ban đầu dự kiến `60`; công thức theo Player Level còn mở.
+- Base cap là `60` (**LOCKED**); chỉ công thức bonus theo Player Level còn mở.
 - Khi `current >= cap`, không hồi tự nhiên và không tích trữ thời gian hồi.
 - Reward/item được phép làm `current > cap`; overflow được giữ nguyên.
 - x1/x3 không ảnh hưởng hồi Quân Lệnh.
@@ -19,12 +19,12 @@ type CommandEnergyState = {
 }
 
 type CommandEnergyConfig = {
-  baseCap: number // dự kiến 60
+  baseCap: 60
   regenIntervalMs: number // 120_000
 }
 ```
 
-Cap là derived value từ Player Level/config, không lưu lặp trong state nếu không cần migration snapshot.
+Cap hiệu lực là derived value từ base cap cố định `60` cộng bonus Player Level theo công thức sẽ được khóa sau; không lưu lặp trong state nếu không cần migration snapshot.
 
 ## Quy tắc materialize
 

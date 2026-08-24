@@ -17,6 +17,7 @@ export type BattleSnapshot = Readonly<{
 }>
 
 type SnapshotListener = (snapshot: BattleSnapshot) => void
+type HeroStatsRefreshListener = (heroId: string) => void
 
 export class BattleBridge {
   private speed: GameSpeed = 1
@@ -24,6 +25,7 @@ export class BattleBridge {
   private snapshotListeners = new Set<SnapshotListener>()
   private speedListeners = new Set<(speed: GameSpeed) => void>()
   private heroSelectionListeners = new Set<(heroId: string) => void>()
+  private heroStatsRefreshListeners = new Set<HeroStatsRefreshListener>()
 
   setSpeed(speed: GameSpeed): void {
     if (this.speed === speed) return
@@ -53,6 +55,15 @@ export class BattleBridge {
   onHeroSelectionChange(listener: (heroId: string) => void): () => void {
     this.heroSelectionListeners.add(listener)
     return () => this.heroSelectionListeners.delete(listener)
+  }
+
+  refreshPlacedHeroStats(heroId: string): void {
+    this.heroStatsRefreshListeners.forEach((listener) => listener(heroId))
+  }
+
+  onPlacedHeroStatsRefresh(listener: HeroStatsRefreshListener): () => void {
+    this.heroStatsRefreshListeners.add(listener)
+    return () => this.heroStatsRefreshListeners.delete(listener)
   }
 
   emitSnapshot(snapshot: BattleSnapshot): void {

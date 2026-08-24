@@ -10,13 +10,17 @@ export class CombatController {
 
   constructor(
     private heroPosition: Vector2,
-    private readonly stats: HeroCombatStats,
+    private stats: HeroCombatStats,
     private readonly random: () => number = Math.random,
     skillTriggerHits = 999_999,
   ) { this.attackCounter = new AttackCounter(skillTriggerHits) }
 
   reposition(position: Vector2): void {
     this.heroPosition = position
+  }
+
+  refreshStats(stats: HeroCombatStats): void {
+    this.stats = stats
   }
 
   getSkillCharge(): number {

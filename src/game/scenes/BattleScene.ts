@@ -15,6 +15,7 @@ import { skillDefinitions } from '../../data/skills/definitions'
 import { resolveSkill } from '../../domain/skills/SkillResolver'
 import { HeroPlacementRegistry } from '../../domain/placement/HeroPlacementRegistry'
 import { battleBridge } from '../bridge/BattleBridge'
+import { refreshPlacedHeroRuntimeStats } from '../runtime/PlacedHeroRuntimeStats'
 
 type EnemyVisual = { state: CombatEnemy; definitionId: string; body: Phaser.GameObjects.Arc; hpBar: Phaser.GameObjects.Rectangle }
 type PlacementTileRuntime = { id: string; center: Vector2; marker: Phaser.GameObjects.Rectangle }
@@ -45,6 +46,7 @@ export class BattleScene extends Phaser.Scene {
   private placementRegistry!: HeroPlacementRegistry
   private removeSpeedListener?: () => void
   private removeHeroSelectionListener?: () => void
+  private removeHeroStatsRefreshListener?: () => void
 
   constructor() { super('battle') }
 
@@ -63,9 +65,13 @@ export class BattleScene extends Phaser.Scene {
       this.refreshPlacementMarkers()
       this.emitSnapshot()
     })
+    this.removeHeroStatsRefreshListener = battleBridge.onPlacedHeroStatsRefresh((heroId) => {
+      this.refreshHeroRuntimeStats(heroId)
+    })
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
       this.removeSpeedListener?.()
       this.removeHeroSelectionListener?.()
+      this.removeHeroStatsRefreshListener?.()
     })
     this.emitSnapshot()
   }
@@ -231,6 +237,15 @@ export class BattleScene extends Phaser.Scene {
     hero.combatController.reposition(position)
     hero.visual.setPosition(position.x, position.y)
     hero.rangeVisual.setPosition(position.x, position.y)
+  }
+
+  private refreshHeroRuntimeStats(heroId: string): void {
+    const refreshed = refreshPlacedHeroRuntimeStats(this.placedHeroes.get(heroId), (hero) => {
+      const progression = loadProgression(window.localStorage).heroes[heroId] ?? { stage: 'normal', level: 1 }
+      const equipment = loadEquipment(window.localStorage).heroes[heroId] ?? {}
+      return calculateHeroLoadoutStats(hero.definition.baseStats, progression, equipment, equipmentDefinitions)
+    })
+    if (refreshed) this.emitSnapshot()
   }
 
   private recallHero(heroId: string): void {

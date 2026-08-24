@@ -78,4 +78,51 @@ describe('CombatController', () => {
     expect(controller.update(500, [target])?.skillTriggered).toBe(true)
     expect(controller.getSkillCharge()).toBe(0)
   })
+
+  it('uses refreshed ATK for the next attack', () => {
+    const target = enemy({ hp: 500, maxHp: 500 })
+    const controller = new CombatController({ x: 0, y: 0 }, stats, () => 0.9)
+
+    expect(controller.update(0, [target])?.attack.damage).toBe(40)
+    controller.refreshStats({ ...stats, atk: 75 })
+
+    expect(controller.update(500, [target])?.attack.damage).toBe(75)
+  })
+
+  it('uses refreshed range when selecting the next target', () => {
+    const target = enemy({ position: { x: 150, y: 0 }, hp: 500, maxHp: 500 })
+    const controller = new CombatController({ x: 0, y: 0 }, stats, () => 0.9)
+
+    expect(controller.update(0, [target])).toBeUndefined()
+    controller.refreshStats({ ...stats, range: 160 })
+
+    expect(controller.update(0, [target])).toBeDefined()
+  })
+
+  it('preserves the active cooldown and uses refreshed attack speed for the following cycle', () => {
+    const target = enemy({ hp: 500, maxHp: 500 })
+    const initialStats = { ...stats, attackSpeed: 1 }
+    const controller = new CombatController({ x: 0, y: 0 }, initialStats, () => 0.9)
+
+    expect(controller.update(0, [target])).toBeDefined()
+    controller.refreshStats({ ...initialStats, attackSpeed: 2 })
+
+    expect(controller.update(999, [target])).toBeUndefined()
+    expect(controller.update(1, [target])).toBeDefined()
+    expect(controller.update(499, [target])).toBeUndefined()
+    expect(controller.update(1, [target])).toBeDefined()
+  })
+
+  it('preserves skill charge when stats refresh', () => {
+    const target = enemy({ hp: 500, maxHp: 500 })
+    const controller = new CombatController({ x: 0, y: 0 }, stats, () => 0.9, 3)
+
+    expect(controller.update(0, [target])?.skillTriggered).toBe(false)
+    expect(controller.getSkillCharge()).toBe(1)
+    controller.refreshStats({ ...stats, atk: 80 })
+
+    expect(controller.getSkillCharge()).toBe(1)
+    expect(controller.update(500, [target])?.skillTriggered).toBe(false)
+    expect(controller.update(500, [target])?.skillTriggered).toBe(true)
+  })
 })

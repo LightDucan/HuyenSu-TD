@@ -4,9 +4,13 @@
 Hệ thống Kinh Tế Meta quy chuẩn 3 loại tiền tệ chính, luôn hiển thị trên thanh Header Wallet:
 1. **Vàng (Gold)**:
    * *Bản chất*: Tiền tệ phổ thông chính kiếm được thông qua việc tiêu diệt quái, vượt Wave, hoàn thành màn chơi hoặc trúng thưởng Gacha.
-   * *Mục đích sử dụng*: Chi trả phí quay Gacha Gold, phí ghép trang bị (Equipment Merging), nâng cấp công trình ngoài trận.
+   * *Mục đích sử dụng*: Chi trả phí quay Gacha Gold, phí ghép trang bị (Equipment Merging — nếu có phí), nâng cấp công trình ngoài trận.
 2. **Kim Nguyên Bảo (KNB / Ingot)**:
-   * *Bản chất*: Tiền tệ quý giá (Premium Ingot), kiếm được từ phần thưởng thành tựu vượt ải lần đầu, quà mốc cốt truyện, hoặc sự kiện đặc biệt.
+   * *Bản chất*: Tiền tệ quý giá (Premium Ingot).
+   * *Nguồn thu cố định (LOCKED Sources)*:
+     * Tự động tích lũy **mỗi 1 phút chơi Game** (in-game playtime).
+     * Phần thưởng **hoàn thành ải** (màn chơi / stage clear).
+     * Ngoài ra có thể có thêm quà thành tựu, quà mốc cốt truyện hoặc sự kiện đặc biệt (nếu có).
    * *Mục đích sử dụng*: Mua các vật phẩm đặc biệt trong kỳ trân các (Lệnh Hiệu Triệu, gói Binh Phù cao cấp, Skin danh tướng).
 3. **Quân Lệnh (Command Energy)**:
    * *Bản chất*: Thể lực chỉ huy xuất trận (chi tiết quy chuẩn tại [command-energy.md](command-energy.md)).
@@ -14,10 +18,10 @@ Hệ thống Kinh Tế Meta quy chuẩn 3 loại tiền tệ chính, luôn hiể
 
 ---
 
-## 2. Dependencies (Phụ Thuộc Hệ Thống)
-* **Meta Wallet Service**: Quản lý số dư và thực hiện các giao dịch trừ/cộng nguyên tử (atomic balance mutations).
-* **Battle Bridge Settlement**: Nhận kết quả từ trận đánh sau mỗi Wave/Màn để cộng Vàng thưởng vào ví.
-* **Gacha & Merging Modules**: Kiểm tra `hasEnoughCurrency(cost)` trước khi kích hoạt logic quay thưởng hoặc ghép đồ.
+## 2. Dependencies (Phụ Thuộc Hệ Thống — Codex xác nhận)
+* **Module Quản Lý Ví (Wallet Management — Codex xác nhận)**: Quản lý số dư và thực hiện các giao dịch trừ/cộng nguyên tử (atomic balance mutations).
+* **Cơ Chế Kết Toán Trận Đánh (Battle Settlement Bridge — Codex xác nhận)**: Nhận kết quả từ trận đánh sau mỗi Wave/Màn để cộng Vàng/KNB thưởng vào ví.
+* **Gacha & Merging Modules (Codex xác nhận)**: Kiểm tra `hasEnoughCurrency(cost)` trước khi kích hoạt logic quay thưởng hoặc ghép đồ.
 
 ---
 
@@ -32,7 +36,9 @@ Hệ thống Kinh Tế Meta quy chuẩn 3 loại tiền tệ chính, luôn hiể
 
 ---
 
-## 4. Dữ Liệu Cần Từ Codex (Data Contract from Codex)
+## 4. Mô Tả Data Contract Đề Xuất (Codex xác nhận)
+
+*(Mô tả định hướng cấu trúc dữ liệu — Codex xác nhận và quyết định schema runtime chính thức)*
 
 ```ts
 export type CurrencyType = 'gold' | 'knb' | 'command_energy';
@@ -47,7 +53,7 @@ export type PlayerWalletData = {
 export type WalletTransactionRequest = {
   currency: CurrencyType;
   amount: number; // Số dương để cộng, số âm để trừ
-  source: 'wave_clear' | 'stage_reward' | 'gacha_spend' | 'gacha_gain' | 'equipment_merge' | 'item_use';
+  source: 'wave_clear' | 'stage_reward' | 'playtime_knb' | 'gacha_spend' | 'gacha_gain' | 'equipment_merge' | 'item_use';
 };
 
 export type WalletTransactionResult = {

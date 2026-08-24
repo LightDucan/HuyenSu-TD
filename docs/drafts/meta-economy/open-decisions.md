@@ -2,26 +2,30 @@
 
 ## 1. Bảng Tổng Hợp Thông Số & Quyết Định Còn Mở (Open Parameters Matrix)
 
-| Hệ Thống | Thông Số / Quyết Định Còn Mở | Đề Xuất Khảo Sát | Trạng Thái & Ghi Chú |
+> [!IMPORTANT]
+> **Quy ước Placeholder & Ranh giới Quyết định**:
+> - Các nội dung trong cột "Đề Xuất Khảo Sát / Placeholder" chỉ mang tính chất định hướng kiến trúc & giải pháp kỹ thuật, **tuyệt đối không phải số liệu balance thực tế và không dùng trực tiếp cho implementation** trước khi được Game Design & Codex phê duyệt.
+> - Các cơ chế đã **LOCKED**: Base Deployment = 7 Hero, Lệnh Hiệu Triệu = +1 Slot vĩnh viễn, Base Quân Lệnh Cap = 60, KNB Source = 1 phút chơi + hoàn thành ải, Equipment = Flat Bonus Only (không % và không DEF), Gacha = Binh Phù là nhóm hiếm nhất.
+
+| Hệ Thống | Thông Số / Quyết Định Còn Mở | Đề Xuất Khảo Sát / Placeholder | Trạng Thái & Ghi Chú |
 |---|---|---|---|
-| **1. Gacha Gold** | Giá quay 1x và 10x | • 1,000 Vàng / 9,000 Vàng<br>• 2,000 Vàng / 18,000 Vàng | **Chờ Game Design & Codex chốt** (phải cân đối với lượng Vàng kiếm được sau 10 Wave). |
-| **2. Gacha Gold** | Bảng tỷ lệ xuất hiện (Drop Rates) | • Vàng: 25%<br>• Vũ Khí Lv1: 20%<br>• Ngọc Lv1: 20%<br>• Tiểu Binh Phù (+1): 20%<br>• Trung Binh Phù (+5): 10%<br>• Đại Binh Phù (+10): 5% | **Chờ Game Design & Codex chốt**. |
-| **3. Gacha Gold** | Lượng Vàng trả lại khi trúng ô Vàng | • Trả lại 50% giá quay<br>• Trả lại 100% (Hoàn tiền)<br>• Trúng rương lớn: x3 - x5 giá quay | **Chờ Game Design & Codex chốt**. |
-| **4. Gacha Gold** | Cơ chế bảo hiểm (Pity) | • Đảm bảo 1 Trang bị sau mỗi 10 lượt quay<br>• Đảm bảo 1 Đại Binh Phù sau mỗi 20 lượt quay<br>• Không có bảo hiểm (thuần RNG) | **Chờ Game Design & Codex chốt**. |
-| **5. Equipment** | Bảng chỉ số Flat Bonus chuẩn (Lv1 – Lv10) | • Lv.1: ATK+15, Range+10, ASPD+0.05<br>• Lv.2: ATK+28, Range+18, ASPD+0.09<br>• ... Lv.10: ATK+200, Range+120, ASPD+0.60 | **Chờ Game Design & Codex chốt** (Tuyệt đối không dùng % cho Equipment thường). |
-| **6. Equipment** | Phí Vàng khi ghép 3 $\rightarrow$ 1 | • Tuyến tính: $100 \times \text{Level}$<br>• Cố định: 300 Vàng/lần ghép<br>• Miễn phí ghép (0 Vàng) | **Chờ Game Design & Codex chốt**. |
-| **7. Deployment** | Mốc Cấp người chơi tăng thêm Slot Hero | • Cấp 15: Mở Slot 6 $\rightarrow$ Cấp 30: Mở Slot 7<br>• Mở sẵn 7 Slot từ đầu, Lệnh Hiệu Triệu mở lên 8, 9, 10 | **Chờ Game Design & Codex chốt**. |
-| **8. Deployment** | Số lượng ô Placement Tiles chuẩn trên Map | • 8 ô<br>• 10 ô<br>• 12 ô | **Chờ Game Design & Codex chốt**. |
-| **9. Lệnh Hiệu Triệu** | Mức trần tối đa sử dụng cho 1 tài khoản | • Tối đa 3 cái (tăng từ 7 lên 10 Hero)<br>• Tối đa 5 cái (tăng từ 7 lên 12 Hero) | **Chờ Game Design & Codex chốt** (Phải $\le$ tổng số ô đặt của Map). |
-| **10. Lệnh Hiệu Triệu** | Nguồn phân phối Lệnh Hiệu Triệu | • Quà cốt truyện mốc Chapter 1/2/3<br>• Tiệm KNB giới hạn 1 cái/tháng | **Chờ Game Design & Codex chốt**. |
-| **11. Quân Lệnh** | Mức Giới hạn cơ bản (Base Max Energy) | • 20 Quân Lệnh<br>• 30 Quân Lệnh | **Chờ Game Design & Codex chốt**. |
-| **12. Quân Lệnh** | Tăng Max Energy theo Cấp người chơi | • +1 Max Energy mỗi cấp<br>• +5 Max Energy mỗi 10 cấp<br>• Cố định không tăng theo cấp | **Chờ Game Design & Codex chốt**. |
-| **13. Quân Lệnh** | Mức trần Overflow tối đa | • Tối đa 999 Quân Lệnh<br>• Tối đa 9,999 Quân Lệnh<br>• Không giới hạn trần | **Chờ Game Design & Codex chốt**. |
-| **14. Binh Phù** | Nguồn thu Binh Phù ngoài Gacha Gold | • Tiệm Tạp Hóa (mua bằng Vàng/KNB)<br>• Phần thưởng nhiệm vụ ngày/tuần<br>• Chỉ duy nhất qua Gacha Gold | **Chờ Game Design & Codex chốt**. |
-| **15. Tiền Tệ** | Giới hạn số dư Vàng tối đa (Gold Cap) | • 99,999,999 Vàng<br>• Không giới hạn số dư | **Chờ Game Design & Codex chốt**. |
-| **16. Tiền Tệ** | Nguồn thu nhàn rỗi (Offline Idle Rewards) | • Doanh trại tự sản sinh Vàng theo giờ<br>• Không có doanh trại nhàn rỗi (thuần chơi tay) | **Chờ Game Design & Codex chốt**. |
-| **17. Hành Trang** | Dung lượng ô chứa tối đa (Inventory Slots) | • 50 ô (có thể mở rộng bằng Vàng/KNB)<br>• 100 ô cố định<br>• Không giới hạn số ô chứa | **Chờ Game Design & Codex chốt**. |
-| **18. Hành Trang** | Quy tắc xếp chồng vật phẩm (Stacking) | • Tiêu hao (Binh Phù) stack 999, Trang bị độc lập mỗi ô<br>• Cho phép trang bị cùng ID/Lv gộp ô | **Chờ Game Design & Codex chốt**. |
+| **1. Gacha Gold** | Giá quay 1x và 10x | • `[Placeholder: Mức giá thấp / trung bình theo kinh tế Wave]`<br>• Cân đối theo lượng Vàng thực tế thu được trong trận | **OPEN** — Chờ Game Design & Codex phê duyệt. |
+| **2. Gacha Gold** | Bảng tỷ lệ xuất hiện (Drop Rates) | • `[Placeholder: Bảng phân bổ tỷ lệ theo tier/nhóm]`<br>• Binh Phù (Quân Lệnh) là nhóm hiếm nhất (LOCKED)<br>• Vũ Khí/Ngọc Lv1 và Vàng là nhóm cơ bản | **OPEN** — Chờ Game Design & Codex phê duyệt (Binh Phù là nhóm hiếm nhất, chưa có rate cụ thể). |
+| **3. Gacha Gold** | Lượng Vàng trả lại khi trúng ô Vàng | • `[Placeholder: Tỷ lệ hoàn trả Vàng theo cấu hình]`<br>• Cơ chế hệ số nhân giá quay | **OPEN** — Chờ Game Design & Codex phê duyệt. |
+| **4. Gacha Gold** | Cơ chế bảo hiểm (Pity) | • `[Placeholder: Bảo hiểm trang bị / Binh Phù sau N lượt]`<br>• Không có bảo hiểm (thuần RNG) | **OPEN** — Chờ Game Design & Codex phê duyệt. |
+| **5. Equipment** | Bảng chỉ số Flat Bonus chuẩn (Lv1 – Lv10) | • `[Placeholder: Bảng chỉ số cộng thẳng theo tier]`<br>• ATK +N, Range +N, ASPD +N (Flat Bonus only)<br>• Tuyệt đối không % và không DEF | **OPEN** — Chờ Game Design & Codex phê duyệt. |
+| **6. Equipment** | Phí khi ghép 3 $\rightarrow$ 1 (Merge Fee) | • `[Placeholder: Miễn phí ghép (0 Vàng)]`<br>• `[Placeholder: Phí Vàng tuyến tính hoặc cố định]` | **OPEN** — Chờ Game Design & Codex phê duyệt (ghép đồ không bắt buộc tốn Vàng). |
+| **7. Deployment** | Công thức mở rộng Slot theo Cấp người chơi | • Base = 7 Hero (LOCKED)<br>• `[Placeholder: Mở thêm slot tại các mốc cấp]` | **OPEN** — Base 7 là LOCKED; công thức bonus từ Player Level là OPEN. |
+| **8. Deployment** | Số lượng ô Placement Tiles chuẩn trên Map | • `[Placeholder: Định mức ô đặt theo từng Chapter/Map]` | **OPEN** — Chờ Game Design & Codex phê duyệt. |
+| **9. Lệnh Hiệu Triệu** | Mức trần tối đa sử dụng cho 1 tài khoản | • +1 Slot vĩnh viễn (LOCKED)<br>• `[Placeholder: Giới hạn trần tối đa số lượng dùng]` | **OPEN** — Chờ Game Design & Codex phê duyệt (phải $\le$ trần ô Map). |
+| **10. Lệnh Hiệu Triệu** | Nguồn phân phối Lệnh Hiệu Triệu | • `[Placeholder: Quà cốt truyện Chapter / Tiệm KNB]` | **OPEN** — Chờ Game Design & Codex phê duyệt. |
+| **11. Quân Lệnh** | Tăng Max Energy theo Cấp người chơi | • Base Cap = 60 Quân Lệnh (LOCKED)<br>• `[Placeholder: Công thức tăng Max Energy theo Cấp]` | **OPEN** — Base cap 60 là LOCKED; công thức tăng cap theo Player Level là OPEN. |
+| **12. Quân Lệnh** | Mức trần Overflow tối đa | • `[Placeholder: Giới hạn chặn Overflow / Không giới hạn trần]` | **OPEN** — Chờ Game Design & Codex phê duyệt. |
+| **13. Binh Phù** | Nguồn thu Binh Phù ngoài Gacha Gold | • `[Placeholder: Tiệm Tạp Hóa / Nhiệm vụ / Chỉ qua Gacha]` | **OPEN** — Chờ Game Design & Codex phê duyệt. |
+| **14. Tiền Tệ** | Giới hạn số dư Vàng tối đa (Gold Cap) | • `[Placeholder: Mức trần số dư Vàng / Không giới hạn]` | **OPEN** — Chờ Game Design & Codex phê duyệt. |
+| **15. Tiền Tệ** | Nguồn thu nhàn rỗi (Offline Idle Rewards) | • `[Placeholder: Tích lũy Vàng offline / Thuần chơi tay]` | **OPEN** — Chờ Game Design & Codex phê duyệt. |
+| **16. Hành Trang** | Dung lượng ô chứa tối đa (Inventory Slots) | • `[Placeholder: Giới hạn số ô chứa / Không giới hạn]` | **OPEN** — Chờ Game Design & Codex phê duyệt. |
+| **17. Hành Trang** | Quy tắc xếp chồng vật phẩm (Stacking) | • `[Placeholder: Quy tắc stack vật phẩm tiêu hao và trang bị]` | **OPEN** — Chờ Game Design & Codex phê duyệt. |
 
 ---
 
@@ -44,8 +48,5 @@
 ## 3. Lộ Trình Phối Hợp Đề Xuất (Next Steps for Codex & Antigravity)
 
 * **Bước 1 (Codex)**: Đánh giá tài liệu thiết kế META-A00, phê duyệt các mốc thông số trong bảng quyết định mở.
-* **Bước 2 (Codex)**: Xây dựng các Domain Services cốt lõi:
-  * `WalletService` (Quản lý Vàng, KNB, Quân Lệnh, logic 2 phút hồi điểm, xử lý Overflow).
-  * `InventoryService` (Quản lý kho đồ, Binh Phù, Lệnh Hiệu Triệu, logic ghép 3 $\rightarrow$ 1).
-  * `GachaResolver` (Xử lý Pool Gacha Gold, Seeded RNG, Drop Table).
-* **Bước 3 (Antigravity)**: Hiện thực hóa giao diện React UI (Header Wallet, Bottom Bar 2 Tab, Merge Modal, Batch Use Modal, Gacha Screen) tích hợp trực tiếp với Callbacks của Codex.
+* **Bước 2 (Codex)**: Xây dựng các module nghiệp vụ Meta (Quản lý ví Vàng/KNB/Quân Lệnh, Kho đồ, Binh Phù, Lệnh Hiệu Triệu, Logic ghép đồ, Xử lý Gacha Drop Table).
+* **Bước 3 (Antigravity)**: Hiện thực hóa giao diện React UI (Header Wallet, Bottom Bar 2 Tab, Merge Modal, Batch Use Modal, Gacha Screen) tích hợp trực tiếp với Callbacks do Codex cung cấp.

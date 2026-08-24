@@ -4,7 +4,7 @@
 * **Thanh Wallet Thường Trực**: Luôn hiển thị trên cùng (Header Bar) ở mọi màn hình:
   * **Vàng (Gold)**: Biểu tượng thỏi vàng / đồng xu vàng.
   * **Kim Nguyên Bảo (KNB / Ingot)**: Biểu tượng đĩnh bạc/vàng quý.
-  * **Quân Lệnh (Command Energy)**: Biểu tượng Lệnh Bài, hiển thị `Hiện tại / Giới hạn` (ví dụ: `12 / 20` hoặc `35 / 20` khi Overflow).
+  * **Quân Lệnh (Command Energy)**: Biểu tượng Lệnh Bài, hiển thị `Hiện tại / Giới hạn` (ví dụ: `45 / 60` hoặc `75 / 60` khi Overflow).
 * **Khu vực Dưới Trận (Bottom Player HUD Area)**:
   * Phân chia thành **2 Tab chuyển đổi linh hoạt**:
     * **Tab 1: Đội Hình**: Dùng để quản lý, chọn thẻ bài Hero, đặt Hero lên bản đồ và di chuyển vị trí Hero.
@@ -12,11 +12,11 @@
 
 ---
 
-## 2. Dependencies (Phụ Thuộc Hệ Thống)
-* **Wallet State Service**: Cung cấp snapshot số dư Vàng, KNB, Quân Lệnh.
-* **Inventory Store**: Cung cấp danh sách item (Vũ khí, Ngọc, Vật phẩm tiêu hao) kèm số lượng `count`.
-* **PlacementManager (`src/game/placement/PlacementManager.ts`)**: Nhận lệnh đặt/di chuyển Hero từ Tab Đội Hình.
-* **HeroProgression / EquipmentSystem**: Tương tác trang bị Vũ Khí/Ngọc từ Tab Hành Trang sang Hero.
+## 2. Dependencies (Phụ Thuộc Hệ Thống — Codex xác nhận)
+* **Trạng Thái Ví (Wallet State — Codex xác nhận)**: Cung cấp snapshot số dư Vàng, KNB, Quân Lệnh.
+* **Kho Đồ (Inventory Management — Codex xác nhận)**: Cung cấp danh sách item (Vũ khí, Ngọc, Vật phẩm tiêu hao) kèm số lượng `count`.
+* **Module Quản Lý Triển Khai (Placement Management — Codex xác nhận)**: Nhận lệnh đặt/di chuyển Hero từ Tab Đội Hình.
+* **Module Tiến Trình Tướng & Trang Bị (Hero Progression & Equipment — Codex xác nhận)**: Tương tác trang bị Vũ Khí/Ngọc từ Tab Hành Trang sang Hero.
 
 ---
 
@@ -36,7 +36,9 @@
 
 ---
 
-## 4. Dữ Liệu Cần Từ Codex (Data Contract from Codex)
+## 4. Mô Tả Data Contract Đề Xuất (Codex xác nhận)
+
+*(Mô tả định hướng cấu trúc dữ liệu — Codex xác nhận và quyết định schema runtime chính thức)*
 
 ```ts
 export type WalletSnapshot = {
@@ -79,10 +81,10 @@ export type InventoryItemSlot = {
 ### 5.1. Wireframe Thanh Wallet (Header Bar)
 ```text
 +---------------------------------------------------------------------------------------------------+
-|  [AVATAR] Chủ Công Lv.12  |  [💰 Vàng] 45,200  |  [💎 KNB] 1,250  |  [📜 Quân Lệnh] 18/20 (01:15)  |
+|  [AVATAR] Chủ Công Lv.12  |  [💰 Vàng] 45,200  |  [💎 KNB] 1,250  |  [📜 Quân Lệnh] 58/60 (01:15)  |
 +---------------------------------------------------------------------------------------------------+
 ```
-*(Ghi chú: Khi Overflow, ví dụ dùng Đại Binh Phù, hiển thị: `[📜 Quân Lệnh] 28/20 (Ngừng hồi)` với màu vàng/cam sáng)*
+*(Ghi chú: Khi Overflow, ví dụ dùng Đại Binh Phù, hiển thị: `[📜 Quân Lệnh] 75/60 (Ngừng hồi)` với màu vàng/cam sáng)*
 
 ---
 

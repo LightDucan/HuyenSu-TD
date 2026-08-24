@@ -13,9 +13,9 @@ Hệ thống vật phẩm hồi phục Quân Lệnh (Binh Phù) gồm 3 loại �
 
 ---
 
-## 2. Dependencies (Phụ Thuộc Hệ Thống)
-* **Inventory Store**: Quản lý số lượng từng loại Binh Phù (`item_binh_phu_tieu`, `item_binh_phu_trung`, `item_binh_phu_dai`).
-* **Wallet State**: Nhận giá trị cộng thêm và cập nhật trạng thái Quân Lệnh.
+## 2. Dependencies (Phụ Thuộc Hệ Thống — Codex xác nhận)
+* **Module Quản Lý Kho (Inventory Management — Codex xác nhận)**: Quản lý số lượng từng loại Binh Phù (`item_binh_phu_tieu`, `item_binh_phu_trung`, `item_binh_phu_dai`).
+* **Trạng Thái Ví (Wallet State — Codex xác nhận)**: Nhận giá trị cộng thêm và cập nhật trạng thái Quân Lệnh.
 
 ---
 
@@ -27,7 +27,7 @@ Hệ thống vật phẩm hồi phục Quân Lệnh (Binh Phù) gồm 3 loại �
 3. **Popup Sử Dụng Nhiều (Batch Use Modal)**:
    * Hiển thị: Icon vật phẩm, Tên vật phẩm, Số lượng đang sở hữu.
    * Thanh kéo chọn số lượng (1 đến $N$ món).
-   * Dự tính kết quả: `Quân Lệnh hiện tại: 2/20 -> Sau khi dùng: 17/20 (+15 📜)`.
+   * Dự tính kết quả: `Quân Lệnh hiện tại: 2/60 -> Sau khi dùng: 17/60 (+15 📜)`.
    * Nhấn `[Xác Nhận Sử Dụng]` $\rightarrow$ Trừ vật phẩm trong kho $\rightarrow$ Cộng điểm vào Wallet $\rightarrow$ Phát hiệu ứng hoàn thành.
 
 ---
@@ -50,7 +50,7 @@ Hệ thống vật phẩm hồi phục Quân Lệnh (Binh Phù) gồm 3 loại �
 |                                                                   |
 |  ---------------------------------------------------------------  |
 |       Dự tính nhận: +15 Quân Lệnh                                 |
-|       Quân Lệnh sau khi dùng: 8/20  ==>  23/20 (Tràn điểm)       |
+|       Quân Lệnh sau khi dùng: 52/60  ==>  67/60 (Tràn điểm)       |
 |                                                                   |
 +-------------------------------------------------------------------+
 |             [ HỦY BỎ ]             |      [ XÁC NHẬN DÙNG ]       |
@@ -59,7 +59,9 @@ Hệ thống vật phẩm hồi phục Quân Lệnh (Binh Phù) gồm 3 loại �
 
 ---
 
-## 5. Dữ Liệu Cần Từ Codex (Data Contract from Codex)
+## 5. Mô Tả Data Contract Đề Xuất (Codex xác nhận)
+
+*(Mô tả định hướng cấu trúc dữ liệu — Codex xác nhận và quyết định schema runtime chính thức)*
 
 ```ts
 export type EnergyItemType = 'tieu_binh_phu' | 'trung_binh_phu' | 'dai_binh_phu';

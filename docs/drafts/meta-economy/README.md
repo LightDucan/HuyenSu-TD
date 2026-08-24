@@ -16,12 +16,12 @@ Tài liệu này đặc tả toàn bộ thiết kế hệ thống **Meta Game, K
 
 | File | Nội dung trọng tâm |
 |---|---|
-| [wallet-inventory-ui.md](wallet-inventory-ui.md) | Thiết kế Thanh Wallet, Bottom Bar 2 tab (Đội Hình / Hành Trang) kèm Wireframe văn bản. |
-| [currencies.md](currencies.md) | Hệ thống tiền tệ (Vàng, Kim Nguyên Bảo, Quân Lệnh), nguyên tắc thu chi và quản lý ví. |
-| [command-energy.md](command-energy.md) | Cơ chế Quân Lệnh: Tốn 1 điểm/Wave, hồi 1 điểm/2 phút thực, xử lý Overflow, ngắt hồi và Auto Wave. |
+| [wallet-inventory-ui.md](wallet-inventory-ui.md) | Thiết kế Thanh Wallet (Vàng, KNB, Quân Lệnh), Bottom Bar 2 tab (Đội Hình / Hành Trang) kèm Wireframe văn bản. |
+| [currencies.md](currencies.md) | Hệ thống tiền tệ: Vàng, KNB (nguồn thu locked: mỗi 1 phút chơi + hoàn thành ải), Quân Lệnh; nguyên tắc quản lý ví. |
+| [command-energy.md](command-energy.md) | Cơ chế Quân Lệnh: Tốn 1 điểm/Wave, hồi 1 điểm/2 phút thực, base cap = 60 (LOCKED), tăng cap theo level (OPEN), xử lý Overflow. |
 | [command-energy-items.md](command-energy-items.md) | Vật phẩm Binh Phù (Tiểu, Trung, Đại), cơ chế dùng nhiều (Batch Use) kèm Wireframe văn bản. |
-| [deployment-capacity.md](deployment-capacity.md) | Giới hạn triển khai Hero (cơ bản 7 Hero, thăng cấp, di chuyển không tốn slot, trần ô map). |
-| [summoning-decree.md](summoning-decree.md) | Vật phẩm Lệnh Hiệu Triệu (+1 Slot vĩnh viễn), giới hạn trần kèm Wireframe văn bản. |
-| [equipment-flat-bonus.md](equipment-flat-bonus.md) | Quy tắc Equipment thường: Chỉ cộng thẳng (ATK, Range, ASPD), Lv1–10, ghép 3 $\rightarrow$ 1 kèm Wireframe văn bản. |
-| [gacha-gold.md](gacha-gold.md) | Hệ thống Gacha Gold, danh mục Reward Pool (Vàng, Trang bị Lv1, Binh Phù) kèm Wireframe văn bản. |
+| [deployment-capacity.md](deployment-capacity.md) | Giới hạn triển khai: Base = 7 Hero (LOCKED), bonus từ level (OPEN), Lệnh Hiệu Triệu (+1 vĩnh viễn), trần ô map. |
+| [summoning-decree.md](summoning-decree.md) | Vật phẩm Lệnh Hiệu Triệu (+1 Slot triển khai vĩnh viễn), giới hạn trần kèm Wireframe văn bản. |
+| [equipment-flat-bonus.md](equipment-flat-bonus.md) | Quy tắc Equipment thường: Flat Bonus only (ATK, Range, ASPD), Lv1–10, ghép 3 $\rightarrow$ 1, phí ghép (OPEN). |
+| [gacha-gold.md](gacha-gold.md) | Hệ thống Gacha Gold: Reward Pool (Vàng, Trang bị Lv1, Binh Phù - nhóm hiếm nhất, rate open) kèm Wireframe văn bản. |
 | [open-decisions.md](open-decisions.md) | Bảng tổng hợp quyết định còn mở (giá quay, tỷ lệ, bảng bonus) và rủi ro kỹ thuật. |

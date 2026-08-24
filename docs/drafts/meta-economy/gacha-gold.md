@@ -11,10 +11,12 @@ Bể thưởng của tính năng **Gacha Gold** chỉ bao gồm các nhóm vật
 5. **Trung Binh Phù**: Vật phẩm hồi +5 Quân Lệnh.
 6. **Đại Binh Phù**: Vật phẩm hồi +10 Quân Lệnh.
 
+* **Quy tắc phân cấp độ hiếm (LOCKED)**: Nhóm **Binh Phù (Tiểu, Trung, Đại Binh Phù - hồi Quân Lệnh)** là nhóm phần thưởng **HIẾM NHẤT** trong Reward Pool của Gacha Gold. Chưa có tỷ lệ (rate) cụ thể; rate chính thức do Game Design & Codex cấu hình và phê duyệt sau.
+
 ### 1.2. Ràng Buộc Nghiêm Ngặt Về Thông Số (Không Tự Ý Chốt)
 * **TUYỆT ĐỐI KHÔNG TỰ CHỐT**:
   * Giá quay 1 lần (1x) và 10 lần (10x).
-  * Bảng tỷ lệ xuất hiện (Drop Rates) chi tiết.
+  * Bảng tỷ lệ xuất hiện (Drop Rates) chi tiết (ngoài nguyên tắc Binh Phù là nhóm hiếm nhất).
   * Cơ chế bảo hiểm (Pity System) chính thức.
   * Lượng Vàng cụ thể trả lại khi quay trúng ô Vàng.
   * Bảng chỉ số Flat Bonus chi tiết của các trang bị Lv.1.
@@ -22,10 +24,10 @@ Bể thưởng của tính năng **Gacha Gold** chỉ bao gồm các nhóm vật
 
 ---
 
-## 2. Dependencies (Phụ Thuộc Hệ Thống)
-* **Gacha Domain Resolver**: Xử lý logic bốc thăm ngẫu nhiên (RNG Engine) trên Core/Domain.
-* **Player Wallet**: Trừ số lượng Vàng khi người chơi xác nhận quay.
-* **Inventory Store**: Tiếp nhận toàn bộ vật phẩm trúng thưởng (Trang bị, Binh Phù) vào kho đồ; cộng dồn Vàng trúng thưởng vào Wallet.
+## 2. Dependencies (Phụ Thuộc Hệ Thống — Codex xác nhận)
+* **Bộ Xử Lý Gacha (Gacha Resolver — Codex xác nhận)**: Xử lý logic bốc thăm ngẫu nhiên (RNG Engine) trên Core/Domain.
+* **Module Quản Lý Ví (Wallet Management — Codex xác nhận)**: Trừ số lượng Vàng khi người chơi xác nhận quay.
+* **Module Quản Lý Kho (Inventory Management — Codex xác nhận)**: Tiếp nhận toàn bộ vật phẩm trúng thưởng (Trang bị, Binh Phù) vào kho đồ; cộng dồn Vàng trúng thưởng vào Wallet.
 
 ---
 
@@ -104,7 +106,9 @@ Bể thưởng của tính năng **Gacha Gold** chỉ bao gồm các nhóm vật
 
 ---
 
-## 5. Dữ Liệu Cần Từ Codex (Data Contract from Codex)
+## 5. Mô Tả Data Contract Đề Xuất (Codex xác nhận)
+
+*(Mô tả định hướng cấu trúc dữ liệu — Codex xác nhận và quyết định schema runtime chính thức)*
 
 ```ts
 export type GachaPoolRewardItem =

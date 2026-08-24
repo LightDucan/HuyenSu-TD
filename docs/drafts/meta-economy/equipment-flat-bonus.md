@@ -16,16 +16,16 @@
 * **Quy tắc Ghép 3 thành 1 (3-to-1 Merge)**:
   * Tiêu hao **3 món trang bị CÙNG ID VÀ CÙNG LEVEL** $\rightarrow$ Tạo ra **1 món trang bị cùng ID có Level cao hơn 1 bậc** ($Lv \rightarrow Lv+1$).
   * Ví dụ: 3 $\times$ *Thanh Long Đao Lv.1* $\rightarrow$ 1 $\times$ *Thanh Long Đao Lv.2*.
-  * Chi phí ghép: Tiêu hao một lượng Vàng nhỏ theo cấp độ.
+  * Chi phí ghép (nếu có): Cơ chế phí ghép là tham số mở (**OPEN**), do Game Design & Codex quyết định (có thể miễn phí hoặc tiêu hao tài nguyên theo cấu hình).
 * **Vũ Khí Đặc Thù Hero (Hero Unique Weapon)**:
   * Các vũ khí mang tính biểu tượng riêng gắn liền với truyền thuyết của Hero (nếu có) **không tham gia nâng cấp và không được ghép**.
 
 ---
 
-## 2. Dependencies (Phụ Thuộc Hệ Thống)
-* **Equipment System (`src/domain/equipment/`)**: Quản lý schema trang bị và tính toán `StatModifier` theo các giá trị cộng thẳng.
-* **Inventory Store**: Cập nhật danh sách trang bị (trừ 3 món nguyên liệu, thêm 1 món kết quả mới).
-* **Stat Calculator**: Tổng hợp: $\text{FinalStat} = \text{BaseStat} + \sum \text{FlatBonus}$.
+## 2. Dependencies (Phụ Thuộc Hệ Thống — Codex xác nhận)
+* **Hệ Thống Trang Bị (Equipment System — Codex xác nhận)**: Quản lý schema trang bị và tính toán `StatModifier` theo các giá trị cộng thẳng.
+* **Module Quản Lý Kho (Inventory Management — Codex xác nhận)**: Cập nhật danh sách trang bị (trừ 3 món nguyên liệu, thêm 1 món kết quả mới).
+* **Bộ Tính Chỉ Số (Stat Calculator — Codex xác nhận)**: Tổng hợp: $\text{FinalStat} = \text{BaseStat} + \sum \text{FlatBonus}$.
 
 ---
 
@@ -38,9 +38,9 @@
      * Ô chính: Món trang bị mục tiêu.
      * 3 ô nguyên liệu: Tự động gom 3 món cùng loại và cùng cấp trong kho.
      * So sánh chỉ số: Hiển thị rõ giá trị Flat Bonus trước $\rightarrow$ sau ghép.
-     * Chi phí: `[Icon Vàng] Phí ghép: 300 Vàng`.
+     * Chi phí: Hiển thị phí ghép theo cấu hình hoặc nhãn `[Miễn phí]`.
    * Nhấn `[Tiến Hành Ghép]`:
-     * Core kiểm tra đủ 3 món và đủ Vàng $\rightarrow$ Trừ 3 món cũ $\rightarrow$ Sinh ra 1 món mới $Lv+1$.
+     * Core kiểm tra đủ 3 món (và đủ phí nếu có cấu hình) $\rightarrow$ Trừ 3 món cũ $\rightarrow$ Sinh ra 1 món mới $Lv+1$.
      * UI phát hiệu ứng dung hợp hào quang kim loại (Forge Sparks VFX) $\rightarrow$ Cập nhật hiển thị.
 
 ---
@@ -75,7 +75,7 @@
 |                                                                   |
 |   Thay đổi chỉ số:  ATK: +15  =====>  ATK: +28  (+13 Sát thương)   |
 |   Tỷ lệ thành công: 100%                                          |
-|   Chi phí dung hợp: [💰 Vàng] 300 Vàng                            |
+|   Chi phí dung hợp: [Phí ghép theo cấu hình / Miễn phí]           |
 |                                                                   |
 +-------------------------------------------------------------------+
 |             [ HỦY ]                |      [ TIẾN HÀNH GHÉP ]      |
@@ -84,7 +84,9 @@
 
 ---
 
-## 5. Dữ Liệu Cần Từ Codex (Data Contract from Codex)
+## 5. Mô Tả Data Contract Đề Xuất (Codex xác nhận)
+
+*(Mô tả định hướng cấu trúc dữ liệu — Codex xác nhận và quyết định schema runtime chính thức)*
 
 ```ts
 export type EquipmentTierLevel = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
@@ -121,5 +123,5 @@ export type MergeEquipmentRequest = {
 ---
 
 ## 7. Quyết Định Còn Mở (Open Decisions)
-1. **Bảng chỉ số Flat Bonus chuẩn**: Bảng giá trị cộng thẳng chi tiết cho từng loại vũ khí/ngọc từ Lv.1 đến Lv.10 (sẽ do Game Design/Codex chốt sau).
-2. **Chi phí Vàng khi ghép**: Công thức tính phí Vàng theo cấp độ ghép (ví dụ: $\text{Fee} = 100 \times \text{Level}$ hay theo bảng cố định)?
+1. **Bảng chỉ số Flat Bonus chuẩn**: Bảng giá trị cộng thẳng chi tiết cho từng loại vũ khí/ngọc từ Lv.1 đến Lv.10 (OPEN — do Game Design & Codex phê duyệt).
+2. **Chi phí ghép trang bị (Merge Fee)**: Có thu phí Vàng khi ghép 3 $\rightarrow$ 1 hay miễn phí ghép (OPEN — do Game Design & Codex phê duyệt).

@@ -8,10 +8,10 @@
 
 ---
 
-## 2. Dependencies (Phụ Thuộc Hệ Thống)
-* **Inventory Store**: Chứa vật phẩm `item_lenh_hieu_trieu`.
-* **PlayerProfileState**: Lưu trữ số lượng Lệnh Hiệu Triệu đã sử dụng (`usedSummoningDecrees`).
-* **PlacementManager**: Mở rộng thêm 1 slot khả dụng ngay sau khi giao dịch thành công.
+## 2. Dependencies (Phụ Thuộc Hệ Thống — Codex xác nhận)
+* **Module Quản Lý Kho (Inventory Management — Codex xác nhận)**: Chứa vật phẩm `item_lenh_hieu_trieu`.
+* **Trạng Thái Hồ Sơ Người Chơi (Player Profile State — Codex xác nhận)**: Lưu trữ số lượng Lệnh Hiệu Triệu đã sử dụng (`usedSummoningDecrees`).
+* **Module Quản Lý Triển Khai (Placement Management — Codex xác nhận)**: Mở rộng thêm 1 slot khả dụng ngay sau khi giao dịch thành công.
 
 ---
 
@@ -48,7 +48,7 @@
 |       (Hiện tại)                       (Sau khi kích hoạt)        |
 |                                                                   |
 |   Đang sở hữu: 1 cái                                              |
-|   Giới hạn đã dùng: 0/3 cái                                       |
+|   Giới hạn đã dùng: 0/[Mức trần cấu hình]                         |
 |                                                                   |
 |  * Lưu ý: Hiệu quả có giá trị vĩnh viễn trên toàn bộ màn chơi.    |
 |                                                                   |
@@ -59,7 +59,9 @@
 
 ---
 
-## 5. Dữ Liệu Cần Từ Codex (Data Contract from Codex)
+## 5. Mô Tả Data Contract Đề Xuất (Codex xác nhận)
+
+*(Mô tả định hướng cấu trúc dữ liệu — Codex xác nhận và quyết định schema runtime chính thức)*
 
 ```ts
 export type SummoningDecreeConfig = {

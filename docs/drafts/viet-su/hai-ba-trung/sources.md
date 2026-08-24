@@ -30,7 +30,7 @@
 
 | Đối tượng / Yếu tố | Mức độ tin cậy lịch sử | Nhận định học thuật & Căn cứ |
 |---|---|---|
-| **Cuộc khởi nghĩa Hai Bà Trưng (40 SCN)** | **Được nhiều nguồn sử liệu ghi nhận rõ** | Được nhiều nguồn sử liệu ghi nhận rõ từ cả chính sử Việt Nam (*Toàn Thư*, *Cương Mục*) và sử liệu cổ đại phương Bắc (*Hậu Hán Thư*). |
+| **Cuộc khởi nghĩa Hai Bà Trưng (40 SCN)** | **Được nhiều nguồn sử liệu ghi nhận rõ** | Có sự tương hợp giữa nhiều nguồn sử liệu (chính sử Việt Nam *Toàn Thư*, *Cương Mục* và sử liệu cổ đại phương Bắc *Hậu Hán Thư*), nhưng chi tiết vẫn cần phân biệt theo từng sử liệu. |
 | **Trưng Trắc & Trưng Nhị** | **Được nhiều nguồn sử liệu ghi nhận rõ** | Lãnh đạo tối cao cuộc khởi nghĩa; Trưng Trắc xưng vương định đô Mê Linh. |
 | **Chiến dịch Lãng Bạc – Cẩm Khê (42–43 SCN)** | **Được nhiều nguồn sử liệu ghi nhận rõ** | Trận địa kháng chiến chống quân Mã Viện được cả hai phía sử sách ghi nhận. |
 | **Phục Ba Tướng quân Mã Viện** | **Được nhiều nguồn sử liệu ghi nhận rõ** | Danh tướng Đông Hán chỉ huy đạo quân xâm lược. |
@@ -43,7 +43,7 @@
 ## 3. Các Điểm Chưa Chắc Chắn & Dị Bản Lịch Sử Cần Lưu Ý
 
 1. **Vị trí và địa hình chi tiết của Lãng Bạc & Cẩm Khê**:
-   * *Lãng Bạc*: Một số nhà nghiên cứu xác định là vùng đầm lầy phía Tây Hồ (Hà Nội), một số ý kiến khác cho rằng ở vùng Tiên Sơn/Tiên Du (Bắc Ninh). Do vị trí và địa hình chi tiết còn có nhiều cách xác định khác nhau trong giới nghiên cứu, việc thiết kế **Map đầm lầy Lãng Bạc** là **diễn giải mỹ thuật của game** nhằm tái hiện trực quan không gian chiến trường sông nước - đầm lầy hiểm trở đặc trưng của vùng châu thổ sông Hồng thời cổ đại.
+   * *Lãng Bạc*: Một số nhà nghiên cứu xác định là vùng đầm lầy phía Tây Hồ (Hà Nội), một số ý kiến khác cho rằng ở vùng Tiên Sơn/Tiên Du (Bắc Ninh). Do vị trí và địa hình chi tiết còn có nhiều cách xác định khác nhau trong giới nghiên cứu, việc thiết kế **Map đầm lầy Lãng Bạc** là **diễn giải mỹ thuật của game** nhằm phục vụ trải nghiệm Tower Defense; **không coi bố cục map là phục dựng lịch sử chính xác**.
    * *Cẩm Khê*: Sử cũ có thuyết cho là vùng Ba Vì (Hà Tây cũ), có thuyết cho là vùng Yên Lạc (Vĩnh Phúc).
 2. **Trang bị vũ khí thực tế giữa hai bên**:
    * Nghĩa quân Lạc Việt sử dụng vũ khí đồng Đông Sơn (gươm, giáo, nỏ đồng, dao găm) kết hợp voi chiến và thuyền mảng bản địa.

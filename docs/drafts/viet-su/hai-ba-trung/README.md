@@ -52,3 +52,5 @@ Mỗi nhân vật được thiết kế chặt chẽ theo 6 khối quy định c
 * [chapter-outline.md](chapter-outline.md) — Thiết kế Chương I: Huyết Chiến Lãng Bạc (10 Wave outline, Map theme, cốt truyện)
 * [sources.md](sources.md) — Tổng hợp nguồn nghiên cứu, chính sử, khảo cổ và đánh giá độ tin cậy lịch sử
 * [enemies/README.md](enemies/README.md) — Tổng quan hệ thống Kẻ địch & Boss Mã Viện thời Hai Bà Trưng
+
+> **Lưu ý định vị nội dung**: Toàn bộ nội dung trong VS-HBT-02 là **chapter concept theo hướng lịch sử giả định trong gameplay** (thắng lợi chiến thuật của màn chơi); chiến thắng của người chơi trong màn phòng thủ **không thay thế kết quả lịch sử thật**.

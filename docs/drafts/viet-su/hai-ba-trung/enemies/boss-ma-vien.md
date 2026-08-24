@@ -22,7 +22,7 @@
   * Tay phải cầm bảo kiếm lệnh cán khảm ngọc hoặc trường thương thống lĩnh.
 * **Mô tả Animation Front View**:
   * *Tư thế di chuyển*: Bước đi oai vệ, đĩnh đạc, áp đảo của một viên đại tướng già dạn dày bách chiến trên baseline Y=112; áo choàng bay nhẹ theo từng bước tiến; toát ra khí thế áp bức của đạo quân viễn chinh.
-  * *Tư thế khi hết HP (Thất trận)*: Thất thế trước hỏa lực phòng thủ kiên cường của nghĩa quân, Mã Viện bị đánh lui, cắm bảo kiếm xuống đất chống đỡ, quỳ gối rồi lui khỏi chiến tuyến (không mô tả tử trận tại Lãng Bạc).
+  * *Tư thế khi hết HP (Thất trận)*: Thất thế trước hỏa lực phòng thủ kiên cường của nghĩa quân, Mã Viện chống kiếm hoặc thương quỳ xuống, sau đó quân hộ vệ che chắn đưa ông rút khỏi chiến tuyến. Đây là trạng thái Boss bị đánh lui trong gameplay, không phải cái chết lịch sử.
 
 ---
 

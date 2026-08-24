@@ -33,7 +33,7 @@ Hai Bà Trưng cùng các nữ tướng (Trưng Nhị, Lê Chân, Thánh Thiên,
   > *"Mùa xuân năm Nhâm Dần (42 SCN), vua Hán phong Mã Viện làm Phục Ba Tướng quân, điều động đại binh nam hạ hòng tái lập ách đô hộ. Giặc tràn qua biên ải, khói lửa ngút trời hướng về Mê Linh. Trưng Nữ Vương cùng muôn dân Lạc Việt quyết dấy binh gìn giữ non sông, bày trận tại phòng tuyến Lãng Bạc hiểm trở!"*
 
 * **Đoạn kết chiến thắng chiến thuật (Tactical Victory Narrative)**:
-  > *"Trống đồng vang dội trận địa! Dưới sự chỉ huy kiên cường của Hai Bà Trưng và các tướng lĩnh, nghĩa quân Lạc Việt đã đẩy lùi đợt tiến công tổng lực của giặc, giữ vững phòng tuyến Doanh Lũy Mê Linh trong trận đánh này. Tướng giặc Mã Viện thất thế buộc phải thu quân rút khỏi chiến tuyến. Đây là thắng lợi chiến thuật quan trọng của trận địa phòng thủ; cuộc kháng chiến bảo vệ non sông vẫn tiếp diễn đầy cam go và bất khuất!"*
+  > *"Trống đồng vang dội trận địa! Dưới sự chỉ huy kiên cường của Hai Bà Trưng và các tướng lĩnh, nghĩa quân Lạc Việt đã đẩy lùi đợt tiến công hiện tại của giặc, giữ vững phòng tuyến Doanh Lũy Mê Linh trong trận này. Tướng giặc Mã Viện buộc phải tạm rút khỏi chiến tuyến. Đây là thắng lợi chiến thuật của màn chơi; cuộc kháng chiến vẫn tiếp diễn và không khẳng định nghĩa quân đã thay đổi kết quả lịch sử chung."*
 
 * **Đoạn kết thất bại (Defeat Narrative)**:
   > *"Phòng tuyến bị xuyên thủng, thành lũy Mê Linh chìm trong biển lửa. Tuy nhiên, tinh thần bất khuất của Hai Bà Trưng và các nữ tướng Lạc Việt đời đời bất diệt, thề cùng non sông phục thù!"*
@@ -42,7 +42,8 @@ Hai Bà Trưng cùng các nữ tướng (Trưng Nhị, Lê Chân, Thánh Thiên,
 
 ## 4. Map Theme & Thiết Kế Chiến Trường (Battle Scene Concept)
 
-* **Tên Map**: **Đầm Lầy Lãng Bạc** (`map-lang-bac-marsh`) *(Diễn giải mỹ thuật của game về chiến trường cổ)*
+* **Tên Map**: **Đầm Lầy Lãng Bạc** (`map-lang-bac-marsh`)
+* **Lưu ý diễn giải mỹ thuật**: Map đầm lầy là **diễn giải mỹ thuật của game** nhằm phục vụ trải nghiệm Tower Defense; vị trí và địa hình chi tiết của Lãng Bạc/Cẩm Khê trong sử liệu vẫn có nhiều cách xác định khác nhau giữa các nhà nghiên cứu; **không coi bố cục map là phục dựng lịch sử chính xác**.
 * **Tone màu chủ đạo**: Xanh rêu đầm lầy, nâu đất đỏ phù sa, màu cỏ sậy hoang sơ kết hợp hoa văn cọc gỗ và chòi canh Lạc Việt.
 * **Mô tả bố cục (Layout Narrative)**:
   * **Điểm xuất phát địch (Entrance)**: Phía Đông Bắc bản đồ — lối mòn từ bờ sông/rừng rậm nơi thuyền chiến và bộ binh Hán đổ bộ.

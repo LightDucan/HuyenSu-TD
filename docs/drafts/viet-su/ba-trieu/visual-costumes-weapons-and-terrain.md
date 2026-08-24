@@ -1,4 +1,4 @@
-# Khảo Cứu Mỹ Thuật, Trang Phục, Vũ Khí & Địa Hình Thời Kỳ Bà Triệu
+# Khảo Cứu Mỹ Thuật, Trang Phục, Vũ Khí, Kiến Trúc & Địa Hình Thời Kỳ Bà Triệu
 
 ## 1. Định Vị Văn Hóa & Mỹ Thuật (Thời Kỳ Giao Thoa Văn Hóa Đông Sơn Muộn)
 
@@ -71,7 +71,36 @@ Hình ảnh Bà Triệu cưỡi voi trắng ra trận là một trong những bi
 
 ---
 
-## 5. Khảo Cứu 4 Vùng Địa Hình Chiến Trường (Level & Map Design Concept)
+## 5. Khảo Cứu Kiến Trúc Thời Kỳ Thế Kỷ III SCN
+
+```text
++---------------------------------------------------------------------------------------------------+
+|                     KHẢO CỨU CÁC LOẠI HÌNH KIẾN TRÚC PHỤC VỤ ART & MAP                            |
++---------------------------------------------------------------------------------------------------+
+|  [NHÀ SÀN MÁI CONG ĐÔNG SƠN]      [ĐỒN LŨY CĂN CỨ BỒ ĐIỀN]        [DOANH TRẠI QUÂN ĐÔNG NGÔ]      |
+|  - Cột gỗ lim kê chân đá tảng     - Lũy đất nện, cọc gỗ lim       - Hàng rào chấn mộc cọc chéo    |
+|  - Sàn tre cách đất chống ẩm      - Rào tre gai nhiều lớp         - Lều bạt quân dụng màu xám đen |
+|  - Mái cong hình thuyền vút cao   - Hào nước cắm chông tre ngầm   - Tháp canh nỏ nhiều tầng gỗ    |
+|  - Cầu thang gỗ khắc hoa văn      - Chòi quan sát nỏ liên hoàn    - Đài chỉ huy cắm cờ tướng Ngô  |
++---------------------------------------------------------------------------------------------------+
+```
+
+### 5.1. Kiến Trúc Dân Cư Lạc Việt: Nhà Sàn Mái Cong Hình Thuyền
+* **Đặc trưng**: Dựa trên hoa văn khắc trên thạp đồng Đào Thịnh và trống đồng Ngọc Lũ: Nhà sàn có mái uốn cong vút lên như hình mũi thuyền, hai đầu mái có gắn biểu tượng đầu chim hoặc sừng thú.
+* **Vật liệu**: Cột bằng thân gỗ lim hoặc nghiến, sàn ghép bằng thân tre đực hoặc ván gỗ, mái lợp nhiều lớp lá cọ hoặc cỏ tranh dày dặn.
+* **Cầu thang**: Bằng thân gỗ nguyên khối đẽo bậc, đầu cầu thang chạm khắc hình đôi bầu vú (biểu tượng tín ngưỡng phồn thực mẫu hệ) hoặc đầu giao long.
+
+### 5.2. Kiến Trúc Quân Sự Bản Địa: Đồn Lũy Căn Cứ Bồ Điền
+* **Tường lũy & Hào phòng thủ**: Tường lũy đắp bằng đất nện kết hợp ken cọc gỗ lim dày đặc; bên ngoài bao bọc bởi nhiều lớp hàng rào tre gai rậm rạp; hào sâu dẫn nước đầm lầy cắm chông nứa vạt nhọn ngầm dưới nước bùn.
+* **Chòi quan sát & Cổng trại**: Chòi canh dựng bằng thân cau rừng hoặc gỗ lim cao vượt ngọn cây, trang bị dàn nỏ lớn; cổng chính làm bằng hai cánh gỗ dày buộc đai mây bện.
+
+### 5.3. Kiến Trúc Quân Sự Phương Bắc: Doanh Trại & Thành Cổ Quân Ngô
+* **Thành Tư Phố**: Thành đất nện kiên cố hình chữ nhật, có hào nước bao bọc bốn phía, cổng thành bằng gỗ lim nẹp sắt bản rộng.
+* **Doanh trại dã chiến quân Ngô**: Hệ thống rào chấn mộc (cọc gỗ nhọn bắt chéo hình chữ X), lều bạt hình chóp quân dụng màu xám đen viền đỏ son; đài chỉ huy cao tầng dựng cờ thêu chữ "Ngô" và "Lục".
+
+---
+
+## 6. Khảo Cứu 4 Vùng Địa Hình Chiến Trường (Level & Map Design Concept)
 
 ```mermaid
 graph LR
@@ -80,22 +109,22 @@ graph LR
     M3 --> M4["Map 4: Pháo Đài Tư Phố & Núi Tùng<br>(Trận địa quyết chiến hào hùng)"]
 ```
 
-### 5.1. Map 1: Rừng Núi Ngàn Nưa (Triệu Sơn)
+### 6.1. Map 1: Rừng Núi Ngàn Nưa (Triệu Sơn)
 * **Bối cảnh**: Vùng rừng nguyên sinh đại ngàn thâm u, núi đá vôi vách dựng đứng, nhiều hang động bí mật và khe suối thác ghềnh chảy xiết.
 * **Yếu tố môi trường**: Sương mù bảng lảng buổi sớm, thảm thực vật dương xỉ và cây cổ thụ rậm rạp; thích hợp cho bẫy đá lăn, bẫy chông nứa phục kích đoàn xe vận lương của giặc.
 * **Palette màu sắc**: Xanh rêu đậm, xám đá ẩm ướt, nâu đất rừng, ánh nắng vàng rọi qua kẽ lá.
 
-### 5.2. Map 2: Căn Cứ Bồ Điền (Phú Điền - Hậu Lộc)
+### 6.2. Map 2: Căn Cứ Bồ Điền (Phú Điền - Hậu Lộc)
 * **Bối cảnh**: Vùng bán sơn địa trù phú, mặt trước là đồng lúa và đầm lầy lau sậy mênh mông, mặt sau tựa vào dãy núi đá Tùng Sơn hiểm trở.
 * **Yếu tố công trình**: Hệ thống doanh trại bằng gỗ lim, hào sâu cắm cọc tre vạt nhọn, hàng rào tre gai kiên cố, tháp canh bằng thân cau rừng và lầu chỉ huy trung tâm phất cờ vàng.
 * **Palette màu sắc**: Vàng tươi lúa chín, xanh ngọc lau sậy, nâu gỗ trầm, cờ phướn vàng kim rực rỡ.
 
-### 5.3. Map 3: Chiến Tuyến Sông Mã — Sông Chu (Thủy Trận)
+### 6.3. Map 3: Chiến Tuyến Sông Mã — Sông Chu (Thủy Trận)
 * **Bối cảnh**: Lưu vực sông lớn cuồn cuộn phù sa, bãi bồi bạt ngàn lau sậy rậm rạp; bến sông nơi thuyền độc mộc của nghĩa quân đối đầu với Lâu thuyền và Mông xung của hạm đội Đông Ngô.
 * **Yếu tố môi trường**: Cầu phao tre ghép, bãi cọc ngầm ven sông, ngọn lửa cháy bập bùng từ hỏa công thiêu thuyền địch.
 * **Palette màu sắc**: Đỏ gạch phù sa sông, trắng bạc hoa lau sậy, đỏ cam rực lửa hỏa công, xanh lam mặt nước.
 
-### 5.4. Map 4: Pháo Đài Cổ Tư Phố & Đỉnh Núi Tùng
+### 6.4. Map 4: Pháo Đài Cổ Tư Phố & Đỉnh Núi Tùng
 * **Bối cảnh**: Tòa thành cổ Tư Phố đắp bằng đất nện kiên cố kết hợp lũy gỗ lim; đỉnh núi Tùng cheo leo với những tảng đá khổng lồ nhìn bao quát toàn bộ vùng biển Lạch Trường.
 * **Yếu tố môi trường**: Khói lửa trận mạc mịt mù, mũi tên cắm dày đặc trên tường lũy, cờ trận rách bay phấp phới trong gió biển lồng lộng.
 * **Palette màu sắc**: Đỏ hoàng hôn bi tráng, xám đen khói lửa, vàng đồng giáp phục, ánh hoàng hôn chiếu rọi đỉnh núi Tùng thiêng liêng.

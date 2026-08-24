@@ -64,8 +64,8 @@ flowchart TD
 | [historical-context-and-timeline.md](historical-context-and-timeline.md) | Bối cảnh lịch sử chi tiết, diễn biến chiến dịch, căn cứ Ngàn Nưa & Bồ Điền, chiến cuộc đối đầu Lục Dận, ý nghĩa lịch sử. |
 | [character-roster-and-sources.md](character-roster-and-sources.md) | Danh sách 10–20 nhân vật liên quan kèm bảng phân loại độ tin cậy lịch sử 4 cấp độ và đánh giá nguồn dẫn chứng. |
 | [eastern-wu-forces-and-tactics.md](eastern-wu-forces-and-tactics.md) | Nghiên cứu quân đội Đông Ngô (Lục Dận, trang bị giáp sắt, hoàn thủ đao, kích, nỏ quân dụng, thuyền chiến, mưu kế chia rẽ). |
-| [visual-costumes-weapons-and-terrain.md](visual-costumes-weapons-and-terrain.md) | Khảo cứu mỹ thuật: Trang phục áo gấm/áo chàm, giáp hộ tâm phiến Đông Sơn muộn, vũ khí gươm/giáo/nỏ, tượng voi trắng, 4 vùng địa hình chiến trường. |
-| [hero-and-enemy-archetypes-proposal.md](hero-and-enemy-archetypes-proposal.md) | Đề xuất 3–5 ứng viên Hero và Enemy/Boss archetypes cho gameplay Tower Defense (không tạo stats/code). |
+| [visual-costumes-weapons-and-terrain.md](visual-costumes-weapons-and-terrain.md) | Khảo cứu mỹ thuật: Trang phục áo gấm/áo chàm, giáp hộ tâm phiến Đông Sơn muộn, vũ khí gươm/giáo/nỏ, tượng voi trắng, kiến trúc nhà sàn/đồn lũy, 4 vùng địa hình chiến trường. |
+| [hero-and-enemy-archetypes-proposal.md](hero-and-enemy-archetypes-proposal.md) | Đề xuất 4 ứng viên Hero, các phân nhóm Normal/Elite/Boss archetypes cho gameplay Tower Defense (không tạo stats/code). |
 
 ---
 

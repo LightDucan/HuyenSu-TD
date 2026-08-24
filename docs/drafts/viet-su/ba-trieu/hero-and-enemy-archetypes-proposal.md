@@ -12,7 +12,7 @@
 
 ---
 
-## 1. Đề Xuất 4 Ứng Viên Hero (Hero Candidates)
+## 1. Đề Xuất 4 Ứng Viên Hero (Hero Candidates — Chưa Chốt Roster)
 
 ```mermaid
 graph TD
@@ -31,7 +31,7 @@ graph TD
 * **Định hướng tạo hình Visual**:
   * Trang phục gấm vàng lộng lẫy, ngực đeo Hộ tâm phiến đồng tròn Đông Sơn chạm hình Mặt trời, trâm vàng cài tóc.
   * Ngự trên bành gấm trên lưng Bạch Tượng (Voi trắng một ngà) dũng mãnh, tay cầm gươm dài Đông Sơn uy nghi.
-* **Định hướng cơ chế Combat (Ý niệm)**:
+* **Định hướng cơ chế Combat (Ý niệm conceptual)**:
   * *Tầm đánh*: Extended Melee (Tầm cận chiến mở rộng, sải gươm dài từ lưng voi).
   * *Đòn đánh thường*: Single-target gươm chém dứt khoát vào kẻ địch đối diện.
   * *Ý niệm Kỹ năng (Active Skill)*: Tiếng thét xung trận kết hợp dậm chân của Bạch Tượng tạo chấn động kinh hoàng (kích hoạt sau $N$ đòn đánh: Gây AoE Damage và Stun ngắn hạn lên nhóm kẻ địch lân cận qua Shared Skill Framework).
@@ -46,7 +46,7 @@ graph TD
 * **Định hướng tạo hình Visual**:
   * Thân hình cao lớn vạm vỡ, giáp da thú rừng nẹp viền đồng, hộ tâm phiến tròn trước ngực, khăn vấn sẫm màu.
   * Tay trái mang Khiên gỗ bọc đồng chạm hoa văn thú dữ kiên cố, tay phải cầm Giáo búp đa mũi đồng sáng quắc.
-* **Định hướng cơ chế Combat (Ý niệm)**:
+* **Định hướng cơ chế Combat (Ý niệm conceptual)**:
   * *Tầm đánh*: Melee cận chiến tiêu chuẩn.
   * *Đòn đánh thường*: Đâm giáo single-target dũng mãnh.
   * *Ý niệm Kỹ năng (Active Skill)*: Đập khiên trấn thủ làm rung chuyển mặt đất (kích hoạt sau $N$ đòn: Gây hiệu ứng Root / Slow cầm chân kẻ địch đi đầu, hỗ trợ đồng đội tiêu diệt qua Shared Skill Framework).
@@ -60,7 +60,7 @@ graph TD
 * **Archetype**: *Tốc Kích Đột Phá (Rapid Multi-Striker / Skirmisher)*.
 * **Định hướng tạo hình Visual**:
   * Chiến binh trẻ tuổi nhanh nhẹn, áo chàm vạt ngắn túm gọn gàng, xăm mình giao long, sử dụng song đao hoặc trường kích linh hoạt.
-* **Định hướng cơ chế Combat (Ý niệm)**:
+* **Định hướng cơ chế Combat (Ý niệm conceptual)**:
   * *Tầm đánh*: Melee cận chiến tốc độ cao.
   * *Đòn đánh thường*: Chém đao nhanh single-target.
   * *Ý niệm Kỹ năng (Active Skill)*: Tung ra liên hoàn trảm chớp nhoáng (kích hoạt sau $N$ đòn: Thực hiện MultiHit liên tiếp vào mục tiêu đơn lẻ, dồn sát thương cực mạnh).
@@ -74,7 +74,7 @@ graph TD
 * **Archetype**: *Xạ Thủ Tầm Xa Nỏ Rừng (Ranged Sniper & Trapper)*.
 * **Định hướng tạo hình Visual**:
   * Nữ thợ săn nhanh nhẹn trong bộ trang phục vải chàm gọn gàng, nón lá cọ nẹp mây, đeo ống tên nứa sau lưng, cầm cây Nỏ Lạc Việt thân gỗ nẹp gân trâu dẻo dai.
-* **Định hướng cơ chế Combat (Ý niệm)**:
+* **Định hướng cơ chế Combat (Ý niệm conceptual)**:
   * *Tầm đánh*: Ranged tầm xa.
   * *Đòn đánh thường*: Bắn mũi tên nứa bịt đồng single-target tầm xa chính xác.
   * *Ý niệm Kỹ năng (Active Skill)*: Bắn loạt tên độc đầm lầy (kích hoạt sau $N$ đòn: Gây Slow diện rộng làm giảm tốc độ di chuyển của đoàn quân địch trong vùng ảnh hưởng).
@@ -82,7 +82,27 @@ graph TD
 
 ---
 
-## 2. Đề Xuất Ứng Viên Boss (Boss Candidates)
+## 2. Đề Xuất Kẻ Địch Thường (Normal Enemy Candidates — Không Tạo Stats)
+
+| Kẻ Địch | Binh Chủng & Vai Trò | Đặc Điểm Nhận Dạng & Hành Vi Tác Chiến |
+|---|---|---|
+| **Ngô Thiết Giáp Sĩ** | *Heavy Footman* | Mang giáp phiến sắt sơn then, khiên chữ nhật lớn; di chuyển chậm, lượng máu cao, tạo thành lá chắn che chở cho tuyến sau. |
+| **Ngô Nỏ Thủ Cơ Giới** | *Ranged Crossbowman* | Binh lính mang nỏ quân dụng lẫy đồng; có khả năng dừng lại bắn tỉa tầm xa uy lực, gây nguy hiểm cho tiền tuyến. |
+| **Dân Phu Cưỡng Bách & Thủy Binh** | *Swarm / Runner* | Lính phu phen tạp dịch bị ép ra trận; di chuyển nhanh, lượng máu thấp nhưng xuất hiện theo từng đàn đông đảo. |
+
+---
+
+## 3. Đề Xuất Kẻ Địch Tinh Anh (Elite Enemy Candidates — Không Tạo Stats)
+
+| Kẻ Địch Tinh Anh | Archetype | Đặc Điểm Nhận Dạng & Ý Niệm Cơ Chế |
+|---|---|---|
+| **Ngô Tiên Phong Kỵ Sĩ** | *Fast Shock Cavalry* | Kỵ binh nhẹ cưỡi ngựa chiến Giang Đông mang giáo dài; tốc độ di chuyển cực nhanh, có khả năng lướt qua bẫy đầm lầy. |
+| **Sứ Giả Mua Chuộc / Đốc Chiến Quan** | *Support Buffer* | Quan lại mặc áo thụng mang tráp vàng và cờ hiệu; liên tục phát aura tăng tốc chạy và hồi máu cho binh lính Ngô xung quanh. |
+| **Thủy Quân Kích Thủ Giang Đông** | *Amphibious Striker* | Lính thủy mang giáp da bơi lội giỏi, trang bị câu liêm kích; có khả năng vượt qua các chướng ngại vật sông nước nhanh chóng. |
+
+---
+
+## 4. Đề Xuất Ứng Viên Boss (Boss Candidates — Không Tạo Stats)
 
 ```mermaid
 graph LR
@@ -92,10 +112,10 @@ graph LR
     end
 ```
 
-### 2.1. Boss 1: Lục Dận (Thứ Sử Giao Châu — Thống Soái Đông Ngô)
+### 4.1. Boss 1: Lục Dận (Thứ Sử Giao Châu — Thống Soái Đông Ngô)
 * **Vai trò trong cốt truyện**: Kẻ thù chính của chương truyện Bà Triệu; viên tướng mưu mô mang 8.000 quân sang đàn áp và thực hiện kế sách mua chuộc phân hóa.
 * **Định hướng tạo hình**: Mặc cẩm bào quý tộc Đông Ngô bên trong giáp phiến sắt mạ vàng, đội mũ cánh chuồn tướng lĩnh, tay cầm gươm Hoàn Thủ đao nạm ngọc, vẻ mặt thâm hiểm.
-* **Định hướng cơ chế Boss (Ý niệm)**:
+* **Định hướng cơ chế Boss (Ý niệm conceptual)**:
   * *Lượng máu & Tốc độ*: Máu rất dày, di chuyển chậm rãi, ung dung.
   * *Cơ chế Khí thế Đông Ngô (Troop Morale Buff)*: Định kỳ phát hào quang trống trận, tăng tốc độ di chuyển và sát thương cho toàn bộ binh lính Ngô xung quanh.
   * *Cơ chế Triệu hồi Giáp Sĩ*: Gọi thêm toán lính thiết giáp hộ vệ khi lượng máu giảm xuống các mốc nhất định.
@@ -103,21 +123,9 @@ graph LR
 
 ---
 
-### 2.2. Boss 2: Tiết Bính (Thái Thú Cửu Chân)
+### 4.2. Boss 2: Tiết Bính (Thái Thú Cửu Chân)
 * **Vai trò trong cốt truyện**: Quan đô hộ địa phương tàn bạo, cố thủ trong thành lũy Tư Phố trước khi bị nghĩa quân công phá.
 * **Định hướng tạo hình**: Tướng giáp sắt hộ tâm kính lớn, đứng trên Chiến xa gỗ bọc sắt nẹp cọc nhọn.
-* **Định hướng cơ chế Boss (Ý niệm)**:
+* **Định hướng cơ chế Boss (Ý niệm conceptual)**:
   * *Lượng máu & Phòng thủ*: Chống chịu đòn đánh vật lý cực tốt, miễn nhiễm với hiệu ứng Stun nhẹ.
   * *Hỏa lực tầm xa*: Trang bị dàn nỏ lớn trên chiến xa bắn phá các vị trí tiền tiêu.
-
----
-
-## 3. Đề Xuất Kẻ Địch Tiêu Chuẩn (Enemy Archetypes)
-
-| Kẻ Địch | Archetype | Đặc Điểm Nhận Dạng & Hành Vi Tác Chiến |
-|---|---|---|
-| **Ngô Thiết Giáp Sĩ** | *Heavy Armored Infantry* | Mang giáp phiến sắt, khiên chữ nhật lớn; bước đi chậm chạp, lượng máu cao, là lá chắn cản đường cho các đơn vị phía sau. |
-| **Ngô Tiên Phong Kỵ** | *Fast Shock Cavalry* | Kỵ binh nhẹ cưỡi ngựa chiến Giang Đông, tốc độ di chuyển cực nhanh, chuyên bứt phá vượt qua tuyến hỏa lực. |
-| **Ngô Nỏ Thủ Cơ Giới** | *Crossbow Sniper* | Binh lính mang nỏ cơ khí lẫy đồng; có thể dừng lại ngắm bắn từ cự ly xa, tạo áp lực lớn lên hàng phòng ngự. |
-| **Sứ Giả Mua Chuộc / Đốc Chiến Quan** | *Support / Buffer Unit* | Quan lại mang tráp vàng và cờ hiệu; không trực tiếp tấn công mạnh nhưng liên tục buff tăng tốc và hồi phục cho lính xung quanh. |
-| **Dân Phu Cưỡng Bách & Thủy Binh** | *Swarm / Fast Runner* | Lính tạp dịch và thủy binh nhẹ; lượng máu thấp nhưng xuất hiện theo từng đàn đông đảo, gây rối loạn trận địa. |

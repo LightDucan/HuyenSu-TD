@@ -1,0 +1,72 @@
+# Hệ Thống Tiền Tệ Meta (Currencies & Wallet Management)
+
+## 1. Yêu Cầu Đã Duyệt (Approved Requirements)
+Hệ thống Kinh Tế Meta quy chuẩn 3 loại tiền tệ chính, luôn hiển thị trên thanh Header Wallet:
+1. **Vàng (Gold)**:
+   * *Bản chất*: Tiền tệ phổ thông chính kiếm được thông qua việc tiêu diệt quái, vượt Wave, hoàn thành màn chơi hoặc trúng thưởng Gacha.
+   * *Mục đích sử dụng*: Chi trả phí quay Gacha Gold, phí ghép trang bị (Equipment Merging), nâng cấp công trình ngoài trận.
+2. **Kim Nguyên Bảo (KNB / Ingot)**:
+   * *Bản chất*: Tiền tệ quý giá (Premium Ingot), kiếm được từ phần thưởng thành tựu vượt ải lần đầu, quà mốc cốt truyện, hoặc sự kiện đặc biệt.
+   * *Mục đích sử dụng*: Mua các vật phẩm đặc biệt trong kỳ trân các (Lệnh Hiệu Triệu, gói Binh Phù cao cấp, Skin danh tướng).
+3. **Quân Lệnh (Command Energy)**:
+   * *Bản chất*: Thể lực chỉ huy xuất trận (chi tiết quy chuẩn tại [command-energy.md](command-energy.md)).
+   * *Mục đích sử dụng*: Tiêu hao cố định **1 Quân Lệnh** cho mỗi Wave chiến đấu bắt đầu.
+
+---
+
+## 2. Dependencies (Phụ Thuộc Hệ Thống)
+* **Meta Wallet Service**: Quản lý số dư và thực hiện các giao dịch trừ/cộng nguyên tử (atomic balance mutations).
+* **Battle Bridge Settlement**: Nhận kết quả từ trận đánh sau mỗi Wave/Màn để cộng Vàng thưởng vào ví.
+* **Gacha & Merging Modules**: Kiểm tra `hasEnoughCurrency(cost)` trước khi kích hoạt logic quay thưởng hoặc ghép đồ.
+
+---
+
+## 3. UI Flow (Luồng Giao Diện Người Dùng)
+1. **Hiển thị số dư thời gian thực**:
+   * Thanh Wallet trên cùng luôn cập nhật ngay khi có biến động tài chính.
+   * Hiệu ứng chữ số nhảy mượt mà (Floating Numbers VFX: `+500 💰` hoặc `-1,000 💰`).
+2. **Kiểm tra và cảnh báo giao dịch**:
+   * Khi người chơi thực hiện thao tác tốn phí (ví dụ: Quay 10 lần Gacha = 9,000 Vàng):
+     * *Đủ tiền*: Nút bấm sáng rõ $\rightarrow$ Trừ tiền $\rightarrow$ Thực hiện hành động.
+     * *Thiếu tiền*: Số tiền hiển thị màu đỏ nhấp nháy $\rightarrow$ Khi bấm vào hiện Toast thông báo: *"Không đủ Vàng để thực hiện thao tác!"*.
+
+---
+
+## 4. Dữ Liệu Cần Từ Codex (Data Contract from Codex)
+
+```ts
+export type CurrencyType = 'gold' | 'knb' | 'command_energy';
+
+export type PlayerWalletData = {
+  gold: number;
+  knb: number;
+  commandEnergy: number;
+  maxCommandEnergy: number;
+};
+
+export type WalletTransactionRequest = {
+  currency: CurrencyType;
+  amount: number; // Số dương để cộng, số âm để trừ
+  source: 'wave_clear' | 'stage_reward' | 'gacha_spend' | 'gacha_gain' | 'equipment_merge' | 'item_use';
+};
+
+export type WalletTransactionResult = {
+  success: boolean;
+  currency: CurrencyType;
+  previousBalance: number;
+  newBalance: number;
+  errorMessage?: string;
+};
+```
+
+---
+
+## 5. Rủi Ro & Ràng Buộc Kỹ Thuật (Risks & Constraints)
+* **Tuyệt đối phân định Meta Wallet vs In-run Battle**: Vàng và KNB thuộc quyền quản lý của Meta State. Trong suốt quá trình Wave đang chạy trong Phaser Scene, tài nguyên nhận được từ quái được gom vào bộ đệm kết toán (Settlement Buffer) và chỉ cộng dồn chính thức vào Wallet khi Wave/Màn kết thúc thành công.
+* **Ràng buộc an toàn số học**: Không cho phép số dư âm (`balance >= 0`). Mọi giao dịch trừ tiền phải được Core xác thực atomic trước khi trả kết quả cho UI.
+
+---
+
+## 6. Quyết Định Còn Mở (Open Decisions)
+1. **Giới hạn số dư Vàng tối đa (Gold Cap)**: Có đặt giới hạn Vàng tối đa (ví dụ: 99,999,999 Vàng) hay không giới hạn?
+2. **Nguồn thu nhàn rỗi (Offline Idle Rewards)**: Có tính năng Doanh trại tự sản sinh một lượng nhỏ Vàng theo thời gian offline không?

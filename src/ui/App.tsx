@@ -3,15 +3,16 @@ import { equipmentDefinitions } from '../data/equipment/definitions'
 import { heroDefinitions } from '../data/heroes/definitions'
 import { featureFlags } from '../config/features'
 import type { GameSpeed } from '../domain/clock/GameClock'
-import { loadEquipment, saveHeroEquipment } from '../domain/equipment/EquipmentStorage'
+import { loadEquipment } from '../domain/equipment/EquipmentStorage'
 import { resolveEquipmentModifiers, type EquipmentSlot, type HeroEquipment } from '../domain/equipment/EquipmentSystem'
 import { advanceStage, canAdvanceStage, canUpgrade, type HeroProgression, upgradeLevel } from '../domain/progression/ProgressionSystem'
-import { loadProgression, saveHeroProgression } from '../domain/progression/ProgressionStorage'
+import { loadProgression } from '../domain/progression/ProgressionStorage'
 import { battleBridge, type BattleSnapshot } from '../game/bridge/BattleBridge'
 import { toBattleHudData } from '../game/bridge/BattleHudContract'
 import { createGame } from '../game/createGame'
 import { BottomPlayerHUD } from './BottomPlayerHUD'
 import { HeroDetailModal } from './HeroDetailModal'
+import { saveEquipmentAndRefresh, saveProgressionAndRefresh } from './HeroRuntimeRefreshActions'
 import { TopCityBar } from './TopCityBar'
 
 const initialSnapshot: BattleSnapshot = {
@@ -69,14 +70,14 @@ export function App() {
     const nowMs = Date.now()
     if (!canUpgrade(progression, nowMs, featureFlags.upgradeCooldownEnabled)) return
     const next = upgradeLevel(progression, nowMs, 3000, featureFlags.upgradeCooldownEnabled)
-    saveHeroProgression(window.localStorage, heroId, next)
+    saveProgressionAndRefresh(window.localStorage, battleBridge, heroId, next)
     setProgression(next)
   }
 
   const handleAdvanceStageRequest = (heroId: string) => {
     if (!canAdvanceStage(progression)) return
     const next = advanceStage(progression)
-    saveHeroProgression(window.localStorage, heroId, next)
+    saveProgressionAndRefresh(window.localStorage, battleBridge, heroId, next)
     setProgression(next)
   }
 
@@ -85,13 +86,13 @@ export function App() {
     if (!item || item.slot !== slot) return
     const next = slot === 'weapon' ? { ...equipment, weaponId: itemId } : { ...equipment, gemId: itemId }
     resolveEquipmentModifiers(next, equipmentDefinitions)
-    saveHeroEquipment(window.localStorage, heroId, next)
+    saveEquipmentAndRefresh(window.localStorage, battleBridge, heroId, next)
     setEquipment(next)
   }
 
   const handleUnequipRequest = (heroId: string, slot: EquipmentSlot) => {
     const next = slot === 'weapon' ? { ...equipment, weaponId: undefined } : { ...equipment, gemId: undefined }
-    saveHeroEquipment(window.localStorage, heroId, next)
+    saveEquipmentAndRefresh(window.localStorage, battleBridge, heroId, next)
     setEquipment(next)
   }
 

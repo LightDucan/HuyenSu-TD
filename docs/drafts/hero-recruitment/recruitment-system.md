@@ -4,29 +4,32 @@
 
 Hệ thống Chiêu Mộ Danh Tướng (Chiêu Hiền Các) tuân thủ chặt chẽ các quy định đã được chốt:
 
-1. **Bản Chất Chiêu Hiền Lệnh**:
+1. **Bản Chất Chiêu Hiền Lệnh & Luồng Giao Dịch**:
    * **Chiêu Hiền Lệnh là Vật Phẩm (Item)** được lưu trữ và quản lý trong **Hành Trang (Inventory)**, mã ID: `item_chieu_hien_lenh`.
+   * **Không cho phép Chiêu Hiền trực tiếp bằng KNB**:
+     * Luồng chuẩn: **KNB $\rightarrow$ Mua Chiêu Hiền Lệnh trong Kỳ Trân Các (Shop) $\rightarrow$ Chiêu Hiền Các tiêu Chiêu Hiền Lệnh**.
+     * Toàn bộ Request chiêu mộ tại Chiêu Hiền Các **chỉ tiêu hao duy nhất `item_chieu_hien_lenh`**.
    * **Tuyệt đối không phải Currency**; không tạo thêm loại tiền tệ thứ 3 trong hệ thống Ví (Wallet chỉ có Vàng & Kim Nguyên Bảo).
 2. **Quy Tắc Xử Lý Hero Mới vs Hero Trùng (Recruitment Resolution)**:
    * **Trường hợp 1: Hero Mới (Chưa sở hữu trong Profile/Deck)**:
      * Hệ thống thực hiện **Mở Khóa Tướng (Unlock Hero)**.
      * Tướng chuyển sang trạng thái khả dụng (`unlocked: true`, Cấp 1, 1★, Bậc Phổ Thông), người chơi có thể ngay lập tức chọn vào Đội Hình xuất trận.
    * **Trường hợp 2: Hero Trùng (Đã sở hữu trước đó)**:
-     * Hệ thống **tự động chuyển đổi thành Mảnh Danh Tướng** của chính Hero đó (ví dụ: quay ra Trưng Trắc lần 2 $\rightarrow$ nhận trực tiếp $N$ *Mảnh Trưng Trắc*).
+     * Hệ thống **tự động chuyển đổi thành Mảnh Danh Tướng** của chính Hero đó (`shard_hero_<heroId>`).
      * Mảnh Danh Tướng được chuyển thẳng vào Hành Trang / Kho Mảnh để phục vụ tính năng Nâng Sao.
-3. **Nguồn Tiếp Nhận Hero Ngoài Chiêu Mộ**:
-   * Người chơi nhận được các Hero định danh cốt truyện thông qua:
-     * **Phần thưởng Vượt Ải Lần Đầu (First Clear Reward)**.
-     * **Phần thưởng Hoàn Thành Chương (Chapter Completion Reward)**.
+3. **Nguồn Tiếp Nhận Hero & Chiêu Hiền Lệnh**:
+   * Hero có thể nhận từ phần thưởng cốt truyện: **Hoàn thành Chapter** và **Vượt Ải Lần Đầu (First Clear Reward)** theo cấu hình phần thưởng.
+   * Chiêu Hiền Lệnh có thể được phân phối qua các nguồn: **First Clear**, **Hoàn thành Chapter**, **Nhiệm vụ / Thành tựu** theo reward config.
+   * **Không khẳng định mọi Ải First Clear đều nhận Chiêu Hiền Lệnh**: Danh sách ải nào nhận, chapter nào nhận và số lượng cụ thể là tham số mở (**OPEN**), do Game Design & Codex cấu hình.
 4. **Không Tự Ý Chốt Thông Số (Open Constraints)**:
-   * Tỷ lệ xuất hiện (Drop Rates), số lượng Mảnh quy đổi từ Tướng trùng, chi phí quy đổi KNB (nếu có), và số lượt bảo hiểm (Pity) là **OPEN**, chờ Game Design & Codex cấu hình.
+   * Tỷ lệ xuất hiện (Drop Rates), số lượng Mảnh quy đổi từ Tướng trùng, giá bán Chiêu Hiền Lệnh trong Shop bằng KNB, và số lượt bảo hiểm (Pity nếu có) là **OPEN**, chờ Game Design & Codex cấu hình.
 
 ---
 
 ## 2. Dependencies (Phụ Thuộc Hệ Thống — Codex xác nhận)
 
 * **Module Quản Lý Hồ Sơ Tướng (Hero Profile / Roster Management — Codex xác nhận)**: Kiểm tra trạng thái đã sở hữu (`isHeroUnlocked(heroId)`) và mở khóa tướng mới.
-* **Module Kho Đồ & Mảnh Tướng (Inventory & Shard Store — Codex xác nhận)**: Quản lý số lượng Chiêu Hiền Lệnh và số lượng Mảnh Danh Tướng của từng Hero (`hero_shards_<heroId>`).
+* **Module Kho Đồ & Mảnh Tướng (Inventory & Shard Store — Codex xác nhận)**: Quản lý số lượng Chiêu Hiền Lệnh (`item_chieu_hien_lenh`) và số lượng Mảnh Danh Tướng của từng Hero (`shard_hero_<heroId>`).
 * **Bộ Xử Lý Chiêu Mộ (Hero Recruitment Resolver — Codex xác nhận)**: Xử lý thuật toán bốc thăm ngẫu nhiên (Seeded RNG) từ Bể Tướng trên Domain Core.
 
 ---
@@ -36,11 +39,11 @@ Hệ thống Chiêu Mộ Danh Tướng (Chiêu Hiền Các) tuân thủ chặt c
 1. **Truy cập Chiêu Hiền Các**:
    * Từ Main Menu $\rightarrow$ Nhấp vào biểu tượng **[Chiêu Hiền Các]** $\rightarrow$ Màn hình sảnh chiêu mộ hiển thị banner danh tướng đang xuất hiện.
 2. **Thực hiện Chiêu Mộ**:
-   * Nút **[Chiêu Mộ 1 Lần]**: Tiêu hao 1 Chiêu Hiền Lệnh (hoặc KNB tương ứng nếu cho phép).
-   * Nút **[Chiêu Mộ 10 Lần]**: Tiêu hao 10 Chiêu Hiền Lệnh (thực hiện chiêu mộ hàng loạt; cơ chế pity/guarantee là tham số mở, do Game Design & Codex quyết định).
+   * Nút **[Chiêu Mộ 1 Lần]**: Tiêu hao chính xác **1 Chiêu Hiền Lệnh** (`item_chieu_hien_lenh`).
+   * Nút **[Chiêu Mộ 10 Lần]**: Tiêu hao chính xác **10 Chiêu Hiền Lệnh** (`item_chieu_hien_lenh`) (chiêu mộ hàng loạt; cơ chế pity/guarantee nếu có là OPEN).
    * Khi nhấp nút:
      * *Đủ lệnh bài*: Khóa nút $\rightarrow$ Gửi request lên Core $\rightarrow$ Phát hoạt cảnh Lệnh Bài Hoàng Kim khai mở.
-     * *Thiếu lệnh bài*: Mở Modal thông báo thiếu Chiêu Hiền Lệnh kèm nút dẫn tới nguồn nhận hoặc đổi bằng KNB.
+     * *Thiếu lệnh bài*: Mở Modal thông báo thiếu Chiêu Hiền Lệnh kèm nút dẫn tới Kỳ Trân Các để mua bằng KNB hoặc xem nguồn nhận khác.
 3. **Hiển thị Kết Quả**:
    * **Khi nhận Hero Mới**: Màn hình lóe sáng rực rỡ, hiển thị Splash Art tướng toàn màn hình, danh hiệu, câu thoại xuất trận và nhãn **[TƯỚNG MỚI ĐÃ MỞ KHÓA]**.
    * **Khi nhận Hero Trùng**: Thẻ bài tướng xuất hiện, sau đó phát hiệu ứng phân rã thành các tia sáng vàng (Shard Transformation VFX) và hiển thị bảng thông báo: **[ĐÃ SỞ HỮU — QUY ĐỔI THÀNH +N MẢNH DANH TƯỚNG]**.

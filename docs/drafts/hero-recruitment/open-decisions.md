@@ -6,9 +6,10 @@
 > **Quy ước Placeholder & Ranh giới Quyết định**:
 > - Các nội dung trong cột "Đề Xuất Khảo Sát / Placeholder" chỉ mang tính chất định hướng giải pháp kỹ thuật, **tuyệt đối không phải số liệu balance thực tế và không dùng trực tiếp cho implementation** trước khi được Game Design & Codex phê duyệt.
 > - Các cơ chế đã **LOCKED**:
->   - Chiêu Hiền Lệnh là **Item trong Hành Trang**, không phải Currency.
+>   - Chiêu Hiền Lệnh là **Item trong Hành Trang** (`item_chieu_hien_lenh`), không phải Currency.
+>   - **Không cho phép Chiêu Hiền trực tiếp bằng KNB**: Luồng chuẩn là `KNB` $\rightarrow$ Mua Chiêu Hiền Lệnh trong Shop $\rightarrow$ Chiêu Hiền Các tiêu hao Chiêu Hiền Lệnh (`item_chieu_hien_lenh`). Request chiêu mộ chỉ tiêu duy nhất `item_chieu_hien_lenh`.
 >   - Hệ thống kinh tế duy trì **đúng 2 loại Tiền tệ** (Vàng & KNB), không thêm tiền tệ thứ 3.
->   - Nhận Hero từ **Hoàn thành Chapter / Vượt Ải Lần Đầu (First Clear)** và **Chiêu Hiền Các**.
+>   - First Clear / Chapter / Thành Tựu là các nguồn có thể phân phối Chiêu Hiền Lệnh theo reward config (không khẳng định mọi Ải First Clear đều nhận; ải nào nhận, chapter nào nhận và số lượng là **OPEN**).
 >   - Hero mới $\rightarrow$ **Mở khóa Hero** (khởi đầu 1★).
 >   - Hero trùng $\rightarrow$ Tự động chuyển đổi thành **Mảnh Danh Tướng của chính Hero đó** (`shard_hero_<heroId>`).
 >   - Hệ Thống Sao: **1★ $\rightarrow$ 2★ $\rightarrow$ 3★ $\rightarrow$ 4★ $\rightarrow$ 5★** (Không có 6★).
@@ -27,8 +28,8 @@
 | **5. Nâng Sao** | Bảng tăng trưởng chỉ số cộng thẳng theo Sao | • `[Placeholder: Bảng chỉ số cộng thẳng 6 Core Stats: HP +N, ATK +N, Range +N, ASPD +N, Crit +N, CritDmg +N]` | **OPEN** — Chờ Game Design & Codex phê duyệt (Flat Bonus only, không DEF, không %). |
 | **6. Tiến Hóa Bậc** | Số lượng Anh Hồn cần cho từng tầng | • `[Placeholder: Mức Anh Hồn (material chung) cho Trùng Sinh / Tái Sinh / Huyền Sử]` | **OPEN** — Chờ Game Design & Codex phê duyệt. |
 | **7. Tiến Hóa Bậc** | Nguồn thu thập Anh Hồn | • `[Placeholder: Rương cốt truyện / Tháp thử thách / Sự kiện]` | **OPEN** — Chờ Game Design & Codex phê duyệt. |
-| **8. Chiêu Hiền Lệnh** | Giá bán quy đổi bằng KNB trong Kỳ Trân Các | • `[Placeholder: Mức giá KNB cho 1 lệnh bài / gói 10 lệnh bài]` | **OPEN** — Chờ Game Design & Codex phê duyệt (Mua bằng KNB, không thêm currency). |
-| **9. Chiêu Hiền Lệnh** | Định mức thưởng Chiêu Hiền Lệnh First Clear | • `[Placeholder: Số lượng lệnh bài thưởng tại các ải cốt truyện]` | **OPEN** — Chờ Game Design & Codex phê duyệt. |
+| **8. Chiêu Hiền Lệnh** | Giá bán trong Kỳ Trân Các (Shop) bằng KNB | • `[Placeholder: Mức giá KNB mua Chiêu Hiền Lệnh trong Shop]` | **OPEN** — Chờ Game Design & Codex phê duyệt (Chiêu Hiền Các chỉ tiêu item, mua item tại Shop). |
+| **9. Chiêu Hiền Lệnh** | Phân phối qua First Clear / Chapter / Thành tựu | • `[Placeholder: Danh sách ải First Clear, mốc Chapter, nhiệm vụ có thưởng Chiêu Hiền Lệnh theo reward config]` | **OPEN** — Chờ Game Design & Codex phê duyệt (Không khẳng định mọi ải First Clear đều nhận). |
 
 ---
 

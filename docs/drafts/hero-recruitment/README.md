@@ -7,10 +7,12 @@ Tài liệu này đặc tả toàn bộ luồng thiết kế, kiến trúc dữ 
 ### 1.1. Các Nguyên Tắc & Quy Chuẩn Đã Khóa (Locked Principles)
 
 1. **Chiêu Hiền Lệnh là Vật Phẩm (Item)**:
-   * Chiêu Hiền Lệnh là **Item trong Hành Trang (Inventory)**, **tuyệt đối không phải Currency**.
+   * Chiêu Hiền Lệnh là **Item trong Hành Trang (Inventory)** (`item_chieu_hien_lenh`), **tuyệt đối không phải Currency**.
+   * **Không cho phép Chiêu Hiền trực tiếp bằng KNB**: Luồng chuẩn là `KNB` $\rightarrow$ Mua Chiêu Hiền Lệnh trong Kỳ Trân Các (Shop) $\rightarrow$ Chiêu Hiền Các tiêu hao Chiêu Hiền Lệnh (`item_chieu_hien_lenh`). Request chiêu mộ chỉ tiêu duy nhất `item_chieu_hien_lenh`.
    * Game duy trì nghiêm ngặt **đúng 2 loại Tiền tệ (Currencies)**: **Vàng (Gold)** và **Kim Nguyên Bảo (KNB)**. Tuyệt đối **không thêm loại tiền tệ thứ 3**.
-2. **Nguồn Tiếp Nhận Hero Cơ Bản**:
-   * Hero được nhận từ phần thưởng cốt truyện: **Hoàn thành Chapter** và **Vượt Ải Lần Đầu (First Clear Reward)**.
+2. **Nguồn Tiếp Nhận Hero & Chiêu Hiền Lệnh**:
+   * Hero được nhận từ phần thưởng cốt truyện: **Hoàn thành Chapter** và **Vượt Ải Lần Đầu (First Clear Reward)** theo cấu hình phần thưởng.
+   * Chiêu Hiền Lệnh có thể được phân phối qua các nguồn: **First Clear**, **Hoàn thành Chapter**, **Nhiệm vụ / Thành tựu** theo reward config (không khẳng định mọi ải First Clear đều nhận; số lượng, ải nào và chapter nào nhận đều là **OPEN**).
    * Ngoài ra, người chơi có thể chiêu mộ thêm qua tính năng **Chiêu Hiền Các** bằng vật phẩm **Chiêu Hiền Lệnh**.
 3. **Phân Định Hero Mới vs Hero Trùng (Duplicate Resolution)**:
    * **Hero Mới (Chưa sở hữu)** $\rightarrow$ Mở khóa Hero vào Deck/Bộ sưu tập (`unlocked: true`, khởi đầu 1★), sẵn sàng xuất trận.

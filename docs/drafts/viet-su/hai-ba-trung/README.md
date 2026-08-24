@@ -42,7 +42,13 @@ Mỗi nhân vật được thiết kế chặt chẽ theo 6 khối quy định c
 
 ## 4. Tài Liệu Chi Tiết Trong Thư Mục
 
+### 4.1. Hồ Sơ Hero (VS-HBT-01)
 * [hero-trung-trac.md](hero-trung-trac.md) — Hồ sơ Hero Trưng Trắc (Trưng Nữ Vương)
 * [hero-trung-nhi.md](hero-trung-nhi.md) — Hồ sơ Hero Trưng Nhị (Tướng Tiên Phong / Nỏ Lạc Việt)
 * [hero-le-chan.md](hero-le-chan.md) — Hồ sơ Hero Lê Chân (Nữ Tướng An Biên)
 * [visual-prompts-and-assets.md](visual-prompts-and-assets.md) — Bộ Prompts chuẩn hóa hình ảnh (Portrait, Idle, Attack, Skill VFX trên Canvas 128×128, Baseline Y=112)
+
+### 4.2. Chương I & Hệ Thống Kẻ Địch (VS-HBT-02)
+* [chapter-outline.md](chapter-outline.md) — Thiết kế Chương I: Huyết Chiến Lãng Bạc (10 Wave outline, Map theme, cốt truyện)
+* [sources.md](sources.md) — Tổng hợp nguồn nghiên cứu, chính sử, khảo cổ và đánh giá độ tin cậy lịch sử
+* [enemies/README.md](enemies/README.md) — Tổng quan hệ thống Kẻ địch & Boss Mã Viện thời Hai Bà Trưng

@@ -7,16 +7,16 @@ Tạo vertical slice Tower Defense Tam Quốc: Hero là tower mang hình tướn
 ## WorkTree
 
 - Repository: `HuyenSu-TD`
-- Branch hiện tại: `codex/p9-c03-refresh-runtime-stats`
-- Worktree Codex hiện tại: `C:\Users\PC\Documents\Codex\2026-08-23\referenced-chatgpt-conversation-this-is-an\work\p9-c03-runtime-stats`
+- Branch hiện tại: `main`
+- Worktree Codex hiện tại: `C:\Users\PC\Documents\Codex\2026-08-23\referenced-chatgpt-conversation-this-is-an\HuyenSu-TD\work\main-integration`
 - Quy tắc worker Antigravity: [ANTIGRAVITY_RULES.md](ANTIGRAVITY_RULES.md)
 
 ## Trạng thái hiện tại
 
 - Current Phase: **9 — MVP Vertical Slice**
-- Current Codex task: **DONE — chờ audit/merge: P9-C03 — Refresh Placed Hero Runtime Stats**.
-- Current Antigravity task: **IN PROGRESS (đã quan sát): branch `antigravity/vs-hbt-02-enemy-chapter`, phạm vi draft content HBT; được cô lập khỏi worktree Codex**.
-- Lần kiểm tra gần nhất: P9-C03 đạt — Progression/Equipment phát refresh đúng Hero qua BattleBridge; BattleScene nạp save mới và cập nhật runtime/range tại chỗ; attack cooldown, skill charge và position được giữ nguyên; đặt/reposition đủ 5 Hero, x1/x3 và 10 Wave đạt; 43/43 tests, production build và preview đạt.
+- Current Codex task: **META-C00 — Meta Game Architecture & Roadmap Contract**.
+- Current Antigravity task: **VS-HBT-02 FINAL FIX**.
+- Lần kiểm tra gần nhất: P9-C03 đã merge vào `main` — source commit `16f33f0`, merge commit `680854e`; 43/43 tests, production build, preview HTTP 200 và `git diff --check` đạt.
 
 ## Phases và checkpoint
 
@@ -42,7 +42,7 @@ Tạo vertical slice Tower Defense Tam Quốc: Hero là tower mang hình tướn
 | P9-A02 | Bộ placeholder 5 portrait, 10 Hero sprite và 5 skill VFX | DONE | Antigravity + Codex audit | PNG/baseline audit, 28/28 tests và build | `169a88d`, `ef6bd59` |
 | P9-02 | Audit toàn bộ MVP Vertical Slice và xác nhận playable checkpoint | DONE | Codex | Full Audit #5: 5 Hero, 10 Wave, x1/x3, HUD, architecture, test/build | `v0.1.0-playable` |
 | P9-C02 | Multi-Hero Placement, runtime reposition và cấu hình upgrade cooldown | DONE | Codex | 5 Hero/reposition/skill/x1-x3/10 Wave/cooldown/test/build/preview — PASS | `5f72f4d`, merge `ab76e86` |
-| P9-C03 | Refresh chỉ số runtime của Hero đang đặt sau Progression/Equipment save | DONE — chờ audit/merge | Codex | ATK/Range/ASPD, giữ cooldown/skill charge, no-op unplaced, UI save commands, reposition/x1-x3/10 Wave/test/build/preview — PASS | `codex/p9-c03-refresh-runtime-stats` |
+| P9-C03 | Refresh chỉ số runtime của Hero đang đặt sau Progression/Equipment save | DONE | Codex | ATK/Range/ASPD, giữ cooldown/skill charge, no-op unplaced, UI save commands, reposition/x1-x3/10 Wave/test/build/preview — PASS | `16f33f0`, merge `680854e` |
 
 ## Quy tắc cập nhật
 

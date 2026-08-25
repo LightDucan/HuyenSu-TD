@@ -1,9 +1,10 @@
-import type { CurrencyId, MetaStateV2 } from './MetaState'
+import type { ActivePlayTimeProgress, CurrencyId, MetaStateV3 } from './MetaState'
 
 export type RewardOperation =
   | Readonly<{ type: 'grant-currency'; currency: CurrencyId; amount: number }>
   | Readonly<{ type: 'spend-currency'; currency: CurrencyId; amount: number }>
   | Readonly<{ type: 'grant-consumable'; itemId: string; quantity: number }>
+  | Readonly<{ type: 'set-active-play-time'; progress: ActivePlayTimeProgress }>
 
 export type RewardTransactionRequest = Readonly<{
   idempotencyKey: string
@@ -11,11 +12,15 @@ export type RewardTransactionRequest = Readonly<{
 }>
 
 export type RewardTransactionResult =
-  | Readonly<{ status: 'applied'; state: MetaStateV2 }>
-  | Readonly<{ status: 'already-applied'; state: MetaStateV2 }>
+  | Readonly<{ status: 'applied'; state: MetaStateV3 }>
+  | Readonly<{ status: 'already-applied'; state: MetaStateV3 }>
 
 function assertPositiveSafeInteger(value: number, label: string): void {
   if (!Number.isSafeInteger(value) || value <= 0) throw new Error(`${label} must be a positive safe integer`)
+}
+
+function assertNonNegativeSafeInteger(value: number, label: string): void {
+  if (!Number.isSafeInteger(value) || value < 0) throw new Error(`${label} must be a non-negative safe integer`)
 }
 
 function addSafe(current: number, delta: number, label: string): number {
@@ -28,7 +33,7 @@ function fingerprint(operations: readonly RewardOperation[]): string {
   return JSON.stringify(operations)
 }
 
-export function applyRewardTransaction(state: MetaStateV2, request: RewardTransactionRequest, committedAtMs: number): RewardTransactionResult {
+export function applyRewardTransaction(state: MetaStateV3, request: RewardTransactionRequest, committedAtMs: number): RewardTransactionResult {
   if (request.idempotencyKey.trim().length === 0) throw new Error('Idempotency key must not be empty')
   if (!Number.isSafeInteger(committedAtMs) || committedAtMs < 0) throw new Error('Commit timestamp must be a non-negative safe integer')
   if (request.operations.length === 0) throw new Error('Reward transaction must contain at least one operation')
@@ -42,6 +47,7 @@ export function applyRewardTransaction(state: MetaStateV2, request: RewardTransa
 
   const balances = { ...state.wallet.balances }
   const consumables = { ...state.inventory.consumables }
+  let activePlayTime = state.activePlayTime
   for (const operation of request.operations) {
     if (operation.type === 'grant-currency') {
       assertPositiveSafeInteger(operation.amount, 'Currency grant amount')
@@ -53,6 +59,14 @@ export function applyRewardTransaction(state: MetaStateV2, request: RewardTransa
       if (operation.itemId.trim().length === 0) throw new Error('Consumable item ID must not be empty')
       assertPositiveSafeInteger(operation.quantity, 'Consumable grant quantity')
       consumables[operation.itemId] = addSafe(consumables[operation.itemId] ?? 0, operation.quantity, `Consumable ${operation.itemId}`)
+    } else if (operation.type === 'set-active-play-time') {
+      assertNonNegativeSafeInteger(operation.progress.observedVisibleMs, 'Observed visible time')
+      assertNonNegativeSafeInteger(operation.progress.observedHiddenMs, 'Observed hidden time')
+      assertNonNegativeSafeInteger(operation.progress.remainderEligibleMs, 'Active play-time remainder')
+      if (operation.progress.observedVisibleMs < state.activePlayTime.observedVisibleMs || operation.progress.observedHiddenMs < state.activePlayTime.observedHiddenMs) {
+        throw new Error('Active play-time cumulative duration cannot go backward')
+      }
+      activePlayTime = { ...operation.progress }
     } else {
       const unsupported: never = operation
       throw new Error(`Unsupported reward operation: ${String(unsupported)}`)
@@ -66,6 +80,7 @@ export function applyRewardTransaction(state: MetaStateV2, request: RewardTransa
       profile: { ...state.profile, updatedAtMs: committedAtMs },
       wallet: { balances },
       inventory: { ...state.inventory, consumables },
+      activePlayTime,
       rewardReceipts: {
         ...state.rewardReceipts,
         [request.idempotencyKey]: { transactionFingerprint, committedAtMs },

@@ -18,7 +18,7 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 - Current Phase: **11 — Reward Economy**
 - Current Codex task: **P11-C02 — Reward Sources — DONE, chờ Audit** — branch `codex/p11-c02-reward-sources`.
 - Current Antigravity task: **VS-BT-02 — Bà Triệu Roster Selection Proposal** — branch `antigravity/vs-bt-02-roster-selection`.
-- Lần kiểm tra gần nhất: P11-C02 hoàn tất reward source boundary cho Enemy Kill, Stage Clear và Active Play Time; config-driven amounts, persistent idempotency, real wall-clock và hidden-tab policy OPEN; 58/58 tests và build đạt.
+- Lần kiểm tra gần nhất: P11-C02 Active Play Time anti-replay dùng Meta V3 persistent checkpoint, cumulative delta và interval remainder; đổi claim/policy/reload không thể nhận trùng; 65/65 tests và build đạt.
 
 ## Phases và checkpoint
 
@@ -45,7 +45,7 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 | VS-HBT-02 | Enemy/Chapter content Hai Bà Trưng | PASS — đã tích hợp | Antigravity + Codex audit | Docs-only, source notes và narrative consistency; không lọt vào Core | `antigravity/vs-hbt-02-enemy-chapter` |
 | INT-C01 | Meta Foundation Integration Gate | PASS — READY MERGE | Codex | Merge order, schema consistency, Core boundary, full test/build/preview — PASS | `codex/int-c01-meta-foundation-integration` |
 | P11-C01 | Reward Transaction Core | DONE — chờ Audit | Codex | Atomicity, idempotency persistence, V1→V2 migration, optimistic revision, no UI/Battle integration | `codex/p11-c01-reward-transaction-core` |
-| P11-C02 | Reward Sources | DONE — chờ Audit | Codex | Config-driven kill/stage/time rewards, run/entity idempotency, real wall-clock, visible-only/count-hidden boundary | `codex/p11-c02-reward-sources` |
+| P11-C02 | Reward Sources | DONE — chờ Audit | Codex | Config-driven kill/stage/time rewards, persistent cumulative anti-replay, V2→V3 migration, real wall-clock, visible-only/count-hidden boundary | `codex/p11-c02-reward-sources` |
 
 ## Roadmap Phase 10–18
 

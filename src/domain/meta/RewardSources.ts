@@ -96,12 +96,33 @@ export class RewardSourceService {
     return commit(this.repository, 'stage-clear', rewardKey, currencyOperations(reward), input.committedAtMs)
   }
 
-  activePlayTime(input: Readonly<{ sessionId: string; claimId: string; visibleMs: number; hiddenMs: number; committedAtMs: number }>): RewardSourceResult {
+  activePlayTime(input: Readonly<{ sessionId: string; claimId: string; cumulativeVisibleMs: number; cumulativeHiddenMs: number; committedAtMs: number }>): RewardSourceResult {
     assertId(input.sessionId, 'Session ID')
     assertId(input.claimId, 'Active play-time claim ID')
-    const eligibleMs = calculateEligibleWallClockMs(this.config.activePlayTime.hiddenTabPolicy, input.visibleMs, input.hiddenMs)
-    const intervals = Math.floor(eligibleMs / this.config.activePlayTime.intervalMs)
-    const rewardKey = `reward/active-time/${input.sessionId}/${input.claimId}`
-    return commit(this.repository, 'active-play-time', rewardKey, currencyOperations({ knb: intervals * this.config.activePlayTime.knbPerInterval }), input.committedAtMs)
+    assertNonNegativeSafeInteger(input.cumulativeVisibleMs, 'Cumulative visible wall-clock duration')
+    assertNonNegativeSafeInteger(input.cumulativeHiddenMs, 'Cumulative hidden wall-clock duration')
+    const current = this.repository.load()
+    if (current.status !== 'loaded') throw new Error('Active play-time reward requires a current Meta V3 save')
+    const progress = current.save.data.activePlayTime
+    if (input.cumulativeVisibleMs < progress.observedVisibleMs || input.cumulativeHiddenMs < progress.observedHiddenMs) {
+      throw new Error('Active play-time cumulative duration cannot go backward')
+    }
+    if (input.cumulativeVisibleMs === progress.observedVisibleMs && input.cumulativeHiddenMs === progress.observedHiddenMs) {
+      return { status: 'already-applied', source: 'active-play-time', rewardKey: `reward/active-time/${input.cumulativeVisibleMs}/${input.cumulativeHiddenMs}`, save: current.save }
+    }
+    const deltaVisibleMs = input.cumulativeVisibleMs - progress.observedVisibleMs
+    const deltaHiddenMs = input.cumulativeHiddenMs - progress.observedHiddenMs
+    const newlyEligibleMs = calculateEligibleWallClockMs(this.config.activePlayTime.hiddenTabPolicy, deltaVisibleMs, deltaHiddenMs)
+    const totalEligibleMs = progress.remainderEligibleMs + newlyEligibleMs
+    const intervals = Math.floor(totalEligibleMs / this.config.activePlayTime.intervalMs)
+    const nextProgress = {
+      observedVisibleMs: input.cumulativeVisibleMs,
+      observedHiddenMs: input.cumulativeHiddenMs,
+      remainderEligibleMs: totalEligibleMs % this.config.activePlayTime.intervalMs,
+    }
+    const rewardKey = `reward/active-time/${input.cumulativeVisibleMs}/${input.cumulativeHiddenMs}`
+    const operations = currencyOperations({ knb: intervals * this.config.activePlayTime.knbPerInterval })
+    operations.push({ type: 'set-active-play-time', progress: nextProgress })
+    return commit(this.repository, 'active-play-time', rewardKey, operations, input.committedAtMs)
   }
 }

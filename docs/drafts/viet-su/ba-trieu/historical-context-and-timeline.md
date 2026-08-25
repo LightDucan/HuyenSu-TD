@@ -15,64 +15,68 @@
 
 ## 2. Niên Biểu Diễn Biến Cuộc Khởi Nghĩa (Năm 248 SCN)
 
+> [!NOTE]
+> **Lưu ý phân loại nguồn**: Nguồn Trung Hoa gần thời (*Tam Quốc Chí* - Ngô Chí) xác nhận biến cố năm 248 SCN tại Giao Chỉ/Cửu Chân và việc Lục Dận sang dẹp yên. Các chi tiết cụ thể về nhân thân Bà Triệu, căn cứ Ngàn Nưa, Bồ Điền, thuần voi chiến, đánh phá Tư Phố, thời gian kháng cự hơn 6 tháng và sự hy sinh tuẫn tiết tại núi Tùng chủ yếu được lưu truyền qua sử liệu Việt Nam thời trung đại (*Toàn Thư*, *Cương Mục*), địa chí muộn (*Đại Nam Nhất Thống Chí*) và thần tích/truyền thuyết dân gian địa phương.
+
 ```mermaid
 timeline
     title Tiến Trình Khởi Nghĩa Bà Triệu (248 SCN)
     section Chuẩn Bị
-        Trước 248 : Tập hợp nghĩa sĩ tại Ngàn Nưa (Triệu Sơn)
-                  : Rèn đúc vũ khí, tích trữ lương thảo, thuần dưỡng voi chiến
+        Trước 248 : Tập hợp nghĩa sĩ tại Ngàn Nưa (Triệu Sơn) *(Theo truyền thống địa phương)*
+                  : Rèn vũ khí, thuần voi chiến *(Dã sử & Thần tích)*
     section Bùng Nổ
         Đầu năm 248 : Nổi dậy tại Cửu Chân, đánh hạ các đồn bốt quận huyện
-                    : Triệu Quốc Đạt hy sinh; Nghĩa quân suy tôn Triệu Thị Trinh làm chủ tướng
+                    : Triệu Quốc Đạt qua đời; Nghĩa quân suy tôn Bà Triệu làm chủ tướng
     section Mở Rộng
-        Giữa năm 248 : Chuyển đại bản doanh về Bồ Điền (Hậu Lộc)
-                     : Đánh phá thành Tư Phố; Giao Chỉ và Nhật Nam hưởng ứng
+        Giữa năm 248 : Chuyển đại bản doanh về Bồ Điền (Hậu Lộc) *(Địa chí & Thần phả)*
+                     : Đánh phá Tư Phố; Giao Chỉ và Nhật Nam hưởng ứng
     section Đối Đầu Lục Dận
-        Thu - Đông 248 : Đông Ngô cử Lục Dận cùng 8.000 quân sang đàn áp
-                       : Lục Dận dùng kế chia rẽ, mua chuộc các tù trưởng; cô lập Bồ Điền
+        Thu - Đông 248 : Đông Ngô phái Thứ sử Lục Dận sang trấn áp
+                       : Lục Dận mua chuộc tù trưởng, tập hợp quân lực (~8.000 người toàn chiến dịch)
     section Oanh Liệt
-        Cuối năm 248 : Nghĩa quân kiên cường chống trả vòng vây hơn 6 tháng
+        Cuối năm 248 : Nghĩa quân kiên cường chống trả hơn 6 tháng *(Theo sử Việt & Truyền thống)*
                      : Bà Triệu tuẫn tiết tại núi Tùng (Hậu Lộc); Khí tiết bất diệt
 ```
 
-### 2.1. Giai Đoạn 1: Xây Dựng Lực Lượng Tại Ngàn Nưa
+### 2.1. Giai Đoạn 1: Xây Dựng Lực Lượng Tại Ngàn Nưa *(Theo Truyền Thống Địa Phương & Dã Sử)*
 * Bà Triệu (Triệu Thị Trinh) sinh năm Bính Ngọ (226 SCN) tại miền núi Quan Yên (thuộc huyện Yên Định, Thanh Hóa ngày nay).
-* Sớm mồ côi cha mẹ, bà cùng anh trai là Triệu Quốc Đạt (một thủ lĩnh danh vọng trong vùng) bí mật chiêu mộ trai tráng, hào kiệt khắp nơi về vùng núi Nưa hiểm trở.
-* Tại Ngàn Nưa, nghĩa quân tổ chức thao trường luyện võ, rèn vũ khí bằng đồng và sắt, lập kho lương, bắt và thuần dưỡng voi rừng thành thớt voi chiến dũng mãnh.
+* Sớm mồ côi cha mẹ, bà cùng anh trai là Triệu Quốc Đạt (một hào trưởng địa phương theo sử Việt) tập hợp nghĩa sĩ về vùng núi Nưa hiểm trở.
+* Tại Ngàn Nưa, theo thần tích và truyền thuyết dân gian, nghĩa quân tổ chức luyện võ, rèn vũ khí bằng đồng và sắt, lập kho lương và thuần dưỡng voi rừng thành thớt voi chiến.
 
 ### 2.2. Giai Đoạn 2: Khởi Nghĩa Bùng Nổ Khắp Cửu Chân
-* Năm Mậu Thìn (248 SCN), mâu thuẫn giữa nhân dân và chính quyền đô hộ bùng nổ. Hai anh em Triệu Quốc Đạt và Triệu Thị Trinh chính thức phát lệnh khởi nghĩa từ Ngàn Nưa.
-* Nghĩa quân nhanh chóng quét sạch các đồn bốt, huyện lỵ của quân Ngô quanh lưu vực sông Chu, sông Mã.
-* Trong một trận đánh ác liệt, Triệu Quốc Đạt chẳng may lâm bệnh qua đời (hoặc tử trận theo một số truyền thuyết). Nghĩa quân một lòng cảm phục tài năng và ý chí của Triệu Thị Trinh, đồng thanh suy tôn bà làm chủ tướng, tôn vinh là **Nhụy Kiều Tướng Quân** (Vị tướng kiều diễm như nhụy hoa) hay **Lệ Hải Bà Vương** (Bà chúa vùng biển đẹp).
+* Năm Mậu Thìn (248 SCN), mâu thuẫn giữa nhân dân và chính quyền đô hộ bùng nổ. Cuộc nổi dậy chính thức phát động từ Cửu Chân.
+* Nghĩa quân đánh phá các đồn bốt của quân Ngô quanh lưu vực sông Chu, sông Mã.
+* Trong quá trình khởi nghĩa, Triệu Quốc Đạt qua đời vì bệnh (hoặc tử trận theo một số dã sử). Nghĩa quân suy tôn Triệu Thị Trinh làm chủ tướng, đời sau tôn kính với danh hiệu **Nhụy Kiều Tướng Quân** hay **Lệ Hải Bà Vương**.
 
-### 2.3. Giai Đoạn 3: Tiến Ra Bồ Điền & Thanh Thế Chấn Động Toàn Giao Châu
-* Nhận thấy vùng núi Nưa địa thế hẹp, khó phát triển lực lượng cơ động lớn, Bà Triệu quyết định dời đại bản doanh ra vùng **Bồ Điền** (nay là làng Phú Điền, xã Triệu Lộc, huyện Hậu Lộc, Thanh Hóa).
-* Bồ Điền có vị trí chiến lược đặc biệt: Lưng tựa vào dãy núi Tùng hiểm trở, mặt nhìn ra đồng bằng màu mỡ và các dòng sông dẫn thẳng ra biển, kiểm soát huyết mạch giao thông Bắc - Nam.
-* Tại Bồ Điền, nghĩa quân xây dựng căn cứ gồm nhiều đồn lũy liên hoàn bằng gỗ lim, cọc tre, hào sâu. Từ đây, nghĩa quân mở các cuộc tiến công đánh tan lực lượng quân Ngô, công phá thành **Tư Phố** (thủ phủ quận Cửu Chân).
-* Cuộc khởi nghĩa nhanh chóng lan rộng: Nhân dân Giao Chỉ, Cửu Chân, Nhật Nam đồng loạt nổi dậy hưởng ứng, quan lại đô hộ phương Bắc hoảng sợ bỏ chạy hoặc bị tiêu diệt.
+### 2.3. Giai Đoạn 3: Tiến Ra Bồ Điền & Thanh Thế Chấn Động Toàn Giao Châu *(Theo Địa Chí & Thần Phả)*
+* Nhận thấy vùng núi Nưa địa thế hẹp, khó phát triển lực lượng cơ động lớn, Bà Triệu chuyển đại bản doanh ra vùng **Bồ Điền** (nay là làng Phú Điền, xã Triệu Lộc, huyện Hậu Lộc, Thanh Hóa).
+* Bồ Điền có vị trí chiến lược: Lưng tựa vào dãy núi Tùng, mặt nhìn ra đồng bằng ven biển, kiểm soát tuyến đường giao thông Bắc - Nam.
+* Tại Bồ Điền, nghĩa quân xây dựng hệ thống đồn lũy liên hoàn bằng gỗ đá, cọc tre. Theo sử Việt và truyền thống địa phương, nghĩa quân tiến công phá tan căn cứ quân Ngô, đánh phá thành **Tư Phố** (thủ phủ quận Cửu Chân).
+* Phong trào nhanh chóng lan rộng: Dân chúng khắp Giao Chỉ, Cửu Chân, Nhật Nam đồng loạt hưởng ứng.
 
 ### 2.4. Giai Đoạn 4: Lục Dận Sang Đàn Áp & Kế Sách Phân Hóa Của Quân Ngô
-* Nhận được tin cấp báo từ Giao Châu, Tôn Quyền vô cùng kinh động, vội vã cử **Lục Dận** (cháu của danh tướng Lục Tốn, giữ chức Thứ sử Giao Châu kiêm An Nam hiệu úy) dẫn theo 8.000 quân thủy bộ tinh nhuệ sang đàn áp.
-* Lục Dận là viên tướng thâm độc, hiểu rằng không thể dùng vũ lực thuần túy để đè bẹp tinh thần ngoan cường của người Việt:
-  * **Chính sách mua chuộc & Chiêu dụ**: Lục Dận mang theo nhiều vàng bạc, gấm vóc, ban chức tước của nhà Ngô để lung lạc, phân hóa các tù trưởng, hào trưởng địa phương.
-  * **Cô lập nghĩa quân**: Nhiều thủ lĩnh địa phương dao động bỏ hàng, khiến nghĩa quân Bà Triệu tại Bồ Điền rơi vào thế đơn độc, mất dần nguồn tiếp tế từ các vùng phụ cận.
-  * **Chiến thuật bao vây & Tiêu hao**: Quân Ngô tổ chức vây hãm tầng tầng lớp lớp căn cứ Bồ Điền, phong tỏa đường sông và đường biển.
+* Nhận được tin cấp báo từ Giao Châu, Tôn Quyền cử **Lục Dận** (cháu của Lục Tốn, giữ chức Thứ sử Giao Châu kiêm An Nam hiệu úy) sang dẹp yên phong trào.
+* **Về quân lực của Lục Dận**: Nguồn sử liệu về Lục Dận (*Tam Quốc Chí* - Lục Dận truyện) ghi nhận trong quá trình hành quân và phủ dụ, tổng số quân lực mà Lục Dận chiêu tập, tập hợp được trong toàn chiến dịch đạt khoảng **8.000 người** (bao gồm cả các lực lượng quy phục địa phương); không coi đây là số quân viễn chinh xuất phát ban đầu từ Giang Đông nếu nguồn không chứng minh.
+* Lục Dận thi hành chính sách phân hóa:
+  * **Mua chuộc & Chiêu dụ**: Lục Dận mang nhiều của cải, ban thưởng chức tước để lung lạc, phân hóa các hào trưởng, tù trưởng bản địa.
+  * **Cô lập nghĩa quân**: Nhiều lực lượng địa phương dao động quy hàng, khiến căn cứ Bồ Điền rơi vào thế cô lập, cạn kiệt tiếp tế.
+  * **Bao vây phong tỏa**: Quân Ngô siết chặt vòng vây, phong tỏa các ngả đường sông và ven biển.
 
-### 2.5. Giai Đoạn 5: Khúc Tráng Ca Núi Tùng
-* Bị bao vây cô lập, thiếu thốn lương thảo, nghĩa quân Bồ Điền dưới sự chỉ huy của Bà Triệu vẫn ngoan cường chiến đấu trong hơn 6 tháng ròng rã, đẩy lùi nhiều đợt công kích dữ dội của quân Ngô.
-* Trong trận chiến quyết liệt cuối cùng tại căn cứ Bồ Điền, trước quân số áp đảo của giặc, để giữ trọn khí tiết của người thủ lĩnh không rơi vào tay quân thù, Bà Triệu đã rút gươm tuẫn tiết trên đỉnh **núi Tùng** (xã Triệu Lộc, Hậu Lộc) vào năm 248 SCN, khi mới 23 tuổi.
+### 2.5. Giai Đoạn 5: Khúc Tráng Ca Núi Tùng *(Theo Sử Liệu Trung Đại & Thần Tích)*
+* Bị bao vây cô lập, nghĩa quân Bồ Điền dưới sự chỉ huy của Bà Triệu vẫn kiên cường chống cự trong hơn 6 tháng (theo ghi chép của sử Việt và thần tích địa phương).
+* Trước quân số áp đảo và thế trận bất lợi, để giữ trọn khí tiết của người thủ lĩnh không rơi vào tay giặc, Bà Triệu đã tuẫn tiết trên đỉnh **núi Tùng** (xã Triệu Lộc, Hậu Lộc) vào năm 248 SCN, khi mới 23 tuổi.
 
 ---
 
-## 3. Không Gian Địa Lý Quân Sự Trọng Yếu
+## 3. Không Gian Địa Lý Quân Sự Trọng Yếu *(Theo Địa Chí Muộn & Truyền Thống Địa Phương)*
 
-| Địa Danh Lịch Sử | Vị Trí Hiện Nay | Đặc Điểm Chiến Lược Trong Khởi Nghĩa |
-|---|---|---|
-| **Căn cứ Ngàn Nưa (Núi Nưa)** | Huyện Triệu Sơn & Như Thanh, Thanh Hóa | Địa hình rừng núi trùng điệp, nhiều hang động, nguồn nước dồi dào; bàn đạp bí mật xây dựng lực lượng, rèn vũ khí và thuần voi ban đầu. |
-| **Thành Cổ Tư Phố** | Làng Giàng, xã Thiệu Dương, TP. Thanh Hóa | Thủ phủ chính trị - quân sự của quận Cửu Chân thời Bắc thuộc; cứ điểm kiên cố bị nghĩa quân Bà Triệu đánh hạ. |
-| **Căn cứ Bồ Điền** | Thôn Phú Điền, xã Triệu Lộc, Hậu Lộc, Thanh Hóa | Căn cứ địa trung tâm của cuộc khởi nghĩa; hệ thống đồn lũy liên hoàn án ngữ ngã ba sông Lạch Trường và trục đường thiên lý Bắc - Nam. |
-| **Núi Tùng (Tùng Sơn)** | Xã Triệu Lộc, Hậu Lộc, Thanh Hóa | Dãy núi đá vôi cheo leo bảo vệ phía sau Bồ Điền; nơi diễn ra trận chiến cuối cùng và là nơi yên nghỉ ngàn thu của Nữ vương Triệu Thị Trinh. |
-| **Lưu Vực Sông Mã & Sông Chu** | Tỉnh Thanh Hóa | Tuyến vận tải đường thủy quan trọng cho thuyền bè tiếp tế và chiến đấu cơ động. |
+| Địa Danh Lịch Sử | Vị Trí Hiện Nay | Đặc Điểm Chiến Lược Trong Khởi Nghĩa | Căn Cứ Tư Liệu |
+|---|---|---|---|
+| **Căn cứ Ngàn Nưa (Núi Nưa)** | Huyện Triệu Sơn & Như Thanh, Thanh Hóa | Địa hình rừng núi trùng điệp, nhiều hang động; bàn đạp bí mật xây dựng lực lượng, rèn vũ khí và thuần voi ban đầu. | *Đại Nam Nhất Thống Chí*, thần tích đền Am Tiên. |
+| **Thành Cổ Tư Phố** | Làng Giàng, xã Thiệu Dương, TP. Thanh Hóa | Thủ phủ chính trị - quân sự của quận Cửu Chân thời Bắc thuộc; cứ điểm bị nghĩa quân tiến đánh. | *Thủy Kinh Chú*, di chỉ khảo cổ học Thiệu Dương. |
+| **Căn cứ Bồ Điền** | Thôn Phú Điền, xã Triệu Lộc, Hậu Lộc, Thanh Hóa | Căn cứ địa trung tâm của cuộc khởi nghĩa; hệ thống đồn lũy liên hoàn án ngữ ngã ba sông và đường thiên lý. | *Đại Nam Nhất Thống Chí*, thần phả đền Phú Điền. |
+| **Núi Tùng (Tùng Sơn)** | Xã Triệu Lộc, Hậu Lộc, Thanh Hóa | Dãy núi đá vôi cheo leo bảo vệ phía sau Bồ Điền; nơi diễn ra trận chiến cuối cùng và nơi yên nghỉ của Bà Triệu. | *Toàn Thư*, *Cương Mục*, di tích lăng mộ núi Tùng. |
+| **Lưu Vực Sông Mã & Sông Chu** | Tỉnh Thanh Hóa | Tuyến vận tải đường thủy quan trọng cho thuyền bè tiếp tế và chiến đấu cơ động. | Thư tịch địa chí và khảo cổ học. |
 
 ---
 

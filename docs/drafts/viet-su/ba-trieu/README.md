@@ -61,16 +61,16 @@ flowchart TD
 
 | Tài Liệu | Nội Dung Trọng Tâm |
 |---|---|
-| [historical-context-and-timeline.md](historical-context-and-timeline.md) | Bối cảnh lịch sử chi tiết, diễn biến chiến dịch, căn cứ Ngàn Nưa & Bồ Điền, chiến cuộc đối đầu Lục Dận, ý nghĩa lịch sử. |
-| [character-roster-and-sources.md](character-roster-and-sources.md) | Danh sách 10–20 nhân vật liên quan kèm bảng phân loại độ tin cậy lịch sử 4 cấp độ và đánh giá nguồn dẫn chứng. |
-| [eastern-wu-forces-and-tactics.md](eastern-wu-forces-and-tactics.md) | Nghiên cứu quân đội Đông Ngô (Lục Dận, trang bị giáp sắt, hoàn thủ đao, kích, nỏ quân dụng, thuyền chiến, mưu kế chia rẽ). |
+| [historical-context-and-timeline.md](historical-context-and-timeline.md) | Bối cảnh lịch sử chi tiết, diễn biến khởi nghĩa, căn cứ Ngàn Nưa & Bồ Điền, chiến cuộc đối đầu Lục Dận, ý nghĩa lịch sử. |
+| [character-roster-and-sources.md](character-roster-and-sources.md) | Danh sách nhân vật liên quan kèm bảng phân loại độ tin cậy lịch sử 4 cấp độ và đánh giá nguồn dẫn chứng (làm rõ ngữ nghĩa danh xưng Triệu Ẩu). |
+| [eastern-wu-forces-and-tactics.md](eastern-wu-forces-and-tactics.md) | Nghiên cứu quân đội Đông Ngô (Lục Dận, trang bị giáp sắt, hoàn thủ đao, kích, nỏ quân dụng, thuyền chiến, tổng quân lực tập hợp ~8.000 người). |
 | [visual-costumes-weapons-and-terrain.md](visual-costumes-weapons-and-terrain.md) | Khảo cứu mỹ thuật: Trang phục áo gấm/áo chàm, giáp hộ tâm phiến Đông Sơn muộn, vũ khí gươm/giáo/nỏ, tượng voi trắng, kiến trúc nhà sàn/đồn lũy, 4 vùng địa hình chiến trường. |
-| [hero-and-enemy-archetypes-proposal.md](hero-and-enemy-archetypes-proposal.md) | Đề xuất 4 ứng viên Hero, các phân nhóm Normal/Elite/Boss archetypes cho gameplay Tower Defense (không tạo stats/code). |
+| [hero-and-enemy-archetypes-proposal.md](hero-and-enemy-archetypes-proposal.md) | Đề xuất 4 ứng viên Hero, các phân nhóm Normal/Elite/Boss theo hướng Visual & Historical Inspiration (không tạo stats/skills/abilities). |
 
 ---
 
 ## 4. Nguyên Tắc Giới Hạn Của Task (Constraints Reminder)
 
-* **Không viết code logic gameplay / Core / Stats**: Không gán chỉ số cụ thể (HP/ATK) hay viết hàm skill cho Hero/Enemy.
+* **Không viết code logic gameplay / Core / Stats / Skills**: Không gán chỉ số cụ thể (HP/ATK), không thiết kế Skill/Passive/Boss Ability, không can thiệp hệ thống combat.
 * **Không sửa `src/**` hoặc `PROJECT_PLAN.md`**: Toàn bộ nội dung gói nghiên cứu chỉ nằm trong `docs/drafts/viet-su/ba-trieu/**`.
-* **Không đồng nhất truyền thuyết thành lịch sử chắc chắn**: Mọi chi tiết dã sử/thần phả đều được ghi chú rõ ràng về nguồn gốc.
+* **Không đồng nhất truyền thuyết thành lịch sử chắc chắn**: Mọi chi tiết dã sử/thần phả đều được gắn nhãn nguồn gốc tương ứng.

@@ -1,131 +1,109 @@
-# Đề Xuất Ứng Viên Hero & Enemy Archetypes Thời Kỳ Bà Triệu
+# Đề Xuất Ứng Viên Hero & Kẻ Địch Thời Kỳ Bà Triệu (Visual & Historical Inspiration)
 
 > [!IMPORTANT]
-> **Ràng Buộc Thiết Kế Tuyệt Đối**:
-> - Tài liệu này mang tính chất **Đề Xuất Ý Tưởng Tạo Hình & Định Hướng Lối Chơi (Conceptual Proposal)**, chưa chốt roster chính thức.
-> - **Tuyệt đối KHÔNG tạo chỉ số gameplay (Stats HP/ATK cụ thể)**, **KHÔNG viết code Skill**, **KHÔNG can thiệp Core Architecture**.
-> - Mọi đề xuất đều tuân thủ chặt chẽ nguyên tắc của dự án:
->   * Hero là Tower đứng yên, **không có chỉ số DEF**.
->   * Đòn đánh thường (Normal Attack): Single-target duy nhất (không có AoE/CC).
->   * Kỹ năng chủ động (Active Skill): Kích hoạt tự động sau **3 / 5 / 7 / 10** đòn đánh thường; sử dụng hệ hiệu ứng dùng chung (Damage, AoE, Slow, Stun, Root, MultiHit) qua framework của Core.
->   * Modifier phần trăm (%) chỉ dành riêng cho Passive khi đạt cảnh giới Huyền Sử.
+> **Ràng Buộc Nghiên Cứu Lịch Sử & Mỹ Thuật**:
+> - Tài liệu này mang tính chất **Khảo Cứu Nhân Vật & Đề Xuất Ý Tưởng Tạo Hình (Visual & Historical Inspiration)**, chưa chốt roster chính thức.
+> - **TUYỆT ĐỐI KHÔNG TẠO CHỈ SỐ STATS (HP/ATK)**, **KHÔNG THIẾT KẾ ACTIVE SKILL CHI TIẾT**, **KHÔNG THIẾT KẾ LEGENDARY PASSIVE**, **KHÔNG THIẾT KẾ BOSS ABILITY / SUMMON / BUFF / DEBUFF**.
+> - Mọi đề xuất chỉ đóng vai trò tư liệu cảm hứng lịch sử - mỹ thuật phục vụ đội ngũ thiết kế sau này.
 
 ---
 
-## 1. Đề Xuất 4 Ứng Viên Hero (Hero Candidates — Chưa Chốt Roster)
+## 1. Đề Xuất 4 Ứng Viên Hero (Hero Candidates — Visual & Historical Inspiration)
 
 ```mermaid
 graph TD
     subgraph HERO CANDIDATES
-        H1["1. Triệu Thị Trinh<br>(Nhụy Kiều Tướng Quân)<br>Archetype: Mounted Vanguard"]
-        H2["2. Triệu Quốc Đạt<br>(Quan Yên Lạc Tướng)<br>Archetype: Heavy Shield Guardian"]
-        H3["3. Ba Vua Bồ Điền<br>(Tam Vị Dũng Tướng)<br>Archetype: Rapid Multi-Striker"]
-        H4["4. Sơn Nữ Ngàn Nưa<br>(Dân Binh Nỏ Rừng)<br>Archetype: Ranged Trapper Sniper"]
+        H1["1. Triệu Thị Trinh<br>(Nhụy Kiều Tướng Quân)<br>Cảm hứng: Nữ tướng cưỡi Bạch Tượng"]
+        H2["2. Triệu Quốc Đạt<br>(Hào Trưởng Quan Yên)<br>Cảm hứng: Trấn thủ khiên giáo"]
+        H3["3. Ba Vua Bồ Điền<br>(Tam Vị Dũng Tướng)<br>Cảm hứng: Bộ binh dũng cảm"]
+        H4["4. Sơn Nữ Ngàn Nưa<br>(Dân Binh Nỏ Rừng)<br>Cảm hứng: Nữ xạ thủ du kích"]
     end
 ```
 
 ### 1.1. Ứng Viên 1: Triệu Thị Trinh (Nhụy Kiều Tướng Quân / Lệ Hải Bà Vương)
 
 * **Danh tính & Bối cảnh**: Nữ vương khởi nghĩa Cửu Chân năm 248 SCN; biểu tượng bất diệt của lòng dũng cảm và khí phách dân tộc.
-* **Archetype**: *Chiến Tướng Cưỡi Voi Tiên Phong (Mounted Vanguard / Frontline Sweeper)*.
-* **Định hướng tạo hình Visual**:
-  * Trang phục gấm vàng lộng lẫy, ngực đeo Hộ tâm phiến đồng tròn Đông Sơn chạm hình Mặt trời, trâm vàng cài tóc.
+* **Mức độ tin cậy nguồn**: Nguồn Trung Hoa gần thời (*Tam Quốc Chí*, *Tống Thư*); Nguồn trung đại Việt Nam (*Toàn Thư*, *Cương Mục*).
+* **Định hướng tạo hình Visual & Cảm hứng lịch sử**:
+  * Trang phục lụa gấm vàng rực rỡ bên trong giáp ngực da thuộc nẹp viền đồng thau, ngực đeo Hộ tâm phiến đồng tròn Đông Sơn chạm hình Mặt trời, trâm vàng cài tóc.
   * Ngự trên bành gấm trên lưng Bạch Tượng (Voi trắng một ngà) dũng mãnh, tay cầm gươm dài Đông Sơn uy nghi.
-* **Định hướng cơ chế Combat (Ý niệm conceptual)**:
-  * *Tầm đánh*: Extended Melee (Tầm cận chiến mở rộng, sải gươm dài từ lưng voi).
-  * *Đòn đánh thường*: Single-target gươm chém dứt khoát vào kẻ địch đối diện.
-  * *Ý niệm Kỹ năng (Active Skill)*: Tiếng thét xung trận kết hợp dậm chân của Bạch Tượng tạo chấn động kinh hoàng (kích hoạt sau $N$ đòn đánh: Gây AoE Damage và Stun ngắn hạn lên nhóm kẻ địch lân cận qua Shared Skill Framework).
-  * *Ý niệm Cảnh giới Huyền Sử*: Kích hoạt Passive hào quang vương giả (khuếch đại sức mạnh tấn công cho các Hero lân cận qua Shared Passive System).
+  * Phong thái: Nữ vương chỉ huy trận địa, toát lên khí phách hào hùng *"đạp luồng sóng dữ, chém cá kình ở biển Đông"*.
 
 ---
 
-### 1.2. Ứng Viên 2: Triệu Quốc Đạt (Quan Yên Lạc Tướng)
+### 1.2. Ứng Viên 2: Triệu Quốc Đạt (Hào Trưởng Quan Yên)
 
 * **Danh tính & Bối cảnh**: Hào trưởng Quan Yên, anh trai Bà Triệu, người đồng khởi xướng phong trào và xây dựng căn cứ Ngàn Nưa ban đầu.
-* **Archetype**: *Hộ Vệ Trận Địa Thiết Giáp (Heavy Shield Guardian / Area Controller)*.
-* **Định hướng tạo hình Visual**:
+* **Mức độ tin cậy nguồn**: Sử liệu trung đại Việt Nam (*Toàn Thư*, *Cương Mục*) và thần tích làng Quan Yên (không có trong sử Ngô gần thời).
+* **Định hướng tạo hình Visual & Cảm hứng lịch sử**:
   * Thân hình cao lớn vạm vỡ, giáp da thú rừng nẹp viền đồng, hộ tâm phiến tròn trước ngực, khăn vấn sẫm màu.
   * Tay trái mang Khiên gỗ bọc đồng chạm hoa văn thú dữ kiên cố, tay phải cầm Giáo búp đa mũi đồng sáng quắc.
-* **Định hướng cơ chế Combat (Ý niệm conceptual)**:
-  * *Tầm đánh*: Melee cận chiến tiêu chuẩn.
-  * *Đòn đánh thường*: Đâm giáo single-target dũng mãnh.
-  * *Ý niệm Kỹ năng (Active Skill)*: Đập khiên trấn thủ làm rung chuyển mặt đất (kích hoạt sau $N$ đòn: Gây hiệu ứng Root / Slow cầm chân kẻ địch đi đầu, hỗ trợ đồng đội tiêu diệt qua Shared Skill Framework).
-  * *Ý niệm Cảnh giới Huyền Sử*: Mở khóa Passive kiên cố phòng tuyến (tăng cường khả năng chống đỡ cho cứ điểm phòng thủ).
+  * Phong thái: Lạc tướng hộ vệ kiên cường, dạn dày kinh nghiệm chỉ huy và tập hợp nghĩa sĩ.
 
 ---
 
-### 1.3. Ứng Viên 3: Ba Vua Bồ Điền (Tam Vị Tiên Phong)
+### 1.3. Ứng Viên 3: Ba Vua Bồ Điền (Tam Vị Dũng Tướng)
 
-* **Danh tính & Bối cảnh**: Ba vị dũng tướng phò tá đắc lực của Bà Triệu tại căn cứ Bồ Điền, được lưu truyền trong thần tích và địa chí xứ Thanh.
-* **Archetype**: *Tốc Kích Đột Phá (Rapid Multi-Striker / Skirmisher)*.
-* **Định hướng tạo hình Visual**:
+* **Danh tính & Bối cảnh**: Ba vị dũng tướng phò tá đắc lực của Bà Triệu tại căn cứ Bồ Điền.
+* **Mức độ tin cậy nguồn**: **Folklore / Local Legend Candidate** (Thần tích đền Ba Vua thôn Phú Điền, *Đại Nam Nhất Thống Chí*).
+* **Định hướng tạo hình Visual & Cảm hứng lịch sử**:
   * Chiến binh trẻ tuổi nhanh nhẹn, áo chàm vạt ngắn túm gọn gàng, xăm mình giao long, sử dụng song đao hoặc trường kích linh hoạt.
-* **Định hướng cơ chế Combat (Ý niệm conceptual)**:
-  * *Tầm đánh*: Melee cận chiến tốc độ cao.
-  * *Đòn đánh thường*: Chém đao nhanh single-target.
-  * *Ý niệm Kỹ năng (Active Skill)*: Tung ra liên hoàn trảm chớp nhoáng (kích hoạt sau $N$ đòn: Thực hiện MultiHit liên tiếp vào mục tiêu đơn lẻ, dồn sát thương cực mạnh).
-  * *Ý niệm Cảnh giới Huyền Sử*: Tăng tốc độ xuất chiêu toàn diện qua Shared Passive System.
+  * Phong thái: Đội quân xung kích dũng cảm xông pha cản phá các đợt tiến quân của giặc.
 
 ---
 
-### 1.4. Ứng Viên 4: Sơn Nữ Ngàn Nưa (Thủ Lĩnh Nỏ Rừng)
+### 1.4. Ứng Viên 4: Sơn Nữ Ngàn Nưa (Nữ Xạ Thủ Nỏ Rừng)
 
 * **Danh tính & Bối cảnh**: Đại diện cho lực lượng nữ binh và thợ săn tinh nhuệ vùng rừng núi Ngàn Nưa hưởng ứng lời kêu gọi cứu nước của Bà Triệu.
-* **Archetype**: *Xạ Thủ Tầm Xa Nỏ Rừng (Ranged Sniper & Trapper)*.
-* **Định hướng tạo hình Visual**:
+* **Mức độ tin cậy nguồn**: **Game Interpretation / Nghệ thuật hóa truyền thống dân gian**.
+* **Định hướng tạo hình Visual & Cảm hứng lịch sử**:
   * Nữ thợ săn nhanh nhẹn trong bộ trang phục vải chàm gọn gàng, nón lá cọ nẹp mây, đeo ống tên nứa sau lưng, cầm cây Nỏ Lạc Việt thân gỗ nẹp gân trâu dẻo dai.
-* **Định hướng cơ chế Combat (Ý niệm conceptual)**:
-  * *Tầm đánh*: Ranged tầm xa.
-  * *Đòn đánh thường*: Bắn mũi tên nứa bịt đồng single-target tầm xa chính xác.
-  * *Ý niệm Kỹ năng (Active Skill)*: Bắn loạt tên độc đầm lầy (kích hoạt sau $N$ đòn: Gây Slow diện rộng làm giảm tốc độ di chuyển của đoàn quân địch trong vùng ảnh hưởng).
-  * *Ý niệm Cảnh giới Huyền Sử*: Khai mở Passive tăng tầm quan sát và tỷ lệ bạo kích tầm xa.
+  * Phong thái: Xạ thủ cơ động, đại diện cho tinh thần quật khởi của nhân dân các vùng rừng núi.
 
 ---
 
-## 2. Đề Xuất Kẻ Địch Thường (Normal Enemy Candidates — Không Tạo Stats)
+## 2. Đề Xuất Ứng Viên Kẻ Địch Thường (Normal Enemy Candidates — Visual Inspiration)
 
-| Kẻ Địch | Binh Chủng & Vai Trò | Đặc Điểm Nhận Dạng & Hành Vi Tác Chiến |
+| Kẻ Địch | Binh Chủng & Cảm Hứng Lịch Sử | Đặc Điểm Tạo Hình Visual |
 |---|---|---|
-| **Ngô Thiết Giáp Sĩ** | *Heavy Footman* | Mang giáp phiến sắt sơn then, khiên chữ nhật lớn; di chuyển chậm, lượng máu cao, tạo thành lá chắn che chở cho tuyến sau. |
-| **Ngô Nỏ Thủ Cơ Giới** | *Ranged Crossbowman* | Binh lính mang nỏ quân dụng lẫy đồng; có khả năng dừng lại bắn tỉa tầm xa uy lực, gây nguy hiểm cho tiền tuyến. |
-| **Dân Phu Cưỡng Bách & Thủy Binh** | *Swarm / Runner* | Lính phu phen tạp dịch bị ép ra trận; di chuyển nhanh, lượng máu thấp nhưng xuất hiện theo từng đàn đông đảo. |
+| **Ngô Thiết Giáp Sĩ** | Bộ binh nặng Đông Ngô | Mang giáp phiến sắt sơn then đen, khiên chữ nhật lớn, tay cầm kích sắt; bước đi chậm chạp, vững vàng. |
+| **Ngô Nỏ Thủ Cơ Giới** | Nỏ binh quân dụng Đông Ngô | Binh lính mang nỏ quân dụng lẫy đồng tiêu chuẩn phương Bắc, đeo ống tên sắt sau lưng. |
+| **Dân Phu & Thủy Binh Giang Đông** | Phu phen tạp dịch & Lính thủy nhẹ | Lính áo chẽn gọn gàng, mang giáo ngắn hoặc câu liêm; di chuyển nhanh nhẹn trên địa hình sông nước. |
 
 ---
 
-## 3. Đề Xuất Kẻ Địch Tinh Anh (Elite Enemy Candidates — Không Tạo Stats)
+## 3. Đề Xuất Ứng Viên Kẻ Địch Tinh Anh (Elite Enemy Candidates — Visual Inspiration)
 
-| Kẻ Địch Tinh Anh | Archetype | Đặc Điểm Nhận Dạng & Ý Niệm Cơ Chế |
+| Kẻ Địch Tinh Anh | Cảm Hứng Lịch Sử | Đặc Điểm Tạo Hình Visual |
 |---|---|---|
-| **Ngô Tiên Phong Kỵ Sĩ** | *Fast Shock Cavalry* | Kỵ binh nhẹ cưỡi ngựa chiến Giang Đông mang giáo dài; tốc độ di chuyển cực nhanh, có khả năng lướt qua bẫy đầm lầy. |
-| **Sứ Giả Mua Chuộc / Đốc Chiến Quan** | *Support Buffer* | Quan lại mặc áo thụng mang tráp vàng và cờ hiệu; liên tục phát aura tăng tốc chạy và hồi máu cho binh lính Ngô xung quanh. |
-| **Thủy Quân Kích Thủ Giang Đông** | *Amphibious Striker* | Lính thủy mang giáp da bơi lội giỏi, trang bị câu liêm kích; có khả năng vượt qua các chướng ngại vật sông nước nhanh chóng. |
+| **Ngô Tiên Phong Kỵ Sĩ** | Kỵ binh nhẹ Đông Ngô | Kỵ binh cưỡi ngựa chiến Giang Đông mang giáo dài, cờ quạt chỉnh tề; phong thái cơ động nhanh. |
+| **Đốc Chiến Quan Đông Ngô** | Quan lại chỉ huy tiền tuyến | Mặc áo thụng lụa ngoài giáp nhẹ, tay cầm cờ lệnh đốc thúc binh sĩ. |
+| **Thủy Quân Kích Thủ** | Lực lượng thủy chiến đặc nhiệm | Lính thủy mang giáp da bơi lội giỏi, trang bị câu liêm kích chuyên leo phá đồn bốt ven sông. |
 
 ---
 
-## 4. Đề Xuất Ứng Viên Boss (Boss Candidates — Không Tạo Stats)
+## 4. Đề Xuất Ứng Viên Boss (Boss Candidates — Visual & Historical Inspiration)
 
 ```mermaid
 graph LR
     subgraph BOSS CANDIDATES
-        B1["1. Lục Dận (Lu Yin)<br>Thứ Sử Giao Châu Đông Ngô<br>Archetype: Tactical Commander / Buffer"]
-        B2["2. Tiết Bính (Xue Bing)<br>Thái Thú Cửu Chân<br>Archetype: Armored Siege Master"]
+        B1["1. Lục Dận (Lu Yin)<br>Thứ Sử Giao Châu Đông Ngô<br>Cảm hứng: Thống soái mưu lược"]
+        B2["2. Tiết Bính (Xue Bing)<br>Quan Chức Đô Hộ<br>Cảm hứng: Tướng phòng thủ thành lũy"]
     end
 ```
 
 ### 4.1. Boss 1: Lục Dận (Thứ Sử Giao Châu — Thống Soái Đông Ngô)
-* **Vai trò trong cốt truyện**: Kẻ thù chính của chương truyện Bà Triệu; viên tướng mưu mô mang 8.000 quân sang đàn áp và thực hiện kế sách mua chuộc phân hóa.
-* **Định hướng tạo hình**: Mặc cẩm bào quý tộc Đông Ngô bên trong giáp phiến sắt mạ vàng, đội mũ cánh chuồn tướng lĩnh, tay cầm gươm Hoàn Thủ đao nạm ngọc, vẻ mặt thâm hiểm.
-* **Định hướng cơ chế Boss (Ý niệm conceptual)**:
-  * *Lượng máu & Tốc độ*: Máu rất dày, di chuyển chậm rãi, ung dung.
-  * *Cơ chế Khí thế Đông Ngô (Troop Morale Buff)*: Định kỳ phát hào quang trống trận, tăng tốc độ di chuyển và sát thương cho toàn bộ binh lính Ngô xung quanh.
-  * *Cơ chế Triệu hồi Giáp Sĩ*: Gọi thêm toán lính thiết giáp hộ vệ khi lượng máu giảm xuống các mốc nhất định.
-  * *Cơ chế Mua chuộc / Phân hóa*: Định kỳ làm vô hiệu hóa tạm thời hiệu ứng hỗ trợ của một trụ phòng thủ ngẫu nhiên.
+* **Bối cảnh lịch sử**: Viên tướng do triều đình Tôn Quyền cử sang Giao Châu dẹp yên phong trào năm 248 SCN; sử chép tổng quân lực ông tập hợp trong chiến dịch khoảng 8.000 người.
+* **Mức độ tin cậy nguồn**: Nguồn chính sử tương đối rõ (*Tam Quốc Chí* - Ngô Chí).
+* **Định hướng tạo hình Visual**:
+  * Mặc cẩm bào quý tộc Đông Ngô bên trong giáp phiến sắt viền đồng mạ vàng, đội mũ quan võ thời Tam Quốc, tay cầm gươm Hoàn Thủ đao nạm ngọc.
+  * Phong thái: Viên quan kinh lược thâm trầm, mưu mô, đại diện cho sức mạnh quân sự và thủ đoạn phân hóa của nhà Đông Ngô.
 
 ---
 
-### 4.2. Boss 2: Tiết Bính (Thái Thú Cửu Chân)
-* **Vai trò trong cốt truyện**: Quan đô hộ địa phương tàn bạo, cố thủ trong thành lũy Tư Phố trước khi bị nghĩa quân công phá.
-* **Định hướng tạo hình**: Tướng giáp sắt hộ tâm kính lớn, đứng trên Chiến xa gỗ bọc sắt nẹp cọc nhọn.
-* **Định hướng cơ chế Boss (Ý niệm conceptual)**:
-  * *Lượng máu & Phòng thủ*: Chống chịu đòn đánh vật lý cực tốt, miễn nhiễm với hiệu ứng Stun nhẹ.
-  * *Hỏa lực tầm xa*: Trang bị dàn nỏ lớn trên chiến xa bắn phá các vị trí tiền tiêu.
+### 4.2. Boss 2: Tiết Bính (Quan Chức Đô Hộ Phương Bắc)
+* **Bối cảnh**: Nhân vật giả định trong bối cảnh game đại diện cho quan chức đô hộ cố thủ trong thành lũy Tư Phố.
+* **Mức độ tin cậy nguồn**: **Folklore / Unverified Candidate (Nhân vật giả định trong game)**.
+* **Định hướng tạo hình Visual**:
+  * Tướng giáp sắt mang khiên hộ tâm lớn, đứng trên Chiến xa gỗ bọc sắt nẹp cọc nhọn.
+  * Phong thái: Tướng trấn thủ đồn lũy kiên cố, đại diện cho hệ thống cứ điểm phòng ngự của chính quyền đô hộ.

@@ -4,7 +4,7 @@
 
 ### 1.1. Bối Cảnh Quân Sự Nhà Đông Ngô Thời Tam Quốc
 * Thế kỷ III SCN, nước Đông Ngô (do Tôn Quyền đứng đầu) sở hữu lực lượng quân sự quy mô lớn với thế mạnh tuyệt đối về thủy quân sông nước và các đội bộ binh giáp sắt tinh nhuệ tại vùng Giang Nam.
-* Để bình định vùng Giao Châu rộng lớn và dập tắt cuộc khởi nghĩa năm 248 SCN, triều đình Đông Ngô đã điều động một đạo quân viễn chinh thiện chiến gồm **8.000 quân thủy bộ** dưới sự chỉ huy tối cao của Thứ sử **Lục Dận**.
+* Để bình định vùng Giao Châu và dập tắt cuộc nổi dậy năm 248 SCN, triều đình Đông Ngô phái Thứ sử **Lục Dận** sang kinh lý; các nguồn sử liệu ghi nhận tổng quân lực do Lục Dận chiêu tập, tập hợp trong toàn chiến dịch đạt khoảng **8.000 người** (bao gồm cả quân đầu hàng và lực lượng bản địa quy phục; không coi đây là số quân viễn chinh xuất phát ban đầu từ Giang Đông nếu nguồn không chứng minh).
 
 ### 1.2. Cơ Cấu Binh Chủng Đông Ngô
 1. **Bộ binh Thiết giáp (Heavy Armored Infantry)**: Lực lượng chủ lực mang giáp phiến sắt, khiên lớn nẹp đồng, chuyên đột phá trận địa và công phá đồn lũy.
@@ -63,7 +63,7 @@ Lục Dận không chỉ ỷ vào ưu thế trang bị vượt trội mà còn �
 * Thủ đoạn này đã làm một bộ phận hào trưởng giao động, buông vũ khí quy hàng, cắt đứt thế liên hoàn tiếp tế giữa đồng bằng và rừng núi.
 
 ### 4.2. Kế Sách "Bao Vây Toàn Diện & Phong Tỏa Đường Biển"
-* Sau khi phân hóa được các vùng phụ cận, Lục Dận tập trung 8.000 quân siết chặt vòng vây xung quanh căn cứ Bồ Điền.
+* Sau khi phân hóa được các vùng phụ cận, Lục Dận tập hợp lực lượng (sử liệu chép đạt tổng cộng khoảng 8.000 người) siết chặt vòng vây xung quanh căn cứ Bồ Điền.
 * Chiến hạm Đông Ngô khóa chặt cửa biển Lạch Trường và các nhánh sông Mã, ngăn chặn tuyệt đối nguồn muối, sắt và lương thực từ bên ngoài chi viện cho nghĩa quân Bà Triệu.
 
 ### 4.3. Chiến Thuật "Trận Địa Chông Sắt & Mưa Tên Khắc Chế Bạch Tượng"
@@ -71,16 +71,15 @@ Lục Dận không chỉ ỷ vào ưu thế trang bị vượt trội mà còn �
 
 ---
 
-## 5. Định Hướng Thiết Kế Enemy & Boss Cho Tower Defense (Ý Tưởng Nghệ Thuật)
+## 5. Định Hướng Nghệ Thuật & Tạo Hình Kẻ Địch (Visual & Historical Inspiration)
 
-Dựa trên nghiên cứu lịch sử và trang bị quân Ngô, định hướng thiết kế hệ thống kẻ địch mang bản sắc thời Tam Quốc nhưng phù hợp với cơ chế Tower Defense:
+Dựa trên nghiên cứu lịch sử và trang bị quân Ngô, định hướng cảm hứng mỹ thuật cho hệ thống kẻ địch mang bản sắc thời Tam Quốc:
 
-1. **Boss Lục Dận (Thống Soái Mưu Mô)**:
-   * *Tạo hình*: Mặc cẩm bào quý tộc Đông Ngô bên trong giáp sắt mạ vàng, tay cầm bội kiếm Hoàn Thủ, thần thái xảo quyệt.
-   * *Đặc trưng*: Boss chỉ huy có khả năng gọi lính hộ vệ, tăng tốc cho toàn quân (buff sĩ khí) và thanh tẩy các hiệu ứng khống chế của trụ.
-2. **Kẻ địch Ngô Thiết Giáp Binh (Heavy Iron Soldier)**:
-   * *Tạo hình*: Lính giáp sắt toàn thân, mang khiên chữ nhật lớn, bước đi chậm chạp nhưng chống chịu sát thương vật lý cực tốt.
-3. **Kẻ địch Ngô Nỏ Thủ Cơ Giới (Crossbow Sniper)**:
-   * *Tạo hình*: Lính đeo giá nỏ sau lưng, bắn tên cơ khí tầm cực xa, gây nguy hiểm cho các cứ điểm tiền tuyến.
-4. **Kẻ địch Sứ Giả Mua Chuộc (Corrupting Emissary)**:
-   * *Tạo hình*: Quan lại áo thụng tay cầm tráp vàng, di chuyển nhanh, tạo hiệu ứng giảm sức tấn công của Hero/trụ phòng thủ xung quanh.
+1. **Ứng viên Boss: Lục Dận (Thống Soái Đông Ngô)**:
+   * *Tạo hình*: Mặc cẩm bào quý tộc Đông Ngô bên trong giáp phiến sắt viền đồng mạ vàng, tay cầm bội kiếm Hoàn Thủ đao cán nạm ngọc, toát lên phong thái mưu lược thâm trầm của viên quan kinh lược phương Bắc.
+2. **Ứng viên Kẻ địch: Ngô Thiết Giáp Binh (Heavy Armored Infantry)**:
+   * *Tạo hình*: Lính mang giáp phiến sắt sơn then, khiên chữ nhật gỗ bọc da nẹp sắt, tay cầm kích hoặc đao ngắn; bước đi đĩnh đạc, vững chắc.
+3. **Ứng viên Kẻ địch: Ngô Nỏ Thủ (Crossbow Soldier)**:
+   * *Tạo hình*: Lính nỏ cơ khí lẫy đồng tiêu chuẩn quân dụng nhà Ngô, đeo ống tên sắt sau lưng, di chuyển cơ động.
+4. **Ứng viên Kẻ địch: Thủy Binh Giang Đông (Mariner Infantry)**:
+   * *Tạo hình*: Lính thủy áo chẽn gọn gàng, trang bị câu liêm và khiên mây, di chuyển nhanh nhẹn.

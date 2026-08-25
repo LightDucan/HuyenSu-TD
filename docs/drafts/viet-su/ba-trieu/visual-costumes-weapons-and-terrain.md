@@ -59,12 +59,12 @@
 
 ---
 
-## 4. Hình Tượng Chiến Thú — Bạch Tượng (Voi Trắng Một Ngà)
+## 4. Hình Tượng Chiến Thú — Bạch Tượng (Voi Trắng Một Ngà) *(Biểu Tượng Dân Gian & Dã Sử)*
 
-Hình ảnh Bà Triệu cưỡi voi trắng ra trận là một trong những biểu tượng nghệ thuật hào hùng nhất của dân tộc:
+Hình ảnh Bà Triệu cưỡi voi trắng một ngà ra trận là một trong những biểu tượng nghệ thuật hào hùng nhất trong truyền thuyết dân gian và dã sử (*Lĩnh Nam Chích Quái*, *Nam Hải Dị Nhân*):
 
 * **Đặc điểm hình thể**: Voi rừng khổng lồ màu xám trắng uy nghi, có một ngà dài nhọn vươn cong dũng mãnh (hoặc ngà quặp).
-* **Trang bị bành voi & Hộ giáp**:
+* **Trang bị bành voi & Hộ giáp (Diễn giải mỹ thuật game)**:
   * Trên lưng voi đặt **Bành voi bằng gỗ quý bọc gấm thêu hoa văn chỉ vàng**, có lọng che màu vàng thắm rủ viền tua rua.
   * Đầu voi đeo **Tấm giáp hộ trán bằng đồng đúc** che chở trước làn tên mũi nỏ của địch.
   * Cổ voi đeo vòng lục lạc đồng phát ra âm thanh vang dội rền vang núi rừng mỗi khi xuất trận.

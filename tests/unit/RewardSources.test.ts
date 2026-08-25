@@ -99,7 +99,7 @@ describe('P11-C02 Reward Sources', () => {
     service.activePlayTime({ sessionId: 's', claimId: 'partial', cumulativeVisibleMs: 90_000, cumulativeHiddenMs: 0, committedAtMs: 2_000 })
     expect(repo.load()).toMatchObject({ status: 'loaded', save: { data: { activePlayTime: { remainderEligibleMs: 90_000 }, wallet: { balances: { knb: 0 } } } } })
     service.activePlayTime({ sessionId: 's', claimId: 'complete', cumulativeVisibleMs: 150_000, cumulativeHiddenMs: 0, committedAtMs: 3_000 })
-    expect(repo.load()).toMatchObject({ status: 'loaded', save: { data: { activePlayTime: { remainderEligibleMs: 30_000 }, wallet: { balances: { knb: 2 } } } } })
+    expect(repo.load()).toMatchObject({ status: 'loaded', save: { data: { activePlayTime: { remainderEligibleMs: 30_000 }, wallet: { balances: { knb: 2 } }, rewardReceipts: {} } } })
   })
 
   it('rejects cumulative time going backward', () => {

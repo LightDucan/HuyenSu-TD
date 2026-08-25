@@ -37,9 +37,9 @@
 
 ---
 
-## 4. Mô Tả Data Contract Đề Xuất (Codex xác nhận)
+## 4. UI Snapshot Contract
 
-*(Mô tả định hướng cấu trúc dữ liệu — Codex xác nhận và quyết định schema runtime chính thức)*
+*(Các kiểu dưới đây là projection chỉ đọc cho UI, không phải persistence schema. Wallet được dẫn xuất từ `WalletState.balances`; Command Energy được dẫn xuất riêng từ `CommandEnergyState` và config.)*
 
 ```ts
 export type PlayerWalletSnapshot = {

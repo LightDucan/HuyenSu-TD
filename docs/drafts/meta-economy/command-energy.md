@@ -37,17 +37,17 @@ Hệ thống Quân Lệnh (Tài nguyên Thể lực / Energy Resource) tuân th�
 
 ---
 
-## 4. Mô Tả Data Contract Đề Xuất (Codex xác nhận)
+## 4. UI Projection Contract
 
-*(Mô tả định hướng cấu trúc dữ liệu — Codex xác nhận và quyết định schema runtime chính thức)*
+*Meta V1 chỉ lưu `current` và `regenAnchorAtMs`. Các trường `max` và thời gian đếm ngược dưới đây phải được selector tính từ Player Profile, thời gian thực và config; không được lưu thành schema song song.*
 
 ```ts
-export type CommandEnergyState = {
+export type CommandEnergySnapshot = {
   current: number;
   max: number; // Base là 60 (LOCKED) + bonus từ Player Level (OPEN)
   regenIntervalSeconds: 120; // Cố định 2 phút = 120s
   currentRegenTimerSeconds: number; // Đếm ngược từ 120 về 0
-  lastUpdatedTimestamp: number;
+  regenAnchorAtMs: number; // Đọc từ Meta V1
 };
 ```
 

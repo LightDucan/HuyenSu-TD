@@ -16,5 +16,5 @@ Các mục dưới đây chưa được phép hard-code. Mỗi mục phải có 
 ## Quy tắc đóng decision
 
 - Ghi giá trị, lý do, tác động migration và test acceptance.
-- Balance number phải qua simulation ở Phase 17; không lấy ví dụ trong tài liệu làm production value.
+- Balance number phải qua simulation ở Phase 18; không lấy ví dụ trong tài liệu làm production value.
 - Quyết định mới không được phá Core invariants, tạo Hero-specific combat hoặc đưa real-time Meta vào Battle GameClock.

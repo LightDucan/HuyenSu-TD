@@ -2,7 +2,7 @@
 
 ## 1. Yêu Cầu Đã Khóa (Locked Rules)
 * **Khái niệm**: *Lệnh Hiệu Triệu* là vật phẩm chiến lược quý hiếm bậc nhất trong hệ thống Meta Game.
-* **Công dụng**: Khi sử dụng, tăng vĩnh viễn **+1 Vị trí triển khai Hero trên bản đồ** (`unlockedDeploymentSlots += 1`).
+* **Công dụng**: Khi sử dụng, tăng vĩnh viễn **+1 Vị trí triển khai Hero trên bản đồ** bằng cách tăng `PlayerProfile.summonOrderCount` thêm 1; capacity là giá trị dẫn xuất.
 * **Hiệu lực**: Có giá trị vĩnh viễn cho toàn bộ tài khoản, áp dụng trên tất cả các Chapter và màn chơi.
 * **Giới hạn sử dụng**: Bị khống chế bởi mức trần tối đa của hệ thống và số lượng ô đặt trên bản đồ.
 
@@ -10,7 +10,7 @@
 
 ## 2. Dependencies (Phụ Thuộc Hệ Thống — Codex xác nhận)
 * **Module Quản Lý Kho (Inventory Management — Codex xác nhận)**: Chứa vật phẩm `item_lenh_hieu_trieu`.
-* **Trạng Thái Hồ Sơ Người Chơi (Player Profile State — Codex xác nhận)**: Lưu trữ số lượng Lệnh Hiệu Triệu đã sử dụng (`usedSummoningDecrees`).
+* **Trạng Thái Hồ Sơ Người Chơi**: Lưu số lượng đã sử dụng tại trường canonical `PlayerProfile.summonOrderCount`; không tạo alias persistence khác.
 * **Module Quản Lý Triển Khai (Placement Management — Codex xác nhận)**: Mở rộng thêm 1 slot khả dụng ngay sau khi giao dịch thành công.
 
 ---
@@ -59,14 +59,14 @@
 
 ---
 
-## 5. Mô Tả Data Contract Đề Xuất (Codex xác nhận)
+## 5. Command / Result Contract Dự Kiến
 
-*(Mô tả định hướng cấu trúc dữ liệu — Codex xác nhận và quyết định schema runtime chính thức)*
+*(Đây là boundary giao dịch dự kiến. Persistence tiếp tục dùng Meta V1; giới hạn tài khoản vẫn OPEN.)*
 
 ```ts
 export type SummoningDecreeConfig = {
   itemId: 'item_lenh_hieu_trieu';
-  maxAllowedPerAccount: number; // Mặc định: 3 cái
+  maxAllowedPerAccount: number; // OPEN — chưa có giá trị mặc định
 };
 
 export type SummoningDecreeUseResult = {

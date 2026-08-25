@@ -21,7 +21,7 @@ type VersionedSave<T> = {
 }
 ```
 
-Meta save dự kiến bao gồm Profile, Wallet, Inventory, Command Energy và entitlement; battle runtime không được serialize vào Meta save.
+Meta V1 bao gồm Profile, Wallet, Inventory và Command Energy. Deployment entitlement có một nguồn sự thật duy nhất là `PlayerProfile.summonOrderCount`; battle runtime không được serialize vào Meta save.
 
 ## Quy trình migration bắt buộc
 

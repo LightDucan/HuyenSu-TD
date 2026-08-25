@@ -13,7 +13,7 @@ Hệ thống giới hạn số lượng Hero xuất trận (Deployment Capacity)
 ## 2. Dependencies (Phụ Thuộc Hệ Thống — Codex xác nhận)
 * **Module Quản Lý Triển Khai (Placement Management — Codex xác nhận)**: Cần cập nhật `maxSlots` theo công thức động:
   $$\text{EffectiveLimit} = \min(\text{PlayerDeploymentCapacity}, \text{MapPlacementTilesCount})$$
-* **Trạng Thái Hồ Sơ Người Chơi (Player Profile State — Codex xác nhận)**: Lưu trữ tổng số slot đã mở khóa (`unlockedDeploymentSlots`).
+* **Trạng Thái Hồ Sơ Người Chơi**: Meta V1 lưu đúng một entitlement source là `PlayerProfile.summonOrderCount`; capacity tổng là giá trị dẫn xuất, không lưu thêm `unlockedDeploymentSlots`.
 * **Giao Diện Điều Khiển (Bottom Player HUD — Tab Đội Hình)**: Hiển thị bộ đếm tướng đã đặt (`placedCount / effectiveLimit`).
 
 ---
@@ -31,15 +31,15 @@ Hệ thống giới hạn số lượng Hero xuất trận (Deployment Capacity)
 
 ---
 
-## 4. Mô Tả Data Contract Đề Xuất (Codex xác nhận)
+## 4. Selector / UI Projection Contract
 
-*(Mô tả định hướng cấu trúc dữ liệu — Codex xác nhận và quyết định schema runtime chính thức)*
+*(Projection được tính từ `PlayerProfile.summonOrderCount`, Player Level và map; không phải persistence schema.)*
 
 ```ts
 export type DeploymentCapacityData = {
   baseCapacity: 7; // Cố định 7 (LOCKED)
   bonusFromLevel: number; // Mở rộng theo Cấp (OPEN)
-  bonusFromDecrees: number; // Số Lệnh Hiệu Triệu đã dùng (+1 mỗi cái - LOCKED)
+  summonOrderCount: number; // Số Lệnh Hiệu Triệu đã dùng (+1 mỗi cái - LOCKED)
   totalUnlockedCapacity: number; // base + level + decrees
 };
 ```

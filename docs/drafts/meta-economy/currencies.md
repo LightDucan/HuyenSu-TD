@@ -38,9 +38,9 @@ Hệ thống Kinh Tế Meta quy chuẩn **đúng 2 loại tiền tệ (Currencie
 
 ---
 
-## 4. Mô Tả Data Contract Đề Xuất (Codex xác nhận)
+## 4. UI Projection Contract
 
-*(Mô tả định hướng cấu trúc dữ liệu — Codex xác nhận và quyết định schema runtime chính thức)*
+*Đây là projection phục vụ UI, không phải persistence schema. Nguồn sự thật chính thức là `WalletState.balances` trong `src/domain/meta/MetaState.ts`; adapter/selector được phép trải phẳng hai số dư để render.*
 
 ```ts
 export type CurrencyType = 'gold' | 'knb';

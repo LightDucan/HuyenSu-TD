@@ -23,7 +23,7 @@ graph TD
 ### 1.1. Ứng Viên 1: Triệu Thị Trinh (Nhụy Kiều Tướng Quân / Lệ Hải Bà Vương)
 
 * **Danh tính & Bối cảnh**: Nữ vương khởi nghĩa Cửu Chân năm 248 SCN; biểu tượng bất diệt của lòng dũng cảm và khí phách dân tộc.
-* **Mức độ tin cậy nguồn**: Nguồn Trung Hoa gần thời (*Tam Quốc Chí*, *Tống Thư*); Nguồn trung đại Việt Nam (*Toàn Thư*, *Cương Mục*).
+* **Mức độ tin cậy nguồn**: Nguồn Trung Hoa gần thời như *Tam Quốc Chí* xác nhận biến động/nổi dậy năm 248 tại Giao Chỉ–Cửu Chân và hoạt động của Lục Dận; nhân vật Bà Triệu/Triệu Ẩu được nhận diện và mô tả cụ thể qua truyền thống/sử liệu Việt về sau (*Giao Châu Ký*, *Toàn Thư*, *Cương Mục*).
 * **Định hướng tạo hình Visual & Cảm hứng lịch sử**:
   * Trang phục lụa gấm vàng rực rỡ bên trong giáp ngực da thuộc nẹp viền đồng thau, ngực đeo Hộ tâm phiến đồng tròn Đông Sơn chạm hình Mặt trời, trâm vàng cài tóc.
   * Ngự trên bành gấm trên lưng Bạch Tượng (Voi trắng một ngà) dũng mãnh, tay cầm gươm dài Đông Sơn uy nghi.

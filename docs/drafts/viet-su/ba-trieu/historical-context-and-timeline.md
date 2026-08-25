@@ -16,7 +16,7 @@
 ## 2. Niên Biểu Diễn Biến Cuộc Khởi Nghĩa (Năm 248 SCN)
 
 > [!NOTE]
-> **Lưu ý phân loại nguồn**: Nguồn Trung Hoa gần thời (*Tam Quốc Chí* - Ngô Chí) xác nhận biến cố năm 248 SCN tại Giao Chỉ/Cửu Chân và việc Lục Dận sang dẹp yên. Các chi tiết cụ thể về nhân thân Bà Triệu, căn cứ Ngàn Nưa, Bồ Điền, thuần voi chiến, đánh phá Tư Phố, thời gian kháng cự hơn 6 tháng và sự hy sinh tuẫn tiết tại núi Tùng chủ yếu được lưu truyền qua sử liệu Việt Nam thời trung đại (*Toàn Thư*, *Cương Mục*), địa chí muộn (*Đại Nam Nhất Thống Chí*) và thần tích/truyền thuyết dân gian địa phương.
+> **Lưu ý phân loại nguồn**: Nguồn Trung Hoa gần thời như *Tam Quốc Chí* xác nhận biến động/nổi dậy năm 248 tại Giao Chỉ–Cửu Chân và hoạt động của Lục Dận (không trực tiếp xác nhận tên/tiểu sử Triệu Thị Trinh trong đoạn sử đó). Nhân vật Bà Triệu/Triệu Ẩu cùng các chi tiết cụ thể về căn cứ Ngàn Nưa, Bồ Điền, thuần voi chiến, đánh phá Tư Phố, thời gian kháng cự hơn 6 tháng và sự hy sinh tuẫn tiết tại núi Tùng được nhận diện, lưu truyền và mô tả cụ thể qua truyền thống/sử liệu Việt về sau (*Toàn Thư*, *Cương Mục*, *Đại Nam Nhất Thống Chí*, thần tích/truyền thuyết dân gian địa phương).
 
 ```mermaid
 timeline

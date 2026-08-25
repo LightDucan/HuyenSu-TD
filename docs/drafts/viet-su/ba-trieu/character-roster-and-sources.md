@@ -13,7 +13,7 @@
 
 | STT | Tên Nhân Vật / Thực Thể | Vai Trò Lịch Sử / Truyền Thuyết | Phân Loại Sử Liệu | Mức Độ Tin Cậy | Nguồn Tham Chiếu Chính |
 |:---:|---|---|:---:|:---:|---|
-| 1 | **Triệu Thị Trinh** *(Bà Triệu / Triệu Ẩu / Nhụy Kiều Tướng Quân)* | Nữ vương, Thủ lĩnh tối cao khởi nghĩa năm 248 SCN tại Cửu Chân. | **1. Sử liệu tương đối rõ** | Cao | Nguồn gần: *Tam Quốc Chí* (Ngô Chí - Lục Dận truyện), *Tống Thư*, *Giao Châu Ký*; Nguồn trung đại: *Toàn Thư*, *Cương Mục*. |
+| 1 | **Triệu Thị Trinh** *(Bà Triệu / Triệu Ẩu / Nhụy Kiều Tướng Quân)* | Nữ vương, Thủ lĩnh tối cao khởi nghĩa năm 248 SCN tại Cửu Chân. | **1. Sử liệu tương đối rõ** | Cao | Nguồn Trung Hoa gần thời như *Tam Quốc Chí* xác nhận biến động/nổi dậy năm 248 tại Giao Chỉ–Cửu Chân và hoạt động của Lục Dận; nhân vật Bà Triệu/Triệu Ẩu được nhận diện và mô tả cụ thể qua truyền thống/sử liệu Việt về sau (*Giao Châu Ký*, *Toàn Thư*, *Cương Mục*). |
 | 2 | **Triệu Quốc Đạt** | Anh trai Bà Triệu, Hào trưởng Quan Yên, người đồng khởi xướng phong trào. | **2. Sử liệu trung đại & Thần tích địa phương** | Trung bình (Không xuất hiện trong sử Ngô gần thời) | *Đại Việt Sử Ký Toàn Thư* (thế kỷ XV), *Cương Mục* (thế kỷ XIX), thần tích làng Quan Yên (Yên Định). |
 | 3 | **Lục Dận** *(Lu Yin)* | Thứ sử Giao Châu, An Nam hiệu úy của Đông Ngô, tướng chỉ huy kinh lý dẹp loạn. | **1. Sử liệu tương đối rõ** | Cao (Chính sử) | *Tam Quốc Chí* (Ngô Chí - Quyển 61: Lục Kháng phụ Lục Dận truyện), *Tư Trị Thông Giám*. |
 | 4 | **Tôn Quyền** *(Ngô Đại Đế)* | Hoàng đế khai quốc Đông Ngô, người ra lệnh cử Lục Dận sang dẹp yên Cửu Chân. | **1. Sử liệu tương đối rõ** | Cao (Chính sử) | *Tam Quốc Chí* (Ngô Chí - Quyển 47: Ngô Chủ truyện). |
@@ -37,12 +37,12 @@
 Khi nghiên cứu về cuộc khởi nghĩa Bà Triệu, cần ghi nhận đầy đủ cả hai góc nhìn sử liệu và chỉ ra các điểm thiên lệch do góc độ chính trị của người chép sử:
 
 ### 2.1. Về Tên Gọi & Hình Tượng Bà Triệu
-* **Nguồn Trung Hoa (*Tam Quốc Chí*, *Tống Thư*, *Giao Châu Ký*)**:
-  * Sử sách phương Bắc thời Ngô - Tấn ghi chép về bà với danh xưng **"Triệu Ẩu" (趙嫗)**.
+* **Nguồn Trung Hoa gần thời (*Tam Quốc Chí* - Lục Dận truyện, Tôn Quyền truyện)**:
+  * Xác nhận cuộc biến động/nổi dậy năm 248 SCN tại Giao Chỉ–Cửu Chân và việc cử Lục Dận sang dẹp yên; không trực tiếp xác nhận tên gọi hay tiểu sử của Triệu Thị Trinh trong đoạn sử đó.
+  * Các tài liệu địa chí/truyền kỳ phương Bắc về sau (như *Giao Châu Ký* của Lưu Hân Kỳ thế kỷ IV) ghi chép về bà với danh xưng **"Triệu Ẩu" (趙嫗)** kèm mô tả quái dị: *"ngực dài ba thước, vắt qua vai, không lấy chồng, họp đảng cướp phá huyện ấp"*.
   * **Vấn đề ngữ nghĩa lịch sử của từ "Ẩu" (嫗)**: Trong Hán văn cổ, chữ "Ẩu" có thể mang nghĩa là người phụ nữ, bà cô/bà già, hoặc có thể là sự phiên âm một tước hiệu/từ xưng hô bản địa cổ. Giới nghiên cứu lịch sử hiện nay không khẳng định tuyệt đối đây là cách gọi miệt thị có chủ ý, mà xem đây là một **vấn đề diễn giải/ngữ nghĩa lịch sử** cần được tiếp cận khách quan.
-  * Mô tả truyền kỳ trong *Giao Châu Ký*: *"ngực dài ba thước, vắt qua vai, không lấy chồng, họp đảng cướp phá huyện ấp"*.
-* **Nguồn Việt Nam (*Toàn Thư*, *Cương Mục*, *Việt Sử Tiêu Án*, Thần phả đền Phú Điền)**:
-  * Tôn vinh là **Triệu Thị Trinh** (hoặc Triệu Trinh Nương, Bà Triệu).
+* **Truyền thống & Sử liệu Việt Nam về sau (*Toàn Thư*, *Cương Mục*, *Việt Sử Tiêu Án*, Thần phả đền Phú Điền)**:
+  * Nhận diện và mô tả cụ thể nhân vật nữ thủ lĩnh là **Triệu Thị Trinh** (hoặc Triệu Trinh Nương, Bà Triệu).
   * Đời sau sắc phong thụy hiệu tôn kính: **Nhụy Kiều Tướng Quân** (Vị tướng yêu kiều như nhụy hoa) và **Lệ Hải Bà Vương** (Bà chúa vùng biển đẹp).
   * Khắc họa bà là bậc nữ anh hùng yêu nước thương dân, khí phách ngút trời, cưỡi đầu voi chiến cầm gươm xông pha cứu nước.
 

@@ -44,8 +44,8 @@ flowchart TD
 ```
 
 1. **Nhóm 1: Sử Liệu Tương Đối Rõ (Definite Historical Sources)**:
-   * *Đại Việt Sử Ký Toàn Thư*, *Khâm Định Việt Sử Thông Giám Cương Mục*, *Việt Sử Tiêu Án*.
-   * *Tam Quốc Chí* (Trần Thọ - Bùi Tùng Chi chú: Ngô Chí - Lục Dận truyện, Tôn Quyền truyện), *Tống Thư* (Châu Quận chí), *Giao Châu Ký*.
+   * Sử liệu Việt Nam: *Đại Việt Sử Ký Toàn Thư*, *Khâm Định Việt Sử Thông Giám Cương Mục*, *Việt Sử Tiêu Án*.
+   * Nguồn Trung Hoa gần thời: *Tam Quốc Chí* (Trần Thọ - Bùi Tùng Chi chú: Ngô Chí - Lục Dận truyện, Tôn Quyền truyện), *Tống Thư* (Châu Quận chí) xác nhận biến động năm 248 và hoạt động của Lục Dận; *Giao Châu Ký* (Lưu Hân Kỳ ghi chép truyền kỳ về Triệu Ẩu).
 2. **Nhóm 2: Sử Liệu Muộn (Late Imperial Chronicles & Topographies)**:
    * *Đại Nam Nhất Thống Chí* (Tỉnh Thanh Hóa), *Lịch Triều Hiến Chương Loại Chí*, *Việt Điện U Linh Tập*, *Lĩnh Nam Chích Quái*, *Nam Hải Dị Nhân*.
 3. **Nhóm 3: Thần Tích / Truyền Thuyết Dân Gian (Folklore & Temple Records)**:

@@ -75,6 +75,7 @@ flowchart TD
 | [enemy-and-boss-concepts.md](enemy-and-boss-concepts.md) | Đặc tả 3 Normal Enemy, 1 Elite Enemy, Boss Lục Dận và Boss Tiết Bính (Fixed Path, không đánh Hero, prompt pixel art baseline Y=112). |
 | [map-bo-dien-tung-son.md](map-bo-dien-tung-son.md) | Đặc tả bản đồ Phòng Tuyến Bồ Điền — Tùng Sơn (3 layer môi trường, artistic game interpretation disclaimer, bảng màu pixel art). |
 | [wave-outline.md](wave-outline.md) | Phác thảo 10 Wave màn chơi Bồ Điền: Mục tiêu gameplay, thành phần quân địch [N], cao trào Lục Dận và chiến thắng chiến thuật (Task VS-BT-04). |
+| [asset-production-manifest.md](asset-production-manifest.md) | Tổng hợp danh mục asset cần sản xuất (Hero, Enemy, Boss, VFX, Map) kèm trạng thái READY / NEEDS HISTORICAL REVIEW / OPTIONAL (Task VS-BT-05). |
 
 ---
 

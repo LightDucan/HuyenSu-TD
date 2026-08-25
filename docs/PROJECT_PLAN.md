@@ -2,7 +2,9 @@
 
 ## Mục tiêu game
 
-Tạo vertical slice Tower Defense Tam Quốc: Hero là tower mang hình tướng, đứng cố định, tự đánh single-target và tự dùng Skill sau N đòn. Enemy đi fixed path theo wave; React phụ trách UI, Phaser phụ trách Battle Scene, domain giữ combat/progression độc lập.
+Tạo vertical slice **Huyền Sử TD — Tower Defense Việt Sử**: Hero là tower mang hình tướng, đứng cố định, tự đánh single-target và tự dùng Skill sau N đòn. Enemy đi fixed path theo wave; React phụ trách UI, Phaser phụ trách Battle Scene, domain giữ combat/progression độc lập.
+
+Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để kiểm thử vertical slice, data flow và combat boundary. Roster này sẽ được migrate sang roster Việt Sử theo roadmap content sau; không xem các Hero Tam Quốc prototype là roster sản phẩm cuối.
 
 ## WorkTree
 
@@ -14,8 +16,8 @@ Tạo vertical slice Tower Defense Tam Quốc: Hero là tower mang hình tướn
 ## Trạng thái hiện tại
 
 - Current Phase: **10 — Meta Foundation**
-- Current Codex task: **INT-C01 — Meta Foundation Integration Gate — DONE, chờ Integration Audit**.
-- Current Antigravity task: **NONE — META-A00, HERO-A00 và VS-HBT-02 đã bàn giao để tích hợp**.
+- Current Codex task: **INT-C01 — Meta Foundation Integration Gate — PASS — READY MERGE**.
+- Current Antigravity task: **VS-BT-01 SOURCE CONSISTENCY FIX** — branch `antigravity/vs-bt-01-ba-trieu-research`.
 - Lần kiểm tra gần nhất: INT-C01 tích hợp META-C00, P10-C01, META-A00, HERO-A00 và VS-HBT-02; schema Meta V1 giữ một nguồn truth, Wallet chỉ Gold + KNB, Antigravity không sửa Core.
 
 ## Phases và checkpoint
@@ -41,13 +43,13 @@ Tạo vertical slice Tower Defense Tam Quốc: Hero là tower mang hình tướn
 | META-A00 | Economy UI specification và consistency fix | PASS — đã tích hợp | Antigravity + Codex audit | Hai currency; Command Energy ngoài Wallet; UI chỉ dùng snapshot/request | `antigravity/meta-a00-economy-ui-spec` |
 | HERO-A00 | Hero Recruitment & Ascension specification | PASS — đã tích hợp | Antigravity + Codex audit | Chiêu Hiền Lệnh item; duplicate thành Mảnh; Sao 1–5; Anh Hồn chung; shared progression | `antigravity/hero-a00-hero-recruitment` |
 | VS-HBT-02 | Enemy/Chapter content Hai Bà Trưng | PASS — đã tích hợp | Antigravity + Codex audit | Docs-only, source notes và narrative consistency; không lọt vào Core | `antigravity/vs-hbt-02-enemy-chapter` |
-| INT-C01 | Meta Foundation Integration Gate | DONE — chờ Integration Audit | Codex | Merge order, schema consistency, Core boundary, full test/build/preview | `codex/int-c01-meta-foundation-integration` |
+| INT-C01 | Meta Foundation Integration Gate | PASS — READY MERGE | Codex | Merge order, schema consistency, Core boundary, full test/build/preview — PASS | `codex/int-c01-meta-foundation-integration` |
 
 ## Roadmap Phase 10–18
 
 | Phase | Task ID | Nội dung | Trạng thái | Dependency | Worker chính | Audit checkpoint | Commit checkpoint | Rủi ro chính |
 |---|---|---|---|---|---|---|---|---|
-| 10 — Meta Foundation | P10 | Profile, Meta repository boundary, wallet/inventory/energy/capacity contracts tối thiểu | DONE — chờ Integration Audit | Phase 9 + META-C00 | Codex | Schema validation, ownership, local-save isolation, no Core regression — PASS; INT-C01 integration audit pending | `codex/p10-c01-meta-foundation`, `codex/int-c01-meta-foundation-integration` | Nhiều nguồn truth và save không nhất quán |
+| 10 — Meta Foundation | P10 | Profile, Meta repository boundary, wallet/inventory/energy/capacity contracts tối thiểu | DONE — Integration Audit PASS | Phase 9 + META-C00 | Codex | Schema validation, ownership, local-save isolation, no Core regression; INT-C01 integration audit — PASS | `codex/p10-c01-meta-foundation`, `codex/int-c01-meta-foundation-integration` @ `599162a` | Nhiều nguồn truth và save không nhất quán |
 | 11 — Reward Economy | P11 | Reward transaction, Wallet grant/spend và Inventory grant | TODO | Phase 10 | Codex | Atomic grant/spend, idempotency, no negative/duplicate balance | `meta/reward-economy-v1` | Inflation hoặc duplicate reward |
 | 12 — Quân Lệnh & Auto Wave | P12 | Real-time regen, overflow, Wave cost và Auto Wave gate | TODO | Phase 10–11 + OD-01 | Codex | Base cap 60, 2 phút/điểm, overflow, hidden time, x1/x3 independence, auto/manual parity | `meta/command-energy-v1` | Clock exploit, double spend hoặc auto-loop |
 | 13 — Deployment Capacity & Lệnh Hiệu Triệu | P13 | Capacity calculator, permanent entitlement và placement gate | TODO | Phase 10–11 + OD-02/OD-08 | Codex | Base 7, mỗi Lệnh Hiệu Triệu +1, effective cap ≤ map slots, reposition free | `meta/deployment-capacity-v1` | Meta/Battle placement desync |

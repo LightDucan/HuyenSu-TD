@@ -13,8 +13,8 @@
 | Tài Liệu | Nội Dung Trọng Tâm |
 |---|---|
 | [asset-gallery.md](asset-gallery.md) | Phòng trưng bày toàn bộ 20 asset sử dụng đường dẫn tương đối (Markdown relative image links) để xem trực tiếp trên Preview. |
-| [asset-qa-manifest.md](asset-qa-manifest.md) | Bảng kiểm toán thông số kỹ thuật chi tiết: Kích thước, RGBA, độ trong suốt Alpha, Baseline Y=112, Bounding Box, tính đồng bộ Idle/Attack và khả năng nhận diện thị giác (Silhouette readability). |
-| [runtime-integration-handoff.md](runtime-integration-handoff.md) | Đặc tả bàn giao tích hợp Runtime cho Codex (`VIS-C01`): Quy trình nạp Asset (Preload) $\rightarrow$ Ánh xạ Texture (Texture Mapping) $\rightarrow$ Hiển thị Idle $\rightarrow$ Kích hoạt Animation Attack $\rightarrow$ Hiệu ứng VFX $\rightarrow$ Chân dung Portrait trên HUD. |
+| [asset-qa-manifest.md](asset-qa-manifest.md) | Bảng kiểm toán thông số kỹ thuật chi tiết: Kích thước, RGBA, độ trong suốt Alpha, Baseline Y=112, Bounding Box, cùng danh mục các tiêu chí cần kiểm tra thị giác (`[NEEDS VISUAL CHECK]`). |
+| [runtime-integration-handoff.md](runtime-integration-handoff.md) | Đặc tả bàn giao tích hợp Runtime cho Codex (`VIS-C01`): Quy trình 5 bước `Preload` $\rightarrow$ `Texture Mapping by HeroId/SkillId` $\rightarrow$ `Idle/Attack` $\rightarrow$ `VFX Overlay` $\rightarrow$ `Portrait HUD`. Mọi kiến trúc và tham số do Codex quyết định (`[OPEN / CONFIG]`). |
 
 ---
 
@@ -23,18 +23,18 @@
 ```mermaid
 graph LR
     subgraph HIỆN TRẠNG (CURRENT)
-        A1["Asset PNG (20 files)<br>Đã tạo trong <code>src/assets/</code>"]
-        R1["Runtime Hero Renderer<br>Đang vẽ hình tròn / text placeholder"]
-        H1["Battle HUD & Selection<br>Đang dùng khung chữ placeholder"]
+        A1["Asset PNG (20 files)<br>Đã có trong <code>src/assets/</code>"]
+        R1["Hero Runtime Rendering<br>Đang vẽ hình tròn / text placeholder"]
+        H1["HUD & Selection<br>Đang dùng text placeholder"]
         A1 -.->|Chưa kết nối| R1
         A1 -.->|Chưa kết nối| H1
     end
 
-    subgraph MỤC TIÊU HANDOFF (VIS-C01)
-        A1 -->|Preload & Cache| L["AssetLoader"]
-        L -->|Texture Mapping| SP["Sprite Renderer (Idle/Attack)"]
-        L -->|VFX Overlay| FX["Skill Animation Player"]
-        L -->|Portrait Binding| HUD["Battle HUD & Hero Slots"]
+    subgraph CONTRACT HANDOFF (VIS-C01)
+        A1 -->|Preload| L["Asset Preload"]
+        L -->|Map by heroId/skillId| SP["Sprite Rendering (Idle/Attack)"]
+        L -->|VFX Overlay| FX["Skill VFX Player"]
+        L -->|Portrait Binding| HUD["HUD & Selection"]
     end
 ```
 

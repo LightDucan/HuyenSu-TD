@@ -1,81 +1,77 @@
 # Asset QA Manifest — Kiểm Toán Kỹ Thuật Asset Prototype
 
 > [!IMPORTANT]
-> **Quy Chuẩn Kiểm Định Kỹ Thuật**:
-> - **Tiêu chuẩn Kích thước**: $128 \times 128$ px (Sprite, Portrait, VFX).
-> - **Tiêu chuẩn Màu sắc**: PNG 8-bit RGBA, hỗ trợ Alpha transparency.
-> - **Tiêu chuẩn Sprite Bàn cờ**: Front View, tiếp đất tại **Baseline $Y = 112$**, chiều cao nhân vật 100px ($Y: 13 \rightarrow 112$).
-> - **Nguyên tắc Thẩm định**:
->   - Các chỉ số hình học và pixel được đo đạc chính xác bằng công cụ giải mã nhị phân PNG (`zlib` unfilter stream).
->   - Các khía cạnh thị giác chủ quan (độ rõ nét silhouette khi thu nhỏ, độ mượt hoạt họa) nếu chưa có pipeline test visual in-game được đánh dấu là `[NEEDS VISUAL CHECK]`.
+> **Quy Chuẩn Kiểm Định Kỹ Thuật (Objective Data vs Visual Check)**:
+> - **Tiêu chuẩn Kích thước**: $128 \times 128$ px (Sprite, Portrait, VFX) — *Kiểm tra bằng tool: PASS*.
+> - **Tiêu chuẩn Định dạng**: PNG 8-bit RGBA, kênh Alpha hợp lệ — *Kiểm tra bằng tool: PASS*.
+> - **Tiêu chuẩn Tiếp đất**: Baseline $Y = 112$ đối với Sprite bàn cờ — *Kiểm tra bằng tool: PASS*.
+> - **Quy ước Đặt tên**: Cấu trúc thư mục và tên file chuẩn `heroes/<id>/...`, `portraits/<id>.png`, `vfx/<id>.png` — *Kiểm tra bằng tool: PASS*.
+> - **Khía cạnh Thị giác (Visual Check)**: Các yếu tố như Front View, Silhouette readability, tính mượt mà animation và độ đồng bộ nghệ thuật khi render in-game được gắn nhãn `[NEEDS VISUAL CHECK]` để kiểm tra trực tiếp bằng mắt khi chạy game, không kết luận PASS toàn diện chỉ từ phân tích nhị phân PNG.
 
 ---
 
-## 1. Bảng Kiểm Toán Chi Tiết Toàn Bộ 20 Asset
+## 1. Bảng Kiểm Toán Chi Tiết 20 Asset
 
 ### 1.1. Bộ Sprite Hero: Idle & Attack (10 Files)
 
-| File Path | Kích Thước | Format / Alpha | Bounding Box $(X_{min}, X_{max}, Y_{min}, Y_{max})$ | Baseline $Y$ | Front View | Idle/Atk Consistency | Silhouette Readability | Trạng Thái QA |
-|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| `heroes/quan-vu/idle.png` | $128 \times 128$ | PNG RGBA (12.827 px trong suốt) | $(20, 90, 13, 112)$ | **112** | PASS | PASS (Chiều cao 100px) | Rõ rệt (Thanh Long Đao + Râu dài) | **PASS** |
-| `heroes/quan-vu/attack.png` | $128 \times 128$ | PNG RGBA (12.607 px trong suốt) | $(18, 121, 13, 112)$ | **112** | PASS | PASS (Vung đao mở rộng $X \rightarrow 121$) | Rõ rệt (Vệt chém đao) | **PASS** |
-| `heroes/truong-phi/idle.png` | $128 \times 128$ | PNG RGBA (12.980 px trong suốt) | $(22, 90, 13, 112)$ | **112** | PASS | PASS (Chiều cao 100px) | Rõ rệt (Xà Mâu + Thân hình vạm vỡ) | **PASS** |
-| `heroes/truong-phi/attack.png` | $128 \times 128$ | PNG RGBA (12.708 px trong suốt) | $(15, 122, 13, 112)$ | **112** | PASS | PASS (Đâm xà mâu $X \rightarrow 122$) | Rõ rệt (Mâu đâm ngang) | **PASS** |
-| `heroes/trieu-van/idle.png` | $128 \times 128$ | PNG RGBA (13.310 px trong suốt) | $(27, 90, 13, 112)$ | **112** | PASS | PASS (Chiều cao 100px) | Rõ rệt (Bạch giáp + Trường thương) | **PASS** |
-| `heroes/trieu-van/attack.png` | $128 \times 128$ | PNG RGBA (13.007 px trong suốt) | $(28, 126, 13, 112)$ | **112** | PASS | PASS (Đâm thương $X \rightarrow 126$) | Rõ rệt (Vệt đâm thương trắng) | **PASS** |
-| `heroes/hoang-trung/idle.png` | $128 \times 128$ | PNG RGBA (13.328 px trong suốt) | $(11, 90, 13, 112)$ | **112** | PASS | PASS (Chiều cao 100px) | Rõ rệt (Cung dài + Râu bạc) | **PASS** |
-| `heroes/hoang-trung/attack.png` | $128 \times 128$ | PNG RGBA (13.446 px trong suốt) | $(38, 120, 13, 112)$ | **112** | PASS | PASS (Kéo cung $X \rightarrow 120$) | Rõ rệt (Tư thế giương cung) | **PASS** |
-| `heroes/gia-cat-luong/idle.png` | $128 \times 128$ | PNG RGBA (13.543 px trong suốt) | $(38, 92, 13, 112)$ | **112** | PASS | PASS (Chiều cao 100px) | Rõ rệt (Áo thụng + Quạt lông vũ) | **PASS** |
-| `heroes/gia-cat-luong/attack.png` | $128 \times 128$ | PNG RGBA (12.931 px trong suốt) | $(38, 114, 13, 112)$ | **112** | PASS | PASS (Vẫy quạt niệm phép $X \rightarrow 114$) | Rõ rệt (Luồng khí phép) | **PASS** |
+| File Path | Kích Thước | Format (Alpha Pixels) | Bounding Box $(X_{min}, X_{max}, Y_{min}, Y_{max})$ | Baseline $Y$ | Naming | Front View | Idle/Atk Consistency | Silhouette Readability | Trạng Thái QA |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| `heroes/quan-vu/idle.png` | $128 \times 128$ | PNG RGBA (12.827 px alpha=0) | $(20, 90, 13, 112)$ | **112** | PASS | [NEEDS VISUAL CHECK] | [NEEDS VISUAL CHECK] | [NEEDS VISUAL CHECK] | **DATA PASS / [NEEDS VISUAL CHECK]** |
+| `heroes/quan-vu/attack.png` | $128 \times 128$ | PNG RGBA (12.607 px alpha=0) | $(18, 121, 13, 112)$ | **112** | PASS | [NEEDS VISUAL CHECK] | [NEEDS VISUAL CHECK] | [NEEDS VISUAL CHECK] | **DATA PASS / [NEEDS VISUAL CHECK]** |
+| `heroes/truong-phi/idle.png` | $128 \times 128$ | PNG RGBA (12.980 px alpha=0) | $(22, 90, 13, 112)$ | **112** | PASS | [NEEDS VISUAL CHECK] | [NEEDS VISUAL CHECK] | [NEEDS VISUAL CHECK] | **DATA PASS / [NEEDS VISUAL CHECK]** |
+| `heroes/truong-phi/attack.png` | $128 \times 128$ | PNG RGBA (12.708 px alpha=0) | $(15, 122, 13, 112)$ | **112** | PASS | [NEEDS VISUAL CHECK] | [NEEDS VISUAL CHECK] | [NEEDS VISUAL CHECK] | **DATA PASS / [NEEDS VISUAL CHECK]** |
+| `heroes/trieu-van/idle.png` | $128 \times 128$ | PNG RGBA (13.310 px alpha=0) | $(27, 90, 13, 112)$ | **112** | PASS | [NEEDS VISUAL CHECK] | [NEEDS VISUAL CHECK] | [NEEDS VISUAL CHECK] | **DATA PASS / [NEEDS VISUAL CHECK]** |
+| `heroes/trieu-van/attack.png` | $128 \times 128$ | PNG RGBA (13.007 px alpha=0) | $(28, 126, 13, 112)$ | **112** | PASS | [NEEDS VISUAL CHECK] | [NEEDS VISUAL CHECK] | [NEEDS VISUAL CHECK] | **DATA PASS / [NEEDS VISUAL CHECK]** |
+| `heroes/hoang-trung/idle.png` | $128 \times 128$ | PNG RGBA (13.328 px alpha=0) | $(11, 90, 13, 112)$ | **112** | PASS | [NEEDS VISUAL CHECK] | [NEEDS VISUAL CHECK] | [NEEDS VISUAL CHECK] | **DATA PASS / [NEEDS VISUAL CHECK]** |
+| `heroes/hoang-trung/attack.png` | $128 \times 128$ | PNG RGBA (13.446 px alpha=0) | $(38, 120, 13, 112)$ | **112** | PASS | [NEEDS VISUAL CHECK] | [NEEDS VISUAL CHECK] | [NEEDS VISUAL CHECK] | **DATA PASS / [NEEDS VISUAL CHECK]** |
+| `heroes/gia-cat-luong/idle.png` | $128 \times 128$ | PNG RGBA (13.543 px alpha=0) | $(38, 92, 13, 112)$ | **112** | PASS | [NEEDS VISUAL CHECK] | [NEEDS VISUAL CHECK] | [NEEDS VISUAL CHECK] | **DATA PASS / [NEEDS VISUAL CHECK]** |
+| `heroes/gia-cat-luong/attack.png` | $128 \times 128$ | PNG RGBA (12.931 px alpha=0) | $(38, 114, 13, 112)$ | **112** | PASS | [NEEDS VISUAL CHECK] | [NEEDS VISUAL CHECK] | [NEEDS VISUAL CHECK] | **DATA PASS / [NEEDS VISUAL CHECK]** |
 
 ---
 
 ### 1.2. Bộ Chân Dung HUD (5 Portraits)
 
-| File Path | Kích Thước | Format / Alpha | Bounding Box Khung Tròn | Độ Căn Giữa | Naming Convention | Silhouette / Icon Readability | Trạng Thái QA |
+| File Path | Kích Thước | Format (Alpha Pixels) | Bounding Box Khung Tròn | Độ Căn Giữa | Naming Convention | Icon Readability | Trạng Thái QA |
 |---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| `portraits/quan-vu.png` | $128 \times 128$ | PNG RGBA (6.539 px trong suốt) | $(8, 120, 8, 120) \rightarrow 113 \times 113$ px | Tâm $(64, 64)$ | `portraits/<hero-id>.png` | Rõ rệt (Khuôn mặt đỏ, râu dài, mũ xanh) | **PASS** |
-| `portraits/truong-phi.png` | $128 \times 128$ | PNG RGBA (6.539 px trong suốt) | $(8, 120, 8, 120) \rightarrow 113 \times 113$ px | Tâm $(64, 64)$ | `portraits/<hero-id>.png` | Rõ rệt (Râu quai nón, mắt trợn uy dũng) | **PASS** |
-| `portraits/trieu-van.png` | $128 \times 128$ | PNG RGBA (6.539 px trong suốt) | $(8, 120, 8, 120) \rightarrow 113 \times 113$ px | Tâm $(64, 64)$ | `portraits/<hero-id>.png` | Rõ rệt (Mũ trụ bạc, khôi giáp anh tuấn) | **PASS** |
-| `portraits/hoang-trung.png` | $128 \times 128$ | PNG RGBA (6.539 px trong suốt) | $(8, 120, 8, 120) \rightarrow 113 \times 113$ px | Tâm $(64, 64)$ | `portraits/<hero-id>.png` | Rõ rệt (Tướng râu tóc bạc phơ, giáp vàng) | **PASS** |
-| `portraits/gia-cat-luong.png` | $128 \times 128$ | PNG RGBA (6.539 px trong suốt) | $(8, 120, 8, 120) \rightarrow 113 \times 113$ px | Tâm $(64, 64)$ | `portraits/<hero-id>.png` | Rõ rệt (Khăn vấn quân sư, nét mặt điềm đạm) | **PASS** |
+| `portraits/quan-vu.png` | $128 \times 128$ | PNG RGBA (6.539 px alpha=0) | $(8, 120, 8, 120) \rightarrow 113 \times 113$ px | Tâm $(64, 64)$ | PASS | [NEEDS VISUAL CHECK] | **DATA PASS / [NEEDS VISUAL CHECK]** |
+| `portraits/truong-phi.png` | $128 \times 128$ | PNG RGBA (6.539 px alpha=0) | $(8, 120, 8, 120) \rightarrow 113 \times 113$ px | Tâm $(64, 64)$ | PASS | [NEEDS VISUAL CHECK] | **DATA PASS / [NEEDS VISUAL CHECK]** |
+| `portraits/trieu-van.png` | $128 \times 128$ | PNG RGBA (6.539 px alpha=0) | $(8, 120, 8, 120) \rightarrow 113 \times 113$ px | Tâm $(64, 64)$ | PASS | [NEEDS VISUAL CHECK] | **DATA PASS / [NEEDS VISUAL CHECK]** |
+| `portraits/hoang-trung.png` | $128 \times 128$ | PNG RGBA (6.539 px alpha=0) | $(8, 120, 8, 120) \rightarrow 113 \times 113$ px | Tâm $(64, 64)$ | PASS | [NEEDS VISUAL CHECK] | **DATA PASS / [NEEDS VISUAL CHECK]** |
+| `portraits/gia-cat-luong.png` | $128 \times 128$ | PNG RGBA (6.539 px alpha=0) | $(8, 120, 8, 120) \rightarrow 113 \times 113$ px | Tâm $(64, 64)$ | PASS | [NEEDS VISUAL CHECK] | **DATA PASS / [NEEDS VISUAL CHECK]** |
 
 ---
 
 ### 1.3. Bộ Hiệu Ứng Tuyệt Kỹ (5 Skill VFX)
 
-| File Path | Kích Thước | Format / Alpha | Bounding Box $(X, Y)$ | Semi-Transparent Pixels | Naming Convention | Visual Effect Type | Trạng Thái QA |
+| File Path | Kích Thước | Format (Alpha Pixels) | Bounding Box $(X, Y)$ | Semi-Transparent Pixels | Naming Convention | Visual Effect Quality | Trạng Thái QA |
 |---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| `vfx/thanh-long-tram.png` | $128 \times 128$ | PNG RGBA | $(30, 119, 32, 114)$ | 1.009 px | `vfx/<skill-id>.png` | Vệt đao khí rồng xanh (Cleave AoE) | **PASS** |
-| `vfx/ba-xa-gam-vang.png` | $128 \times 128$ | PNG RGBA | $(4, 124, 4, 124)$ | 6.565 px | `vfx/<skill-id>.png` | Sóng xung kích tỏa tròn màu tím/vàng (Stun AoE) | **PASS** |
-| `vfx/that-tien-that-xuat.png` | $128 \times 128$ | PNG RGBA | $(12, 123, 28, 98)$ | 594 px | `vfx/<skill-id>.png` | Loạt vệt đâm thương liên hoàn (Multi-Hit) | **PASS** |
-| `vfx/bach-bo-xuyen-duong.png` | $128 \times 128$ | PNG RGBA | $(7, 127, 43, 86)$ | 421 px | `vfx/<skill-id>.png` | Mũi tên năng lượng xuyên phá theo phương ngang | **PASS** |
-| `vfx/dong-phong-hoa-tran.png` | $128 \times 128$ | PNG RGBA | $(13, 115, 8, 110)$ | 2.334 px | `vfx/<skill-id>.png` | Cột lửa gió lốc xoáy (Magic AoE / Slow) | **PASS** |
+| `vfx/thanh-long-tram.png` | $128 \times 128$ | PNG RGBA (14.569 px alpha=0) | $(30, 119, 32, 114)$ | 1.009 px | PASS | [NEEDS VISUAL CHECK] | **DATA PASS / [NEEDS VISUAL CHECK]** |
+| `vfx/ba-xa-gam-vang.png` | $128 \times 128$ | PNG RGBA (8.788 px alpha=0) | $(4, 124, 4, 124)$ | 6.565 px | PASS | [NEEDS VISUAL CHECK] | **DATA PASS / [NEEDS VISUAL CHECK]** |
+| `vfx/that-tien-that-xuat.png` | $128 \times 128$ | PNG RGBA (13.230 px alpha=0) | $(12, 123, 28, 98)$ | 594 px | PASS | [NEEDS VISUAL CHECK] | **DATA PASS / [NEEDS VISUAL CHECK]** |
+| `vfx/bach-bo-xuyen-duong.png` | $128 \times 128$ | PNG RGBA (14.771 px alpha=0) | $(7, 127, 43, 86)$ | 421 px | PASS | [NEEDS VISUAL CHECK] | **DATA PASS / [NEEDS VISUAL CHECK]** |
+| `vfx/dong-phong-hoa-tran.png` | $128 \times 128$ | PNG RGBA (13.159 px alpha=0) | $(13, 115, 8, 110)$ | 2.334 px | PASS | [NEEDS VISUAL CHECK] | **DATA PASS / [NEEDS VISUAL CHECK]** |
 
 ---
 
-## 2. Đánh Giá Tiêu Chí Kỹ Thuật (QA Findings Summary)
+## 2. Tổng Hợp Các Tiêu Chí Đo Lường Khách Quan (Objective Verification)
 
-1. **Chuẩn kích thước ($128 \times 128$)**: **$20/20$ files ($100\%$)** đạt chuẩn tuyệt đối $128 \times 128$ px.
-2. **Kênh Alpha & Độ trong suốt**: **$20/20$ files ($100\%$)** có kênh Alpha hợp lệ, không bị lỗi nền đục (black/white artifact background).
+1. **Chuẩn kích thước ($128 \times 128$)**: **$20/20$ files ($100\%$)** khớp chính xác $128 \times 128$ px.
+2. **Kênh Alpha & Độ trong suốt**: **$20/20$ files ($100\%$)** có kênh Alpha hợp lệ, có vùng trong suốt bao quanh, không bị lỗi nền đục.
 3. **Quy chuẩn Tiếp đất Baseline $Y = 112$**:
-   - Toàn bộ 10 sprite hero (5 Idle + 5 Attack) có điểm đáy tiếp xúc chân tại chính xác pixel row $Y = 112$.
-   - Chiều cao nhân vật đạt chuẩn đồng nhất $100$ px ($Y_{min} = 13, Y_{max} = 112$). Khi render trên grid bàn cờ sẽ thẳng hàng, không bị hiện tượng trồi sụt hay lơ lửng.
+   - $10/10$ Hero sprites (5 Idle + 5 Attack) có điểm đáy tiếp xúc chân tại chính xác dòng pixel $Y = 112$.
+   - Chiều cao nhân vật nằm trong khoảng $Y_{min} = 13 \rightarrow Y_{max} = 112$ (chiều cao hình học: 100 px).
 4. **Quy chuẩn Chân dung Portrait**:
-   - Toàn bộ 5 portrait được đóng khung tròn đồng nhất với đường kính 113 px đặt chính giữa canvas $128 \times 128$.
-5. **Quy chuẩn Đặt tên File (Naming Conventions)**:
-   - Cấu trúc thư mục sạch, tuân thủ đúng định dạng kebab-case:
-     - `heroes/<hero-id>/idle.png`
-     - `heroes/<hero-id>/attack.png`
-     - `portraits/<hero-id>.png`
-     - `vfx/<skill-id>.png`
+   - $5/5$ portraits có khung tròn đường kính 113 px căn giữa canvas $128 \times 128$.
+5. **Quy chuẩn Đặt tên File**:
+   - Tuân thủ đúng cấu trúc thư mục: `heroes/<id>/idle.png`, `heroes/<id>/attack.png`, `portraits/<id>.png`, `vfx/<id>.png`.
 
 ---
 
-## 3. Các Điểm Cần Kiểm Tra Thị Giác Thực Tế (`[NEEDS VISUAL CHECK]`)
+## 3. Danh Mục Hạng Mục Cần Kiểm Tra Thị Giác (`[NEEDS VISUAL CHECK]`)
 
-> [!TIP]
-> Các hạng mục sau đây không thể đo bằng tool nhị phân mà cần kiểm tra thực tế trong game loop khi Codex nối runtime ở task `VIS-C01`:
-> 1. **Tốc độ chuyển đổi Idle $\rightarrow$ Attack**: Độ mượt khi đổi texture sprite tại thời điểm trigger đòn đánh.
-> 2. **Tỷ lệ scale Sprite trên ô Grid**: Khi render sprite $128 \times 128$ vào ô grid bàn cờ (ví dụ $64 \times 64$ hoặc $80 \times 80$), cần kiểm tra hiện tượng vỡ nét hoặc mờ nét (Pixel filtering mode: `nearest-neighbor` vs `linear`).
-> 3. **Tọa độ Neo VFX**: Điểm phát sinh VFX (tâm Hero vs vị trí mục tiêu Enemy) cần được cấu hình chuẩn trong hệ thống render.
+> [!WARNING]
+> Các hạng mục sau đây không thể đo đạc bằng tool giải mã nhị phân mà bắt buộc phải kiểm tra bằng mắt trong môi trường render thực tế:
+> 1. **Front View**: Đánh giá góc nhìn có đồng nhất trực diện giữa các nhân vật khi đặt cạnh nhau hay không.
+> 2. **Silhouette Readability**: Đánh giá khả năng phân biệt hình bóng của từng tướng khi thu nhỏ trên màn hình di động / bàn cờ trận đánh.
+> 3. **Idle $\rightarrow$ Attack Transition**: Đánh giá độ giật / độ mượt khi chuyển đổi frame giữa tư thế đứng chờ và tư thế ra đòn.
+> 4. **VFX Aesthetics**: Đánh giá độ hòa trộn màu sắc, độ sáng, và tỷ lệ kích thước hiệu ứng kỹ năng so với Hero và Enemy trên màn hình.

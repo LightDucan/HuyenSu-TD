@@ -56,8 +56,10 @@ Toàn bộ nhân vật, sự kiện và hiện vật trong gói nghiên cứu n�
 |---|---|
 | [sources.md](sources.md) | Khảo cứu chi tiết toàn bộ các nguồn sử liệu phương Bắc gần thời, chính sử trung đại Việt Nam, thần tích địa phương và đánh giá mức độ tin cậy học thuật. |
 | [historical-context-and-timeline.md](historical-context-and-timeline.md) | Bối cảnh lịch sử, niên biểu chi tiết 541–602 SCN, diễn biến các chiến dịch lớn (Tô Lịch, Điển Triệt, Dạ Trạch, Khuất Lão) và ý nghĩa lập quốc Vạn Xuân. |
-| [character-roster-and-sources.md](character-roster-and-sources.md) | Khảo cứu danh sách 15 nhân vật lịch sử và truyền thuyết (Lý Bí, Triệu Quang Phục, Phạm Tu, Tinh Thiều, Trần Bá Tiên, Tiêu Tư...) kèm phân loại nguồn gốc 4 cấp độ. |
+| [character-roster-and-sources.md](character-roster-and-sources.md) | Khảo cứu danh sách 17 nhân vật lịch sử và truyền thuyết (Lý Bí, Triệu Quang Phục, Phạm Tu, Tinh Thiều, Trần Bá Tiên, Tiêu Tư...) kèm phân loại nguồn gốc 4 cấp độ. |
 | [military-and-material-culture.md](military-and-material-culture.md) | Khảo cứu văn hóa vật chất: Vũ khí (giáo, kiếm, nỏ, thuyền độc mộc), giáp trụ, trang phục áo chàm/gấm, kiến trúc thành Tô Lịch, đầm Dạ Trạch và chùa Khai Quốc. |
+| [chapter-structure-proposal.md](chapter-structure-proposal.md) | Phân tích vì sao không gộp 60 năm Vạn Xuân vào 1 Chapter duy nhất; đề xuất 3 Arc chiến dịch (Lý Nam Đế, Dạ Trạch Vương, Hậu Vạn Xuân) và đánh giá ưu tiên sản xuất. |
+| [roster-selection.md](roster-selection.md) | Đánh giá chuyên sâu 7 nhân vật trọng tâm (Lý Bí, Triệu Quang Phục, Phạm Tu, Tinh Thiều, Triệu Túc, Lý Thiên Bảo, Lý Phật Tử); tuyển chọn 3 Hero và phân nhóm Normal/Elite/Boss cho từng Arc. |
 
 ---
 

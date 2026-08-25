@@ -53,9 +53,9 @@
 
 ## 5. Đánh Thường (Normal Attack Presentation)
 
-* **Quy tắc bắt buộc**: Single-target duy nhất. Không AoE, không Stun, không Slow, không Root.
-* **Tầm đánh tương đối (Range Identity)**: **Short-Melee** (Cận chiến cự ly gần, tầm với khoảng 135 – 145 px).
-* **Tốc độ ra đòn (Attack Speed)**: Nhanh (`~1.30 – 1.40 đòn/giây`).
+* **Quy tắc bắt buộc**: Single-target duy nhất. Tuyệt đối không AoE, không Stun, không Slow, không Root, không Poison.
+* **Tầm đánh tương đối (Range Identity)**: **Short-Melee** (Cận chiến cự ly gần áp sát nhanh; `Exact Range px = [CONFIG / OPEN]`).
+* **Tốc độ ra đòn (Attack Speed)**: **Nhanh** (`AttackSpeed = [CONFIG / OPEN]`).
 * **Animation Front View**:
   * *Tư thế Idle*: Hạ thấp trọng tâm, hai tay cầm song đao xuôi dọc theo thân mình, ánh mắt sắc bén quan sát đối thủ.
   * *Động tác Attack*: Bước lướt nhanh về phía trước, vung chéo song đao chém dứt khoát thành hai đường kiếm sắc lẹm vào mục tiêu đơn lẻ trước mặt.
@@ -65,11 +65,12 @@
 ## 6. Kỹ Năng Kích Hoạt (Active Skill Proposal)
 
 * **Tên kỹ năng đề xuất**: **Tam Vị Liên Hoàn Trảm** *(hoặc Phú Điền Bôn Lôi)*
-* **Cơ chế kích hoạt**: Tự động kích hoạt sau mỗi **3 đòn đánh thường** *(thuộc tập chuẩn: 3 / 5 / 7 / 10)*.
+* **Cơ chế kích hoạt**: Tự động kích hoạt sau mỗi **3 đòn đánh thường** (`triggerHits = 3`, thuộc tập chuẩn: 3 / 5 / 7 / 10).
 * **Hiệu ứng dùng chung đề xuất (Shared Skill Effects)**:
-  * `{ type: 'multihit', hitCount: 3 }` — Thực hiện liên hoàn 3 nhát chém chớp nhoáng vào cùng một mục tiêu đơn lẻ.
-  * `{ type: 'damage', atkMultiplier: 1.4 }` — Mỗi nhát chém gây sát thương bằng 140% ATK (tổng sát thương 420% ATK dồn đơn mục tiêu).
-* **Ràng buộc hệ thống**: Hoàn toàn kế thừa framework Skill của Core, không tạo code riêng.
+  * **MultiHit**: Thực hiện liên hoàn nhiều nhát chém chớp nhoáng dồn vào cùng một mục tiêu đơn lẻ.
+  * **Damage**: Mỗi nhát chém gây sát thương vật lý trực tiếp lên mục tiêu.
+  * *Thông số chi tiết*: `Exact parameters (hitCount, atkMultiplier) = [CONFIG / OPEN]`.
+* **Ràng buộc hệ thống**: Hoàn toàn kế thừa framework Skill dùng chung của Core, không tạo code riêng.
 
 ---
 
@@ -84,8 +85,9 @@
 ## 8. Cảnh Giới Huyền Sử (Legendary Passive Concept)
 
 * **Tên Passive Concept**: **Huyền Sử: Tam Vị Đồng Tâm**
-* **Định hướng cơ chế (Chưa khóa số %)**:
-  * Khi đạt cảnh giới Huyền Sử, mỗi đòn đánh thường liên tiếp vào cùng một mục tiêu sẽ tăng dần tốc độ tấn công (AttackSpeed) và tỷ lệ bạo kích (Crit) cho bản thân.
+* **Định hướng cơ chế**:
+  * Khi đạt cảnh giới Huyền Sử, liên tục tấn công vào cùng một mục tiêu giúp tăng dần tốc độ đánh (AttackSpeed) và tỷ lệ bạo kích (Crit) cho bản thân.
+  * *Lưu ý*: `Exact parameters (%) = [CONFIG / OPEN]`.
 * **Tình trạng hệ thống**: *Chờ Core Shared Passive System*.
 
 ---
@@ -96,7 +98,7 @@
 Quy chuẩn kỹ thuật:
 - Canvas: 128 × 128 px
 - Format: 32-bit RGBA PNG, transparent background
-- Perspective: Front-facing / Isometric 2D
+- Perspective: Front View only
 - Baseline chân nhân vật: Y = 112 px
 ```
 

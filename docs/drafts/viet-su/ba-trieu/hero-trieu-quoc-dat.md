@@ -53,9 +53,9 @@
 
 ## 5. Đánh Thường (Normal Attack Presentation)
 
-* **Quy tắc bắt buộc**: Single-target duy nhất. Không AoE, không Stun, không Slow, không Root.
-* **Tầm đánh tương đối (Range Identity)**: **Mid-Melee** (Cận chiến tầm trung, cự ly khoảng 155 – 165 px nhờ sải giáo dài).
-* **Tốc độ ra đòn (Attack Speed)**: Trung bình (`~1.10 – 1.15 đòn/giây`).
+* **Quy tắc bắt buộc**: Single-target duy nhất. Tuyệt đối không AoE, không Stun, không Slow, không Root, không Poison.
+* **Tầm đánh tương đối (Range Identity)**: **Mid-Melee** (Cận chiến tầm trung nhờ sải giáo búp đa; `Exact Range px = [CONFIG / OPEN]`).
+* **Tốc độ ra đòn (Attack Speed)**: **Trung bình** (`AttackSpeed = [CONFIG / OPEN]`).
 * **Animation Front View**:
   * *Tư thế Idle*: Đứng tấn vững chãi, tay trái dựng thẳng khiên trước ngực, tay phải cầm giáo hơi lùi về sau trong tư thế sẵn sàng đón đánh.
   * *Động tác Attack*: Dậm chân trước lấy đà, tay phải phóng ngọn giáo búp đa đâm thẳng uy lực vào mục tiêu đơn lẻ trước mặt, sau đó nhanh chóng thu giáo về thủ thế.
@@ -65,12 +65,13 @@
 ## 6. Kỹ Năng Kích Hoạt (Active Skill Proposal)
 
 * **Tên kỹ năng đề xuất**: **Khiên Đồng Trấn Thủ** *(hoặc Bồ Điền Thiết Bích)*
-* **Cơ chế kích hoạt**: Tự động kích hoạt sau mỗi **5 đòn đánh thường** *(thuộc tập chuẩn: 3 / 5 / 7 / 10)*.
+* **Cơ chế kích hoạt**: Tự động kích hoạt sau mỗi **5 đòn đánh thường** (`triggerHits = 5`, thuộc tập chuẩn: 3 / 5 / 7 / 10).
 * **Hiệu ứng dùng chung đề xuất (Shared Skill Effects)**:
-  * `{ type: 'aoe', radius: 165, maxTargets: 3 }` — Giộng mạnh mép khiên đồng xuống mặt đất tạo sóng chấn động bán kính 165px lên tối đa 3 kẻ địch.
-  * `{ type: 'damage', atkMultiplier: 2.0 }` — Gây sát thương vật lý bằng 200% ATK.
-  * `{ type: 'root', durationMs: 1400 }` — Chấn động kẹt đất trói chân (Root) kẻ địch tại chỗ trong 1400ms.
-* **Ràng buộc hệ thống**: Hoàn toàn kế thừa framework Skill của Core, không tạo code riêng.
+  * **AoE**: Sóng chấn động giộng khiên đồng quét tỏa ra mặt đất xung quanh.
+  * **Damage**: Gây sát thương vật lý lên các mục tiêu trong vùng ảnh hưởng.
+  * **Root**: Lực chấn động kẹt đất trói chân (Root) kẻ địch tại chỗ trong thời gian ngắn.
+  * *Thông số chi tiết*: `Exact parameters (radius, atkMultiplier, root durationMs, maxTargets) = [CONFIG / OPEN]`.
+* **Ràng buộc hệ thống**: Hoàn toàn kế thừa framework Skill dùng chung của Core, không tạo code riêng.
 
 ---
 
@@ -85,8 +86,9 @@
 ## 8. Cảnh Giới Huyền Sử (Legendary Passive Concept)
 
 * **Tên Passive Concept**: **Huyền Sử: Quan Yên Bất Hoại**
-* **Định hướng cơ chế (Chưa khóa số %)**:
-  * Khi đạt cảnh giới Huyền Sử, tăng cường độ chống chịu của cứ điểm; tăng thêm sát thương cho bản thân và các Hero đứng liền kề khi tấn công kẻ địch đang bị trói chân (Root) hoặc làm chậm (Slow).
+* **Định hướng cơ chế**:
+  * Khi đạt cảnh giới Huyền Sử, tinh thần kiên trung hộ vệ trận địa giúp gia tăng sức sát thương và hiệu quả chiến đấu của bản thân Triệu Quốc Đạt lên những kẻ địch đang bị khống chế (Root/Slow).
+  * *Lưu ý*: Không giả định cơ chế hào quang lân cận (aura/adjacency) khi Shared Passive System của Core chưa chốt contract; `Exact parameters (%) = [CONFIG / OPEN]`.
 * **Tình trạng hệ thống**: *Chờ Core Shared Passive System*.
 
 ---
@@ -97,7 +99,7 @@
 Quy chuẩn kỹ thuật:
 - Canvas: 128 × 128 px
 - Format: 32-bit RGBA PNG, transparent background
-- Perspective: Front-facing / Isometric 2D
+- Perspective: Front View only
 - Baseline chân nhân vật: Y = 112 px
 ```
 

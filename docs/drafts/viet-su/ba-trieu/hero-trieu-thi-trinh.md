@@ -54,9 +54,9 @@
 
 ## 5. Đánh Thường (Normal Attack Presentation)
 
-* **Quy tắc bắt buộc**: Single-target duy nhất. Không AoE, không Stun, không Slow, không Root.
-* **Tầm đánh tương đối (Range Identity)**: **Extended-Melee** (Cận chiến tầm mở rộng, tầm với khoảng 175 – 190 px nhờ sải gươm dài và độ cao từ lưng voi).
-* **Tốc độ ra đòn (Attack Speed)**: Trung bình (`~1.10 – 1.20 đòn/giây`).
+* **Quy tắc bắt buộc**: Single-target duy nhất. Tuyệt đối không AoE, không Stun, không Slow, không Root, không Poison.
+* **Tầm đánh tương đối (Range Identity)**: **Extended-Melee** (Cận chiến tầm mở rộng nhờ sải gươm dài và độ cao từ lưng voi chiến; `Exact Range px = [CONFIG / OPEN]`).
+* **Tốc độ ra đòn (Attack Speed)**: **Trung bình** (`AttackSpeed = [CONFIG / OPEN]`).
 * **Animation Front View**:
   * *Tư thế Idle*: Bạch Tượng đứng vững chãi, khẽ lúc lắc đầu; Bà Triệu ngồi thẳng lưng trên bành voi, tay phải cầm gươm dựng nghiêng uy nghiêm.
   * *Động tác Attack*: Voi chiến khẽ chồm nhẹ về phía trước; Bà Triệu vung gươm chém dứt khoát theo đường chéo từ trên cao xuống mục tiêu đơn lẻ trước mặt.
@@ -66,12 +66,13 @@
 ## 6. Kỹ Năng Kích Hoạt (Active Skill Proposal)
 
 * **Tên kỹ năng đề xuất**: **Bạch Tượng Nộ Hống** *(hoặc Lệ Hải Trảm Long)*
-* **Cơ chế kích hoạt**: Tự động kích hoạt sau mỗi **5 đòn đánh thường** *(thuộc tập chuẩn: 3 / 5 / 7 / 10)*.
+* **Cơ chế kích hoạt**: Tự động kích hoạt sau mỗi **5 đòn đánh thường** (`triggerHits = 5`, thuộc tập chuẩn: 3 / 5 / 7 / 10).
 * **Hiệu ứng dùng chung đề xuất (Shared Skill Effects)**:
-  * `{ type: 'aoe', radius: 180, maxTargets: 4 }` — Chấn động dậm chân voi và sóng gươm quét bán kính 180px trúng tối đa 4 kẻ địch.
-  * `{ type: 'damage', atkMultiplier: 2.2 }` — Gây sát thương bằng 220% ATK.
-  * `{ type: 'stun', durationMs: 900 }` — Tiếng gầm của Bạch Tượng làm choáng (Stun) kẻ địch trúng đòn trong 900ms.
-* **Ràng buộc hệ thống**: Hoàn toàn kế thừa framework Skill của Core, không tạo code riêng.
+  * **AoE**: Sóng chấn động dậm chân của Bạch Tượng và đường quét gươm lệnh tỏa ra xung quanh.
+  * **Damage**: Gây sát thương vật lý lên các mục tiêu trong vùng ảnh hưởng.
+  * **Stun**: Tiếng gầm uy lực của Bạch Tượng gây choáng ngắn hạn cho kẻ địch trúng đòn.
+  * *Thông số chi tiết*: `Exact parameters (radius, atkMultiplier, stun durationMs, maxTargets) = [CONFIG / OPEN]`.
+* **Ràng buộc hệ thống**: Hoàn toàn kế thừa framework Skill dùng chung của Core, không tạo code riêng.
 
 ---
 
@@ -86,8 +87,9 @@
 ## 8. Cảnh Giới Huyền Sử (Legendary Passive Concept)
 
 * **Tên Passive Concept**: **Huyền Sử: Trảm Kình Đông Hải**
-* **Định hướng cơ chế (Chưa khóa số %)**:
-  * Khi đạt cảnh giới Huyền Sử, tinh thần *"đạp luồng sóng dữ, chém cá kình"* giúp tăng tỷ lệ bạo kích (Crit) và khuếch đại sát thương của các kỹ năng AoE; đồng thời tăng nhẹ tốc độ đánh cho các Hero cận chiến đứng liền kề.
+* **Định hướng cơ chế**:
+  * Khi đạt cảnh giới Huyền Sử, tinh thần *"đạp luồng sóng dữ, chém cá kình"* giúp cường hóa uy lực sát thương và khả năng bạo kích (Crit) cho bản thân Bà Triệu.
+  * *Lưu ý*: Không giả định hào quang lân cận (aura/adjacency) hay buff phân loại tướng khi Shared Passive System của Core chưa chốt contract; `Exact parameters (%) = [CONFIG / OPEN]`.
 * **Tình trạng hệ thống**: *Chờ Core Shared Passive System*.
 
 ---
@@ -98,7 +100,7 @@
 Quy chuẩn kỹ thuật:
 - Canvas: 128 × 128 px
 - Format: 32-bit RGBA PNG, transparent background
-- Perspective: Front-facing / Isometric 2D
+- Perspective: Front View only
 - Baseline chân nhân vật / voi: Y = 112 px
 ```
 

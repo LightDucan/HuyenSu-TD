@@ -1,11 +1,15 @@
 import {
   META_SAVE_SCHEMA_VERSION,
+  META_SAVE_SCHEMA_VERSION_V1,
   PLAYER_PROFILE_SCHEMA_VERSION,
   type CommandEnergyState,
   type InventoryState,
   type MetaSaveV1,
+  type MetaSaveV2,
   type MetaStateV1,
+  type MetaStateV2,
   type PlayerProfile,
+  type RewardReceipt,
   type WalletState,
 } from './MetaState'
 
@@ -26,9 +30,7 @@ function isNonNegativeSafeInteger(value: unknown): value is number {
 function validateExactKeys(value: UnknownRecord, expected: readonly string[], path: string, issues: string[]): void {
   const actual = Object.keys(value).sort()
   const sortedExpected = [...expected].sort()
-  if (actual.length !== sortedExpected.length || actual.some((key, index) => key !== sortedExpected[index])) {
-    issues.push(`${path} contains unknown or missing fields`)
-  }
+  if (actual.length !== sortedExpected.length || actual.some((key, index) => key !== sortedExpected[index])) issues.push(`${path} contains unknown or missing fields`)
 }
 
 function validateProfile(value: unknown, issues: string[]): PlayerProfile | undefined {
@@ -47,10 +49,8 @@ function validateProfile(value: unknown, issues: string[]): PlayerProfile | unde
 function validateWallet(value: unknown, issues: string[]): WalletState | undefined {
   if (!isRecord(value) || !isRecord(value.balances)) { issues.push('wallet.balances must be an object'); return undefined }
   validateExactKeys(value, ['balances'], 'wallet', issues)
-  const currencyIds = Object.keys(value.balances).sort()
-  if (currencyIds.length !== 2 || currencyIds[0] !== 'gold' || currencyIds[1] !== 'knb') {
-    issues.push('wallet must contain exactly gold and knb')
-  }
+  const ids = Object.keys(value.balances).sort()
+  if (ids.length !== 2 || ids[0] !== 'gold' || ids[1] !== 'knb') issues.push('wallet must contain exactly gold and knb')
   if (!isNonNegativeSafeInteger(value.balances.gold)) issues.push('wallet gold must be a non-negative safe integer')
   if (!isNonNegativeSafeInteger(value.balances.knb)) issues.push('wallet knb must be a non-negative safe integer')
   return value as WalletState
@@ -60,12 +60,10 @@ function validateInventory(value: unknown, issues: string[]): InventoryState | u
   if (!isRecord(value)) { issues.push('inventory must be an object'); return undefined }
   validateExactKeys(value, ['consumables', 'equipmentInstanceIds'], 'inventory', issues)
   if (!isRecord(value.consumables)) issues.push('inventory.consumables must be an object')
-  else {
-    Object.entries(value.consumables).forEach(([itemId, quantity]) => {
-      if (itemId.trim().length === 0 || !isNonNegativeSafeInteger(quantity)) issues.push(`invalid consumable stack: ${itemId}`)
-    })
-  }
-  if (!Array.isArray(value.equipmentInstanceIds)) issues.push('inventory.equipmentInstanceIds must be an array')
+  else Object.entries(value.consumables).forEach(([itemId, quantity]) => {
+    if (itemId.trim().length === 0 || !isNonNegativeSafeInteger(quantity)) issues.push(`invalid consumable stack: ${itemId}`)
+  })
+  if (!Array.isArray(value.equipmentInstanceIds)) issues.push('equipment instance IDs must be an array')
   else {
     const ids = value.equipmentInstanceIds
     if (ids.some((id) => typeof id !== 'string' || id.trim().length === 0)) issues.push('equipment instance IDs must be non-empty strings')
@@ -82,31 +80,56 @@ function validateCommandEnergy(value: unknown, issues: string[]): CommandEnergyS
   return value as CommandEnergyState
 }
 
-export function validateMetaState(value: unknown): ValidationResult<MetaStateV1> {
+function validateRewardReceipts(value: unknown, issues: string[]): Readonly<Record<string, RewardReceipt>> | undefined {
+  if (!isRecord(value)) { issues.push('rewardReceipts must be an object'); return undefined }
+  Object.entries(value).forEach(([key, receipt]) => {
+    if (key.trim().length === 0 || !isRecord(receipt)) { issues.push(`invalid reward receipt: ${key}`); return }
+    validateExactKeys(receipt, ['transactionFingerprint', 'committedAtMs'], `rewardReceipts.${key}`, issues)
+    if (typeof receipt.transactionFingerprint !== 'string' || receipt.transactionFingerprint.length === 0) issues.push(`invalid reward receipt fingerprint: ${key}`)
+    if (!isNonNegativeSafeInteger(receipt.committedAtMs)) issues.push(`invalid reward receipt timestamp: ${key}`)
+  })
+  return value as Readonly<Record<string, RewardReceipt>>
+}
+
+export function validateMetaStateV1(value: unknown): ValidationResult<MetaStateV1> {
   if (!isRecord(value)) return { ok: false, issues: ['meta state must be an object'] }
   const issues: string[] = []
   validateExactKeys(value, ['profile', 'wallet', 'inventory', 'commandEnergy'], 'meta state', issues)
-  validateProfile(value.profile, issues)
-  validateWallet(value.wallet, issues)
-  validateInventory(value.inventory, issues)
-  validateCommandEnergy(value.commandEnergy, issues)
-  return issues.length === 0
-    ? { ok: true, value: value as MetaStateV1 }
-    : { ok: false, issues }
+  validateProfile(value.profile, issues); validateWallet(value.wallet, issues); validateInventory(value.inventory, issues); validateCommandEnergy(value.commandEnergy, issues)
+  return issues.length === 0 ? { ok: true, value: value as MetaStateV1 } : { ok: false, issues }
 }
 
-export function validateMetaSave(value: unknown): ValidationResult<MetaSaveV1> {
-  if (!isRecord(value)) return { ok: false, issues: ['meta save must be an object'] }
+export function validateMetaState(value: unknown): ValidationResult<MetaStateV2> {
+  if (!isRecord(value)) return { ok: false, issues: ['meta state must be an object'] }
   const issues: string[] = []
+  validateExactKeys(value, ['profile', 'wallet', 'inventory', 'commandEnergy', 'rewardReceipts'], 'meta state', issues)
+  validateProfile(value.profile, issues); validateWallet(value.wallet, issues); validateInventory(value.inventory, issues); validateCommandEnergy(value.commandEnergy, issues); validateRewardReceipts(value.rewardReceipts, issues)
+  return issues.length === 0 ? { ok: true, value: value as MetaStateV2 } : { ok: false, issues }
+}
+
+function validateEnvelope(value: unknown, version: number, issues: string[]): value is UnknownRecord {
+  if (!isRecord(value)) { issues.push('meta save must be an object'); return false }
   validateExactKeys(value, ['schemaVersion', 'revision', 'updatedAtMs', 'data'], 'meta save', issues)
-  if (value.schemaVersion !== META_SAVE_SCHEMA_VERSION) issues.push(`schemaVersion must be ${META_SAVE_SCHEMA_VERSION}`)
+  if (value.schemaVersion !== version) issues.push(`schemaVersion must be ${version}`)
   if (!isNonNegativeSafeInteger(value.revision) || value.revision < 1) issues.push('revision must be a positive safe integer')
   if (!isNonNegativeSafeInteger(value.updatedAtMs)) issues.push('updatedAtMs must be a non-negative safe integer')
-  const stateResult = validateMetaState(value.data)
-  if (!stateResult.ok) issues.push(...stateResult.issues)
-  return issues.length === 0
-    ? { ok: true, value: value as MetaSaveV1 }
-    : { ok: false, issues }
+  return true
+}
+
+export function validateMetaSaveV1(value: unknown): ValidationResult<MetaSaveV1> {
+  const issues: string[] = []
+  if (!validateEnvelope(value, META_SAVE_SCHEMA_VERSION_V1, issues)) return { ok: false, issues }
+  const state = validateMetaStateV1(value.data)
+  if (!state.ok) issues.push(...state.issues)
+  return issues.length === 0 ? { ok: true, value: value as MetaSaveV1 } : { ok: false, issues }
+}
+
+export function validateMetaSave(value: unknown): ValidationResult<MetaSaveV2> {
+  const issues: string[] = []
+  if (!validateEnvelope(value, META_SAVE_SCHEMA_VERSION, issues)) return { ok: false, issues }
+  const state = validateMetaState(value.data)
+  if (!state.ok) issues.push(...state.issues)
+  return issues.length === 0 ? { ok: true, value: value as MetaSaveV2 } : { ok: false, issues }
 }
 
 export function readSchemaVersion(value: unknown): number | undefined {

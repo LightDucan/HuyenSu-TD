@@ -1,4 +1,5 @@
-export const META_SAVE_SCHEMA_VERSION = 1 as const
+export const META_SAVE_SCHEMA_VERSION_V1 = 1 as const
+export const META_SAVE_SCHEMA_VERSION = 2 as const
 export const PLAYER_PROFILE_SCHEMA_VERSION = 1 as const
 export const COMMAND_ENERGY_BASE_CAP = 60 as const
 export const BASE_DEPLOYMENT_CAPACITY = 7 as const
@@ -34,6 +35,11 @@ export type DeploymentEntitlementState = Readonly<{
   summonOrderCount: number
 }>
 
+export type RewardReceipt = Readonly<{
+  transactionFingerprint: string
+  committedAtMs: number
+}>
+
 export type MetaStateV1 = Readonly<{
   profile: PlayerProfile
   wallet: WalletState
@@ -41,14 +47,25 @@ export type MetaStateV1 = Readonly<{
   commandEnergy: CommandEnergyState
 }>
 
+export type MetaStateV2 = Readonly<MetaStateV1 & {
+  rewardReceipts: Readonly<Record<string, RewardReceipt>>
+}>
+
 export type MetaSaveV1 = Readonly<{
-  schemaVersion: typeof META_SAVE_SCHEMA_VERSION
+  schemaVersion: typeof META_SAVE_SCHEMA_VERSION_V1
   revision: number
   updatedAtMs: number
   data: MetaStateV1
 }>
 
-export function createInitialMetaState(playerId: string, nowMs: number): MetaStateV1 {
+export type MetaSaveV2 = Readonly<{
+  schemaVersion: typeof META_SAVE_SCHEMA_VERSION
+  revision: number
+  updatedAtMs: number
+  data: MetaStateV2
+}>
+
+export function createInitialMetaState(playerId: string, nowMs: number): MetaStateV2 {
   if (playerId.trim().length === 0) throw new Error('Player ID must not be empty')
   if (!Number.isSafeInteger(nowMs) || nowMs < 0) throw new Error('Initial timestamp must be a non-negative safe integer')
 
@@ -65,6 +82,7 @@ export function createInitialMetaState(playerId: string, nowMs: number): MetaSta
     wallet: { balances: { gold: 0, knb: 0 } },
     inventory: { consumables: {}, equipmentInstanceIds: [] },
     commandEnergy: { current: COMMAND_ENERGY_BASE_CAP, regenAnchorAtMs: nowMs },
+    rewardReceipts: {},
   }
 }
 

@@ -68,6 +68,12 @@ flowchart TD
 | [hero-and-enemy-archetypes-proposal.md](hero-and-enemy-archetypes-proposal.md) | Đề xuất 4 ứng viên Hero, các phân nhóm Normal/Elite/Boss theo hướng Visual & Historical Inspiration (không tạo stats/skills/abilities). |
 | [roster-selection.md](roster-selection.md) | Đề xuất 3 Hero chính + 2 phương án dự phòng, 3 Normal Enemy, 1 Elite, 1–2 Boss và 1 Map cho Playable Pack Bà Triệu (Task VS-BT-02). |
 | [chapter-direction.md](chapter-direction.md) | Định hướng thiết kế chương playable: Cốt truyện 4 giai đoạn, chiến thắng chiến thuật, mỹ thuật & âm thanh cho trận tuyến Bồ Điền. |
+| [hero-trieu-thi-trinh.md](hero-trieu-thi-trinh.md) | Concept chi tiết Hero 1: Triệu Thị Trinh (Mounted Vanguard, sải gươm Bạch Tượng, triggerHits=5, prompt pixel art 128×128 baseline Y=112). |
+| [hero-trieu-quoc-dat.md](hero-trieu-quoc-dat.md) | Concept chi tiết Hero 2: Triệu Quốc Đạt (Heavy Shield & Spear Guardian, khiên đồng Lạc Việt, triggerHits=5, prompt asset baseline Y=112). |
+| [hero-ba-vua.md](hero-ba-vua.md) | Concept chi tiết Hero 3 (Phương án A): Ba Vua Bồ Điền (Rapid Multi-Striker Skirmisher, song đao đồng, triggerHits=3, prompt asset baseline Y=112). |
+| [hero-son-nu-ngan-nua.md](hero-son-nu-ngan-nua.md) | Concept chi tiết Hero 3 (Phương án B): Sơn Nữ Ngàn Nưa (Ranged Sniper & Trapper, nỏ Lạc Việt, triggerHits=7, prompt asset baseline Y=112). |
+| [enemy-and-boss-concepts.md](enemy-and-boss-concepts.md) | Đặc tả 3 Normal Enemy, 1 Elite Enemy, Boss Lục Dận và Boss Tiết Bính (Fixed Path, không đánh Hero, prompt pixel art baseline Y=112). |
+| [map-bo-dien-tung-son.md](map-bo-dien-tung-son.md) | Đặc tả bản đồ Phòng Tuyến Bồ Điền — Tùng Sơn (3 layer môi trường, artistic game interpretation disclaimer, bảng màu pixel art). |
 
 ---
 

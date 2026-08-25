@@ -1,22 +1,32 @@
-# Bối Cảnh Lịch Sử & Niên Biểu Toàn Diện: Nước Vạn Xuân (541–602 SCN)
+# Bối Cảnh Lịch Sử & Niên Biểu: Nước Vạn Xuân (541–602 SCN)
 
 > [!IMPORTANT]
 > **Ràng Buộc Nghiên Cứu Lịch Sử (Task `VS-VX-01`)**:
-> - Tài liệu này khảo cứu bối cảnh kinh tế - chính trị - quân sự của triều đại Tiền Lý (541–602 SCN).
-> - Phục vụ định hướng cốt truyện lịch sử, xây dựng bản đồ địa lý và phân bổ các giai đoạn nội dung cho dự án *Huyền Sử TD*.
-> - **KHÔNG thiết kế màn chơi gameplay, không gán số liệu stats/waves**.
+> Tài liệu này tổng hợp các sự kiện lịch sử thời Tiền Lý / Vạn Xuân, có gắn nhãn tầng nguồn **(T1 / T2 / T3 / T4)** cho từng chi tiết. Không thiết kế gameplay, không gán stats/waves.
+
+> [!WARNING]
+> **Ngôn ngữ thẩm định**: Các chi tiết chỉ có nguồn T2 trở về sau được trình bày như "theo ghi chép của *Toàn Thư*" hoặc "theo truyền thống / chính sử trung đại", không khẳng định như lịch sử đã được xác nhận gần thời. Các vị trí địa danh còn tranh luận được ghi rõ `[vị trí tranh luận]`.
 
 ---
 
-## 1. Bối Cảnh Lịch Sử: Chế Độ Đô Hộ Nhà Lương & Làn Sóng Khởi Nghĩa
+## 1. Bối Cảnh Lịch Sử: Chế Độ Đô Hộ Nhà Lương
 
-* **Bối cảnh chính trị phương Bắc**:
-  * Thế kỷ VI là thời kỳ Nam Bắc Triều chia cắt ở Trung Hoa. Nhà Lương (502–557) do Lương Vũ Đế Tiêu Diễn trị vì ở phương Nam, thi hành chế độ môn phiệt - sĩ tộc cực kỳ khắt khe, coi thường các hào tộc và người tài ngoài giới quý tộc thượng lưu Kiến Khang.
-* **Tình hình Giao Châu dưới ách đô hộ của Thứ sử Tiêu Tư**:
-  * Thứ sử Giao Châu là **Vũ Lâm hầu Tiêu Tư** (người trong hoàng tộc họ Tiêu của nhà Lương) nổi tiếng tàn bạo, tham lam và hà khắc. Hắn đặt ra hàng trăm thứ thuế khóa vô lý (thuế cây cối, thuế súc vật, thuế vải vóc...), khiến dân chúng lầm than oán hận.
-  * Nhân tài bản địa như **Tinh Thiều** dù học rộng tài cao, đỗ đạt giỏi kinh sử đến kinh đô Kiến Khang thi cử, nhưng chỉ được nhà Lương phong cho chức "Gác cổng Tây Viên". Tinh Thiều căm giận bỏ về quê hương, cùng các hào kiệt mưu tính việc đại sự.
-* **Hào kiệt Lý Bí dấy cờ nghĩa**:
-  * Lý Bí (Lý Bôn) vốn là tôn thất hào trưởng quê đất Thái Bình (vùng Sơn Tây/Vĩnh Phúc hoặc Thái Bình cổ), từng giữ chức Giám quân ở châu Đức (Hà Tĩnh). Do bất mãn với sự tàn bạo của quan lại đô hộ, ông đã từ quan trở về quê nhà, liên kết với các hào trưởng địa phương chuẩn bị khởi nghĩa.
+### 1.1. Chính Trị Phương Bắc (T1 — Near-source Chinese chronicles)
+
+* Thế kỷ VI là giai đoạn Nam Bắc Triều chia cắt ở Trung Hoa. Nhà Lương (502–557) do Lương Vũ Đế Tiêu Diễn trị vì, duy trì bộ máy quan lại đô hộ tại Giao Châu.
+* *Lương Thư* xác nhận Giao Châu năm 541 có Thứ sử là **Vũ Lâm hầu Tiêu Tư** — khi Lý Bí nổi dậy, Tiêu Tư "hành tiền cầu hòa" (hối lộ để cầu hòa) rồi bỏ trốn về Quảng Châu.
+
+### 1.2. Tình Hình Giao Châu Dưới Tiêu Tư
+
+* **T1 — Near-source**: *Lương Thư* chỉ ghi ngắn gọn rằng Tiêu Tư "hành tiền cầu hòa" (hối lộ) và bỏ trốn; không liệt kê các loại thuế cụ thể.
+* **T2 — Later historiography**: *Đại Việt Sử Ký Toàn Thư* và *Cương Mục* mô tả Tiêu Tư tham nhũng nặng nề, đặt ra nhiều loại thuế bất hợp lý (thuế cây cối, súc vật, vải vóc…). **Các chi tiết danh mục thuế cụ thể này là T2 / popular tradition**, không được xác nhận bởi T1.
+
+### 1.3. Tinh Thiều và Chức Vụ Nhà Lương (T2)
+
+* **T2 — Later historiography**: *Toàn Thư* ghi rằng Tinh Thiều từng ra Bắc xin làm quan, được nhà Lương phong chức **Quảng Dương môn lang** (廣陽門郎) — tức chức viên lang coi giữ cửa Quảng Dương, một chức quan nhỏ giữ cổng hoàng thành theo hệ quan chế Nam Triều.
+  * > [!CAUTION]
+    > **Không dùng cụm từ "gác cổng Tây Viên"**: Đây là **diễn dịch dân gian / popular paraphrase** không có trong nguyên văn *Toàn Thư*. Tên chính xác của chức vụ theo T2 là **Quảng Dương môn lang**.
+* Tinh Thiều phẫn chí vì chức vụ thấp, trở về hưởng ứng Lý Bí.
 
 ---
 
@@ -25,70 +35,66 @@
 ```mermaid
 timeline
     title TIẾN TRÌNH LỊCH SỬ NƯỚC VẠN XUÂN (541 - 602 SCN)
-    541 - 542 : Lý Bí khởi nghĩa : Đuổi Tiêu Tư : Giải phóng thành Long Biên
-    543 : Phạm Tu đánh tan Lâm Ấp : Đập tan phản công Lương ở Hợp Phố
-    544 : Thành lập Nước Vạn Xuân : Lý Bí lên ngôi Lý Nam Đế : Niên hiệu Thiên Đức
-    545 - 546 : Dương Phiêu & Trần Bá Tiên nam chinh : Chiến trận Chu Diên, Tô Lịch, Điển Triệt
-    547 - 550 : Triệu Quang Phục rút vào Đầm Dạ Trạch : Xưng Dạ Trạch Vương : Chém Dương Sàn giải phóng Long Biên
-    551 - 570 : Triệu Việt Vương trị vì : Đào Lang Vương (Lý Thiên Bảo) chia cắt tại Dã Năng
-    571 : Lý Phật Tử dùng mưu lật đổ Triệu Việt Vương : Xưng Hậu Lý Nam Đế
-    602 : Nhà Tùy (Lưu Phương) xâm lược : Lý Phật Tử đầu hàng : Nước Vạn Xuân chấm dứt
+    541 - 542 : Lý Bí khởi nghĩa (T1) : Tiêu Tư bỏ trốn (T1) : Giải phóng thành Long Biên (T2)
+    543 : Phạm Tu đánh tan Lâm Ấp (T2) : Đập tan phản công Lương ở Hợp Phố (T1/T2)
+    544 : Vạn Xuân lập quốc (T2) : Lý Nam Đế xưng hoàng đế (T2) : Niên hiệu Thiên Đức (T2)
+    545 - 546 : Dương Phiêu & Trần Bá Tiên nam chinh (T1) : Chiến trận Chu Diên, Tô Lịch (T1) : Điển Triệt [vị trí tranh luận] (T1/T2)
+    547 - 550 : Triệu Quang Phục rút vào Đầm Dạ Trạch (T2) : Dương Sàn bị chém (T2)
+    551 - 570 : Triệu Việt Vương trị vì (T2) : Lý Thiên Bảo chia cắt tại Dã Năng (T1/T2)
+    571 : Lý Phật Tử đánh úp - Triệu Việt Vương tử trận (T2) : Câu chuyện Nhã Lang-Cảo Nương (T3 - Folklore)
+    602 : Nhà Tùy - Lưu Phương xâm lược (T1) : Lý Phật Tử đầu hàng (T1)
 ```
 
-### Giai đoạn 1: Khởi Nghĩa Bùng Nổ & Quét Sạch Quân Đô Hộ (541–543)
-* **Cuối năm 541**: Lý Bí chính thức dựng cờ khởi nghĩa tại Thái Bình. Đông đảo hào kiệt hưởng ứng: Tinh Thiều, cha con Triệu Túc — Triệu Quang Phục (Chu Diên), Lão tướng Phạm Tu (Thanh Liệt).
-* **Đầu năm 542**: Nghĩa quân tiến đánh sấm sét, Thứ sử Tiêu Tư kinh hoàng bỏ trốn về Quảng Châu. Nghĩa quân chiếm thành Long Biên, giải phóng hoàn toàn Giao Châu.
-* **Cuối năm 542 — Đầu 543**: Nhà Lương sai Thứ sử Quảng Châu Tôn Quýnh và Lư Tử Hùng dẫn quân phản công. Lý Bí chủ động chặn đánh tại Hợp Phố, tiêu diệt phần lớn đạo quân địch.
-* **Tháng 5 năm 543**: Vua Lâm Ấp nhân cơ hội đem quân cướp phá quận Cửu Đức (Hà Tĩnh). Lý Bí phái Lão tướng **Phạm Tu** thống lĩnh quân thủy bộ tiến xuống phía Nam, đánh tan tành quân Lâm Ấp tại biên giới.
+---
+
+### Giai Đoạn 1: Khởi Nghĩa Bùng Nổ & Đánh Đuổi Tiêu Tư (541–543)
+
+* **541 (T1 — *Lương Thư*)**: Lý Bí (người Giao Châu) nổi dậy. Thứ sử Tiêu Tư "hành tiền cầu hòa" rồi chạy về Quảng Châu.
+* **542 (T1 — *Lương Thư*)**: Nhà Lương sai Tôn Quýnh, Lư Tử Hùng sang đàn áp nhưng không tiến quân được; cả hai bị bãi chức. Theo *Toàn Thư* (T2), nghĩa quân chiếm thành Long Biên.
+* **542–543 (T1 — *Lương Thư*, bổ sung T2 — *Toàn Thư*)**: Nhà Lương lại sai quân từ Quảng Châu; *Toàn Thư* ghi Lý Bí chặn đánh tại Hợp Phố. Vua Lâm Ấp xâm lấn Cửu Đức; theo *Toàn Thư* (T2), **Phạm Tu** đem quân đánh tan — chi tiết này chỉ có trong T2, không có trong T1.
 
 ---
 
-### Giai đoạn 2: Khai Sinh Nước Vạn Xuân & Xưng Hoàng Đế (544)
-* **Tháng Giêng năm 544**: Sau khi quét sạch ngoại xâm và dẹp yên bờ cõi, Lý Bí chính thức lên ngôi Hoàng đế, tự xưng là **Lý Nam Đế**.
-* **Các chính sách dựng nước mang tính lịch sử**:
-  1. Đặt quốc hiệu là **VẠN XUÂN** — Mang ý nghĩa mong ước xã tắc bền vững muôn vạn mùa xuân, độc lập tự chủ lâu dài.
-  2. Đặt niên hiệu là **Thiên Đức** (Đức của Trời) — Khẳng định vương quyền độc lập ngang hàng với các Hoàng đế Trung Hoa.
-  3. Dựng **Điện Vạn Thọ** làm nơi thiết triều, đúc tiền đồng **Thiên Đức thông bảo** khẳng định chủ quyền tiền tệ.
-  4. Dựng chùa **Khai Quốc** (nghĩa là Mở Nước — tiền thân của Chùa Trấn Quốc ngày nay tại Hà Nội) làm trung tâm tâm linh Phật giáo của quốc gia.
-  5. Thiết lập triều đình: Phong **Tinh Thiều** đứng đầu ban văn, **Phạm Tu** đứng đầu ban võ (Thái úy/Đại tướng quân), **Triệu Túc** làm Thái phó.
+### Giai Đoạn 2: Khai Sinh Nước Vạn Xuân (544)
+
+* **544 (T2 — *Toàn Thư*, *Việt Sử Lược*, *Cương Mục*)**: Lý Bí lên ngôi hoàng đế (Lý Nam Đế), đặt quốc hiệu **Vạn Xuân**, niên hiệu **Thiên Đức**.
+  * Các chi tiết về tổ chức triều đình (Tinh Thiều đứng đầu quan văn, Phạm Tu đứng đầu quan võ, Triệu Túc làm Thái phó), xây điện Vạn Thọ, lập chùa Khai Quốc — **toàn bộ thuộc T2; không có T1 nào đề cập**.
+  * **Tiền đồng**: *Toàn Thư* ghi có việc "đúc tiền"; tên gọi **"Thiên Đức thông bảo"** xuất hiện trong các ghi chép sau, nhưng **chưa có vật thể khảo cổ nào xác nhận đến nay** — `[attribution disputed / unverified by archaeology]`.
+  * **Chùa Khai Quốc**: *Toàn Thư* ghi Lý Nam Đế lập chùa Khai Quốc năm 544. Việc đồng nhất chùa này với **Chùa Trấn Quốc** (Tây Hồ, Hà Nội) ngày nay là **local tradition (T3)**, không được xác nhận bởi tư liệu gần thời.
 
 ---
 
-### Giai đoạn 3: Đại Kháng Chiến Chống Quân Lương (Trần Bá Tiên & Dương Phiêu) (545–547)
-* **Tháng 5 năm 545**: Lương Vũ Đế cử tướng giỏi nhất của Nam Triều là **Dương Phiêu** (Thứ sử Giao Châu) và danh tướng mưu lược **Trần Bá Tiên** (Tư mã Đô đốc) dẫn đạo quân thủy bộ thiện chiến hơn vạn người ồ ạt nam chinh.
-* **Chiến lũy Chu Diên & Thành Tô Lịch (545)**:
-  * Lý Nam Đế dàn quân nghênh chiến tại sông Chu Diên và lập chiến lũy gỗ đất tại cửa sông Tô Lịch.
-  * Quân Lương với thuyền lớn và binh lực mạnh đã đột phá phòng tuyến. Lão tướng Phạm Tu và Tinh Thiều anh dũng quyết tử cản giặc để vua rút lui.
-* **Trận thủy chiến hồ Điển Triệt (546)**:
-  * Lý Nam Đế lui quân về hồ Điển Triệt (Lập Thạch, Vĩnh Phúc) — một đầm hồ tự nhiên hiểm trở ăn thông ra sông Lô, hai bên là vách núi rậm rạp. Vua cho neo đóng hàng vạn chiến thuyền, chặn đứng đà tiến của Trần Bá Tiên suốt nhiều tháng.
-  * Đêm thu năm 546, trời đổ mưa to gió lớn nước sông dâng ngập, Trần Bá Tiên chớp thời cơ xuôi dòng đánh úp hồ Điển Triệt. Thủy quân nghĩa quân bị vỡ trận, Lý Nam Đế phải rút vào động Khuất Lão (Tam Nông, Phú Thọ).
+### Giai Đoạn 3: Kháng Chiến Chống Quân Lương (545–547)
+
+* **545 (T1 — *Lương Thư*, *Trần Thư*)**: Lương Vũ Đế sai **Dương Phiêu** (Thứ sử Giao Châu) và **Trần Bá Tiên** (Tư mã) dẫn quân nam chinh.
+* **Chiến trường Chu Diên & Tô Lịch (T1 — *Trần Thư*)**: Trận giao tranh tại các địa điểm này được ghi nhận gần thời. Phòng tuyến nghĩa quân bị phá vỡ; Lý Nam Đế rút quân.
+  * **Cái chết của Phạm Tu, Tinh Thiều**: *Toàn Thư* (T2) ngụ ý cả hai hy sinh trong giai đoạn này. **T1 không xác nhận chi tiết này** — ghi là `[Later historiography; not confirmed by near-source]`.
+* **Trận Điển Triệt (545–546, T1 — *Trần Thư*)**: Tên địa điểm được xác nhận gần thời trong *Trần Thư* (Cao Tổ kỷ). Tuy nhiên, **vị trí địa lý cụ thể và cách phiên âm hiện đại vẫn là vấn đề tranh luận** — `[vị trí tranh luận; T2 đề xuất Lập Thạch (Vĩnh Phúc) nhưng chưa được xác định bởi khảo cổ]`.
+* **Động Khuất Lão / Khuất Nao (T1 — *Trần Thư*, bản chép tay khác nhau)**: Lý Nam Đế rút về nơi này. **Tên địa điểm bất nhất giữa các bản (*Khuất Lão* vs *Khuất Nao*); vị trí chưa xác định** — `[tên gọi và vị trí bất định]`. *Cương Mục* (T2) đề xuất Tam Nông (Phú Thọ).
 
 ---
 
-### Giai đoạn 4: Dạ Trạch Vương Quật Khởi & Chiến Thuật Du Kích Đầm Lầy (547–550)
-* **Năm 547**: Lý Nam Đế tại động Khuất Lão trao lại toàn bộ tiết chế binh quyền và bảo kiếm cho danh tướng trẻ **Triệu Quang Phục**.
-* **Đại bản doanh Đầm Dạ Trạch (Hưng Yên)**:
-  * Triệu Quang Phục nhận định không thể đối đầu trực diện với quân thiết giáp của Trần Bá Tiên trên bình nguyên, bèn rút toàn bộ 2 vạn nghĩa binh về **đầm Dạ Trạch** (vùng bãi Màn Trù, Khoái Châu, Hưng Yên) — một bãi lầy mênh mông, lau sậy rậm rạp, bùn sâu ngập lút đầu gối ngựa xe.
-  * **Nghệ thuật du kích đầm lầy**:
-    * Ban ngày ẩn náu trong rừng lau sậy, cấm nổi lửa thổi cơm tránh khói.
-    * Ban đêm dùng thuyền độc mộc nhỏ lướt nhanh luồn lách qua lau lách, bất ngờ tập kích vào các đồn trại quân Lương, cướp lương thực, đoạt vũ khí rồi biến mất không dấu vết.
-    * Nhân dân hết lòng ủng hộ, tôn xưng Triệu Quang Phục là **Dạ Trạch Vương** (Vua Đầm Đêm).
-* **Năm 548**: Lý Nam Đế qua đời vì bạo bệnh tại động Khuất Lão. Triệu Quang Phục xưng là **Triệu Việt Vương**.
-* **Năm 549–550 (Tổng phản công thắng lợi)**:
-  * Nhà Lương nổ ra Loạn Hầu Cảnh, triều đình nguy khốn triệu hồi Trần Bá Tiên về nước cứu viện; Bá Tiên giao lại quyền cho phó tướng **Dương Sàn** ở lại cố thủ.
-  * Chớp thời cơ vàng, Triệu Việt Vương tung toàn bộ lực lượng từ đầm Dạ Trạch mở đợt tổng phản công sấm sét, chém chết tướng Dương Sàn tại trận, quét sạch quân giặc, tái chiếm thành Long Biên và khôi phục độc lập nước Vạn Xuân.
+### Giai Đoạn 4: Triệu Quang Phục & Căn Cứ Đầm Dạ Trạch (547–550)
+
+* **547 (T2 — *Toàn Thư*)**: Lý Nam Đế trao quyền bính cho **Triệu Quang Phục**. *Toàn Thư* ghi Triệu Quang Phục rút về đầm Dạ Trạch (vùng Khoái Châu, Hưng Yên theo T2/T4).
+* **Chiến thuật Dạ Trạch (T2 — *Toàn Thư*; T3 — *Lĩnh Nam Chích Quái*)**: Mô tả chi tiết về chiến thuật ban đêm, thuyền độc mộc, ẩn náu trong lau sậy — **nguồn T2 biên soạn cách sự kiện gần 1.000 năm; T1 không mô tả chi tiết chiến thuật này**.
+  * **Số quân "hai vạn"**: Chỉ có trong T2; T1 không xác nhận.
+  * **Danh hiệu Dạ Trạch Vương**: T2, T3. Không có trong T1.
+* **548 (T2)**: Lý Nam Đế qua đời tại Khuất Lão. Triệu Quang Phục xưng Triệu Việt Vương.
+* **549–550 (T2 — *Toàn Thư*)**: Loạn Hầu Cảnh khiến nhà Lương suy yếu; Trần Bá Tiên được triệu về. Triệu Việt Vương tổng phản công, **chém tướng Dương Sàn** và tái chiếm Long Biên — tên Dương Sàn có trong T1 (*Trần Thư*); hoàn cảnh chết trận chỉ trong T2.
 
 ---
 
-### Giai đoạn 5 & 6: Chia Rẽ Nội Bộ & Sự Xâm Lược Của Nhà Tùy (551–602)
-* **551–570**: Triệu Việt Vương trị vì độc lập, đóng đô tại Long Biên. Ở phía Tây, anh trai Lý Nam Đế là Lý Thiên Bảo xưng Đào Lang Vương tại động Dã Năng. Sau khi Thiên Bảo mất (555), **Lý Phật Tử** lên thay và đem quân xuống đồng bằng tranh chấp.
-* **571**: Lý Phật Tử dùng mưu gả con trai (Nhã Lang) cho con gái Triệu Việt Vương (Cảo Nương) để thám thính bí mật quân sự (huyền thoại trộm Móng Rồng), sau đó bất ngờ xuất quân đánh úp. Triệu Việt Vương thua trận tuẫn tiết tại cửa biển Đại Nha. Lý Phật Tử lên ngôi (Hậu Lý Nam Đế).
-* **Năm 602**: Nhà Tùy thống nhất Trung Hoa, sai danh tướng **Lưu Phương** dẫn 27 doanh quân ồ ạt tiến sang. Lý Phật Tử khiếp sợ đầu hàng tại Đô Long. Kỷ nguyên nước Vạn Xuân kéo dài 60 năm chính thức khép lại.
+### Giai Đoạn 5 & 6: Hậu Kỳ và Sụp Đổ (551–602)
+
+* **551–570 (T1/T2)**: Triệu Việt Vương trị vì. Lý Thiên Bảo xưng Đào Lang Vương tại Dã Năng (xác nhận từ T1 — *Lương Thư*). Lý Phật Tử kế vị Thiên Bảo (T2).
+* **571 (T2)**: Lý Phật Tử đánh úp Triệu Việt Vương; Triệu Việt Vương tử trận tại cửa biển Đại Nha.
+  * **Câu chuyện Nhã Lang — Cảo Nương (T3 — Folklore)**: Toàn bộ câu chuyện tình duyên bi kịch và việc đánh cắp Móng Rồng là **folklore / local legend**, không phải historical fact được xác nhận bởi T1 hoặc T2 độc lập.
+* **602 (T1 — *Tùy Thư*)**: Lưu Phương dẫn 27 doanh quân sang Giao Châu; Lý Phật Tử đầu hàng tại Đô Long. **Đây là sự kiện được xác nhận gần thời (T1).**
 
 ---
 
-## 3. Ý Nghĩa Lịch Sử Toàn Diện Của Nước Vạn Xuân
+## 3. Nhận Định Học Thuật về Ý Nghĩa Lịch Sử
 
-1. **Ý thức độc lập và tự chủ ngang hàng**: Việc Lý Bí xưng Hoàng đế (Lý Nam Đế), đặt quốc hiệu Vạn Xuân và đặt niên hiệu Thiên Đức là lời tuyên ngôn đanh thép khẳng định đất nước ta là một quốc gia độc lập có chủ quyền, có giang sơn và văn hiến riêng, không phải là một quận huyện của phong kiến phương Bắc.
-2. **Di sản nghệ thuật quân sự độc đáo**: Chiến lược kháng chiến trường kỳ và nghệ thuật tác chiến du kích đầm lầy của Dạ Trạch Vương Triệu Quang Phục đã đặt nền móng kinh điển cho nghệ thuật quân sự Việt Nam: *"Lấy đoản binh thắng trường trận, lấy yếu chống mạnh, dựa vào địa hình hiểm trở tiêu hao sinh lực địch"*.
-3. **Biểu tượng Phật giáo & Văn hóa Khai Quốc**: Chùa Khai Quốc (Trấn Quốc) mở ra kỷ nguyên Phật giáo đồng hành cùng vận mệnh dân tộc và sự hưng thịnh của non sông.
+* **Quốc hiệu và ý thức độc lập** (T2, được học giả T4 đồng thuận): Việc đặt quốc hiệu Vạn Xuân và niên hiệu Thiên Đức phản ánh ý thức xây dựng nhà nước độc lập ngang hàng với phương Bắc. Đây là nhận định học thuật có cơ sở từ T2, nhưng cần lưu ý rằng T1 không ghi nhận những chi tiết này.
+* **Nghệ thuật quân sự Dạ Trạch** (T2/T3, bổ sung T4): Chiến thuật kháng cự dài hạn trong địa hình đầm lầy được ghi nhận trong T2 và ca ngợi trong T3; có giá trị nghiên cứu quân sự nhưng cần thận trọng khi các chi tiết cụ thể (số quân, chiến thuật đêm, thuyền độc mộc) thiếu xác nhận T1.

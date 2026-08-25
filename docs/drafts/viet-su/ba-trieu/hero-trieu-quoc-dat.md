@@ -26,10 +26,11 @@
 
 ## 2. Nguồn & Mức Độ Tin Cậy Lịch Sử (Source Classification)
 
-* **Phân loại nguồn**: **Later source & Folklore** (Mức độ tin cậy: Trung bình)
+* **Phân loại nguồn**: **Later source / Folklore / Game Interpretation** (Mức độ tin cậy: Sử liệu trung đại & Thần tích địa phương)
 * **Chi tiết nguồn sử liệu**:
-  * Triệu Quốc Đạt không xuất hiện trong các tài liệu sử học Trung Hoa gần thời (*Tam Quốc Chí*).
-  * Nhân thân và công trạng của ông được ghi nhận trang trọng trong sử liệu trung đại Việt Nam (*Đại Việt Sử Ký Toàn Thư*, *Khâm Định Việt Sử Thông Giám Cương Mục*) và thần tích làng Quan Yên (xã Định Công, huyện Yên Định, Thanh Hóa).
+  * *Sử học gần thời*: Triệu Quốc Đạt không xuất hiện trong tài liệu sử học phương Bắc gần thời (*Tam Quốc Chí*).
+  * *Sử liệu trung đại & Thần tích (Later source & Folklore)*: Nhân thân, vai trò hào trưởng Quan Yên và công trạng khởi dựng căn cứ Ngàn Nưa cùng em gái được ghi nhận trong *Đại Việt Sử Ký Toàn Thư*, *Khâm Định Việt Sử Thông Giám Cương Mục* và thần tích đền Quan Yên (Định Công - Yên Định - Thanh Hóa).
+  * *Sáng tạo nghệ thuật game (Game Interpretation)*: Thiết kế Khiên gỗ bọc đồng chạm khắc mặt thú dữ Đông Sơn và vai trò Heavy Guardian trấn thủ chặn đường trong Tower Defense.
 
 ---
 

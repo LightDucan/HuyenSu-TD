@@ -26,10 +26,11 @@
 
 ## 2. Nguồn & Mức Độ Tin Cậy Lịch Sử (Source Classification)
 
-* **Phân loại nguồn**: **Historical / Later source / Folklore**
+* **Phân loại nguồn**: **Historical / Later source / Folklore / Game Interpretation**
 * **Chi tiết nguồn sử liệu**:
-  * *Nguồn Trung Hoa gần thời*: *Tam Quốc Chí* (Ngô Chí - Lục Dận truyện, Tôn Quyền truyện) xác nhận cuộc nổi dậy năm 248 tại Giao Chỉ–Cửu Chân và hoạt động của Lục Dận (đoạn sử này không trực tiếp gọi tên bà).
-  * *Sử liệu trung đại & Địa phương*: *Giao Châu Ký* (thế kỷ IV), *Đại Việt Sử Ký Toàn Thư*, *Khâm Định Việt Sử Thông Giám Cương Mục*, *Việt Sử Tiêu Án*, Thần phả Đền Bà Triệu (thôn Phú Điền, Hậu Lộc, Thanh Hóa) nhận diện và tôn vinh danh tính **Triệu Thị Trinh / Triệu Ẩu**, cùng thụy hiệu tôn xưng *Nhụy Kiều Tướng Quân*, *Lệ Hải Bà Vương*.
+  * *Nguồn Trung Hoa gần thời (Historical)*: *Tam Quốc Chí* (Ngô Chí - Lục Dận truyện, Tôn Quyền truyện) xác nhận cuộc nổi dậy năm 248 tại Giao Chỉ–Cửu Chân và hoạt động của Lục Dận (đoạn sử này không trực tiếp gọi tên bà).
+  * *Sử liệu trung đại & Thần tích địa phương (Later source & Folklore)*: *Giao Châu Ký* (thế kỷ IV), *Đại Việt Sử Ký Toàn Thư*, *Khâm Định Việt Sử Thông Giám Cương Mục*, *Việt Sử Tiêu Án*, Thần phả Đền Bà Triệu (Phú Điền - Hậu Lộc) nhận diện danh tính **Triệu Thị Trinh / Triệu Ẩu**; ghi chép căn cứ Ngàn Nưa, căn cứ Bồ Điền, hình tượng cưỡi Bạch Tượng một ngà, cài trâm vàng, đi guốc cong, mặc áo gấm vàng.
+  * *Sáng tạo nghệ thuật game (Game Interpretation)*: Hộ tâm phiến đồng thau chạm hình Mặt trời Đông Sơn muộn, phân vai trò Mounted Vanguard càn quét tiền tuyến trên nền tảng Tower Defense.
 
 ---
 

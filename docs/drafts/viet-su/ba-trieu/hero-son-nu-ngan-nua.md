@@ -70,7 +70,7 @@
 * **Hiệu ứng dùng chung đề xuất (Shared Skill Effects)**:
   * **AoE**: Bắn loạt nỏ tỏa rộng mưa tên bao phủ khu vực trận địa.
   * **Damage**: Gây sát thương lên các mục tiêu trong vùng ảnh hưởng.
-  * **Slow**: Nhựa cây rừng làm giảm tốc độ di chuyển của kẻ địch trong thời gian ngắn.
+  * **Slow**: Nhựa cây rừng làm giảm tốc độ di chuyển của kẻ địch trong thời gian ngắn (Độc tố là visual & narrative theme, hiệu ứng cơ chế dùng chung trong Core Skill System thực tế là **Slow**).
   * *Thông số chi tiết*: `Exact parameters (radius, atkMultiplier, slow percentage %, durationMs, maxTargets) = [CONFIG / OPEN]`.
 * **Ràng buộc hệ thống**: Hoàn toàn kế thừa framework Skill dùng chung của Core, không tạo code riêng.
 

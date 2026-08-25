@@ -26,14 +26,14 @@
 | `HERO-TQD-IDLE` | Hero Idle | Sprite Idle Triệu Quốc Đạt | `heroes/trieu-quoc-dat/idle.png` | `READY` | 128×128, Front View, Baseline Y=112 |
 | `HERO-TQD-ATK`  | Hero Attack | Sprite Attack Triệu Quốc Đạt | `heroes/trieu-quoc-dat/attack.png` | `READY` | 128×128, Front View, Baseline Y=112 |
 | `VFX-TQD-SKILL` | Skill VFX | VFX Khiên Đồng Trấn Thủ | `skills/vfx-khien-dong-tran-thu.png`| `READY` | 128×128, Root earth fissure VFX |
-| `HERO-BV-PORT`  | Hero Portrait | Chân dung Ba Vua Bồ Điền | `portraits/ba-vua.png` | `READY` | 128×128, xăm giao long, khăn chàm |
-| `HERO-BV-IDLE`   | Hero Idle | Sprite Idle Ba Vua Bồ Điền | `heroes/ba-vua/idle.png` | `READY` | 128×128, Front View, Baseline Y=112 |
-| `HERO-BV-ATK`    | Hero Attack | Sprite Attack Ba Vua Bồ Điền | `heroes/ba-vua/attack.png` | `READY` | 128×128, Front View, Baseline Y=112 |
-| `VFX-BV-SKILL`   | Skill VFX | VFX Tam Vị Liên Hoàn Trảm | `skills/vfx-tam-vi-lien-hoan.png` | `READY` | 128×128, Multi-hit triple slash VFX |
-| `HERO-SNN-PORT` | Hero Portrait | Chân dung Sơn Nữ Ngàn Nưa | `portraits/son-nu-ngan-nua.png` | `READY` | 128×128, nón lá cọ, áo chàm |
-| `HERO-SNN-IDLE` | Hero Idle | Sprite Idle Sơn Nữ Ngàn Nưa | `heroes/son-nu-ngan-nua/idle.png` | `READY` | 128×128, Front View, Baseline Y=112 |
-| `HERO-SNN-ATK`  | Hero Attack | Sprite Attack Sơn Nữ Ngàn Nưa | `heroes/son-nu-ngan-nua/attack.png`| `READY` | 128×128, Front View, Baseline Y=112 |
-| `VFX-SNN-SKILL` | Skill VFX | VFX Mưa Tên Độc Ngàn Nưa | `skills/vfx-mua-ten-doc.png` | `READY` | 128×128, AoE poison rain VFX |
+| `HERO-BV-PORT`  | Hero Portrait | Chân dung Ba Vua Bồ Điền | `portraits/ba-vua.png` | `OPTIONAL` | Slot 3 Option A (Folklore) |
+| `HERO-BV-IDLE`   | Hero Idle | Sprite Idle Ba Vua Bồ Điền | `heroes/ba-vua/idle.png` | `OPTIONAL` | 128×128, Front View, Baseline Y=112 |
+| `HERO-BV-ATK`    | Hero Attack | Sprite Attack Ba Vua Bồ Điền | `heroes/ba-vua/attack.png` | `OPTIONAL` | 128×128, Front View, Baseline Y=112 |
+| `VFX-BV-SKILL`   | Skill VFX | VFX Tam Vị Liên Hoàn Trảm | `skills/vfx-tam-vi-lien-hoan.png` | `OPTIONAL` | 128×128, Multi-hit triple slash VFX |
+| `HERO-SNN-PORT` | Hero Portrait | Chân dung Sơn Nữ Ngàn Nưa | `portraits/son-nu-ngan-nua.png` | `OPTIONAL` | Slot 3 Option B (Game Interpretation) |
+| `HERO-SNN-IDLE` | Hero Idle | Sprite Idle Sơn Nữ Ngàn Nưa | `heroes/son-nu-ngan-nua/idle.png` | `OPTIONAL` | 128×128, Front View, Baseline Y=112 |
+| `HERO-SNN-ATK`  | Hero Attack | Sprite Attack Sơn Nữ Ngàn Nưa | `heroes/son-nu-ngan-nua/attack.png`| `OPTIONAL` | 128×128, Front View, Baseline Y=112 |
+| `VFX-SNN-SKILL` | Skill VFX | VFX Mưa Tên Độc Ngàn Nưa | `skills/vfx-mua-ten-doc.png` | `OPTIONAL` | 128×128, AoE Slow effect (poison là visual theme) |
 | `ENM-TG-WALK`   | Normal Enemy | Sprite Ngô Thiết Giáp Sĩ | `enemies/ngo-thiet-giap/walk.png` | `READY` | 128×128, Front View, Baseline Y=112 |
 | `ENM-NT-WALK`   | Normal Enemy | Sprite Ngô Nỏ Thủ Cơ Giới | `enemies/ngo-no-thu/walk.png` | `READY` | 128×128, Front View, Baseline Y=112 |
 | `ENM-TB-WALK`   | Normal Enemy | Sprite Thủy Binh & Dân Phu | `enemies/thuy-binh-dan-phu/walk.png`| `READY` | 128×128, Front View, Baseline Y=112 |

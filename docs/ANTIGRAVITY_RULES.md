@@ -15,6 +15,14 @@ Mục tiêu:
 
 Không tự ý thay đổi Core Architecture.
 
+## CONTEXT ISOLATION (Bắt Buộc)
+
+Khi thực thi nhiều agent, subagent hoặc sprint song song/nối tiếp:
+- Mỗi agent/task chỉ hoạt động trên branch/worktree được chỉ định riêng biệt.
+- Tuyệt đối cách ly ngữ cảnh: Không mang dữ liệu tạm, file rác, hoặc giả định chưa commit từ task khác sang.
+- Không sửa chéo các thư mục ngoài phạm vi task (ví dụ: Task Bà Triệu chỉ sửa `docs/drafts/viet-su/ba-trieu/**`, Task Vạn Xuân chỉ sửa `docs/drafts/viet-su/van-xuan/**`).
+- Mọi tài liệu nghiên cứu/concept phải hoàn toàn tự chứa (self-contained), độc lập và không phụ thuộc vào trạng thái chưa hoàn tất của nhánh khác.
+
 ## Quy tắc bắt buộc trước mỗi Task
 
 1. Đọc:

@@ -66,6 +66,8 @@ flowchart TD
 | [eastern-wu-forces-and-tactics.md](eastern-wu-forces-and-tactics.md) | Nghiên cứu quân đội Đông Ngô (Lục Dận, trang bị giáp sắt, hoàn thủ đao, kích, nỏ quân dụng, thuyền chiến, tổng quân lực tập hợp ~8.000 người). |
 | [visual-costumes-weapons-and-terrain.md](visual-costumes-weapons-and-terrain.md) | Khảo cứu mỹ thuật: Trang phục áo gấm/áo chàm, giáp hộ tâm phiến Đông Sơn muộn, vũ khí gươm/giáo/nỏ, tượng voi trắng, kiến trúc nhà sàn/đồn lũy, 4 vùng địa hình chiến trường. |
 | [hero-and-enemy-archetypes-proposal.md](hero-and-enemy-archetypes-proposal.md) | Đề xuất 4 ứng viên Hero, các phân nhóm Normal/Elite/Boss theo hướng Visual & Historical Inspiration (không tạo stats/skills/abilities). |
+| [roster-selection.md](roster-selection.md) | Đề xuất 3 Hero chính + 2 phương án dự phòng, 3 Normal Enemy, 1 Elite, 1–2 Boss và 1 Map cho Playable Pack Bà Triệu (Task VS-BT-02). |
+| [chapter-direction.md](chapter-direction.md) | Định hướng thiết kế chương playable: Cốt truyện 4 giai đoạn, chiến thắng chiến thuật, mỹ thuật & âm thanh cho trận tuyến Bồ Điền. |
 
 ---
 

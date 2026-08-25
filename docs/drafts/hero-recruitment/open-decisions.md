@@ -1,0 +1,56 @@
+# Tổng Hợp Quyết Định Còn Mở & Rủi Ro Kỹ Thuật (Open Decisions — HERO-A00)
+
+## 1. Bảng Tổng Hợp Thông Số & Quyết Định Còn Mở (Open Parameters Matrix)
+
+> [!IMPORTANT]
+> **Quy ước Placeholder & Ranh giới Quyết định**:
+> - Các nội dung trong cột "Đề Xuất Khảo Sát / Placeholder" chỉ mang tính chất định hướng giải pháp kỹ thuật, **tuyệt đối không phải số liệu balance thực tế và không dùng trực tiếp cho implementation** trước khi được Game Design & Codex phê duyệt.
+> - Các cơ chế đã **LOCKED**:
+>   - Chiêu Hiền Lệnh là **Item trong Hành Trang** (`item_chieu_hien_lenh`), không phải Currency.
+>   - **Không cho phép Chiêu Hiền trực tiếp bằng KNB**: Luồng chuẩn là `KNB` $\rightarrow$ Mua Chiêu Hiền Lệnh trong Shop $\rightarrow$ Chiêu Hiền Các tiêu hao Chiêu Hiền Lệnh (`item_chieu_hien_lenh`). Request chiêu mộ chỉ tiêu duy nhất `item_chieu_hien_lenh`.
+>   - Hệ thống kinh tế duy trì **đúng 2 loại Tiền tệ** (Vàng & KNB), không thêm tiền tệ thứ 3.
+>   - First Clear / Chapter / Thành Tựu là các nguồn có thể phân phối Chiêu Hiền Lệnh theo reward config (không khẳng định mọi Ải First Clear đều nhận; ải nào nhận, chapter nào nhận và số lượng là **OPEN**).
+>   - Hero mới $\rightarrow$ **Mở khóa Hero** (khởi đầu 1★).
+>   - Hero trùng $\rightarrow$ Tự động chuyển đổi thành **Mảnh Danh Tướng của chính Hero đó** (`shard_hero_<heroId>`).
+>   - Hệ Thống Sao: **1★ $\rightarrow$ 2★ $\rightarrow$ 3★ $\rightarrow$ 4★ $\rightarrow$ 5★** (Không có 6★).
+>   - Mảnh Danh Tướng dùng **duy nhất cho Nâng Sao (1★ $\rightarrow$ 5★)**.
+>   - Nâng Sao **chỉ tăng 6 Core Stats cộng thẳng** (HP, ATK, Range, AttackSpeed, Crit, CritDamage) qua bảng tăng trưởng; **không DEF** và **không tạo % modifier**. Modifier % chỉ dành cho Passive Huyền Sử qua shared passive system.
+>   - Anh Hồn (`anh-hon`) là **material CHUNG** cho toàn bộ Hero, dùng **duy nhất cho Tiến Hóa Bậc (Normal $\rightarrow$ Rebirth $\rightarrow$ Reincarnation $\rightarrow$ Legendary)**.
+>   - Không tạo hệ R/SR/SSR hay phẩm chất Hero (hệ rarity Hero hiện chưa tồn tại).
+>   - Hero không có DEF, đòn đánh thường single-target, skill kích hoạt sau $N$ đòn qua hệ Skill Effects chung.
+
+| Hệ Thống | Thông Số / Quyết Định Còn Mở | Đề Xuất Khảo Sát / Placeholder | Trạng Thái & Ghi Chú |
+|---|---|---|---|
+| **1. Chiêu Hiền Các** | Bảng tỷ lệ xuất hiện (Drop Rates) | • `[Placeholder: Tỷ lệ rơi danh tướng theo cấu hình bể chiêu mộ]`<br>• Tỷ lệ rơi Mảnh/Vật phẩm phụ trợ (nếu có) | **OPEN** — Chờ Game Design & Codex phê duyệt. |
+| **2. Chiêu Hiền Các** | Cơ chế Pity / Guarantee (nếu có) | • `[Placeholder: Đảm bảo Danh Tướng sau N lượt chiêu mộ nếu được duyệt]`<br>• Không tự có guarantee nếu chưa khóa | **OPEN** — Chờ Game Design & Codex phê duyệt. |
+| **3. Chiêu Hiền Các** | Số lượng Mảnh quy đổi khi quay trùng Hero | • `[Placeholder: Định mức số mảnh quy đổi khi trùng]` | **OPEN** — Chờ Game Design & Codex phê duyệt (Không dùng hệ R/SR/SSR). |
+| **4. Nâng Sao** | Bảng số lượng Mảnh Danh Tướng theo mốc Sao | • `[Placeholder: Mảnh cần cho 1★ -> 2★ -> 3★ -> 4★ -> 5★]`<br>• Tăng tuyến tính hoặc theo bậc thang | **OPEN** — 1★ đến 5★ là LOCKED; số lượng mảnh yêu cầu là OPEN. |
+| **5. Nâng Sao** | Bảng tăng trưởng chỉ số cộng thẳng theo Sao | • `[Placeholder: Bảng chỉ số cộng thẳng 6 Core Stats: HP +N, ATK +N, Range +N, ASPD +N, Crit +N, CritDmg +N]` | **OPEN** — Chờ Game Design & Codex phê duyệt (Flat Bonus only, không DEF, không %). |
+| **6. Tiến Hóa Bậc** | Số lượng Anh Hồn cần cho từng tầng | • `[Placeholder: Mức Anh Hồn (material chung) cho Trùng Sinh / Tái Sinh / Huyền Sử]` | **OPEN** — Chờ Game Design & Codex phê duyệt. |
+| **7. Tiến Hóa Bậc** | Nguồn thu thập Anh Hồn | • `[Placeholder: Rương cốt truyện / Tháp thử thách / Sự kiện]` | **OPEN** — Chờ Game Design & Codex phê duyệt. |
+| **8. Chiêu Hiền Lệnh** | Giá bán trong Kỳ Trân Các (Shop) bằng KNB | • `[Placeholder: Mức giá KNB mua Chiêu Hiền Lệnh trong Shop]` | **OPEN** — Chờ Game Design & Codex phê duyệt (Chiêu Hiền Các chỉ tiêu item, mua item tại Shop). |
+| **9. Chiêu Hiền Lệnh** | Phân phối qua First Clear / Chapter / Thành tựu | • `[Placeholder: Danh sách ải First Clear, mốc Chapter, nhiệm vụ có thưởng Chiêu Hiền Lệnh theo reward config]` | **OPEN** — Chờ Game Design & Codex phê duyệt (Không khẳng định mọi ải First Clear đều nhận). |
+
+---
+
+## 2. Rủi Ro Kỹ Thuật & Ràng Buộc Kiến Trúc (Architecture Constraints)
+
+1. **Nguyên tắc "Không Game Logic tại React UI"**:
+   * *Rủi ro*: React component tự sinh số ngẫu nhiên Gacha bằng `Math.random()`, tự phán đoán tướng trùng hay tự tăng sao trong state local.
+   * *Ràng buộc*: Toàn bộ logic RNG, kiểm tra duplicate, trừ Chiêu Hiền Lệnh/Mảnh Tướng/Anh Hồn phải được thực thi tại Domain Core của Codex. UI chỉ gửi Request Actions và render State Snapshot nhận được.
+
+2. **Phân Định Tuyệt Đối Mảnh Tướng vs Anh Hồn**:
+   * *Rủi ro*: Sử dụng lẫn lộn giữa Mảnh Danh Tướng riêng (dành cho Sao) và Anh Hồn chung (dành cho Tiến Hóa) gây sai lệch kinh tế tiến trình.
+   * *Ràng buộc*: Schema dữ liệu phải tách biệt rõ: `shard_hero_<heroId>` cho Star Ascension (1★ $\rightarrow$ 5★) và `anh-hon` (material chung) cho Evolution Tier Ascension.
+
+3. **Bảo Toàn Luật Chiến Đấu (Combat Core Immutability)**:
+   * *Rủi ro*: Nâng sao hay tiến hóa tướng tự ý thêm chỉ số DEF, đòn đánh lan (AoE) vào Normal Attack, hoặc tạo skill hardcoded riêng cho từng tướng.
+   * *Ràng buộc*: Mọi nâng cấp chỉ tác động vào 6 Core Stats cộng thẳng (`hp`, `atk`, `range`, `attackSpeed`, `crit`, `critDamage`) và mở Passive Huyền Sử thông qua shared passive system.
+
+---
+
+## 3. Lộ Trình Phối Hợp Đề Xuất (Next Steps for Codex & Antigravity)
+
+* **Bước 1 (Codex)**: Đánh giá tài liệu thiết kế HERO-A00, phê duyệt các mốc thông số trong bảng quyết định mở.
+* **Bước 2 (Codex)**: Xây dựng các module nghiệp vụ Core (Hero Roster Management, Duplicate Resolver, Star Ascension Calculator, Evolution Tier Manager, Seeded Recruitment RNG).
+* **Bước 3 (Antigravity)**: Hiện thực hóa giao diện React UI (Màn Chiêu Hiền Các, Modal Kết quả tướng mới/trùng, Tab Nâng Sao, Tab Tiến Hóa & Anh Hồn, Modal Tra cứu Nguồn nhận) tích hợp trực tiếp với Callbacks do Codex cung cấp.

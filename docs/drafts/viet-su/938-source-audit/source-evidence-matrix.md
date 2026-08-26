@@ -24,9 +24,9 @@
 ```mermaid
 graph TD
     subgraph TIẾN TRÌNH CHIẾN DỊCH BẠCH ĐẰNG 938 (T1 / T2 CHRONOLOGY)
-        C1["<b>1. Biến Cố 937 (Tháng 3)</b><br>Kiều Công Tiễn giết Dương Đình Nghệ, đoạt quyền tại Đại La"]
+        C1["<b>1. Biến Cố 937 (Tháng 3)</b><br>Kiều Công Tiễn (皎公羨 / 矯公羨) giết Dương Đình Nghệ, đoạt quyền tại Đại La"]
         C2["<b>2. Phản Ứng Của Ngô Quyền & Ngoại Cầu Của Tiễn (937 - 938)</b><br>Ngô Quyền dấy binh từ Ái Châu; Công Tiễn sợ hãi cầu viện Nam Hán"]
-        C3["<b>3. Quyết Sách Nam Hán & Hạ Thành Đại La (Mùa Thu 938)</b><br>Lưu Cung phong Hoằng Thao đem thủy quân vượt biển; Ngô Quyền diệt Kiều Công Tiễn"]
+        C3["<b>3. Quyết Sách Nam Hán & Hạ Thành Đại La (Mùa Thu 938)</b><br>Lưu Cung (劉龑 / 劉龔) phong Hoằng Thao đem thủy quân vượt biển; Ngô Quyền diệt Kiều Công Tiễn"]
         C4["<b>4. Đại Chiến Cửa Biển Bạch Đằng (Cuối Năm 938)</b><br>Trận địa cọc ngầm bịt sắt, kế nhử thuyền nhẹ khi triều lên, tổng phản công khi triều rút"]
         C5["<b>5. Kết Cục & Vương Quyền Độc Lập (938 - 939)</b><br>Hoằng Thao tử trận, Lưu Cung rút tàn quân; Mùa xuân 939 Ngô Quyền xưng Vương định đô Cổ Loa"]
 
@@ -45,12 +45,12 @@ graph TD
   * **T1**: *Tân Ngũ Đại Sử* (Quyển 65 — Nam Hán thế gia); *Tư Trị Thông Giám* (Quyển 281 — Hậu Tấn Kỷ 2, niên hiệu Thiên Phúc năm thứ 2, tháng 3 năm Đinh Dậu 937).
   * **T2**: *An Nam Chí Lược* (Quyển 9); *Đại Việt Sử Ký Toàn Thư* (Ngoại kỷ Quyển 5); *Khâm Định Việt Sử Thông Giám Cương Mục* (Tiền biên Quyển 5).
 * **Nhân vật & Thuật ngữ nguyên bản (EXACT PERSON / TERM)**:
-  * T1 (*Tân Ngũ Đại Sử* Q65): `廷藝為其將嶠公羨所殺` (Đình Nghệ vi kỳ tướng Kiều Công Tiễn sở sát).
-  * T1 (*Tư Trị Thông Giám* Q281): `交州節度使楊廷藝為其將嶠公羨所殺而代之` (Giao Châu Tiết độ sứ Dương Đình Nghệ vi kỳ tướng Kiều Công Tiễn sở sát nhi đại chi).
-  * T2 (*Toàn Thư*): `矯公羨` (Kiều Công Tiễn).
+  * T1 (*Tân Ngũ Đại Sử* Q65): `廷藝為其將皎公羨所殺` (Đình Nghệ vi kỳ tướng **Giảo Công Tiễn** `皎公羨` sở sát).
+  * T1 (*Tư Trị Thông Giám* Q281): `交州節度使楊廷藝為其將皎公羨所殺而代之` (Giao Châu Tiết độ sứ Dương Đình Nghệ vi kỳ tướng **Giảo Công Tiễn** `皎公羨` sở sát nhi đại chi).
+  * T2 (*Toàn Thư*, *Cương Mục*): `矯公羨` (**Kiểu Công Tiễn** / **Kiều Công Tiễn**).
 * **Tầng nguồn (TIER)**: **T1 Core (Đồng thuận T1 & T2)**.
 * **Nguồn thực sự khẳng định gì (WHAT SOURCE ACTUALLY SAYS)**:
-  * Vào tháng 3 năm Đinh Dậu (937 SCN), nha tướng của Dương Đình Nghệ là Kiều Công Tiễn đã làm phản, sát hại Dương Đình Nghệ để cướp quyền Tiết độ sứ tại phủ thành Đại La.
+  * Vào tháng 3 năm Đinh Dậu (937 SCN), nha tướng của Dương Đình Nghệ là Kiều Công Tiễn (`皎公羨` theo T1 / `矯公羨` theo T2) đã làm phản, sát hại Dương Đình Nghệ để cướp quyền Tiết độ sứ tại phủ thành Đại La.
 * **Nguồn KHÔNG chứng minh điều gì (WHAT IT DOES NOT PROVE)**:
   * Nguồn không mô tả chi tiết phương thức sát hại cụ thể (đầu độc, đâm lén hay vây hãm binh biến); các tình tiết ly kỳ trong dã sử là suy diễn thời sau.
 * **Độ tin cậy học thuật (CONFIDENCE)**: **High (Well-attested T1/T2 Fact)**.
@@ -119,7 +119,7 @@ graph TD
 * **Nhân vật & Thuật ngữ nguyên bản (EXACT PERSON / TERM)**:
   * T1 (*Tân Ngũ Đại Sử* Q65): `封其子洪操為交王，出兵出海入越` (Phong con là **Hồng Thao** `洪操` làm Giao Vương, xuất binh xuất hải nhập Việt).
   * T1 (*Tư Trị Thông Giám* Q281): `以其子萬王弘操為靜海軍節度使，徙封交王，將兵救之` (Lấy con là Vạn Vương **Hoằng Thao** `弘操` làm Tĩnh Hải quân Tiết độ sứ, đổi phong làm Giao Vương, đem quân sang cứu).
-  * T2 (*Toàn Thư*): Hoàng tử **Lưu Hoằng Thao** (劉弘操).
+  * T2 (*Toàn Thư*): Hoàng tử **Lưu Hoằng Thao** (`劉弘操` / `萬王弘操`).
 * **Tầng nguồn (TIER)**: **T1 Core (Đồng thuận T1 & T2)**.
 * **Nguồn thực sự khẳng định gì (WHAT SOURCE ACTUALLY SAYS)**:
   * Người trực tiếp thống lĩnh toàn bộ chiến thuyền và hạm đội Nam Hán vượt biển tiến vào cửa sông Bạch Đằng là con trai của Lưu Cung: **Hoằng Thao (`弘操`) / Hồng Thao (`洪操`)**.
@@ -136,7 +136,7 @@ graph TD
   * **T2**: *An Nam Chí Lược* (Quyển 9); *Toàn Thư* (Ngoại kỷ Q5); *Cương Mục* (Tiền biên Q5).
 * **Nhân vật & Thuật ngữ nguyên bản (EXACT PERSON / TERM)**:
   * T1 (*Tân Ngũ Đại Sử* Q65 & *Tư Trị Thông Giám* Q281): `龑自將屯于海門` (Cung tự tương đồn vu Hải Môn — Lưu Cung tự mình đem quân đóng ở Hải Môn).
-  * T2 (*Toàn Thư*): *"Lưu Cung tự mình đóng quân ở Hải Môn để làm thanh viện"* (劉龑自將屯于海門以爲聲援).
+  * T2 (*Toàn Thư*): *"Lưu Cung tự mình đóng quân ở Hải Môn để làm thanh viện"* (`劉龔自將屯于海門以爲聲援` — *Toàn Thư* ghi rõ `劉龔即劉龑也`).
 * **Tầng nguồn (TIER)**: **T1 Core (Đồng thuận T1 & T2)**.
 * **Nguồn thực sự khẳng định gì (WHAT SOURCE ACTUALLY SAYS)**:
   * **Lưu Cung KHÔNG trực tiếp có mặt tại chiến trường sông Bạch Đằng**.
@@ -277,7 +277,7 @@ graph TD
   * **T2**: *An Nam Chí Lược* (Quyển 9); *Toàn Thư* (Ngoại kỷ Quyển 5); *Cương Mục* (Tiền biên Quyển 5).
 * **Biên niên chuẩn tắc đối chiếu**:
   1. **Năm 937 SCN (Đinh Dậu)**:
-     - Tháng 3: Kiều Công Tiễn giết Dương Đình Nghệ, tiếm quyền Tiết độ sứ (T1/T2).
+     - Tháng 3: Kiều Công Tiễn (`皎公羨` / `矯公羨`) giết Dương Đình Nghệ, tiếm quyền Tiết độ sứ (T1/T2).
      - Kiều Công Tiễn bị cô lập, sai sứ sang Nam Hán cầu cứu (T1/T2).
   2. **Năm 938 SCN (Mậu Tuất)**:
      - Mùa thu 938: Ngô Quyền dấy binh từ Ái Châu tiến ra Bắc, đánh hạ Đại La, trừng trị Kiều Công Tiễn (T1/T2).
@@ -293,7 +293,7 @@ graph TD
 
 | STT | Luận Điểm Khảo Chứng (Claim) | Nguồn Chính | Thuật Ngữ / Nhân Vật Cốt Lõi | Tầng Nguồn | Mức Độ Xác Thực (CONFIDENCE) |
 |:---:|---|---|---|:---:|:---:|
-| 1 | Kiều Công Tiễn giết Dương Đình Nghệ | *Tân Ngũ Đại Sử*, *Tư Trị Thông Giám*, *Toàn Thư* | 嶠公羨 / 矯公羨, 楊廷藝 (Tháng 3/937) | **T1/T2** | **High (Well-attested Fact)** |
+| 1 | Kiều Công Tiễn giết Dương Đình Nghệ | *Tân Ngũ Đại Sử*, *Tư Trị Thông Giám*, *Toàn Thư* | `皎公羨` (T1) / `矯公羨` (T2), `楊廷藝` (Tháng 3/937) | **T1/T2** | **High (Well-attested Fact)** |
 | 2 | Kiều Công Tiễn cầu viện Nam Hán | *Tân Ngũ Đại Sử*, *Tư Trị Thông Giám*, *Toàn Thư* | 來乞師, 懼于權 | **T1/T2** | **High (Well-attested Fact)** |
 | 3 | Ngô Quyền dấy binh diệt Kiều Công Tiễn | *Tân Ngũ Đại Sử*, *Tư Trị Thông Giám*, *Toàn Thư* | 吳權起愛州，攻殺公羨 (Mùa thu 938) | **T1/T2** | **High (Well-attested Fact)** |
 | 4 | Nam Hán quyết định xuất binh xâm lược | *Tân Ngũ Đại Sử*, *Tư Trị Thông Giám* | 龑欲因其亂而取之 (Bỏ qua lời Tiêu Ích) | **T1/T2** | **High (Well-attested Fact)** |

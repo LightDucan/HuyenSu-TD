@@ -95,11 +95,19 @@ graph TD
 
 ## 4. Nguyên Tắc Ứng Xử Sử Liệu & Thiết Kế Cho Dự Án
 
-1. **Bảo tồn tính chân thực của văn bản học (Textual Fact)**:
-   - Dữ kiện *"Ngô Quyền dùng trận địa cọc gỗ bịt sắt trên sông Bạch Đằng năm 938"* là **Sự Thật Lịch Sử Vững Chắc Cấp Độ T1/T2** (được *Tân Ngũ Đại Sử*, *Tư Trị Thông Giám* và *Toàn Thư* xác nhận nguyên văn).
-2. **Thận trọng trước hiện vật khảo cổ học (Archaeological Caution)**:
-   - Các bãi cọc chiến trận thời trung đại khai quật được (Yên Giang, Má Ngựa, Vạn Muối) thuộc về **chiến dịch năm 1288 thời Trần**.
-   - Các cọc gỗ tại Cao Quỳ và Đầm Thượng theo kết quả công bố năm 2026 (*The Holocene*) là **dấu tích kiến trúc cư trú thời Đông Sơn muộn**, không phải trận địa thủy chiến trung đại.
-3. **Quy chuẩn mỹ thuật & Gameplay trong dự án**:
-   - Tái dựng bãi cọc ngầm bịt sắt trong game dựa trên **mô tả nguyên văn sử liệu T1/T2**, kết hợp với hình thái học cọc gỗ dưới danh nghĩa **`[T4 Artistic Reconstruction]`**.
-   - Tuyệt đối không trích dẫn bãi cọc Yên Giang hay Cao Quỳ như bằng chứng khảo cổ học nguyên bản của riêng trận 938.
+### 4.1. Tổng Thuật Khảo Chứng Văn Bản Về Trận Địa Cọc (Textual Evidence Synthesis)
+
+> [!NOTE]
+> **Nhận Định Trung Lập Về Văn Bản Học**:
+> - Các nguồn thư tịch cổ xác nhận chắc chắn việc **chuẩn bị trận địa cọc ngăn chặn chiến hạm giặc** tại cửa biển trong trận Bạch Đằng năm 938, song **từ ngữ miêu tả có sự khác biệt giữa từng nguồn sử liệu**:
+>   - ***Tân Ngũ Đại Sử* (Q65 — T1)**: Ghi là `植鐵橛海中` (cắm cọc sắt / cọc bịt sắt ở biển/nước).
+>   - ***Tư Trị Thông Giám* (Q281 — T1)**: Ghi là cắm cọc gỗ lớn (`大杙`), vót nhọn đầu và bịt sắt ở ngọn nhọn (`闞其鋒以鐵`).
+>   - ***Đại Việt Sử Ký Toàn Thư* (Ngoại kỷ Q5 — T2)**: Theo truyền thống cọc gỗ lớn vót nhọn bịt sắt cắm ngầm cửa biển (`植大木，銳其端，冒之以鐵`).
+
+### 4.2. Thận Trọng Trước Hiện Vật Khảo Cổ Học (Archaeological Caution)
+1. Các bãi cọc chiến trận thời trung đại khai quật được (Yên Giang, Má Ngựa, Vạn Muối) thuộc về **chiến dịch năm 1288 thời Trần**.
+2. Các cọc gỗ tại Cao Quỳ và Đầm Thượng theo kết quả công bố năm 2026 (*The Holocene*) là **dấu tích kiến trúc cư trú thời Đông Sơn muộn**, không phải trận địa thủy chiến trung đại.
+
+### 4.3. Quy Chuẩn Mỹ Thuật & Gameplay Trong Dự Án
+1. Tái dựng bãi cọc ngầm trong game dựa trên **mô tả nguyên văn sử liệu T1/T2**, kết hợp với hình thái học cọc gỗ dưới danh nghĩa **`[T4 Artistic Reconstruction]`**.
+2. Tuyệt đối không trích dẫn bãi cọc Yên Giang hay Cao Quỳ như bằng chứng khảo cổ học nguyên bản của riêng trận 938.

@@ -18,9 +18,9 @@ graph TD
     subgraph ĐỐI CHIẾU DỊ BẢN DANH XƯNG (T1 vs T2)
         N1["<b>Ngô Quyền (吳權)</b><br>T1 & T2 Thống nhất cao: 吳權"]
 
-        N2["<b>Kiều Công Tiễn</b><br>• T1 (Tân Ngũ Đại Sử / Tư Trị Thông Giám): <b>嶠公羨</b> (bộ Sơn ⼭)<br>• T2 (Toàn Thư / Cương Mục): <b>矯公羨</b> (bộ Thỉ ⽮)"]
+        N2["<b>Kiều Công Tiễn</b><br>• T1 (Tân Ngũ Đại Sử Q65 / Tư Trị Thông Giám Q281): <b>皎公羨</b> (bộ Bạch 白)<br>• T2 (Toàn Thư / Cương Mục / An Nam Chí Lược): <b>矯公羨</b> (bộ Thỉ 矢)"]
 
-        N3["<b>Vua Nam Hán (Lưu Cung)</b><br>• Tên gốc: <b>劉巖</b> / <b>劉岩</b> (Lưu Nham)<br>• Tự tạo chữ Hán (925): <b>劉龑</b> (Long trên Thiên, âm Nghiễm/Cung)"]
+        N3["<b>Vua Nam Hán (Lưu Cung / Lưu Nghiễm)</b><br>• T1 (Tân Ngũ Đại Sử / Thông Giám): <b>劉龑</b> (tên cũ: <b>劉巖</b> / <b>劉岩</b>)<br>• T2 (Toàn Thư / Cương Mục): <b>劉龔</b> (Toàn Thư ghi rõ: 劉龔即劉龑也)"]
 
         N4["<b>Chủ Tướng Thủy Hạm (Hoằng Thao / Hồng Thao)</b><br>• T1 (Tân Ngũ Đại Sử Q65): <b>洪操</b> (Hồng Thao - bộ Thủy 氵)<br>• T1 (Tư Trị Thông Giám Q281) & T2 (Toàn Thư): <b>弘操</b> (Hoằng Thao - bộ Cung 弓)"]
     end
@@ -47,40 +47,45 @@ graph TD
 
 ---
 
-### 2.2. Kiều Công Tiễn — `嶠公羨` vs `矯公羨`
+### 2.2. Kiều Công Tiễn — `皎公羨` (T1) vs `矯公羨` (T2)
 
 * **Khảo cứu tự dạng & Nguồn thư tịch**:
   * **T1 (*Tân Ngũ Đại Sử* Q65, *Tư Trị Thông Giám* Q281)**:
-    - Sử dụng chữ `嶠` (bộ Sơn `山`, đứng trước chữ `喬` Kiều): `嶠公羨`.
-    - Phiên âm Hán - Việt: **Kiệu Công Tiễn** (hoặc đọc chệch thành Kiều Công Tiễn). Chữ `嶠` mang nghĩa là núi cao nhọn.
+    - T1 sử dụng chữ `皎` (bộ Bạch `白` kết hợp chữ Giao `交`): `皎公羨`.
+    - Phiên âm Hán - Việt: **Giảo Công Tiễn** (hoặc Kiảo / Kiều Công Tiễn). Chữ `皎` mang nghĩa trong sáng, rõ ràng.
+    - *Lưu ý*: Loại bỏ tự dạng `嶠公羨` khỏi vị trí mặc định của T1 do hai bộ chính sử T1 chuẩn tắc (*Tân Ngũ Đại Sử* và *Tư Trị Thông Giám*) đều chép là `皎公羨`.
   * **T2 (*Đại Việt Sử Ký Toàn Thư*, *Khâm Định Việt Sử Thông Giám Cương Mục*, *An Nam Chí Lược*)**:
-    - Sử dụng chữ `矯` (bộ Thỉ `矢`, ghép với chữ `喬` Kiều): `矯公羨`.
-    - Phiên âm Hán - Việt: **Kiểu Công Tiễn** (hoặc Kiều Công Tiễn). Chữ `矯` mang nghĩa là uốn thẳng, sửa trị, giả mạo/dối trá.
+    - T2 sử dụng chữ `矯` (bộ Thỉ `矢`, ghép với chữ Kiều `喬`): `矯公羨`.
+    - Phiên âm Hán - Việt: **Kiểu Công Tiễn** / **Kiều Công Tiễn**. Chữ `矯` mang nghĩa uốn thẳng, sửa trị, giả dối.
 * **Đánh giá văn bản học**:
-  * Đây là trường hợp biến thể chữ Hán đồng âm hoặc cận âm phản ánh thói quen chép sử thời Tống (T1 dùng chữ `嶠`) so với các sử quan thời Hậu Lê và nhà Nguyễn (T2 dùng chữ `矯`).
-  * Trong truyền thống văn hóa - lịch sử Việt Nam, âm đọc chuẩn tắc quốc ngữ từ nhiều thế kỷ qua luôn được chuẩn hóa là **Kiều Công Tiễn**.
+  * Đây là trường hợp biến thể chữ Hán giữa các bộ sử phương Bắc gần thời (T1 dùng `皎`) và chính sử Việt Nam trung đại (T2 dùng `矯`).
+  * Trong truyền thống văn hóa - lịch sử và giáo dục Việt Nam, âm đọc chuẩn tắc quốc ngữ từ nhiều thế kỷ qua luôn được chuẩn hóa là **Kiều Công Tiễn**.
 * **Đề xuất hiển thị (Proposal)**:
-  * `PROJECT CANONICAL DISPLAY NAME`: **Kiều Công Tiễn [Kiểu / Kiệu Công Tiễn]**.
-  * `SOURCE VARIANTS`: `嶠公羨` (T1) / `矯公羨` (T2).
-  * `REASON`: Giữ tên phổ thông quen thuộc trong giáo dục và sử học ("Kiều Công Tiễn"), đồng thời ghi chú tường minh cả hai tự dạng chữ Hán `嶠` (T1) và `矯` (T2) trong tư liệu học thuật.
+  * `PROJECT CANONICAL DISPLAY NAME`: **Kiều Công Tiễn [皎公羨 (T1) / 矯公羨 (T2)]**.
+  * `SOURCE VARIANTS`: `皎公羨` (*Tân Ngũ Đại Sử* Q65, *Tư Trị Thông Giám* Q281) vs `矯公羨` (*Toàn Thư*, *Cương Mục*, *An Nam Chí Lược*).
+  * `REASON`: Giữ tên phổ thông quen thuộc trong giáo dục và sử học ("Kiều Công Tiễn"), đồng thời đối chiếu học thuật tường minh cả hai tự dạng chữ Hán `皎` (T1) và `矯` (T2).
 
 ---
 
-### 2.3. Vua Nam Hán: Lưu Cung — `劉巖` $\rightarrow$ `劉龑`
+### 2.3. Vua Nam Hán: Lưu Cung / Lưu Nghiễm — `劉龑` (T1) vs `劉龔` (T2)
 
 * **Khảo cứu tự dạng & Nguồn thư tịch**:
   * **Tên khai sinh / Niên hiệu ban đầu**:
     - Khai sinh là **Lưu Nham** (`劉巖` hoặc `劉岩`). Sau khi xưng Đế lập nên nước Đại Việt (sau đổi thành Đại Hán / Nam Hán) năm 917, đặt niên hiệu Càn Hanh (`乾亨`).
-  * **Sự kiện tự tạo chữ Hán (925 SCN)**:
-    - Năm 925, lấy ý từ quẻ Càn trong Kinh Dịch *"Phi long tại thiên"* (Rồng bay trên trời), ông đã **tự ghép chữ Long `龍` ở trên và chữ Thiên `天` ở dưới** để tạo ra một chữ Hán hoàn toàn mới: `龑`.
-    - Tự đổi tên thành **Lưu Nghiễm / Lưu Cung** (`劉龑`).
-  * **Cách đọc phiên âm Hán - Việt**:
-    - Chữ `龑` theo *Khang Hy Tự Điển* có phiên thiết là *Ư Nghiêm thiết* (`於嚴切`), âm đọc chính xác là **Nghiễm** (Yǎn theo pinyin).
-    - Trong lịch sử và chính sử Việt Nam (*Toàn Thư*, *Cương Mục*), từ lâu đời đã quen đọc chữ này là **Lưu Cung** (do cận âm hoặc kỵ húy lưu truyền).
+  * **T1 (*Tân Ngũ Đại Sử*, *Tư Trị Thông Giám*)**:
+    - Năm 925, lấy ý từ quẻ Càn trong Kinh Dịch *"Phi long tại thiên"* (Rồng bay trên trời), Lưu Nham tự ghép chữ Long `龍` ở trên và chữ Thiên `天` ở dưới để tạo ra chữ Hán mới: `龑` (`劉龑`).
+    - Phiên âm Hán chuẩn: **Lưu Nghiễm** (Yǎn theo pinyin; *Khang Hy Tự Điển*: *Ư Nghiêm thiết* `於嚴切`).
+  * **T2 (*Đại Việt Sử Ký Toàn Thư*, *Khâm Định Việt Sử Thông Giám Cương Mục*)**:
+    - Sử quan Đại Việt sử dụng tự dạng `劉龔` (chữ **Cung** `龔`).
+    - *Đại Việt Sử Ký Toàn Thư* (Ngoại kỷ Q5) ghi chú rõ ràng về mối quan hệ giữa hai tự dạng:
+      $$\text{「劉龔即劉龑也」} \quad (\text{Lưu Cung tức Lưu Nghiễm vậy})$$
+    - *Khâm Định Việt Sử Thông Giám Cương Mục* (Tiền biên Q5, mục năm 938) cũng dùng chữ `龔`.
+* **Đánh giá văn bản học**:
+  * Việc sử dụng danh xưng **Lưu Cung** (`劉龔`) là truyền thống văn bản học chính sử Đại Việt (Vietnamese historiographical textual form / conventional reading), được *Toàn Thư* chú giải trực tiếp tương đương với `劉龑`.
 * **Đề xuất hiển thị (Proposal)**:
-  * `PROJECT CANONICAL DISPLAY NAME`: **Lưu Cung (Nam Hán Cao Tổ — 劉龑 [Lưu Nghiễm])**.
-  * `SOURCE VARIANTS`: `劉龑` (T1/T2), `劉巖` (Tên ban đầu), `Lưu Nghiễm` (Phiên âm chuẩn Hán), `Lưu Cung` (Phiên âm chính sử Việt).
-  * `REASON`: Bảo toàn nhận diện quen thuộc của quốc ngữ Việt Nam ("Vua Nam Hán Lưu Cung"), đồng thời đối chiếu học thuật chính xác tự dạng đặc biệt `劉龑` và cách phiên âm `Lưu Nghiễm`.
+  * `PROJECT CANONICAL DISPLAY NAME`: **Lưu Cung (Nam Hán Cao Tổ — 劉龑 [Lưu Nghiễm] / 劉龔 [Lưu Cung])**.
+  * `SOURCE VARIANTS`: `劉龑` (T1 chính sử Trung Hoa), `劉龔` (T2 chính sử Đại Việt — *Toàn Thư*, *Cương Mục*), `劉巖 / 劉岩` (Tên khai sinh ban đầu).
+  * `REASON`: Bảo toàn nhận diện quen thuộc của quốc ngữ và văn bản chính sử Việt Nam ("Lưu Cung" `劉龔`), đồng thời đối chiếu học thuật chuẩn xác tự dạng chữ Hán `劉龑` (Lưu Nghiễm) của T1.
 
 ---
 
@@ -112,8 +117,8 @@ graph TD
 | Tên Nhân Vật | Tên Hiển Thị Đề Xuất (PROJECT CANONICAL PROPOSAL) | Tự Dạng Trong Nguồn T1 (Near-source) | Tự Dạng Trong Nguồn T2 (Historiography) | Giải Thích Biến Thể & Căn Cứ Học Thuật (REASON) |
 |---|---|---|---|---|
 | **Ngô Quyền** | **Ngô Quyền (Ngô Vương)** | `吳權` (*Tân Ngũ Đại Sử* Q65, *Tư Trị Thông Giám* Q281) | `吳權` (*Toàn Thư*, *Cương Mục*, *An Nam Chí Lược*) | Thống nhất cao T1/T2; danh xưng nhất quán. |
-| **Kiều Công Tiễn** | **Kiều Công Tiễn [Kiểu / Kiệu Công Tiễn]** | `嶠公羨` (*Tân Ngũ Đại Sử* Q65, *Tư Trị Thông Giám* Q281) | `矯公羨` (*Toàn Thư* Ngoại kỷ Q5, *Cương Mục*) | T1 dùng chữ `嶠` (bộ Sơn); T2 dùng chữ `矯` (bộ Thỉ); phiên âm quốc ngữ chuẩn hóa "Kiều Công Tiễn". |
-| **Vua Nam Hán** | **Lưu Cung (Nam Hán Cao Tổ — 劉龑 [Lưu Nghiễm])** | `劉龑` (*Tân Ngũ Đại Sử*, *Thông Giám*; tên cũ: `劉巖`) | `劉龑` (*Toàn Thư*, *Cương Mục*; âm chép "Lưu Cung") | Tự tạo chữ `龑` (Long trên Thiên); âm đọc Hán chuẩn là Nghiễm; quốc ngữ Việt Nam quen dùng Lưu Cung. |
+| **Kiều Công Tiễn** | **Kiều Công Tiễn [皎公羨 (T1) / 矯公羨 (T2)]** | `皎公羨` (*Tân Ngũ Đại Sử* Q65, *Tư Trị Thông Giám* Q281) | `矯公羨` (*Toàn Thư* Ngoại kỷ Q5, *Cương Mục*, *An Nam Chí Lược*) | T1 dùng chữ `皎` (bộ Bạch); T2 dùng chữ `矯` (bộ Thỉ); phiên âm quốc ngữ chuẩn hóa "Kiều Công Tiễn". |
+| **Vua Nam Hán** | **Lưu Cung (Nam Hán Cao Tổ — 劉龑 [Lưu Nghiễm] / 劉龔 [Lưu Cung])** | `劉龑` (*Tân Ngũ Đại Sử*, *Thông Giám*; tên cũ: `劉巖`) | `劉龔` (*Toàn Thư*, *Cương Mục*; *Toàn Thư* ghi: `劉龔即劉龑也`) | T1 dùng chữ tự tạo `劉龑`; T2 chính sử Đại Việt dùng `劉龔` (Lưu Cung); ghi nhận chuẩn văn bản T1/T2. |
 | **Chỉ Huy Hạm Đội** | **Lưu Hoằng Thao [Lưu Hồng Thao]** | `洪操` (*Tân Ngũ Đại Sử* Q65) / `弘操` (*Tư Trị Thông Giám* Q281) | `弘操` (*Toàn Thư*, *Cương Mục*, *An Nam Chí Lược*) | `弘` (*Thông Giám*, *Toàn Thư*) vs `洪` (*Tân Ngũ Đại Sử*); là hai chữ cận âm đồng nghĩa thời Ngũ Đại. |
 | **Nha Tướng Dương Đình Nghệ** | **Dương Đình Nghệ** | `楊廷藝` (*Tân Ngũ Đại Sử*, *Thông Giám*) | `楊廷藝` (*Toàn Thư*, *Cương Mục*, *An Nam Chí Lược*) | Thống nhất cao T1/T2; thủ lĩnh bị Kiều Công Tiễn sát hại năm 937. |
 | **Thần Hạ Nam Hán (Can gián)** | **Tiêu Ích (Sùng Văn Sứ)** | `蕭益` (*Tân Ngũ Đại Sử*, *Thông Giám*) | `蕭益` (*Toàn Thư*, *Cương Mục*) | Đồng thuận T1/T2; viên quan can ngăn Lưu Cung không nên xuất quân vượt biển. |

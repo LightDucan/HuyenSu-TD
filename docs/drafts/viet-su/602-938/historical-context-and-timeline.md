@@ -48,9 +48,9 @@ timeline
   * Mai Thúc Loan lên ngôi Hoàng đế, tự xưng là **Mai Hắc Đế** (Hắc Đế = Vua Đen, lấy đức Thủy / sắc áo chàm làm biểu tượng).
 * **Liên minh quốc tế & Quy mô (T1 — *Tân Đường Thư*)**:
   * Mai Hắc Đế liên kết với nghĩa quân 32 châu và liên minh với các quốc gia láng giềng phía Nam: **Lâm Ấp (Champa), Chân Lạp (Khmer)**.
-  * Tiến quân ra Bắc đánh đuổi Quan đô hộ nhà Đường là Quang Sở Khách, giải phóng toàn bộ lãnh thổ An Nam đô hộ phủ.
+  * Tiến quân ra Bắc đánh đuổi Quan đô hộ nhà Đường, giải phóng toàn bộ lãnh thổ An Nam đô hộ phủ.
 * **Chiến dịch đàn áp của Dương Tư Húc (722 SCN — T1 *Cựu Đường Thư*)**:
-  * Vua Đường Huyền Tông sai Phiêu kỵ tướng quân **Dương Tư Húc** (viên tướng hoạn quan nổi tiếng thiện chiến tàn bạo) cùng Quang Lộc khanh Nguyên Sở Khách dẫn hơn 10 vạn quân ồ ạt tiến sang.
+  * Vua Đường Huyền Tông sai Phiêu kỵ tướng quân **Dương Tư Húc** cùng **Quang Sở Khách** (光楚客; lưu ý: hình thức "Nguyên Sở Khách" là biến thể chép sai / textual variant, không dùng làm tên canonical) dẫn hơn 10 vạn quân ồ ạt tiến sang.
   * Dương Tư Húc bí mật hành quân men theo đường bờ biển, bất ngờ tập kích hạ thành Vạn An. Cuộc khởi nghĩa bị dẹp tan đẫm máu.
 
 ---
@@ -58,12 +58,16 @@ timeline
 #### B. Khởi Nghĩa Phùng Hưng — Bố Cái Đại Vương (766–791)
 * **Dấy binh Đường Lâm (T2 — *Toàn Thư*, T3 — Thần phả Đường Lâm)**:
   * Khoảng niên hiệu Đại Lịch (766–779) / Trinh Nguyên (785–791), hào trưởng đất Đường Lâm (Sơn Tây) là **Phùng Hưng** cùng hai em trai là **Phùng Hải** và **Phùng Dĩnh** tập hợp nhân dân nổi dậy chống lại ách cai trị tham tàn của Quan đô hộ **Cao Chính Bình**.
+
+> [!WARNING]
+> **Phân tầng nguồn T1 & T2**: Tên "Phùng Hưng" không được nhắc đích danh trong *Cựu Đường Thư* gần thời. T1 (*Cựu Đường Thư*) ghi năm 791: **Đỗ Anh Hàn** (杜英翰) nổi dậy, Cao Chính Bình lo sợ phát bệnh mà chết, sau đó Triệu Xương được cử sang thu phục. Việc đồng nhất Đỗ Anh Hàn với Phùng Hưng là **T4 interpretation**, chưa được T1 xác nhận trực tiếp.
+
 * **Đánh chiếm thành Tống Bình (T2 — *Toàn Thư*)**:
-  * Nghĩa quân từ Đường Lâm bao vây phủ thành Tống Bình. Cao Chính Bình chống giữ không nổi, kinh sợ phát bệnh thổ huyết mà chết.
+  * Nghĩa quân từ Đường Lâm bao vây phủ thành Tống Bình. Cao Chính Bình chống giữ không nổi, lo sợ mà chết (T2; T1 ghi là Đỗ Anh Hàn).
   * Phùng Hưng vào thành Tống Bình tiếp quản chính sự, thiết lập nền tự chủ độc lập trong nhiều năm.
 * **Giai đoạn Phùng An & Triệu Xương (791 SCN — T1 *Cựu Đường Thư*)**:
-  * Sau khi Phùng Hưng qua đời, con trai là **Phùng An** nối nghiệp. Phùng An truy tôn cha là **Bố Cái Đại Vương** (T2/T3).
-  * Năm 791, nhà Đường cử Kinh lược sứ **Triệu Xương** (viên quan có mưu lược mềm mỏng) đem quân sang vừa đánh vừa dụ. Phùng An thế yếu bèn ra hàng; nhà Đường tái lập quyền cai trị.
+  * Sau khi Phùng Hưng qua đời (T2/T3), con trai là **Phùng An** nối nghiệp. Phùng An truy tôn cha là **Bố Cái Đại Vương** (T2/T3).
+  * Năm 791, nhà Đường cử Kinh lược sứ **Triệu Xương** đem quân sang. Phùng An thế yếu bèn ra hàng; nhà Đường tái lập quyền cai trị.
 
 ---
 
@@ -140,10 +144,21 @@ graph TD
 
 * **Trừ Gian Diệt Phản (Mùa thu 938 — T2 *Toàn Thư*)**:
   * Ngô Quyền tập hợp quân sĩ từ Ái Châu, liên kết với các hào kiệt yêu nước (Dương Tam Kha, Đỗ Cảnh Thạc, Kiều Công Hãn, Đinh Công Trứ) tiến quân thần tốc ra thành Đại La, vây bắt và xử trảm tên phản quốc Kiều Công Tiễn trước khi quân Nam Hán kịp đặt chân đến biên giới.
-* **Chiến Thuật Cọc Ngầm Bạch Đằng (Mùa đông 938 — T1 *Tân Ngũ Đại Sử*, T2 *Toàn Thư*, T4 Khảo cổ học)**:
+* **Chiến Thuật Cọc Ngầm Bạch Đằng (Mùa đông 938 — T1 *Tân Ngũ Đại Sử*, T2 *Toàn Thư*)**:
   * Vua Nam Hán sai con trai là **Vạn Vương Lưu Hoằng Thao** chỉ huy thủy quân hùng hậu theo đường biển cửa sông Bạch Đằng tiến vào xâm lược.
+
+> [!NOTE]
+> **Nguồn T1 cho trận 938**: *Tân Ngũ Đại Sử* (Âu Dương Tu soạn ~1060) và *Cựu Ngũ Đại Sử* là các nguồn T1 ghi sự kiện này. *Tân Đường Thư* kết thúc biên niên ở thời nhà Đường mất, không ghi sự kiện Nam Hán hay Ngô Quyền 938.
+
   * Ngô Quyền nhận định: *"Hoằng Thao là đứa trẻ khờ dại, đem quân từ xa đến... Nếu ta sai người vạt nhọn cọc lớn, bịt sắt cắm ngầm trước ở cửa biển, thuyền giặc nhân khi nước triều lên tiến vào bên trong hàng cọc, bấy giờ ta dốc quân đánh quật lại, thuyền chúng tất vướng cọc mà vỡ tan"*.
   * Nghĩa quân chặt hàng ngàn cây gỗ lim, táu vạt nhọn đầu, cắm thành nhiều lớp bãi cọc ngầm tại các hiểm yếu trên sông Bạch Đằng.
+
+> [!CAUTION]
+> **Bằng chứng khảo cổ học bãi cọc (T4) — Ghi mức chắc chắn riêng**:
+> - **Bãi cọc Yên Giang, Đồng Má Ngựa, Đồng Vạn Muối (Quảng Yên, Quảng Ninh)**: C14 cho niên đại thế kỷ X–XIII (archaeological context). Liên hệ với trận 938 có căn cứ cao theo sử liệu T2 nhưng là **giải thích T4**, không phải T1 fact.
+> - **Bãi cọc Cao Quỳ, Đầm Thượng (Thủy Nguyên, Hải Phòng)**: Phát hiện 2019–2020. C14 thế kỷ X–XIII. **Đang tranh luận học thuật** — có thể liên quan 938, 981 hoặc 1288. Ghi là uncertain attribution cho đến khi có kết quả nghiên cứu đầy đủ.
+
+
 * **Diễn Biến Trận Đánh (Tháng 11 năm 938 — T1/T2)**:
   * Khi thủy triều dâng cao che lấp bãi cọc, Ngô Quyền sai thuyền nhẹ ra khiêu chiến rồi giả vờ thua chạy. Hoằng Thao đắc thắng xua toàn bộ chiến hạm lớn đuổi theo vượt qua bãi cọc.
   * Khi nước triều bắt đầu rút nhanh, các đầu cọc nhọn nhô lên khỏi mặt nước, Ngô Quyền hạ lệnh cho toàn quân quay đầu, tung các cánh quân mai phục hai bên bờ dốc toàn lực tổng phản công dữ dội.

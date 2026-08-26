@@ -32,11 +32,11 @@ graph TD
 * **Bối cảnh lịch sử**: Phong trào nhân dân nổi dậy chống ách đô hộ của An Nam đô hộ phủ, tiêu biểu là cuộc khởi nghĩa Hoan Châu của Mai Hắc Đế (713–722) và cuộc khởi nghĩa Đường Lâm của Phùng Hưng (766–791).
 * **Đánh giá nguồn sử liệu & Nhân vật**:
   * *Phe ta*: Mai Thúc Loan (Mai Hắc Đế), Phùng Hưng, Phùng Hải, Phùng Dĩnh, Phùng An. Tư liệu T1 xác nhận sự kiện và thủ lĩnh; tư liệu chi tiết về tướng phụ bên ta chủ yếu dựa vào T2 (*Toàn Thư*) và T3 (*Thần tích đền miếu*).
-  * *Phe đối phương*: Dương Tư Húc, Nguyên Sở Khách, Cao Chính Bình, Triệu Xương (được T1 ghi nhận rất rõ ràng).
+  * *Phe đối phương*: Dương Tư Húc, **Quang Sở Khách** (光楚客; "Nguyên Sở Khách" là textual variant/erroneous reading), Cao Chính Bình, Triệu Xương (được T1 ghi nhận rõ ràng).
 * **Đặc điểm không gian / Chiến trường**:
   * Căn cứ thung lũng sông núi thành Vạn An (Sa Nam, Nghệ An).
   * Chiến lũy sông nước và thành Tống Bình (Hà Nội cổ).
-* **Kết luận khả thi**: **KHẢ THI**. Có thể xây dựng thành 1–2 Chapter độc lập phản ánh tinh thần quật khởi của nhân dân thế kỷ VIII. Cần lưu ý ghi chú rõ các chi tiết liên quân 30–40 vạn và truyền thuyết đánh hổ là T2/T3.
+* **Kết luận khả thi**: **KHẢ THI**. Có thể xây dựng thành 1–2 Chapter độc lập phản ánh tinh thần quật khởi của nhân dân thế kỷ VIII. Cần lưu ý: tên Phùng Hưng không xuất hiện đích danh trong T1 — T1 ghi Đỗ Anh Hàn (杜英翰); đồng nhất với Phùng Hưng là T4 interpretation. Chi tiết liên quân 30–40 vạn và truyền thuyết đánh hổ phải ghi rõ T2/T3.
 
 ---
 
@@ -78,7 +78,7 @@ graph TD
   * *Phe phản nghịch*: Kiều Công Tiễn.
   * *Phe đối phương*: Vạn Vương Lưu Hoằng Thao, Vua Nam Hán Lưu Cung.
   * *Địa hình & Cơ chế*: Cửa sông Bạch Đằng, sự chênh lệch thủy triều, bãi cọc ngầm bịt sắt, thuyền nhẹ khiêu chiến nhử địch.
-  * *Bằng chứng lịch sử*: Được xác nhận đồng thuận từ T1 (*Tân Ngũ Đại Sử*), T2 (*Toàn Thư*), và các phát hiện khảo cổ học thực tế (T4 — bãi cọc Yên Giang, Đồng Má Ngựa, Cao Quỳ).
+  * *Bằng chứng lịch sử*: Được xác nhận từ T1 (*Tân Ngũ Đại Sử* — canonical; *Tân Đường Thư* **không** là nguồn trực tiếp cho 938) và T2 (*Toàn Thư*, *Việt Sử Lược*). Khảo cổ học (T4): bãi cọc Yên Giang / Đồng Má Ngựa — C14 thế kỷ X–XIII, liên hệ với 938 có căn cứ nhưng là T4 interpretation; bãi cọc Cao Quỳ — C14 thế kỷ X–XIII nhưng attribution cho 938 **đang tranh luận** (có thể liên quan 938, 981 hoặc 1288).
 * **Kết luận khả thi**: **CỰC KỲ KHẢ THI (FLAGSHIP CHAPTER)**. Đây là cao trào lịch sử vĩ đại nhất của thời kỳ chống Bắc thuộc, xứng đáng là Chapter trọng điểm đỉnh cao của dự án *Huyền Sử TD*.
 
 ---

@@ -36,9 +36,13 @@ graph TD
 
 ### 2.2. Phùng Hưng (Bố Cái Đại Vương)
 * **Thời kỳ**: Nửa cuối thế kỷ VIII (~766–791 SCN).
-* **Phân tầng nguồn**: **T1 (*Cựu Đường Thư*) + T2 (*Toàn Thư*) + T3 (*Việt Điện U Linh*)**.
-* **Hành trạng**: Hào trưởng đất Đường Lâm (Sơn Tây), lãnh đạo nhân dân đánh chiếm thành Tống Bình, đuổi Đô hộ Cao Chính Bình, cai quản phủ thành độc lập nhiều năm.
-* **Lưu ý học thuật**: Danh hiệu "Bố Cái Đại Vương" là thụy hiệu do con trai Phùng An và nhân dân truy tôn sau khi mất (T2/T3). Nguồn gốc từ ngữ học có thể xuất phát từ tiếng Việt cổ `Pô Khăy` (Vua Lớn) (T4).
+* **Phân tầng nguồn**: **T2 (*Toàn Thư*, *Cương Mục*) + T3 (*Việt Điện U Linh*, Thần phả Đường Lâm)**.
+
+> [!WARNING]
+> **Không có tên "Phùng Hưng" trong T1 gần thời**: T1 (*Cựu Đường Thư*) ghi tên **Đỗ Anh Hàn** (杜英翰) là thủ lĩnh nổi dậy bước vào sự kiện năm 791. Việc đồng nhất Đỗ Anh Hàn (T1) với Phùng Hưng (T2) là **giải thuyết nghiên cứu T4 (unverified)**. Không nâng mức tầng nguồn của Phùng Hưng lên T1 dựa trên suy đoán này.
+
+* **Hành trạng (T2)**: Hào trưởng đất Đường Lâm (Sơn Tây), lãnh đạo nhân dân đánh chiếm thành Tống Bình, đuổi Đô hộ Cao Chính Bình, cai quản phủ thành độc lập nhiều năm.
+* **Lưu ý học thuật**: Danh hiệu "Bố Cái Đại Vương" là thụy hiệu do con trai Phùng An và nhân dân truy tôn sau khi mất (T2/T3). Nguồn gốc từ ngữ học `Pô Khăy` (Vua Lớn) là T4 interpretation.
 
 ---
 
@@ -93,8 +97,13 @@ graph TD
 
 ### 2.10. Ngô Quyền (Ngô Vương)
 * **Thời kỳ**: 897–944 SCN (Trị vì: 939–944 SCN).
-* **Phân tầng nguồn**: **T1 (*Tân Ngũ Đại Sử*, *Tân Đường Thư*) + T2 (*Toàn Thư*, *Cương Mục*) + T4 (Khảo cổ Bạch Đằng & Cổ Loa)**.
+* **Phân tầng nguồn**: **T1 (*Tân Ngũ Đại Sử*, *Cựu Ngũ Đại Sử*) + T2 (*Toàn Thư*, *Cương Mục*, *Việt Sử Lược*) + T4 (Khảo cổ Bạch Đằng & Cổ Loa)**.
+
+> [!NOTE]
+> *Tân Đường Thư* không phải nguồn T1 trực tiếp cho sự kiện 938. Nhà Đường đã mất từ 907; các sự kiện Ngô Quyền & Nam Hán được ghi trong *Tân Ngũ Đại Sử* (Âu Dương Tu) và *Cựu Ngũ Đại Sử*. Không dùng *Tân Đường Thư* làm nguồn trực tiếp cho trận Bạch Đằng 938.
+
 * **Hành trạng**: Hào trưởng Đường Lâm, con rể và tướng tài của Dương Đình Nghệ. Năm 938 kéo quân ra Bắc diệt Kiều Công Tiễn, sáng tạo trận địa cọc ngầm đại phá thủy quân Nam Hán của Lưu Hoằng Thao trên sông Bạch Đằng. Năm 939 xưng Vương, định đô Cổ Loa, mở ra kỷ nguyên độc lập muôn đời.
+
 
 ---
 
@@ -137,10 +146,11 @@ graph TD
 
 ---
 
-### 4.2. Dương Tư Húc & Nguyên Sở Khách (Nhà Đường)
+### 4.2. Dương Tư Húc & Quang Sở Khách (Nhà Đường)
 * **Thời kỳ**: 722 SCN.
 * **Phân tầng nguồn**: **T1 (*Cựu Đường Thư*, *Tư Trị Thông Giám*)**.
 * **Hành trạng**: Các tướng lĩnh nhà Đường thống lĩnh hơn 10 vạn quân đàn áp đẫm máu cuộc khởi nghĩa của Mai Hắc Đế tại Hoan Châu năm 722.
+* **Lưu ý tên**: **Quang Sở Khách** (光楚客) là tên canonical theo nguyên văn T1. Hình thức "Nguyên Sở Khách" là biến thể chép sai (textual variant / erroneous reading) trong một số tài liệu thứ cấp tiếng Việt.
 
 ---
 
@@ -199,24 +209,25 @@ graph TD
 | # | Nhân Vật | Phe Phái | Tầng Nguồn Chính | Mức Độ Xác Thực Lịch Sử |
 |:---:|---|---|:---:|---|
 | 1 | Mai Thúc Loan (Mai Hắc Đế) | Khởi nghĩa Hoan Châu | **T1 + T2 + T3** | Fact lịch sử (Chiến dịch 722 T1; danh xưng T2) |
-| 2 | Phùng Hưng (Bố Cái Đại Vương) | Khởi nghĩa Đường Lâm | **T1 + T2 + T3** | Fact lịch sử (Tước hiệu truy tôn T2/T3) |
-| 3 | Phùng Hải & Phùng Dĩnh | Khởi nghĩa Đường Lâm | **T2 + T3** | Ghi nhận trong chính sử trung đại & thần tích |
-| 4 | Phùng An | Khởi nghĩa Đường Lâm | **T1 + T2** | Fact lịch sử (Đầu hàng Triệu Xương 791) |
-| 5 | Dương Thanh | Khởi nghĩa Tống Bình | **T1 + T2** | Fact lịch sử (Binh biến 819) |
-| 6 | Khúc Thừa Dụ | Tự chủ Hồng Châu | **T1 + T2** | Fact lịch sử (Tiết độ sứ 905) |
-| 7 | Khúc Hạo | Tự chủ Hồng Châu | **T2 + T1 (gián tiếp)** | Fact lịch sử (Cải cách hành chính 907) |
-| 8 | Khúc Thừa Mỹ | Tự chủ Hồng Châu | **T1 + T2** | Fact lịch sử (Bị bắt năm 930) |
-| 9 | Dương Đình Nghệ | Tự chủ Ái Châu | **T1 + T2** | Fact lịch sử (Giải phóng Đại La 931) |
-| 10 | Ngô Quyền (Ngô Vương) | Tự chủ / Độc lập | **T1 + T2 + T4** | Fact lịch sử (Đại thắng Bạch Đằng 938) |
-| 11 | Đinh Công Trứ | Tự chủ Ái/Hoan Châu | **T2** | Ghi nhận trong chính sử Đại Việt |
-| 12 | Dương Tam Kha | Tự chủ Ái Châu | **T2** | Ghi nhận trong chính sử Đại Việt |
-| 13 | Kiều Công Hãn & Đỗ Cảnh Thạc | Tướng lĩnh Tự chủ | **T2 + T3** | Ghi nhận trong chính sử & thần phả |
-| 14 | Kiều Công Tiễn | Phản nghịch | **T1 + T2** | Fact lịch sử (Giết chủ cầu viện 937) |
-| 15 | Lưu Phương | Tướng đô hộ Tùy | **T1** | Fact lịch sử (Nam chinh 602) |
-| 16 | Dương Tư Húc & Nguyên Sở Khách | Tướng đàn áp Đường | **T1** | Fact lịch sử (Chiến dịch Hoan Châu 722) |
-| 17 | Cao Chính Bình | Đô hộ Đường | **T1 + T2** | Fact lịch sử (Bị Phùng Hưng đánh bại) |
-| 18 | Triệu Xương | Đô hộ Đường | **T1 + T2** | Fact lịch sử (Thu phục Phùng An 791) |
-| 19 | Lý Tượng Cổ & Quế Trọng Vũ | Đô hộ/Tướng Đường | **T1 + T2** | Fact lịch sử (Biến cố 819–820) |
-| 20 | Cao Biền (Gao Pian) | Tiết độ sứ Đường | **T1 + T2** | Fact lịch sử (Dẹp Nam Chiếu, đắp La Thành 866) |
-| 21 | Lưu Cung (Vua Nam Hán) | Nam Hán | **T1 + T2** | Fact lịch sử |
-| 22 | Lưu Hoằng Thao | Tướng xâm lược Nam Hán | **T1 + T2** | Fact lịch sử (Tử trận Bạch Đằng 938) |
+| 2 | Phùng Hưng (Bố Cái Đại Vương) | Khởi nghĩa Đường Lâm | **T2 + T3** | Chính sử trung đại (T2/T3); T1 ghi tên Đỗ Anh Hàn — đồng nhất với Phùng Hưng là T4 interpretation |
+| 3 | Đỗ Anh Hàn (杜英翰) | Khởi nghĩa Đường Lâm (có thể) | **T1** | Tên ghi trong *Cựu Đường Thư* cho sự kiện 791; đồng nhất với Phùng Hưng là T4 chưa khóa |
+| 4 | Phùng Hải & Phùng Dĩnh | Khởi nghĩa Đường Lâm | **T2 + T3** | Ghi nhận trong chính sử trung đại & thần tích |
+| 5 | Phùng An | Khởi nghĩa Đường Lâm | **T1 + T2** | Fact lịch sử (Đầu hàng Triệu Xương 791) |
+| 6 | Dương Thanh | Khởi nghĩa Tống Bình | **T1 + T2** | Fact lịch sử (Binh biến 819) |
+| 7 | Khúc Thừa Dụ | Tự chủ Hồng Châu | **T1 + T2** | Fact lịch sử (Tiết độ sứ 905) |
+| 8 | Khúc Hạo | Tự chủ Hồng Châu | **T2 + T1 (gián tiếp)** | Fact lịch sử (Cải cách hành chính 907) |
+| 9 | Khúc Thừa Mỹ | Tự chủ Hồng Châu | **T1 + T2** | Fact lịch sử (Bị bắt năm 930) |
+| 10 | Dương Đình Nghệ | Tự chủ Ái Châu | **T1 + T2** | Fact lịch sử (Giải phóng Đại La 931) |
+| 11 | Ngô Quyền (Ngô Vương) | Tự chủ / Độc lập | **T1 (*Tân Ngũ Đại Sử*) + T2 + T4** | Fact lịch sử (Đại thắng Bạch Đằng 938); *Tân Đường Thư* **không** là T1 source cho sự kiện 938 |
+| 12 | Đinh Công Trứ | Tự chủ Ái/Hoan Châu | **T2** | Ghi nhận trong chính sử Đại Việt |
+| 13 | Dương Tam Kha | Tự chủ Ái Châu | **T2** | Ghi nhận trong chính sử Đại Việt |
+| 14 | Kiều Công Hãn & Đỗ Cảnh Thạc | Tướng lĩnh Tự chủ | **T2 + T3** | Ghi nhận trong chính sử & thần phả |
+| 15 | Kiều Công Tiễn | Phản nghịch | **T1 + T2** | Fact lịch sử (Giết chủ cầu viện 937) |
+| 16 | Lưu Phương | Tướng đô hộ Tùy | **T1** | Fact lịch sử (Nam chinh 602) |
+| 17 | Dương Tư Húc & **Quang Sở Khách** (光楚客) | Tướng đàn áp Đường | **T1** | Fact lịch sử (Chiến dịch Hoan Châu 722); "Nguyên Sở Khách" là textual variant |
+| 18 | Cao Chính Bình | Đô hộ Đường | **T1 + T2** | Fact lịch sử (Bị Phùng Hưng/Đỗ Anh Hàn đánh bại) |
+| 19 | Triệu Xương | Đô hộ Đường | **T1 + T2** | Fact lịch sử (Thu phục Phùng An 791) |
+| 20 | Lý Tượng Cổ & Quế Trọng Vũ | Đô hộ/Tướng Đường | **T1 + T2** | Fact lịch sử (Biến cố 819–820) |
+| 21 | Cao Biền (Gao Pian) | Tiết độ sứ Đường | **T1 + T2** | Fact lịch sử (Dẹp Nam Chiếu, đắp La Thành 866) |
+| 22 | Lưu Cung (Vua Nam Hán) | Nam Hán | **T1 + T2** | Fact lịch sử |
+| 23 | Lưu Hoằng Thao | Tướng xâm lược Nam Hán | **T1 + T2** | Fact lịch sử (Tử trận Bạch Đằng 938) |

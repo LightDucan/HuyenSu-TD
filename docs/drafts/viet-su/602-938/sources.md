@@ -47,11 +47,15 @@ graph TD
 ### 2.1. Niên Đại Khởi Nghĩa Mai Thúc Loan (Mai Hắc Đế)
 
 * **Hiện trạng sử liệu**:
-  * **T1 — *Cựu Đường Thư* (Quyển 8 — Huyền Tông bản kỷ & Liệt truyện Dương Tư Húc)** và ***Tư Trị Thông Giám* (Quyển 212)**: Ghi nhận sự kiện Mai Thúc Loan dấy binh chiếm giữ châu Hoan, xưng hiệu và bị tướng Đường là Dương Tư Húc cùng Quang Lộc khanh Nguyên Sở Khách đàn áp vào **năm Khai Nguyên thứ 10 (722 SCN)**.
+  * **T1 — *Cựu Đường Thư* (Quyển 8 — Huyền Tông bản kỷ & Liệt truyện Dương Tư Húc)** và ***Tư Trị Thông Giám* (Quyển 212)**: Ghi nhận sự kiện Mai Thúc Loan dấy binh chiếm giữ châu Hoan, xưng hiệu và bị tướng Đường là Dương Tư Húc cùng **Quang Sở Khách** (光楚客) đàn áp vào **năm Khai Nguyên thứ 10 (722 SCN)**.
+
+> [!NOTE]
+> **Tên canonical**: **Quang Sở Khách** (光楚客) là tên được đọc chính xác theo nguyên văn *Cựu Đường Thư* và *Tư Trị Thông Giám*. Hình thức "Nguyên Sở Khách" là một biến thể chép sai (textual variant / erroneous reading) xuất hiện trong một số bản in và tài liệu thứ cấp tiếng Việt. Không dùng "Nguyên Sở Khách" làm tên canonical trong tài liệu này.
+
   * **T2 — *Đại Việt Sử Ký Toàn Thư***: Ghi khởi nghĩa nổ ra vào **năm Quý Sửu (713 SCN)** và kéo dài đến 722 mới bị dẹp tan (kéo dài gần 10 năm).
 * **Đánh giá học thuật (T4)**:
   * Đa số các nhà sử học hiện đại (Hà Văn Tấn, Phan Huy Lê) nhận định cuộc khởi nghĩa có thể đã nhen nhóm và chuẩn bị lực lượng từ khoảng 713–715 (T2), nhưng đợt bùng nổ vũ trang quy mô lớn kiểm soát toàn bộ An Nam đô hộ phủ và chiến dịch đàn áp khốc liệt của Dương Tư Húc diễn ra tập trung vào **năm 722 SCN (T1)**.
-  * Trong tài liệu cần ghi chú rõ sự khác biệt niên đại: `713–722 SCN (T2)` vs `722 SCN (T1)`.
+  * Sự khác biệt niên đại: `713–722 SCN (T2)` vs `722 SCN (T1)`.
 
 ---
 
@@ -69,13 +73,22 @@ graph TD
 ### 2.3. Phùng Hưng & Danh Hiệu "Bố Cái Đại Vương"
 
 * **Hiện trạng sử liệu**:
-  * **T1 — *Cựu Đường Thư***: Nhắc đến việc hào trưởng bản địa Phùng Hưng (Đỗ Quân) nổi dậy đuổi Đô hộ Cao Chính Bình vào khoảng niên hiệu Trinh Nguyên (785–791). Sau khi Phùng Hưng mất, con là Phùng An đầu hàng Triệu Xương (791).
-  * **T2 — *Toàn Thư* & *Cương Mục***: Ghi Phùng Hưng cùng hai em (Phùng Hải, Phùng Dĩnh) dấy binh từ Đường Lâm, bao vây thành Tống Bình khiến Cao Chính Bình lo sợ mà chết; Phùng Hưng vào phủ đô hộ trị sự được vài năm thì mất.
-  * **T3 — *Việt Điện U Linh Tập* & Thần tích Đường Lâm**: Kể về sức mạnh phi thường của Phùng Hưng (đánh hổ, vật trâu).
+
+> [!WARNING]
+> **Vấn đề tầng nguồn T1**: Tên **Phùng Hưng** không được nhắc đích danh trong *Cựu Đường Thư* tại điểm ghi sự kiện 791 SCN. T1 (*Cựu Đường Thư*, Quyển 15 và liệt truyện Triệu Xương) ghi năm Trinh Nguyên thứ 7 (791): hào trưởng bản địa **Đỗ Anh Hàn** (杜英翰) nổi dậy, Quan đô hộ **Cao Chính Bình** (高正平) lo sợ phát bệnh mà chết, sau đó **Triệu Xương** (趙昌) được cử sang và thu phục được. Không có dữ liệu để từ đây suy ra "Phùng Hưng" như một T1 fact độc lập.
+
+  * **T2 — *Toàn Thư* & *Cương Mục***: Ghi **Phùng Hưng** (có thể đồng nhất với hoặc là người cùng thời với Đỗ Anh Hàn ghi trong T1 — xem lưu ý T4 bên dưới) cùng hai em (Phùng Hải, Phùng Dĩnh) dấy binh từ Đường Lâm, bao vây thành Tống Bình khiến Cao Chính Bình lo sợ mà chết; Phùng Hưng vào phủ đô hộ trị sự được vài năm thì mất.
+  * **T3 — *Việt Điện U Linh Tập* & Thần tích Đường Lâm**: Kể về sức mạnh phi thường của Phùng Hưng (đánh hổ, vật trâu) và tôn danh hiệu Bố Cái Đại Vương.
+* **Đỗ Anh Hàn (杜英翰) trong T1 — Lưu ý đặc biệt**:
+  * Sự kiện 791 SCN được T1 (*Cựu Đường Thư*) gắn với tên "Đỗ Anh Hàn" chứ không phải "Phùng Hưng". Một số nhà nghiên cứu hiện đại (T4) đề xuất Đỗ Anh Hàn có thể là một tên gọi / danh hiệu khác của cùng nhân vật lịch sử mà T2 gọi là Phùng Hưng, hoặc là thủ lĩnh lực lượng kế tiếp ngay sau Phùng Hưng.
+
+> [!CAUTION]
+> **T4 interpretation — Chưa khóa**: Việc đồng nhất Đỗ Anh Hàn của T1 với Phùng Hưng của T2 là **giả thuyết nghiên cứu (T4)**, không phải sự thật lịch sử đã được xác nhận bởi T1. Ghi là "T4 interpretation / unverified" khi nhắc đến sự đồng nhất này.
+
 * **Vấn đề danh hiệu "Bố Cái Đại Vương"**:
   * *Toàn Thư* (T2) giải thích: Dân chúng xưng tụng ông là "Bố Cái" vì kính trọng như cha mẹ (*Bố = Cha, Cái = Mẹ* theo tiếng Việt cổ).
-  * *Nghiên cứu ngôn ngữ học lịch sử (T4)*: Nhiều học giả (Nguyễn Bạt Tụy, Hà Văn Tấn) cho rằng "Bố Cái" có thể là phiên âm Hán-Việt của từ cổ gốc Nam Á / Môn-Khmer `Pô Khăy` hoặc `Pô Krông`, có nghĩa là **"Vua Lớn" / "Thủ lĩnh Tối cao"**.
-  * **Lưu ý**: Tước hiệu "Bố Cái Đại Vương" là danh hiệu do **con trai là Phùng An và nhân dân truy tôn sau khi ông qua đời** (T2/T3), không phải danh xưng hành chính khi còn sống.
+  * *Nghiên cứu ngôn ngữ học lịch sử (T4)*: Một số học giả cho rằng "Bố Cái" có thể là phiên âm Hán-Việt của từ cổ gốc Nam Á / Môn-Khmer `Pô Khăy` hoặc `Pô Krông`, có nghĩa là **"Vua Lớn" / "Thủ lĩnh Tối cao"**.
+  * **Lưu ý phân tầng (T2/T3)**: Tước hiệu "Bố Cái Đại Vương" là danh hiệu do **con trai là Phùng An và nhân dân truy tôn sau khi ông qua đời**, không phải danh xưng hành chính khi còn sống. Nguồn xác nhận: T2 (*Toàn Thư*) và T3 (thần tích đền Phùng Hưng, Đường Lâm).
 
 ---
 
@@ -93,11 +106,20 @@ graph TD
 ### 2.5. Trận Bạch Đằng 938: Thư Tịch Cổ & Bằng Chứng Khảo Cổ Học
 
 * **Ghi chép thư tịch gần thời (T1)**:
-  * ***Tân Ngũ Đại Sử* (Quyển 65 — Nam Hán thế gia)** và ***Tân Đường Thư***: Ghi nhận việc Vua Nam Hán Lưu Cung sai con là Vạn Vương Lưu Hoằng Thao đem thủy quân sang cứu Kiều Công Tiễn. Ngô Quyền đón đánh, **đóng cọc gỗ ngầm ở cửa biển**, lợi dụng thủy triều rút làm chiến thuyền Nam Hán vướng cọc lật úp, giết chết Hoằng Thao.
-  * **T2 — *Toàn Thư***: Mô tả chi tiết chiến thuật: Ngô Quyền sai thuyền nhẹ ra khiêu chiến nhử giặc lúc triều lên, đợi triều rút thì tổng phản công dốc toàn lực ép thuyền giặc vào bãi cọc.
-* **Bằng chứng khảo cổ học hiện đại (T4 Fact)**:
-  * Các cuộc khai quật khảo cổ học tại **Bãi cọc Yên Giang, Đồng Má Ngựa, Đồng Vạn Muối (Quảng Yên, Quảng Ninh)** và gần đây tại **Bãi cọc Cao Quỳ, Đầm Thượng (Thủy Nguyên, Hải Phòng)** đã phát hiện hàng trăm thân cây gỗ (lim, sến, táu) vạt nhọn đầu, cắm sâu dưới bùn lầy ven sông Bạch Đằng và các nhánh sông phụ lưu.
-  * Niên đại phóng xạ C14 xác nhận sự tồn tại của hệ thống công trình cọc gỗ quân sự ven sông trong các thế kỷ X–XIII.
+  * ***Tân Ngũ Đại Sử* (Quyển 65 — Nam Hán thế gia, Âu Dương Tu soạn ~1060)**: Ghi nhận việc Vua Nam Hán Lưu Cung sai con là Vạn Vương Lưu Hoằng Thao đem thủy quân sang cứu Kiều Công Tiễn. Ngô Quyền đón đánh, **đóng cọc gỗ ngầm ở cửa biển**, lợi dụng thủy triều rút làm chiến thuyền Nam Hán vướng cọc lật úp, giết chết Hoằng Thao.
+
+> [!NOTE]
+> **Tân Đường Thư không phải nguồn trực tiếp cho sự kiện 938**: *Tân Đường Thư* kết thúc phạm vi biên niên ở thời điểm nhà Đường mất, không ghi các sự kiện thập quốc / Nam Hán. **Nguồn T1 chính** cho trận Bạch Đằng 938 là *Tân Ngũ Đại Sử* và *Cựu Ngũ Đại Sử*.
+
+  * **T2 — *Đại Việt Sử Ký Toàn Thư* & *Việt Sử Lược***: Mô tả chi tiết chiến thuật: Ngô Quyền sai thuyền nhẹ ra khiêu chiến nhử giặc lúc triều lên, đợi triều rút thì tổng phản công dốc toàn lực ép thuyền giặc vào bãi cọc.
+* **Bằng chứng khảo cổ học hiện đại (T4) — Lưu ý mức chắc chắn từng địa điểm**:
+  * Các cuộc khai quật tại nhiều địa điểm ven sông Bạch Đằng và các sông phụ lưu đã phát hiện cọc gỗ (lim, sến, táu) vạt nhọn đầu, cắm sâu dưới bùn lầy. Niên đại C14 cho kết quả thuộc phạm vi **thế kỷ X–XIII** — tức là *bối cảnh khảo cổ học* (archaeological context) tương đồng với giai đoạn lịch sử 938 và sau đó.
+
+> [!CAUTION]
+> **Mức chắc chắn theo từng bãi cọc — Ghi riêng, không gộp**:
+> - **Bãi cọc Yên Giang, Đồng Má Ngựa, Đồng Vạn Muối (Quảng Yên, Quảng Ninh)**: Được phát hiện từ nhiều thập kỷ trước và có độ liên hệ cao với trận Bạch Đằng theo sử liệu T2. Tuy nhiên, **việc đồng nhất trực tiếp với trận 938 cụ thể vẫn là giải thích khảo cổ học (T4)** chứ không phải T1 fact.
+> - **Bãi cọc Cao Quỳ, Đầm Thượng (Thủy Nguyên, Hải Phòng)**: Phát hiện năm 2019–2020, đang trong quá trình nghiên cứu. C14 cho thấy niên đại thế kỷ X–XIII nhưng **mức độ liên hệ với trận 938 còn đang được các nhà khảo cổ tranh luận** — một số đề xuất liên quan trận 938, một số liên hệ với trận Bạch Đằng 981 hoặc 1288.
+> - Tóm tắt: C14 xác nhận cọc gỗ quân sự ven sông từ thế kỷ X–XIII là **archaeological context**; việc gán cụ thể từng bãi cho trận 938 phải ghi rõ mức chắc chắn riêng biệt.
 
 ---
 
@@ -107,15 +129,19 @@ graph TD
 |---|---|:---:|---|
 | Tùy (Lưu Phương) diệt Tiền Lý (602) | *Tùy Thư*, *Toàn Thư* | **T1** | **Fact lịch sử** được ghi nhận gần thời. |
 | Thành lập An Nam Đô Hộ Phủ (679) | *Cựu Đường Thư*, *Tân Đường Thư* | **T1** | **Fact lịch sử** về tổ chức hành chính. |
-| Khởi nghĩa Mai Thúc Loan (713/722) | *Cựu Đường Thư*, *Tư Trị Thông Giám*, *Toàn Thư* | **T1/T2** | **Fact lịch sử**; niên đại chiến dịch chính là 722 (T1). |
+| Khởi nghĩa Mai Thúc Loan (713/722) | *Cựu Đường Thư*, *Tư Trị Thông Giám*, *Toàn Thư* | **T1/T2** | **Fact lịch sử**; chiến dịch đàn áp chính 722 SCN (T1). |
+| Quang Sở Khách (光楚客) tham gia dẹp khởi nghĩa | *Cựu Đường Thư* | **T1** | **Tên canonical T1**; "Nguyên Sở Khách" là biến thể sai (textual variant). |
 | Liên quân 30–40 vạn của Mai Thúc Loan | *Tân Đường Thư*, *Toàn Thư* | **T1/T2** | **Liên minh Champa/Chân Lạp là Fact (T1)**; con số quân là **ước lệ phóng đại**. |
-| Khởi nghĩa Phùng Hưng (766–791) | *Cựu Đường Thư*, *Toàn Thư*, *Cương Mục* | **T1/T2** | **Fact lịch sử** về cuộc khởi nghĩa giải phóng Tống Bình. |
-| Danh xưng "Bố Cái Đại Vương" | *Toàn Thư*, *Việt Điện U Linh* | **T2/T3** | **Truy tôn sau khi mất**; nguồn gốc từ ngữ nghĩa Việt cổ `Pô Khăy` (Vua Lớn). |
+| Đỗ Anh Hàn (杜英翰) nổi dậy ~791, Cao Chính Bình chết | *Cựu Đường Thư* | **T1** | **Fact lịch sử T1**. Phùng Hưng và Đỗ Anh Hàn có thể là cùng người — nhưng sự đồng nhất này là **T4 interpretation**. |
+| Phùng Hưng dấy binh từ Đường Lâm, cai quản Tống Bình | *Toàn Thư*, *Cương Mục*, Thần tích Đường Lâm | **T2/T3** | Ghi nhận trong chính sử trung đại; **không có tên Phùng Hưng trực tiếp trong T1 gần thời**. |
+| Danh xưng "Bố Cái Đại Vương" | *Toàn Thư*, *Việt Điện U Linh* | **T2/T3** | **Truy tôn sau khi mất**; nguồn gốc từ ngữ Việt cổ / Pô Khăy là **T4 interpretation**. |
 | Khởi nghĩa Dương Thanh (819–820) | *Cựu Đường Thư*, *Toàn Thư* | **T1/T2** | **Fact lịch sử**; giết Quan đô hộ Lý Tượng Cổ chiếm phủ thành. |
-| Cao Biền đắp thành Đại La (866) | *Cựu Đường Thư*, *Trần Thư*, *Toàn Thư* | **T1/T2** | **Fact lịch sử & Khảo cổ học**. |
+| Cao Biền đắp thành Đại La (866) | *Cựu Đường Thư*, *Tân Đường Thư*, *Toàn Thư* | **T1/T2** | **Fact lịch sử & Khảo cổ học**. |
 | Truyền thuyết Cao Biền trấn yểm Long Đỗ | *Lĩnh Nam Chích Quái*, *Việt Điện U Linh* | **T3** | **Folklore / Huyền tích dân gian**; không có giá trị biên niên sử. |
 | Khúc Thừa Dụ xưng Tiết độ sứ (905) | *Tân Đường Thư*, *Tư Trị Thông Giám*, *Toàn Thư* | **T1/T2** | **Fact lịch sử** mở đầu thời kỳ tự chủ. |
 | Khúc Hạo cải cách hành chính (907–917) | *Toàn Thư*, *Cương Mục* | **T2** | **Fact lịch sử trung đại**; chủ trương "khoan giản an lạc". |
 | Dương Đình Nghệ đánh đuổi Lý Tiến & Trần Bảo (931) | *Tân Ngũ Đại Sử*, *Toàn Thư* | **T1/T2** | **Fact lịch sử** giải phóng thành Đại La. |
 | Kiều Công Tiễn giết Dương Đình Nghệ (937) | *Tân Ngũ Đại Sử*, *Toàn Thư* | **T1/T2** | **Fact lịch sử** về biến loạn nội bộ. |
-| Trận Bạch Đằng 938 & Cọc gỗ ngầm | *Tân Ngũ Đại Sử*, *Toàn Thư*, Khảo cổ C14 | **T1/T2/T4** | **Fact lịch sử vững chắc** được cả sử thư hai phía và khảo cổ học kiểm chứng. |
+| Trận Bạch Đằng 938 (thư tịch) | *Tân Ngũ Đại Sử*, *Cựu Ngũ Đại Sử*, *Toàn Thư*, *Việt Sử Lược* | **T1/T2** | **Fact lịch sử vững chắc** được sử thư hai phía xác nhận. |
+| Bãi cọc Yên Giang / Đồng Má Ngựa = cọc trận 938 | Khảo cổ học, C14 | **T4** | **Bối cảnh khảo cổ học thế kỷ X–XIII**; liên hệ với 938 có độ chắc chắn cao nhưng **là giải thích T4**, chưa khóa tuyệt đối. |
+| Bãi cọc Cao Quỳ / Đầm Thượng = cọc trận 938 | Khảo cổ học 2019–2020, C14 | **T4** | **C14 thế kỷ X–XIII**; **đang tranh luận** — có thể liên quan 938, 981 hoặc 1288. Ghi là **uncertain attribution**. |

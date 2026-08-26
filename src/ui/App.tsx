@@ -8,7 +8,7 @@ import { loadEquipment } from '../domain/equipment/EquipmentStorage'
 import { resolveEquipmentModifiers, type EquipmentSlot, type HeroEquipment } from '../domain/equipment/EquipmentSystem'
 import { advanceStage, canAdvanceStage, canUpgrade, type HeroProgression, upgradeLevel } from '../domain/progression/ProgressionSystem'
 import { loadProgression } from '../domain/progression/ProgressionStorage'
-import { battleBridge, type BattleSnapshot } from '../game/bridge/BattleBridge'
+import { battleBridge, type BattleSnapshot, type CommandEnergySnapshot } from '../game/bridge/BattleBridge'
 import { toBattleHudData } from '../game/bridge/BattleHudContract'
 import { createGame } from '../game/createGame'
 import { BottomPlayerHUD } from './BottomPlayerHUD'
@@ -17,6 +17,7 @@ import { saveEquipmentAndRefresh, saveProgressionAndRefresh } from './HeroRuntim
 import { TopCityBar } from './TopCityBar'
 
 const initialSnapshot: BattleSnapshot = {
+  runId: 'initial',
   speed: 1,
   enemiesSpawned: 0,
   enemiesEscaped: 0,
@@ -25,6 +26,7 @@ const initialSnapshot: BattleSnapshot = {
   selectedHeroId: 'quan-vu',
   wave: 1,
   totalWaves: 10,
+  waveStatus: 'waiting',
   cityHp: 10,
   battleStatus: 'running',
   remainingByCategory: { sword: 0, archer: 0, other: 0 },
@@ -34,6 +36,8 @@ export function App() {
   const initialHeroId = battleBridge.getSelectedHeroId()
   const gameHostRef = useRef<HTMLDivElement>(null)
   const [snapshot, setSnapshot] = useState(initialSnapshot)
+  const [commandEnergy, setCommandEnergy] = useState<CommandEnergySnapshot>(() => battleBridge.getCommandEnergySnapshot())
+  const [autoWaveEnabled, setAutoWaveEnabled] = useState(() => battleBridge.isAutoWaveEnabled())
   const [isHeroDetailOpen, setIsHeroDetailOpen] = useState(false)
   const [progression, setProgression] = useState<HeroProgression>(() =>
     loadProgression(window.localStorage).heroes[initialHeroId] ?? { stage: 'normal', level: 1 },
@@ -51,9 +55,13 @@ export function App() {
 
     const game = createGame(gameHostRef.current)
     const unsubscribe = battleBridge.onSnapshot(setSnapshot)
+    const unsubscribeEnergy = battleBridge.onCommandEnergySnapshot(setCommandEnergy)
+    const unsubscribeAuto = battleBridge.onAutoWaveChange(setAutoWaveEnabled)
 
     return () => {
       unsubscribe()
+      unsubscribeEnergy()
+      unsubscribeAuto()
       game.destroy(true)
     }
   }, [])
@@ -122,6 +130,10 @@ export function App() {
         onSpeedChange={setSpeed}
         onHeroSelect={handleHeroSelect}
         onOpenHeroDetail={() => setIsHeroDetailOpen(true)}
+        commandEnergy={commandEnergy}
+        autoWaveEnabled={autoWaveEnabled}
+        onStartWave={() => battleBridge.requestWaveStart('manual')}
+        onAutoWaveChange={(enabled) => battleBridge.setAutoWaveEnabled(enabled)}
       />
 
       <HeroDetailModal

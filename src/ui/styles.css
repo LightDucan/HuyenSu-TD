@@ -1405,6 +1405,19 @@ h1 { margin: 0; font-size: clamp(1.35rem, 3vw, 2rem); }
   gap: 10px;
 }
 
+.command-energy-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.command-energy-value {
+  color: #fbbf24;
+  font-size: 0.82rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
 .btn-hud-control {
   display: flex;
   align-items: center;
@@ -1423,6 +1436,22 @@ h1 { margin: 0; font-size: clamp(1.35rem, 3vw, 2rem); }
 .btn-hud-control:hover {
   border-color: #fbbf24;
   background: #1e293b;
+}
+
+.btn-hud-control.active {
+  background: #1e3a8a;
+  border-color: #3b82f6;
+  color: #bfdbfe;
+}
+
+.btn-hud-control:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.btn-hud-control:disabled:hover {
+  background: #0f172a;
+  border-color: #475569;
 }
 
 .btn-auto.auto-active {

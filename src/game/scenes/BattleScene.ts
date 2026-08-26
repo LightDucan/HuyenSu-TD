@@ -53,6 +53,7 @@ export class BattleScene extends Phaser.Scene {
   private removeSpeedListener?: () => void
   private removeHeroSelectionListener?: () => void
   private removeHeroStatsRefreshListener?: () => void
+  private removeWaveStartDecisionListener?: () => void
 
   constructor() { super('battle') }
 
@@ -86,10 +87,16 @@ export class BattleScene extends Phaser.Scene {
     this.removeHeroStatsRefreshListener = battleBridge.onPlacedHeroStatsRefresh((heroId) => {
       this.refreshHeroRuntimeStats(heroId)
     })
+    this.removeWaveStartDecisionListener = battleBridge.onWaveStartDecision((decision) => {
+      if (decision.status !== 'approved' || decision.runId !== this.runId || decision.waveNumber !== this.waveManager.getCurrentWaveNumber()) return
+      if (this.battleStatus !== 'running' || this.placedHeroes.size === 0) return
+      if (this.waveManager.beginCurrentWave()) this.emitSnapshot()
+    })
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
       this.removeSpeedListener?.()
       this.removeHeroSelectionListener?.()
       this.removeHeroStatsRefreshListener?.()
+      this.removeWaveStartDecisionListener?.()
     })
     this.emitSnapshot()
   }
@@ -334,10 +341,10 @@ export class BattleScene extends Phaser.Scene {
 
   private emitSnapshot(): void {
     battleBridge.emitSnapshot({
-      speed: this.gameClock.getSpeed(), enemiesSpawned: this.enemies.length + this.enemiesDefeated + this.enemiesEscaped,
+      runId: this.runId, speed: this.gameClock.getSpeed(), enemiesSpawned: this.enemies.length + this.enemiesDefeated + this.enemiesEscaped,
       enemiesEscaped: this.enemiesEscaped, enemiesDefeated: this.enemiesDefeated,
       placedHeroes: this.placementRegistry.getPlacements(), selectedHeroId: battleBridge.getSelectedHeroId(),
-      wave: this.waveManager.getCurrentWaveNumber(), totalWaves: this.waveManager.getTotalWaves(), cityHp: this.cityHp,
+      wave: this.waveManager.getCurrentWaveNumber(), totalWaves: this.waveManager.getTotalWaves(), waveStatus: this.waveManager.getStatus(), cityHp: this.cityHp,
       battleStatus: this.battleStatus, remainingByCategory: this.remainingByCategory(),
     })
   }

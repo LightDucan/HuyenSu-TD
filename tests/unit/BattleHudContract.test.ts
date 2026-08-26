@@ -5,9 +5,11 @@ import { toBattleHudData } from '../../src/game/bridge/BattleHudContract'
 describe('BattleHudContract', () => {
   it('maps only the discrete bridge snapshot fields needed by the HUD', () => {
     expect(toBattleHudData({
+      runId: 'battle-test',
       speed: 3,
       wave: 4,
       totalWaves: 10,
+      waveStatus: 'running',
       cityHp: 8,
       battleStatus: 'running',
       placedHeroes: [
@@ -23,6 +25,7 @@ describe('BattleHudContract', () => {
       speed: 3,
       wave: 4,
       totalWaves: 10,
+      waveStatus: 'running',
       cityHp: 8,
       battleStatus: 'running',
       placedHeroes: [

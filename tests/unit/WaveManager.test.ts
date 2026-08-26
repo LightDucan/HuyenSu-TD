@@ -8,20 +8,28 @@ const waves = [
 ] as const
 
 describe('WaveManager', () => {
-  it('spawns groups in order and advances only after the wave is cleared', () => {
+  it('waits for an explicit start, spawns groups in order, then leaves the next wave waiting', () => {
     const manager = new WaveManager(waves)
+    expect(manager.getStatus()).toBe('waiting')
+    expect(manager.update(10_000)).toEqual([])
+    expect(manager.beginCurrentWave()).toBe(true)
+    expect(manager.beginCurrentWave()).toBe(false)
     expect(manager.update(0)).toEqual(['sword'])
     expect(manager.update(99)).toEqual([])
     expect(manager.update(1)).toEqual(['sword'])
     expect(manager.completeWhenNoEnemiesRemain(1)).toBe(false)
     expect(manager.completeWhenNoEnemiesRemain(0)).toBe(true)
     expect(manager.getCurrentWaveNumber()).toBe(2)
+    expect(manager.getStatus()).toBe('waiting')
+    expect(manager.update(1_000)).toEqual([])
+    expect(manager.beginCurrentWave()).toBe(true)
     expect(manager.update(49)).toEqual([])
     expect(manager.update(1)).toEqual(['archer'])
   })
 
   it('reports won after the final wave is cleared', () => {
     const manager = new WaveManager([{ id: 'one', groups: [{ enemyId: 'sword', count: 1, startDelayMs: 0, spawnIntervalMs: 100 }] }])
+    manager.beginCurrentWave()
     manager.update(0)
     expect(manager.completeWhenNoEnemiesRemain(0)).toBe(true)
     expect(manager.getStatus()).toBe('won')
@@ -33,6 +41,7 @@ describe('WaveManager', () => {
     let guard = 0
 
     while (manager.getStatus() !== 'won' && guard < 200) {
+      if (manager.getStatus() === 'waiting') manager.beginCurrentWave()
       spawned += manager.update(10_000).length
       manager.completeWhenNoEnemiesRemain(0)
       guard += 1

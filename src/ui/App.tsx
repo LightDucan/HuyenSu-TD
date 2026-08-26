@@ -8,7 +8,12 @@ import { loadEquipment } from '../domain/equipment/EquipmentStorage'
 import { resolveEquipmentModifiers, type EquipmentSlot, type HeroEquipment } from '../domain/equipment/EquipmentSystem'
 import { advanceStage, canAdvanceStage, canUpgrade, type HeroProgression, upgradeLevel } from '../domain/progression/ProgressionSystem'
 import { loadProgression } from '../domain/progression/ProgressionStorage'
-import { battleBridge, type BattleSnapshot, type CommandEnergySnapshot } from '../game/bridge/BattleBridge'
+import {
+  battleBridge,
+  type BattleSnapshot,
+  type CommandEnergySnapshot,
+  type DeploymentCapacitySnapshot,
+} from '../game/bridge/BattleBridge'
 import { toBattleHudData } from '../game/bridge/BattleHudContract'
 import { createGame } from '../game/createGame'
 import { BottomPlayerHUD } from './BottomPlayerHUD'
@@ -38,6 +43,8 @@ export function App() {
   const [snapshot, setSnapshot] = useState(initialSnapshot)
   const [commandEnergy, setCommandEnergy] = useState<CommandEnergySnapshot>(() => battleBridge.getCommandEnergySnapshot())
   const [autoWaveEnabled, setAutoWaveEnabled] = useState(() => battleBridge.isAutoWaveEnabled())
+  const [deploymentCapacity, setDeploymentCapacity] = useState<DeploymentCapacitySnapshot>(() => battleBridge.getDeploymentCapacitySnapshot())
+  const [placementMessage, setPlacementMessage] = useState<string | null>(null)
   const [isHeroDetailOpen, setIsHeroDetailOpen] = useState(false)
   const [progression, setProgression] = useState<HeroProgression>(() =>
     loadProgression(window.localStorage).heroes[initialHeroId] ?? { stage: 'normal', level: 1 },
@@ -57,11 +64,19 @@ export function App() {
     const unsubscribe = battleBridge.onSnapshot(setSnapshot)
     const unsubscribeEnergy = battleBridge.onCommandEnergySnapshot(setCommandEnergy)
     const unsubscribeAuto = battleBridge.onAutoWaveChange(setAutoWaveEnabled)
+    const unsubscribeCapacity = battleBridge.onDeploymentCapacitySnapshot(setDeploymentCapacity)
+    const unsubscribePlacement = battleBridge.onPlacementFeedback((feedback) => {
+      setPlacementMessage(feedback.status === 'rejected'
+        ? `Đã đạt giới hạn triển khai ${feedback.effectiveLimit} Hero trên bản đồ này.`
+        : null)
+    })
 
     return () => {
       unsubscribe()
       unsubscribeEnergy()
       unsubscribeAuto()
+      unsubscribeCapacity()
+      unsubscribePlacement()
       game.destroy(true)
     }
   }, [])
@@ -116,9 +131,10 @@ export function App() {
           : snapshot.battleStatus === 'lost'
             ? 'Thất bại: Thành đã bị phá.'
             : selectedPlacement
-              ? `Chọn ô hợp lệ để di chuyển ${selectedHeroName}. Đã triển khai ${snapshot.placedHeroes.length}/${heroOptions.length} Hero.`
-              : `Chọn ô hợp lệ để đặt ${selectedHeroName}. Đã triển khai ${snapshot.placedHeroes.length}/${heroOptions.length} Hero.`}
+              ? `Chọn ô hợp lệ để di chuyển ${selectedHeroName}. Đã triển khai ${snapshot.placedHeroes.length}/${deploymentCapacity.effectiveLimit} Hero.`
+              : `Chọn ô hợp lệ để đặt ${selectedHeroName}. Đã triển khai ${snapshot.placedHeroes.length}/${deploymentCapacity.effectiveLimit} Hero.`}
       </p>
+      {placementMessage && <p className="placement-feedback" role="status">{placementMessage}</p>}
 
       {/* Battle Canvas */}
       <section className="game-frame" ref={gameHostRef} aria-label="Battle Scene" />
@@ -131,6 +147,7 @@ export function App() {
         onHeroSelect={handleHeroSelect}
         onOpenHeroDetail={() => setIsHeroDetailOpen(true)}
         commandEnergy={commandEnergy}
+        deploymentCapacity={deploymentCapacity}
         autoWaveEnabled={autoWaveEnabled}
         onStartWave={() => battleBridge.requestWaveStart('manual')}
         onAutoWaveChange={(enabled) => battleBridge.setAutoWaveEnabled(enabled)}

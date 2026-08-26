@@ -15,6 +15,22 @@ Mục tiêu:
 
 Không tự ý thay đổi Core Architecture.
 
+## CONTEXT ISOLATION (Bắt Buộc)
+
+Khi thực thi công việc (kể cả khi chạy nhiều agent, subagent hoặc sprint song song/nối tiếp):
+- **Repository HuyenSu-TD hiện tại là nguồn chân lý duy nhất (Authoritative Source of Truth)**.
+- **Bỏ qua toàn bộ remembered Knowledge / Memory từ project khác**:
+  - Đặc biệt **KHÔNG ĐƯỢC reuse dữ liệu từ project Godot cũ**.
+  - Không tự ý import stats / range / AttackSpeed / enemy speed / skill parameters / progression / mechanics / name từ memory.
+  - **Nếu memory khác repo $\rightarrow$ Repo luôn luôn thắng**.
+  - **Nếu repo chưa có quyết định $\rightarrow$ Ghi rõ `[OPEN / CONFIG]`, tuyệt đối không tự suy đoán số liệu**.
+  - **Không dùng conversation cũ làm nguồn** nếu task không chỉ định cụ thể.
+- **Cách ly ngữ cảnh tuyệt đối giữa các Task / Agent**:
+  - Mỗi agent/task chỉ hoạt động trên branch/worktree được chỉ định riêng biệt.
+  - Không mang dữ liệu tạm, file rác, hoặc giả định chưa commit từ task khác sang.
+  - Không sửa chéo các thư mục ngoài phạm vi task (ví dụ: Task Bà Triệu chỉ sửa `docs/drafts/viet-su/ba-trieu/**`, Task Vạn Xuân chỉ sửa `docs/drafts/viet-su/van-xuan/**`).
+  - Mọi tài liệu nghiên cứu / concept phải hoàn toàn tự chứa (self-contained), độc lập và không phụ thuộc vào trạng thái chưa hoàn tất của nhánh khác.
+
 ## Quy tắc bắt buộc trước mỗi Task
 
 1. Đọc:

@@ -118,4 +118,14 @@ describe('P11-C01 Reward Transaction Core', () => {
     expect(state.wallet.balances.gold).toBe(0)
     expect(state.rewardReceipts).toEqual({})
   })
+
+  it('does not allow checkpoint-only mode to bypass receipts without advancing active time', () => {
+    const state = createInitialMetaState('local-player', 1_000)
+    expect(() => applyRewardTransaction(state, {
+      idempotencyKey: 'bypass', receiptPolicy: 'checkpoint-only', operations: [{ type: 'grant-currency', currency: 'knb', amount: 10 }],
+    }, 2_000)).toThrow('exactly one active play-time checkpoint')
+    expect(() => applyRewardTransaction(state, {
+      idempotencyKey: 'replay', receiptPolicy: 'checkpoint-only', operations: [{ type: 'grant-currency', currency: 'knb', amount: 10 }, { type: 'set-active-play-time', progress: state.activePlayTime }],
+    }, 2_000)).toThrow('must advance cumulative duration')
+  })
 })

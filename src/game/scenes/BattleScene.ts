@@ -15,6 +15,7 @@ import { skillDefinitions } from '../../data/skills/definitions'
 import { resolveSkill } from '../../domain/skills/SkillResolver'
 import { HeroPlacementRegistry } from '../../domain/placement/HeroPlacementRegistry'
 import { battleBridge } from '../bridge/BattleBridge'
+import { createBattleRunId } from '../runtime/BattleRunIdentity'
 import { refreshPlacedHeroRuntimeStats } from '../runtime/PlacedHeroRuntimeStats'
 
 type EnemyVisual = { state: CombatEnemy; definitionId: string; body: Phaser.GameObjects.Arc; hpBar: Phaser.GameObjects.Rectangle }
@@ -29,6 +30,7 @@ type PlacedHeroRuntime = {
   slotId: string
 }
 const INITIAL_CITY_HP = 10
+const PROTOTYPE_STAGE_ID = 'prototype-stage-01'
 
 export class BattleScene extends Phaser.Scene {
   private readonly gameClock = new GameClock()
@@ -40,6 +42,8 @@ export class BattleScene extends Phaser.Scene {
   private cityHp = INITIAL_CITY_HP
   private enemiesDefeated = 0
   private enemiesEscaped = 0
+  private enemySpawnSequence = 0
+  private runId!: string
   private battleStatus: 'running' | 'won' | 'lost' = 'running'
   private readonly placedHeroes = new Map<string, PlacedHeroRuntime>()
   private readonly placementTiles = new Map<string, PlacementTileRuntime>()
@@ -49,6 +53,10 @@ export class BattleScene extends Phaser.Scene {
   private removeHeroStatsRefreshListener?: () => void
 
   constructor() { super('battle') }
+
+  init(): void {
+    this.runId = createBattleRunId()
+  }
 
   create(): void {
     this.cameras.main.setBackgroundColor('#1f3b2d')
@@ -88,7 +96,10 @@ export class BattleScene extends Phaser.Scene {
     }
     this.moveEnemies(scaledDelta)
     if (this.battleStatus === 'running' && this.waveManager.completeWhenNoEnemiesRemain(this.enemies.length)) {
-      if (this.waveManager.getStatus() === 'won') this.battleStatus = 'won'
+      if (this.waveManager.getStatus() === 'won') {
+        this.battleStatus = 'won'
+        battleBridge.reportStageVictory({ runId: this.runId, stageId: PROTOTYPE_STAGE_ID, occurredAtMs: Date.now() })
+      }
       this.emitSnapshot()
     }
   }
@@ -97,7 +108,8 @@ export class BattleScene extends Phaser.Scene {
     const definition = enemyDefinitions[definitionId]
     const visual = this.enemyPool.pop() ?? this.createEnemyVisual()
     visual.definitionId = definition.id
-    visual.state = { id: `${definition.id}-${this.enemiesDefeated}-${this.enemiesEscaped}-${this.enemies.length}`, position: { x: 0, y: 0 }, pathProgress: 0, hp: definition.maxHp, maxHp: definition.maxHp, alive: true }
+    visual.state = { id: `${this.runId}-enemy-${this.enemySpawnSequence}`, position: { x: 0, y: 0 }, pathProgress: 0, hp: definition.maxHp, maxHp: definition.maxHp, alive: true }
+    this.enemySpawnSequence += 1
     visual.body.setFillStyle(definition.color).setVisible(true).setAlpha(1)
     visual.hpBar.displayWidth = 36; visual.hpBar.setVisible(true)
     this.positionEnemy(visual, 0)
@@ -170,7 +182,10 @@ export class BattleScene extends Phaser.Scene {
     const [enemy] = this.enemies.splice(index, 1)
     enemy.body.setVisible(false); enemy.hpBar.setVisible(false); enemy.state.alive = false
     this.enemyPool.push(enemy)
-    if (reason === 'defeated') this.enemiesDefeated += 1
+    if (reason === 'defeated') {
+      this.enemiesDefeated += 1
+      battleBridge.reportEnemyDefeated({ runId: this.runId, enemyInstanceId: enemy.state.id, enemyId: enemy.definitionId, occurredAtMs: Date.now() })
+    }
     else {
       this.enemiesEscaped += 1
       this.cityHp = Math.max(0, this.cityHp - enemyDefinitions[enemy.definitionId].cityDamage)

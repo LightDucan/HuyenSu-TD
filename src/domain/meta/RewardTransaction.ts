@@ -9,6 +9,7 @@ export type RewardOperation =
 export type RewardTransactionRequest = Readonly<{
   idempotencyKey: string
   operations: readonly RewardOperation[]
+  receiptPolicy?: 'persist' | 'checkpoint-only'
 }>
 
 export type RewardTransactionResult =
@@ -37,12 +38,18 @@ export function applyRewardTransaction(state: MetaStateV3, request: RewardTransa
   if (request.idempotencyKey.trim().length === 0) throw new Error('Idempotency key must not be empty')
   if (!Number.isSafeInteger(committedAtMs) || committedAtMs < 0) throw new Error('Commit timestamp must be a non-negative safe integer')
   if (request.operations.length === 0) throw new Error('Reward transaction must contain at least one operation')
+  const activeCheckpointOperations = request.operations.filter((operation) => operation.type === 'set-active-play-time')
+  if (request.receiptPolicy === 'checkpoint-only' && activeCheckpointOperations.length !== 1) {
+    throw new Error('Checkpoint-only transaction requires exactly one active play-time checkpoint')
+  }
 
   const transactionFingerprint = fingerprint(request.operations)
-  const receipt = state.rewardReceipts[request.idempotencyKey]
-  if (receipt !== undefined) {
-    if (receipt.transactionFingerprint !== transactionFingerprint) throw new Error('Idempotency key was already used for a different transaction')
-    return { status: 'already-applied', state }
+  if (request.receiptPolicy !== 'checkpoint-only') {
+    const receipt = state.rewardReceipts[request.idempotencyKey]
+    if (receipt !== undefined) {
+      if (receipt.transactionFingerprint !== transactionFingerprint) throw new Error('Idempotency key was already used for a different transaction')
+      return { status: 'already-applied', state }
+    }
   }
 
   const balances = { ...state.wallet.balances }
@@ -66,6 +73,9 @@ export function applyRewardTransaction(state: MetaStateV3, request: RewardTransa
       if (operation.progress.observedVisibleMs < state.activePlayTime.observedVisibleMs || operation.progress.observedHiddenMs < state.activePlayTime.observedHiddenMs) {
         throw new Error('Active play-time cumulative duration cannot go backward')
       }
+      if (request.receiptPolicy === 'checkpoint-only' && operation.progress.observedVisibleMs === state.activePlayTime.observedVisibleMs && operation.progress.observedHiddenMs === state.activePlayTime.observedHiddenMs) {
+        throw new Error('Active play-time checkpoint must advance cumulative duration')
+      }
       activePlayTime = { ...operation.progress }
     } else {
       const unsupported: never = operation
@@ -81,10 +91,9 @@ export function applyRewardTransaction(state: MetaStateV3, request: RewardTransa
       wallet: { balances },
       inventory: { ...state.inventory, consumables },
       activePlayTime,
-      rewardReceipts: {
-        ...state.rewardReceipts,
-        [request.idempotencyKey]: { transactionFingerprint, committedAtMs },
-      },
+      rewardReceipts: request.receiptPolicy === 'checkpoint-only'
+        ? state.rewardReceipts
+        : { ...state.rewardReceipts, [request.idempotencyKey]: { transactionFingerprint, committedAtMs } },
     },
   }
 }

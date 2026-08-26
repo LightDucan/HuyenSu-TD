@@ -53,12 +53,12 @@ export function calculateEligibleWallClockMs(policy: HiddenTabPolicy, visibleMs:
   return policy === 'visible-only' ? visibleMs : visibleMs + hiddenMs
 }
 
-function commit(repository: LocalMetaRepository, source: RewardSourceResult['source'], rewardKey: string, operations: RewardOperation[], committedAtMs: number): RewardSourceResult {
+function commit(repository: LocalMetaRepository, source: RewardSourceResult['source'], rewardKey: string, operations: RewardOperation[], committedAtMs: number, receiptPolicy: 'persist' | 'checkpoint-only' = 'persist'): RewardSourceResult {
   if (operations.length === 0) return { status: 'not-eligible', source, rewardKey }
   assertNonNegativeSafeInteger(committedAtMs, 'Reward commit timestamp')
   const current = repository.load()
   if (current.status !== 'loaded') throw new Error('Reward source requires a current Meta V3 save')
-  const result = repository.transactReward({ idempotencyKey: rewardKey, operations }, current.save.revision, committedAtMs)
+  const result = repository.transactReward({ idempotencyKey: rewardKey, operations, receiptPolicy }, current.save.revision, committedAtMs)
   return { ...result, source, rewardKey }
 }
 
@@ -123,6 +123,6 @@ export class RewardSourceService {
     const rewardKey = `reward/active-time/${input.cumulativeVisibleMs}/${input.cumulativeHiddenMs}`
     const operations = currencyOperations({ knb: intervals * this.config.activePlayTime.knbPerInterval })
     operations.push({ type: 'set-active-play-time', progress: nextProgress })
-    return commit(this.repository, 'active-play-time', rewardKey, operations, input.committedAtMs)
+    return commit(this.repository, 'active-play-time', rewardKey, operations, input.committedAtMs, 'checkpoint-only')
   }
 }

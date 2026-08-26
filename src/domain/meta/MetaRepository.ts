@@ -3,6 +3,7 @@ import { migrateMetaSaveV1ToV2, migrateMetaSaveV2ToV3 } from './MetaMigration'
 import { META_SAVE_SCHEMA_VERSION, META_SAVE_SCHEMA_VERSION_V1, META_SAVE_SCHEMA_VERSION_V2, type MetaSaveV3, type MetaStateV3 } from './MetaState'
 import { readSchemaVersion, validateMetaSave, validateMetaState } from './MetaValidation'
 import { applyRewardTransaction, type RewardTransactionRequest } from './RewardTransaction'
+import { grantCommandEnergy, resolveCommandEnergyRegen, spendCommandEnergy } from './CommandEnergy'
 
 export const META_STORAGE_KEY = 'huyen-su-td/meta-v1'
 
@@ -15,6 +16,10 @@ export type MetaLoadResult =
 export type RewardTransactionCommit =
   | Readonly<{ status: 'applied'; save: MetaSaveV3 }>
   | Readonly<{ status: 'already-applied'; save: MetaSaveV3 }>
+
+export type CommandEnergyCommit =
+  | Readonly<{ status: 'resolved' | 'spent' | 'granted'; save: MetaSaveV3 }>
+  | Readonly<{ status: 'unchanged' | 'insufficient' | 'invalid-clock'; save: MetaSaveV3 }>
 
 export class LocalMetaRepository {
   constructor(private readonly storage: StorageLike) {}
@@ -80,5 +85,38 @@ export class LocalMetaRepository {
     const result = applyRewardTransaction(current.save.data, request, committedAtMs)
     if (result.status === 'already-applied') return { status: 'already-applied', save: current.save }
     return { status: 'applied', save: this.save(result.state, expectedRevision, committedAtMs) }
+  }
+
+  resolveCommandEnergy(expectedRevision: number, nowMs: number): CommandEnergyCommit {
+    const current = this.requireCurrentSave(expectedRevision, 'Command Energy resolution')
+    const result = resolveCommandEnergyRegen(current.data.commandEnergy, nowMs)
+    if (result.status === 'invalid-clock') return { status: 'invalid-clock', save: current }
+    if (result.state === current.data.commandEnergy) return { status: 'unchanged', save: current }
+    const state = { ...current.data, commandEnergy: result.state }
+    return { status: 'resolved', save: this.save(state, expectedRevision, nowMs) }
+  }
+
+  spendCommandEnergy(cost: number, expectedRevision: number, nowMs: number): CommandEnergyCommit {
+    const current = this.requireCurrentSave(expectedRevision, 'Command Energy spend')
+    const result = spendCommandEnergy(current.data.commandEnergy, cost, nowMs)
+    if (result.status !== 'spent') return { status: result.status, save: current }
+    const state = { ...current.data, commandEnergy: result.state }
+    return { status: 'spent', save: this.save(state, expectedRevision, nowMs) }
+  }
+
+  grantCommandEnergy(amount: number, expectedRevision: number, nowMs: number): CommandEnergyCommit {
+    const current = this.requireCurrentSave(expectedRevision, 'Command Energy grant')
+    const result = grantCommandEnergy(current.data.commandEnergy, amount, nowMs)
+    if (result.status === 'invalid-clock') return { status: 'invalid-clock', save: current }
+    const state = { ...current.data, commandEnergy: result.state }
+    return { status: 'granted', save: this.save(state, expectedRevision, nowMs) }
+  }
+
+  private requireCurrentSave(expectedRevision: number, operation: string): MetaSaveV3 {
+    if (!Number.isSafeInteger(expectedRevision) || expectedRevision < 1) throw new Error('Expected revision must be a positive safe integer')
+    const current = this.load()
+    if (current.status !== 'loaded') throw new Error(`${operation} requires a current Meta V3 save`)
+    if (current.save.revision !== expectedRevision) throw new Error(`Meta save revision conflict: expected ${expectedRevision}, actual ${current.save.revision}`)
+    return current.save
   }
 }

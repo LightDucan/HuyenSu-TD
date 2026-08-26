@@ -48,17 +48,22 @@ Tập hồ sơ tuyển chọn nội dung cho Chapter Khúc Gia & Dương Đình 
 ## 3. Nguyên Tắc Sử Liệu Cốt Lõi (Source Guardrails)
 
 1. **Phân biệt Near-source (T1) vs Later Historiography (T2)**:
-   - *T1 (*Tân Ngũ Đại Sử* Q65, *Tư Trị Thông Giám* Q277)*: Ghi nhận sự kiện Nam Hán đánh bắt Khúc Thừa Mỹ (930), Dương Đình Nghệ từ Ái Châu dấy binh vây hạ Đại La, Thứ sử Lý Tiến thua chạy, tướng cứu viện **Trình Bảo (程寶)** bị giết (931), Kiều Công Tiễn giết Dương Đình Nghệ (937).
-   - *T2 (*Đại Việt Sử Ký Toàn Thư*, *Khâm Định Việt Sử Thông Giám Cương Mục*)*: Ghi chép chi tiết về nguồn gốc họ Khúc tại Hồng Châu, cải cách của Khúc Hạo, cơ chế \"3.000 con nuôi / giả tử\" của Dương Đình Nghệ và cơ cấu nha tướng.
-2. **Canonical T1 Boss: Trình Bảo (程寶)**:
-   - T1 (*Tân Ngũ Đại Sử* và *Tư Trị Thông Giám*) ghi tên tướng cứu viện Nam Hán là **Trình Bảo (程寶)**. Trong mọi tài liệu của project này, đây là tên chuẩn tắc. Nếu gặp dị bản "Trần Bảo (陳寶)" cần ghi rõ đó là biến thể văn bản sau và kèm exact source chứng minh.
-3. **Chi tiết "3.000 con nuôi" (3.000 giả tử)**:
-   - *Tư Trị Thông Giám* (Q277 — T1) ghi nhận Dương Đình Nghệ nuôi 3.000 giả tử. Do đó đây là **T1 + T2 support**, không phải chỉ T2.
-4. **Không suy đoán chiến thuật vượt quá sử liệu**:
+   - *T1 (*Tân Ngũ Đại Sử* Q65, *Tư Trị Thông Giám* Q277 / Q281)*:
+     + *Tân Ngũ Đại Sử* (Q65 — Nam Hán thế gia) ghi nhận chiến dịch Nam Hán đánh chiếm Giao Chỉ năm 930 với các tướng mang tên **Lý Thủ Dung (李守鄘)** và **Lương Khắc Trinh (梁克貞)**, bắt Khúc Thừa Mỹ; đặt Lý Tiến làm Thứ sử Giao Châu; Dương Đình Nghệ dấy binh năm 931 vây Lý Tiến; Lý Tiến thua chạy trốn về Quảng Châu; tướng viện binh **Trình Bảo (程寶)** bị đón đánh giết chết; năm 937 Kiều Công Tiễn giết Dương Đình Nghệ.
+     + *Tư Trị Thông Giám* (Q277) ghi nhận chiến dịch năm 931 (Dương Đình Nghệ, 3.000 giả tử, Lý Tiến, Trình Bảo 程寶 tử trận). Biến cố năm 937 (Kiều Công Tiễn giết Dương Đình Nghệ) được ghi nhận riêng biệt tại *Tư Trị Thông Giám* (Q281).
+   - *T2 (*Đại Việt Sử Ký Toàn Thư*, *Khâm Định Việt Sử Thông Giám Cương Mục*)*: Ghi chép chi tiết về nguồn gốc họ Khúc tại Hồng Châu, cải cách của Khúc Hạo, cơ chế "3.000 con nuôi / giả tử" của Dương Đình Nghệ và cơ cấu nha tướng; định danh tướng Nam Hán đánh bắt Khúc Thừa Mỹ năm 930 là **Lý Khắc Chính (李克正)**.
+2. **Phân định tên gọi tướng đánh chiếm năm 930**:
+   - T1 (*Tân Ngũ Đại Sử* Q65) ghi tướng Nam Hán đánh Giao Chỉ bắt Khúc Thừa Mỹ là **Lý Thủ Dung (李守鄘)** và **Lương Khắc Trinh (梁克貞)**.
+   - Tên gọi **Lý Khắc Chính (李克正)** thuộc về truyền thống chính sử Việt Nam T2 (*Toàn Thư*), không quy trực tiếp cho T1 *Tân Ngũ Đại Sử*.
+3. **Canonical T1 Boss: Trình Bảo (程寶)**:
+   - T1 (*Tân Ngũ Đại Sử* Q65 và *Tư Trị Thông Giám* Q277) ghi tên tướng cứu viện Nam Hán là **Trình Bảo (程寶)**. Trong mọi tài liệu của project này, đây là tên chuẩn tắc. Dạng "Trần Bảo (陳寶)" trong *Toàn Thư* / biến thể văn bản sau được ghi nhận rõ là later textual variant.
+4. **Chi tiết "3.000 con nuôi" (3.000 giả tử)**:
+   - *Tư Trị Thông Giám* (Q277 — T1) ghi nhận Dương Đình Nghệ nuôi 3.000 giả tử (养子三千人); cũng được *Toàn Thư* (T2) ghi chép. Do đó đây là chi tiết có **T1 + T2 support**.
+5. **Không suy đoán chiến thuật vượt quá sử liệu**:
    - Thư tịch cổ chỉ ghi nhận kết quả chiến dịch (tiến quân, bao vây Đại La, Lý Tiến trốn chạy, đón đánh diệt Trình Bảo); không tự bịa đặt các trận địa cụ thể ngoài khung sử liệu.
-5. **Giới hạn không gian & nhân vật**:
+6. **Giới hạn không gian & nhân vật**:
    - Ái Châu đóng vai trò căn cứ khởi phát (Narrative Origin); không gian chiến đấu chính (Primary Map) là thành Đại La năm 931.
    - Không kéo các chiến tích và hình tượng năm 938 của Ngô Quyền về gán ghép cho năm 931.
-   - **Lý Tiến**: Thứ sử Giao Châu đóng giữ, bị Dương Đình Nghệ vây và phải bỏ thành chạy về Quảng Châu. Không gán cho Lý Tiến vai trò bắt giữ Khúc Thừa Mỹ — đó là công của **Lý Khắc Chính** (T1 *Tân Ngũ Đại Sử*).
+   - **Lý Tiến**: Thứ sử Giao Châu đóng giữ, bị Dương Đình Nghệ vây và phải bỏ thành chạy về Quảng Châu. Không gán cho Lý Tiến vai trò bắt giữ Khúc Thừa Mỹ — việc đó do lực lượng Nam Hán năm 930 thực hiện (T1 ghi Lý Thủ Dung `李守鄘`, Lương Khắc Trinh `梁克貞`; T2 ghi Lý Khắc Chính).
    - **Ngô Quyền & Đinh Công Trứ**: T1 xác nhận Ngô Quyền là nha tướng của Dương Đình Nghệ (trong narrative 937/938), nhưng T1 không trực tiếp ghi rõ hai ông tham chiến tại Đại La năm 931. Giữ trạng thái **PROVISIONAL**.
    - **Dương Tam Kha & Kiều Công Hãn**: Không có exact source chứng minh tham chiến 931; không thể suy luận từ mối quan hệ chính trị/quân sự về sau. Giữ nguyên **FALLBACK / LATER-AFFILIATED FIGURE** — không tự khẳng định tham chiến 931.

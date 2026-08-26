@@ -15,15 +15,17 @@
 
 Dựa trên kết quả khảo cứu tại `docs/drafts/viet-su/602-938/sources.md` và `historical-context-and-timeline.md`:
 * **T1 — Near-source Chronicles**:
-  - ***Tân Ngũ Đại Sử* (Âu Dương Tu, Quyển 65 — Nam Hán thế gia)**: Ghi chép chính xác việc vua Nam Hán Lưu Cung sai **Lý Khắc Chính**, Lý Tiến đánh chiếm Giao Châu; **Lý Khắc Chính** bắt Tiết độ sứ Khúc Thừa Mỹ (930). Sau đó tướng Ái Châu là Dương Đình Nghệ dấy quân vây Đại La; Lý Tiến thua chạy trốn về Quảng Châu. Lưu Cung sai Thừa chỉ **Trình Bảo (程寶)** đem quân sang cứu viện thì bị Dương Đình Nghệ đón đánh chém đầu tại trận (931). Năm 937 Kiều Công Tiễn giết Dương Đình Nghệ đoạt quyền.
-  - ***Tư Trị Thông Giám* (Tư Mã Quang, Quyển 277)**: Xác nhận diễn biến chiến dịch 930–931 và 937 tương đồng với *Tân Ngũ Đại Sử*; đồng thời ghi chép Dương Đình Nghệ nuôi 3.000 giả tử (con nuôi — T1 + T2).
+  - ***Tân Ngũ Đại Sử* (Âu Dương Tu, Quyển 65 — Nam Hán thế gia)**: Ghi chép chính xác việc vua Nam Hán Lưu Cung sai các tướng **Lý Thủ Dung (李守鄘)** và **Lương Khắc Trinh (梁克貞)** đánh chiếm Giao Chỉ, bắt Tiết độ sứ Khúc Thừa Mỹ (930); lấy **Lý Tiến (李進)** làm Thứ sử Giao Châu; sau đó tướng Ái Châu là Dương Đình Nghệ dấy quân vây Đại La; Lý Tiến thua chạy trốn về Quảng Châu; Lưu Cung sai Thừa chỉ **Trình Bảo (程寶)** đem quân sang cứu viện thì bị Dương Đình Nghệ đón đánh chém đầu tại trận (931); năm 937 Kiều Công Tiễn giết Dương Đình Nghệ đoạt quyền.
+  - ***Tư Trị Thông Giám* (Tư Mã Quang)**:
+    + **Quyển 277 (Q277)**: Ghi nhận chiến dịch năm 931 — Dương Đình Nghệ dấy quân từ Giao Châu, nuôi 3.000 giả tử (con nuôi — 养子三千人), đánh đuổi Thứ sử Lý Tiến, đón đánh chém chết tướng viện binh **Trình Bảo (程寶)** giải phóng phủ thành.
+    + **Quyển 281 (Q281)**: Ghi nhận biến cố năm 937 — Kiều Công Tiễn làm phản giết chết Dương Đình Nghệ đoạt chức Tiết độ sứ.
 * **T2 — Later Vietnamese Historiography**:
-  - ***Đại Việt Sử Ký Toàn Thư* (Ngoại kỷ Quyển 5) & *Khâm Định Việt Sử Thông Giám Cương Mục***: Ghi chép nguồn gốc họ Khúc đất Hồng Châu (Khúc Thừa Dụ 905, Khúc Hạo 907, Khúc Thừa Mỹ 917); cơ cấu nha tướng dưới trướng Dương Đình Nghệ (Ngô Quyền, Đinh Công Trứ, Kiều Công Tiễn...); narrative 937/938 của Ngô Quyền.
+  - ***Đại Việt Sử Ký Toàn Thư* (Ngoại kỷ Quyển 5) & *Khâm Định Việt Sử Thông Giám Cương Mục***: Ghi chép nguồn gốc họ Khúc đất Hồng Châu (Khúc Thừa Dụ 905, Khúc Hạo 907, Khúc Thừa Mỹ 917); định danh tướng Nam Hán sang đánh bắt Khúc Thừa Mỹ năm 930 là **Lý Khắc Chính (李克正)**; cơ cấu nha tướng dưới trướng Dương Đình Nghệ (Ngô Quyền, Đinh Công Trứ, Kiều Công Tiễn...); narrative 937/938 của Ngô Quyền.
 * **T3 — Local Tradition / Folklore**: Thần tích các làng xã vùng Ái Châu (Thanh Hóa), đền thờ Dương Đình Nghệ (làng Giàng, Thiệu Dương), đền thờ Ngô Quyền và Đinh Công Trứ.
 * **T4 — Modern Scholarship**: Công trình của GS. Trần Quốc Vượng, Phan Huy Lê về thời kỳ quá độ xác lập nền tự chủ đầu thế kỷ X.
 
 > [!CAUTION]
-> **Tên chuẩn tắc T1 cho tướng cứu viện Nam Hán là Trình Bảo (程寶)**, theo *Tân Ngũ Đại Sử* và *Tư Trị Thông Giám*. Nếu gặp dạng "Trần Bảo (陳寶)" trong các tài liệu khác, đó là **biến thể văn bản muộn hơn** cần kèm exact source chứng minh mới được sử dụng.
+> **Tên chuẩn tắc T1 cho tướng cứu viện Nam Hán là Trình Bảo (程寶)**, theo *Tân Ngũ Đại Sử* Q65 và *Tư Trị Thông Giám* Q277. Nếu gặp dạng "Trần Bảo (陳寶)" trong các tài liệu khác, đó là **biến thể văn bản muộn hơn** cần kèm exact source chứng minh mới được sử dụng.
 
 ---
 
@@ -60,7 +62,7 @@ graph TD
   - *Đánh giá*: Không tham gia thực chiến 931; đóng vai trò biểu tượng xây dựng nền tảng quốc gia trong cốt truyện mở đầu.
   - *Quyết định*: **REJECT AS BATTLE HERO (PRESERVED AS NARRATIVE NPC)**.
 * **Khúc Thừa Mỹ (Tiết độ sứ 917–930)**:
-  - *Sử liệu*: T1 (*Tân Ngũ Đại Sử*) + T2 (*Toàn Thư*). Năm 930 bị quân Nam Hán đánh và **Lý Khắc Chính** bắt giải về Phiên Ngung (Quảng Châu).
+  - *Sử liệu*: T1 (*Tân Ngũ Đại Sử* Q65 ghi tướng bắt là Lý Thủ Dung `李守鄘`, Lương Khắc Trinh `梁克貞`) + T2 (*Toàn Thư* ghi Lý Khắc Chính `李克正`). Năm 930 bị quân Nam Hán đánh và bắt giải về Phiên Ngung (Quảng Châu).
   - *Đánh giá*: Là nhân vật xúc tác trực tiếp khơi dậy phong trào phục quốc của Dương Đình Nghệ, nhưng trong năm 931 đang bị giam cầm tại phương Bắc.
   - *Quyết định*: **REJECT AS BATTLE HERO (PRESERVED AS NARRATIVE PROLOGUE CATALYST)**.
 
@@ -155,7 +157,7 @@ graph TD
 | **Nam Hán Cung Nỏ Binh** | **Generic Military Archetype** | **Game / T4 Reconstruction** | Lính xạ thủ trang bị nỏ tay hoặc cung ngắn Nam Hán (visual only, không bắn Hero). |
 | **Nam Hán Xung Kích Khinh Binh** | **Generic Military Archetype** | **Game / T4 Reconstruction** | Lính xung kích cơ động, trang bị trảm mã đao hoặc giáo ngắn. |
 | **Nam Hán Cấm Quân Thiết Giáp** | **Generic Military Archetype** | **Game / T4 Reconstruction** | Lính cận vệ thiết giáp của triều đình Quảng Châu, mặc giáp phiến sẫm màu, cầm trường kích nặng. |
-| **Lý Tiến (李進)** | **Historical Person** | **T1** | Thứ sử Giao Châu do vua Nam Hán bổ nhiệm cố thủ thành Đại La; sau bị đánh bại phải bỏ thành chạy trốn về Quảng Châu. (Lý Tiến không phải người bắt Khúc Thừa Mỹ — đó là Lý Khắc Chính.) |
+| **Lý Tiến (李進)** | **Historical Person** | **T1** | Thứ sử Giao Châu do vua Nam Hán bổ nhiệm cố thủ thành Đại La; sau bị đánh bại phải bỏ thành chạy trốn về Quảng Châu. (Lý Tiến không phải tướng bắt Khúc Thừa Mỹ năm 930 — việc đó do Lý Thủ Dung `李守鄘`, Lương Khắc Trinh `梁克貞` theo T1 / Lý Khắc Chính `李克正` theo T2 thực hiện.) |
 | **Trình Bảo (程寶)** | **Historical Person** | **T1** | Thừa chỉ / Thống lĩnh viện binh Nam Hán; thống lĩnh đạo quân sang giải cứu Đại La, bị Dương Đình Nghệ đón đánh chém đầu tại trận. |
 
 ---
@@ -165,7 +167,7 @@ graph TD
 #### Boss 1: Lý Tiến (Li Jin / 李進 — Thứ Sử Giao Châu Của Nam Hán) — `LOCK BOSS CANDIDATE`
 * **Phân loại**: **HISTORICAL PERSON (Nhân vật lịch sử xác thực T1)**.
 * **Sử liệu ghi nhận**: *Tân Ngũ Đại Sử* (Quyển 65), *Tư Trị Thông Giám* (Quyển 277), *Toàn Thư*.
-* **Hành trạng**: Sau chiến dịch 930, Lưu Cung phong Lý Tiến làm Thứ sử Giao Châu đóng giữ thành Đại La. Năm 931, khi Dương Đình Nghệ đem quân vây thành, Lý Tiến chống cự không nổi, phá vây bỏ thành chạy tháo thân về Quảng Châu. T1 không ghi Lý Tiến là người bắt Khúc Thừa Mỹ — việc đó do **Lý Khắc Chính** thực hiện.
+* **Hành trạng**: Sau chiến dịch 930, Lưu Cung phong Lý Tiến làm Thứ sử Giao Châu đóng giữ thành Đại La. Năm 931, khi Dương Đình Nghệ đem quân vây thành, Lý Tiến chống cự không nổi, phá vây bỏ thành chạy tháo thân về Quảng Châu. T1 không ghi Lý Tiến là người bắt Khúc Thừa Mỹ — việc đó do đạo quân Nam Hán năm 930 (T1 ghi Lý Thủ Dung `李守鄘`, Lương Khắc Trinh `梁克貞`; T2 ghi Lý Khắc Chính `李克正`) thực hiện.
 * **Vai trò gameplay**: **Boss Giai Đoạn 1 / Thủ Thành Tướng (Mid-boss)**.
 * **Đề xuất quyết định**: **LOCK CANDIDATE (First Boss)**.
 
@@ -174,7 +176,7 @@ graph TD
 * **Sử liệu ghi nhận**: *Tân Ngũ Đại Sử* (Quyển 65), *Tư Trị Thông Giám* (Quyển 277), *Toàn Thư*.
 
 > [!CAUTION]
-> **Canonical T1 name**: **Trình Bảo (程寶)**. Đây là tên được *Tân Ngũ Đại Sử* và *Tư Trị Thông Giám* ghi chép. Dạng "Trần Bảo (陳寶)" nếu xuất hiện cần được xác định rõ là **biến thể văn bản muộn hơn (later Vietnamese textual variant)** và phải kèm exact source chứng minh; không được dùng mặc định thay thế tên T1 chuẩn tắc.
+> **Canonical T1 name**: **Trình Bảo (程寶)**. Đây là tên được *Tân Ngũ Đại Sử* Q65 và *Tư Trị Thông Giám* Q277 ghi chép. Dạng "Trần Bảo (陳寶)" nếu xuất hiện cần được xác định rõ là **biến thể văn bản muộn hơn (later Vietnamese textual variant)** và phải kèm exact source chứng minh; không được dùng mặc định thay thế tên T1 chuẩn tắc.
 
 * **Hành trạng**: Là viên tướng giữ chức Thừa chỉ của Nam Hán, được Lưu Cung sai thống lĩnh đạo viện binh sang giải cứu Đại La. Khi quân Trình Bảo kéo đến thì Đại La đã thất thủ; Dương Đình Nghệ chủ động đem quân đón đánh tan tác viện binh và chém chết Trình Bảo tại trận.
 * **Vai trò gameplay**: **Main Chapter Boss (Boss Cuối Chương 931)**.
@@ -185,11 +187,11 @@ graph TD
 ## 4. Ràng Buộc Sử Liệu Cốt Lõi (Source Guardrails)
 
 1. **Khúc gia (905–930)**: Được thể hiện qua phần dẫn truyện (Narrative Prelude), không tạo combat hero tham gia trận 931.
-2. **Chiến dịch 931**: Bám sát ghi chép T1/T2: khởi binh từ Ái Châu → bao vây đánh tan thủ quân Lý Tiến → đón đánh chém tướng viện binh **Trình Bảo (程寶)**. Không tự ý bịa đặt chiến thuật chi tiết vượt ra ngoài khung sử liệu.
+2. **Chiến dịch 931**: Bám sát ghi chép T1/T2: khởi binh từ Ái Châu → bao vây đánh tan thủ quân Lý Tiến → đón đánh chém tướng viện binh **Trình Bảo (程寶)** (*Tư Trị Thông Giám* Q277, *Tân Ngũ Đại Sử* Q65). Không tự ý bịa đặt chiến thuật chi tiết vượt ra ngoài khung sử liệu.
 3. **Hình tượng Ngô Quyền**: T1 xác nhận là nha tướng / former general của Dương Đình Nghệ trong narrative 937/938. Tuy nhiên T1 không trực tiếp xác nhận Ngô Quyền tham chiến hay là tiên phong tại Đại La năm 931. Giữ nguyên **PROVISIONAL**; không kéo chiến tích Bạch Đằng 938 về chương này.
 4. **Đinh Công Trứ**: T2 xác nhận ông là nha tướng nhận quản Hoan Châu sau 931, nhưng không có exact T1/T2 citation về sự tham chiến trực tiếp năm 931. Giữ **PROVISIONAL**.
 5. **Dương Tam Kha & Kiều Công Hãn**: Không tự suy luận tham chiến 931 chỉ vì mối quan hệ chính trị/quân sự về sau. Giữ **FALLBACK / LATER-AFFILIATED FIGURE**.
-6. **Biến cố 937 (Kiều Công Tiễn phản nghịch)**: Đóng vai trò **Epilogue / Narrative Bridge** ở đoạn kết chương nhằm mở ra bối cảnh xung đột dẫn thẳng tới chiến dịch Bạch Đằng 938.
+6. **Biến cố 937 (Kiều Công Tiễn phản nghịch)**: Ghi nhận trong T1 (*Tân Ngũ Đại Sử* Q65, *Tư Trị Thông Giám* Q281) và T2 (*Toàn Thư*), đóng vai trò **Epilogue / Narrative Bridge** ở đoạn kết chương nhằm mở ra bối cảnh xung đột dẫn thẳng tới chiến dịch Bạch Đằng 938.
 
 ---
 
@@ -197,17 +199,17 @@ graph TD
 
 | Vị Trí / Hạng Mục | Tên Đề Xuất | Tầng Nguồn | Mức Độ Tin Cậy Sử Liệu | Quyết Định / Trạng Thái | Ghi Chú Ràng Buộc Sử Liệu |
 |---|---|:---:|:---:|:---:|---|
-| **Hero Slot 1** | **Dương Đình Nghệ** | **T1 + T2** | Well-attested T1 / T2 Fact | **LOCK CANDIDATE** | Bắt buộc; thủ lĩnh tối cao chiến dịch 931. |
+| **Hero Slot 1** | **Dương Đình Nghệ** | **T1 + T2** | Well-attested T1 / T2 Fact | **LOCK CANDIDATE** | Bắt buộc; thủ lĩnh tối cao chiến dịch 931 (*Tư Trị Thông Giám* Q277, *Tân Ngũ Đại Sử* Q65). |
 | **Hero Slot 2** | **Ngô Quyền** | **T1 + T2** | Association well-attested; direct 931 uncertain | **PROVISIONAL** | Nha tướng Ái Châu (T1 narrative 937/938); tham chiến 931 chưa được T1 trực tiếp xác nhận; không kéo chiến tích 938 về. |
 | **Hero Slot 3** | **Đinh Công Trứ** | **T2** | T2 attestation (post-931 role); direct 931 uncertain | **PROVISIONAL** | Nha tướng Hoa Lư; T2 ghi nhận quản Hoan Châu sau 931; direct 931 = không có exact citation. |
 | *Hero Fallback 1* | *Dương Tam Kha* | *T2* | Later-affiliated; no exact 931 citation | *FALLBACK / LATER-AFFILIATED FIGURE* | Con trai Dương Đình Nghệ; không có nguồn trực tiếp cho 931. |
 | *Hero Fallback 2* | *Kiều Công Hãn* | *T2 + T3* | Later-affiliated; no exact 931 citation | *FALLBACK / LATER-AFFILIATED FIGURE* | Nha tướng họ Kiều; rõ nét hơn ở 937–938 / 12 Sứ Quân. |
 | *Narrative NPC* | *Khúc Thừa Dụ / Khúc Hạo* | *T1/T2* | Well-attested T1 / T2 Fact | *NARRATIVE NPC* | Lãnh tụ mở đầu tự chủ (Prelude 905–917). |
-| *Narrative Prologue*| *Khúc Thừa Mỹ* | *T1/T2* | Well-attested T1 / T2 Fact | *PROLOGUE NPC* | Bị Lý Khắc Chính bắt năm 930 (xúc tác chiến dịch). |
+| *Narrative Prologue*| *Khúc Thừa Mỹ* | *T1/T2* | Well-attested T1 / T2 Fact | *PROLOGUE NPC* | Bị Nam Hán bắt năm 930 (T1: Lý Thủ Dung/Lương Khắc Trinh; T2: Lý Khắc Chính). |
 | **Normal Enemy 1** | **Nam Hán Bộ Binh Tiền Phong** | **Game / T4** | Game / T4 Reconstruction | **LOCK CANDIDATE** | Generic infantry, đao/khiên nhẹ (visual only). |
 | **Normal Enemy 2** | **Nam Hán Cung Nỏ Binh** | **Game / T4** | Game / T4 Reconstruction | **LOCK CANDIDATE** | Generic ranged, nỏ/cung (visual only, không bắn Hero). |
 | **Normal Enemy 3** | **Nam Hán Xung Kích Khinh Binh**| **Game / T4** | Game / T4 Reconstruction | **LOCK CANDIDATE** | Generic light infantry, trảm mã đao/giáo ngắn. |
 | **Elite Unit** | **Nam Hán Cấm Quân Thiết Giáp** | **Game / T4** | Game / T4 Reconstruction | **LOCK CANDIDATE** | Lính tinh nhuệ giáp phiến sẫm màu, trường kích nặng. |
-| **Boss 1 (Mid-boss)**| **Lý Tiến (李進)** | **T1** | Well-attested T1 | **LOCK CANDIDATE** | Thứ sử Giao Châu thủ thành Đại La, thua chạy. (Không phải người bắt Khúc Thừa Mỹ.) |
-| **Boss 2 (Main Boss)**| **Trình Bảo (程寶)** | **T1** | Well-attested T1 | **LOCK CANDIDATE** | Canonical T1 name; tướng viện binh Nam Hán; tử trận năm 931. |
+| **Boss 1 (Mid-boss)**| **Lý Tiến (李進)** | **T1** | Well-attested T1 | **LOCK CANDIDATE** | Thứ sử Giao Châu thủ thành Đại La, thua chạy. (Không phải tướng bắt Khúc Thừa Mỹ 930.) |
+| **Boss 2 (Main Boss)**| **Trình Bảo (程寶)** | **T1** | Well-attested T1 | **LOCK CANDIDATE** | Canonical T1 name (*Tân Ngũ Đại Sử* Q65, *Tư Trị Thông Giám* Q277); tướng viện binh Nam Hán; tử trận năm 931. |
 | **Primary Map** | **Chiến Lũy Đại La (931 SCN)** | **T1/T2 + T4** | High (T1/T2 Toponym + T4 Artistic) | **LOCK CANDIDATE** | Chiến trường vây hãm và giải phóng thành Đại La. Chi tiết công trình cụ thể (cầu gỗ, bãi cọc...) là T4 Artistic Reconstruction. |

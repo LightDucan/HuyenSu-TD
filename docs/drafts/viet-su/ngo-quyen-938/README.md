@@ -50,8 +50,8 @@ Tập hồ sơ tuyển chọn nội dung cho Chapter Ngô Quyền & Bạch Đằ
    - *T1 (*Tân Ngũ Đại Sử* Q65, *Tư Trị Thông Giám* Q281)*: Ghi nhận sự kiện Ngô Quyền diệt Kiều Công Tiễn (`皎公羨`); vua Nam Hán Lưu Cung sai con sang đánh Giao Châu; Ngô Quyền đón đánh bằng trận địa cọc ở cửa biển, thừa lúc nước triều rút ép thuyền giặc vướng cọc lật úp, giết chết chủ tướng Nam Hán; Lưu Cung thu nhặt tàn quân rút về.
    - *T2 (*Đại Việt Sử Ký Toàn Thư*, *Khâm Định Việt Sử Thông Giám Cương Mục*, *Việt Sử Lược*)*: Ghi nhận Kiều Công Tiễn (`矯公羨`); mô tả chi tiết: Ngô Quyền cho vạt nhọn cọc gỗ bịt sắt cắm ngầm dưới lòng sông, sai thuyền nhẹ ra khiêu chiến nhử giặc lúc triều lên, đợi triều rút thì dốc toàn lực phản công ép thuyền giặc vào bãi cọc.
 2. **Khảo chính thuật ngữ cọc theo từng nguồn cụ thể (Source-Specific Stake Wording)**:
-   - *Tân Ngũ Đại Sử* Q65 ghi: `植鐵橛海中` (cắm cọc sắt/bịt sắt ở biển/trong nước).
-   - *Tư Trị Thông Giám* Q281 ghi chi tiết: cọc gỗ lớn, vạt nhọn đầu bịt sắt (`權先植大木于海門，闞其鋒以鐵`), dùng thuyền nhẹ (`以輕舟出迎戰`), nước triều lên ngập cọc (`潮滿漲，木溺不見`), giả thua chạy nhử giặc (`詐奔`), triều rút thuyền vướng cọc (`潮退，艦礙於木`), đâm lật thuyền giặc.
+   - *Tân Ngũ Đại Sử* Q65 ghi nhận: `植鐵橛海中` (cắm cọc sắt/bịt sắt trong biển/cửa biển), `洪操戰死` (Hồng Thao tử trận), `收餘眾而還` (thu tàn quân rút về). Tuyệt đối không gán `斬洪操` hay các chi tiết cọc gỗ cho Q65.
+   - *Tư Trị Thông Giám* Q281 ghi chi tiết: cọc gỗ lớn vạt nhọn đầu bịt sắt (`植大杙于海門，銳其首，冒之以鐵`), dùng thuyền nhẹ nhân lúc triều lên khiêu chiến (`以輕舟乘潮挑戰`), giả vờ rút chạy (`偽遁`), triều rút chiến thuyền Nam Hán vướng cọc sắt không lui được (`會潮落，漢艦礙鐵杙不得返`), quân sĩ chìm đắm quá nửa (`士卒覆溺者太半`), Hoằng Thao tử trận (`弘操死`).
    - Tuyệt đối không gộp chi tiết của nguồn sau rồi gán ngược cho *Tân Ngũ Đại Sử*.
 3. **Name Variant Matrix cho chủ tướng Nam Hán**:
    - *Tân Ngũ Đại Sử* (Q65) dùng chữ **Hồng Thao (洪操)** (`劉洪操`).

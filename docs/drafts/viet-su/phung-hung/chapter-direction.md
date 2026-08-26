@@ -20,7 +20,7 @@ graph TD
         
         P2["<b>Hồi 2 (Primary Chapter): Bão Lửa Tống Bình (Vây Hãm Phủ Thành)</b><br>• Bối cảnh: Nghĩa quân tiến về thủ phủ Đô hộ phủ.<br>• Diễn biến: Bao vây phủ thành Tống Bình, bức lui quân đồn trú; Cao Chính Bình lo sợ phát bệnh mà chết (791 SCN).<br>• Chiến trường chính: Phủ thành Tống Bình (Primary Map)."]
         
-        P3["<b>Hồi 3 (Post-791 Epilogue): Truy Tôn Bố Cái & Chuyển Giao Chính Trị</b><br>• Bối cảnh: Phùng Hưng làm chủ phủ thành nhiều năm rồi qua đời; Phùng An cùng dân chúng truy tôn ông là Bố Cái Đại Vương.<br>• Hậu kỳ: Đô hộ Triệu Xương sang vỗ về hòa giải chính trị, Phùng An quy phục triều đình để giữ yên nhân dân."]
+        P3["<b>Hồi 3 (Post-791 Epilogue): Truy Tôn Bố Cái & Chuyển Giao Chính Trị</b><br>• Bối cảnh: Phùng Hưng vào phủ thành coi chính sự, theo Toàn Thư (T2) chưa được bao lâu thì qua đời; con là Phùng An nối nghiệp tôn cha là Bố Cái Đại Vương (T2 Toàn Thư; truyền bản Cương Mục/T3 chép dân chúng suy tôn).<br>• Hậu kỳ: Đô hộ Triệu Xương sang vỗ về hòa giải chính trị, Phùng An quy phục triều đình để giữ yên nhân dân."]
     end
 
     P1 --> P2
@@ -86,4 +86,4 @@ flowchart TD
 
 * **Thông điệp lịch sử trọng tâm**:
   * Khắc họa ý chí tự cường bền bỉ của người Việt thế kỷ VIII, dám đứng lên lật đổ ách thống trị của bộ máy đô hộ nhà Đường.
-  * Danh hiệu **Bố Cái Đại Vương** do con trai Phùng An và nhân dân truy tôn sau khi ông qua đời là biểu tượng thiêng liêng cho sự tri ân của muôn dân đối với vị thủ lĩnh hết lòng vì nước, vì dân.
+  * Danh hiệu **Bố Cái Đại Vương** được con trai Phùng An tôn xưng (T2 *Toàn Thư*) và dân chúng suy tôn (T2 *Cương Mục* / T3) là biểu tượng thiêng liêng cho sự tri ân đối với vị thủ lĩnh hết lòng vì nước, vì dân.

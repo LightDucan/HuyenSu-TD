@@ -5,7 +5,7 @@
 > - **Chủ đề**: Thiết lập danh mục Roster đề xuất cho Historical Arc **Phùng Hưng** — phong trào quật khởi chống ách đô hộ nhà Đường vào **cuối thế kỷ VIII** (với sự kiện trung tâm năm 791 SCN và giai đoạn hậu kỳ sau đó).
 > - **Ràng buộc học thuật cốt lõi (Guardrails)**:
 >   - **T1 (*Cựu Đường Thư*, *Tân Đường Thư*) năm 791**: Ghi nhận các nhân vật **Đỗ Anh Hàn (杜英翰)**, **Cao Chính Bình (高正平)**, **Triệu Xương (趙昌)**. T1 **KHÔNG** trực tiếp ghi danh Phùng Hưng hay Phùng An.
->   - **Phùng Hưng Narrative**: Câu chuyện về Phùng Hưng dấy binh Đường Lâm, xưng Đô Quân, em Phùng Hải xưng Đô Bảo, vây hãm phủ thành Tống Bình thuộc tầng **T2 (*Toàn Thư*, *Cương Mục*)**. Sau khi Phùng Hưng mất, Phùng An / dân chúng truy tôn ông là **Bố Cái Đại Vương** theo **T2/T3**.
+>   - **Phùng Hưng Narrative**: Câu chuyện về Phùng Hưng dấy binh Đường Lâm, xưng Đô Quân, em Phùng Hải xưng Đô Bảo, vây hãm phủ thành Tống Bình thuộc tầng **T2 (*Toàn Thư*, *Cương Mục*)**. Sau khi Phùng Hưng mất, con là Phùng An tôn cha là **Bố Cái Đại Vương** (T2 *Toàn Thư*), hoặc dân chúng suy tôn theo *Cương Mục* / T3.
 >   - **Đỗ Anh Hàn vs Phùng Hưng**: Việc đồng nhất Đỗ Anh Hàn (T1) với Phùng Hưng (T2) là **`[T4 interpretation / unverified]`**, tuyệt đối không khẳng định là Fact lịch sử xác thực.
 >   - **Phùng Dĩnh**: Không có trong nguyên văn chính sử T2 (*Toàn Thư* / *Cương Mục*); thuộc tầng **T3 (Thần tích / Dã sử) / T4**, do đó xếp trạng thái **`PROVISIONAL`** (không khóa cứng `LOCK`).
 >   - **Đô hộ Triệu Xương**: Đại diện cho giai đoạn hậu kỳ sau năm 791 (post-791 epilogue), dùng chính sách vỗ về tiếp nhận sự quy phục của Phùng An; **không mặc định biến Triệu Xương thành combat Boss cơ học**.
@@ -35,8 +35,8 @@ graph TD
 * **Identity & Hình tượng**: Supreme Commander / Hào trưởng khởi nghĩa / Thủ lĩnh phong trào giải phóng Tống Bình.
 * **Vai trò lịch sử (Historical role)**:
   * Hào trưởng danh vọng đất Đường Lâm, xuất thân quý tộc bản địa kế thừa thế lực nhiều đời.
-  * Lãnh đạo nhân dân và nghĩa binh nổi dậy chống ách cai trị và sưu thuế hà khắc của Cao Chính Bình; tự xưng là **Đô Quân** (都君 — T2), cùng nghĩa quân vây hãm phủ thành Tống Bình, lật đổ chính quyền đô hộ, làm chủ đất nước trong nhiều năm.
-  * Sau khi Phùng Hưng qua đời, con trai là Phùng An cùng dân chúng nhớ ơn đã **truy tôn ông là Bố Cái Đại Vương** (T2/T3 — đại vương như cha mẹ của dân).
+  * Lãnh đạo nhân dân và nghĩa binh nổi dậy chống ách cai trị và sưu thuế hà khắc của Cao Chính Bình; tự xưng là **Đô Quân** (都君 — T2), cùng nghĩa quân vây hãm phủ thành Tống Bình, lật đổ chính quyền đô hộ của Cao Chính Bình. *Toàn Thư* (T2) ghi nhận sau khi vào phủ trị sự "chưa được bao lâu thì chết" (nếu nhắc truyền thống cai trị kéo dài 7 năm thì thuộc *Việt Điện U Linh* / dã sử T3 riêng biệt, không nhập vào T2 narrative).
+  * Sau khi Phùng Hưng qua đời, con trai là Phùng An tôn cha là **Bố Cái Đại Vương** theo ghi chép của *Toàn Thư* (T2); truyền bản *Cương Mục* (T2) và thần tích dân gian (T3) chép dân chúng suy tôn ông vì kính trọng như cha mẹ (*Bố = Cha, Cái = Mẹ*). Cần phân biệt rõ hai dòng truyền thống này, không gộp thành một historical fact duy nhất.
 * **Phân tầng nguồn gốc (Source tier)**: **T2 (*Đại Việt Sử Ký Toàn Thư*, *Khâm Định Việt Sử Thông Giám Cương Mục*) + T3 (*Việt Điện U Linh Tập*, Thần tích Đường Lâm)**.
 * **Bất định lịch sử (Historical uncertainty)**:
   * Văn bản T1 phương Bắc gần thời (*Cựu Đường Thư*, *Tân Đường Thư*) không ghi tên Phùng Hưng mà ghi nhận biến cố năm 791 SCN gắn với thủ lĩnh **Đỗ Anh Hàn**.
@@ -79,7 +79,7 @@ graph TD
 
 * **Identity & Hình tượng**: Successor Political Figure / Hậu duệ kế vị / Nhân vật chuyển giao chính trị.
 * **Vai trò lịch sử (Historical role)**:
-  * Con trai của Phùng Hưng, kế vị cha cai quản Tống Bình sau khi Phùng Hưng qua đời; cùng dân chúng chính thức **truy tôn cha là Bố Cái Đại Vương** (T2).
+  * Con trai của Phùng Hưng, kế vị cha cai quản Tống Bình sau khi Phùng Hưng qua đời; theo *Toàn Thư* (T2), Phùng An đã tôn cha là Bố Cái Đại Vương.
   * Trong giai đoạn hậu kỳ sau năm 791 (post-791 epilogue), trước sức ép chính trị và chính sách chiêu an mềm mỏng của Đô hộ Triệu Xương, Phùng An đã quyết định quy phục triều Đường để bảo toàn nhân dân, tránh họa binh đao.
 * **Phân tầng nguồn gốc (Source tier)**: **T2 (*Toàn Thư*, *Cương Mục*)**.
 * **Bất định lịch sử & Vị thế**:
@@ -183,7 +183,7 @@ flowchart LR
 
 | Hạng Mục | Tên Thực Thể / Định Danh (NAME) | Phân Tầng Nguồn (SOURCE TIER) | Độ Tin Cậy Học Thuật (CONFIDENCE) | Trạng Thái Thiết Kế (STATUS) |
 |---|---|:---:|:---:|:---:|
-| **Hero 1** | **Phùng Hưng (Đô Quân / Bố Cái Đại Vương)** | **T2 / T3** | Cao (T2 Chính sử; T3 Dân gian truy tôn; T1 ghi Đỗ Anh Hàn) | **LOCK CANDIDATE** |
+| **Hero 1** | **Phùng Hưng (Đô Quân / Bố Cái Đại Vương)** | **T2 / T3** | Cao (T2 Toàn Thư Phùng An tôn cha / Cương Mục, T3 dân chúng suy tôn; T1 ghi Đỗ Anh Hàn) | **LOCK CANDIDATE** |
 | **Hero 2** | **Phùng Hải (Đô Bảo)** | **T2 / T3** | Trung bình - Cao (T2 Chính sử Toàn Thư xác nhận) | **LOCK CANDIDATE** |
 | **Hero 3** | **Phùng Dĩnh** | **T3 / T4** | Thấp - Trung bình (Dã sử & Thần tích; không thấy trong T2) | **PROVISIONAL** |
 | **Fallback Hero** | **Phùng An** | **T2** | Trung bình (T2 Chính sử; vai trò quy phục hòa bình post-791) | **FALLBACK / STORY NPC** |

@@ -4,7 +4,7 @@ import { enemyDefinitions, type EnemyCategory } from '../../data/enemies/definit
 import { heroDefinitions, quanVu, type HeroDefinition } from '../../data/heroes/definitions'
 import { prototypeMap } from '../../data/maps/prototypeMap'
 import { prototypeWaves } from '../../data/waves/prototypeWaves'
-import { prototypeHeroVisuals, scaleVisualDuration } from '../../data/assets/prototypeVisualAssets'
+import { prototypeHeroVisuals, resolvePrototypeHeroVisual, scaleVisualDuration } from '../../data/assets/prototypeVisualAssets'
 import { GameClock } from '../../domain/clock/GameClock'
 import { CombatController } from '../../domain/combat/CombatController'
 import type { CombatEnemy, Vector2 } from '../../domain/combat/types'
@@ -26,7 +26,7 @@ type PlacedHeroRuntime = {
   stats: HeroDefinition['baseStats']
   combatController: CombatController
   visual: Phaser.GameObjects.Container
-  sprite: Phaser.GameObjects.Image
+  sprite?: Phaser.GameObjects.Image
   rangeVisual: Phaser.GameObjects.Arc
   position: Vector2
   slotId: string
@@ -58,9 +58,9 @@ export class BattleScene extends Phaser.Scene {
 
   preload(): void {
     Object.values(prototypeHeroVisuals).forEach((visual) => {
-      this.load.image(visual.idleTextureKey, visual.idleUrl)
-      this.load.image(visual.attackTextureKey, visual.attackUrl)
-      this.load.image(visual.vfxTextureKey, visual.vfxUrl)
+      if (visual.idleUrl) this.load.image(visual.idleTextureKey, visual.idleUrl)
+      if (visual.attackUrl) this.load.image(visual.attackTextureKey, visual.attackUrl)
+      if (visual.vfxUrl) this.load.image(visual.vfxTextureKey, visual.vfxUrl)
     })
   }
 
@@ -166,11 +166,13 @@ export class BattleScene extends Phaser.Scene {
     const index = this.enemies.findIndex((enemy) => enemy.state.id === targetId)
     if (index < 0) return
     const enemy = this.enemies[index]
-    const visualAsset = prototypeHeroVisuals[hero.definition.id]
-    hero.sprite.setTexture(visualAsset.attackTextureKey)
-    this.time.delayedCall(scaleVisualDuration(180, this.gameClock.getSpeed()), () => {
-      if (hero.sprite.active) hero.sprite.setTexture(visualAsset.idleTextureKey)
-    })
+    const visualAsset = resolvePrototypeHeroVisual(hero.definition.id)
+    if (hero.sprite && visualAsset?.attackUrl && this.textures.exists(visualAsset.attackTextureKey)) {
+      hero.sprite.setTexture(visualAsset.attackTextureKey)
+      this.time.delayedCall(scaleVisualDuration(180, this.gameClock.getSpeed()), () => {
+        if (hero.sprite?.active && visualAsset.idleUrl && this.textures.exists(visualAsset.idleTextureKey)) hero.sprite.setTexture(visualAsset.idleTextureKey)
+      })
+    }
     enemy.body.setFillStyle(critical ? 0xfbbf24 : 0xf87171)
     this.time.delayedCall(80, () => enemy.body.active && enemy.body.setFillStyle(enemyDefinitions[enemy.definitionId].color))
     const damageText = this.add.text(enemy.body.x, enemy.body.y - 34, `${critical ? 'CRIT ' : ''}-${Math.round(damage)}`, { color: critical ? '#fde047' : '#ffffff', fontSize: '14px', fontStyle: 'bold' }).setOrigin(0.5)
@@ -182,18 +184,14 @@ export class BattleScene extends Phaser.Scene {
 
   private onSkill(hero: PlacedHeroRuntime): void {
     const result = resolveSkill(skillDefinitions[hero.definition.activeSkillId], hero.position, hero.stats, this.enemies.map((enemy) => enemy.state))
-    const visualAsset = prototypeHeroVisuals[hero.definition.id]
-    const vfx = this.add.image(hero.position.x, hero.position.y - 28, visualAsset.vfxTextureKey)
-      .setDisplaySize(96, 96)
-      .setAlpha(0.82)
-      .setDepth(8)
-    this.tweens.add({
-      targets: vfx,
-      alpha: 0,
-      scale: 1.18,
-      duration: scaleVisualDuration(420, this.gameClock.getSpeed()),
-      onComplete: () => vfx.destroy(),
-    })
+    const visualAsset = resolvePrototypeHeroVisual(hero.definition.id)
+    if (visualAsset?.vfxUrl && this.textures.exists(visualAsset.vfxTextureKey)) {
+      const vfx = this.add.image(hero.position.x, hero.position.y - 28, visualAsset.vfxTextureKey)
+        .setDisplaySize(96, 96)
+        .setAlpha(0.82)
+        .setDepth(8)
+      this.tweens.add({ targets: vfx, alpha: 0, scale: 1.18, duration: scaleVisualDuration(420, this.gameClock.getSpeed()), onComplete: () => vfx.destroy() })
+    }
     result.killedEnemyIds.forEach((id) => {
       const index = this.enemies.findIndex((enemy) => enemy.state.id === id)
       if (index >= 0) this.removeEnemy(index, 'defeated')
@@ -254,11 +252,14 @@ export class BattleScene extends Phaser.Scene {
     const equipment = loadEquipment(window.localStorage).heroes[definition.id] ?? {}
     const stats = calculateHeroLoadoutStats(definition.baseStats, progression, equipment, equipmentDefinitions)
     const rangeVisual = this.add.circle(position.x, position.y, stats.range, 0x38bdf8, 0.08).setStrokeStyle(2, 0x7dd3fc, 0.5)
-    const visualAsset = prototypeHeroVisuals[definition.id]
-    const sprite = this.add.image(0, 0, visualAsset.idleTextureKey)
-      .setOrigin(0.5, 112 / 128)
-      .setDisplaySize(72, 72)
-    const visual = this.add.container(position.x, position.y, [sprite]).setDepth(6)
+    const visualAsset = resolvePrototypeHeroVisual(definition.id)
+    const sprite = visualAsset?.idleUrl && this.textures.exists(visualAsset.idleTextureKey)
+      ? this.add.image(0, 0, visualAsset.idleTextureKey).setOrigin(0.5, 112 / 128).setDisplaySize(72, 72)
+      : undefined
+    const fallbackBody = sprite ? undefined : this.add.circle(0, 0, 24, 0x2563eb).setStrokeStyle(3, 0xdbeafe)
+    const fallbackLabel = sprite ? undefined : this.add.text(0, 0, definition.name.split(' ').map((part) => part[0]).join('').slice(-2).toUpperCase(), { color: '#ffffff', fontSize: '14px', fontStyle: 'bold' }).setOrigin(0.5)
+    const visualChildren: Phaser.GameObjects.GameObject[] = sprite ? [sprite] : [fallbackBody!, fallbackLabel!]
+    const visual = this.add.container(position.x, position.y, visualChildren).setDepth(6)
     return {
       definition,
       stats,

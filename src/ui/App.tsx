@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { equipmentDefinitions } from '../data/equipment/definitions'
-import { prototypeHeroVisuals } from '../data/assets/prototypeVisualAssets'
+import { resolvePrototypeHeroVisual } from '../data/assets/prototypeVisualAssets'
 import { heroDefinitions } from '../data/heroes/definitions'
 import { featureFlags } from '../config/features'
 import type { GameSpeed } from '../domain/clock/GameClock'
@@ -42,7 +42,7 @@ export function App() {
     loadEquipment(window.localStorage).heroes[initialHeroId] ?? {},
   )
   const hudData = toBattleHudData(snapshot)
-  const heroOptions = Object.values(heroDefinitions).map(({ id, name }) => ({ id, name, portraitUrl: prototypeHeroVisuals[id].portraitUrl }))
+  const heroOptions = Object.values(heroDefinitions).map(({ id, name }) => ({ id, name, portraitUrl: resolvePrototypeHeroVisual(id)?.portraitUrl }))
   const selectedHeroName = heroDefinitions[hudData.selectedHeroId]?.name ?? 'Hero'
   const selectedPlacement = hudData.placedHeroes.find(({ heroId }) => heroId === hudData.selectedHeroId)
 

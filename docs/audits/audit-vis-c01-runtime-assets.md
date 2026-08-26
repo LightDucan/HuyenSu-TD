@@ -14,15 +14,18 @@ PASS — ready for integration audit. Branch is not merged into `main`.
 - HUD roster and Hero Detail use the mapped portrait URLs.
 - Attack/VFX display durations scale from the existing Battle x1/x3 speed.
 - Reposition keeps the same runtime sprite/container and combat state.
+- Asset lookup is non-throwing: missing idle uses the primitive Hero fallback, missing attack retains idle/fallback, missing VFX skips only rendering, and missing portrait uses initials.
+- Unknown Hero visual mappings remain playable through the shared primitive fallback.
 
 ## Verification
 
 - Asset mapping coverage: PASS — 5 Heroes × portrait/idle/attack/VFX = 20 unique files.
+- Missing portrait/idle/attack/VFX and unknown Hero lookup tests: PASS.
 - Runtime visual placement and baseline inspection: PASS.
 - HUD and Hero Detail portrait inspection: PASS.
 - x1/x3 control smoke: PASS.
 - Browser console errors: NONE.
-- `npm test`: PASS (78/78).
+- `npm test`: PASS (82/82).
 - `npm run build`: PASS.
 - Production preview: PASS (HTTP 200).
 - `git diff --check`: PASS.

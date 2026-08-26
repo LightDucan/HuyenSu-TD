@@ -9,42 +9,49 @@ const assetUrls = import.meta.glob('../../assets/{heroes,portraits,vfx}/**/*.png
 export type HeroVisualAsset = Readonly<{
   heroId: string
   skillId: string
-  portraitUrl: string
-  idleUrl: string
-  attackUrl: string
-  vfxUrl: string
+  portraitUrl?: string
+  idleUrl?: string
+  attackUrl?: string
+  vfxUrl?: string
   idleTextureKey: string
   attackTextureKey: string
   vfxTextureKey: string
 }>
 
-function requireAsset(path: string): string {
-  const url = assetUrls[`../../assets/${path}`]
-  if (!url) throw new Error(`Missing prototype visual asset: ${path}`)
-  return url
-}
+export type VisualAssetLookup = (path: string) => string | undefined
 
-function defineHeroVisual(heroId: string, skillId: string): HeroVisualAsset {
+const bundledAssetLookup: VisualAssetLookup = (path) => assetUrls[`../../assets/${path}`]
+
+function defineHeroVisual(heroId: string, skillId: string, lookup: VisualAssetLookup): HeroVisualAsset {
   return {
     heroId,
     skillId,
-    portraitUrl: requireAsset(`portraits/${heroId}.png`),
-    idleUrl: requireAsset(`heroes/${heroId}/idle.png`),
-    attackUrl: requireAsset(`heroes/${heroId}/attack.png`),
-    vfxUrl: requireAsset(`vfx/${skillId}.png`),
+    portraitUrl: lookup(`portraits/${heroId}.png`),
+    idleUrl: lookup(`heroes/${heroId}/idle.png`),
+    attackUrl: lookup(`heroes/${heroId}/attack.png`),
+    vfxUrl: lookup(`vfx/${skillId}.png`),
     idleTextureKey: `hero:${heroId}:idle`,
     attackTextureKey: `hero:${heroId}:attack`,
     vfxTextureKey: `skill:${skillId}:vfx`,
   }
 }
 
-export const prototypeHeroVisuals: Readonly<Record<string, HeroVisualAsset>> = {
-  'quan-vu': defineHeroVisual('quan-vu', 'thanh-long-tram'),
-  'truong-phi': defineHeroVisual('truong-phi', 'ba-xa-gam-vang'),
-  'trieu-van': defineHeroVisual('trieu-van', 'that-tien-that-xuat'),
-  'hoang-trung': defineHeroVisual('hoang-trung', 'bach-bo-xuyen-duong'),
-  'gia-cat-luong': defineHeroVisual('gia-cat-luong', 'dong-phong-hoa-tran'),
+const visualDefinitions: Readonly<Record<string, string>> = {
+  'quan-vu': 'thanh-long-tram',
+  'truong-phi': 'ba-xa-gam-vang',
+  'trieu-van': 'that-tien-that-xuat',
+  'hoang-trung': 'bach-bo-xuyen-duong',
+  'gia-cat-luong': 'dong-phong-hoa-tran',
 }
+
+export function resolvePrototypeHeroVisual(heroId: string, lookup: VisualAssetLookup = bundledAssetLookup): HeroVisualAsset | undefined {
+  const skillId = visualDefinitions[heroId]
+  return skillId ? defineHeroVisual(heroId, skillId, lookup) : undefined
+}
+
+export const prototypeHeroVisuals: Readonly<Record<string, HeroVisualAsset>> = Object.fromEntries(
+  Object.keys(visualDefinitions).map((heroId) => [heroId, resolvePrototypeHeroVisual(heroId, bundledAssetLookup)!]),
+)
 
 export function scaleVisualDuration(baseDurationMs: number, speed: GameSpeed): number {
   return baseDurationMs / speed

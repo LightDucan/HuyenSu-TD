@@ -16,9 +16,9 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 ## Trạng thái hiện tại
 
 - Current Phase: **11 — Reward Economy**
-- Current Codex task: **VIS-C01 — Runtime Asset Integration — DONE, chờ Audit** — branch `codex/vis-c01-runtime-asset-integration`.
+- Current Codex task: **VIS-C01 FINAL HARDENING — DONE, chờ final audit** — branch `codex/vis-c01-runtime-asset-integration`.
 - Current Antigravity task: **VS-NDPL-00 — 939–1009 Research — IN PROGRESS** — branch `antigravity/vs-ndpl-00-939-1009-research` @ `5686d7f`.
-- Lần kiểm tra gần nhất: VIS-C01 nối 20 prototype assets vào Phaser/HUD bằng mapping dùng chung; placement/portrait/x1-x3 visual smoke đạt; 78/78 tests, build, preview và diff-check PASS.
+- Lần kiểm tra gần nhất: VIS-C01 FINAL HARDENING thêm non-throwing asset resolver và Battle/React fallbacks; missing asset/unknown Hero tests đạt; 82/82 tests, build, preview và diff-check PASS.
 
 ## Phases và checkpoint
 

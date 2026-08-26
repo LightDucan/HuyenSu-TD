@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { heroDefinitions } from '../../src/data/heroes/definitions'
-import { prototypeHeroVisuals, scaleVisualDuration } from '../../src/data/assets/prototypeVisualAssets'
+import { prototypeHeroVisuals, resolvePrototypeHeroVisual, scaleVisualDuration } from '../../src/data/assets/prototypeVisualAssets'
 
 describe('VIS-C01 prototype visual assets', () => {
   it('maps all five runtime Heroes to idle, attack, portrait and matching Skill VFX assets', () => {
@@ -16,5 +16,25 @@ describe('VIS-C01 prototype visual assets', () => {
   it('scales attack and VFX timing with Battle x1/x3', () => {
     expect(scaleVisualDuration(180, 1)).toBe(180)
     expect(scaleVisualDuration(180, 3)).toBe(60)
+  })
+
+  it('returns a safe mapping when a portrait is missing', () => {
+    expect(() => resolvePrototypeHeroVisual('quan-vu', (path) => path.includes('portraits/') ? undefined : path)).not.toThrow()
+    expect(resolvePrototypeHeroVisual('quan-vu', (path) => path.includes('portraits/') ? undefined : path)?.portraitUrl).toBeUndefined()
+  })
+
+  it('returns a safe mapping when idle and attack textures are missing', () => {
+    const visual = resolvePrototypeHeroVisual('quan-vu', (path) => path.includes('heroes/') ? undefined : path)
+    expect(visual?.idleUrl).toBeUndefined()
+    expect(visual?.attackUrl).toBeUndefined()
+  })
+
+  it('returns safe no-VFX behavior when the VFX file is missing', () => {
+    expect(resolvePrototypeHeroVisual('quan-vu', (path) => path.includes('vfx/') ? undefined : path)?.vfxUrl).toBeUndefined()
+  })
+
+  it('returns undefined without throwing for an unknown Hero ID', () => {
+    expect(() => resolvePrototypeHeroVisual('unknown-hero')).not.toThrow()
+    expect(resolvePrototypeHeroVisual('unknown-hero')).toBeUndefined()
   })
 })

@@ -24,9 +24,9 @@
 Để đảm bảo tính trung thực học thuật tuyệt đối và tránh tình trạng ghép nối tùy tiện văn bản giữa các bộ sử, tài liệu này xác định rõ các ấn bản được khảo chứng:
 1. **T1 — *Tân Ngũ Đại Sử* (新五代史)**: Ấn bản điểm hiệu của Trung Hoa Thư Cục (Bắc Kinh, Âu Dương Tu soạn, Từ Vô Đẳng chú, Quyển 65 — Nam Hán thế gia thứ 5).
 2. **T1 — *Tư Trị Thông Giám* (資治通鑑)**: Ấn bản điểm hiệu của Trung Hoa Thư Cục (Bắc Kinh, Tư Mã Quang biên soạn, Hồ Tam Tỉnh âm chú, Quyển 281 — Hậu Tấn Kỷ 2, năm Thiên Phúc thứ 3 / 938).
-3. **T2 — *Đại Việt Sử Ký Toàn Thư* (大越史記全書)**: Bản khắc gỗ Nội Các Quan Bản (niên hiệu Chính Hòa năm thứ 18, 1697 — Ngoại kỷ toàn thư Quyển 5, Kỷ Nhà Ngô / Tiền Ngô Vương).
-4. **T2 — *Khâm Định Việt Sử Thông Giám Cương Mục* (欽定越史通鑑綱目)**: Bản khắc Quốc Sử Quán Triều Nguyễn (Tiền biên Quyển 5).
-5. **T2 — *An Nam Chí Lược* (安南志略)**: Bản khắc Lê Tắc (Quyển 9 — Thế gia: Triệu Đinh Lý Trần Tiệp Ngoại / Ngô Quyền).
+3. **T2 — *Đại Việt Sử Ký Toàn Thư* (大越史記全書)**: Bản dịch chính sử Đại Việt (Ngoại kỷ Quyển 5, Kỷ Nhà Ngô / Tiền Ngô Vương). Để đảm bảo tính chính xác tuyệt đối và tránh ghép nối văn bản, các trích đoạn T2 được trình bày qua **bản dịch và khảo cứu tiếng Việt (Vietnamese paraphrase)**, không tự ý tạo trích dẫn chữ Hán lai ghép.
+4. **T2 — *Khâm Định Việt Sử Thông Giám Cương Mục* (欽定越史通鑑綱目)**: Bản Quốc Sử Quán Triều Nguyễn (Tiền biên Quyển 5).
+5. **T2 — *An Nam Chí Lược* (安南志略)**: Bản khắc Lê Tắc (Quyển 9 — Thế gia: Tiệp Ngoại / Ngô Quyền).
 
 ---
 
@@ -54,7 +54,7 @@ graph TD
 
 * **Nguồn khảo chứng (SOURCE)**:
   * **T1**: *Tân Ngũ Đại Sử* (Q65, Trung Hoa Thư Cục); *Tư Trị Thông Giám* (Q281, Trung Hoa Thư Cục).
-  * **T2**: *An Nam Chí Lược* (Q9); *Đại Việt Sử Ký Toàn Thư* (Ngoại kỷ Q5, Bản Chính Hòa 1697); *Khâm Định Việt Sử Thông Giám Cương Mục* (Tiền biên Q5).
+  * **T2**: *An Nam Chí Lược* (Q9); *Đại Việt Sử Ký Toàn Thư* (Ngoại kỷ Q5); *Khâm Định Việt Sử Thông Giám Cương Mục* (Tiền biên Q5).
 * **Nhân vật & Thuật ngữ nguyên bản (EXACT PERSON / TERM)**:
   * T1 (*Tân Ngũ Đại Sử* Q65): `廷藝為其將皎公羨所殺` (Đình Nghệ vi kỳ tướng **Giảo Công Tiễn** `皎公羨` sở sát).
   * T1 (*Tư Trị Thông Giám* Q281): `交州節度使楊廷藝為其將皎公羨所殺而代之` (Giao Châu Tiết độ sứ Dương Đình Nghệ vi kỳ tướng **Giảo Công Tiễn** `皎公羨` sở sát nhi đại chi).
@@ -76,7 +76,7 @@ graph TD
 * **Nhân vật & Thuật ngữ nguyên bản (EXACT PERSON / TERM)**:
   * T1 (*Tân Ngũ Đại Sử* Q65): `公羨懼，求救於龑` (Công Tiễn cụ, cầu cứu ư Nghiễm).
   * T1 (*Tư Trị Thông Giám* Q281): `公羨遣使求救于漢` (Công Tiễn khiển sứ cầu cứu vu Hán).
-  * T2 (*Toàn Thư*): `公羨聞之，懼，遣使齎賂厚賂南漢以求援` (Công Tiễn nghe tin, kinh sợ, sai sứ đem của cải sang đút lót cho Nam Hán để xin cứu viện).
+  * T2 (*Toàn Thư*): Kiều Công Tiễn nghe tin Ngô Quyền dấy binh thì kinh sợ, sai sứ đem của cải sang đút lót cho Nam Hán xin cứu viện.
 * **Tầng nguồn (TIER)**: **T1 Core (Đồng thuận T1 & T2)**.
 * **Nguồn thực sự khẳng định gì (WHAT SOURCE ACTUALLY SAYS)**:
   * Sau khi giết chủ tướng, Kiều Công Tiễn bị cô lập và sợ hãi trước sự trừng phạt của Ngô Quyền đang dấy binh từ Ái Châu, nên đã phái sứ sang triều đình Nam Hán (Quảng Châu) cầu xin viện binh can thiệp.
@@ -148,7 +148,7 @@ graph TD
 * **Nhân vật & Thuật ngữ nguyên bản (EXACT PERSON / TERM)**:
   * T1 (*Tân Ngũ Đại Sử* Q65): `龑自將屯于海門` (Nghiễm tự tương đồn vu Hải Môn — Lưu Cung tự mình đem quân đóng ở Hải Môn).
   * T1 (*Tư Trị Thông Giám* Q281): `漢主自將屯海門為聲援` (Vua Hán tự đem quân đóng ở Hải Môn để làm thanh viện).
-  * T2 (*Toàn Thư*): *"Lưu Cung tự mình đóng quân ở Hải Môn để làm thanh viện"* (`劉龔自將屯于海門以爲聲援` — *Toàn Thư* ghi rõ `劉龔即劉龑也`).
+  * T2 (*Toàn Thư*): Sử quan Đại Việt chép Lưu Cung tự mình đóng quân ở Hải Môn để làm thanh viện (*Toàn Thư* dùng tên `劉龔` và chú giải `劉龔即劉龑也`).
 * **Tầng nguồn (TIER)**: **T1 Core (Đồng thuận T1 & T2)**.
 * **Nguồn thực sự khẳng định gì (WHAT SOURCE ACTUALLY SAYS)**:
   * **Lưu Cung KHÔNG trực tiếp có mặt tại chiến trường sông Bạch Đằng**.
@@ -166,7 +166,7 @@ graph TD
   * **T2**: *An Nam Chí Lược* (Q9); *Toàn Thư* (Ngoại kỷ Q5); *Cương Mục* (Tiền biên Q5).
 * **Thuật ngữ nguyên bản (EXACT PERSON / TERM)**:
   * T1 (*Tân Ngũ Đại Sử* Q65): `逆戰於海口... 植鐵橛海中` (đón đánh ở cửa biển... cắm cọc sắt ở biển).
-  * T1 (*Tư Trị Thông Giám* Q281): `逆戰於白藤江... 植大杙于海門... 弘操引舟入海門` (đón đánh ở sông Bạch Đằng... cắm cọc gỗ lớn ở cửa biển... Hoằng Thao dẫn thuyền vào cửa biển).
+  * T1 (*Tư Trị Thông Giám* Q281): `逆戰於白藤江... 先於海口多植大杙` (đón đánh ở sông Bạch Đằng... trước hết ở cửa biển cắm nhiều cọc gỗ lớn).
   * T2 (*Toàn Thư*): `白藤江` (sông Bạch Đằng), `海門` (cửa biển).
 * **Tầng nguồn (TIER)**: **T1 Core (Đồng thuận T1 & T2)**.
 * **Nguồn thực sự khẳng định gì (WHAT SOURCE ACTUALLY SAYS)**:
@@ -181,25 +181,22 @@ graph TD
 
 > [!IMPORTANT]
 > **Nguyên Tắc Văn Bản Học (Edition Discipline)**:
-> Không gộp cụm từ của các nguồn khác nhau thành một trích dẫn hỗn hợp; trình bày riêng biệt nguyên văn chuẩn xác của từng ấn bản:
+> Không gộp cụm từ của các nguồn khác nhau thành một trích dẫn hỗn hợp; trình bày riêng biệt nguyên văn chuẩn xác của ấn bản đã chọn:
 
 * **T1 — *Tân Ngũ Đại Sử* (Q65 — Ấn bản Trung Hoa Thư Cục)**:
-  $$\text{「權先植鐵橛海中」}$$
-  *(Quyền tiên thực **thiết quyết** hải trung)*
-  $\rightarrow$ **"Ngô Quyền trước hết cắm cọc sắt ở trong biển/nước."**
+  $$\text{「植鐵橛海中」}$$
+  *(Thực **thiết quyết** hải trung)*
+  $\rightarrow$ **"Cắm cọc sắt ở trong biển/nước."**
   - *Đặc trưng*: Sử dụng danh xưng **thiết quyết (`鐵橛`)** (cọc sắt / cọc bịt sắt). Không dùng chữ đại mộc hay đại dặc.
 * **T1 — *Tư Trị Thông Giám* (Q281 — Ấn bản Trung Hoa Thư Cục)**:
-  $$\text{「權先植大杙于海門，銳其端，闞其鋒以鐵」}$$
-  *(Quyền tiên thực **đại dặc** vu hải môn, **nhuệ kỳ đoan, khảm kỳ phong dĩ thiết**)*
-  $\rightarrow$ **"Ngô Quyền trước hết cắm cọc gỗ lớn ở cửa biển, vót nhọn đầu cọc, bịt sắt ở ngọn nhọn."**
-  - *Đặc trưng*: Sử dụng danh xưng **đại dặc (`大杙` — cọc gỗ lớn)**, **nhuệ kỳ đoan (`銳其端` — vót nhọn đầu)**, **khảm kỳ phong dĩ thiết (`闞其鋒以鐵` — bịt sắt ở ngọn nhọn)**.
-* **T2 — *Đại Việt Sử Ký Toàn Thư* (Ngoại kỷ Q5 — Bản khắc Chính Hòa 1697)**:
-  $$\text{「權使人先於海門植大木，銳其端，冒之以鐵」}$$
-  *(Quyền sử nhân tiên ư hải môn thực **đại mộc**, **nhuệ kỳ đoan, mạo chi dĩ thiết**)*
-  $\rightarrow$ **"Ngô Quyền sai người trước hết cắm cọc gỗ lớn ở cửa biển, vót nhọn đầu cọc, bịt sắt vào."**
-  - *Đặc trưng*: Sử dụng danh xưng **đại mộc (`大木` — cọc gỗ lớn)**, **nhuệ kỳ đoan (`銳其端`)**, **mạo chi dĩ thiết (`冒之以鐵`)**.
+  $$\text{「先於海口多植大杙，銳其首，冒之以鐵」}$$
+  *(Tiên ư hải khẩu đa thực **đại dặc**, **nhuệ kỳ thủ, mạo chi dĩ thiết**)*
+  $\rightarrow$ **"Trước hết ở cửa biển cắm nhiều cọc gỗ lớn, vót nhọn đầu cọc, bịt sắt vào."**
+  - *Đặc trưng*: Sử dụng danh xưng **đại dặc (`大杙` — cọc gỗ lớn)**, **nhuệ kỳ thủ (`銳其首` — vót nhọn đầu)**, **mạo chi dĩ thiết (`冒之以鐵` — bịt sắt vào)**.
+* **T2 — *Đại Việt Sử Ký Toàn Thư* (Ngoại kỷ Q5 — Khảo cứu nội dung tiếng Việt)**:
+  - Sử gia Đại Việt chép: Ngô Quyền sai người trước hết ở cửa biển cắm các cọc gỗ lớn vót nhọn đầu và bịt sắt đón chỗ hiểm yếu của dòng sông.
 * **Đánh giá tổng thuật**:
-  - Cả ba nguồn độc lập đều xác nhận việc chuẩn bị trận địa cọc cắm ngầm ở cửa biển đón đánh thuyền giặc; trong đó *Tân Ngũ Đại Sử* ghi theo truyền thống cọc sắt (`鐵橛`), còn *Tư Trị Thông Giám* và *Toàn Thư* ghi chi tiết cọc gỗ lớn vót nhọn đầu bịt sắt (`大杙 / 大木` + đầu bịt sắt).
+  - Cả ba nguồn độc lập đều xác nhận việc chuẩn bị trận địa cọc cắm ngầm ở cửa biển đón đánh thuyền giặc; trong đó *Tân Ngũ Đại Sử* ghi theo truyền thống cọc sắt (`鐵橛`), còn *Tư Trị Thông Giám* và *Toàn Thư* ghi chi tiết cọc gỗ lớn vót nhọn đầu bịt sắt (`大杙` / cọc gỗ lớn bịt sắt).
 * **Độ tin cậy học thuật (CONFIDENCE)**: **High (Well-attested T1/T2 Fact)**.
 
 ---
@@ -207,25 +204,16 @@ graph TD
 ### Claim 9: Yếu Tố Thủy Triều — Trình Tự Diễn Biến Theo Từng Nguồn (Tide Sequence)
 
 * **T1 — *Tân Ngũ Đại Sử* (Q65 — Ấn bản Trung Hoa Thư Cục)**:
-  - Trình tự ghi nhận:
-    1. Ngô Quyền dẫn thuyền đón đánh: `權引舟逆戰` (Quyền dẫn chu nghịch chiến).
-    2. Nhân lúc triều lên rút lui, Hoằng Thao đuổi theo: `乘潮而退，洪操追之` (thừa triều nhi thoái, Hồng Thao truy chi).
-    3. Đến khi triều rút, thuyền vướng cọc sắt không đi được: `潮落舟礙鐵橛，不可行` (triều lạc chu ngại thiết quyết, bất khả hành).
-    4. Ngô Quyền quay thuyền đánh quật lại: `權回舟奮擊` (Quyền hồi chu phấn kích).
+  $$\text{「權兵乘潮而進，洪操逐之。潮退舟還，轢橛者皆覆」}$$
+  *(Quyền binh **thừa triều nhi tiến, Hồng Thao trục chi. Triều thoái chu hoàn, lịch quyết giả giai phúc**)*
+  $\rightarrow$ **"Quân Ngô Quyền nhân triều lên mà tiến ra, Hồng Thao đuổi theo. Đến khi triều rút thuyền giặc quay lui, thuyền nào chẹt phải cọc sắt đều lật úp."**
 * **T1 — *Tư Trị Thông Giám* (Q281 — Ấn bản Trung Hoa Thư Cục)**:
-  - Trình tự ghi nhận:
-    1. Hoằng Thao dẫn thuyền vào cửa biển gặp lúc triều dâng: `弘操引舟入海門，遇潮漲` (Hoằng Thao dẫn chu nhập hải môn, ngộ triều trướng).
-    2. Ngô Quyền đem thuyền nhẹ đón đánh, nhân triều dâng tiến ra rồi giả vờ rút lui: `權以輕舟出迎戰，乘潮進，詐引退` (Quyền dĩ khinh chu xuất nghênh chiến, thừa triều tiến, trá dẫn thoái).
-    3. Hoằng Thao đuổi theo: `弘操追之` (Hoằng Thao truy chi).
-    4. Gặp lúc triều rút, chiến thuyền Nam Hán vướng cọc gỗ lớn không lui được: `會潮落，漢艦礙大杙不可退` (hội triều lạc, Hán hạm ngại đại dặc bất khả thoái).
-    5. Ngô Quyền quay quân dốc sức phản công: `權回軍奮擊` (Quyền hồi quân phấn kích).
-* **T2 — *Đại Việt Sử Ký Toàn Thư* (Ngoại kỷ Q5 — Bản khắc Chính Hòa 1697)**:
-  - Trình tự ghi nhận:
-    1. Nhân lúc triều dâng, sai thuyền nhẹ ra đánh, giả vờ thua chạy: `乘潮漲，使輕舟進戰，詐敗而走` (thừa triều trướng, sử khinh chu tiến chiến, trá bại nhi tẩu).
-    2. Hoằng Thao đuổi theo: `弘操追之` (Hoằng Thao truy chi).
-    3. Đợi lúc triều rút cọc nhô lên: `俟潮退木出` (sĩ triều thoái mộc xuất).
-    4. Dốc toàn quân đánh quật lại: `權率衆奮擊` (Quyền suất chúng phấn kích).
-* **Tổng thuật học thuật**: Cả 3 nguồn T1 và T2 đều thống nhất tuyệt đối về nguyên lý chiến thuật: **dụ địch lọt sâu vào trận địa khi nước triều dâng cao $\rightarrow$ phản công quyết định khi nước triều rút để lộ bãi cọc cản đường lui của thuyền địch**.
+  $$\text{「須臾潮落，漢艦皆礙鐵杙不得返」}$$
+  *(Tu du **triều lạc, Hán hạm giai ngại thiết dặc bất đắc phản**)*
+  $\rightarrow$ **"Giây lát nước triều rút, chiến thuyền Nam Hán đều vướng cọc sắt không thể quay lui."**
+* **T2 — *Đại Việt Sử Ký Toàn Thư* (Ngoại kỷ Q5 — Khảo cứu nội dung tiếng Việt)**:
+  - Toàn Thư ghi nhận Ngô Quyền nhân lúc triều lên dâng ngập cọc đưa thuyền ra đón đánh, đợi khi triều rút để lộ rặng cọc thì toàn quân quay lại đánh quật dữ dội.
+* **Tổng thuật học thuật**: Cả 3 nguồn T1 và T2 đều thống nhất về nguyên lý chiến thuật: **dụ địch lọt sâu vào trận địa khi nước triều dâng cao $\rightarrow$ phản công quyết định khi nước triều rút để lộ bãi cọc cản đường lui của thuyền địch**.
 * **Độ tin cậy học thuật (CONFIDENCE)**: **High (Well-attested T1/T2 Fact)**.
 
 ---
@@ -233,19 +221,17 @@ graph TD
 ### Claim 10: Thuyền Nhẹ & Kế Trá Bại — Phân Định Từng Bản Khảo Chứng (Light Boats / Feigned Retreat)
 
 * **T1 — *Tân Ngũ Đại Sử* (Q65 — Ấn bản Trung Hoa Thư Cục)**:
-  - Văn bản ghi nhận: `權引舟逆戰，乘潮而退，洪操追之` (Ngô Quyền dẫn thuyền đón đánh, nhân triều mà lui, Hồng Thao đuổi theo).
-  - *Lưu ý văn bản học*: Bản Q65 *Tân Ngũ Đại Sử* **không có** từ `輕舟` (thuyền nhẹ) và **không dùng** chữ `詐` (giả vờ).
+  $$\text{「權兵乘潮而進，洪操逐之」}$$
+  *(Quyền binh thừa triều nhi tiến, Hồng Thao trục chi)*
+  $\rightarrow$ **"Quân Ngô Quyền nhân triều lên mà tiến ra, Hồng Thao đuổi theo."**
+  - *Lưu ý văn bản học*: Bản Q65 *Tân Ngũ Đại Sử* **không có** từ `輕舟` (thuyền nhẹ) và **không dùng** chữ `僞遁` hay `詐` (giả vờ).
 * **T1 — *Tư Trị Thông Giám* (Q281 — Ấn bản Trung Hoa Thư Cục)**:
-  - Văn bản ghi nhận:
-    $$\text{「權以輕舟出迎戰，乘潮進，詐引退，弘操追之」}$$
-    *(Quyền dĩ **khinh chu** xuất nghênh chiến, thừa triều tiến, **trá dẫn thoái**, Hoằng Thao truy chi)*
-    $\rightarrow$ **Ngô Quyền dùng thuyền nhẹ (`輕舟`) ra đón đánh, nhân triều lên tiến ra, giả vờ rút lui (`詐引退`), Hoằng Thao đuổi theo.**
-* **T2 — *Đại Việt Sử Ký Toàn Thư* (Ngoại kỷ Q5 — Bản khắc Chính Hòa 1697)**:
-  - Văn bản ghi nhận:
-    $$\text{「乘潮漲，使輕舟進戰，詐敗而走，弘操追之」}$$
-    *(Thừa triều trướng, sử **khinh chu** tiến chiến, **trá bại nhi tẩu**, Hoằng Thao truy chi)*
-    $\rightarrow$ **Nhân lúc triều dâng, sai thuyền nhẹ (`輕舟`) ra đánh, giả vờ thua chạy (`詐敗而走`), Hoằng Thao đuổi theo.**
-* **Đánh giá văn bản học**: Chi tiết chiến thuật thuyền nhẹ (`輕舟`) và kế giả rút lui/thua chạy (`詐引退` / `詐敗`) được xác nhận độc lập trong cả *Tư Trị Thông Giám* (T1) và *Toàn Thư* (T2).
+  $$\text{「遣輕舟乘潮挑戰而僞遁」}$$
+  *(Khiển **khinh chu thừa triều khiêu chiến nhi ngụy độn**)*
+  $\rightarrow$ **"Sai thuyền nhẹ nhân lúc triều dâng ra khiêu chiến rồi giả vờ rút chạy."**
+* **T2 — *Đại Việt Sử Ký Toàn Thư* (Ngoại kỷ Q5 — Khảo cứu nội dung tiếng Việt)**:
+  - Toàn Thư ghi nhận kế dùng thuyền nhẹ ra khiêu chiến rồi giả vờ thua chạy để nhử đối phương vượt qua bãi cọc lọt sâu vào dòng sông.
+* **Đánh giá văn bản học**: Chi tiết chiến thuật thuyền nhẹ (`輕舟`) và kế giả rút lui/thua chạy (`僞遁` / giả thua chạy) được xác nhận độc lập trong cả *Tư Trị Thông Giám* (T1) và *Toàn Thư* (T2).
 * **Độ tin cậy học thuật (CONFIDENCE)**: **High (Well-attested T1/T2 Fact)**.
 
 ---
@@ -261,18 +247,15 @@ graph TD
   *(Hồng Thao **chiến tử**)*
   $\rightarrow$ **"Hồng Thao chết trong trận đánh."**
 * **T1 — *Tư Trị Thông Giám* (Q281 — Ấn bản Trung Hoa Thư Cục)**:
-  $$\text{「漢軍大潰，溺水死者大半，弘操死」}$$
-  *(Hán quân đại hội, nịch thủy tử giả đại bán, **Hoằng Thao tử**)*
-  $\rightarrow$ **"Quân Nam Hán tan vỡ lớn, người chết đuối quá nửa, Hoằng Thao chết."**
-* **T2 — *Đại Việt Sử Ký Toàn Thư* (Ngoại kỷ Q5 — Bản khắc Chính Hòa 1697)**:
-  $$\text{「漢軍覆溺者大半，追斬弘操」}$$
-  *(Hán quân phúc nịch giả đại bán, **truy trảm Hoằng Thao**)*
-  $\rightarrow$ **"Quân Nam Hán lật úp chết đuối quá nửa, đuổi theo chém chết Hoằng Thao."**
-  *(Dị bản T2 Cương Mục ghi chép tương đồng: bắt chém được Hoằng Thao).*
+  $$\text{「漢兵大敗，士卒覆溺者太半；弘操死」}$$
+  *(Hán binh đại bại, **sĩ tốt phúc nịch giả thái bán; Hoằng Thao tử**)*
+  $\rightarrow$ **"Quân Nam Hán đại bại, sĩ tốt lật úp chết đuối hơn một nửa; Hoằng Thao chết."**
+* **T2 — *Đại Việt Sử Ký Toàn Thư* (Ngoại kỷ Q5 — Khảo cứu nội dung tiếng Việt)**:
+  - Toàn Thư ghi nhận quân Nam Hán lật úp chết đuối quá nửa, nghĩa quân Ngô Quyền dốc sức truy kích tiêu diệt Hoằng Thao.
 * **Đánh giá văn bản học**:
   - *Tân Ngũ Đại Sử* ghi `洪操戰死` (Hồng Thao chết trận).
-  - *Tư Trị Thông Giám* ghi `漢軍大潰，溺水死者大半，弘操死` (Quân Hán vỡ lớn, chết đuối quá nửa, Hoằng Thao chết).
-  - *Toàn Thư* ghi truyền thống Đại Việt truy kích chém chết Hoằng Thao (`追斬弘操`).
+  - *Tư Trị Thông Giám* ghi `漢兵大敗，士卒覆溺者太半；弘操死` (Quân Hán đại bại, chết đuối hơn một nửa; Hoằng Thao chết).
+  - *Toàn Thư* ghi truyền thống Đại Việt dốc toàn lực truy kích tiêu diệt Hoằng Thao.
 * **Độ tin cậy học thuật (CONFIDENCE)**: **High (Well-attested T1/T2 Fact)**.
 
 ---
@@ -280,18 +263,16 @@ graph TD
 ### Claim 12: Quân Nam Hán Rút Quân & Kết Cục — Phân Định Từng Nguồn (Withdrawal Exact Wording)
 
 * **T1 — *Tân Ngũ Đại Sử* (Q65 — Ấn bản Trung Hoa Thư Cục)**:
-  $$\text{「龑收餘衆而還」}$$
+  $$\text{「龑收餘眾而還」}$$
   *(Nghiễm **thu dư chúng nhi hoàn**)*
   $\rightarrow$ **"Lưu Cung thu nhặt số quân còn lại rút về."**
   - *Ngữ cảnh tổng kết Q65*: Ghi nhận sau thất bại này, Nam Hán từ đó không dám sang nữa (`自是不復出`).
 * **T1 — *Tư Trị Thông Giám* (Q281 — Ấn bản Trung Hoa Thư Cục)**:
-  $$\text{「漢主聞之，慟哭，收餘衆而還」}$$
-  *(Hán chủ văn chi, **đỗng khốc, thu dư chúng nhi hoàn**)*
-  $\rightarrow$ **"Vua Nam Hán nghe tin, khóc than đau đớn, thu nhặt số quân còn lại rút về."**
-* **T2 — *Đại Việt Sử Ký Toàn Thư* (Ngoại kỷ Q5 — Bản khắc Chính Hòa 1697)**:
-  $$\text{「劉龔慟哭，收餘衆而走」}$$
-  *(Lưu Cung **đỗng khốc, thu dư chúng nhi tẩu**)*
-  $\rightarrow$ **"Lưu Cung khóc thương thảm thiết, thu nhặt tàn quân rút chạy."**
+  $$\text{「漢主慟哭，收餘衆而還」}$$
+  *(Hán chủ **đỗng khốc, thu dư chúng nhi hoàn**)*
+  $\rightarrow$ **"Vua Nam Hán khóc than đau đớn, thu nhặt số quân còn lại rút về."**
+* **T2 — *Đại Việt Sử Ký Toàn Thư* (Ngoại kỷ Q5 — Khảo cứu nội dung tiếng Việt)**:
+  - Toàn Thư ghi nhận Lưu Cung đau xót khóc than, thu tàn quân rút chạy về nước.
 * **Đánh giá văn bản học**: Cả T1 và T2 đều xác nhận hành động Lưu Cung thu thập tàn binh rút về nước; trong đó *Tư Trị Thông Giám* (T1) và *Toàn Thư* (T2) cùng ghi nhận chi tiết cảm xúc khóc than (`慟哭`).
 * **Độ tin cậy học thuật (CONFIDENCE)**: **High (Well-attested T1/T2 Fact)**.
 
@@ -327,9 +308,9 @@ graph TD
 | 5 | Hoằng Thao / Hồng Thao chỉ huy thủy hạm | *Tân Ngũ Đại Sử*, *Tư Trị Thông Giám*, *Toàn Thư* | `封其子洪操為交王` (T1 Q65) / `萬王弘操` (T1 Q281 / T2) | **T1/T2** | **High (Well-attested Fact)** |
 | 6 | Lưu Cung đóng quân tại Hải Môn thanh viện | *Tân Ngũ Đại Sử*, *Tư Trị Thông Giám*, *Toàn Thư* | `龑自將屯于海門` (T1) / `劉龔即劉龑也` (T2) | **T1/T2** | **High (Well-attested Fact)** |
 | 7 | Địa danh Bạch Đằng & Cửa biển | *Tân Ngũ Đại Sử*, *Tư Trị Thông Giám*, *Toàn Thư* | `海口` (T1 Q65), `白藤江` (T1 Q281 / T2), `海門` (T1/T2) | **T1/T2** | **High (Well-attested Fact)** |
-| 8 | Trận địa cọc đón đánh giặc | *Tân Ngũ Đại Sử* (`植鐵橛海中`), *Thông Giám* (`植大杙于海門，銳其端，闞其鋒以鐵`), *Toàn Thư* (`植大木，銳其端，冒之以鐵`) | `鐵橛` (T1 Q65) / `大杙` (T1 Q281) / `大木` (T2) | **T1/T2** | **High (Well-attested Fact)** |
-| 9 | Yếu tố thủy triều dâng / rút | *Tân Ngũ Đại Sử*, *Tư Trị Thông Giám*, *Toàn Thư* | `乘潮退... 潮落舟礙鐵橛` (Q65) / `遇潮漲... 會潮落` (Q281) | **T1/T2** | **High (Well-attested Fact)** |
-| 10 | Chiến thuật thuyền nhẹ khiêu chiến trá bại | *Tư Trị Thông Giám* (`以輕舟出迎戰，乘潮進，詐引退`), *Toàn Thư* (`使輕舟進戰，詐敗而走`) | `輕舟` + `詐引退` (T1 Q281) / `輕舟` + `詐敗` (T2) | **T1/T2** | **High (Well-attested Fact)** |
-| 11 | Hoằng Thao / Hồng Thao tử trận | *Tân Ngũ Đại Sử* (`洪操戰死`), *Thông Giám* (`弘操死`), *Toàn Thư* (`追斬弘操`) | `洪操戰死` (T1 Q65) / `弘操死` (T1 Q281) / `追斬弘操` (T2) | **T1/T2** | **High (Well-attested Fact)** |
-| 12 | Quân Nam Hán vỡ tan, Lưu Cung rút tàn quân | *Tân Ngũ Đại Sử* (`龑收餘衆而還`), *Thông Giám* (`漢主聞之，慟哭，收餘衆而還`), *Toàn Thư* (`劉龔慟哭，收餘衆而走`) | `收餘衆而還` (T1) / `慟哭，收餘衆而還/走` (T1/T2) | **T1/T2** | **High (Well-attested Fact)** |
+| 8 | Trận địa cọc đón đánh giặc | *Tân Ngũ Đại Sử* (`植鐵橛海中`), *Thông Giám* (`先於海口多植大杙，銳其首，冒之以鐵`), *Toàn Thư* (Cọc gỗ lớn bịt sắt) | `鐵橛` (T1 Q65) / `大杙` + `銳其首` + `冒之以鐵` (T1 Q281) | **T1/T2** | **High (Well-attested Fact)** |
+| 9 | Yếu tố thủy triều dâng / rút | *Tân Ngũ Đại Sử* (`權兵乘潮而進... 潮退舟還，轢橛者皆覆`), *Thông Giám* (`須臾潮落，漢艦皆礙鐵杙不得返`), *Toàn Thư* (Triều lên nhử giặc, triều rút cọc nhô phản công) | `乘潮而進 / 潮退舟還` (T1 Q65) / `須臾潮落，漢艦皆礙鐵杙` (T1 Q281) | **T1/T2** | **High (Well-attested Fact)** |
+| 10 | Chiến thuật thuyền nhẹ khiêu chiến trá bại | *Tân Ngũ Đại Sử* (`權兵乘潮而進，洪操逐之`), *Thông Giám* (`遣輕舟乘潮挑戰而僞遁`), *Toàn Thư* (Thuyền nhẹ khiêu chiến giả thua) | `輕舟` + `僞遁` (T1 Q281) / Thuyền nhẹ giả thua (T2) | **T1/T2** | **High (Well-attested Fact)** |
+| 11 | Hoằng Thao / Hồng Thao tử trận | *Tân Ngũ Đại Sử* (`洪操戰死`), *Thông Giám* (`漢兵大敗，士卒覆溺者太半；弘操死`), *Toàn Thư* (Quân Hán chìm đắm quá nửa, diệt Hoằng Thao) | `洪操戰死` (T1 Q65) / `士卒覆溺者太半；弘操死` (T1 Q281) | **T1/T2** | **High (Well-attested Fact)** |
+| 12 | Quân Nam Hán vỡ tan, Lưu Cung rút tàn quân | *Tân Ngũ Đại Sử* (`龑收餘眾而還`), *Thông Giám* (`漢主慟哭，收餘衆而還`), *Toàn Thư* (Lưu Cung khóc than thu tàn quân) | `龑收餘眾而還` (T1 Q65) / `漢主慟哭，收餘衆而還` (T1 Q281) | **T1/T2** | **High (Well-attested Fact)** |
 | 13 | Tiến trình biên niên 937 → 938 → 939 | *Tân Ngũ Đại Sử*, *Tư Trị Thông Giám*, *Toàn Thư* | 937 Biến loạn → 938 Đại thắng → 939 Xưng Vương | **T1/T2** | **High (Well-attested Fact)** |

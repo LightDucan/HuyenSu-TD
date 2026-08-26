@@ -9,16 +9,16 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 ## WorkTree
 
 - Repository: `HuyenSu-TD`
-- Branch hiện tại: `codex/p11-c03-reward-runtime-integration`
-- Worktree Codex hiện tại: `C:\Users\PC\Documents\Codex\2026-08-23\referenced-chatgpt-conversation-this-is-an\work\p11-c02-reward-sources`
+- Branch hiện tại: `main`
+- Worktree Codex hiện tại: `C:\Users\PC\Documents\Codex\2026-08-23\referenced-chatgpt-conversation-this-is-an\work\m10-c01-main`
 - Quy tắc worker Antigravity: [ANTIGRAVITY_RULES.md](ANTIGRAVITY_RULES.md)
 
 ## Trạng thái hiện tại
 
 - Current Phase: **11 — Reward Economy**
-- Current Codex task: **P11-C03 FINAL FIX — DONE, chờ Audit** — branch `codex/p11-c03-reward-runtime-integration`.
-- Current Antigravity task: **VS-NDPL-00 — 939–1009 Research — IN PROGRESS** — branch `antigravity/vs-ndpl-00-939-1009-research` @ `6d7294f`; phạm vi hiện thấy: `docs/drafts/viet-su/939-1009/sources.md`.
-- Lần kiểm tra gần nhất: P11-C03 FINAL FIX khóa KNB Active Play ở 1 phút real-time; reload/visibility/revision/fresh-run-ID tests đạt; 76/76 tests, build, preview và diff-check PASS.
+- Current Codex task: **P11-C03 — AUDIT PASS / merged vào `main`** — checkpoint `meta/reward-economy-v1`.
+- Current Antigravity task: **VS-NDPL-00 — 939–1009 Research — IN PROGRESS** — branch `antigravity/vs-ndpl-00-939-1009-research` @ `5686d7f`.
+- Lần kiểm tra gần nhất: P11-C03 FINAL FIX khóa KNB Active Play ở 1 phút real-time; reload/visibility/revision/fresh-run-ID tests đạt; Integration Audit PASS.
 
 ## Phases và checkpoint
 
@@ -46,14 +46,14 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 | INT-C01 | Meta Foundation Integration Gate | PASS — merged vào `main` | Codex | Merge order, schema consistency, Core boundary, full test/build/preview — PASS | `meta/foundation-v1` |
 | P11-C01 | Reward Transaction Core | DONE — merged vào `main` — PASS | Codex | Atomicity, idempotency persistence, V1→V2 migration, optimistic revision, no UI/Battle integration | `meta/reward-transaction-v1` |
 | P11-C02 | Reward Sources | DONE — merged vào `main` — PASS | Codex | Config-driven kill/stage/time rewards, persistent cumulative anti-replay, V2→V3 migration, real wall-clock, visible-only/count-hidden boundary | `meta/reward-sources-v1` |
-| P11-C03 | Reward Runtime Integration | DONE — chờ Audit | Codex | Battle event bridge, kill/stage idempotency, locked KNB interval 60 giây, persistent reload checkpoint, fresh run ID, configurable hidden policy, playable ten-wave smoke | `codex/p11-c03-reward-runtime-integration` |
+| P11-C03 | Reward Runtime Integration | PASS — merged vào `main` | Codex | Battle event bridge, kill/stage idempotency, locked KNB interval 60 giây, persistent reload checkpoint, fresh run ID, configurable hidden policy, playable ten-wave smoke | `meta/reward-economy-v1` |
 
 ## Roadmap Phase 10–18
 
 | Phase | Task ID | Nội dung | Trạng thái | Dependency | Worker chính | Audit checkpoint | Commit checkpoint | Rủi ro chính |
 |---|---|---|---|---|---|---|---|---|
 | 10 — Meta Foundation | P10 | Profile, Meta repository boundary, wallet/inventory/energy/capacity contracts tối thiểu | DONE — Integration Audit PASS | Phase 9 + META-C00 | Codex | Schema validation, ownership, local-save isolation, no Core regression; INT-C01 integration audit — PASS | `codex/p10-c01-meta-foundation`, `codex/int-c01-meta-foundation-integration` @ `599162a` | Nhiều nguồn truth và save không nhất quán |
-| 11 — Reward Economy | P11 | Reward transaction, Wallet grant/spend, Inventory grant, reward sources và runtime integration | IN PROGRESS — P11-C03 DONE chờ Audit | Phase 10 | Codex | Atomic grant/spend, event idempotency, wall-clock policy, playable reward smoke | `codex/p11-c03-reward-runtime-integration` | Inflation, duplicate reward hoặc sai time policy |
+| 11 — Reward Economy | P11 | Reward transaction, Wallet grant/spend, Inventory grant, reward sources và runtime integration | DONE — Integration Audit PASS | Phase 10 | Codex | Atomic grant/spend, event idempotency, wall-clock policy, playable reward smoke — PASS | `meta/reward-economy-v1` | Inflation, duplicate reward hoặc sai time policy |
 | 12 — Quân Lệnh & Auto Wave | P12 | Real-time regen, overflow, Wave cost và Auto Wave gate | TODO | Phase 10–11 + OD-01 | Codex | Base cap 60, 2 phút/điểm, overflow, hidden time, x1/x3 independence, auto/manual parity | `meta/command-energy-v1` | Clock exploit, double spend hoặc auto-loop |
 | 13 — Deployment Capacity & Lệnh Hiệu Triệu | P13 | Capacity calculator, permanent entitlement và placement gate | TODO | Phase 10–11 + OD-02/OD-08 | Codex | Base 7, mỗi Lệnh Hiệu Triệu +1, effective cap ≤ map slots, reposition free | `meta/deployment-capacity-v1` | Meta/Battle placement desync |
 | 14 — Inventory & Equipment V2 | P14 | Equipment instances, Level 1–10, merge 3 và migration V1 | TODO | Phase 10–11 + save contract + OD-06 | Codex + Antigravity UI | Migration/rollback, merge atomicity, signature weapon policy, shared stats | `meta/equipment-v2` | Mất/nhân đôi item khi migration |

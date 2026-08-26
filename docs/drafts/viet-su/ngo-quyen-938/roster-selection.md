@@ -1,7 +1,7 @@
 # Đề Xuất Tuyển Chọn Roster: Chapter Ngô Quyền & Bạch Đằng (937–939 SCN)
 
 > [!IMPORTANT]
-> **Ràng Buộc Tuyển Chọn Roster (Task `VS-NQ-01` — Final Evidence Sync)**:
+> **Ràng Buộc Tuyển Chọn Roster (Task `VS-NQ-01` — Final Quote Cleanup)**:
 > - Tài liệu này đề xuất danh sách **Playable Heroes** và **Enemy Opposition** cho Flagship Chapter lịch sử: **Chiến dịch Bạch Đằng năm 938** dưới sự lãnh đạo của **Ngô Quyền**, mở đầu từ biến cố 937 (Kiều Công Tiễn phản nghịch) và kết thúc ở mốc 939 (Ngô Quyền xưng Vương).
 > - **Không đi sâu sang thời Ngô sau 939** (thời Ngô Xương Ngập, Ngô Xương Văn và 12 Sứ Quân thuộc về Chapter sau).
 > - **TUYỆT ĐỐI KHÔNG**:
@@ -15,10 +15,16 @@
 
 Dựa trên kết quả khảo cứu tại `docs/drafts/viet-su/602-938/sources.md` và `docs/drafts/viet-su/938-source-audit/`:
 * **T1 — Near-source Chronicles (Thư tịch gần thời)**:
-  - ***Tân Ngũ Đại Sử* (Âu Dương Tu, Quyển 65 — Nam Hán thế gia)**: Ghi chép việc Kiều Công Tiễn (`皎公羨`) giết Dương Đình Nghệ đoạt quyền (937) và cầu cứu Nam Hán; Ngô Quyền từ Ái Châu kéo quân diệt Kiều Công Tiễn; vua Nam Hán Lưu Cung sai con sang đánh; Ngô Quyền đón đánh, cắm cọc sắt ở biển (`植鐵橛海中`), thừa lúc nước triều rút ép thuyền giặc vướng cọc lật úp, Hồng Thao tử trận (`洪操戰死`); Lưu Cung thu nhặt tàn quân rút về (`收餘眾而還`).
-  - ***Tư Trị Thông Giám* (Tư Mã Quang, Quyển 281)**: Ghi chép biến cố năm 937–938: Ngô Quyền giết Kiều Công Tiễn (`皎公羨`); sai cắm cọc gỗ lớn vạt nhọn đầu bịt sắt ở cửa biển (`植大杙于海門，銳其首，冒之以鐵`), dùng thuyền nhẹ nhân lúc triều lên khiêu chiến (`以輕舟乘潮挑戰`), giả vờ rút chạy (`偽遁`), khi triều rút chiến thuyền Nam Hán vướng cọc sắt không lui được (`會潮落，漢艦礙鐵杙不得返`), sĩ tốt chìm đắm quá nửa (`士卒覆溺者太半`), Hoằng Thao tử trận (`弘操死`); Lưu Cung thu tàn quân rút về.
+  - ***Tân Ngũ Đại Sử* (Âu Dương Tu, Quyển 65 — Nam Hán thế gia)**: Ghi chép việc Kiều Công Tiễn (`皎公羨`) giết Dương Đình Nghệ đoạt quyền (937) và cầu cứu Nam Hán; Ngô Quyền từ Ái Châu kéo quân diệt Kiều Công Tiễn; vua Nam Hán Lưu Cung sai con sang đánh; Ngô Quyền đón đánh, cắm cọc sắt ở biển (`植鐵橛海中`), thừa lúc nước triều rút ép thuyền giặc vướng cọc lật úp, Hồng Thao tử trận (`洪操戰死`); Lưu Cung thu nhặt tàn quân rút về (`龑收餘眾而還`). Đoạn tổng kết lịch sử sau đó ghi nhận việc Nam Hán bèn bỏ không đánh nữa (`遂棄不復攻`).
+  - ***Tư Trị Thông Giám* (Tư Mã Quang, Quyển 281)**: Ghi chép chính xác theo ấn bản khảo chứng:
+    - Ngô Quyền giết Kiều Công Tiễn (`皎公羨`).
+    - Trước hết ở cửa biển cắm nhiều cọc gỗ lớn, vót nhọn đầu, bịt sắt vào: `先於海口多植大杙，銳其首，冒之以鐵`.
+    - Sai thuyền nhẹ nhân lúc triều lên khiêu chiến rồi giả vờ rút chạy: `遣輕舟乘潮挑戰而僞遁`.
+    - Chốc lát triều rút, chiến thuyền Nam Hán đều vướng cọc sắt không trở về được: `須臾潮落，漢艦皆礙鐵杙不得返`.
+    - Binh sĩ chìm đắm quá nửa, Hoằng Thao tử trận: `士卒覆溺者太半，弘操死`.
+    - Vua Nam Hán nghe tin khóc than đau đớn, thu tàn quân rút về: `漢主慟哭，收餘衆而還`.
 * **T2 — Later Vietnamese Historiography (Chính sử Đại Việt)**:
-  - ***Đại Việt Sử Ký Toàn Thư* (Ngoại kỷ Quyển 5) & *Khâm Định Việt Sử Thông Giám Cương Mục***: Ghi chép xuất thân Ngô Quyền đất Đường Lâm; diệt phản thần Kiều Công Tiễn (`矯公羨`); kế sách cọc gỗ lớn bịt sắt vạt nhọn cắm dưới lòng sông Bạch Đằng; diễn biến dùng thuyền nhẹ khiêu chiến giả thua khi triều lên và phản công khi triều rút, dốc toàn lực truy kích tiêu diệt Hoằng Thao; việc xưng Vương năm 939 định đô Cổ Loa.
+  - ***Đại Việt Sử Ký Toàn Thư* (Ngoại kỷ Quyển 5) & *Khâm Định Việt Sử Thông Giám Cương Mục***: Ghi chép xuất thân Ngô Quyền đất Đường Lâm; diệt phản thần Kiều Công Tiễn (`矯公羨`); kế sách cọc gỗ lớn bịt sắt vạt nhọn cắm ngầm dưới lòng sông Bạch Đằng; diễn biến dùng thuyền nhẹ khiêu chiến giả thua khi triều lên và phản công khi triều rút, dốc toàn lực truy kích tiêu diệt Hoằng Thao; việc xưng Vương năm 939 định đô Cổ Loa.
   - ***Việt Sử Lược* (Quyển 1)** & ***An Nam Chí Lược* (Quyển 9)**: Ghi chép cô đọng về trận Bạch Đằng 938 và việc Ngô Vương dựng nước.
 * **T3 — Local Tradition / Folklore (Dã sử & Thần tích địa phương)**: Thần phả, thần tích các đền thờ Ngô Quyền tại Đường Lâm (Hà Nội), đền thờ và miếu thờ tại Hải Phòng, Quảng Ninh; thần tích về các danh tướng, hào trưởng địa phương.
 * **T4 — Modern Scholarship & Archaeology (Khảo cổ & Sử học hiện đại)**: Công trình nghiên cứu thực địa bãi cọc ven sông Bạch Đằng (Yên Giang, Đồng Má Ngựa); nghiên cứu khảo cổ học công bố năm 2026 (*The Holocene* DOI: `10.1177/09596836261450824`) về các cọc gỗ vùng cửa sông Bạch Đằng; nghiên cứu thành Cổ Loa thời Ngô Vương của các giáo sư Đào Duy Anh, Trần Quốc Vượng, Phan Huy Lê, Hà Văn Tấn.
@@ -68,7 +74,6 @@ graph TD
 > [!CAUTION]
 > **Nguyên Tắc Thẩm Định Bằng Chứng Thực Địa 938 Cho Hero Slot 2 & 3**:
 > - Sử liệu T1 (*Tân Ngũ Đại Sử*, *Tư Trị Thông Giám*) và T2 (*Toàn Thư*, *Cương Mục*) **hoàn toàn không ghi nhận danh tính các tướng lĩnh cụ thể trực tiếp tham chiến dưới trướng Ngô Quyền tại trận Bạch Đằng năm 938**.
-> - Không chấp nhận các cách diễn đạt mơ hồ như "một số thần phả", "truyền thống địa phương" để nâng nhân vật lên hàng Hero thực chiến.
 > - Dự án chấp nhận để **Hero Slot 2 & Slot 3 ở trạng thái `OPEN`**, không tự tiện sáng tác thêm Hero hư cấu để lấp đầy 3 slot.
 
 #### 1. Dương Tam Kha — `FALLBACK / UNVERIFIED 938 PARTICIPATION`
@@ -122,7 +127,6 @@ graph TD
 * **Biến thể chữ Hán chính xác**:
   * **T1 (*Tân Ngũ Đại Sử* Q65, *Tư Trị Thông Giám* Q281)**: `皎公羨` (chữ `皎` bộ Bạch `白`).
   * **T2 (*Đại Việt Sử Ký Toàn Thư*, *Khâm Định Việt Sử Thông Giám Cương Mục*)**: `矯公羨` (chữ `矯` bộ Thỉ `矢`).
-  * *Loại bỏ biến thể `嶠公羨`* do không có chứng cứ văn bản gốc độc lập.
 * **Historical Role**:
   * Tháng 3/4 năm 937, phản nghịch sát hại chủ tướng Dương Đình Nghệ tại phủ thành Đại La để đoạt chức Tiết độ sứ.
   * Bị cô lập và căm phẫn tẩy chay; khi biết tin Ngô Quyền dấy binh từ Ái Châu kéo ra thảo phạt, Tiễn hoảng sợ sai sứ sang Nam Hán cầu cứu.
@@ -130,7 +134,6 @@ graph TD
 * **Source Tier**: **T1 + T2** — *Historical Person xác thực*.
 * **Định vị thiết kế gameplay**:
   * Kiều Công Tiễn bị tiêu diệt tại Đại La vào mùa thu năm 938, **hoàn toàn không có mặt trong trận thủy chiến Bạch Đằng diễn ra vào mùa đông năm 938**.
-  * Do đó, **tuyệt đối không biến Kiều Công Tiễn thành Boss của trận Bạch Đằng**.
   * Nhân vật này phù hợp đóng vai trò **Narrative Antagonist (Kẻ phản nghịch trong màn dẫn nhập)** hoặc **Optional Prelude Boss (Boss phụ trong phân đoạn vượt thành Đại La mở đầu chiến dịch)**.
 * **Đề xuất quyết định**: **NARRATIVE ANTAGONIST / OPTIONAL PRELUDE BOSS**.
 
@@ -159,7 +162,7 @@ graph TD
 * **Historical Role**:
   * Trực tiếp chỉ huy đoàn chiến thuyền vượt biển tiến vào cửa sông Bạch Đằng theo lệnh của cha là Lưu Cung.
   * Mắc mưu Ngô Quyền, cho chiến thuyền đuổi theo toán thuyền nhẹ khiêu chiến khi nước triều đang dâng cao, lọt sâu vào trận địa phục kích.
-  * Khi nước triều rút mạnh, thuyền chiến Nam Hán quay đầu tháo chạy bị cọc ngầm đâm thủng vỡ toác, lật úp. Lưu Hoằng Thao tử trận tại khúc sông Bạch Đằng mùa đông năm 938.
+  * Khi nước triều rút mạnh, thuyền chiến Nam Hán quay đầu tháo chạy bị cọc ngầm đâm thủng vỡ toác, lật úp. Lưu Hoằng Thao tử trận tại khúc sông Bạch Đằng mùa đông năm 938 (*Tân Ngũ Đại Sử* Q65: `洪操戰死`; *Tư Trị Thông Giám* Q281: `弘操死`).
 * **Source Tier**: **T1 (*Tân Ngũ Đại Sử* Q65, *Tư Trị Thông Giám* Q281) + T2 (*Toàn Thư*, *Cương Mục*, *Việt Sử Lược*)** — *Historical Person xác thực*.
 * **Vai trò gameplay**: **Main Battle Boss (Boss Chiến Đấu Chính Của Trận Bạch Đằng)**.
 * **Đề xuất quyết định**: **LOCK CANDIDATE (Main Boss)**.
@@ -168,7 +171,7 @@ graph TD
 * **Identity**: Hoàng đế khai quốc Nam Hán (ở ngôi 917–942), kẻ chủ mưu thôn tính Tĩnh Hải quân.
 * **Historical Role**:
   * Sai con là Hoằng Thao đem thủy quân sang đánh, bản thân tự lĩnh đại quân đóng giữ ở **Hải Môn (海門)** làm thanh viện yểm trợ từ xa.
-  * Khi nghe tin Hoằng Thao tử trận và quân Nam Hán đại bại, Lưu Cung đau đớn khóc lóc, thu nhặt số quân còn lại rút về nước (`收餘眾而還`), từ đó không dám đem quân sang nữa (*Tân Ngũ Đại Sử* Q65 ghi `自是不復出`).
+  * Khi nghe tin Hoằng Thao tử trận và quân Nam Hán đại bại, Lưu Cung đau đớn khóc lóc, thu nhặt số quân còn lại rút về nước (*Tân Ngũ Đại Sử* Q65: `龑收餘眾而還`; *Tư Trị Thông Giám* Q281: `漢主慟哭，收餘衆而還`).
 * **Source Tier**: **T1 + T2** — *Historical Person xác thực*.
 * **Xử lý thiết kế**:
   * Lưu Cung không trực tiếp tiến vào vùng cửa sông Bạch Đằng nên **không xuất hiện như một combat boss cơ học trên map chiến đấu**.
@@ -222,12 +225,17 @@ flowchart LR
 ### 5.1. Chứng Cứ Thư Tịch Cổ & Khảo Chính Thuật Ngữ Cọc (Textual Evidence)
 1. **Trận thủy chiến cửa sông hiểm yếu**: Cả *Tân Ngũ Đại Sử* (T1) và *Toàn Thư* (T2) đều xác nhận trận đánh diễn ra tại vùng cửa biển Bạch Đằng.
 2. **Thuật ngữ cọc theo từng nguồn cụ thể (Source-Specific Stake Wording)**:
-   * *Tân Ngũ Đại Sử* (T1 Q65) ghi nhận: `植鐵橛海中` (cắm cọc sắt/bịt sắt trong biển), `洪操戰死` (Hồng Thao tử trận), `收餘眾而還` (thu tàn quân rút về).
-   * *Tư Trị Thông Giám* (T1 Q281) ghi chi tiết: cọc gỗ lớn vạt nhọn đầu bịt sắt (`植大杙于海門，銳其首，冒之以鐵`), dùng thuyền nhẹ nhân lúc triều lên khiêu chiến (`以輕舟乘潮挑戰`), giả vờ rút chạy (`偽遁`), triều rút chiến thuyền Nam Hán vướng cọc sắt không lui được (`會潮落，漢艦礙鐵杙不得返`), sĩ tốt chìm đắm quá nửa (`士卒覆溺者太半`), Hoằng Thao tử trận (`弘操死`).
+   * *Tân Ngũ Đại Sử* (T1 Q65) ghi nhận: `植鐵橛海中` (cắm cọc sắt/bịt sắt trong biển), `洪操戰死` (Hồng Thao tử trận), `龑收餘眾而還` (Lưu Cung thu tàn quân rút về).
+   * *Tư Trị Thông Giám* (T1 Q281) ghi chi tiết:
+     - `先於海口多植大杙，銳其首，冒之以鐵` (trước hết ở cửa biển cắm nhiều cọc gỗ lớn, vót nhọn đầu, bịt sắt vào),
+     - `遣輕舟乘潮挑戰而僞遁` (sai thuyền nhẹ nhân lúc triều lên khiêu chiến rồi giả vờ rút chạy),
+     - `須臾潮落，漢艦皆礙鐵杙不得返` (chốc lát triều rút, chiến thuyền Nam Hán đều vướng cọc sắt không trở về được),
+     - `士卒覆溺者太半，弘操死` (binh sĩ chìm đắm quá nửa, Hoằng Thao tử trận),
+     - `漢主慟哭，收餘衆而還` (vua Hán khóc than, thu tàn quân rút về).
    * *Toàn Thư* (T2) ghi: Ngô Quyền cho vót nhọn đầu cọc gỗ lớn bịt sắt rồi cắm ngầm ở cửa biển, dùng thuyền nhẹ khiêu chiến giả thua, đợi khi triều rút cọc nhô lên thì dốc toàn lực phản công, truy kích tiêu diệt Hoằng Thao.
    * *Nguyên tắc*: Không gộp chi tiết của nguồn sau (*Tư Trị Thông Giám*, *Toàn Thư*) rồi gán ngược cho *Tân Ngũ Đại Sử*.
 3. **Kết quả lịch sử (Historical Outcome)**:
-   * Quân Nam Hán đại bại; *Tư Trị Thông Giám* ghi sĩ tốt chìm đắm quá nửa (`士卒覆溺者太半`); Hoằng Thao tử trận; Lưu Cung thu nhặt số quân còn lại rút về nước (`收餘眾而還`), từ đó không dám đem quân sang nữa (*Tân Ngũ Đại Sử* Q65 ghi `自是不復出`).
+   * Quân Nam Hán đại bại; *Tư Trị Thông Giám* ghi binh sĩ chìm đắm quá nửa (`士卒覆溺者太半`); Hoằng Thao tử trận; Lưu Cung thu nhặt số quân còn lại rút về nước (`收餘眾而還`).
 
 ---
 

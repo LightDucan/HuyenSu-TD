@@ -1,7 +1,7 @@
 # Chapter ARC-DT-04: Ngô Quyền & Đại Thắng Bạch Đằng (937–939 SCN)
 
 > [!IMPORTANT]
-> **Ràng Buộc Nhiệm Vụ (Task `VS-NQ-01` — Final Evidence Sync)**:
+> **Ràng Buộc Nhiệm Vụ (Task `VS-NQ-01` — Final Quote Cleanup)**:
 > - Tài liệu này xác lập **Đề Xuất Tuyển Chọn Roster (Roster Selection Proposal)** và **Định Hướng Bối Cảnh Map (Chapter Direction)** cho Flagship Chapter lịch sử: Chiến dịch đại phá quân xâm lược Nam Hán trên sông Bạch Đằng năm 938 của **Ngô Quyền**, mở đầu bằng biến cố 937 (Kiều Công Tiễn phản nghịch) và kết thúc bằng mốc 939 (Ngô Quyền xưng Vương, định đô Cổ Loa).
 > - **Phạm vi chương trình**:
 >   - `937 SCN`: Kiều Công Tiễn (`皎公羨` T1 / `矯公羨` T2) phản nghịch giết Dương Đình Nghệ, sai sứ sang Nam Hán cầu viện → **Narrative Prelude**.
@@ -39,7 +39,7 @@ Tập hồ sơ tuyển chọn nội dung cho Chapter Ngô Quyền & Bạch Đằ
 
 | Tài Liệu | Nội Dung Trọng Tâm |
 |---|---|
-| [roster-selection.md](roster-selection.md) | Khảo cứu và tuyển chọn Playable Heroes (Ngô Quyền — LOCK; Hero 2/3 — OPEN / FALLBACK UNVERIFIED); Khảo chính tự dạng Kiều Công Tiễn (`皎公羨` T1 vs `矯公羨` T2); Name Variant Matrix cho chủ tướng Nam Hán (`劉洪操` vs `劉弘操`); Cập nhật khảo cổ học 2026 (*The Holocene*); đánh giá 3 Normal Enemies, 1 Elite, 1 Main Boss (Lưu Hoằng Thao / Hồng Thao), 1 Narrative Boss (Kiều Công Tiễn); phân tầng nguồn nghiêm ngặt. |
+| [roster-selection.md](roster-selection.md) | Khảo cứu và tuyển chọn Playable Heroes (Ngô Quyền — LOCK; Hero 2/3 — OPEN / FALLBACK UNVERIFIED); Khảo chính tự dạng Kiều Công Tiễn (`皎公羨` T1 vs `矯公羨` T2); Name Variant Matrix cho chủ tướng Nam Hán (`劉洪操` vs `劉弘操`); Cập nhật khảo cổ học 2026 (*The Holocene*); đánh giá 3 Normal Enemies, 1 Elite, 1 Main Boss (Lưu Hoằng Thao / Hồng Thao), 1 Narrative Boss (Kiều Công Tiễn); chuẩn hóa trích dẫn nguyên văn T1 (*Tân Ngũ Đại Sử* Q65, *Tư Trị Thông Giám* Q281). |
 | [chapter-direction.md](chapter-direction.md) | Định hướng không gian chiến trường duy nhất tại Cửa Biển Bạch Đằng (938 SCN), phân tầng địa danh học T1/T2 vs T4; cảnh báo học thuật về các bãi cọc khảo cổ học; xác lập bối cảnh Đại La là Narrative Prelude và ý nghĩa lịch sử của chiến thắng Bạch Đằng. |
 
 ---
@@ -48,10 +48,18 @@ Tập hồ sơ tuyển chọn nội dung cho Chapter Ngô Quyền & Bạch Đằ
 
 1. **Phân biệt Near-source (T1) vs Later Historiography (T2)**:
    - *T1 (*Tân Ngũ Đại Sử* Q65, *Tư Trị Thông Giám* Q281)*: Ghi nhận sự kiện Ngô Quyền diệt Kiều Công Tiễn (`皎公羨`); vua Nam Hán Lưu Cung sai con sang đánh Giao Châu; Ngô Quyền đón đánh bằng trận địa cọc ở cửa biển, thừa lúc nước triều rút ép thuyền giặc vướng cọc lật úp, giết chết chủ tướng Nam Hán; Lưu Cung thu nhặt tàn quân rút về.
-   - *T2 (*Đại Việt Sử Ký Toàn Thư*, *Khâm Định Việt Sử Thông Giám Cương Mục*, *Việt Sử Lược*)*: Ghi nhận Kiều Công Tiễn (`矯公羨`); mô tả chi tiết: Ngô Quyền cho vạt nhọn cọc gỗ bịt sắt cắm ngầm dưới lòng sông, sai thuyền nhẹ ra khiêu chiến nhử giặc lúc triều lên, đợi triều rút thì dốc toàn lực phản công ép thuyền giặc vào bãi cọc.
-2. **Khảo chính thuật ngữ cọc theo từng nguồn cụ thể (Source-Specific Stake Wording)**:
-   - *Tân Ngũ Đại Sử* Q65 ghi nhận: `植鐵橛海中` (cắm cọc sắt/bịt sắt trong biển/cửa biển), `洪操戰死` (Hồng Thao tử trận), `收餘眾而還` (thu tàn quân rút về). Tuyệt đối không gán `斬洪操` hay các chi tiết cọc gỗ cho Q65.
-   - *Tư Trị Thông Giám* Q281 ghi chi tiết: cọc gỗ lớn vạt nhọn đầu bịt sắt (`植大杙于海門，銳其首，冒之以鐵`), dùng thuyền nhẹ nhân lúc triều lên khiêu chiến (`以輕舟乘潮挑戰`), giả vờ rút chạy (`偽遁`), triều rút chiến thuyền Nam Hán vướng cọc sắt không lui được (`會潮落，漢艦礙鐵杙不得返`), quân sĩ chìm đắm quá nửa (`士卒覆溺者太半`), Hoằng Thao tử trận (`弘操死`).
+   - *T2 (*Đại Việt Sử Ký Toàn Thư*, *Khâm Định Việt Sử Thông Giám Cương Mục*, *Việt Sử Lược*)*: Ghi nhận Kiều Công Tiễn (`矯公羨`); mô tả chi tiết: Ngô Quyền cho vót nhọn cọc gỗ bịt sắt cắm ngầm dưới lòng sông, sai thuyền nhẹ ra khiêu chiến nhử giặc lúc triều lên, đợi triều rút thì dốc toàn lực phản công ép thuyền giặc vào bãi cọc.
+2. **Khảo chính thuật ngữ và trích dẫn theo từng nguồn cụ thể**:
+   - *Tân Ngũ Đại Sử* Q65 ghi nhận: `植鐵橛海中` (cắm cọc sắt trong biển/cửa biển), `洪操戰死` (Hồng Thao tử trận), `龑收餘眾而還` (Lưu Cung thu tàn quân rút về). (Đoạn tổng kết sau đó của Q65 ghi nhận việc Nam Hán bèn bỏ không đánh nữa: `遂棄不復攻`).
+   - *Tư Trị Thông Giám* Q281 ghi nhận chính xác theo ấn bản khảo chứng:
+     - `先於海口多植大杙` (trước hết ở cửa biển cắm nhiều cọc gỗ lớn),
+     - `銳其首，冒之以鐵` (vót nhọn đầu cọc, bịt sắt vào),
+     - `遣輕舟乘潮挑戰而僞遁` (sai thuyền nhẹ nhân lúc triều lên khiêu chiến rồi giả vờ rút chạy),
+     - `須臾潮落` (chốc lát triều rút),
+     - `漢艦皆礙鐵杙不得返` (chiến thuyền Nam Hán đều vướng cọc sắt không trở về được),
+     - `士卒覆溺者太半` (binh sĩ chìm đắm quá nửa),
+     - `弘操死` (Hoằng Thao tử trận),
+     - `漢主慟哭，收餘衆而還` (vua Hán khóc than, thu tàn quân rút về).
    - Tuyệt đối không gộp chi tiết của nguồn sau rồi gán ngược cho *Tân Ngũ Đại Sử*.
 3. **Name Variant Matrix cho chủ tướng Nam Hán**:
    - *Tân Ngũ Đại Sử* (Q65) dùng chữ **Hồng Thao (洪操)** (`劉洪操`).
@@ -64,8 +72,8 @@ Tập hồ sơ tuyển chọn nội dung cho Chapter Ngô Quyền & Bạch Đằ
    - Khảo cổ học cung cấp bối cảnh môi trường tự nhiên và vật chất vùng cửa sông; **tuyệt đối không ngụ ý rằng các bãi cọc khảo cổ đã biết hiện nay là chứng tích vật thể trực tiếp của riêng trận 938**.
 5. **Quy tắc tuyển chọn Playable Hero (Hero Roster Guardrail)**:
    - **Ngô Quyền** là **LOCK CANDIDATE** duy nhất bắt buộc (nhân vật duy nhất được T1/T2 xác nhận chỉ huy trận Bạch Đằng 938).
-   - **Dương Tam Kha, Đỗ Cảnh Thạc, Kiều Công Hãn, Đinh Công Trứ**: T1/T2 không xác lập sự tham chiến trực tiếp tại trận Bạch Đằng 938 (Direct 938 participation = NOT ESTABLISHED). Xếp phân loại **`FALLBACK / UNVERIFIED 938 PARTICIPATION`** (hoặc để trống `OPEN` cho Slot 2/3).
-   - Tuyệt đối **không tự invent thêm nhân vật** để lấp đầy 3 slot Hero.
+   - **Hero Slot 2 & Slot 3**: Giữ trạng thái **`OPEN`**; không tự ý tạo thêm Hero khi chưa có chứng cứ lịch sử xác thực.
+   - **Dương Tam Kha, Đỗ Cảnh Thạc, Kiều Công Hãn, Đinh Công Trứ**: T1/T2 không xác lập sự tham chiến trực tiếp tại trận Bạch Đằng 938 (Direct 938 participation = NOT ESTABLISHED). Xếp phân loại **`FALLBACK / UNVERIFIED 938 PARTICIPATION`**.
 6. **Định vị đối phương (Nam Hán & Kiều Công Tiễn)**:
    - **Lưu Hoằng Thao / Hồng Thao**: Người trực tiếp chỉ huy hạm đội và tử trận tại Bạch Đằng → **LOCK CANDIDATE (Main Battle Boss)**.
    - **Lưu Cung**: Đóng quân tại Hải Môn làm thanh viện, không trực tiếp vào sông Bạch Đằng → **NARRATIVE SUPREME ANTAGONIST**.

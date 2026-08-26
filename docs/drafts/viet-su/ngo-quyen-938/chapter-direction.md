@@ -1,7 +1,7 @@
 # Định Hướng Bối Cảnh & Không Gian Map: Chapter Ngô Quyền & Bạch Đằng (937–939 SCN)
 
 > [!IMPORTANT]
-> **Ràng Buộc Định Hướng Map (Task `VS-NQ-01` — Final Evidence Sync)**:
+> **Ràng Buộc Định Hướng Map (Task `VS-NQ-01` — Final Quote Cleanup)**:
 > - Tài liệu này xác lập định hướng không gian chiến trường, phân tầng địa danh học và bầu không khí nghệ thuật cho Flagship Chapter: **Trận Thủy Chiến Bạch Đằng Năm 938**.
 > - **TUYỆT ĐỐI KHÔNG**:
 >   - Không vẽ tọa độ đường đi (path coordinates) cụ thể.
@@ -70,9 +70,9 @@ graph TD
 
 ### 3.1. Ý Nghĩa Thắng Lợi Trong Gameplay & Lịch Sử (Historical Outcome)
 * Khác với các chiến dịch thời kỳ đầu (như Hai Bà Trưng hay Bà Triệu vốn mang tính chất tactical resistance trước sức mạnh áp đảo của quân đô hộ), **Trận Bạch Đằng năm 938 là một chiến thắng quân sự mang tính bước ngoặt quyết định**:
-  1. Quân Nam Hán đại bại; *Tư Trị Thông Giám* ghi sĩ tốt chìm đắm quá nửa (`士卒覆溺者太半`).
-  2. Chủ tướng giặc là Lưu Hoằng Thao / Hồng Thao tử trận (*Tân Ngũ Đại Sử* ghi `洪操戰死`, *Tư Trị Thông Giám* ghi `弘操死`).
-  3. Vua Nam Hán Lưu Cung đóng ở Hải Môn nghe tin con chết bèn khóc lóc, thu nhặt số quân còn lại rút về nước (`收餘眾而還`), từ đó không dám đem quân sang nữa (*Tân Ngũ Đại Sử* Q65 ghi `自是不復出`).
+  1. Quân Nam Hán đại bại; *Tư Trị Thông Giám* ghi binh sĩ chìm đắm quá nửa (`士卒覆溺者太半`).
+  2. Chủ tướng giặc là Lưu Hoằng Thao / Hồng Thao tử trận (*Tân Ngũ Đại Sử* Q65: `洪操戰死`; *Tư Trị Thông Giám* Q281: `弘操死`).
+  3. Vua Nam Hán Lưu Cung đóng ở Hải Môn nghe tin con chết bèn khóc lóc, thu nhặt số quân còn lại rút về nước (*Tân Ngũ Đại Sử* Q65: `龑收餘眾而還`; *Tư Trị Thông Giám* Q281: `漢主慟哭，收餘衆而還`).
 * **Định nghĩa chiến thắng trong màn chơi**: Người chơi bảo vệ toàn vẹn trận địa phòng thủ, đánh lui toàn bộ các đợt thuyền giặc và hạ gục chủ tướng Lưu Hoằng Thao.
 
 ---

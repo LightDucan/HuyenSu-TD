@@ -67,7 +67,7 @@ graph TD
 
 ---
 
-### 1.4. Tinh Thiều (Quảng Dương Môn Lang / Thái Phó Ban Văn)
+### 1.4. Tinh Thiều (Quảng Dương Môn Lang / Đứng Đầu Ban Văn)
 
 * **Tầng nguồn**: **T2 (Toàn Thư, Cương Mục, Việt Sử Tiêu Án)**. **Không có T1 nào đề cập tên Tinh Thiều**.
   * *T2*: Người học rộng, ra Bắc xin làm quan, được nhà Lương phong chức **Quảng Dương môn lang** (廣陽門郎) — tức viên lang coi giữ cửa Quảng Dương hoàng thành nhà Lương. Phẫn chí trở về phò tá Lý Bí, đứng đầu ban văn Vạn Xuân.
@@ -130,7 +130,7 @@ graph TD
         subgraph ARC 1 KHAI SINH VAN XUAN
             A1_H1["1. Lý Bí (Lý Nam Đế)<br><i>Hoàng Đế Khai Quốc<br>military commander identity (T1/T2)</i>"]
             A1_H2["2. Phạm Tu (Đại Tướng Quân)<br><i>Lão tướng đứng đầu ban võ<br>military figure (T2/T3)</i>"]
-            A1_H3["3. Tinh Thiều (Thái Phó Ban Văn)<br><i>Văn thần trí thức phò tá<br>scholar/official identity (T2)</i>"]
+            A1_H3["3. Tinh Thiều (Văn thần / Đứng đầu ban văn)<br><i>Văn thần trí thức phò tá<br>scholar/official identity (T2)</i>"]
         end
         subgraph ARC 2 DA TRACH QUAT KHOI
             A2_H1["1. Triệu Quang Phục (Dạ Trạch Vương)<br><i>Thủ lĩnh kháng cự đầm lầy<br>military figure (T2/T3)</i>"]

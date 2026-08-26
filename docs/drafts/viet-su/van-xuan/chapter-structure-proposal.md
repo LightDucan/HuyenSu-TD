@@ -66,7 +66,7 @@ graph LR
 * **Tuyến nhân vật (Phe Vạn Xuân)**:
   * **Lý Bí (Lý Nam Đế)** — Hoàng Đế Khai Quốc, military commander identity (T1/T2).
   * **Phạm Tu** — Đại Tướng Quân đứng đầu ban võ, military figure (T2/T3).
-  * **Tinh Thiều** — Thái Phó Ban Văn, scholar/official identity (T2).
+  * **Tinh Thiều** — Văn thần / người đứng đầu ban văn, scholar/official identity (T2).
   * **Triệu Túc** — Hào Trưởng Chu Diên, story candidate (T2).
 * **Tuyến đối phương (Phe Nhà Lương & Lâm Ấp)**:
   * *Boss 1*: **Tiêu Tư** — Thứ sử Giao Châu (T1 xác nhận); boss mở màn theo cốt truyện.
@@ -127,7 +127,7 @@ graph TD
         P2["<b>ƯU TIÊN 2: ARC 1 (Khai Sinh Vạn Xuân)</b><br>• Nền tảng Worldbuilding: quốc hiệu Vạn Xuân, chùa Khai Quốc, lập quốc<br>• Khắc họa Lý Bí, Phạm Tu, Tinh Thiều và kình địch Trần Bá Tiên<br>• Thích hợp làm Chapter mở màn thời Tiền Lý"]
         P3["<b>ƯU TIÊN 3: ARC 3 (Hậu Vạn Xuân)</b><br>• Cốt truyện phức tạp, nhiều yếu tố bi kịch và nội chiến<br>• Thích hợp làm gói mở rộng (Expansion Pack / Hardcore Chapter)"]
         
-        P1 -.-|Hoặc Song Hành Cùng| P2
+        P1 -.->|Hoặc Song Hành Cùng| P2
         P2 --> P3
     end
 ```

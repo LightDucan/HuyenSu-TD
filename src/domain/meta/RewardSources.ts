@@ -57,7 +57,7 @@ function commit(repository: LocalMetaRepository, source: RewardSourceResult['sou
   if (operations.length === 0) return { status: 'not-eligible', source, rewardKey }
   assertNonNegativeSafeInteger(committedAtMs, 'Reward commit timestamp')
   const current = repository.load()
-  if (current.status !== 'loaded') throw new Error('Reward source requires a current Meta V2 save')
+  if (current.status !== 'loaded') throw new Error('Reward source requires a current Meta V3 save')
   const result = repository.transactReward({ idempotencyKey: rewardKey, operations }, current.save.revision, committedAtMs)
   return { ...result, source, rewardKey }
 }

@@ -16,8 +16,8 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 ## Trạng thái hiện tại
 
 - Current Phase: **11 — Reward Economy**
-- Current Codex task: **P11-C02 — Reward Sources — DONE, chờ Audit** — branch `codex/p11-c02-reward-sources`.
-- Current Antigravity task: **VS-BT-02 — Bà Triệu Roster Selection Proposal** — branch `antigravity/vs-bt-02-roster-selection`.
+- Current Codex task: **P11-C02 FINAL CLEANUP — PASS — READY MERGE** — branch `codex/p11-c02-reward-sources`.
+- Current Antigravity task: **ASSET-A02 — Visual Acceptance** — branch `antigravity/asset-a02-visual-acceptance` @ `68334b1`.
 - Lần kiểm tra gần nhất: P11-C02 Active Play Time anti-replay dùng Meta V3 persistent checkpoint, cumulative delta và interval remainder; đổi claim/policy/reload không thể nhận trùng; 65/65 tests và build đạt.
 
 ## Phases và checkpoint
@@ -43,16 +43,16 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 | META-A00 | Economy UI specification và consistency fix | PASS — đã tích hợp | Antigravity + Codex audit | Hai currency; Command Energy ngoài Wallet; UI chỉ dùng snapshot/request | `antigravity/meta-a00-economy-ui-spec` |
 | HERO-A00 | Hero Recruitment & Ascension specification | PASS — đã tích hợp | Antigravity + Codex audit | Chiêu Hiền Lệnh item; duplicate thành Mảnh; Sao 1–5; Anh Hồn chung; shared progression | `antigravity/hero-a00-hero-recruitment` |
 | VS-HBT-02 | Enemy/Chapter content Hai Bà Trưng | PASS — đã tích hợp | Antigravity + Codex audit | Docs-only, source notes và narrative consistency; không lọt vào Core | `antigravity/vs-hbt-02-enemy-chapter` |
-| INT-C01 | Meta Foundation Integration Gate | PASS — READY MERGE | Codex | Merge order, schema consistency, Core boundary, full test/build/preview — PASS | `codex/int-c01-meta-foundation-integration` |
-| P11-C01 | Reward Transaction Core | DONE — chờ Audit | Codex | Atomicity, idempotency persistence, V1→V2 migration, optimistic revision, no UI/Battle integration | `codex/p11-c01-reward-transaction-core` |
-| P11-C02 | Reward Sources | DONE — chờ Audit | Codex | Config-driven kill/stage/time rewards, persistent cumulative anti-replay, V2→V3 migration, real wall-clock, visible-only/count-hidden boundary | `codex/p11-c02-reward-sources` |
+| INT-C01 | Meta Foundation Integration Gate | PASS — merged vào `main` | Codex | Merge order, schema consistency, Core boundary, full test/build/preview — PASS | `meta/foundation-v1` |
+| P11-C01 | Reward Transaction Core | DONE — merged vào `main` — PASS | Codex | Atomicity, idempotency persistence, V1→V2 migration, optimistic revision, no UI/Battle integration | `meta/reward-transaction-v1` |
+| P11-C02 | Reward Sources | PASS — READY MERGE | Codex | Config-driven kill/stage/time rewards, persistent cumulative anti-replay, V2→V3 migration, real wall-clock, visible-only/count-hidden boundary | `codex/p11-c02-reward-sources` |
 
 ## Roadmap Phase 10–18
 
 | Phase | Task ID | Nội dung | Trạng thái | Dependency | Worker chính | Audit checkpoint | Commit checkpoint | Rủi ro chính |
 |---|---|---|---|---|---|---|---|---|
 | 10 — Meta Foundation | P10 | Profile, Meta repository boundary, wallet/inventory/energy/capacity contracts tối thiểu | DONE — Integration Audit PASS | Phase 9 + META-C00 | Codex | Schema validation, ownership, local-save isolation, no Core regression; INT-C01 integration audit — PASS | `codex/p10-c01-meta-foundation`, `codex/int-c01-meta-foundation-integration` @ `599162a` | Nhiều nguồn truth và save không nhất quán |
-| 11 — Reward Economy | P11 | Reward transaction, Wallet grant/spend, Inventory grant và reward sources | IN PROGRESS — P11-C02 DONE chờ Audit | Phase 10 | Codex | Atomic grant/spend, idempotency, wall-clock policy, no negative/duplicate reward | `codex/p11-c02-reward-sources` | Inflation, duplicate reward hoặc sai time policy |
+| 11 — Reward Economy | P11 | Reward transaction, Wallet grant/spend, Inventory grant và reward sources | IN PROGRESS — P11-C02 PASS — READY MERGE | Phase 10 | Codex | Atomic grant/spend, idempotency, wall-clock policy, no negative/duplicate reward | `codex/p11-c02-reward-sources` | Inflation, duplicate reward hoặc sai time policy |
 | 12 — Quân Lệnh & Auto Wave | P12 | Real-time regen, overflow, Wave cost và Auto Wave gate | TODO | Phase 10–11 + OD-01 | Codex | Base cap 60, 2 phút/điểm, overflow, hidden time, x1/x3 independence, auto/manual parity | `meta/command-energy-v1` | Clock exploit, double spend hoặc auto-loop |
 | 13 — Deployment Capacity & Lệnh Hiệu Triệu | P13 | Capacity calculator, permanent entitlement và placement gate | TODO | Phase 10–11 + OD-02/OD-08 | Codex | Base 7, mỗi Lệnh Hiệu Triệu +1, effective cap ≤ map slots, reposition free | `meta/deployment-capacity-v1` | Meta/Battle placement desync |
 | 14 — Inventory & Equipment V2 | P14 | Equipment instances, Level 1–10, merge 3 và migration V1 | TODO | Phase 10–11 + save contract + OD-06 | Codex + Antigravity UI | Migration/rollback, merge atomicity, signature weapon policy, shared stats | `meta/equipment-v2` | Mất/nhân đôi item khi migration |

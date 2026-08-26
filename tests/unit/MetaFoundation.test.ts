@@ -35,7 +35,7 @@ describe('P11-C01 Reward Transaction Core', () => {
         { type: 'grant-consumable', itemId: 'tieu-binh-phu', quantity: 2 },
       ],
     }, 1, 2_000)
-    expect(result).toMatchObject({ status: 'applied', save: { schemaVersion: 2, revision: 2 } })
+    expect(result).toMatchObject({ status: 'applied', save: { schemaVersion: 3, revision: 2 } })
     expect(result.save.data.wallet.balances).toEqual({ gold: 50, knb: 3 })
     expect(result.save.data.inventory.consumables).toEqual({ 'tieu-binh-phu': 2 })
     expect(result.save.data.rewardReceipts['reward/chapter-1']).toMatchObject({ committedAtMs: 2_000 })
@@ -88,14 +88,28 @@ describe('P11-C01 Reward Transaction Core', () => {
     const repository = new LocalMetaRepository(valid.storage)
     expect(repository.load()).toEqual({ status: 'migration-required', raw: validV1, sourceVersion: 1 })
     const migrated = repository.migrateV1(4)
-    expect(migrated).toMatchObject({ schemaVersion: 2, revision: 4, updatedAtMs: 1_000, data: { rewardReceipts: {} } })
-    expect(repository.load()).toMatchObject({ status: 'loaded', save: { schemaVersion: 2, revision: 4 } })
+    expect(migrated).toMatchObject({ schemaVersion: 3, revision: 4, updatedAtMs: 1_000, data: { rewardReceipts: {}, activePlayTime: { observedVisibleMs: 0, observedHiddenMs: 0, remainderEligibleMs: 0 } } })
+    expect(repository.load()).toMatchObject({ status: 'loaded', save: { schemaVersion: 3, revision: 4 } })
 
     const invalidV1 = JSON.stringify({ schemaVersion: 1, revision: 1, updatedAtMs: 1_000, data: { wallet: { balances: { gold: 0, knb: 0 } } } })
     const invalid = memoryStorage(invalidV1)
     const invalidRepository = new LocalMetaRepository(invalid.storage)
     expect(() => invalidRepository.migrateV1(1)).toThrow('Invalid Meta V1 save')
     expect(invalid.values.get(META_STORAGE_KEY)).toBe(invalidV1)
+  })
+
+  it('migrates V2 to V3 deterministically and preserves raw V2 when validation fails', () => {
+    const v3 = createInitialMetaState('local-player', 1_000)
+    const v2Data = { profile: v3.profile, wallet: v3.wallet, inventory: v3.inventory, commandEnergy: v3.commandEnergy, rewardReceipts: v3.rewardReceipts }
+    const validV2 = JSON.stringify({ schemaVersion: 2, revision: 7, updatedAtMs: 2_000, data: v2Data })
+    const valid = memoryStorage(validV2)
+    const migrated = new LocalMetaRepository(valid.storage).migrateV2(7)
+    expect(migrated).toMatchObject({ schemaVersion: 3, revision: 7, updatedAtMs: 2_000, data: { activePlayTime: { observedVisibleMs: 0, observedHiddenMs: 0, remainderEligibleMs: 0 } } })
+
+    const invalidV2 = JSON.stringify({ schemaVersion: 2, revision: 7, updatedAtMs: 2_000, data: { ...v2Data, rewardReceipts: null } })
+    const invalid = memoryStorage(invalidV2)
+    expect(() => new LocalMetaRepository(invalid.storage).migrateV2(7)).toThrow('Invalid Meta V2 save')
+    expect(invalid.values.get(META_STORAGE_KEY)).toBe(invalidV2)
   })
 
   it('keeps pure transaction input unchanged on failure', () => {

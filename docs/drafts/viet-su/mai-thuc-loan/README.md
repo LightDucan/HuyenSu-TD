@@ -44,6 +44,6 @@ Tập hồ sơ tuyển chọn nội dung cho Chapter Mai Thúc Loan gồm 2 tài
 2. **Quy mô quân số**: Con số "30–40 vạn liên quân" trong thư tịch cổ là ước lệ phóng đại (rhetorical exaggeration); không sử dụng làm quy mô enemy trong game.
 3. **Liên minh phương Nam**: Liên minh với Lâm Ấp (Champa) và Chân Lạp (Khmer) là sự thật lịch sử (T1 Fact), nhưng không tự tạo danh tướng hư cấu đại diện cho họ khi chưa có sử liệu xác nhận.
 4. **Phân loại nguồn nghiêm ngặt**:
-   - Nhân vật có trong chính sử gần thời / trung đại: Mai Thúc Loan (T1/T2).
-   - Nhân vật chỉ tồn tại trong thần tích địa phương: Phạm Thị Uyển, Mai Kỳ Sơn (T3) $\rightarrow$ Giữ trạng thái **PROVISIONAL**, không biến thành T1 fact.
-   - Boss phương Bắc: Dương Tư Húc (T1), Quang Sở Khách (T1 — chuẩn hóa canonical name, cấm dùng "Nguyên Sở Khách").
+   - Nhân vật thuộc baseline chính sử (VS-EA-00): Mai Thúc Loan (T1/T2).
+   - Nhân vật thuộc khảo cứu truyền thống địa phương T3 mới (ngoài baseline VS-EA-00): Phạm Thị Uyển (đền Dục Anh/Hà Nội), Mai Kỳ Sơn (đình Nhu Kiều/Hải Phòng) $\rightarrow$ Giữ trạng thái **PROVISIONAL**, không biến thành T1 fact.
+   - Boss phương Bắc (VS-EA-00): Dương Tư Húc (T1), Quang Sở Khách (T1 — An Nam Đại đô hộ; chuẩn hóa canonical name, cấm dùng "Nguyên Sở Khách").

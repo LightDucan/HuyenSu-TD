@@ -3,7 +3,7 @@ import type { BattleHudData } from '../game/bridge/BattleHudContract'
 
 export interface BottomPlayerHUDProps {
   data: Pick<BattleHudData, 'speed' | 'placedHeroes' | 'selectedHeroId'>
-  heroes: readonly Readonly<{ id: string; name: string }>[]
+  heroes: readonly Readonly<{ id: string; name: string; portraitUrl: string }>[]
   onSpeedChange: (speed: GameSpeed) => void
   onHeroSelect: (heroId: string) => void
   onOpenHeroDetail: () => void
@@ -33,7 +33,7 @@ export function BottomPlayerHUD({
                 onClick={() => onHeroSelect(hero.id)}
                 title={isDeployed ? `Chọn ${hero.name} để di chuyển` : `Chọn ${hero.name} để triển khai`}
               >
-                <div className="hero-slot-avatar">⚔️</div>
+                <img className="hero-slot-avatar" src={hero.portraitUrl} alt="" aria-hidden="true" />
                 <div className="hero-slot-meta">
                   <span className="hero-slot-name">{hero.name}</span>
                   <span className={`hero-slot-status ${isDeployed ? 'status-deployed' : 'status-ready'}`}>

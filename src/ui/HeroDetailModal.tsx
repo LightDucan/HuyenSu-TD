@@ -3,6 +3,7 @@ import { equipmentDefinitions } from '../data/equipment/definitions'
 import { heroDefinitions, quanVu } from '../data/heroes/definitions'
 import { heroPassives, type PassiveDefinition } from '../data/passives/definitions'
 import { skillDefinitions } from '../data/skills/definitions'
+import { prototypeHeroVisuals } from '../data/assets/prototypeVisualAssets'
 import { featureFlags } from '../config/features'
 import { loadEquipment } from '../domain/equipment/EquipmentStorage'
 import {
@@ -184,9 +185,7 @@ export function HeroDetailModal({
             {/* Hero Card */}
             <div className="hero-portrait-card">
               <div className="hero-avatar">
-                <span className="avatar-icon" aria-hidden="true">
-                  🗡️
-                </span>
+                <img className="hero-portrait-image" src={prototypeHeroVisuals[hero.id].portraitUrl} alt={`Chân dung ${hero.name}`} />
               </div>
               <div className="hero-meta">
                 <h3 className="hero-name">{hero.name}</h3>

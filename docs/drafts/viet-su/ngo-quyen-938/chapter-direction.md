@@ -1,7 +1,7 @@
 # Định Hướng Bối Cảnh & Không Gian Map: Chapter Ngô Quyền & Bạch Đằng (937–939 SCN)
 
 > [!IMPORTANT]
-> **Ràng Buộc Định Hướng Map (Task `VS-NQ-01`)**:
+> **Ràng Buộc Định Hướng Map (Task `VS-NQ-01` — Final Evidence Sync)**:
 > - Tài liệu này xác lập định hướng không gian chiến trường, phân tầng địa danh học và bầu không khí nghệ thuật cho Flagship Chapter: **Trận Thủy Chiến Bạch Đằng Năm 938**.
 > - **TUYỆT ĐỐI KHÔNG**:
 >   - Không vẽ tọa độ đường đi (path coordinates) cụ thể.
@@ -38,7 +38,7 @@ graph TD
 ### 2.1. Địa Danh Ghi Nhận Trong Chính Sử (T1/T2 Historical Toponyms)
 * **Sông Bạch Đằng (Bạch Đằng Giang / 白藤江)**: Dòng sông huyết mạch cửa ngõ phía Đông Bắc đất nước, nơi diễn ra trận quyết chiến chiến lược đại phá thủy quân Nam Hán (T1/T2).
 * **Cửa biển Hải Môn (海門)**: Nơi vua Nam Hán Lưu Cung đóng đại quân làm thanh viện yểm trợ từ xa (T1/T2).
-* **Thành Đại La (La Thành / 大羅城)**: Nơi Ngô Quyền tiến quân ra Bắc chém đầu Kiều Công Tiễn trước trận Bạch Đằng (T1/T2 — Narrative Prelude).
+* **Thành Đại La (La Thành / 大羅城)**: Nơi Ngô Quyền tiến quân ra Bắc chém đầu Kiều Công Tiễn (`皎公羨` T1 / `矯公羨` T2) trước trận Bạch Đằng (T1/T2 — Narrative Prelude).
 * **Cổ Loa (古螺)**: Kinh đô cổ của An Dương Vương, nơi Ngô Quyền xưng Vương năm 939 (T2 — Epilogue).
 
 ---
@@ -95,5 +95,5 @@ graph TD
 
 ## 4. Tóm Tắt Định Hướng Phát Triển Tiếp Theo
 
-1. **Giai đoạn tiếp theo (VS-NQ-02 / Playable Concepts)**: Thiết kế chi tiết bộ kỹ năng visual và phong cách chiến đấu của Ngô Quyền (Hero 1 — LOCK) và các Hero dự bị (Dương Tam Kha, Đỗ Cảnh Thạc — PROVISIONAL), tuân thủ tuyệt đối quy chuẩn TD không gán số liệu balance.
+1. **Giai đoạn tiếp theo (VS-NQ-02 / Playable Concepts)**: Thiết kế chi tiết bộ kỹ năng visual và phong cách chiến đấu của Ngô Quyền (Hero 1 — LOCK) và đánh giá các phương án Hero dự phòng (nếu có thêm tư liệu xác thực), tuân thủ tuyệt đối quy chuẩn TD không gán số liệu balance.
 2. **Visual Art Direction**: Xây dựng bảng màu hoành tráng cho trận Bạch Đằng — không khí khói lửa trên sóng nước mùa đông, cọc gỗ bịt sắt nhô lên trên dòng triều rút, soái hạm Lưu Hoằng Thao bị đâm thủng lật úp giữa sông.

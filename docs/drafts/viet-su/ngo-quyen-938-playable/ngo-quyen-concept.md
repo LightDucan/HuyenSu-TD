@@ -5,6 +5,7 @@
 > - **Định vị đơn vị**: Ngô Quyền là một **Tower / Card phòng thủ trên grid cố định**, không di chuyển tự do (NOT a free-moving RPG unit).
 > - **Normal Attack**: **Đơn mục tiêu (Single-target)**, **tuyệt đối không AoE, không Stun, không Slow, không Root, không Poison**.
 > - **Active Skill**: Tuân thủ kiến trúc hệ thống dùng chung (*Shared Combat System*). **TriggerHits bắt buộc chọn một trong 4 mốc: 3 / 5 / 7 / 10**.
+> - **Legendary Passive**: Tương thích hoàn toàn với hệ thống thuộc tính dùng chung (*Shared Stat Framework*), áp dụng điều chỉnh phần trăm bản thân đơn giản (**Self-only Percentage Modifier** như `ATK +X%` hoặc `AttackSpeed +X%`). Tuyệt đối không tạo hào quang ô lân cận (Adjacency Aura), không nhắm mục tiêu đồng minh (Ally targeting), không tạo móc nối sát thương theo trạng thái bất lợi (Status-condition damage hooks) hay logic combat riêng biệt.
 > - **Không tạo logic cơ học riêng**: Không tạo engine thủy triều, không tạo cơ chế cắm cọc tương tác hay vật lý tàu thuyền. Hương vị Bạch Đằng được thể hiện qua hiệu ứng hình ảnh (VFX) và các trạng thái khống chế dùng chung (*Shared Status Effects*).
 > - **Mọi chỉ số cân bằng**: Để ở trạng thái **`[CONFIG / OPEN]`**.
 
@@ -36,7 +37,7 @@ graph TD
    - Đầu chít khăn quấn gấm màu sẫm hoặc đội mũ hộ đầu da thuộc ngắn, tóc búi gọn phía sau gáy.
 3. **Game Creative (Tower Defense Visual Identity)**:
    - **Vũ khí nhận diện**: Trường kiếm lệnh bằng thép tôi (Command Longsword) — biểu trưng cho quyền uy chỉ huy toàn quân trên sóng nước.
-   - **Tư thế chiến đấu**: Đứng vững chãi trên đài bãi bồi / sàn thuyền chỉ huy, tay phải nắm đốc kiếm, tay trái thủ thế điều động quân lệnh.
+   - **Tư thế chiến đấu**: Đứng vững chãi trên đài bãi bồi / sàn thuyền chỉ huy, tay phải nắm đốc kiếm, tay trái thủ thế điều động quân lệnh (Front View).
 
 ---
 
@@ -104,11 +105,11 @@ flowchart TD
 * **Mô tả cốt truyện / Flavor**: Ngô Quyền dồn toàn lực tung chuỗi đòn chém dũng mãnh phá vỡ soái hạm địch, dồn ép chủ tướng đối phương vào thế hiểm.
 * **Cơ chế kỹ thuật dùng chung (*Shared Mechanics*)**:
   - **TriggerHits**: **`5`** (hoặc `7`).
-  - **Primary Effect**: Tấn công liên hoàn nhiều nhịp (**MultiHit Damage**) lên mục tiêu có lượng HP cao nhất hoặc kẻ địch đi đầu trong tầm đánh.
-  - **Secondary Effect**: Gây hiệu ứng **Làm choáng (Stun)** ngắn trên nhịp chém cuối cùng.
+  - **Primary Effect**: Tấn công liên hoàn nhiều nhịp (**MultiHit Damage**) lên mục tiêu kẻ địch đi đầu trong tầm đánh theo cơ chế target dùng chung.
+  - **Secondary Effect**: Áp dụng hiệu ứng **Làm choáng (Stun)** ngắn qua cơ chế hiệu ứng dùng chung (không xây dựng logic timing theo từng nhịp chém riêng).
 * **Thông số kỹ thuật**:
   - `TriggerHits`: `5` (hoặc `7`)
-  - `HitCount`: `3 hits`
+  - `HitCount`: `[CONFIG / OPEN]`
   - `DamagePerHit`: `[CONFIG / OPEN]`
   - `StatusEffect`: `Stun [CONFIG / OPEN]`
   - `StunDuration`: `[CONFIG / OPEN]`
@@ -119,19 +120,19 @@ flowchart TD
 
 > [!NOTE]
 > **Quy Chuẩn Passive System**:
-> - Tuân thủ kiến trúc nội tại dùng chung (Shared Passive Architecture).
-> - Cho phép áp dụng các hệ số điều chỉnh theo tỷ lệ phần trăm (Percentage Modifiers).
-> - Mọi giá trị phần trăm cụ thể giữ ở trạng thái **`[OPEN]`**.
+> - Tuân thủ kiến trúc thuộc tính dùng chung (**Shared Stat Framework**).
+> - Áp dụng hệ số điều chỉnh tỷ lệ phần trăm đơn giản chỉ tác động lên bản thân (**Self-only Percentage Modifier**).
+> - Không tạo truy vấn ô liền kề (No adjacency queries), không nhắm mục tiêu đồng minh (No ally targeting), không tạo móc nối sát thương theo trạng thái bất lợi (No status-condition damage hooks) hay logic Combat Core riêng biệt.
+> - Mọi giá trị phần trăm cụ thể giữ ở trạng thái **`[OPEN / CONFIG]`**.
 
 * **Tên Nội Tại**: **Quốc Chủ Thống Soái (Sovereign Commander)**.
-* **Mô tả cốt truyện / Flavor**: Khí chất kiệt xuất của người khai mở nền độc lập muôn đời, khích lệ tinh thần chiến đấu quả cảm của quân dân và gia tăng uy lực sát thương lên những kẻ thù đang sa lầy.
+* **Mô tả cốt truyện / Flavor**: Khí phách kiệt xuất của người anh hùng dân tộc, tự thân bộc phát nhuệ khí phi thường làm tăng mạnh uy lực sát thương trong các trận đánh quyết định.
 * **Cơ chế kỹ thuật dùng chung (*Shared Passive Mechanics*)**:
-  - **Hiệu ứng 1 (Tactical Command Aura)**: Tăng thêm **`+X%` Sát thương vật lý (*Physical Damage*)** cho bản thân và các Hero đồng minh được bố trí trong ô lân cận (Aura Radius 1 ô grid).
-  - **Hiệu ứng 2 (Exploit Impairment)**: Đòn đánh của Ngô Quyền gây thêm **`+Y%` Sát thương cộng thêm** lên các mục tiêu đang chịu trạng thái khống chế bất lợi (Root / Slow / Stun).
+  - Tăng trực tiếp **`+X%` Sát thương tấn công (*ATK*)** (hoặc `+X%` Tốc độ đánh *AttackSpeed*) cho bản thân Ngô Quyền.
 * **Thông số kỹ thuật**:
-  - `AuraRadius`: `1 Grid Cell (Adjacent Tiles)`
-  - `AllyDamageBonusPercent`: `[OPEN / CONFIG %]`
-  - `CrowdControlBonusDamagePercent`: `[OPEN / CONFIG %]`
+  - `Target`: `Self Only`
+  - `StatModifier`: `ATK +X% (hoặc AttackSpeed +X%)`
+  - `BonusPercentage`: `[OPEN / CONFIG %]`
 
 ---
 

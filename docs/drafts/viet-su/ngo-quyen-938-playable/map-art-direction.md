@@ -5,6 +5,7 @@
 > - **Primary Map duy nhất**: **Cửa Biển Bạch Đằng — Đại Phá Nam Hán (938 SCN)**.
 > - **Cơ chế tuyến đường**: Sử dụng **tuyến đường uốn lượn cố định (Fixed Winding Path)** theo chuẩn Tower Defense 2D.
 > - **Tuyệt đối không xây dựng engine thủy triều cơ học**: Mọi yếu tố thủy triều, bãi cọc nhô lên và thuyền giặc vướng cọc được biểu đạt thông qua **kể chuyện môi trường thị giác (Environmental Visual Storytelling)** và nghệ thuật bối cảnh nền (Background Art), không tác động vào thuật toán pathfinding của engine.
+> - **Quy chuẩn kích thước & vị trí đặt tướng**: Tuân theo cấu hình bản đồ runtime (**follow runtime map configuration / bố cục chiến trường tỷ lệ 4:3-ish**) và cấu hình chapter (**follow chapter/map configuration** cho số lượng Placement Tiles), không tự ý khóa cứng các kích thước cố định.
 > - **Cảnh báo học thuật khảo cổ 2026**: Tuyệt đối không đồng nhất bãi cọc trên bản đồ với các di chỉ cọc khảo cổ Yên Giang (1288) hay Cao Quỳ / Đầm Thượng (Đông Sơn muộn). Toàn bộ cảnh quan cọc trên bản đồ là **`[T4 / Artistic Reconstruction]`**.
 
 ---
@@ -45,10 +46,10 @@ graph TD
 
 ### 2.3. Lớp Tuyến Đường Chiến Đấu (Path & Tile Grid Layer)
 * **Enemy Path (Tuyến đường di chuyển của kẻ địch)**:
-  - Tuyến luồng lạch nước sâu uốn cong hình chữ S hoặc chữ U rộng, dẫn từ điểm xuất phát ở cửa biển qua trung tâm bãi cọc ngầm tới điểm đích phòng thủ.
+  - Tuyến luồng lạch nước sâu uốn cong, dẫn từ điểm xuất phát ở cửa biển qua trung tâm bãi cọc ngầm tới điểm đích phòng thủ.
 * **Hero Placement Tiles (Ô lưới đặt tướng)**:
   - Các vị trí ô lưới đặt Hero được thiết kế mỹ thuật dưới dạng **bãi bồi phù sa cao**, **gò đất bọc rễ cây ngập mặn**, hoặc **sàn thuyền dã chiến kết bè ngụy trang lau sậy**.
-  - Đảm bảo độ tương phản cao để người chơi dễ dàng nhận diện vị trí có thể triển khai Hero.
+  - Đảm bảo độ tương phản cao để người chơi dễ dàng nhận diện vị trí có thể triển khai Hero. Số lượng và tọa độ ô lưới tuân theo cấu hình map runtime.
 
 ---
 
@@ -58,20 +59,20 @@ graph TD
 > **Quy Tắc Phân Tầng Học Thuật Tuyệt Đối**:
 > 1. **Chứng cứ văn bản học T1/T2**: Việc Ngô Quyền dùng cọc ngầm bịt sắt tại cửa biển đánh bại hạm đội Nam Hán là **Sự thật lịch sử vững chắc** (*Tân Ngũ Đại Sử* Q65, *Tư Trị Thông Giám* Q281, *Đại Việt Sử Ký Toàn Thư*).
 > 2. **Cảnh báo về các di chỉ khảo cổ học**:
->    - Các bãi cọc khai quật tại Quảng Yên (Yên Giang, Má Ngựa, Vạn Muối) có niên đại C14 thế kỷ XIII, thuộc về **Chiến dịch Bạch Đằng năm 1288 thời Trần**.
+>    - Các bãi cọc khai quật tại Quảng Yên (Yên Giang, Má Ngựa, Vạn Muối) có niên đại C14 thế kỷ XIII, thuộc về **Chiến dịch Bạch Đằng năm 1288 thời Trần**; không làm bằng chứng trực tiếp cho trận địa cụ thể của Ngô Quyền năm 938.
 >    - Các cọc gỗ tại Thủy Nguyên (Cao Quỳ, Đầm Thượng) theo công bố khoa học năm 2026 trên *The Holocene* (DOI: `10.1177/09596836261450824`) có niên đại AMS $^{14}\text{C}$ khoảng $2515 - 2301\text{ cal BP}$ (~$566 - 352\text{ TCN}$), là **dấu tích móng cọc nhà sàn thời Văn hóa Đông Sơn muộn**, KHÔNG PHẢI bãi cọc thủy chiến của Ngô Quyền năm 938.
 > 3. **Ứng dụng trong thiết kế game**:
 >    - Hình ảnh cọc ngầm trên bản đồ trò chơi hoàn toàn là **`[T4 / Artistic Reconstruction]`** dựa trên mô tả văn bản cổ, **tuyệt đối không tuyên bố là hình ảnh phục dựng nguyên bản từ các di chỉ khảo cổ cụ thể đã phát hiện**.
 
 ---
 
-## 4. Bảng Quy Chuẩn Kỹ Thuật Map Assets (Technical Map Contract)
+## 4. Bảng Quy Chuẩn Kỹ Thuật Map (Technical Map Contract)
 
 | Thông Số Bản Đồ | Quy Chuẩn Thiết Kế | Mục Đích & Ghi Chú Kỹ Thuật |
 |---|:---:|---|
 | **Góc nhìn (Perspective)** | **Top-down Front-oriented 2D** | Chuẩn 2D Tower Defense góc nhìn trực diện phối cảnh phẳng. |
-| **Độ phân giải bản đồ** | **$1920 \times 1080\text{ px}$ (hoặc tỷ lệ chuẩn $16:9$)** | Tương thích giao diện Battle HUD màn hình ngang. |
-| **Kích thước ô lưới (Grid Size)** | **$128 \times 128\text{ px / tile}$** | Đồng bộ kích thước footprint với Hero và Enemy sprite. |
-| **Loại đường đi (Path Type)** | **Single Fixed Winding Path** | 1 tuyến đường uốn lượn duy nhất, đảm bảo tính dễ đọc (readability). |
-| **Vị trí đặt Hero** | **$6 - 8$ Buildable Tiles ven bờ** | Bố trí dọc theo các khúc cua chiến lược bao quanh luồng sông. |
-| **Hiệu ứng môi trường (Visual Only)** | Sương mù cuộn nhẹ, sóng nước trôi lững lờ | Shader / Texture loop nhẹ nhàng, không gây tụt khung hình. |
+| **Độ phân giải & Bố cục** | **Theo cấu hình bản đồ runtime** | Bảo toàn định hướng dự án với bố cục chiến đấu tỷ lệ 4:3-ish theo contract hiện hành. |
+| **Kích thước ô lưới (Grid Size)** | **Theo cấu hình bản đồ runtime** | Đồng bộ footprint với Hero ($128 \times 128\text{ px Front View, Baseline Y=112}$) và Enemy. |
+| **Loại đường đi (Path Type)** | **Single Fixed Winding Path** | 1 tuyến đường uốn lượn cố định, đảm bảo tính dễ đọc (readability). |
+| **Vị trí đặt Hero (Placement Tiles)** | **Theo cấu hình chapter / map** | Bố trí dọc theo các khúc cua chiến lược bao quanh luồng sông. |
+| **Hiệu ứng môi trường (Visual Only)** | Sương mù cuộn nhẹ, sóng nước trôi lững lờ | Shader / Texture loop nhẹ nhàng, không can thiệp logic combat. |

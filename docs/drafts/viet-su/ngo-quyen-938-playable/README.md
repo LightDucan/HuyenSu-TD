@@ -43,7 +43,7 @@ graph TD
 
     subgraph OPPOSITION & BOSS ROSTER
         E1["<b>Normal Enemies (3 Archetypes)</b><br>Thủy Quân Tiền Phong / Thủy Cung Trận Binh / Đột Kích Thủy Binh<br><i>Game / T4 Reconstruction | Fixed-path</i>"]
-        EL["<b>Elite Unit (1 Archetype)</b><br>Nam Hán Lâu Thuyền Vệ Sĩ<br><i>Game / T4 Reconstruction | Heavy Armor</i>"]
+        EL["<b>Elite Unit (1 Archetype)</b><br>Nam Hán Lâu Thuyền Vệ Sĩ<br><i>Game / T4 Reconstruction | Heavy Marine Elite</i>"]
         B1["<b>Main Battle Boss</b><br>Lưu Hoằng Thao / Lưu Hồng Thao (弘操 / 洪操)<br><i>Historical Person (T1/T2) | Flagship Commander</i><br><b>STATUS: LOCK BOSS</b>"]
         NA["<b>Narrative Antagonists</b><br>• Lưu Cung (Hải Môn - Supreme Antagonist)<br>• Kiều Công Tiễn (Đại La - Prelude Antagonist)"]
     end

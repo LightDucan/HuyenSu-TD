@@ -110,7 +110,7 @@ graph TD
 ### 4.1. Lê Hoàn (Lê Đại Hành Hoàng Đế)
 * **Thời kỳ**: 941–1005 SCN (Trị vì: 980–1005 SCN).
 * **Phân tầng nguồn**: **T1 (*Tống Sử*, *Tục Tư Trị Thông Giám Trường Biên*) + T2 (*Toàn Thư*, *Việt Sử Lược*) + T4 (Khảo cổ kênh Nhà Lê, Tịch Điền)**.
-* **Hành trạng**: Thập đạo tướng quân triều Đinh, được Thái hậu Dương Vân Nga và tướng sĩ tôn lên ngôi năm 980 để chống Tống. Lãnh đạo cuộc Kháng chiến chống Tống năm 981 đại thắng (chặn thủy quân ở Bạch Đằng, Hầu Nhân Bảo tử trận, phá tàn quân tại Tây Kết); nam phạt Champa năm 982 chém Bê Mê Thuế san phẳng Indrapura; cày ruộng Tịch Điền năm 987, đào hệ thống kênh Nhà Lê.
+* **Hành trạng**: Thập đạo tướng quân triều Đinh, được Thái hậu Dương Vân Nga và tướng sĩ tôn lên ngôi năm 980 để chống Tống. Lãnh đạo cuộc Kháng chiến chống Tống năm 981 đại thắng (chặn thủy quân ở Bạch Đằng, cắm cọc sông Chi Lăng, Hầu Nhân Bảo bị trá hàng giết chết, phá tàn quân tại Tây Kết [T2]); nam phạt Champa năm 982 chém Bê Mê Thuế san phẳng Indrapura; cày ruộng Tịch Điền năm 987, đào hệ thống kênh Nhà Lê.
 
 ---
 
@@ -134,7 +134,7 @@ graph TD
 ---
 
 ### 4.4. Tướng Lĩnh Quân Xâm Lược Nhà Tống (Chiến Tranh Năm 981)
-* **Hầu Nhân Bảo (Hou Renbao)**: **T1 (*Tống Sử* Quyển 488 & Quyển 254)**. Chuyển vận sứ Lĩnh Nam đông lộ, viên tướng chủ chiến dẫn đạo quân bộ tiến vào nội địa Đại Cồ Việt; bị phục kích giết chết vào tháng 4 năm 981 (T1). *Tống Sử* không khẳng định Hầu Nhân Bảo chết tại cửa sông Bạch Đằng, mà phân định riêng giữa mặt trận thủy quân Bạch Đằng và đạo quân bộ của Hầu Nhân Bảo.
-* **Lưu Trừng (Liu Cheng)**: **T1 (*Tống Sử*)**. Thứ sử Ngang Châu, chỉ huy đạo thủy quân tiến vào cửa sông Bạch Đằng; bị trận địa cọc ngầm của Lê Hoàn chặn đứng, sau nghe tin Hầu Nhân Bảo tử trận bèn tháo chạy, về nước bị Tống Thái Tông xử trảm.
+* **Hầu Nhân Bảo (Hou Renbao)**: **T1 (*Tống Sử* Quyển 488 & Quyển 254) + T2 (*Toàn Thư*)**. Chuyển vận sứ Lĩnh Nam đông lộ, dẫn đạo quân bộ tiến vào nội địa Đại Cồ Việt; bị đối phương dùng kế trá hàng dụ và bị giết vào tháng 4 năm 981. T1 ghi nhận quân Tống ban đầu báo tin thắng ở cửa Bạch Đằng, sau đó Hầu Nhân Bảo dẫn quân tiến trước và bị giết trong nội địa (T1 không khẳng định Nhân Bảo chết tại cửa sông Bạch Đằng). T2 *Toàn Thư* ghi Lê Hoàn trá hàng dâng thư rồi đem quân đánh úp chém Nhân Bảo, không khóa địa điểm thành Bạch Đằng.
+* **Lưu Trừng (Liu Cheng)**: **T1 (*Tống Sử*) + T2 (*Toàn Thư*)**. Thứ sử Ngang Châu, chỉ huy đạo thủy quân tiến vào cửa sông Bạch Đằng; bị quân Đại Cồ Việt cầm chân, sau nghe tin Hầu Nhân Bảo tử trận bèn tháo chạy, về nước bị Tống Thái Tông xử trảm.
 * **Tôn Toàn Hưng (Sun Quanxing)**: **T1 (*Tống Sử*)**. Tướng bộ binh Tống, trù trừ không phối hợp kịp thời với Hầu Nhân Bảo; tháo chạy về nước bị triều Tống giáng chức/xử phạt.
-* **Trần Khâm Tộ (Chen Qinzuo)**: **T1 (*Tống Sử*)**. Tướng bộ binh Tống, tiến sâu vào nội địa; khi rút lui bị quân Lê Hoàn truy kích đại phá tại Tây Kết, tổn thất nặng nề.
+* **Trần Khâm Tộ (Chen Qinzuo)**: **T1 (*Tống Sử*) + T2 (*Toàn Thư*)**. Tướng bộ binh Tống, tiến sâu vào nội địa; khi rút lui bị quân Lê Hoàn truy kích đại phá tại Tây Kết `[theo T2 Toàn Thư]`, tổn thất nặng nề.

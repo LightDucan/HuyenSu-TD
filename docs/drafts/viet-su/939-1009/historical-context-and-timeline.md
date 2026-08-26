@@ -20,7 +20,7 @@ timeline
     968 - 979 : Đinh Tiên Hoàng xưng Hoàng đế (T1/T2) : Đặt quốc hiệu Đại Cồ Việt, niên hiệu Thái Bình, định đô Hoa Lư (T2)
     973 - 979 : Dựng Cột kinh Phật Đỉnh Tôn Thắng (T1) : Đinh Liễn giết Hạng Lang (T1/T2) : Đỗ Thích ám sát vua và Liễn (T1/T2)
     980 : Đinh Toàn 6 tuổi lên ngôi, Dương Vân Nga trao Áo Long Cổn cho Lê Hoàn (T2/T4) : Triều Tiền Lê thành lập
-    981 : Đại thắng kháng chiến chống Tống (T1/T2) : Chặn thủy quân Tống tại Bạch Đằng, Hầu Nhân Bảo tử trận, phá tàn quân tại Tây Kết
+    981 : Đại thắng kháng chiến chống Tống (T1/T2) : Chặn thủy quân Tống tại Bạch Đằng, cắm cọc sông Chi Lăng (T2), Hầu Nhân Bảo bị trá hàng giết chết, phá tàn quân tại Tây Kết (T2)
     982 : Lê Hoàn thân chinh phạt Champa (T1/T2) : Chém chết Bê Mê Thuế, san phẳng kinh đô Indrapura
     987 - 1005 : Lê Hoàn cày Tịch Điền Đọi Sơn 987 (T2) : Đào hệ thống kênh Nhà Lê (T2/T4) : Lê Hoàn băng hà 1005 (T1/T2)
     1005 - 1009 : Lê Long Đĩnh lên ngôi (T2) : Thân chinh dẹp loạn biên ải, mở mậu dịch Ung Châu, xin Đại Tạng Kinh (T1/T2/T4)
@@ -150,9 +150,10 @@ graph TD
 
     subgraph CHIẾN TRƯỜNG KHÁNG TỐNG 981
         LH2["<b>Lê Đại Hành (Lê Hoàn)</b><br>Thân chinh thống lĩnh toàn quân"]
-        LH2 ==>|Cọc ngầm chặn thủy quân Tống| BDO["Mặt trận Thủy quân Bạch Đằng<br>(Lưu Trừng, Giả Đam bị cầm chân)"]
-        LH2 ==>|Phục kích tiêu diệt cánh bộ binh| HNB["Mặt trận Bộ binh Hầu Nhân Bảo<br>(Hầu Nhân Bảo tử trận Tháng 4/981)"]
-        LH2 ==>|Truy kích tàn quân| TK["Trận truy kích tại Tây Kết<br>(Trần Khâm Tộ đại bại)"]
+        LH2 ==>|Cắm cọc ngăn sông Chi Lăng [T2]| CL["Phòng tuyến sông Chi Lăng<br>(Cắm cọc ngăn giặc - T2)"]
+        LH2 ==>|Cầm chân thủy quân Tống| BDO["Mặt trận Thủy quân Bạch Đằng<br>(Lưu Trừng, Giả Đam bị chặn)"]
+        LH2 ==>|Dùng kế trá hàng tiêu diệt| HNB["Đạo quân bộ Hầu Nhân Bảo<br>(Hầu Nhân Bảo bị chém chết Tháng 4/981)"]
+        LH2 ==>|Truy kích tàn quân [T2]| TK["Trận truy kích tại Tây Kết<br>(Trần Khâm Tộ đại bại - T2)"]
     end
 ```
 
@@ -163,17 +164,18 @@ graph TD
   * Tháng 7 năm 980, thám báo cấp báo: Nhà Tống cử đại quân thủy bộ ồ ạt chuẩn bị tràn sang xâm lược.
   * Trước tình thế nguy cấp, tướng quân **Phạm Cự Lạng** cùng ba quân tướng sĩ đồng thanh suy tôn Lê Hoàn làm Hoàng đế.
   * Thái hậu **Dương Vân Nga** lấy đại cục cứu nước làm trọng, sai mang **áo Long Cổn** khoác lên mình Lê Hoàn, chính thức nhường ngôi báu. Lê Hoàn lên ngôi Hoàng đế (**Lê Đại Hành**), đổi niên hiệu thành **Thiên Phúc**, giáng Đinh Toàn xuống làm Vệ Vương.
-* **Chiến Dịch Kháng Chiến Chống Tống Đại Thắng (Xuân - Hè 981 SCN — Tách Bạch 3 Mặt Trận)**:
-  1. **Mặt trận thủy quân Bạch Đằng (Naval Operations)**:
-     - Do Lưu Trừng, Giả Đam, Cổ Lượng chỉ huy theo đường biển tiến vào cửa sông Bạch Đằng đầu năm 981.
-     - Lê Hoàn cho đóng cọc ngăn sông Bạch Đằng, xây lũy Bình Lỗ, kiên quyết cầm chân thủy hạm Tống không cho hội quân với cánh bộ binh.
-  2. **Mặt trận bộ binh Hầu Nhân Bảo (Land Army Operations)**:
+* **Chiến Dịch Kháng Chiến Chống Tống Đại Thắng (Xuân - Hè 981 SCN — Tách Bạch 4 Bình Diện)**:
+  1. **Mặt trận thủy quân Bạch Đằng & Cắm cọc ngăn sông**:
+     - Thủy quân Tống do Lưu Trừng, Giả Đam, Cổ Lượng chỉ huy theo đường biển tiến vào cửa sông Bạch Đằng đầu năm 981.
+     - *Toàn Thư* (T2) ghi nhận: Lưu Trừng đến sông Bạch Đằng; Lê Hoàn sai quân sĩ **đóng cọc ngăn sông Chi Lăng** (*"sai quân sĩ cắm cọc ngăn sông Chi Lăng"*). Việc miêu tả có bãi cọc tại Bạch Đằng năm 981 là **`[T4 MODERN RECONSTRUCTION / DISPUTED]`**, không phải dữ kiện T1/T2 fact.
+  2. **Mặt trận bộ binh Hầu Nhân Bảo (Land Army)**:
      - Do Hầu Nhân Bảo, Tôn Toàn Hưng, Trần Khâm Tộ chỉ huy tiến theo đường Lạng Sơn vào vùng nội địa.
-     - Quân bộ Tống tiến sâu vào hiểm địa, cô lập, cạn lương và rơi vào thế bị động.
-  3. **Hoàn cảnh tử trận của Hầu Nhân Bảo & Diễn biến kết thúc (Battle & Death Narrative)**:
-     - *Tống Sử* (T1): Ghi nhận Hầu Nhân Bảo bị phục kích giết chết tại trận vào tháng 4 năm 981 trong nội địa; thủy quân Lưu Trừng nghe tin hoảng sợ rút chạy. **T1 không khẳng định Hầu Nhân Bảo chết ở cửa sông Bạch Đằng**.
-     - *Toàn Thư* (T2): Ghi lại chi tiết Lê Hoàn sai người dâng thư trá hàng dụ Hầu Nhân Bảo, sau đó dốc quân đánh úp chém chết Hầu Nhân Bảo tại sông Bạch Đằng.
-     - **Truy kích tàn quân tại Tây Kết**: *Tống Sử* (T1) xác nhận quân Đại Cồ Việt truy kích dữ dội cánh quân Trần Khâm Tộ tại Tây Kết, bắt sống các tướng Quách Quân Biện, Triệu Phụng Huân; Tôn Toàn Hưng và Lưu Trừng hoảng loạn tháo chạy về nước.
+     - Hầu Nhân Bảo chủ chiến, dẫn quân tiến sâu vào trước, không phối hợp nhịp nhàng với cánh Tôn Toàn Hưng và thủy quân Lưu Trừng, ngày càng cạn kiệt lương thảo.
+  3. **Cái chết của Hầu Nhân Bảo & Diễn biến kết thúc**:
+     - *Tống Sử* (T1): Quân Tống ban đầu báo thắng tại cửa Bạch Đằng; sau đó Hầu Nhân Bảo dẫn quân tiến trước, bị đối phương dùng kế trá hàng dụ và bị giết vào tháng 4 năm 981. **T1 không khẳng định Hầu Nhân Bảo chết ở cửa sông Bạch Đằng**; sau khi hay tin Hầu Nhân Bảo tử trận, thủy quân Lưu Trừng hoảng sợ rút lui.
+     - *Toàn Thư* (T2): Ghi lại chi tiết Lê Hoàn sai người dâng thư trá hàng dụ Hầu Nhân Bảo mất cảnh giác rồi đem quân đánh úp chém chết Hầu Nhân Bảo. Văn bản T2 **không khóa cố định địa điểm cái chết thành Bạch Đằng**.
+  4. **Trận truy kích tàn quân tại Tây Kết**:
+     - Chi tiết quân Đại Cồ Việt truy kích dữ dội cánh quân Trần Khâm Tộ tại Tây Kết và bắt sống các tướng Quách Quân Biện, Triệu Phụng Huân xuất xứ từ **Chính sử Việt Nam (T2 — *Toàn Thư*)** `[SOURCE CHECK / T2]`.
 
 ---
 

@@ -19,7 +19,7 @@ graph TD
         A1["<b>Arc 1: Hậu Ngô Quyền & Biến Cố Cổ Loa (944 - 965)</b><br>Dương Tam Kha cướp ngôi & Lưỡng Vương cùng trị vì<br><i>Đánh giá: Thích hợp làm Prologue / Narrative Bridge</i>"]
         A2["<b>Arc 2: Vạn Thắng Vương & Loạn 12 Sứ Quân (965/966 - 968)</b><br>Đinh Bộ Lĩnh từ Hoa Lư dẹp tan các căn cứ sứ quân<br><i>Đánh giá: CỰC KỲ KHẢ THI LÀM CAMPAIGN CHAPTER TRỌNG ĐIỂM</i>"]
         A3["<b>Arc 3: Đại Cồ Việt — Thái Bình Vương Triều (968 - 979)</b><br>Định đô Hoa Lư, Cột kinh Đinh Liễn & Biến cố Đỗ Thích<br><i>Đánh giá: Phù hợp làm Narrative Lore / Peace-time Interlude</i>"]
-        A4["<b>Arc 4: Kháng Chiến Chống Tống 981 — Lê Hoàn Đại Thắng (980 - 981)</b><br>Trao áo Long Cổn, cọc ngầm Bạch Đằng, Hầu Nhân Bảo tử trận, phá giặc ở Tây Kết<br><i>Đánh giá: CỰC KỲ KHẢ THI (FLAGSHIP CAMPAIGN CHAPTER)</i>"]
+        A4["<b>Arc 4: Kháng Chiến Chống Tống 981 — Lê Hoàn Đại Thắng (980 - 981)</b><br>Trao áo Long Cổn, cắm cọc sông Chi Lăng (T2), Hầu Nhân Bảo tử trận, phá tàn quân tại Tây Kết (T2)<br><i>Đánh giá: CỰC KỲ KHẢ THI (FLAGSHIP CAMPAIGN CHAPTER)</i>"]
         A5["<b>Arc 5: Nam Phạt Champa & Trị Quốc Tiền Lê (982 - 1009)</b><br>Lê Hoàn phạt Indrapura, cày Tịch Điền & Chuyển giao sang nhà Lý<br><i>Đánh giá: Khả thi làm Campaign Mở rộng / Epilogue sang Nhà Lý</i>"]
     end
 ```
@@ -60,11 +60,11 @@ graph TD
 ---
 
 ### 2.4. Arc 4: Kháng Chiến Chống Tống 981 — Lê Hoàn & Chiến Tuyến Bạch Đằng (980–981 SCN)
-* **Bối cảnh lịch sử**: Họa xâm lăng của đế chế Tống. Thái hậu Dương Vân Nga trao áo Long Cổn tôn Thập đạo tướng quân Lê Hoàn lên làm Hoàng đế. Lê Hoàn tự mình đốc chiến, chặn đứng thủy quân Tống tại cửa sông Bạch Đằng, đánh bại cánh bộ binh của Hầu Nhân Bảo và tiêu diệt tàn quân Trần Khâm Tộ tại Tây Kết năm 981.
+* **Bối cảnh lịch sử**: Họa xâm lăng của đế chế Tống. Thái hậu Dương Vân Nga trao áo Long Cổn tôn Thập đạo tướng quân Lê Hoàn lên làm Hoàng đế. Lê Hoàn tự mình đốc chiến, chặn thủy quân Tống tại cửa sông Bạch Đằng, cắm cọc ngăn sông Chi Lăng (T2), dùng kế trá hàng tiêu diệt đạo quân Hầu Nhân Bảo và đánh tan tàn quân Trần Khâm Tộ tại Tây Kết [T2] năm 981.
 * **Đánh giá nguồn sử liệu & Nhân vật**:
   * *Phe Đại Cồ Việt*: Lê Hoàn (Lê Đại Hành), Thái hậu Dương Vân Nga, Phạm Cự Lạng, Đỗ Thuận, Khuông Việt đại sư.
   * *Phe xâm lược Tống*: Hầu Nhân Bảo, Tôn Toàn Hưng, Trần Khâm Tộ, Lưu Trừng, Giả Đam.
-  * *Địa hình & Cơ chế*: Cửa sông Bạch Đằng, phòng tuyến sông Lục Đầu, thành lũy Bình Lỗ, địa hình sông nước đầm lầy Tây Kết.
+  * *Địa hình & Cơ chế*: Cửa sông Bạch Đằng, phòng tuyến cắm cọc sông Chi Lăng (T2), thành lũy Bình Lỗ, địa hình đầm lầy Tây Kết [T2].
 * **Kết luận khả thi**: **CỰC KỲ KHẢ THI (FLAGSHIP CAMPAIGN CHAPTER)**.
   * Một trong những chiến công chống ngoại xâm oanh liệt nhất trong lịch sử Việt Nam, được cả sử liệu T1 (*Tống Sử*) và T2 (*Toàn Thư*) xác thực, là đề tài xuất sắc nhất cho Chapter chiến đấu đỉnh cao của dự án.
 
@@ -83,7 +83,7 @@ graph TD
 | Mã Chapter Đề Xuất | Tên Historical Arc | Bối Cảnh Thời Gian | Trọng Tâm Lịch Sử & Nhân Vật Trung Tâm |
 |:---:|---|:---:|---|
 | **ARC-12SQ-01** | *Vạn Thắng Hoa Lư — Dẹp Loạn Sứ Quân* | 965/966–968 SCN | Đinh Bộ Lĩnh liên hiệp Bố Hải Khẩu, đánh dẹp 12 sứ quân, thống nhất non sông Đại Cồ Việt. |
-| **ARC-KT-01** | *Long Cổn Cứu Quốc — Đại Thắng Kháng Tống 981* | 980–981 SCN | Dương Vân Nga trao Long Bào, Lê Hoàn bố phòng chặn thủy quân tại Bạch Đằng, tiêu diệt đạo quân Hầu Nhân Bảo, phá giặc ở Tây Kết. |
+| **ARC-KT-01** | *Long Cổn Cứu Quốc — Đại Thắng Kháng Tống 981* | 980–981 SCN | Dương Vân Nga trao Long Bào, Lê Hoàn cắm cọc sông Chi Lăng (T2), chặn thủy quân Bạch Đằng, diệt Hầu Nhân Bảo, phá tàn quân tại Tây Kết (T2). |
 | **ARC-CP-01** | *Bình Chiêm Phạt Bạo — Khải Hoàn Indrapura* | 982 SCN | Lê Hoàn thân chinh nam phạt, đánh tan quân Champa của Bê Mê Thuế, bảo vệ quốc thể. |
 | **ARC-LY-00** | *Hoa Lư Chuyển Vận — Khởi Dựng Thăng Long* | 1005–1009 SCN | Thời kỳ Lê Long Đĩnh, Sư Vạn Hạnh và Đào Cam Mộc vận động tôn Lý Công Uẩn lên ngôi lập triều Lý (Narrative Epilogue). |
 

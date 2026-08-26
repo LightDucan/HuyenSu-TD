@@ -13,7 +13,7 @@
 ```mermaid
 graph TD
     subgraph T1 - NEAR-SOURCE & ARCHAEOLOGICAL EPIGRAPHY
-        T1_1["<b>Tống Sử & Tục Tư Trị Thông Giám Trường Biên</b><br>Ghi chép bang giao Tống - Việt, Chiến tranh Tống 981 (Hầu Nhân Bảo, Tôn Toàn Hưng)"]
+        T1_1["<b>Tống Sử & Tục Tư Trị Thông Giám Trường Biên</b><br>Ghi chép bang giao Tống - Việt, Chiến tranh Tống 981 (Hầu Nhân Bảo, Tôn Toàn Hưng, Lưu Trừng)"]
         T1_2["<b>Cựu Ngũ Đại Sử & Tân Ngũ Đại Sử</b><br>Ghi chép về Nam Hán, hậu Ngô Quyền, các sứ quân vùng biên"]
         T1_3["<b>Cột Kinh Phật Đỉnh Tôn Thắng Hoa Lư (973, 979)</b><br>Hiện vật khảo cổ học nguyên gốc ghi tước hiệu Đinh Liễn và biến cố giết Hạng Lang"]
         T1_4["<b>An Nam Chí Lược (Lê Tắc - TK XIV)</b><br>Trích lục các chiếu chỉ, tước phong của triều đình phương Bắc"]
@@ -22,7 +22,7 @@ graph TD
     subgraph T2 - LATER VIETNAMESE HISTORIOGRAPHY
         T2_1["<b>Việt Sử Lược / Đại Việt Sử Lược (TK XIV)</b><br>Bộ sử biên niên sớm nhất của Đại Việt ghi chi tiết thời Ngô, Đinh, Tiền Lê"]
         T2_2["<b>Đại Việt Sử Ký Toàn Thư (Ngô Sĩ Liên - 1479)</b><br>Bản kỷ Toàn thư Quyển 1: Kỷ Nhà Ngô, Kỷ Nhà Đinh, Kỷ Nhà Lê"]
-        T2_3["<b>Khâm Định Việt Sử Thông Giám Cương Mục (1884)</b><br>Khảo đính địa danh 12 sứ quân, đính chính chức tước, phê phán các dị bản"]
+        T2_3["<b>Khâm Định Việt Sử Thông Giám Cương Mục (1884)</b><br>Khảo đính địa danh 12 sứ quân, đính chính chức tước, khảo cứu chiến tranh 981"]
         T2_4["<b>Việt Sử Tiêu Án (Ngô Thì Sĩ - TK XVIII)</b><br>Bình luận sử học độc lập về chuyển giao vương quyền và vai trò Dương Vân Nga"]
     end
 
@@ -101,7 +101,7 @@ graph TD
   * **T2 — *Toàn Thư***: Ghi lại chuyện Đinh Bộ Lĩnh thuở nhỏ chăn trâu ở động Hoa Lư, cùng lũ trẻ trong làng bẻ hoa lau làm cờ rước đi, lũ trẻ khoanh tay làm kiệu cho ông ngồi. Lớn lên, người trong làng theo phục, tôn làm thủ lĩnh.
   * **T3 — *Lĩnh Nam Chích Quái* & Dân gian**: Huyền thoại hóa Đinh Bộ Lĩnh là con rái cá / thần nhân, bị chú đuổi chém chạy qua sông Hoàng Long có rồng vàng nổi lên cõng qua sông; mẹ nhìn thấy mộ cha có điềm rồng bèn táng hài cốt vào hàm rồng.
 * **Đánh giá học thuật (T4)**:
-  * **Phân tầng nghiêm ngặt**: Chuyện "cờ lau tập trận" và "rồng vàng cõng qua sông" là **mô-típ huyền thoại dân gian (Legendary motif) được chính sử trung đại ghi nhận lại (T3 preserved in T2)** nhằm thiêng hóa thiên mệnh của vị vua khai quốc, **KHÔNG PHẢI sự kiện lịch sử xác thực (T1 fact)**.
+  * **Phân tầng nghiêm ngặt**: Chuyện "cờ lau tập trận" và "rồng vàng cõng qua sông" là **mô-típ huyền thoại dân gian (Legendary motif) được chính sử trung đại bảo lưu (T3 preserved in T2)** nhằm thiêng hóa thiên mệnh của vị vua khai quốc, **KHÔNG PHẢI sự kiện lịch sử xác thực (T1 fact)**.
   * **Sự thật lịch sử (T1/T2 Fact)**: Đinh Bộ Lĩnh là con trai của Đinh Công Trứ (Thứ sử Hoan Châu thời Dương Đình Nghệ và Ngô Quyền). Ông có xuất thân quý tộc hào trưởng danh giá, kế thừa uy tín chính trị và căn cứ địa hiểm trở tại Động Hoa Lư, có tài thao lược quân sự và tầm nhìn chiến lược vượt trội.
 
 ---
@@ -137,37 +137,43 @@ flowchart TD
     subgraph CHIẾN DỊCH KHÁNG TỐNG 981 - TÁCH BẠCH CÁC CÁNH QUÂN & MẶT TRẬN
         subgraph CÁNH THỦY QUÂN TỐNG (BẠCH ĐẰNG)
             WQ1["Thủy quân Tống do Lưu Trừng, Cổ Lượng, Giả Thực chỉ huy"] --> WQ2["Tiến vào cửa sông Bạch Đằng (Đầu năm 981)"]
-            WQ2 --> WQ3["Giao chiến với thủy quân Đại Cồ Việt & bị cầm chân bởi bãi cọc ngầm"]
-            WQ3 --> WQ4["Nghe tin đạo quân bộ Hầu Nhân Bảo đại bại bèn hoảng loạn rút chạy"]
+            WQ2 --> WQ3["Giao chiến với thủy quân Đại Cồ Việt & bị cầm chân"]
+            WQ3 --> WQ4["Nghe tin đạo quân bộ Hầu Nhân Bảo bị diệt bèn rút chạy"]
         end
 
         subgraph CÁNH BỘ BINH TỐNG (HẦU NHÂN BẢO)
-            LQ1["Bộ binh Tống do Hầu Nhân Bảo, Tôn Toàn Hưng, Trần Khâm Tộ chỉ huy"] --> LQ2["Tiến từ Lạng Sơn vào vùng nội địa (Bình Lỗ / sông Lục Đầu)"]
-            LQ2 --> LQ3["Bị cô lập, thiếu lương, tiến sâu vào trận địa phục kích của Lê Hoàn"]
-            LQ3 --> LQ4["Hầu Nhân Bảo trúng kế (hoặc trá hàng) bị giết tại trận (Tháng 4/981)"]
+            LQ1["Bộ binh Tống do Hầu Nhân Bảo, Tôn Toàn Hưng, Trần Khâm Tộ chỉ huy"] --> LQ2["Tiến từ Lạng Sơn vào nội địa (hướng Chi Lăng / sông Lục Đầu / Bình Lỗ)"]
+            LQ2 --> LQ3["Hầu Nhân Bảo tiến trước, bị cô lập và rơi vào trận địa trá hàng phục kích"]
+            LQ3 --> LQ4["Hầu Nhân Bảo bị chém chết (Tháng 4/981)"]
         end
 
         subgraph TRUY KÍCH TÀN QUÂN & KẾT CỤC
-            LQ4 --> TR1["Lê Hoàn dốc toàn lực truy kích đạo quân Trần Khâm Tộ, Tôn Toàn Hưng"]
-            TR1 --> TR2["Trận đánh tàn quân tại Tây Kết (T1 Tống Sử ghi nhận)"]
-            TR2 --> TR3["Bắt sống tướng Quách Quân Biện, Triệu Phụng Huân; tàn quân Tống tháo chạy về nước"]
+            LQ4 --> TR1["Lê Hoàn dốc quân truy kích tàn quân Trần Khâm Tộ, Tôn Toàn Hưng"]
+            TR1 --> TR2["Trận đánh tàn quân tại Tây Kết [T2 Toàn Thư]"]
+            TR2 --> TR3["Bắt sống Quách Quân Biện, Triệu Phụng Huân; tàn quân Tống tháo chạy về nước"]
         end
     end
 ```
 
-* **Tách bạch 3 bình diện chiến sự năm 981**:
-  1. **Mặt trận thủy quân Bạch Đằng (Bạch Đằng Naval Operations)**:
-     - Do Thứ sử Ngang Châu **Lưu Trừng**, Giả Đam, Cổ Lượng chỉ huy theo đường biển tiến vào cửa sông Bạch Đằng đầu năm 981.
-     - Quân Đại Cồ Việt cho đóng cọc ngăn sông chặn đứng đà tiến của thủy hạm Tống, cô lập thủy quân địch khỏi cánh bộ binh.
+* **Tách bạch 4 bình diện chiến sự năm 981**:
+
+  1. **Mặt trận thủy quân Bạch Đằng & Vấn đề đóng cọc ngăn sông**:
+     - *Thủy quân Tống*: Do Thứ sử Ngang Châu **Lưu Trừng**, Giả Đam, Cổ Lượng chỉ huy theo đường biển tiến vào cửa sông Bạch Đằng đầu năm 981.
+     - *Ghi chép của Toàn Thư (T2)*: *Toàn Thư* ghi nhận Lưu Trừng đến sông Bạch Đằng; Lê Hoàn sai quân sĩ **đóng cọc ngăn sông Chi Lăng** (*"sai quân sĩ cắm cọc ngăn sông Chi Lăng"*).
+     - > [!WARNING]
+       > **Về giả thuyết "bãi cọc Bạch Đằng năm 981"**: Văn bản *Toàn Thư* (T2) ghi rõ cắm cọc ở **sông Chi Lăng**. Việc một số sách phổ thông hiện đại miêu tả Lê Hoàn đóng cọc ở sông Bạch Đằng là **`[T4 MODERN RECONSTRUCTION / DISPUTED]`** (suy diễn liên hệ từ trận Bạch Đằng 938 của Ngô Quyền và 1288 của Trần Hưng Đạo), **không phải dữ kiện T1/T2 fact**.
+
   2. **Mặt trận bộ binh của Hầu Nhân Bảo (Land Army of Hou Renbao)**:
-     - Do Lĩnh Nam đông lộ chuyển vận sứ **Hầu Nhân Bảo**, Tôn Toàn Hưng, Thôi Lượng, Trần Khâm Tộ chỉ huy tiến theo đường bộ Lạng Sơn vào sâu nội địa (hướng thành Bình Lỗ / sông Lục Đầu).
-     - Hầu Nhân Bảo không phối hợp được với thủy quân, ngày càng cạn kiệt lương thảo và rơi vào thế bị động.
-  3. **Hoàn cảnh tử trận của Hầu Nhân Bảo & Khác biệt giữa T1 và T2 (Later Battle & Death Narrative)**:
-     - **T1 — *Tống Sử* (Quyển 488 — Giao Chỉ truyện & Quyển 254 — Hầu Nhân Bảo liệt truyện)**: Ghi nhận Hầu Nhân Bảo tiến sâu vào nội địa, trúng kế phục kích trên sông/nội địa và bị giết vào tháng 4 năm 981. **T1 KHÔNG khẳng định Hầu Nhân Bảo chết tại cửa sông Bạch Đằng**, mà miêu tả trận thủy chiến Bạch Đằng và cái chết của Hầu Nhân Bảo là hai diễn biến riêng biệt; thủy quân Lưu Trừng sau đó nghe tin Nhân Bảo chết mới rút chạy.
-     - **T2 — *Toàn Thư***: Ghi lại chi tiết Lê Hoàn dùng kế trá hàng, dâng thư giả hàng dụ Hầu Nhân Bảo mất cảnh giác, sau đó dốc toàn lực thủy bộ đánh úp chém chết Hầu Nhân Bảo tại sông Bạch Đằng.
-     - **Về địa danh Chi Lăng / Tây Kết**:
-       - *Tây Kết*: *Tống Sử* (T1) ghi nhận rõ việc truy kích tàn quân Trần Khâm Tộ tại "Tây Kết" (西結) khiến quân Tống tan rã.
-       - *Chi Lăng*: Địa danh xuất hiện trong một số khảo cứu muộn hoặc dã sử, cần ghi rõ là `[T3/T4 interpretation]`; không tự ý khẳng định có sự đồng thuận tuyệt đối giữa T1 và T2 về toàn bộ lộ trình chi tiết.
+     - Do Lĩnh Nam đông lộ chuyển vận sứ **Hầu Nhân Bảo**, Tôn Toàn Hưng, Thôi Lượng, Trần Khâm Tộ chỉ huy tiến theo đường bộ Lạng Sơn.
+     - Hầu Nhân Bảo chủ chiến, thúc quân tiến sâu vào trước, không phối hợp nhịp nhàng với cánh Tôn Toàn Hưng và thủy quân Lưu Trừng, ngày càng cạn kiệt lương thảo.
+
+  3. **Cái chết của Hầu Nhân Bảo & Khác biệt giữa các nguồn**:
+     - **T1 Song sources (*Tống Sử*, *Tục Tư Trị Thông Giám Trường Biên*)**: Quân Tống ban đầu báo tin thắng ở cửa Bạch Đằng; sau đó Hầu Nhân Bảo dẫn quân tiến trước, bị đối phương dùng kế trá hàng dụ và bị giết vào tháng 4 năm 981. *Tống Sử* không khẳng định Hầu Nhân Bảo chết tại cửa sông Bạch Đằng; trận thủy chiến Bạch Đằng và cái chết của Hầu Nhân Bảo là các sự kiện riêng biệt.
+     - **T2 *Toàn Thư***: Ghi lại chi tiết Lê Hoàn dùng kế trá hàng, dâng thư giả hàng dụ Hầu Nhân Bảo mất cảnh giác, sau đó dốc quân đánh úp chém chết Hầu Nhân Bảo. Văn bản T2 **không khóa cố định địa điểm cái chết thành cửa sông Bạch Đằng**.
+
+  4. **Trận đánh tàn quân tại Tây Kết & Địa danh liên quan**:
+     - **Tây Kết**: Chi tiết truy kích tàn quân Trần Khâm Tộ tại Tây Kết và bắt sống các tướng Quách Quân Biện, Triệu Phụng Huân xuất xứ từ **Chính sử Việt Nam (T2 — *Toàn Thư*, *Cương Mục*)** `[SOURCE CHECK / T2]`. Không tự ý nâng cấp thành đồng thuận T1 nếu thiếu trích dẫn nguyên bản từ thư tịch Tống.
+     - **Chi Lăng**: *Toàn Thư* (T2) ghi nhận địa danh sông Chi Lăng trong bố phòng cắm cọc ngăn giặc của Lê Hoàn.
 
 ---
 
@@ -199,7 +205,7 @@ flowchart TD
 | Cột kinh Phật Đỉnh Tôn Thắng (973, 979) | Hiện vật khảo cổ Cột kinh Hoa Lư | **T1/T4** | **Hiện vật nguyên gốc T1**; chứng thực tước vị Đinh Liễn và bi kịch giết Hạng Lang. |
 | Đỗ Thích ám sát Đinh Tiên Hoàng & Đinh Liễn (979) | *Tống Sử*, *Toàn Thư*, *Việt Sử Lược* | **T1/T2** | **Fact lịch sử** về biến cố cung đình Hoa Lư. |
 | Thái hậu Dương Vân Nga trao Áo Long Cổn cho Lê Hoàn (980) | *Toàn Thư*, *Việt Sử Tiêu Án* | **T2/T4** | **Fact lịch sử về chuyển giao quyền lực**; tách bạch khỏi lời bình phẩm đạo đức Nho giáo thời sau. |
-| Kháng chiến chống Tống đại thắng năm 981 | *Tống Sử*, *Tục Tư Trị Thông Giám Trường Biên*, *Toàn Thư* | **T1/T2** | **Fact lịch sử vững chắc**; tách bạch mặt trận thủy quân Bạch Đằng, bộ binh Hầu Nhân Bảo và trận Tây Kết. |
+| Kháng chiến chống Tống đại thắng năm 981 | *Tống Sử*, *Tục Tư Trị Thông Giám Trường Biên*, *Toàn Thư* | **T1/T2** | **Fact lịch sử vững chắc**; tách bạch thủy quân Bạch Đằng, cắm cọc sông Chi Lăng (T2), Hầu Nhân Bảo bị trá hàng giết chết, trận Tây Kết `[SOURCE CHECK / T2]`. |
 | Lê Hoàn thân chinh phạt Champa (982) | *Tống Sử*, *Toàn Thư* | **T1/T2** | **Fact lịch sử**; chém Bê Mê Thuế, san phẳng kinh đô Indrapura. |
 | Lễ Tịch Điền & Đào kênh Nhà Lê | *Toàn Thư*, *Cương Mục*, Di tích khảo cổ | **T2/T4** | **Fact lịch sử & Khảo cổ học**; chính sách khuyến nông và giao thông thủy lợi. |
 | Lê Long Đĩnh (1005–1009) | *Tống Sử*, *Toàn Thư*, Phê bình sử học hiện đại | **T1/T2/T4** | Tách bạch ghi chép T2 (bệnh tật, bạo ngược) với ghi chép thực chứng T1/T4 (quân sự, mậu dịch, rước Đại Tạng Kinh). |

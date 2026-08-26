@@ -75,7 +75,7 @@ export class LocalMetaRepository {
 
   transactReward(request: RewardTransactionRequest, expectedRevision: number, committedAtMs: number): RewardTransactionCommit {
     const current = this.load()
-    if (current.status !== 'loaded') throw new Error('Reward transaction requires a current Meta V2 save')
+    if (current.status !== 'loaded') throw new Error('Reward transaction requires a current Meta V3 save')
     if (current.save.revision !== expectedRevision) throw new Error(`Meta save revision conflict: expected ${expectedRevision}, actual ${current.save.revision}`)
     const result = applyRewardTransaction(current.save.data, request, committedAtMs)
     if (result.status === 'already-applied') return { status: 'already-applied', save: current.save }

@@ -17,7 +17,7 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 
 - Current Phase: **11 — Reward Economy**
 - Current Codex task: **P11-C03 — Reward Runtime Integration — DONE, chờ Audit** — branch `codex/p11-c03-reward-runtime-integration`.
-- Current Antigravity task: **VS-BT-02 — Bà Triệu Roster Selection Proposal** — branch `antigravity/vs-bt-02-roster-selection`.
+- Current Antigravity task: **ASSET-A02 — Visual Acceptance** — branch `antigravity/asset-a02-visual-acceptance` @ `68334b1`.
 - Lần kiểm tra gần nhất: P11-C03 nối Battle death/victory và real active play tracker qua Reward Source → Transaction → Meta Repository; duplicate event, x3 independence và ten-wave smoke test đạt; 71/71 tests và build PASS.
 
 ## Phases và checkpoint
@@ -43,9 +43,9 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 | META-A00 | Economy UI specification và consistency fix | PASS — đã tích hợp | Antigravity + Codex audit | Hai currency; Command Energy ngoài Wallet; UI chỉ dùng snapshot/request | `antigravity/meta-a00-economy-ui-spec` |
 | HERO-A00 | Hero Recruitment & Ascension specification | PASS — đã tích hợp | Antigravity + Codex audit | Chiêu Hiền Lệnh item; duplicate thành Mảnh; Sao 1–5; Anh Hồn chung; shared progression | `antigravity/hero-a00-hero-recruitment` |
 | VS-HBT-02 | Enemy/Chapter content Hai Bà Trưng | PASS — đã tích hợp | Antigravity + Codex audit | Docs-only, source notes và narrative consistency; không lọt vào Core | `antigravity/vs-hbt-02-enemy-chapter` |
-| INT-C01 | Meta Foundation Integration Gate | PASS — READY MERGE | Codex | Merge order, schema consistency, Core boundary, full test/build/preview — PASS | `codex/int-c01-meta-foundation-integration` |
-| P11-C01 | Reward Transaction Core | DONE — chờ Audit | Codex | Atomicity, idempotency persistence, V1→V2 migration, optimistic revision, no UI/Battle integration | `codex/p11-c01-reward-transaction-core` |
-| P11-C02 | Reward Sources | DONE — chờ Audit | Codex | Config-driven kill/stage/time rewards, persistent cumulative anti-replay, V2→V3 migration, real wall-clock, visible-only/count-hidden boundary | `codex/p11-c02-reward-sources` |
+| INT-C01 | Meta Foundation Integration Gate | PASS — merged vào `main` | Codex | Merge order, schema consistency, Core boundary, full test/build/preview — PASS | `meta/foundation-v1` |
+| P11-C01 | Reward Transaction Core | DONE — merged vào `main` — PASS | Codex | Atomicity, idempotency persistence, V1→V2 migration, optimistic revision, no UI/Battle integration | `meta/reward-transaction-v1` |
+| P11-C02 | Reward Sources | DONE — merged vào `main` — PASS | Codex | Config-driven kill/stage/time rewards, persistent cumulative anti-replay, V2→V3 migration, real wall-clock, visible-only/count-hidden boundary | `meta/reward-sources-v1` |
 | P11-C03 | Reward Runtime Integration | DONE — chờ Audit | Codex | Battle event bridge, kill/stage idempotency, browser wall-clock tracker, configurable hidden policy, playable ten-wave smoke | `codex/p11-c03-reward-runtime-integration` |
 
 ## Roadmap Phase 10–18

@@ -2,6 +2,8 @@ import type { GameSpeed } from '../../domain/clock/GameClock'
 import type { EnemyCategory } from '../../data/enemies/definitions'
 import type { HeroPlacement } from '../../domain/placement/HeroPlacementRegistry'
 import type { WaveStatus } from '../../domain/waves/WaveManager'
+import type { DeploymentCapacityProjection } from '../../domain/meta/DeploymentCapacity'
+import { BASE_DEPLOYMENT_CAPACITY } from '../../domain/meta/MetaState'
 
 export type BattleSnapshot = Readonly<{
   runId: string
@@ -32,6 +34,10 @@ export type WaveStartDecision = Readonly<{
   reason?: 'battle-not-ready' | 'no-heroes' | 'insufficient-energy' | 'invalid-clock' | 'duplicate'
 }>
 export type CommandEnergySnapshot = Readonly<{ current: number; cap: number }>
+export type DeploymentCapacitySnapshot = DeploymentCapacityProjection
+export type PlacementFeedback =
+  | Readonly<{ status: 'placed'; heroId: string }>
+  | Readonly<{ status: 'rejected'; heroId: string; reason: 'capacity-reached'; effectiveLimit: number }>
 
 export class BattleBridge {
   private speed: GameSpeed = 1
@@ -39,6 +45,14 @@ export class BattleBridge {
   private autoWaveEnabled = false
   private latestSnapshot?: BattleSnapshot
   private commandEnergySnapshot: CommandEnergySnapshot = { current: 0, cap: 60 }
+  private deploymentCapacitySnapshot: DeploymentCapacitySnapshot = {
+    baseCapacity: BASE_DEPLOYMENT_CAPACITY,
+    bonusFromLevel: 0,
+    summonOrderCount: 0,
+    totalUnlockedCapacity: BASE_DEPLOYMENT_CAPACITY,
+    mapTileCount: 0,
+    effectiveLimit: 0,
+  }
   private snapshotListeners = new Set<SnapshotListener>()
   private speedListeners = new Set<(speed: GameSpeed) => void>()
   private heroSelectionListeners = new Set<(heroId: string) => void>()
@@ -49,6 +63,8 @@ export class BattleBridge {
   private waveStartDecisionListeners = new Set<(decision: WaveStartDecision) => void>()
   private autoWaveListeners = new Set<(enabled: boolean) => void>()
   private commandEnergyListeners = new Set<(snapshot: CommandEnergySnapshot) => void>()
+  private deploymentCapacityListeners = new Set<(snapshot: DeploymentCapacitySnapshot) => void>()
+  private placementFeedbackListeners = new Set<(feedback: PlacementFeedback) => void>()
 
   setSpeed(speed: GameSpeed): void {
     if (this.speed === speed) return
@@ -148,6 +164,27 @@ export class BattleBridge {
   onCommandEnergySnapshot(listener: (snapshot: CommandEnergySnapshot) => void): () => void {
     this.commandEnergyListeners.add(listener)
     return () => this.commandEnergyListeners.delete(listener)
+  }
+
+  emitDeploymentCapacitySnapshot(snapshot: DeploymentCapacitySnapshot): void {
+    this.deploymentCapacitySnapshot = snapshot
+    this.deploymentCapacityListeners.forEach((listener) => listener(snapshot))
+  }
+
+  getDeploymentCapacitySnapshot(): DeploymentCapacitySnapshot { return this.deploymentCapacitySnapshot }
+
+  onDeploymentCapacitySnapshot(listener: (snapshot: DeploymentCapacitySnapshot) => void): () => void {
+    this.deploymentCapacityListeners.add(listener)
+    return () => this.deploymentCapacityListeners.delete(listener)
+  }
+
+  reportPlacementFeedback(feedback: PlacementFeedback): void {
+    this.placementFeedbackListeners.forEach((listener) => listener(feedback))
+  }
+
+  onPlacementFeedback(listener: (feedback: PlacementFeedback) => void): () => void {
+    this.placementFeedbackListeners.add(listener)
+    return () => this.placementFeedbackListeners.delete(listener)
   }
 
   emitSnapshot(snapshot: BattleSnapshot): void {

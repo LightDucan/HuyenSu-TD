@@ -1418,6 +1418,20 @@ h1 { margin: 0; font-size: clamp(1.35rem, 3vw, 2rem); }
   white-space: nowrap;
 }
 
+.deployment-capacity-value {
+  color: #a7f3d0;
+  font-size: 0.82rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.placement-feedback {
+  margin: 8px 0 0;
+  color: #fca5a5;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
 .btn-hud-control {
   display: flex;
   align-items: center;

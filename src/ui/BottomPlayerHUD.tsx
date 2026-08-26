@@ -1,11 +1,12 @@
 import type { GameSpeed } from '../domain/clock/GameClock'
 import type { BattleHudData } from '../game/bridge/BattleHudContract'
-import type { CommandEnergySnapshot } from '../game/bridge/BattleBridge'
+import type { CommandEnergySnapshot, DeploymentCapacitySnapshot } from '../game/bridge/BattleBridge'
 import { HeroPortrait } from './HeroPortrait'
 
 export interface BottomPlayerHUDProps {
   data: Pick<BattleHudData, 'speed' | 'placedHeroes' | 'selectedHeroId' | 'waveStatus' | 'battleStatus'>
   commandEnergy: CommandEnergySnapshot
+  deploymentCapacity: DeploymentCapacitySnapshot
   autoWaveEnabled: boolean
   heroes: readonly Readonly<{ id: string; name: string; portraitUrl?: string }>[]
   onSpeedChange: (speed: GameSpeed) => void
@@ -22,6 +23,7 @@ export function BottomPlayerHUD({
   onHeroSelect,
   onOpenHeroDetail,
   commandEnergy,
+  deploymentCapacity,
   autoWaveEnabled,
   onStartWave,
   onAutoWaveChange,
@@ -64,6 +66,7 @@ export function BottomPlayerHUD({
       <div className="battle-controls-section">
         <div className="command-energy-controls" aria-label="Điều khiển Quân Lệnh và Wave">
           <span className="command-energy-value">Quân Lệnh: {commandEnergy.current} / {commandEnergy.cap}</span>
+          <span className="deployment-capacity-value">Triển khai: {data.placedHeroes.length} / {deploymentCapacity.effectiveLimit}</span>
           <button type="button" className="btn-hud-control" disabled={startDisabled} onClick={onStartWave}>
             BẮT ĐẦU WAVE
           </button>

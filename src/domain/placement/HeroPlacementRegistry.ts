@@ -1,3 +1,5 @@
+import { canDeployHero } from '../meta/DeploymentCapacity'
+
 export type HeroPlacement = Readonly<{ heroId: string; slotId: string }>
 
 export type PlacementResult = Readonly<{
@@ -5,6 +7,10 @@ export type PlacementResult = Readonly<{
   previousSlotId?: string
   recalledHeroId?: string
 }>
+
+export type CapacityPlacementResult =
+  | Readonly<{ status: 'placed'; result: PlacementResult }>
+  | Readonly<{ status: 'rejected'; reason: 'capacity-reached' }>
 
 export class HeroPlacementRegistry {
   private readonly validSlotIds: ReadonlySet<string>
@@ -37,6 +43,13 @@ export class HeroPlacementRegistry {
       ...(previousSlotId ? { previousSlotId } : {}),
       ...(recalledHeroId && recalledHeroId !== heroId ? { recalledHeroId } : {}),
     }
+  }
+
+  placeWithinCapacity(heroId: string, slotId: string, effectiveLimit: number): CapacityPlacementResult {
+    if (!this.validSlotIds.has(slotId)) throw new RangeError(`Invalid placement slot: ${slotId}`)
+    const eligibility = canDeployHero(heroId, this.getPlacements(), effectiveLimit)
+    if (eligibility.status === 'rejected') return eligibility
+    return { status: 'placed', result: this.place(heroId, slotId) }
   }
 
   getHeroAt(slotId: string): string | undefined { return this.heroBySlot.get(slotId) }

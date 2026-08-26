@@ -243,7 +243,18 @@ export class BattleScene extends Phaser.Scene {
     const tile = this.placementTiles.get(slotId)
     if (!tile) return
 
-    const result = this.placementRegistry.place(definition.id, slotId)
+    const capacity = battleBridge.getDeploymentCapacitySnapshot()
+    const placement = this.placementRegistry.placeWithinCapacity(definition.id, slotId, capacity.effectiveLimit)
+    if (placement.status === 'rejected') {
+      battleBridge.reportPlacementFeedback({
+        status: 'rejected',
+        heroId: definition.id,
+        reason: placement.reason,
+        effectiveLimit: capacity.effectiveLimit,
+      })
+      return
+    }
+    const result = placement.result
     if (result.recalledHeroId) this.recallHero(result.recalledHeroId)
 
     const existing = this.placedHeroes.get(definition.id)
@@ -251,6 +262,7 @@ export class BattleScene extends Phaser.Scene {
     else this.placedHeroes.set(definition.id, this.createHeroRuntime(definition, tile.center, slotId))
 
     this.refreshPlacementMarkers()
+    battleBridge.reportPlacementFeedback({ status: 'placed', heroId: definition.id })
     this.emitSnapshot()
   }
 

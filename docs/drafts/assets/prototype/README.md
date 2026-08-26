@@ -15,7 +15,7 @@
 | [asset-gallery.md](asset-gallery.md) | Phòng trưng bày toàn bộ 20 asset sử dụng đường dẫn tương đối (Markdown relative image links) để xem trực tiếp trên Preview. |
 | [asset-qa-manifest.md](asset-qa-manifest.md) | Bảng kiểm toán thông số kỹ thuật chi tiết: Kích thước, RGBA, độ trong suốt Alpha, Baseline Y=112, Bounding Box, cùng danh mục các tiêu chí cần kiểm tra thị giác (`[NEEDS VISUAL CHECK]`). |
 | [runtime-integration-handoff.md](runtime-integration-handoff.md) | Đặc tả bàn giao tích hợp Runtime cho Codex (`VIS-C01`): Quy trình 5 bước `Preload` $\rightarrow$ `Texture Mapping by HeroId/SkillId` $\rightarrow$ `Idle/Attack` $\rightarrow$ `VFX Overlay` $\rightarrow$ `Portrait HUD`. Mọi kiến trúc và tham số do Codex quyết định (`[OPEN / CONFIG]`). |
-| [visual-acceptance-checklist.md](visual-acceptance-checklist.md) | Danh mục kiểm thử thị giác 9 tiêu chí (Front View, Baseline Y=112, Grid Scale, Idle-Attack transition, VFX Readability, Portrait Clarity, Style Consistency, Speed Sync x1/x2/x3, Reposition). |
+| [visual-acceptance-checklist.md](visual-acceptance-checklist.md) | Danh mục kiểm thử thị giác 9 tiêu chí (Front View, Baseline Y=112, Grid Scale, Idle-Attack transition, VFX Readability, Portrait Clarity, Style Consistency, Speed Sync x1/x3, Reposition). |
 | [runtime-test-scenarios.md](runtime-test-scenarios.md) | 7 kịch bản kiểm thử thao tác từng bước (Step-by-step Test Scenarios) để tester và player tự đánh giá bằng mắt trong trận đấu thực tế sau `VIS-C01`. |
 
 ---

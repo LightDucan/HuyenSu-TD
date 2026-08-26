@@ -13,14 +13,14 @@
 ```mermaid
 graph TD
     subgraph T1 - NEAR-SOURCE CHINESE CHRONICLES
-        T1_1["<b>Tùy Thư, Cựu Đường Thư, Tân Đường Thư</b><br>Ghi chép bộ máy An Nam Đô Hộ Phủ, khởi nghĩa Mai Thúc Loan, Phùng Hưng, Dương Thanh, Cao Biền"]
+        T1_1["<b>Tùy Thư, Cựu Đường Thư, Tân Đường Thư</b><br>Ghi chép bộ máy An Nam Đô Hộ Phủ, khởi nghĩa Mai Thúc Loan, biến cố Đỗ Anh Hàn (791), Dương Thanh, Cao Biền"]
         T1_2["<b>Cựu Ngũ Đại Sử, Tân Ngũ Đại Sử, Thập Quốc Xuân Thu</b><br>Ghi chép về Nam Hán, Khúc gia, Dương Đình Nghệ, Ngô Quyền và trận Bạch Đằng 938"]
         T1_3["<b>An Nam Chí Lược (Lê Tắc - TK XIV)</b><br>Tập hợp tư liệu Trung Hoa cổ về các quan đô hộ và thủ lĩnh An Nam"]
     end
 
     subgraph T2 - LATER VIETNAMESE HISTORIOGRAPHY
         T2_1["<b>Việt Sử Lược (TK XIV)</b><br>Bộ sử biên niên sớm nhất còn lại của Đại Việt"]
-        T2_2["<b>Đại Việt Sử Ký Toàn Thư (1479)</b><br>Ngoại kỷ Quyển 5: Ghi chép chi tiết thời thuộc Tùy - Đường đến Ngô Vương"]
+        T2_2["<b>Đại Việt Sử Ký Toàn Thư (1479)</b><br>Ngoại kỷ Quyển 5: Ghi chép chi tiết thời thuộc Tùy - Đường đến Ngô Vương (truyện Phùng Hưng Đường Lâm, Phùng An)"]
         T2_3["<b>Khâm Định Việt Sử Thông Giám Cương Mục (1884)</b><br>Khảo cứu địa danh, chức tước, đính chính niên đại"]
     end
 
@@ -70,25 +70,26 @@ graph TD
 
 ---
 
-### 2.3. Phùng Hưng & Danh Hiệu "Bố Cái Đại Vương"
+### 2.3. Khởi Nghĩa Phùng Hưng (Narrative T2/T3) & Biến Cố Đỗ Anh Hàn (T1)
 
 * **Hiện trạng sử liệu**:
 
 > [!WARNING]
-> **Vấn đề tầng nguồn T1**: Tên **Phùng Hưng** không được nhắc đích danh trong *Cựu Đường Thư* tại điểm ghi sự kiện 791 SCN. T1 (*Cựu Đường Thư*, Quyển 15 và liệt truyện Triệu Xương) ghi năm Trinh Nguyên thứ 7 (791): hào trưởng bản địa **Đỗ Anh Hàn** (杜英翰) nổi dậy, Quan đô hộ **Cao Chính Bình** (高正平) lo sợ phát bệnh mà chết, sau đó **Triệu Xương** (趙昌) được cử sang và thu phục được. Không có dữ liệu để từ đây suy ra "Phùng Hưng" như một T1 fact độc lập.
+> **Phân định rạch ròi T1 vs T2/T3**:
+> - **T1 (*Cựu Đường Thư*, Quyển 15 & Liệt truyện Triệu Xương)**: Ghi nhận sự kiện năm Trinh Nguyên thứ 7 (791 SCN), hào trưởng bản địa **Đỗ Anh Hàn** (杜英翰) nổi dậy, Quan đô hộ **Cao Chính Bình** (高正平) lo sợ phát bệnh mà chết, triều đình sai Kinh lược sứ **Triệu Xương** (趙昌) sang vỗ về thu phục. T1 **hoàn toàn không ghi danh Phùng Hưng hay Phùng An**.
+> - **T2 (*Đại Việt Sử Ký Toàn Thư*, *Cương Mục*)**: Ghi nhận toàn bộ câu chuyện về hào trưởng **Phùng Hưng** cùng hai em (Phùng Hải, Phùng Dĩnh) dấy binh từ Đường Lâm, bao vây phủ thành Tống Bình khiến Cao Chính Bình lo sợ mà chết; Phùng Hưng làm chủ phủ thành vài năm rồi mất, con là **Phùng An** nối nghiệp rồi đầu hàng Triệu Xương (791).
+> - **T3 (*Việt Điện U Linh Tập*, Thần tích Đường Lâm)**: Truyền thuyết dân gian về sức mạnh phi thường của Phùng Hưng (đánh hổ, vật trâu), hiển linh giúp dân phù trợ các triều đại sau.
 
-  * **T2 — *Toàn Thư* & *Cương Mục***: Ghi **Phùng Hưng** (có thể đồng nhất với hoặc là người cùng thời với Đỗ Anh Hàn ghi trong T1 — xem lưu ý T4 bên dưới) cùng hai em (Phùng Hải, Phùng Dĩnh) dấy binh từ Đường Lâm, bao vây thành Tống Bình khiến Cao Chính Bình lo sợ mà chết; Phùng Hưng vào phủ đô hộ trị sự được vài năm thì mất.
-  * **T3 — *Việt Điện U Linh Tập* & Thần tích Đường Lâm**: Kể về sức mạnh phi thường của Phùng Hưng (đánh hổ, vật trâu) và tôn danh hiệu Bố Cái Đại Vương.
-* **Đỗ Anh Hàn (杜英翰) trong T1 — Lưu ý đặc biệt**:
-  * Sự kiện 791 SCN được T1 (*Cựu Đường Thư*) gắn với tên "Đỗ Anh Hàn" chứ không phải "Phùng Hưng". Một số nhà nghiên cứu hiện đại (T4) đề xuất Đỗ Anh Hàn có thể là một tên gọi / danh hiệu khác của cùng nhân vật lịch sử mà T2 gọi là Phùng Hưng, hoặc là thủ lĩnh lực lượng kế tiếp ngay sau Phùng Hưng.
+* **Vấn đề đồng nhất Đỗ Anh Hàn (T1) và Phùng Hưng (T2)**:
+  * Một số nhà nghiên cứu lịch sử hiện đại (T4) đưa ra giả thuyết rằng "Đỗ Anh Hàn" trong T1 có thể là tên chữ / danh xưng Hán hóa của Phùng Hưng, hoặc Đỗ Anh Hàn là một thủ lĩnh đồng minh cùng thời với Phùng Hưng.
 
 > [!CAUTION]
-> **T4 interpretation — Chưa khóa**: Việc đồng nhất Đỗ Anh Hàn của T1 với Phùng Hưng của T2 là **giả thuyết nghiên cứu (T4)**, không phải sự thật lịch sử đã được xác nhận bởi T1. Ghi là "T4 interpretation / unverified" khi nhắc đến sự đồng nhất này.
+> **T4 interpretation — Unverified**: Việc đồng nhất Đỗ Anh Hàn (T1) với Phùng Hưng (T2) là **giả thuyết nghiên cứu hiện đại (T4)**, tuyệt đối không biến thành T1 fact. Phùng Hưng narrative được phân loại chuẩn xác là **T2/T3**.
 
-* **Vấn đề danh hiệu "Bố Cái Đại Vương"**:
-  * *Toàn Thư* (T2) giải thích: Dân chúng xưng tụng ông là "Bố Cái" vì kính trọng như cha mẹ (*Bố = Cha, Cái = Mẹ* theo tiếng Việt cổ).
+* **Vấn đề danh hiệu "Bố Cái Đại Vương" (T2/T3)**:
+  * *Toàn Thư* (T2) giải thích: Dân chúng tôn xưng ông là "Bố Cái" vì kính trọng như cha mẹ (*Bố = Cha, Cái = Mẹ* theo tiếng Việt cổ).
   * *Nghiên cứu ngôn ngữ học lịch sử (T4)*: Một số học giả cho rằng "Bố Cái" có thể là phiên âm Hán-Việt của từ cổ gốc Nam Á / Môn-Khmer `Pô Khăy` hoặc `Pô Krông`, có nghĩa là **"Vua Lớn" / "Thủ lĩnh Tối cao"**.
-  * **Lưu ý phân tầng (T2/T3)**: Tước hiệu "Bố Cái Đại Vương" là danh hiệu do **con trai là Phùng An và nhân dân truy tôn sau khi ông qua đời**, không phải danh xưng hành chính khi còn sống. Nguồn xác nhận: T2 (*Toàn Thư*) và T3 (thần tích đền Phùng Hưng, Đường Lâm).
+  * **Lưu ý phân tầng**: Tước hiệu "Bố Cái Đại Vương" là danh hiệu do **con trai là Phùng An và nhân dân truy tôn sau khi ông qua đời (T2/T3)**, không phải danh xưng hành chính đương thời.
 
 ---
 
@@ -132,8 +133,8 @@ graph TD
 | Khởi nghĩa Mai Thúc Loan (713/722) | *Cựu Đường Thư*, *Tư Trị Thông Giám*, *Toàn Thư* | **T1/T2** | **Fact lịch sử**; chiến dịch đàn áp chính 722 SCN (T1). |
 | Quang Sở Khách (光楚客) tham gia dẹp khởi nghĩa | *Cựu Đường Thư* | **T1** | **Tên canonical T1**; "Nguyên Sở Khách" là biến thể sai (textual variant). |
 | Liên quân 30–40 vạn của Mai Thúc Loan | *Tân Đường Thư*, *Toàn Thư* | **T1/T2** | **Liên minh Champa/Chân Lạp là Fact (T1)**; con số quân là **ước lệ phóng đại**. |
-| Đỗ Anh Hàn (杜英翰) nổi dậy ~791, Cao Chính Bình chết | *Cựu Đường Thư* | **T1** | **Fact lịch sử T1**. Phùng Hưng và Đỗ Anh Hàn có thể là cùng người — nhưng sự đồng nhất này là **T4 interpretation**. |
-| Phùng Hưng dấy binh từ Đường Lâm, cai quản Tống Bình | *Toàn Thư*, *Cương Mục*, Thần tích Đường Lâm | **T2/T3** | Ghi nhận trong chính sử trung đại; **không có tên Phùng Hưng trực tiếp trong T1 gần thời**. |
+| Đỗ Anh Hàn (杜英翰) nổi dậy ~791, Cao Chính Bình chết | *Cựu Đường Thư* | **T1** | **Fact lịch sử T1**. Phùng Hưng và Đỗ Anh Hàn có thể là cùng người — nhưng sự đồng nhất này là **T4 interpretation (unverified)**. |
+| Phùng Hưng dấy binh từ Đường Lâm, cai quản Tống Bình | *Toàn Thư*, *Cương Mục*, Thần tích Đường Lâm | **T2/T3** | **Phùng Hưng narrative thuộc T2/T3**; không có tên Phùng Hưng hay Phùng An trực tiếp trong T1 gần thời. |
 | Danh xưng "Bố Cái Đại Vương" | *Toàn Thư*, *Việt Điện U Linh* | **T2/T3** | **Truy tôn sau khi mất**; nguồn gốc từ ngữ Việt cổ / Pô Khăy là **T4 interpretation**. |
 | Khởi nghĩa Dương Thanh (819–820) | *Cựu Đường Thư*, *Toàn Thư* | **T1/T2** | **Fact lịch sử**; giết Quan đô hộ Lý Tượng Cổ chiếm phủ thành. |
 | Cao Biền đắp thành Đại La (866) | *Cựu Đường Thư*, *Tân Đường Thư*, *Toàn Thư* | **T1/T2** | **Fact lịch sử & Khảo cổ học**. |

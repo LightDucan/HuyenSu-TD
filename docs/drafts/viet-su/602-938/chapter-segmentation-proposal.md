@@ -31,12 +31,15 @@ graph TD
 ### 2.1. Arc 1: Phong Trào Quật Khởi Thời Thuộc Đường (Mai Thúc Loan & Phùng Hưng — Thế kỷ VIII)
 * **Bối cảnh lịch sử**: Phong trào nhân dân nổi dậy chống ách đô hộ của An Nam đô hộ phủ, tiêu biểu là cuộc khởi nghĩa Hoan Châu của Mai Hắc Đế (713–722) và cuộc khởi nghĩa Đường Lâm của Phùng Hưng (766–791).
 * **Đánh giá nguồn sử liệu & Nhân vật**:
-  * *Phe ta*: Mai Thúc Loan (Mai Hắc Đế), Phùng Hưng, Phùng Hải, Phùng Dĩnh, Phùng An. Tư liệu T1 xác nhận sự kiện và thủ lĩnh; tư liệu chi tiết về tướng phụ bên ta chủ yếu dựa vào T2 (*Toàn Thư*) và T3 (*Thần tích đền miếu*).
+  * *Phe ta*: Mai Thúc Loan (Mai Hắc Đế), Phùng Hưng, Phùng Hải, Phùng Dĩnh, Phùng An.
+  * *Phân tầng nguồn*:
+    - **Mai Thúc Loan**: T1 (*Cựu Đường Thư*) xác nhận sự kiện và thủ lĩnh chiến dịch 722; khởi sự 713 và danh hiệu Mai Hắc Đế thuộc T2/T3.
+    - **Phùng Hưng narrative**: Toàn bộ câu chuyện Phùng Hưng dấy binh Đường Lâm, Bố Cái Đại Vương và Phùng An thuộc **tầng nguồn T2/T3**. T1 (*Cựu Đường Thư*) chỉ ghi nhận biến cố năm 791 gắn với **Đỗ Anh Hàn (杜英翰)**, Cao Chính Bình lo sợ phát bệnh chết và Triệu Xương sang thu phục. Việc đồng nhất Đỗ Anh Hàn với Phùng Hưng là **T4 interpretation (unverified)**.
   * *Phe đối phương*: Dương Tư Húc, **Quang Sở Khách** (光楚客; "Nguyên Sở Khách" là textual variant/erroneous reading), Cao Chính Bình, Triệu Xương (được T1 ghi nhận rõ ràng).
 * **Đặc điểm không gian / Chiến trường**:
   * Căn cứ thung lũng sông núi thành Vạn An (Sa Nam, Nghệ An).
   * Chiến lũy sông nước và thành Tống Bình (Hà Nội cổ).
-* **Kết luận khả thi**: **KHẢ THI**. Có thể xây dựng thành 1–2 Chapter độc lập phản ánh tinh thần quật khởi của nhân dân thế kỷ VIII. Cần lưu ý: tên Phùng Hưng không xuất hiện đích danh trong T1 — T1 ghi Đỗ Anh Hàn (杜英翰); đồng nhất với Phùng Hưng là T4 interpretation. Chi tiết liên quân 30–40 vạn và truyền thuyết đánh hổ phải ghi rõ T2/T3.
+* **Kết luận khả thi**: **KHẢ THI**. Có thể xây dựng thành 1–2 Chapter độc lập phản ánh tinh thần quật khởi của nhân dân thế kỷ VIII. Cần ghi chú rõ: Phùng Hưng narrative = T2/T3; T1 = Đỗ Anh Hàn + Cao Chính Bình + Triệu Xương; đồng nhất Đỗ Anh Hàn/Phùng Hưng = T4 interpretation (unverified). Chi tiết liên quân 30–40 vạn và truyền thuyết đánh hổ phải ghi rõ T2/T3.
 
 ---
 

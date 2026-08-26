@@ -55,8 +55,9 @@ graph TD
 
 ### 2.4. Phùng An
 * **Thời kỳ**: ?–791 SCN.
-* **Phân tầng nguồn**: **T1 (*Cựu Đường Thư*) + T2 (*Toàn Thư*)**.
-* **Hành trạng**: Con trai Phùng Hưng, kế vị cha cai quản Tống Bình. Năm 791, trước sức ép quân sự và ngoại giao của Đô hộ Triệu Xương, Phùng An đã ra hàng.
+* **Phân tầng nguồn**: **T2 (*Toàn Thư*, *Cương Mục*)**.
+* **Hành trạng**: Con trai Phùng Hưng theo chính sử trung đại T2, kế vị cha cai quản Tống Bình. Năm 791, trước sức ép quân sự và ngoại giao của Đô hộ Triệu Xương, Phùng An đã ra hàng.
+* **Lưu ý học thuật**: Phùng An thuộc narrative T2/T3; T1 (*Cựu Đường Thư*) chỉ ghi nhận việc Triệu Xương sang vỗ về thu phục An Nam sau biến cố Đỗ Anh Hàn, hoàn toàn không ghi danh Phùng An.
 
 ---
 
@@ -157,14 +158,14 @@ graph TD
 ### 4.3. Cao Chính Bình (Nhà Đường)
 * **Thời kỳ**: Cuối thế kỷ VIII (~785–791 SCN).
 * **Phân tầng nguồn**: **T1 (*Cựu Đường Thư*) + T2 (*Toàn Thư*)**.
-* **Hành trạng**: Quan đô hộ An Nam tàn bạo, vơ vét của cải; bị Phùng Hưng bao vây tại Tống Bình, hoảng sợ phát bệnh mà chết.
+* **Hành trạng**: Quan đô hộ An Nam tàn bạo; T1 ghi nhận Cao Chính Bình lo sợ phát bệnh mà chết vì biến loạn Đỗ Anh Hàn năm 791; T2 chép là bị nghĩa quân Phùng Hưng bao vây tại Tống Bình.
 
 ---
 
 ### 4.4. Triệu Xương (Nhà Đường)
 * **Thời kỳ**: 791 SCN.
 * **Phân tầng nguồn**: **T1 (*Cựu Đường Thư*) + T2 (*Toàn Thư*)**.
-* **Hành trạng**: Quan đô hộ mưu lược nhà Đường sang thay thế, dùng chính sách mềm mỏng chiêu dụ Phùng An đầu hàng năm 791.
+* **Hành trạng**: Quan đô hộ mưu lược nhà Đường sang thay thế; T1 ghi Triệu Xương dùng chính sách vỗ về thu phục An Nam sau biến cố 791; T2 chép là chiêu dụ Phùng An đầu hàng năm 791.
 
 ---
 
@@ -209,10 +210,10 @@ graph TD
 | # | Nhân Vật | Phe Phái | Tầng Nguồn Chính | Mức Độ Xác Thực Lịch Sử |
 |:---:|---|---|:---:|---|
 | 1 | Mai Thúc Loan (Mai Hắc Đế) | Khởi nghĩa Hoan Châu | **T1 + T2 + T3** | Fact lịch sử (Chiến dịch 722 T1; danh xưng T2) |
-| 2 | Phùng Hưng (Bố Cái Đại Vương) | Khởi nghĩa Đường Lâm | **T2 + T3** | Chính sử trung đại (T2/T3); T1 ghi tên Đỗ Anh Hàn — đồng nhất với Phùng Hưng là T4 interpretation |
-| 3 | Đỗ Anh Hàn (杜英翰) | Khởi nghĩa Đường Lâm (có thể) | **T1** | Tên ghi trong *Cựu Đường Thư* cho sự kiện 791; đồng nhất với Phùng Hưng là T4 chưa khóa |
+| 2 | Phùng Hưng (Bố Cái Đại Vương) | Khởi nghĩa Đường Lâm | **T2 + T3** | Phùng Hưng narrative thuộc T2/T3; T1 ghi tên Đỗ Anh Hàn — đồng nhất với Phùng Hưng là T4 interpretation (unverified) |
+| 3 | Đỗ Anh Hàn (杜英翰) | Khởi nghĩa An Nam 791 | **T1** | Fact lịch sử T1 (*Cựu Đường Thư*); đồng nhất với Phùng Hưng là T4 interpretation (unverified) |
 | 4 | Phùng Hải & Phùng Dĩnh | Khởi nghĩa Đường Lâm | **T2 + T3** | Ghi nhận trong chính sử trung đại & thần tích |
-| 5 | Phùng An | Khởi nghĩa Đường Lâm | **T1 + T2** | Fact lịch sử (Đầu hàng Triệu Xương 791) |
+| 5 | Phùng An | Khởi nghĩa Đường Lâm | **T2** | Ghi nhận trong T2 (*Toàn Thư*); T1 chỉ ghi Triệu Xương sang thu phục, không trực tiếp ghi danh Phùng An |
 | 6 | Dương Thanh | Khởi nghĩa Tống Bình | **T1 + T2** | Fact lịch sử (Binh biến 819) |
 | 7 | Khúc Thừa Dụ | Tự chủ Hồng Châu | **T1 + T2** | Fact lịch sử (Tiết độ sứ 905) |
 | 8 | Khúc Hạo | Tự chủ Hồng Châu | **T2 + T1 (gián tiếp)** | Fact lịch sử (Cải cách hành chính 907) |
@@ -225,8 +226,8 @@ graph TD
 | 15 | Kiều Công Tiễn | Phản nghịch | **T1 + T2** | Fact lịch sử (Giết chủ cầu viện 937) |
 | 16 | Lưu Phương | Tướng đô hộ Tùy | **T1** | Fact lịch sử (Nam chinh 602) |
 | 17 | Dương Tư Húc & **Quang Sở Khách** (光楚客) | Tướng đàn áp Đường | **T1** | Fact lịch sử (Chiến dịch Hoan Châu 722); "Nguyên Sở Khách" là textual variant |
-| 18 | Cao Chính Bình | Đô hộ Đường | **T1 + T2** | Fact lịch sử (Bị Phùng Hưng/Đỗ Anh Hàn đánh bại) |
-| 19 | Triệu Xương | Đô hộ Đường | **T1 + T2** | Fact lịch sử (Thu phục Phùng An 791) |
+| 18 | Cao Chính Bình | Đô hộ Đường | **T1 + T2** | Fact lịch sử T1 (Chết vì biến loạn 791: T1 ghi Đỗ Anh Hàn, T2 ghi Phùng Hưng) |
+| 19 | Triệu Xương | Đô hộ Đường | **T1 + T2** | Fact lịch sử T1 (Sang thu phục An Nam 791; T2 ghi chiêu hàng Phùng An) |
 | 20 | Lý Tượng Cổ & Quế Trọng Vũ | Đô hộ/Tướng Đường | **T1 + T2** | Fact lịch sử (Biến cố 819–820) |
 | 21 | Cao Biền (Gao Pian) | Tiết độ sứ Đường | **T1 + T2** | Fact lịch sử (Dẹp Nam Chiếu, đắp La Thành 866) |
 | 22 | Lưu Cung (Vua Nam Hán) | Nam Hán | **T1 + T2** | Fact lịch sử |

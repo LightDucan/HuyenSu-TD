@@ -21,7 +21,7 @@ Giai đoạn 602–938 là thời kỳ chuyển biến quyết định trong l�
 ```mermaid
 graph TD
     subgraph TIẾN TRÌNH LỊCH SỬ GIAI ĐOẠN 602 - 938 SCN
-        P1["<b>1. Thời Kỳ Đô Hộ Tùy - Đường (602 - 905)</b><br>Lưu Phương diệt Tiền Lý (602)<br>Thành lập An Nam Đô Hộ Phủ (679)<br>Khởi nghĩa Mai Thúc Loan (713/722)<br>Khởi nghĩa Phùng Hưng (766 - 791)<br>Khởi nghĩa Dương Thanh (819 - 820)<br>Cao Biền dẹp Nam Chiếu, đắp La Thành (866)"]
+        P1["<b>1. Thời Kỳ Đô Hộ Tùy - Đường (602 - 905)</b><br>Lưu Phương diệt Tiền Lý (602)<br>Thành lập An Nam Đô Hộ Phủ (679)<br>Khởi nghĩa Mai Thúc Loan (713/722)<br>Biến cố Đỗ Anh Hàn (791) / Khởi nghĩa Phùng Hưng (766 - 791)<br>Khởi nghĩa Dương Thanh (819 - 820)<br>Cao Biền dẹp Nam Chiếu, đắp La Thành (866)"]
         
         P2["<b>2. Khúc Gia Khôi Phục Tự Chủ (905 - 930)</b><br>Khúc Thừa Dụ xưng Tiết độ sứ (905)<br>Khúc Hạo cải cách hành chính 'khoan giản an lạc' (907 - 917)<br>Khúc Thừa Mỹ đối đầu Nam Hán (917 - 930)"]
         

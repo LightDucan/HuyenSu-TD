@@ -16,7 +16,7 @@ timeline
     602 : Nhà Tùy (Lưu Phương) diệt Hậu Lý Nam Đế (T1) : Bắt đầu thời kỳ thuộc Tùy
     618 - 679 : Nhà Đường thay Tùy (T1) : Đổi Giao Châu thành An Nam Đô Hộ Phủ 679 (T1)
     713 - 722 : Khởi nghĩa Mai Thúc Loan (T1/T2) : Xưng Mai Hắc Đế, lập thành Vạn An (T2/T3) : Dương Tư Húc đàn áp 722 (T1)
-    766 - 791 : Khởi nghĩa Phùng Hưng (T1/T2) : Đuổi Cao Chính Bình chiếm Tống Bình (T2) : Truy tôn Bố Cái Đại Vương (T2/T3)
+    766 - 791 : Biến cố Đỗ Anh Hàn 791 (T1) / Khởi nghĩa Phùng Hưng (T2/T3) : Đuổi Cao Chính Bình chiếm Tống Bình (T2) : Truy tôn Bố Cái Đại Vương (T2/T3)
     819 - 820 : Khởi nghĩa Dương Thanh (T1/T2) : Diệt Đô hộ Lý Tượng Cổ (T1)
     860 - 868 : Nạn giặc Nam Chiếu cướp phá An Nam (T1) : Cao Biền dẹp giặc, đắp thành Đại La 866 (T1)
     905 - 917 : Khúc Thừa Dụ xưng Tiết độ sứ 905 (T1/T2) : Khúc Hạo cải cách hành chính 'khoan giản an lạc' (T2)
@@ -39,7 +39,7 @@ timeline
 
 ---
 
-### Giai Đoạn 2: Phong Trào Quật Khởi Thế Kỷ VIII — Mai Thúc Loan & Phùng Hưng (713–791)
+### Giai Đoạn 2: Phong Trào Quật Khởi Thế Kỷ VIII — Mai Thúc Loan (T1/T2) & Phùng Hưng (Narrative T2/T3) (713–791)
 
 #### A. Khởi Nghĩa Mai Thúc Loan (713/722)
 * **Bối cảnh & Dấy binh (T2 — *Toàn Thư*, T3 — Thần phả đền Vua Mai)**:
@@ -55,19 +55,22 @@ timeline
 
 ---
 
-#### B. Khởi Nghĩa Phùng Hưng — Bố Cái Đại Vương (766–791)
+#### B. Khởi Nghĩa Phùng Hưng — Bố Cái Đại Vương (766–791 — Narrative T2/T3)
 * **Dấy binh Đường Lâm (T2 — *Toàn Thư*, T3 — Thần phả Đường Lâm)**:
-  * Khoảng niên hiệu Đại Lịch (766–779) / Trinh Nguyên (785–791), hào trưởng đất Đường Lâm (Sơn Tây) là **Phùng Hưng** cùng hai em trai là **Phùng Hải** và **Phùng Dĩnh** tập hợp nhân dân nổi dậy chống lại ách cai trị tham tàn của Quan đô hộ **Cao Chính Bình**.
+  * Khoảng niên hiệu Đại Lịch (766–779) / Trinh Nguyên (785–791), theo ghi chép của chính sử trung đại T2 (*Toàn Thư*, *Cương Mục*), hào trưởng đất Đường Lâm (Sơn Tây) là **Phùng Hưng** cùng hai em trai là **Phùng Hải** và **Phùng Dĩnh** tập hợp nhân dân nổi dậy chống lại ách cai trị tham tàn của Quan đô hộ **Cao Chính Bình**.
 
 > [!WARNING]
-> **Phân tầng nguồn T1 & T2**: Tên "Phùng Hưng" không được nhắc đích danh trong *Cựu Đường Thư* gần thời. T1 (*Cựu Đường Thư*) ghi năm 791: **Đỗ Anh Hàn** (杜英翰) nổi dậy, Cao Chính Bình lo sợ phát bệnh mà chết, sau đó Triệu Xương được cử sang thu phục. Việc đồng nhất Đỗ Anh Hàn với Phùng Hưng là **T4 interpretation**, chưa được T1 xác nhận trực tiếp.
+> **Phân tầng nguồn T1 & T2**:
+> - T1 (*Cựu Đường Thư*) ghi nhận sự kiện năm 791: **Đỗ Anh Hàn** (杜英翰) nổi dậy, Quan đô hộ **Cao Chính Bình** lo sợ phát bệnh mà chết, sau đó **Triệu Xương** được cử sang vỗ về thu phục. Tên "Phùng Hưng" và "Phùng An" không xuất hiện trong văn bản T1.
+> - Toàn bộ câu chuyện về Phùng Hưng khởi nghĩa Đường Lâm, xưng Bố Cái Đại Vương và truyền ngôi cho con là Phùng An thuộc **tầng nguồn T2/T3**.
+> - Việc đồng nhất Đỗ Anh Hàn (T1) với Phùng Hưng (T2) là **T4 interpretation (unverified)**, chưa được T1 xác nhận trực tiếp.
 
 * **Đánh chiếm thành Tống Bình (T2 — *Toàn Thư*)**:
-  * Nghĩa quân từ Đường Lâm bao vây phủ thành Tống Bình. Cao Chính Bình chống giữ không nổi, lo sợ mà chết (T2; T1 ghi là Đỗ Anh Hàn).
-  * Phùng Hưng vào thành Tống Bình tiếp quản chính sự, thiết lập nền tự chủ độc lập trong nhiều năm.
-* **Giai đoạn Phùng An & Triệu Xương (791 SCN — T1 *Cựu Đường Thư*)**:
-  * Sau khi Phùng Hưng qua đời (T2/T3), con trai là **Phùng An** nối nghiệp. Phùng An truy tôn cha là **Bố Cái Đại Vương** (T2/T3).
-  * Năm 791, nhà Đường cử Kinh lược sứ **Triệu Xương** đem quân sang. Phùng An thế yếu bèn ra hàng; nhà Đường tái lập quyền cai trị.
+  * Nghĩa quân từ Đường Lâm bao vây phủ thành Tống Bình. Cao Chính Bình chống giữ không nổi, lo sợ mà chết (T2; T1 ghi Cao Chính Bình chết vì biến loạn Đỗ Anh Hàn).
+  * Phùng Hưng vào thành Tống Bình tiếp quản chính sự, thiết lập nền tự chủ trong nhiều năm.
+* **Giai đoạn Phùng An quy phục Triệu Xương (791 SCN — T2 *Toàn Thư*; T1 ghi Triệu Xương sang thu phục)**:
+  * Sau khi Phùng Hưng qua đời, con trai là **Phùng An** nối nghiệp (T2). Phùng An truy tôn cha là **Bố Cái Đại Vương** (T2/T3).
+  * Năm 791, nhà Đường cử Kinh lược sứ **Triệu Xương** đem quân sang (T1/T2). Phùng An thế yếu bèn ra hàng (T2); nhà Đường tái lập quyền cai trị.
 
 ---
 

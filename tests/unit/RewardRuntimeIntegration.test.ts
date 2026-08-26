@@ -137,6 +137,7 @@ describe('P11-C03 Reward Runtime Integration', () => {
     const waves = new WaveManager(prototypeWaves)
     let sequence = 0
     while (waves.getStatus() !== 'won') {
+      if (waves.getStatus() === 'waiting') waves.beginCurrentWave()
       const spawned = waves.update(1_000_000)
       spawned.forEach((enemyId) => {
         bridge.reportEnemyDefeated({ runId: 'smoke-run', enemyInstanceId: `enemy-${sequence}`, enemyId, occurredAtMs: 2_000 + sequence })

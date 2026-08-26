@@ -1,6 +1,6 @@
 import type { WaveDefinition } from '../../data/waves/prototypeWaves'
 
-export type WaveStatus = 'running' | 'won'
+export type WaveStatus = 'waiting' | 'running' | 'won'
 
 type GroupRuntime = { spawned: number; nextSpawnAtMs: number }
 
@@ -8,7 +8,7 @@ export class WaveManager {
   private elapsedMs = 0
   private waveIndex = 0
   private groups: GroupRuntime[]
-  private status: WaveStatus = 'running'
+  private status: WaveStatus = 'waiting'
 
   constructor(private readonly waves: readonly WaveDefinition[]) {
     if (waves.length === 0) throw new Error('At least one wave is required')
@@ -20,7 +20,7 @@ export class WaveManager {
   }
 
   update(deltaMs: number): string[] {
-    if (this.status === 'won') return []
+    if (this.status !== 'running') return []
     this.elapsedMs += deltaMs
     const due: string[] = []
     const wave = this.waves[this.waveIndex]
@@ -37,7 +37,7 @@ export class WaveManager {
   }
 
   completeWhenNoEnemiesRemain(activeEnemyCount: number): boolean {
-    if (this.status === 'won' || activeEnemyCount > 0 || !this.finishedSpawning()) return false
+    if (this.status !== 'running' || activeEnemyCount > 0 || !this.finishedSpawning()) return false
     if (this.waveIndex === this.waves.length - 1) {
       this.status = 'won'
       return true
@@ -45,6 +45,13 @@ export class WaveManager {
     this.waveIndex += 1
     this.elapsedMs = 0
     this.groups = this.createGroups()
+    this.status = 'waiting'
+    return true
+  }
+
+  beginCurrentWave(): boolean {
+    if (this.status !== 'waiting') return false
+    this.status = 'running'
     return true
   }
 

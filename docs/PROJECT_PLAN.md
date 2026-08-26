@@ -9,16 +9,16 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 ## WorkTree
 
 - Repository: `HuyenSu-TD`
-- Branch hiện tại: `codex/p12-c01-command-energy-domain`
+- Branch hiện tại: `main`
 - Worktree Codex hiện tại: `C:\Users\PC\Documents\Codex\2026-08-23\referenced-chatgpt-conversation-this-is-an\work\m10-c01-main`
 - Quy tắc worker Antigravity: [ANTIGRAVITY_RULES.md](ANTIGRAVITY_RULES.md)
 
 ## Trạng thái hiện tại
 
 - Current Phase: **12 — Quân Lệnh & Auto Wave**
-- Current Codex task: **P12-C01 — DONE, waiting Audit** — branch `codex/p12-c01-command-energy-domain`.
+- Current Codex task: **P12-C01 — DONE / merged / PASS** — checkpoint `meta/command-energy-domain-v1`.
 - Current Antigravity task: **VS-NDPL-00 — 939–1009 Research — IN PROGRESS** — branch `antigravity/vs-ndpl-00-939-1009-research` @ `5686d7f`.
-- Lần kiểm tra gần nhất: P12-C01 bổ sung Quân Lệnh domain + Meta V3 repository persistence; 96/96 tests, build, preview HTTP 200 và diff-check PASS.
+- Lần kiểm tra gần nhất: P12-C01 merged vào `main`; 96/96 tests, build, preview HTTP 200 và diff-check PASS.
 
 ## Phases và checkpoint
 
@@ -48,7 +48,7 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 | P11-C02 | Reward Sources | DONE — merged vào `main` — PASS | Codex | Config-driven kill/stage/time rewards, persistent cumulative anti-replay, V2→V3 migration, real wall-clock, visible-only/count-hidden boundary | `meta/reward-sources-v1` |
 | P11-C03 | Reward Runtime Integration | PASS — merged vào `main` | Codex | Battle event bridge, kill/stage idempotency, locked KNB interval 60 giây, persistent reload checkpoint, fresh run ID, configurable hidden policy, playable ten-wave smoke | `meta/reward-economy-v1` |
 | VIS-C01 | Prototype Runtime Asset Integration | DONE — merged vào `main` — PASS | Codex | 20 asset mapping, safe missing-asset fallbacks, preload, idle/attack, Skill VFX, portrait HUD/modal, x1/x3 visual timing, no combat ownership leak | `visual/runtime-assets-v1` |
-| P12-C01 | Command Energy Domain & Persistence | DONE — waiting Audit | Codex | Cap 60, 120 giây/điểm real-time, overflow/no banking, partial remainder, clock safety, Meta V3 persistence và optimistic revision | `codex/p12-c01-command-energy-domain` |
+| P12-C01 | Command Energy Domain & Persistence | DONE — merged — PASS | Codex | Cap 60, 120 giây/điểm real-time, overflow/no banking, partial remainder, clock safety, Meta V3 persistence và optimistic revision | `meta/command-energy-domain-v1` |
 
 ## Roadmap Phase 10–18
 
@@ -56,7 +56,7 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 |---|---|---|---|---|---|---|---|---|
 | 10 — Meta Foundation | P10 | Profile, Meta repository boundary, wallet/inventory/energy/capacity contracts tối thiểu | DONE — Integration Audit PASS | Phase 9 + META-C00 | Codex | Schema validation, ownership, local-save isolation, no Core regression; INT-C01 integration audit — PASS | `codex/p10-c01-meta-foundation`, `codex/int-c01-meta-foundation-integration` @ `599162a` | Nhiều nguồn truth và save không nhất quán |
 | 11 — Reward Economy | P11 | Reward transaction, Wallet grant/spend, Inventory grant, reward sources và runtime integration | DONE — Integration Audit PASS | Phase 10 | Codex | Atomic grant/spend, event idempotency, wall-clock policy, playable reward smoke — PASS | `meta/reward-economy-v1` | Inflation, duplicate reward hoặc sai time policy |
-| 12 — Quân Lệnh & Auto Wave | P12 | Real-time regen, overflow, Wave cost và Auto Wave gate | IN PROGRESS — P12-C01 DONE, waiting Audit | Phase 10–11 + OD-01 | Codex | Base cap 60, 2 phút/điểm, overflow, hidden time, x1/x3 independence, auto/manual parity | `codex/p12-c01-command-energy-domain` | Clock exploit, double spend hoặc auto-loop |
+| 12 — Quân Lệnh & Auto Wave | P12 | Real-time regen, overflow, Wave cost và Auto Wave gate | IN PROGRESS — P12-C01 DONE — merged — PASS | Phase 10–11 + OD-01 | Codex | Base cap 60, 2 phút/điểm, overflow, hidden time, x1/x3 independence, auto/manual parity | `meta/command-energy-domain-v1` | Clock exploit, double spend hoặc auto-loop |
 | 13 — Deployment Capacity & Lệnh Hiệu Triệu | P13 | Capacity calculator, permanent entitlement và placement gate | TODO | Phase 10–11 + OD-02/OD-08 | Codex | Base 7, mỗi Lệnh Hiệu Triệu +1, effective cap ≤ map slots, reposition free | `meta/deployment-capacity-v1` | Meta/Battle placement desync |
 | 14 — Inventory & Equipment V2 | P14 | Equipment instances, Level 1–10, merge 3 và migration V1 | TODO | Phase 10–11 + save contract + OD-06 | Codex + Antigravity UI | Migration/rollback, merge atomicity, signature weapon policy, shared stats | `meta/equipment-v2` | Mất/nhân đôi item khi migration |
 | 15 — Gacha Gold | P15 | Gold pull transaction và reward pool đã khóa | TODO | Phase 11 + Phase 14 + OD-05/OD-07 | Codex + Antigravity data/UI | Weighted pool, Gold spend, inventory grant, low-rate Binh Phù, simulation | `meta/gacha-gold-v1` | Rate sai, inflation và duplicate grant |

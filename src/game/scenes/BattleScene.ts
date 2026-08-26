@@ -15,6 +15,7 @@ import { skillDefinitions } from '../../data/skills/definitions'
 import { resolveSkill } from '../../domain/skills/SkillResolver'
 import { HeroPlacementRegistry } from '../../domain/placement/HeroPlacementRegistry'
 import { battleBridge } from '../bridge/BattleBridge'
+import { createBattleRunId } from '../runtime/BattleRunIdentity'
 import { refreshPlacedHeroRuntimeStats } from '../runtime/PlacedHeroRuntimeStats'
 
 type EnemyVisual = { state: CombatEnemy; definitionId: string; body: Phaser.GameObjects.Arc; hpBar: Phaser.GameObjects.Rectangle }
@@ -42,7 +43,7 @@ export class BattleScene extends Phaser.Scene {
   private enemiesDefeated = 0
   private enemiesEscaped = 0
   private enemySpawnSequence = 0
-  private readonly runId = `battle-${globalThis.crypto.randomUUID()}`
+  private runId!: string
   private battleStatus: 'running' | 'won' | 'lost' = 'running'
   private readonly placedHeroes = new Map<string, PlacedHeroRuntime>()
   private readonly placementTiles = new Map<string, PlacementTileRuntime>()
@@ -52,6 +53,10 @@ export class BattleScene extends Phaser.Scene {
   private removeHeroStatsRefreshListener?: () => void
 
   constructor() { super('battle') }
+
+  init(): void {
+    this.runId = createBattleRunId()
+  }
 
   create(): void {
     this.cameras.main.setBackgroundColor('#1f3b2d')

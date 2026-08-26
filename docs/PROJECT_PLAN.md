@@ -9,16 +9,16 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 ## WorkTree
 
 - Repository: `HuyenSu-TD`
-- Branch hiện tại: `codex/p11-c01-reward-transaction-core`
-- Worktree Codex hiện tại: `C:\Users\PC\Documents\Codex\2026-08-23\referenced-chatgpt-conversation-this-is-an\work\p11-c01-reward-transaction-core`
+- Branch hiện tại: `codex/p11-c03-reward-runtime-integration`
+- Worktree Codex hiện tại: `C:\Users\PC\Documents\Codex\2026-08-23\referenced-chatgpt-conversation-this-is-an\work\p11-c02-reward-sources`
 - Quy tắc worker Antigravity: [ANTIGRAVITY_RULES.md](ANTIGRAVITY_RULES.md)
 
 ## Trạng thái hiện tại
 
 - Current Phase: **11 — Reward Economy**
-- Current Codex task: **P11-C03 — Reward Runtime Integration — DONE, chờ Audit** — branch `codex/p11-c03-reward-runtime-integration`.
-- Current Antigravity task: **ASSET-A02 — Visual Acceptance** — branch `antigravity/asset-a02-visual-acceptance` @ `68334b1`.
-- Lần kiểm tra gần nhất: P11-C03 nối Battle death/victory và real active play tracker qua Reward Source → Transaction → Meta Repository; duplicate event, x3 independence và ten-wave smoke test đạt; 71/71 tests và build PASS.
+- Current Codex task: **P11-C03 FINAL FIX — DONE, chờ Audit** — branch `codex/p11-c03-reward-runtime-integration`.
+- Current Antigravity task: **VS-NDPL-00 — 939–1009 Research — IN PROGRESS** — branch `antigravity/vs-ndpl-00-939-1009-research` @ `6d7294f`; phạm vi hiện thấy: `docs/drafts/viet-su/939-1009/sources.md`.
+- Lần kiểm tra gần nhất: P11-C03 FINAL FIX khóa KNB Active Play ở 1 phút real-time; reload/visibility/revision/fresh-run-ID tests đạt; 76/76 tests, build, preview và diff-check PASS.
 
 ## Phases và checkpoint
 
@@ -46,7 +46,7 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 | INT-C01 | Meta Foundation Integration Gate | PASS — merged vào `main` | Codex | Merge order, schema consistency, Core boundary, full test/build/preview — PASS | `meta/foundation-v1` |
 | P11-C01 | Reward Transaction Core | DONE — merged vào `main` — PASS | Codex | Atomicity, idempotency persistence, V1→V2 migration, optimistic revision, no UI/Battle integration | `meta/reward-transaction-v1` |
 | P11-C02 | Reward Sources | DONE — merged vào `main` — PASS | Codex | Config-driven kill/stage/time rewards, persistent cumulative anti-replay, V2→V3 migration, real wall-clock, visible-only/count-hidden boundary | `meta/reward-sources-v1` |
-| P11-C03 | Reward Runtime Integration | DONE — chờ Audit | Codex | Battle event bridge, kill/stage idempotency, browser wall-clock tracker, configurable hidden policy, playable ten-wave smoke | `codex/p11-c03-reward-runtime-integration` |
+| P11-C03 | Reward Runtime Integration | DONE — chờ Audit | Codex | Battle event bridge, kill/stage idempotency, locked KNB interval 60 giây, persistent reload checkpoint, fresh run ID, configurable hidden policy, playable ten-wave smoke | `codex/p11-c03-reward-runtime-integration` |
 
 ## Roadmap Phase 10–18
 

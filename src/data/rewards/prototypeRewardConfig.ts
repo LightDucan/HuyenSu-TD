@@ -14,7 +14,7 @@ export const prototypeRewardBalance: RewardBalanceDraft = {
     'yellow-turban-brute': 2,
   },
   stageClear: { 'prototype-stage-01': { gold: 20, knb: 1 } },
-  activePlayTime: { intervalMs: 120_000, knbPerInterval: 1 },
+  activePlayTime: { intervalMs: 60_000, knbPerInterval: 1 },
 }
 
 export function createPrototypeRewardConfig(hiddenTabPolicy: HiddenTabPolicy): RewardSourceConfig {

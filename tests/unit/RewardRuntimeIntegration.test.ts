@@ -5,12 +5,13 @@ import { RewardSourceService, type RewardSourceConfig } from '../../src/domain/m
 import type { StorageLike } from '../../src/domain/progression/ProgressionStorage'
 import { WaveManager } from '../../src/domain/waves/WaveManager'
 import { BattleBridge } from '../../src/game/bridge/BattleBridge'
+import { createBattleRunId } from '../../src/game/runtime/BattleRunIdentity'
 import { ActivePlayTimeTracker, ensureMetaRepositoryReady, RewardRuntimeController } from '../../src/runtime/RewardRuntime'
 
 const config = (policy: 'visible-only' | 'count-hidden' = 'visible-only'): RewardSourceConfig => ({
   enemyKill: { goldByEnemyId: { sword: 2 } },
   stageClear: { rewardByStageId: { stage: { gold: 10, knb: 3 } } },
-  activePlayTime: { intervalMs: 120_000, knbPerInterval: 1, hiddenTabPolicy: policy },
+  activePlayTime: { intervalMs: 60_000, knbPerInterval: 1, hiddenTabPolicy: policy },
 })
 
 function setup() {
@@ -18,7 +19,7 @@ function setup() {
   const storage: StorageLike = { getItem: (key) => values.get(key) ?? null, setItem: (key, value) => values.set(key, value) }
   const repository = new LocalMetaRepository(storage)
   ensureMetaRepositoryReady(repository, 'runtime-test', 1_000)
-  return { repository, bridge: new BattleBridge() }
+  return { storage, repository, bridge: new BattleBridge() }
 }
 
 describe('P11-C03 Reward Runtime Integration', () => {
@@ -45,20 +46,83 @@ describe('P11-C03 Reward Runtime Integration', () => {
     const source = new RewardSourceService(repository, config())
     const tracker = new ActivePlayTimeTracker(source, 1_000, true, repository)
     bridge.setSpeed(3)
-    tracker.flush(241_000)
+    tracker.flush(121_000)
     expect(repository.load()).toMatchObject({ status: 'loaded', save: { data: { wallet: { balances: { knb: 2 } } } } })
   })
 
   it('supports hidden wall time only when configured', () => {
     const visibleOnly = setup()
     const visibleTracker = new ActivePlayTimeTracker(new RewardSourceService(visibleOnly.repository, config('visible-only')), 1_000, false, visibleOnly.repository)
-    visibleTracker.flush(241_000)
+    visibleTracker.flush(121_000)
     expect(visibleOnly.repository.load()).toMatchObject({ status: 'loaded', save: { data: { wallet: { balances: { knb: 0 } } } } })
 
     const countHidden = setup()
     const hiddenTracker = new ActivePlayTimeTracker(new RewardSourceService(countHidden.repository, config('count-hidden')), 1_000, false, countHidden.repository)
-    hiddenTracker.flush(241_000)
+    hiddenTracker.flush(121_000)
     expect(countHidden.repository.load()).toMatchObject({ status: 'loaded', save: { data: { wallet: { balances: { knb: 2 } } } } })
+  })
+
+  it('continues a new tracker from the persisted checkpoint after repository reload', () => {
+    const { storage, repository } = setup()
+    const first = new ActivePlayTimeTracker(new RewardSourceService(repository, config()), 1_000, true, repository)
+    first.flush(91_000)
+
+    const reloaded = new LocalMetaRepository(storage)
+    const second = new ActivePlayTimeTracker(new RewardSourceService(reloaded, config()), 200_000, true, reloaded)
+    second.flush(230_000)
+
+    expect(reloaded.load()).toMatchObject({
+      status: 'loaded',
+      save: { data: { activePlayTime: { observedVisibleMs: 120_000, remainderEligibleMs: 0 }, wallet: { balances: { knb: 2 } } } },
+    })
+  })
+
+  it('attributes visible-hidden-visible elapsed time to the correct counters', () => {
+    const { repository } = setup()
+    const tracker = new ActivePlayTimeTracker(new RewardSourceService(repository, config('visible-only')), 1_000, true, repository)
+
+    tracker.setVisibility(false, 31_000)
+    tracker.setVisibility(true, 91_000)
+    tracker.flush(121_000)
+
+    expect(repository.load()).toMatchObject({
+      status: 'loaded',
+      save: { data: { activePlayTime: { observedVisibleMs: 60_000, observedHiddenMs: 60_000, remainderEligibleMs: 0 }, wallet: { balances: { knb: 1 } } } },
+    })
+  })
+
+  it('does not reclaim elapsed time after save and reload', () => {
+    const { storage, repository } = setup()
+    const first = new ActivePlayTimeTracker(new RewardSourceService(repository, config()), 1_000, true, repository)
+    first.flush(61_000)
+
+    const reloaded = new LocalMetaRepository(storage)
+    const second = new ActivePlayTimeTracker(new RewardSourceService(reloaded, config()), 100_000, true, reloaded)
+    second.flush(100_000)
+    expect(reloaded.load()).toMatchObject({ status: 'loaded', save: { data: { wallet: { balances: { knb: 1 } } } } })
+
+    second.flush(160_000)
+    expect(reloaded.load()).toMatchObject({ status: 'loaded', save: { data: { wallet: { balances: { knb: 2 } } } } })
+  })
+
+  it('keeps optimistic revision conflicts protected', () => {
+    const { repository } = setup()
+    const initial = repository.load()
+    if (initial.status !== 'loaded') throw new Error('Expected loaded Meta save')
+    repository.save(initial.save.data, initial.save.revision, 2_000)
+
+    expect(() => repository.transactReward(
+      { idempotencyKey: 'stale-runtime-reward', operations: [{ type: 'grant-currency', currency: 'knb', amount: 1 }] },
+      initial.save.revision,
+      3_000,
+    )).toThrow('revision conflict')
+  })
+
+  it('creates a fresh run ID for every Battle run or replay', () => {
+    const uuids = ['first-run', 'second-run']
+    const createUuid = () => uuids.shift() ?? ''
+    expect(createBattleRunId(createUuid)).toBe('battle-first-run')
+    expect(createBattleRunId(createUuid)).toBe('battle-second-run')
   })
 
   it('smoke-tests all ten waves through kill and victory reward events', () => {
@@ -67,7 +131,7 @@ describe('P11-C03 Reward Runtime Integration', () => {
     const smokeConfig: RewardSourceConfig = {
       enemyKill: { goldByEnemyId: Object.fromEntries(allEnemyIds.map((id) => [id, 1])) },
       stageClear: { rewardByStageId: { 'prototype-stage-01': { gold: 10, knb: 1 } } },
-      activePlayTime: { intervalMs: 120_000, knbPerInterval: 1, hiddenTabPolicy: 'visible-only' },
+      activePlayTime: { intervalMs: 60_000, knbPerInterval: 1, hiddenTabPolicy: 'visible-only' },
     }
     const runtime = new RewardRuntimeController(repository, bridge, smokeConfig); runtime.start()
     const waves = new WaveManager(prototypeWaves)

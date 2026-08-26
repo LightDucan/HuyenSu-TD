@@ -15,7 +15,7 @@
 ## 1. Tổng Quan Không Gian Chiến Trường (Map Theme)
 
 * **Tên Định Hướng Primary Map**: **Cửa Biển Bạch Đằng — Đại Phá Nam Hán (938 SCN)**.
-* **Bối cảnh thời gian**: Mùa đông năm Mậu Tuất (938 SCN) — thời điểm hạm đội thủy quân Nam Hán vượt biển tiến vào cửa sông Bạch Đằng và bị tiêu diệt hoàn toàn.
+* **Bối cảnh thời gian**: Mùa đông năm Mậu Tuất (938 SCN) — thời điểm hạm đội thủy quân Nam Hán vượt biển tiến vào cửa sông Bạch Đằng và bị đại phá.
 * **Không gian địa lý**: Vùng cửa sông Bạch Đằng (khu vực giáp ranh Hải Phòng và Quảng Ninh ngày nay, nơi mạng lưới sông đổ ra vịnh Bắc Bộ — T1/T2 confirmed toponym).
 * **Vị trí của Ái Châu & Thành Đại La**: Đóng vai trò **Narrative Prelude** (căn cứ khởi binh dấy nghĩa và nơi tiêu diệt phản thần Kiều Công Tiễn vào mùa thu 938), không xây dựng thành map chiến đấu độc lập để tập trung toàn bộ quy mô gameplay vào trận địa Bạch Đằng.
 
@@ -57,7 +57,7 @@ graph TD
 
 * **Cảnh quan thị giác 2D** `[T4 / Artistic Reconstruction]`:
   - Góc nhìn trực diện (Front View) chuẩn 2D Tower Defense.
-  - **Tông màu chủ đạo**: Bầu trời mùa đông phương Bắc xám lạnh, sóng nước cuồn cuộn pha lẫn phù sa đỏ sẫm, rặng cọc gỗ sẫm màu bịt đầu sắt nhô lên giữa dòng nước rút, khói lửa bốc lên từ các chiến thuyền giặc vỡ vụn.
+  - **Tông màu chủ đạo**: Bầu trời mùa đông phương Bắc xám lạnh, sóng nước cuồn cuộn pha lẫn phù sa đỏ sẫm, rặng cọc gỗ sẫm màu nhô lên giữa dòng nước rút, khói lửa bốc lên từ các chiến thuyền giặc va cọc vỡ đắm.
   - **Đường đi của địch (Enemy Path)**: Tuyến luồng lạch uốn lượn giữa lòng sông và bãi cọc ngầm.
   - **Vị trí đặt tướng (Hero Slots)**: Các bãi bồi phù sa cao, mỏm đồi đất ven bờ, sàn thuyền chỉ huy ngụy trang ven rặng lau sậy.
 * **Đối lập thị giác giữa hai phe** `[T4 / Artistic Interpretation]`:
@@ -68,18 +68,18 @@ graph TD
 
 ## 3. Định Hướng Cốt Truyện & Ý Nghĩa Lịch Sử Toàn Thắng (Historical Outcome)
 
-### 3.1. Ý Nghĩa Toàn Thắng Trong Gameplay & Lịch Sử (Full Historical Victory)
-* Khác với các chiến dịch thời kỳ đầu (như Hai Bà Trưng hay Bà Triệu vốn mang tính chất tactical resistance trước sức mạnh áp đảo của quân đô hộ), **Trận Bạch Đằng năm 938 là một chiến thắng quân sự toàn vẹn và triệt để**:
-  1. Hạm đội thủy quân chủ lực của giặc bị xóa sổ hoàn toàn.
-  2. Chủ tướng giặc là Lưu Hoằng Thao bị tiêu diệt tại trận.
-  3. Hoàng đế Nam Hán Lưu Cung đóng ở Hải Môn hoảng sợ khóc lóc thu tàn quân rút chạy, vĩnh viễn từ bỏ mộng xâm lược nước ta.
-* **Định nghĩa chiến thắng trong màn chơi**: Người chơi bảo vệ toàn vẹn trận địa cọc ngầm, đánh lui toàn bộ các đợt thuyền giặc và hạ gục chủ tướng Lưu Hoằng Thao.
+### 3.1. Ý Nghĩa Thắng Lợi Trong Gameplay & Lịch Sử (Historical Outcome)
+* Khác với các chiến dịch thời kỳ đầu (như Hai Bà Trưng hay Bà Triệu vốn mang tính chất tactical resistance trước sức mạnh áp đảo của quân đô hộ), **Trận Bạch Đằng năm 938 là một chiến thắng quân sự mang tính bước ngoặt quyết định**:
+  1. Quân Nam Hán đại bại; *Tư Trị Thông Giám* ghi binh sĩ chết chìm quá nửa (`覆溺者大半`).
+  2. Chủ tướng giặc là Lưu Hoằng Thao / Hồng Thao tử trận.
+  3. Vua Nam Hán Lưu Cung đóng ở Hải Môn nghe tin con chết bèn khóc lóc, thu nhặt số quân còn lại rút về nước (`收餘衆而還`), từ đó không dám đem quân sang nữa (*Tân Ngũ Đại Sử* Q65 ghi `自是不復出`).
+* **Định nghĩa chiến thắng trong màn chơi**: Người chơi bảo vệ toàn vẹn trận địa phòng thủ, đánh lui toàn bộ các đợt thuyền giặc và hạ gục chủ tướng Lưu Hoằng Thao.
 
 ---
 
 ### 3.2. Đánh Giá Học Thuật Về Ý Nghĩa Lịch Sử
-* **Chấm dứt thời kỳ Bắc thuộc**: Chiến thắng Bạch Đằng 938 đập tan hoàn toàn mưu đồ tái lập ách đô hộ của các triều đại phong kiến phương Bắc, kết thúc hơn một nghìn năm Bắc thuộc (kể từ khi Triệu Đà / nhà Hán xâm lược cho đến năm 938).
-* **Xác lập nền độc lập muôn đời**: Mở ra kỷ nguyên độc lập tự chủ lâu dài cho dân tộc Việt Nam, đặt tiền đề trực tiếp để Ngô Quyền xưng Vương vào mùa xuân năm 939, thiết lập triều đình độc lập tại Cổ Loa, mở đường cho các triều đại Đinh, Tiền Lê, Lý, Trần phát triển rực rỡ sau này.
+* **Chấm dứt thời kỳ Bắc thuộc**: Chiến thắng Bạch Đằng 938 đập tan hoàn toàn mưu đồ thôn tính của triều Nam Hán, mở ra bước ngoặt lịch sử chấm dứt hơn một nghìn năm Bắc thuộc.
+* **Xác lập nền độc lập lâu dài**: Mở ra kỷ nguyên độc lập tự chủ lâu dài cho dân tộc Việt Nam, đặt tiền đề trực tiếp để Ngô Quyền xưng Vương vào mùa xuân năm 939, thiết lập triều đình độc lập tại Cổ Loa, mở đường cho các triều đại Đinh, Tiền Lê, Lý, Trần phát triển sau này.
 * **Cẩn trọng học thuật**: Tránh các khẩu hiệu tuyệt đối hóa giản lược; trình bày chiến thắng 938 như đỉnh cao của quá trình đấu tranh bền bỉ qua nhiều thế hệ hào trưởng người Việt (từ Khúc Thừa Dụ 905, Dương Đình Nghệ 931 đến Ngô Quyền 938).
 
 ---

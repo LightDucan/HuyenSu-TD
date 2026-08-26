@@ -20,7 +20,7 @@ Chapter `ARC-DT-01` tái hiện cao trào phong trào khởi nghĩa của nhân 
 ```mermaid
 graph LR
     subgraph BỐI CẢNH LỊCH SỬ CHƯƠNG ARC-DT-01
-        B1["<b>Khởi Sự Hoan Châu</b><br>Nổi dậy chống cống nạp vải quả<br>713 (T2) / 722 (T1)"] --> B2["<b>Xây Thành Vạn An</b><br>Tựa núi Hùng Sơn, nhìn sông Lam<br>Liên minh 32 châu & Lâm Ấp/Chân Lạp"]
+        B1["<b>Khởi Sự Hoan Châu</b><br>Nổi dậy chống cống nạp vải quả<br>722 (T1/T2) | 713 (T3/Later tradition)"] --> B2["<b>Căn Cứ Vạn An (T3/T4)</b><br>Thung lũng sông Lam & Hùng Sơn<br>Liên minh 32 châu & Lâm Ấp/Chân Lạp"]
         B2 --> B3["<b>Phòng Tuyến Kháng Đường</b><br>Đối đầu đạo quân đàn áp của Dương Tư Húc & Quang Sở Khách"]
     end
 ```
@@ -34,13 +34,17 @@ Tập hồ sơ tuyển chọn nội dung cho Chapter Mai Thúc Loan gồm 2 tài
 | Tài Liệu | Nội Dung Trọng Tâm |
 |---|---|
 | [roster-selection.md](roster-selection.md) | Khảo cứu và đề xuất danh sách 3 Playable Hero (kèm 2 phương án Fallback), 3 Normal Enemy Archetypes, 1 Elite Unit và 2 Boss Candidates (Dương Tư Húc, Quang Sở Khách); phân tầng nguồn T1/T2/T3/T4 và mức độ tin cậy. |
-| [chapter-direction.md](chapter-direction.md) | Định hướng bối cảnh không gian chiến trường thành Vạn An — thung lũng sông Lam, phân định rạch ròi giữa địa danh lịch sử, khảo cổ và tái dựng nghệ thuật; xác định phạm vi chiến thắng chiến thuật (local victory) trong gameplay. |
+| [chapter-direction.md](chapter-direction.md) | Định hướng bối cảnh không gian chiến trường thung lũng sông Lam — thành Vạn An, phân định rạch ròi giữa địa danh lịch sử (T1/T2), truyền tích khảo cổ địa phương (T3/T4) và tái dựng nghệ thuật; xác định phạm vi chiến thắng chiến thuật (local victory) trong gameplay. |
 
 ---
 
 ## 3. Nguyên Tắc Lịch Sử Cốt Lõi (Historical Guardrails)
 
-1. **Niên đại song hành (Dual Chronology)**: Ghi nhận `713–722 SCN (T2)` vs `722 SCN (T1)`. Không gượng ép thành một mốc thời gian duy nhất.
+1. **Phân biệt niên đại thư tịch**:
+   - Thư tịch nhà Đường (*Cựu Đường Thư*, *Tân Đường Thư*, *Tư Trị Thông Giám*) và *Toàn Thư* ghi nhận sự kiện chiến dịch năm **722 SCN**.
+   - *An Nam Chí Lược* chép "Khai Nguyên sơ" (~713–715 SCN).
+   - *Hương Lãm Mai Đế ký* và truyền thuyết dân gian ghi khởi sự năm **713 SCN**.
+   - Khung niên biểu `713–722 SCN` là **tổng hợp nghiên cứu học thuật hiện đại (T4 synthesis)**, không phải sự đồng thuận trực tiếp của T1/T2.
 2. **Quy mô quân số**: Con số "30–40 vạn liên quân" trong thư tịch cổ là ước lệ phóng đại (rhetorical exaggeration); không sử dụng làm quy mô enemy trong game.
 3. **Liên minh phương Nam**: Liên minh với Lâm Ấp (Champa) và Chân Lạp (Khmer) là sự thật lịch sử (T1 Fact), nhưng không tự tạo danh tướng hư cấu đại diện cho họ khi chưa có sử liệu xác nhận.
 4. **Phân loại nguồn nghiêm ngặt**:

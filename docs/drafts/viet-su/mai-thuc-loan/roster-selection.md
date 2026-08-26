@@ -15,16 +15,22 @@
 
 ## 1. Cơ Sở Sử Liệu: Baseline VS-EA-00 & Khảo Sát T3 Mới
 
-### 1.1. Baseline Sử Liệu Đã Xác Thực (VS-EA-00)
-* **T1 — Near-source Chinese Chronicles**: *Cựu Đường Thư* (Quyển 8, 109), *Tân Đường Thư* (Quyển 207), *Tư Trị Thông Giám* (Quyển 212) xác thực cuộc khởi nghĩa bùng nổ tại Hoan Châu, liên minh với các nước phía Nam (Lâm Ấp, Chân Lạp) và bị tướng Đường là **Dương Tư Húc** cùng **Quang Sở Khách (光楚客)** đàn áp vào năm Khai Nguyên thứ 10 (722 SCN).
-* **T2 — Later Vietnamese Historiography**: *Đại Việt Sử Ký Toàn Thư*, *Khâm Định Việt Sử Thông Giám Cương Mục* ghi khởi sự từ năm 713 SCN, thủ lĩnh xưng là Mai Hắc Đế, xây thành Vạn An.
+### 1.1. Baseline Sử Liệu & Phân Định Niên Đại (VS-EA-00)
+* **Sử liệu sự kiện năm 722 SCN (T1 / T2)**:
+  - *Cựu Đường Thư* (Quyển 8, 109), *Tân Đường Thư* (Quyển 207), *Tư Trị Thông Giám* (Quyển 212) và *Đại Việt Sử Ký Toàn Thư* (Ngoại kỷ Quyển 5) đều tập trung ghi nhận cuộc khởi nghĩa của Mai Thúc Loan tại Hoan Châu nổ ra, liên kết các nước phương Nam (Lâm Ấp, Chân Lạp) và bị tướng Đường là **Dương Tư Húc** cùng **Quang Sở Khách (光楚客)** đàn áp vào **năm Khai Nguyên thứ 10 (722 SCN)**.
+* **Các ghi chép niên đại khác & Truyền thống thời sau**:
+  - *An Nam Chí Lược* (Lê Tắc): Ghi biến cố vào khoảng "Khai Nguyên sơ" (~713–715 SCN).
+  - *Hương Lãm Mai Đế ký* và thần tích dân gian: Ghi khởi sự dấy binh từ năm Quý Sửu (713 SCN).
+  - **Khung niên biểu 713–722 SCN**: Là **tổng hợp nghiên cứu học thuật hiện đại (T4 scholarly reconstruction / later-source synthesis)** giữa các nguồn thư tịch, không phải sự đồng thuận trực tiếp trong văn bản T1/T2.
+* **Về Căn Cứ Vạn An**:
+  - Tên gọi "Thành Vạn An" không xuất hiện trực tiếp trong văn bản *Toàn Thư* (chỉ chép chiếm giữ châu Hoan xưng Hắc Đế). Căn cứ Vạn An được xác lập qua **truyền thống địa phương (T3)** và các cuộc **khảo cứu thực địa / nghiên cứu sử học hiện đại (T4)** (Đào Duy Anh, Phan Huy Lê).
 
 ### 1.2. Khảo Sát Bổ Sung Nguồn Dân Gian Địa Phương (T3 Validation Mới)
 * Do chính sử T1 và T2 chỉ ghi nhận danh tính duy nhất của **Mai Thúc Loan** ở phía quân khởi nghĩa, việc tìm kiếm ứng viên cho Slot 2 và Slot 3 buộc phải dựa vào hệ thống thần tích đền miếu dân gian (T3).
 * Các truyền thống T3 được khảo cứu độc lập:
   - Truyền tích đền Dục Anh (làng Hòa Mục, Cầu Giấy, Hà Nội) về Hoàng hậu Phạm Thị Uyển.
   - Thần tích đình/miếu Nhu Kiều — Nhu Điều (An Dương / Quốc Tuấn, Hải Phòng) về hai người con là Mai Kỳ Sơn và Mai Thị Cầu.
-  - Các nhân vật không rõ nguồn gốc kiểm chứng (như Đinh Thế Mỹ) bị loại bỏ khỏi danh sách đề xuất.
+  - Các nhân vật không rõ nguồn gốc kiểm chứng (như Đinh Thế Mỹ) bị loại bỏ hoàn toàn khỏi danh sách đề xuất.
 
 ---
 
@@ -48,15 +54,18 @@ graph TD
 
 ### 2.1. Hero Slot 1 (Bắt Buộc): Mai Thúc Loan (Mai Hắc Đế)
 
-* **Identity**: Thủ lĩnh tối cao của cuộc khởi nghĩa Hoan Châu, xưng Hoàng đế (Mai Hắc Đế), người sáng lập thành lũy Vạn An.
-* **Historical Role**: Lãnh tụ phong trào nông dân chống ách cống nạp vải quả, liên minh 32 châu và các tiểu quốc phương Nam (Lâm Ấp, Chân Lạp), giải phóng toàn bộ An Nam đô hộ phủ trước khi đối đầu đại quân Dương Tư Húc năm 722.
+* **Identity**: Thủ lĩnh tối cao của cuộc khởi nghĩa Hoan Châu, xưng Hoàng đế (Mai Hắc Đế — danh xưng văn bản lịch sử / *historical textual designation*).
+* **Historical Role**: Lãnh tụ phong trào nông dân chống ách cống nạp, liên minh 32 châu và các tiểu quốc phương Nam (Lâm Ấp, Chân Lạp), giải phóng An Nam đô hộ phủ trước khi đối đầu đạo quân viễn chinh của Dương Tư Húc năm 722.
 * **Source Tier**: **T1** (*Cựu Đường Thư*, *Tư Trị Thông Giám*) + **T2** (*Toàn Thư*, *Cương Mục*) + **T3** (Thần tích đền Vua Mai, Nghệ An).
 * **Vì sao phù hợp Playable Hero**:
   * Là linh hồn và biểu tượng tối cao của toàn bộ Chapter `ARC-DT-01`.
-  * Visual silhouette mang tính biểu tượng dân tộc: vóc dáng vạm vỡ dũng mãnh, nước da ngăm đen đặc trưng, sắc áo chàm (đức Thủy), phong thái bậc đế vương quật khởi.
+  * Visual silhouette: Phong thái bậc đế vương quật khởi dũng mãnh.
+* **Lưu Ý Về Hình Tượng Nghệ Thuật (Artistic / Later Interpretation)**:
+  - Danh xưng "Hắc Đế" là danh hiệu lịch sử có trong thư tịch cổ (T1/T2).
+  - Các chi tiết mỹ thuật như **sắc áo chàm**, **biểu tượng đức Thủy** hay **màu da ngăm** là **cách diễn giải văn hóa thời sau / Game Interpretation (T4)** nhằm tăng tính biểu đạt thị giác; **tuyệt đối không khóa thành historical fact**.
 * **Rủi ro sử liệu & Historical Caveat**:
-  * Niên đại dấy binh: `713–722 SCN (T2)` vs `722 SCN (T1)`.
-  * Con số liên quân 30–40 vạn là ước lệ phóng đại trong thư tịch cổ phương Bắc nhằm cường điệu hóa chiến công của Dương Tư Húc.
+  - Niên đại: 722 SCN (*Tang annals* / *Toàn Thư*) vs 713 SCN (*Hương Lãm Mai Đế ký* / T3); khung 713–722 là tổng hợp học thuật T4.
+  - Con số liên quân 30–40 vạn là ước lệ tu từ phóng đại trong thư tịch cổ phương Bắc.
 * **Mức độ tin cậy**: **Well-attested T1 / T2 Fact**.
 * **Đề xuất quyết định**: **LOCK CANDIDATE**.
 
@@ -131,7 +140,7 @@ graph TD
 
         EL["<b>Elite Unit</b><br>Đường Quân Thiết Giáp<br><i>Game / T4 Reconstruction</i>"]
 
-        B1["<b>Boss 1 (Chính)</b><br>Dương Tư Húc (Phiêu Kỵ Đại Tướng Quân)<br><i>Historical Person (T1)</i>"]
+        B1["<b>Boss 1 (Chính)</b><br>Dương Tư Húc (Phiêu Kỵ Tướng Quân)<br><i>Historical Person (T1)</i>"]
         B2["<b>Boss 2 (Phụ / Giai đoạn)</b><br>Quang Sở Khách (An Nam Đại Đô Hộ)<br><i>Historical Person (T1)</i>"]
     end
 ```
@@ -146,7 +155,7 @@ graph TD
 | **Đường Cung Nỏ Binh** | **Generic Military Archetype** | **Game / T4 Reconstruction** | Lính xạ thủ trang bị nỏ tay hoặc cung ngắn thời Đường (visual only, không bắn Hero). |
 | **Đường Kỵ Binh** | **Generic Military Archetype** | **Game / T4 Reconstruction** | Lính kỵ binh nhẹ cưỡi ngựa tuần tra, trang bị giáo ngắn. |
 | **Đường Quân Thiết Giáp** | **Generic Military Archetype** | **Game / T4 Reconstruction** | Lính tinh nhuệ mặc giáp trụ kim loại nặng (phỏng dựng Minh Quang Khải), cầm trường kích. |
-| **Dương Tư Húc (楊思勖)** | **Historical Person** | **T1** | Đại tướng quân hoạn quan nhà Đường, khét tiếng tàn bạo, chỉ huy tối cao chiến dịch 722. |
+| **Dương Tư Húc (楊思勖)** | **Historical Person** | **T1** | Tướng lĩnh hoạn quan nhà Đường (chức Phiêu kỵ tướng quân năm 722), khét tiếng tàn bạo, chỉ huy tối cao chiến dịch 722. |
 | **Quang Sở Khách (光楚客)** | **Historical Person** | **T1** | An Nam Đại đô hộ / tướng triều đình, cùng Dương Tư Húc phụng chiếu nam chinh đàn áp Hoan Châu. |
 
 > [!NOTE]
@@ -160,7 +169,7 @@ graph TD
 #### Boss 1: Dương Tư Húc (Yang Sixu, 659–740 SCN)
 * **Phân loại**: **HISTORICAL PERSON (Nhân vật lịch sử xác thực T1)**.
 * **Sử liệu ghi nhận**: *Cựu Đường Thư* (Quyển 8, 109), *Tư Trị Thông Giám* (Quyển 212). Là viên tướng hoạn quan thiện chiến bậc nhất của Đường Huyền Tông, từng đàn áp nhiều cuộc khởi nghĩa ở Lĩnh Nam và An Nam; nổi tiếng với biện pháp chém giết tàn bạo để thị uy.
-* **Chức vị lịch sử**: Phiêu kỵ đại tướng quân (chức võ quan cao cấp thời Đường).
+* **Chức vị lịch sử năm 722**: **Phiêu kỵ tướng quân** (hoặc tướng Dương Tư Húc; chức Phiêu kỵ đại tướng quân được thăng về sau sau các chiến công khác).
 * **Visual Identity**: Tướng soái uy nghiêm tàn bạo, giáp trụ đại tướng quân màu sẫm viền kim sắc, đao dài trảm mã, thần thái sát phạt dữ dội.
 * **Mức độ tin cậy**: **Well-attested T1**.
 * **Đề xuất quyết định**: **LOCK CANDIDATE (Main Chapter Boss)**.
@@ -170,7 +179,7 @@ graph TD
 * **Sử liệu ghi nhận**: *Cựu Đường Thư* (Huyền Tông bản kỷ), *Tân Đường Thư*.
 * **Chuẩn hóa danh xưng & chức vụ**:
   - Tên canonical: **Quang Sở Khách (光楚客)** theo nguyên văn chữ Hán T1. Tuyệt đối không dùng dị bản chép sai "Nguyên Sở Khách".
-  - Chức vụ ghi nhận trong sử sách: **An Nam Đại đô hộ** (安南大都護) / Lĩnh Nam Đô hộ. Không dùng danh xưng "Quang Lộc Khanh" do thiếu căn cứ xác thực trực tiếp.
+  - Chức vụ ghi nhận trong sử sách: **An Nam Đại đô hộ** (安南大都護) / Lĩnh Nam Đô hộ. Bỏ danh xưng "Quang Lộc Khanh" do thiếu căn cứ xác thực trực tiếp.
 * **Visual Identity**: Quan chức đô hộ phương Bắc kiêm võ tướng đốc quân, trang phục áo bào kết hợp giáp trụ quan lại thời Khai Nguyên.
 * **Mức độ tin cậy**: **Well-attested T1**.
 * **Đề xuất quyết định**: **LOCK CANDIDATE / SECOND BOSS** (Có thể bố trí làm Boss giai đoạn giữa / Mid-boss trước khi Dương Tư Húc xuất hiện).
@@ -179,11 +188,11 @@ graph TD
 
 ## 4. Ràng Buộc Sử Liệu Cốt Lõi (Historical Guardrails)
 
-1. **Niên đại lịch sử**: Toàn bộ tài liệu tôn trọng sự khác biệt giữa `713–722 SCN (T2)` và `722 SCN (T1)`. Không khóa cứng một niên đại độc nhất.
+1. **Niên đại lịch sử**: Phân biệt rõ sự kiện năm 722 (*Tang annals* / *Toàn Thư*) với ghi chép 713 (*Hương Lãm Mai Đế ký* / T3); khung 713–722 là tổng hợp học thuật T4, không phải sự đồng thuận trực tiếp T1/T2.
 2. **Quy mô quân số**: Ước tính 30–40 vạn quân trong sử thư cổ là con số ước lệ truyền thống (rhetorical exaggeration); trong game chỉ tái hiện áp lực của các nhóm quân địch trên fixed path.
 3. **Ý nghĩa chiến thắng trong màn chơi (Local Gameplay Victory)**:
-   - Chiến thắng của người chơi trong Chapter `ARC-DT-01` là **chiến thắng phòng thủ cục bộ (tactical in-stage victory)**: bảo vệ thành công phòng tuyến Vạn An và đẩy lui các đợt xung kích ban đầu của quân xâm lược Đường.
-   - Không viết kịch bản thay đổi kết cục lịch sử tổng thể năm 722 (sự hy sinh anh dũng của Mai Hắc Đế và thành Vạn An thất thủ trước sức ép đại quân của Dương Tư Húc).
+   - Chiến thắng của người chơi trong Chapter `ARC-DT-01` là **chiến thắng phòng thủ cục bộ (tactical in-stage victory)**: bảo vệ thành công phòng tuyến và đẩy lui các đợt xung kích ban đầu của quân xâm lược Đường.
+   - Không viết kịch bản thay đổi kết cục lịch sử tổng thể năm 722 (sự hy sinh anh dũng của Mai Hắc Đế trước sức ép đại quân của Dương Tư Húc).
 
 ---
 
@@ -191,7 +200,7 @@ graph TD
 
 | Vị Trí / Hạng Mục | Tên Đề Xuất | Tầng Nguồn | Mức Độ Tin Cậy Sử Liệu | Quyết Định / Trạng Thái | Ghi Chú Ràng Buộc |
 |---|---|:---:|:---:|:---:|---|
-| **Hero Slot 1** | **Mai Thúc Loan (Mai Hắc Đế)** | **T1 + T2 + T3** | Well-attested T1 / T2 Fact | **LOCK CANDIDATE** | Nhân vật bắt buộc; thủ lĩnh tối cao. |
+| **Hero Slot 1** | **Mai Thúc Loan (Mai Hắc Đế)** | **T1 + T2 + T3** | Well-attested T1 / T2 Fact | **LOCK CANDIDATE** | Bắt buộc; thủ lĩnh tối cao phong trào Hoan Châu. |
 | **Hero Slot 2** | **Phạm Thị Uyển** | **T3** | Moderate (T3 Local Tradition) | **PROVISIONAL** | Nữ tướng đền Dục Anh / Hòa Mục; không biến T3 thành T1 fact. |
 | **Hero Slot 3** | **Mai Kỳ Sơn** | **T3** | Moderate (T3 Local Tradition) | **PROVISIONAL** | Tướng quân Nhu Kiều (Hải Phòng); không biến T3 thành T1 fact. |
 | *Hero Fallback 1* | *Mai Thị Cầu* | *T3* | Moderate (T3 Local Tradition) | *FALLBACK* | Nữ tướng Nhu Kiều (Hải Phòng); dự phòng cho Slot 2/3. |
@@ -200,6 +209,6 @@ graph TD
 | **Normal Enemy 2** | **Đường Cung Nỏ Binh** | **Game / T4** | Game / T4 Reconstruction | **LOCK CANDIDATE** | Generic ranged, nỏ/cung (visual only, không bắn Hero). |
 | **Normal Enemy 3** | **Đường Kỵ Binh** | **Game / T4** | Game / T4 Reconstruction | **LOCK CANDIDATE** | Generic light cavalry trinh sát ven biển. |
 | **Elite Unit** | **Đường Quân Thiết Giáp** | **Game / T4** | Game / T4 Reconstruction | **LOCK CANDIDATE** | Lính tinh nhuệ giáp Minh Quang (Game reconstruction). |
-| **Boss 1** | **Dương Tư Húc (楊思勖)** | **T1** | Well-attested T1 | **LOCK CANDIDATE** | Main Boss chương; Phiêu kỵ đại tướng quân tàn bạo. |
+| **Boss 1** | **Dương Tư Húc (楊思勖)** | **T1** | Well-attested T1 | **LOCK CANDIDATE** | Main Boss; Phiêu kỵ tướng quân (chức năm 722). |
 | **Boss 2 (Optional)**| **Quang Sở Khách (光楚客)** | **T1** | Well-attested T1 | **LOCK CANDIDATE** | Secondary Boss; chức An Nam Đại đô hộ; tên chuẩn T1. |
-| **Map Direction** | **Phòng Tuyến Vạn An — Sông Lam** | **T1/T2/T4** | High (T1/T2 Toponym + T4 Geo) | **LOCK CANDIDATE** | Thung lũng Sa Nam, tựa núi Hùng Sơn nhìn sông Lam. |
+| **Map Direction** | **Phòng Tuyến Sông Lam — Vạn An** | **T1/T2 + T3/T4** | High (T1/T2 Toponym + T4 Geo) | **LOCK CANDIDATE** | Châu Hoan/Sông Lam (T1/T2); Vạn An/Hùng Sơn/Sa Nam (T3/T4). |

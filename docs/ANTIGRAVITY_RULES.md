@@ -36,7 +36,7 @@ Khi thực thi công việc (kể cả khi chạy nhiều agent, subagent hoặc
 1. Đọc:
    - `docs/GAME_RULES.md`
    - `docs/HERO_RULES.md`
-   - `docs/ARCHITECTURE.md`
+   - `docs/architecture.md`
    - file task hiện tại nếu có.
 2. Kiểm tra `git status`.
 3. Nếu thấy file đang thay đổi mà không phải do mình tạo:

@@ -16,9 +16,9 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 ## Trạng thái hiện tại
 
 - Current Phase: **11 — Reward Economy**
-- Current Codex task: **P11-C03 — AUDIT PASS / merged vào `main`** — checkpoint `meta/reward-economy-v1`.
+- Current Codex task: **VIS-C01 FINAL HARDENING — DONE, chờ final audit** — branch `codex/vis-c01-runtime-asset-integration`.
 - Current Antigravity task: **VS-NDPL-00 — 939–1009 Research — IN PROGRESS** — branch `antigravity/vs-ndpl-00-939-1009-research` @ `5686d7f`.
-- Lần kiểm tra gần nhất: P11-C03 FINAL FIX khóa KNB Active Play ở 1 phút real-time; reload/visibility/revision/fresh-run-ID tests đạt; Integration Audit PASS.
+- Lần kiểm tra gần nhất: VIS-C01 FINAL HARDENING thêm non-throwing asset resolver và Battle/React fallbacks; missing asset/unknown Hero tests đạt; 82/82 tests, build, preview và diff-check PASS.
 
 ## Phases và checkpoint
 
@@ -47,6 +47,7 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 | P11-C01 | Reward Transaction Core | DONE — merged vào `main` — PASS | Codex | Atomicity, idempotency persistence, V1→V2 migration, optimistic revision, no UI/Battle integration | `meta/reward-transaction-v1` |
 | P11-C02 | Reward Sources | DONE — merged vào `main` — PASS | Codex | Config-driven kill/stage/time rewards, persistent cumulative anti-replay, V2→V3 migration, real wall-clock, visible-only/count-hidden boundary | `meta/reward-sources-v1` |
 | P11-C03 | Reward Runtime Integration | PASS — merged vào `main` | Codex | Battle event bridge, kill/stage idempotency, locked KNB interval 60 giây, persistent reload checkpoint, fresh run ID, configurable hidden policy, playable ten-wave smoke | `meta/reward-economy-v1` |
+| VIS-C01 | Prototype Runtime Asset Integration | DONE — chờ Audit | Codex | 20 asset mapping, preload, idle/attack, Skill VFX, portrait HUD/modal, x1/x3 visual timing, no combat ownership leak | `codex/vis-c01-runtime-asset-integration` |
 
 ## Roadmap Phase 10–18
 

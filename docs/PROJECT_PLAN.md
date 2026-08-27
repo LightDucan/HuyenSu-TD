@@ -15,10 +15,10 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 
 ## Trạng thái hiện tại
 
-- Current Phase: **13 — Deployment Capacity & Lệnh Hiệu Triệu**
-- Current Codex task: **P13-C01 — DONE / merged / PASS** — checkpoint `meta/deployment-capacity-v1`.
+- Current Phase: **14 — Inventory & Equipment V2**
+- Current Codex task: **FAST-01 — IN PROGRESS** — branch `codex/fast-p14-equipment-v2`.
 - Current Antigravity task: **VS-NDPL-00 — 939–1009 Research — IN PROGRESS** — branch `antigravity/vs-ndpl-00-939-1009-research` @ `5686d7f`.
-- Lần kiểm tra gần nhất: P13-C01 merged/PASS; shared capacity selector + placement gate giữ prototype map ở effective limit 6; full test, build, preview và diff-check PASS.
+- Lần kiểm tra gần nhất: Phase 13 DONE/PASS tại `meta/deployment-capacity-v1`; transaction dùng Lệnh Hiệu Triệu được fold vào Phase 16/FAST-02, không hủy game requirement.
 
 ## Phases và checkpoint
 
@@ -51,6 +51,7 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 | P12-C01 | Command Energy Domain & Persistence | DONE — merged — PASS | Codex | Cap 60, 120 giây/điểm real-time, overflow/no banking, partial remainder, clock safety, Meta V3 persistence và optimistic revision | `meta/command-energy-domain-v1` |
 | P12-C02 | Wave Energy Gate & Auto Wave | DONE — merged — PASS | Codex | Explicit waiting/running/won lifecycle, manual/auto shared spend, double-spend guard, Hero gate, real-time refresh, minimal HUD và 10-Wave regression | `meta/command-energy-auto-wave-v1` |
 | P13-C01 | Deployment Capacity Domain & Placement Gate | DONE / merged / PASS | Codex | Base 7, level bonus 0, Summon Order +1, effective map cap, guarded new placement, unrestricted reposition và read-only HUD projection | `meta/deployment-capacity-v1` |
+| P13-C02 | Lệnh Hiệu Triệu Entitlement Transaction | FOLDED INTO PHASE 16 | Codex | Inventory consume + permanent entitlement vẫn là requirement; thực hiện cùng item/shop transactions trong FAST-02 | `codex/fast-p15-p16-economy` |
 
 ## Roadmap Phase 10–18
 
@@ -59,8 +60,8 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 | 10 — Meta Foundation | P10 | Profile, Meta repository boundary, wallet/inventory/energy/capacity contracts tối thiểu | DONE — Integration Audit PASS | Phase 9 + META-C00 | Codex | Schema validation, ownership, local-save isolation, no Core regression; INT-C01 integration audit — PASS | `codex/p10-c01-meta-foundation`, `codex/int-c01-meta-foundation-integration` @ `599162a` | Nhiều nguồn truth và save không nhất quán |
 | 11 — Reward Economy | P11 | Reward transaction, Wallet grant/spend, Inventory grant, reward sources và runtime integration | DONE — Integration Audit PASS | Phase 10 | Codex | Atomic grant/spend, event idempotency, wall-clock policy, playable reward smoke — PASS | `meta/reward-economy-v1` | Inflation, duplicate reward hoặc sai time policy |
 | 12 — Quân Lệnh & Auto Wave | P12 | Real-time regen, overflow, Wave cost và Auto Wave gate | DONE — Integration Audit PASS | Phase 10–11 + OD-01 | Codex | Base cap 60, 2 phút/điểm, overflow, hidden time, x1/x3 independence, auto/manual parity | `meta/command-energy-auto-wave-v1` | Clock exploit, double spend hoặc auto-loop |
-| 13 — Deployment Capacity & Lệnh Hiệu Triệu | P13 | Capacity calculator, permanent entitlement và placement gate | IN PROGRESS — P13-C01 merged/PASS; P13-C02 pending | Phase 10–12 + OD-02/OD-08 | Codex | Base 7, mỗi Lệnh Hiệu Triệu +1, effective cap ≤ map slots, reposition free | `meta/deployment-capacity-v1` | Meta/Battle placement desync |
-| 14 — Inventory & Equipment V2 | P14 | Equipment instances, Level 1–10, merge 3 và migration V1 | TODO | Phase 10–11 + save contract + OD-06 | Codex + Antigravity UI | Migration/rollback, merge atomicity, signature weapon policy, shared stats | `meta/equipment-v2` | Mất/nhân đôi item khi migration |
+| 13 — Deployment Capacity & Lệnh Hiệu Triệu | P13 | Capacity calculator, permanent entitlement và placement gate | DONE — PASS; P13-C02 folded into Phase 16 | Phase 10–12 + OD-02/OD-08 | Codex | Base 7, mỗi Lệnh Hiệu Triệu +1, effective cap ≤ map slots, reposition free — PASS | `meta/deployment-capacity-v1` | Meta/Battle placement desync |
+| 14 — Inventory & Equipment V2 | P14 | Equipment instances, Level 1–10, merge 3 và migration V1 | IN PROGRESS — FAST-01 | Phase 10–11 + save contract + OD-06 | Codex + Antigravity UI | Migration/rollback, merge atomicity, signature weapon policy, shared stats | `codex/fast-p14-equipment-v2` | Mất/nhân đôi item khi migration |
 | 15 — Gacha Gold | P15 | Gold pull transaction và reward pool đã khóa | TODO | Phase 11 + Phase 14 + OD-05/OD-07 | Codex + Antigravity data/UI | Weighted pool, Gold spend, inventory grant, low-rate Binh Phù, simulation | `meta/gacha-gold-v1` | Rate sai, inflation và duplicate grant |
 | 16 — Kim Nguyên Bảo Shop & Cooldown | P16 | Premium earning/shop, Lệnh Hiệu Triệu, item đặc thù và cooldown shortening | TODO | Phase 11–15 + OD-04/OD-08 | Codex + Antigravity UI | Earn/spend audit, offline-time policy, cooldown flag compatibility | `meta/kim-nguyen-bao-shop-v1` | Premium economy hoặc timer bị khai thác |
 | 17 — Hero Recruitment & Ascension | P17 | Chiêu Hiền Lệnh item; Hero trùng → Mảnh Danh Tướng; Sao 1–5; Anh Hồn chung; sau Normal tiến hóa Trùng Sinh → Tái Sinh → Huyền Sử | TODO | Phase 11 + Phase 14 + Phase 16 + HERO-A00 | Codex + Antigravity UI/data | Atomic item spend, duplicate conversion, shard/star boundary, shared evolution/passive, save migration | `meta/hero-recruitment-ascension-v1` | Duplicate reward, mất mảnh hoặc tạo Hero-specific progression/combat |

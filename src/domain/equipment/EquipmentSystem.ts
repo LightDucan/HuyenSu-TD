@@ -14,6 +14,15 @@ export type HeroEquipment = Readonly<{
   gemId?: string
 }>
 
+export type EquipmentV2Definition = Readonly<{
+  id: string
+  slot: EquipmentSlot
+  name: string
+  levelModifiers: Readonly<Record<number, StatModifier>>
+  mergeable: boolean
+  exclusiveHeroId?: string
+}>
+
 const EQUIPMENT_MODIFIER_KEYS = new Set(['atk', 'range', 'attackSpeed'])
 
 export function validateEquipmentDefinition(definition: EquipmentDefinition): EquipmentDefinition {

@@ -1,6 +1,7 @@
 export const META_SAVE_SCHEMA_VERSION_V1 = 1 as const
 export const META_SAVE_SCHEMA_VERSION_V2 = 2 as const
-export const META_SAVE_SCHEMA_VERSION = 3 as const
+export const META_SAVE_SCHEMA_VERSION_V3 = 3 as const
+export const META_SAVE_SCHEMA_VERSION = 4 as const
 export const PLAYER_PROFILE_SCHEMA_VERSION = 1 as const
 export const COMMAND_ENERGY_BASE_CAP = 60 as const
 export const BASE_DEPLOYMENT_CAPACITY = 7 as const
@@ -22,9 +23,30 @@ export type WalletState = Readonly<{
   balances: Readonly<Record<CurrencyId, number>>
 }>
 
-export type InventoryState = Readonly<{
+export type LegacyInventoryState = Readonly<{
   consumables: Readonly<Record<string, number>>
   equipmentInstanceIds: readonly string[]
+}>
+
+export type EquipmentSlotV2 = 'weapon' | 'gem'
+
+export type EquipmentInstance = Readonly<{
+  instanceId: string
+  definitionId: string
+  slot: EquipmentSlotV2
+  level: number
+}>
+
+export type HeroEquipmentLoadoutV2 = Readonly<{
+  weaponInstanceId?: string
+  gemInstanceId?: string
+}>
+
+export type InventoryState = Readonly<{
+  consumables: Readonly<Record<string, number>>
+  equipmentInstances: Readonly<Record<string, EquipmentInstance>>
+  equippedByHero: Readonly<Record<string, HeroEquipmentLoadoutV2>>
+  unresolvedLegacyEquipmentInstanceIds: readonly string[]
 }>
 
 export type CommandEnergyState = Readonly<{
@@ -50,7 +72,7 @@ export type ActivePlayTimeProgress = Readonly<{
 export type MetaStateV1 = Readonly<{
   profile: PlayerProfile
   wallet: WalletState
-  inventory: InventoryState
+  inventory: LegacyInventoryState
   commandEnergy: CommandEnergyState
 }>
 
@@ -60,6 +82,10 @@ export type MetaStateV2 = Readonly<MetaStateV1 & {
 
 export type MetaStateV3 = Readonly<MetaStateV2 & {
   activePlayTime: ActivePlayTimeProgress
+}>
+
+export type MetaStateV4 = Readonly<Omit<MetaStateV3, 'inventory'> & {
+  inventory: InventoryState
 }>
 
 export type MetaSaveV1 = Readonly<{
@@ -77,13 +103,20 @@ export type MetaSaveV2 = Readonly<{
 }>
 
 export type MetaSaveV3 = Readonly<{
-  schemaVersion: typeof META_SAVE_SCHEMA_VERSION
+  schemaVersion: typeof META_SAVE_SCHEMA_VERSION_V3
   revision: number
   updatedAtMs: number
   data: MetaStateV3
 }>
 
-export function createInitialMetaState(playerId: string, nowMs: number): MetaStateV3 {
+export type MetaSaveV4 = Readonly<{
+  schemaVersion: typeof META_SAVE_SCHEMA_VERSION
+  revision: number
+  updatedAtMs: number
+  data: MetaStateV4
+}>
+
+export function createInitialMetaState(playerId: string, nowMs: number): MetaStateV4 {
   if (playerId.trim().length === 0) throw new Error('Player ID must not be empty')
   if (!Number.isSafeInteger(nowMs) || nowMs < 0) throw new Error('Initial timestamp must be a non-negative safe integer')
 
@@ -98,7 +131,12 @@ export function createInitialMetaState(playerId: string, nowMs: number): MetaSta
       summonOrderCount: 0,
     },
     wallet: { balances: { gold: 0, knb: 0 } },
-    inventory: { consumables: {}, equipmentInstanceIds: [] },
+    inventory: {
+      consumables: {},
+      equipmentInstances: {},
+      equippedByHero: {},
+      unresolvedLegacyEquipmentInstanceIds: [],
+    },
     commandEnergy: { current: COMMAND_ENERGY_BASE_CAP, regenAnchorAtMs: nowMs },
     rewardReceipts: {},
     activePlayTime: { observedVisibleMs: 0, observedHiddenMs: 0, remainderEligibleMs: 0 },

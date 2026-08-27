@@ -2,15 +2,19 @@ import {
   META_SAVE_SCHEMA_VERSION,
   META_SAVE_SCHEMA_VERSION_V1,
   META_SAVE_SCHEMA_VERSION_V2,
+  META_SAVE_SCHEMA_VERSION_V3,
   PLAYER_PROFILE_SCHEMA_VERSION,
   type CommandEnergyState,
   type InventoryState,
+  type LegacyInventoryState,
   type MetaSaveV1,
   type MetaSaveV2,
   type MetaSaveV3,
+  type MetaSaveV4,
   type MetaStateV1,
   type MetaStateV2,
   type MetaStateV3,
+  type MetaStateV4,
   type ActivePlayTimeProgress,
   type PlayerProfile,
   type RewardReceipt,
@@ -60,7 +64,7 @@ function validateWallet(value: unknown, issues: string[]): WalletState | undefin
   return value as WalletState
 }
 
-function validateInventory(value: unknown, issues: string[]): InventoryState | undefined {
+function validateLegacyInventory(value: unknown, issues: string[]): LegacyInventoryState | undefined {
   if (!isRecord(value)) { issues.push('inventory must be an object'); return undefined }
   validateExactKeys(value, ['consumables', 'equipmentInstanceIds'], 'inventory', issues)
   if (!isRecord(value.consumables)) issues.push('inventory.consumables must be an object')
@@ -72,6 +76,51 @@ function validateInventory(value: unknown, issues: string[]): InventoryState | u
     const ids = value.equipmentInstanceIds
     if (ids.some((id) => typeof id !== 'string' || id.trim().length === 0)) issues.push('equipment instance IDs must be non-empty strings')
     if (new Set(ids).size !== ids.length) issues.push('equipment instance IDs must be unique')
+  }
+  return value as LegacyInventoryState
+}
+
+function validateInventory(value: unknown, issues: string[]): InventoryState | undefined {
+  if (!isRecord(value)) { issues.push('inventory must be an object'); return undefined }
+  validateExactKeys(value, ['consumables', 'equipmentInstances', 'equippedByHero', 'unresolvedLegacyEquipmentInstanceIds'], 'inventory', issues)
+  if (!isRecord(value.consumables)) issues.push('inventory.consumables must be an object')
+  else Object.entries(value.consumables).forEach(([itemId, quantity]) => {
+    if (itemId.trim().length === 0 || !isNonNegativeSafeInteger(quantity)) issues.push(`invalid consumable stack: ${itemId}`)
+  })
+
+  const instances = isRecord(value.equipmentInstances) ? value.equipmentInstances : undefined
+  if (!instances) issues.push('inventory.equipmentInstances must be an object')
+  else Object.entries(instances).forEach(([instanceId, instance]) => {
+    if (!isRecord(instance)) { issues.push(`invalid equipment instance: ${instanceId}`); return }
+    validateExactKeys(instance, ['instanceId', 'definitionId', 'slot', 'level'], `inventory.equipmentInstances.${instanceId}`, issues)
+    if (instanceId.trim().length === 0 || instance.instanceId !== instanceId) issues.push(`equipment instance key mismatch: ${instanceId}`)
+    if (typeof instance.definitionId !== 'string' || instance.definitionId.trim().length === 0) issues.push(`invalid equipment definition ID: ${instanceId}`)
+    if (instance.slot !== 'weapon' && instance.slot !== 'gem') issues.push(`invalid equipment slot: ${instanceId}`)
+    if (!isNonNegativeSafeInteger(instance.level) || instance.level < 1 || instance.level > 10) issues.push(`invalid equipment level: ${instanceId}`)
+  })
+
+  const equippedIds = new Set<string>()
+  if (!isRecord(value.equippedByHero)) issues.push('inventory.equippedByHero must be an object')
+  else Object.entries(value.equippedByHero).forEach(([heroId, loadout]) => {
+    if (heroId.trim().length === 0 || !isRecord(loadout)) { issues.push(`invalid Hero equipment loadout: ${heroId}`); return }
+    const allowedKeys = ['weaponInstanceId', 'gemInstanceId']
+    if (Object.keys(loadout).some((key) => !allowedKeys.includes(key))) issues.push(`Hero equipment loadout contains unknown fields: ${heroId}`)
+    for (const [slot, field] of [['weapon', 'weaponInstanceId'], ['gem', 'gemInstanceId']] as const) {
+      const instanceId = loadout[field]
+      if (instanceId === undefined) continue
+      if (typeof instanceId !== 'string' || instanceId.trim().length === 0) { issues.push(`invalid equipped instance ID: ${heroId}.${field}`); continue }
+      const instance = instances?.[instanceId]
+      if (!isRecord(instance) || instance.slot !== slot) issues.push(`equipped ${slot} instance is missing or in the wrong slot: ${heroId}`)
+      if (equippedIds.has(instanceId)) issues.push(`equipment instance is equipped more than once: ${instanceId}`)
+      equippedIds.add(instanceId)
+    }
+  })
+
+  if (!Array.isArray(value.unresolvedLegacyEquipmentInstanceIds)) issues.push('unresolved legacy equipment instance IDs must be an array')
+  else {
+    const ids = value.unresolvedLegacyEquipmentInstanceIds
+    if (ids.some((id) => typeof id !== 'string' || id.trim().length === 0)) issues.push('unresolved legacy equipment instance IDs must be non-empty strings')
+    if (new Set(ids).size !== ids.length) issues.push('unresolved legacy equipment instance IDs must be unique')
   }
   return value as InventoryState
 }
@@ -108,7 +157,7 @@ export function validateMetaStateV1(value: unknown): ValidationResult<MetaStateV
   if (!isRecord(value)) return { ok: false, issues: ['meta state must be an object'] }
   const issues: string[] = []
   validateExactKeys(value, ['profile', 'wallet', 'inventory', 'commandEnergy'], 'meta state', issues)
-  validateProfile(value.profile, issues); validateWallet(value.wallet, issues); validateInventory(value.inventory, issues); validateCommandEnergy(value.commandEnergy, issues)
+  validateProfile(value.profile, issues); validateWallet(value.wallet, issues); validateLegacyInventory(value.inventory, issues); validateCommandEnergy(value.commandEnergy, issues)
   return issues.length === 0 ? { ok: true, value: value as MetaStateV1 } : { ok: false, issues }
 }
 
@@ -116,16 +165,24 @@ export function validateMetaStateV2(value: unknown): ValidationResult<MetaStateV
   if (!isRecord(value)) return { ok: false, issues: ['meta state must be an object'] }
   const issues: string[] = []
   validateExactKeys(value, ['profile', 'wallet', 'inventory', 'commandEnergy', 'rewardReceipts'], 'meta state', issues)
-  validateProfile(value.profile, issues); validateWallet(value.wallet, issues); validateInventory(value.inventory, issues); validateCommandEnergy(value.commandEnergy, issues); validateRewardReceipts(value.rewardReceipts, issues)
+  validateProfile(value.profile, issues); validateWallet(value.wallet, issues); validateLegacyInventory(value.inventory, issues); validateCommandEnergy(value.commandEnergy, issues); validateRewardReceipts(value.rewardReceipts, issues)
   return issues.length === 0 ? { ok: true, value: value as MetaStateV2 } : { ok: false, issues }
 }
 
-export function validateMetaState(value: unknown): ValidationResult<MetaStateV3> {
+export function validateMetaStateV3(value: unknown): ValidationResult<MetaStateV3> {
+  if (!isRecord(value)) return { ok: false, issues: ['meta state must be an object'] }
+  const issues: string[] = []
+  validateExactKeys(value, ['profile', 'wallet', 'inventory', 'commandEnergy', 'rewardReceipts', 'activePlayTime'], 'meta state', issues)
+  validateProfile(value.profile, issues); validateWallet(value.wallet, issues); validateLegacyInventory(value.inventory, issues); validateCommandEnergy(value.commandEnergy, issues); validateRewardReceipts(value.rewardReceipts, issues); validateActivePlayTime(value.activePlayTime, issues)
+  return issues.length === 0 ? { ok: true, value: value as MetaStateV3 } : { ok: false, issues }
+}
+
+export function validateMetaState(value: unknown): ValidationResult<MetaStateV4> {
   if (!isRecord(value)) return { ok: false, issues: ['meta state must be an object'] }
   const issues: string[] = []
   validateExactKeys(value, ['profile', 'wallet', 'inventory', 'commandEnergy', 'rewardReceipts', 'activePlayTime'], 'meta state', issues)
   validateProfile(value.profile, issues); validateWallet(value.wallet, issues); validateInventory(value.inventory, issues); validateCommandEnergy(value.commandEnergy, issues); validateRewardReceipts(value.rewardReceipts, issues); validateActivePlayTime(value.activePlayTime, issues)
-  return issues.length === 0 ? { ok: true, value: value as MetaStateV3 } : { ok: false, issues }
+  return issues.length === 0 ? { ok: true, value: value as MetaStateV4 } : { ok: false, issues }
 }
 
 function validateEnvelope(value: unknown, version: number, issues: string[]): value is UnknownRecord {
@@ -153,12 +210,20 @@ export function validateMetaSaveV2(value: unknown): ValidationResult<MetaSaveV2>
   return issues.length === 0 ? { ok: true, value: value as MetaSaveV2 } : { ok: false, issues }
 }
 
-export function validateMetaSave(value: unknown): ValidationResult<MetaSaveV3> {
+export function validateMetaSaveV3(value: unknown): ValidationResult<MetaSaveV3> {
+  const issues: string[] = []
+  if (!validateEnvelope(value, META_SAVE_SCHEMA_VERSION_V3, issues)) return { ok: false, issues }
+  const state = validateMetaStateV3(value.data)
+  if (!state.ok) issues.push(...state.issues)
+  return issues.length === 0 ? { ok: true, value: value as MetaSaveV3 } : { ok: false, issues }
+}
+
+export function validateMetaSave(value: unknown): ValidationResult<MetaSaveV4> {
   const issues: string[] = []
   if (!validateEnvelope(value, META_SAVE_SCHEMA_VERSION, issues)) return { ok: false, issues }
   const state = validateMetaState(value.data)
   if (!state.ok) issues.push(...state.issues)
-  return issues.length === 0 ? { ok: true, value: value as MetaSaveV3 } : { ok: false, issues }
+  return issues.length === 0 ? { ok: true, value: value as MetaSaveV4 } : { ok: false, issues }
 }
 
 export function readSchemaVersion(value: unknown): number | undefined {

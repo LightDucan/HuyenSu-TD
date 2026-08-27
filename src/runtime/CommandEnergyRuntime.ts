@@ -1,6 +1,6 @@
 import { COMMAND_ENERGY_WAVE_COST, selectCommandEnergyCap } from '../domain/meta/CommandEnergy'
 import { LocalMetaRepository, type CommandEnergyCommit } from '../domain/meta/MetaRepository'
-import type { MetaSaveV3 } from '../domain/meta/MetaState'
+import type { MetaSaveV4 } from '../domain/meta/MetaState'
 import type { StorageLike } from '../domain/progression/ProgressionStorage'
 import type { BattleBridge, BattleSnapshot, WaveStartSource } from '../game/bridge/BattleBridge'
 import { ensureMetaRepositoryReady } from './RewardRuntime'
@@ -92,13 +92,13 @@ export class CommandEnergyRuntimeController {
     this.attemptWaveStart('auto', nowMs)
   }
 
-  private requireCurrentSave(): MetaSaveV3 {
+  private requireCurrentSave(): MetaSaveV4 {
     const current = this.repository.load()
-    if (current.status !== 'loaded') throw new Error('Command Energy runtime requires a current Meta V3 save')
+    if (current.status !== 'loaded') throw new Error('Command Energy runtime requires a current Meta V4 save')
     return current.save
   }
 
-  private publishEnergy(save: MetaSaveV3): void {
+  private publishEnergy(save: MetaSaveV4): void {
     this.bridge.emitCommandEnergySnapshot({
       current: save.data.commandEnergy.current,
       cap: selectCommandEnergyCap(save.data.profile.playerLevel),

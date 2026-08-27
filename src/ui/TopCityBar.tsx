@@ -2,9 +2,10 @@ import type { BattleHudData } from '../game/bridge/BattleHudContract'
 
 export interface TopCityBarProps {
   data: BattleHudData
+  wallet?: Readonly<{ gold: number; knb: number }>
 }
 
-export function TopCityBar({ data }: TopCityBarProps) {
+export function TopCityBar({ data, wallet }: TopCityBarProps) {
   const swordCount = data.remainingByCategory.sword ?? 0
   const archerCount = data.remainingByCategory.archer ?? 0
   const otherCount = data.remainingByCategory.other ?? 0
@@ -16,6 +17,7 @@ export function TopCityBar({ data }: TopCityBarProps) {
           <span className="city-icon" aria-hidden="true">🏯</span>
           <h2 className="city-name">Thành trì</h2>
         </div>
+        {wallet && <div className="wallet-hud" aria-label="Ví tài nguyên"><span>Vàng: {wallet.gold}</span><span>KNB: {wallet.knb}</span></div>}
         <div className="city-hp-bar-container">
           <span className="hp-label">Thành trì HP:</span>
           <span className="hp-value">{data.cityHp}</span>

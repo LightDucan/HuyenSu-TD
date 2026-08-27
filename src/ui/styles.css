@@ -33,6 +33,15 @@ button { font: inherit; }
 .equipment-v2-actions button:disabled { opacity: .45; }
 .equipment-v2-equipped { display: flex; gap: 16px; margin-top: 12px; font-size: 12px; color: #a7f3d0; }
 .equipment-v2-empty { color: #94a3b8; }
+.economy-panel { margin-bottom: 12px; padding: 14px; border: 1px solid #7c3aed; border-radius: 12px; background: #1e1b4b; }
+.economy-wallet { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 12px; color: #fde68a; }
+.economy-columns { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 10px; }
+.economy-columns article { padding: 10px; border: 1px solid #4c1d95; border-radius: 8px; background: #2e1065; }
+.economy-columns h3, .economy-columns p { margin: 0 0 8px; }
+.economy-columns button { margin: 3px; border: 1px solid #c4b5fd; border-radius: 6px; padding: 5px 8px; background: #6d28d9; color: white; }
+.economy-row { display: flex; justify-content: space-between; gap: 8px; align-items: center; margin: 5px 0; }
+.economy-result { color: #a7f3d0; }
+.wallet-hud { display: flex; gap: 10px; color: #fde68a; font-size: 12px; font-weight: 700; }
 
 .top-bar {
   display: grid;

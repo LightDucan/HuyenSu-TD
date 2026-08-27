@@ -22,6 +22,9 @@ import { saveProgressionAndRefresh } from './HeroRuntimeRefreshActions'
 import { TopCityBar } from './TopCityBar'
 import { getBrowserEquipmentV2Runtime } from '../runtime/EquipmentV2Runtime'
 import { EquipmentInventoryPanel } from './EquipmentInventoryPanel'
+import { EconomyPanel } from './EconomyPanel'
+import { getBrowserEconomyRuntime } from '../runtime/EconomyRuntime'
+import { CONSUMABLE_ITEM_IDS } from '../data/items/definitions'
 
 const initialSnapshot: BattleSnapshot = {
   runId: 'initial',
@@ -41,6 +44,7 @@ const initialSnapshot: BattleSnapshot = {
 
 export function App() {
   const equipmentRuntime = getBrowserEquipmentV2Runtime()
+  const economyRuntime = getBrowserEconomyRuntime()
   const initialHeroId = battleBridge.getSelectedHeroId()
   const gameHostRef = useRef<HTMLDivElement>(null)
   const [snapshot, setSnapshot] = useState(initialSnapshot)
@@ -51,6 +55,7 @@ export function App() {
   const [isHeroDetailOpen, setIsHeroDetailOpen] = useState(false)
   const [activeMetaTab, setActiveMetaTab] = useState<'roster' | 'inventory'>('roster')
   const [metaSave, setMetaSave] = useState<MetaSaveV4>(() => equipmentRuntime.getSnapshot())
+  const [economyResult, setEconomyResult] = useState<string>()
   const [progression, setProgression] = useState<HeroProgression>(() =>
     loadProgression(window.localStorage).heroes[initialHeroId] ?? { stage: 'normal', level: 1 },
   )
@@ -145,10 +150,43 @@ export function App() {
     setEquipment(definitionLoadout(hudData.selectedHeroId, result.save))
   }
 
+  const handleGacha = (count: 1 | 10) => {
+    const save = economyRuntime.repository.load()
+    if (save.status !== 'loaded') return
+    const nowMs = Date.now()
+    try {
+      const result = economyRuntime.gacha.pull(count, save.save.revision, `ui/gacha/${crypto.randomUUID()}`, nowMs)
+      setMetaSave(result.transaction.save)
+      setEconomyResult(`Gacha ${count}x: ${result.rewards.map((reward) => reward.id).join(', ')}`)
+    } catch (error) { setEconomyResult(error instanceof Error ? error.message : 'Gacha thất bại') }
+  }
+
+  const handleShopBuy = (itemId: string) => {
+    const save = economyRuntime.repository.load()
+    if (save.status !== 'loaded') return
+    try {
+      const result = economyRuntime.shop.buy(itemId, 1, save.save.revision, `ui/shop/${crypto.randomUUID()}`, Date.now())
+      setMetaSave(result.save)
+      setEconomyResult(`Đã mua ${itemId}.`)
+    } catch (error) { setEconomyResult(error instanceof Error ? error.message : 'Mua thất bại') }
+  }
+
+  const handleConsumableUse = (itemId: string, quantity: number) => {
+    const save = economyRuntime.repository.load()
+    if (save.status !== 'loaded') return
+    try {
+      const result = itemId === CONSUMABLE_ITEM_IDS.summonOrder
+        ? economyRuntime.consumables.useSummonOrder(quantity, save.save.revision, `ui/use-summon/${crypto.randomUUID()}`, Date.now())
+        : economyRuntime.consumables.useCommandEnergyItem(itemId, quantity, save.save.revision, `ui/use-energy/${crypto.randomUUID()}`, Date.now())
+      setMetaSave(result.save)
+      setEconomyResult(`Đã dùng ${quantity} × ${itemId}.`)
+    } catch (error) { setEconomyResult(error instanceof Error ? error.message : 'Dùng vật phẩm thất bại') }
+  }
+
   return (
     <main className="app-shell">
       {/* Top City Bar */}
-      <TopCityBar data={hudData} />
+      <TopCityBar data={hudData} wallet={metaSave.data.wallet.balances} />
 
       <p className="hint">
         {snapshot.battleStatus === 'won'
@@ -166,14 +204,17 @@ export function App() {
         <button type="button" className={activeMetaTab === 'inventory' ? 'active' : ''} onClick={() => setActiveMetaTab('inventory')}>HÀNH TRANG</button>
       </nav>
       {activeMetaTab === 'inventory' && (
-        <EquipmentInventoryPanel
-          save={metaSave}
-          selectedHeroId={hudData.selectedHeroId}
-          definitions={equipmentRuntime.getDefinitions()}
-          onEquip={(instanceId) => handleInventoryOperation({ type: 'equip', heroId: hudData.selectedHeroId, instanceId })}
-          onUnequip={(slot) => handleInventoryOperation({ type: 'unequip', heroId: hudData.selectedHeroId, slot })}
-          onMerge={(ingredientInstanceIds) => handleInventoryOperation({ type: 'merge', ingredientInstanceIds, resultInstanceId: `equipment:${crypto.randomUUID()}` })}
-        />
+        <>
+          <EquipmentInventoryPanel
+            save={metaSave}
+            selectedHeroId={hudData.selectedHeroId}
+            definitions={equipmentRuntime.getDefinitions()}
+            onEquip={(instanceId) => handleInventoryOperation({ type: 'equip', heroId: hudData.selectedHeroId, instanceId })}
+            onUnequip={(slot) => handleInventoryOperation({ type: 'unequip', heroId: hudData.selectedHeroId, slot })}
+            onMerge={(ingredientInstanceIds) => handleInventoryOperation({ type: 'merge', ingredientInstanceIds, resultInstanceId: `equipment:${crypto.randomUUID()}` })}
+          />
+          <EconomyPanel save={metaSave} lastResult={economyResult} onGacha={handleGacha} onBuy={handleShopBuy} onUse={handleConsumableUse} />
+        </>
       )}
 
       {/* Battle Canvas */}

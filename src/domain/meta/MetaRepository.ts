@@ -33,7 +33,10 @@ export type EconomyTransactionCommit =
   | Readonly<{ status: 'already-applied'; save: MetaSaveV4 }>
 
 export class LocalMetaRepository {
-  constructor(private readonly storage: StorageLike) {}
+  constructor(
+    private readonly storage: StorageLike,
+    private readonly onPersist?: (save: MetaSaveV4) => void,
+  ) {}
 
   load(): MetaLoadResult {
     const raw = this.storage.getItem(META_STORAGE_KEY)
@@ -59,7 +62,7 @@ export class LocalMetaRepository {
     const migrated = migrateMetaSaveV3ToV4(v3.value)
     if (!migrated.ok) throw new Error(`Invalid intermediate Meta V3 save: ${migrated.issues.join('; ')}`)
     if (migrated.value.revision !== expectedRevision) throw new Error(`Meta save revision conflict: expected ${expectedRevision}, actual ${migrated.value.revision}`)
-    this.storage.setItem(META_STORAGE_KEY, JSON.stringify(migrated.value))
+    this.persist(migrated.value)
     return migrated.value
   }
 
@@ -74,7 +77,7 @@ export class LocalMetaRepository {
     const migrated = migrateMetaSaveV3ToV4(v3.value)
     if (!migrated.ok) throw new Error(`Invalid intermediate Meta V3 save: ${migrated.issues.join('; ')}`)
     if (migrated.value.revision !== expectedRevision) throw new Error(`Meta save revision conflict: expected ${expectedRevision}, actual ${migrated.value.revision}`)
-    this.storage.setItem(META_STORAGE_KEY, JSON.stringify(migrated.value))
+    this.persist(migrated.value)
     return migrated.value
   }
 
@@ -87,7 +90,7 @@ export class LocalMetaRepository {
     const migrated = migrateMetaSaveV3ToV4(parsed)
     if (!migrated.ok) throw new Error(`Invalid Meta V3 save: ${migrated.issues.join('; ')}`)
     if (migrated.value.revision !== expectedRevision) throw new Error(`Meta save revision conflict: expected ${expectedRevision}, actual ${migrated.value.revision}`)
-    this.storage.setItem(META_STORAGE_KEY, JSON.stringify(migrated.value))
+    this.persist(migrated.value)
     return migrated.value
   }
 
@@ -102,7 +105,7 @@ export class LocalMetaRepository {
     const actualRevision = current.status === 'loaded' ? current.save.revision : 0
     if (actualRevision !== expectedRevision) throw new Error(`Meta save revision conflict: expected ${expectedRevision}, actual ${actualRevision}`)
     const save: MetaSaveV4 = { schemaVersion: META_SAVE_SCHEMA_VERSION, revision: actualRevision + 1, updatedAtMs, data: stateValidation.value }
-    this.storage.setItem(META_STORAGE_KEY, JSON.stringify(save))
+    this.persist(save)
     return save
   }
 
@@ -174,5 +177,10 @@ export class LocalMetaRepository {
     if (current.status !== 'loaded') throw new Error(`${operation} requires a current Meta V4 save`)
     if (current.save.revision !== expectedRevision) throw new Error(`Meta save revision conflict: expected ${expectedRevision}, actual ${current.save.revision}`)
     return current.save
+  }
+
+  private persist(save: MetaSaveV4): void {
+    this.storage.setItem(META_STORAGE_KEY, JSON.stringify(save))
+    this.onPersist?.(save)
   }
 }

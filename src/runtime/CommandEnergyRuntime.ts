@@ -3,7 +3,7 @@ import { LocalMetaRepository, type CommandEnergyCommit } from '../domain/meta/Me
 import type { MetaSaveV4 } from '../domain/meta/MetaState'
 import type { StorageLike } from '../domain/progression/ProgressionStorage'
 import type { BattleBridge, BattleSnapshot, WaveStartSource } from '../game/bridge/BattleBridge'
-import { ensureMetaRepositoryReady } from './RewardRuntime'
+import { createRuntimeMetaRepository, ensureMetaRepositoryReady, publishCurrentMetaSnapshot } from './RewardRuntime'
 
 const COMMAND_ENERGY_REFRESH_INTERVAL_MS = 15_000
 
@@ -121,9 +121,10 @@ export class CommandEnergyRuntimeController {
 }
 
 export function startBrowserCommandEnergyRuntime(storage: StorageLike, bridge: BattleBridge): () => void {
-  const repository = new LocalMetaRepository(storage)
+  const repository = createRuntimeMetaRepository(storage, bridge)
   const nowMs = Date.now()
   ensureMetaRepositoryReady(repository, 'local-player', nowMs)
+  publishCurrentMetaSnapshot(repository, bridge)
   const controller = new CommandEnergyRuntimeController(repository, bridge)
   controller.start()
   const intervalId = window.setInterval(() => controller.refreshCommandEnergy(Date.now()), COMMAND_ENERGY_REFRESH_INTERVAL_MS)

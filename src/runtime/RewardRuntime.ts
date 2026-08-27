@@ -4,6 +4,16 @@ import { RewardSourceService, type RewardSourceConfig } from '../domain/meta/Rew
 import type { StorageLike } from '../domain/progression/ProgressionStorage'
 import type { BattleBridge } from '../game/bridge/BattleBridge'
 
+export function createRuntimeMetaRepository(storage: StorageLike, bridge: BattleBridge): LocalMetaRepository {
+  return new LocalMetaRepository(storage, (save) => bridge.emitMetaSnapshot(save))
+}
+
+export function publishCurrentMetaSnapshot(repository: LocalMetaRepository, bridge: BattleBridge): void {
+  const current = repository.load()
+  if (current.status !== 'loaded') throw new Error('Meta snapshot publication requires a current Meta V4 save')
+  bridge.emitMetaSnapshot(current.save)
+}
+
 export function ensureMetaRepositoryReady(repository: LocalMetaRepository, playerId: string, nowMs: number): void {
   const current = repository.load()
   if (current.status === 'empty') { repository.save(createInitialMetaState(playerId, nowMs), 0, nowMs); return }
@@ -80,9 +90,10 @@ export class ActivePlayTimeTracker {
 }
 
 export function startBrowserRewardRuntime(storage: StorageLike, bridge: BattleBridge, config: RewardSourceConfig): () => void {
-  const repository = new LocalMetaRepository(storage)
+  const repository = createRuntimeMetaRepository(storage, bridge)
   const nowMs = Date.now()
   ensureMetaRepositoryReady(repository, 'local-player', nowMs)
+  publishCurrentMetaSnapshot(repository, bridge)
   const source = new RewardSourceService(repository, config)
   const controller = new RewardRuntimeController(repository, bridge, config)
   const tracker = new ActivePlayTimeTracker(source, nowMs, document.visibilityState === 'visible', repository)

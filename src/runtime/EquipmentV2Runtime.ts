@@ -6,7 +6,7 @@ import { LocalMetaRepository, type EquipmentV2TransactionCommit } from '../domai
 import type { EquipmentInstance, HeroEquipmentLoadoutV2, MetaSaveV4 } from '../domain/meta/MetaState'
 import type { StorageLike } from '../domain/progression/ProgressionStorage'
 import type { BattleBridge } from '../game/bridge/BattleBridge'
-import { ensureMetaRepositoryReady } from './RewardRuntime'
+import { createRuntimeMetaRepository, ensureMetaRepositoryReady, publishCurrentMetaSnapshot } from './RewardRuntime'
 
 export const LEGACY_EQUIPMENT_IMPORT_KEY = 'migration/equipment-v1-to-meta-v4'
 
@@ -107,9 +107,10 @@ export class EquipmentV2RuntimeController {
 let browserEquipmentRuntime: EquipmentV2RuntimeController | undefined
 
 export function initializeBrowserEquipmentV2Runtime(storage: StorageLike, bridge: BattleBridge): EquipmentV2RuntimeController {
-  const repository = new LocalMetaRepository(storage)
+  const repository = createRuntimeMetaRepository(storage, bridge)
   const nowMs = Date.now()
   ensureMetaRepositoryReady(repository, 'local-player', nowMs)
+  publishCurrentMetaSnapshot(repository, bridge)
   const runtime = new EquipmentV2RuntimeController(repository, bridge)
   runtime.importLegacy(storage, nowMs)
   browserEquipmentRuntime = runtime
@@ -120,4 +121,3 @@ export function getBrowserEquipmentV2Runtime(): EquipmentV2RuntimeController {
   if (!browserEquipmentRuntime) throw new Error('Browser Equipment V2 runtime has not been initialized')
   return browserEquipmentRuntime
 }
-

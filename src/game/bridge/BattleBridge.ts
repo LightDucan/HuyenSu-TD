@@ -3,7 +3,7 @@ import type { EnemyCategory } from '../../data/enemies/definitions'
 import type { HeroPlacement } from '../../domain/placement/HeroPlacementRegistry'
 import type { WaveStatus } from '../../domain/waves/WaveManager'
 import type { DeploymentCapacityProjection } from '../../domain/meta/DeploymentCapacity'
-import { BASE_DEPLOYMENT_CAPACITY } from '../../domain/meta/MetaState'
+import { BASE_DEPLOYMENT_CAPACITY, type MetaSaveV4 } from '../../domain/meta/MetaState'
 
 export type BattleSnapshot = Readonly<{
   runId: string
@@ -35,6 +35,7 @@ export type WaveStartDecision = Readonly<{
 }>
 export type CommandEnergySnapshot = Readonly<{ current: number; cap: number }>
 export type DeploymentCapacitySnapshot = DeploymentCapacityProjection
+export type MetaSnapshot = MetaSaveV4
 export type PlacementFeedback =
   | Readonly<{ status: 'placed'; heroId: string }>
   | Readonly<{ status: 'rejected'; heroId: string; reason: 'capacity-reached'; effectiveLimit: number }>
@@ -53,6 +54,7 @@ export class BattleBridge {
     mapTileCount: 0,
     effectiveLimit: 0,
   }
+  private metaSnapshot?: MetaSnapshot
   private snapshotListeners = new Set<SnapshotListener>()
   private speedListeners = new Set<(speed: GameSpeed) => void>()
   private heroSelectionListeners = new Set<(heroId: string) => void>()
@@ -65,6 +67,7 @@ export class BattleBridge {
   private commandEnergyListeners = new Set<(snapshot: CommandEnergySnapshot) => void>()
   private deploymentCapacityListeners = new Set<(snapshot: DeploymentCapacitySnapshot) => void>()
   private placementFeedbackListeners = new Set<(feedback: PlacementFeedback) => void>()
+  private metaSnapshotListeners = new Set<(snapshot: MetaSnapshot) => void>()
 
   setSpeed(speed: GameSpeed): void {
     if (this.speed === speed) return
@@ -185,6 +188,18 @@ export class BattleBridge {
   onPlacementFeedback(listener: (feedback: PlacementFeedback) => void): () => void {
     this.placementFeedbackListeners.add(listener)
     return () => this.placementFeedbackListeners.delete(listener)
+  }
+
+  emitMetaSnapshot(snapshot: MetaSnapshot): void {
+    this.metaSnapshot = snapshot
+    this.metaSnapshotListeners.forEach((listener) => listener(snapshot))
+  }
+
+  getMetaSnapshot(): MetaSnapshot | undefined { return this.metaSnapshot }
+
+  onMetaSnapshot(listener: (snapshot: MetaSnapshot) => void): () => void {
+    this.metaSnapshotListeners.add(listener)
+    return () => this.metaSnapshotListeners.delete(listener)
   }
 
   emitSnapshot(snapshot: BattleSnapshot): void {

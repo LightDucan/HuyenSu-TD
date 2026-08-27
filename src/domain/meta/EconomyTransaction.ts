@@ -1,6 +1,7 @@
 import { validateEquipmentInstance } from '../equipment/EquipmentV2'
 import type { EquipmentV2Definition } from '../equipment/EquipmentSystem'
 import { selectDeploymentCapacity } from './DeploymentCapacity'
+import { grantCommandEnergy } from './CommandEnergy'
 import type { CurrencyId, EquipmentInstance, MetaStateV4 } from './MetaState'
 
 export type EconomyOperation =
@@ -52,7 +53,7 @@ export function applyEconomyTransaction(
   const balances = { ...state.wallet.balances }
   const consumables = { ...state.inventory.consumables }
   const equipmentInstances = { ...state.inventory.equipmentInstances }
-  let commandEnergy = state.commandEnergy.current
+  let commandEnergy = state.commandEnergy
   let summonOrderCount = state.profile.summonOrderCount
 
   request.operations.forEach((operation) => {
@@ -71,7 +72,9 @@ export function applyEconomyTransaction(
       equipmentInstances[operation.instance.instanceId] = operation.instance
     } else if (operation.type === 'grant-command-energy') {
       assertPositiveSafeInteger(operation.amount, 'Command Energy grant amount')
-      commandEnergy = addSafe(commandEnergy, operation.amount, 'Command Energy')
+      const granted = grantCommandEnergy(commandEnergy, operation.amount, committedAtMs)
+      if (granted.status === 'invalid-clock') throw new Error('Command Energy clock cannot go backward')
+      commandEnergy = granted.state
     } else if (operation.type === 'increment-summon-orders') {
       assertPositiveSafeInteger(operation.quantity, 'Summon Order quantity')
       summonOrderCount = addSafe(summonOrderCount, operation.quantity, 'Summon Order count')
@@ -89,7 +92,7 @@ export function applyEconomyTransaction(
       profile: { ...state.profile, summonOrderCount, updatedAtMs: committedAtMs },
       wallet: { balances },
       inventory: { ...state.inventory, consumables, equipmentInstances },
-      commandEnergy: { ...state.commandEnergy, current: commandEnergy },
+      commandEnergy,
       rewardReceipts: { ...state.rewardReceipts, [request.idempotencyKey]: { transactionFingerprint: fingerprint, committedAtMs } },
     },
   }

@@ -2,7 +2,23 @@
 
 ## Kết quả
 
-**PASS — waiting integration audit.**
+**PASS — waiting final audit after integration fix.**
+
+## FAST-02A — Economy integration fixes
+
+### Command Energy grant semantics
+
+- `grant-command-energy` gọi shared Command Energy domain trong chính `EconomyTransaction`: resolve natural regeneration tại `committedAtMs`, sau đó mới cộng Binh Phù.
+- Transaction persist đồng thời Inventory consume, `commandEnergy.current` và `regenAnchorAtMs` trong đúng một Meta V4 revision; không có repository commit trung gian.
+- Overflow/no-banking và partial remainder dùng nguyên semantics hiện có. Backward clock reject toàn transaction nên Inventory, Energy và revision giữ nguyên.
+- Regression cases đã khóa: `58 + 240000ms + Đại` thành `70`; cap/remainder cases tại `150000ms`; backward-clock atomic rejection.
+
+### Live Meta / Wallet snapshot
+
+- Mỗi Meta save thành công publish snapshot read-only từ authoritative repository/runtime qua `BattleBridge`; React chỉ subscribe/render, không đọc hoặc ghi Meta localStorage.
+- Enemy Kill, Stage Clear và Active Play Time publish Wallet mới ngay sau reward transaction; Shop và Gacha dùng cùng publication path.
+- Publication không chạy per-frame và không tạo reward transaction. Duplicate reward vẫn bị persistent idempotency receipt chặn, kể cả khi UI refresh snapshot.
+- Regression tests xác nhận Gold/KNB cập nhật cho Enemy, Stage, 60-second Active Play, Shop và Gacha; manual snapshot refresh không cấp reward lần hai.
 
 ## Transaction architecture
 
@@ -35,7 +51,7 @@
 
 ## Verification
 
-- `npm test`: PASS — 19 files, 135 tests.
+- `npm test`: PASS — 20 files, 144 tests.
 - `npm run build`: PASS.
 - `npm run preview`: PASS — HTTP 200.
 - `git diff --check`: PASS.
@@ -57,4 +73,3 @@ Các số trên được đánh dấu **PROTOTYPE / NON-FINAL**; Phase 18 sở h
 
 - Economy UI hiện ưu tiên khả dụng; chưa có animation, confirmation hoặc localization hoàn chỉnh.
 - Gacha result receipt bảo vệ grant; retry đã commit trả status `already-applied` nhưng không replay danh sách presentation reward cũ vì receipt không lưu UI presentation payload.
-

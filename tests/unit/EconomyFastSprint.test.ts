@@ -17,14 +17,14 @@ function memoryStorage(): { storage: StorageLike; values: Map<string, string> } 
   return { values, storage: { getItem: (key) => values.get(key) ?? null, setItem: (key, value) => { values.set(key, value) } } }
 }
 
-function setup(input: Readonly<{ gold?: number; knb?: number; energy?: number; consumables?: Record<string, number> }> = {}) {
+function setup(input: Readonly<{ gold?: number; knb?: number; energy?: number; regenAnchorAtMs?: number; consumables?: Record<string, number> }> = {}) {
   const memory = memoryStorage()
   const repository = new LocalMetaRepository(memory.storage)
   const initial = createInitialMetaState('fast-economy-test', 1_000)
   repository.save({
     ...initial,
     wallet: { balances: { gold: input.gold ?? 0, knb: input.knb ?? 0 } },
-    commandEnergy: { ...initial.commandEnergy, current: input.energy ?? initial.commandEnergy.current },
+    commandEnergy: { current: input.energy ?? initial.commandEnergy.current, regenAnchorAtMs: input.regenAnchorAtMs ?? initial.commandEnergy.regenAnchorAtMs },
     inventory: { ...initial.inventory, consumables: input.consumables ?? {} },
   }, 0, 1_000)
   const bridge = new BattleBridge()
@@ -114,6 +114,36 @@ describe('FAST-02 Gold Gacha', () => {
 })
 
 describe('FAST-02 KNB Shop and consumable use', () => {
+  it('resolves natural regen before Đại Binh Phù and then preserves overflow', () => {
+    const { repository, bridge } = setup({ energy: 58, regenAnchorAtMs: 0, consumables: { [CONSUMABLE_ITEM_IDS.largeEnergyToken]: 1 } })
+    const service = new ConsumableUseService(repository, bridge, new DeploymentCapacityRuntimeController(repository, bridge, 6))
+    const result = service.useCommandEnergyItem(CONSUMABLE_ITEM_IDS.largeEnergyToken, 1, 1, 'use/regen-then-large', 240_000)
+    expect(result.save.data.commandEnergy).toEqual({ current: 70, regenAnchorAtMs: 240_000 })
+  })
+
+  it('uses shared grant semantics when natural regen reaches cap with a remainder', () => {
+    const { repository, bridge } = setup({ energy: 58, regenAnchorAtMs: 0, consumables: { [CONSUMABLE_ITEM_IDS.smallEnergyToken]: 1 } })
+    const service = new ConsumableUseService(repository, bridge, new DeploymentCapacityRuntimeController(repository, bridge, 6))
+    const result = service.useCommandEnergyItem(CONSUMABLE_ITEM_IDS.smallEnergyToken, 1, 1, 'use/reach-cap', 150_000)
+    expect(result.save.data.commandEnergy).toEqual({ current: 60, regenAnchorAtMs: 150_000 })
+  })
+
+  it('preserves partial regen remainder when item use remains below cap', () => {
+    const { repository, bridge } = setup({ energy: 50, regenAnchorAtMs: 0, consumables: { [CONSUMABLE_ITEM_IDS.smallEnergyToken]: 1 } })
+    const service = new ConsumableUseService(repository, bridge, new DeploymentCapacityRuntimeController(repository, bridge, 6))
+    const result = service.useCommandEnergyItem(CONSUMABLE_ITEM_IDS.smallEnergyToken, 1, 1, 'use/preserve-remainder', 150_000)
+    expect(result.save.data.commandEnergy).toEqual({ current: 52, regenAnchorAtMs: 120_000 })
+  })
+
+  it('rejects backward Command Energy clock atomically without consuming inventory', () => {
+    const { repository, bridge, values } = setup({ energy: 50, regenAnchorAtMs: 200_000, consumables: { [CONSUMABLE_ITEM_IDS.smallEnergyToken]: 1 } })
+    const service = new ConsumableUseService(repository, bridge, new DeploymentCapacityRuntimeController(repository, bridge, 6))
+    const rawBefore = values.get(META_STORAGE_KEY)
+    expect(() => service.useCommandEnergyItem(CONSUMABLE_ITEM_IDS.smallEnergyToken, 1, 1, 'use/backward-clock', 150_000)).toThrow('clock cannot go backward')
+    expect(values.get(META_STORAGE_KEY)).toBe(rawBefore)
+    expect(current(repository)).toMatchObject({ revision: 1, data: { commandEnergy: { current: 50, regenAnchorAtMs: 200_000 }, inventory: { consumables: { [CONSUMABLE_ITEM_IDS.smallEnergyToken]: 1 } } } })
+  })
+
   it('buys Chiêu Hiền Lệnh as an item only and does not recruit a Hero', () => {
     const { repository } = setup({ knb: 100 })
     const shop = new KnbShopService(repository, prototypeEquipmentV2Definitions, prototypeKnbShopConfig)

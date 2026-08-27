@@ -54,7 +54,7 @@ export function App() {
   const [placementMessage, setPlacementMessage] = useState<string | null>(null)
   const [isHeroDetailOpen, setIsHeroDetailOpen] = useState(false)
   const [activeMetaTab, setActiveMetaTab] = useState<'roster' | 'inventory'>('roster')
-  const [metaSave, setMetaSave] = useState<MetaSaveV4>(() => equipmentRuntime.getSnapshot())
+  const [metaSave, setMetaSave] = useState<MetaSaveV4>(() => battleBridge.getMetaSnapshot() ?? equipmentRuntime.getSnapshot())
   const [economyResult, setEconomyResult] = useState<string>()
   const [progression, setProgression] = useState<HeroProgression>(() =>
     loadProgression(window.localStorage).heroes[initialHeroId] ?? { stage: 'normal', level: 1 },
@@ -84,6 +84,10 @@ export function App() {
         ? `Đã đạt giới hạn triển khai ${feedback.effectiveLimit} Hero trên bản đồ này.`
         : null)
     })
+    const unsubscribeMeta = battleBridge.onMetaSnapshot((save) => {
+      setMetaSave(save)
+      setEquipment(definitionLoadout(battleBridge.getSelectedHeroId(), save))
+    })
 
     return () => {
       unsubscribe()
@@ -91,6 +95,7 @@ export function App() {
       unsubscribeAuto()
       unsubscribeCapacity()
       unsubscribePlacement()
+      unsubscribeMeta()
       game.destroy(true)
     }
   }, [])
@@ -128,7 +133,6 @@ export function App() {
     if (!instance) return
     const nowMs = Date.now()
     const result = equipmentRuntime.transact({ type: 'equip', heroId, instanceId: instance.instanceId }, save.revision, `ui/equipment/equip/${heroId}/${instance.instanceId}/${nowMs}`, nowMs)
-    setMetaSave(result.save)
     const next = definitionLoadout(heroId, result.save)
     resolveEquipmentModifiers(next, equipmentDefinitions)
     setEquipment(next)
@@ -138,16 +142,12 @@ export function App() {
     const save = equipmentRuntime.getSnapshot()
     const nowMs = Date.now()
     const result = equipmentRuntime.transact({ type: 'unequip', heroId, slot }, save.revision, `ui/equipment/unequip/${heroId}/${slot}/${nowMs}`, nowMs)
-    setMetaSave(result.save)
-    setEquipment(definitionLoadout(heroId, result.save))
   }
 
   const handleInventoryOperation = (operation: Parameters<typeof equipmentRuntime.transact>[0]) => {
     const save = equipmentRuntime.getSnapshot()
     const nowMs = Date.now()
     const result = equipmentRuntime.transact(operation, save.revision, `ui/equipment/${operation.type}/${crypto.randomUUID()}`, nowMs)
-    setMetaSave(result.save)
-    setEquipment(definitionLoadout(hudData.selectedHeroId, result.save))
   }
 
   const handleGacha = (count: 1 | 10) => {
@@ -156,7 +156,6 @@ export function App() {
     const nowMs = Date.now()
     try {
       const result = economyRuntime.gacha.pull(count, save.save.revision, `ui/gacha/${crypto.randomUUID()}`, nowMs)
-      setMetaSave(result.transaction.save)
       setEconomyResult(`Gacha ${count}x: ${result.rewards.map((reward) => reward.id).join(', ')}`)
     } catch (error) { setEconomyResult(error instanceof Error ? error.message : 'Gacha thất bại') }
   }
@@ -166,7 +165,6 @@ export function App() {
     if (save.status !== 'loaded') return
     try {
       const result = economyRuntime.shop.buy(itemId, 1, save.save.revision, `ui/shop/${crypto.randomUUID()}`, Date.now())
-      setMetaSave(result.save)
       setEconomyResult(`Đã mua ${itemId}.`)
     } catch (error) { setEconomyResult(error instanceof Error ? error.message : 'Mua thất bại') }
   }
@@ -178,7 +176,6 @@ export function App() {
       const result = itemId === CONSUMABLE_ITEM_IDS.summonOrder
         ? economyRuntime.consumables.useSummonOrder(quantity, save.save.revision, `ui/use-summon/${crypto.randomUUID()}`, Date.now())
         : economyRuntime.consumables.useCommandEnergyItem(itemId, quantity, save.save.revision, `ui/use-energy/${crypto.randomUUID()}`, Date.now())
-      setMetaSave(result.save)
       setEconomyResult(`Đã dùng ${quantity} × ${itemId}.`)
     } catch (error) { setEconomyResult(error instanceof Error ? error.message : 'Dùng vật phẩm thất bại') }
   }

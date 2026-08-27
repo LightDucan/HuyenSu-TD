@@ -8,7 +8,7 @@ import { LocalMetaRepository, type EconomyTransactionCommit } from '../domain/me
 import type { StorageLike } from '../domain/progression/ProgressionStorage'
 import type { BattleBridge } from '../game/bridge/BattleBridge'
 import { DeploymentCapacityRuntimeController } from './DeploymentCapacityRuntime'
-import { ensureMetaRepositoryReady } from './RewardRuntime'
+import { createRuntimeMetaRepository, ensureMetaRepositoryReady, publishCurrentMetaSnapshot } from './RewardRuntime'
 
 export class ConsumableUseService {
   constructor(
@@ -75,8 +75,9 @@ export function initializeBrowserEconomyRuntime(
   bridge: BattleBridge,
   mapTileCount: number,
 ): BrowserEconomyRuntime {
-  const repository = new LocalMetaRepository(storage)
+  const repository = createRuntimeMetaRepository(storage, bridge)
   ensureMetaRepositoryReady(repository, 'local-player', Date.now())
+  publishCurrentMetaSnapshot(repository, bridge)
   const capacityRuntime = new DeploymentCapacityRuntimeController(repository, bridge, mapTileCount)
   let sequence = 0
   const gacha = new GoldGachaService(
@@ -99,4 +100,3 @@ export function getBrowserEconomyRuntime(): BrowserEconomyRuntime {
   if (!browserEconomyRuntime) throw new Error('Browser Economy runtime has not been initialized')
   return browserEconomyRuntime
 }
-

@@ -6,6 +6,7 @@ import { applyRewardTransaction, type RewardTransactionRequest } from './RewardT
 import { grantCommandEnergy, resolveCommandEnergyRegen, spendCommandEnergy } from './CommandEnergy'
 import { applyEquipmentV2Transaction, type EquipmentV2TransactionRequest } from '../equipment/EquipmentV2'
 import type { EquipmentV2Definition } from '../equipment/EquipmentSystem'
+import { applyEconomyTransaction, type EconomyTransactionRequest } from './EconomyTransaction'
 
 export const META_STORAGE_KEY = 'huyen-su-td/meta-v1'
 
@@ -26,6 +27,10 @@ export type CommandEnergyCommit =
 export type EquipmentV2TransactionCommit =
   | Readonly<{ status: 'applied'; save: MetaSaveV4; affectedHeroIds: readonly string[] }>
   | Readonly<{ status: 'already-applied'; save: MetaSaveV4; affectedHeroIds: readonly string[] }>
+
+export type EconomyTransactionCommit =
+  | Readonly<{ status: 'applied'; save: MetaSaveV4 }>
+  | Readonly<{ status: 'already-applied'; save: MetaSaveV4 }>
 
 export class LocalMetaRepository {
   constructor(private readonly storage: StorageLike) {}
@@ -149,6 +154,18 @@ export class LocalMetaRepository {
       save: this.save(result.state, expectedRevision, committedAtMs),
       affectedHeroIds: result.affectedHeroIds,
     }
+  }
+
+  transactEconomy(
+    request: EconomyTransactionRequest,
+    definitions: Readonly<Record<string, EquipmentV2Definition>>,
+    expectedRevision: number,
+    committedAtMs: number,
+  ): EconomyTransactionCommit {
+    const current = this.requireCurrentSave(expectedRevision, 'Economy transaction')
+    const result = applyEconomyTransaction(current.data, request, definitions, committedAtMs)
+    if (result.status === 'already-applied') return { status: result.status, save: current }
+    return { status: result.status, save: this.save(result.state, expectedRevision, committedAtMs) }
   }
 
   private requireCurrentSave(expectedRevision: number, operation: string): MetaSaveV4 {

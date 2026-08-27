@@ -17,6 +17,23 @@ button { font: inherit; }
   padding: 18px;
 }
 
+.meta-tabs { display: flex; gap: 8px; margin: 10px 0; }
+.meta-tabs button { border: 1px solid #64748b; border-radius: 8px; padding: 8px 14px; background: #172033; color: #cbd5e1; font-weight: 700; }
+.meta-tabs button.active { border-color: #fbbf24; color: #fbbf24; background: #3a2b12; }
+.equipment-v2-panel { margin-bottom: 12px; padding: 14px; border: 1px solid #475569; border-radius: 12px; background: #111827; color: #e5e7eb; }
+.equipment-v2-heading { display: flex; justify-content: space-between; gap: 16px; align-items: start; }
+.equipment-v2-heading h2, .equipment-v2-heading p { margin: 0 0 5px; }
+.equipment-v2-heading span { color: #93c5fd; font-size: 12px; }
+.equipment-v2-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 10px; margin-top: 12px; }
+.equipment-v2-card { display: flex; justify-content: space-between; gap: 10px; padding: 10px; border: 1px solid #334155; border-radius: 8px; background: #1e293b; }
+.equipment-v2-card div:first-child { display: grid; gap: 3px; }
+.equipment-v2-card span, .equipment-v2-card small { color: #cbd5e1; }
+.equipment-v2-actions { display: flex; flex-direction: column; gap: 6px; }
+.equipment-v2-actions button { border: 1px solid #60a5fa; border-radius: 6px; padding: 5px 8px; background: #1d4ed8; color: white; }
+.equipment-v2-actions button:disabled { opacity: .45; }
+.equipment-v2-equipped { display: flex; gap: 16px; margin-top: 12px; font-size: 12px; color: #a7f3d0; }
+.equipment-v2-empty { color: #94a3b8; }
+
 .top-bar {
   display: grid;
   grid-template-columns: 1fr auto auto;

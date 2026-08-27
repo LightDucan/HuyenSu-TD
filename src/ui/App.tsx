@@ -4,8 +4,8 @@ import { resolvePrototypeHeroVisual } from '../data/assets/prototypeVisualAssets
 import { heroDefinitions } from '../data/heroes/definitions'
 import { featureFlags } from '../config/features'
 import type { GameSpeed } from '../domain/clock/GameClock'
-import { loadEquipment } from '../domain/equipment/EquipmentStorage'
 import { resolveEquipmentModifiers, type EquipmentSlot, type HeroEquipment } from '../domain/equipment/EquipmentSystem'
+import type { MetaSaveV4 } from '../domain/meta/MetaState'
 import { advanceStage, canAdvanceStage, canUpgrade, type HeroProgression, upgradeLevel } from '../domain/progression/ProgressionSystem'
 import { loadProgression } from '../domain/progression/ProgressionStorage'
 import {
@@ -18,8 +18,10 @@ import { toBattleHudData } from '../game/bridge/BattleHudContract'
 import { createGame } from '../game/createGame'
 import { BottomPlayerHUD } from './BottomPlayerHUD'
 import { HeroDetailModal } from './HeroDetailModal'
-import { saveEquipmentAndRefresh, saveProgressionAndRefresh } from './HeroRuntimeRefreshActions'
+import { saveProgressionAndRefresh } from './HeroRuntimeRefreshActions'
 import { TopCityBar } from './TopCityBar'
+import { getBrowserEquipmentV2Runtime } from '../runtime/EquipmentV2Runtime'
+import { EquipmentInventoryPanel } from './EquipmentInventoryPanel'
 
 const initialSnapshot: BattleSnapshot = {
   runId: 'initial',
@@ -38,6 +40,7 @@ const initialSnapshot: BattleSnapshot = {
 }
 
 export function App() {
+  const equipmentRuntime = getBrowserEquipmentV2Runtime()
   const initialHeroId = battleBridge.getSelectedHeroId()
   const gameHostRef = useRef<HTMLDivElement>(null)
   const [snapshot, setSnapshot] = useState(initialSnapshot)
@@ -46,12 +49,18 @@ export function App() {
   const [deploymentCapacity, setDeploymentCapacity] = useState<DeploymentCapacitySnapshot>(() => battleBridge.getDeploymentCapacitySnapshot())
   const [placementMessage, setPlacementMessage] = useState<string | null>(null)
   const [isHeroDetailOpen, setIsHeroDetailOpen] = useState(false)
+  const [activeMetaTab, setActiveMetaTab] = useState<'roster' | 'inventory'>('roster')
+  const [metaSave, setMetaSave] = useState<MetaSaveV4>(() => equipmentRuntime.getSnapshot())
   const [progression, setProgression] = useState<HeroProgression>(() =>
     loadProgression(window.localStorage).heroes[initialHeroId] ?? { stage: 'normal', level: 1 },
   )
-  const [equipment, setEquipment] = useState<HeroEquipment>(() =>
-    loadEquipment(window.localStorage).heroes[initialHeroId] ?? {},
-  )
+  const definitionLoadout = (heroId: string, save: MetaSaveV4 = equipmentRuntime.getSnapshot()): HeroEquipment => {
+    const loadout = save.data.inventory.equippedByHero[heroId] ?? {}
+    const weapon = loadout.weaponInstanceId ? save.data.inventory.equipmentInstances[loadout.weaponInstanceId] : undefined
+    const gem = loadout.gemInstanceId ? save.data.inventory.equipmentInstances[loadout.gemInstanceId] : undefined
+    return { ...(weapon ? { weaponId: weapon.definitionId } : {}), ...(gem ? { gemId: gem.definitionId } : {}) }
+  }
+  const [equipment, setEquipment] = useState<HeroEquipment>(() => definitionLoadout(initialHeroId, metaSave))
   const hudData = toBattleHudData(snapshot)
   const heroOptions = Object.values(heroDefinitions).map(({ id, name }) => ({ id, name, portraitUrl: resolvePrototypeHeroVisual(id)?.portraitUrl }))
   const selectedHeroName = heroDefinitions[hudData.selectedHeroId]?.name ?? 'Hero'
@@ -87,7 +96,7 @@ export function App() {
     if (!heroDefinitions[heroId]) return
     battleBridge.setSelectedHeroId(heroId)
     setProgression(loadProgression(window.localStorage).heroes[heroId] ?? { stage: 'normal', level: 1 })
-    setEquipment(loadEquipment(window.localStorage).heroes[heroId] ?? {})
+    setEquipment(definitionLoadout(heroId))
   }
 
   const handleUpgradeRequest = (heroId: string) => {
@@ -108,16 +117,32 @@ export function App() {
   const handleEquipRequest = (heroId: string, slot: EquipmentSlot, itemId: string) => {
     const item = equipmentDefinitions[itemId]
     if (!item || item.slot !== slot) return
-    const next = slot === 'weapon' ? { ...equipment, weaponId: itemId } : { ...equipment, gemId: itemId }
+    const save = equipmentRuntime.getSnapshot()
+    const equippedIds = new Set(Object.values(save.data.inventory.equippedByHero).flatMap((loadout) => [loadout.weaponInstanceId, loadout.gemInstanceId].filter((id): id is string => Boolean(id))))
+    const instance = Object.values(save.data.inventory.equipmentInstances).find((candidate) => candidate.definitionId === itemId && candidate.slot === slot && !equippedIds.has(candidate.instanceId))
+    if (!instance) return
+    const nowMs = Date.now()
+    const result = equipmentRuntime.transact({ type: 'equip', heroId, instanceId: instance.instanceId }, save.revision, `ui/equipment/equip/${heroId}/${instance.instanceId}/${nowMs}`, nowMs)
+    setMetaSave(result.save)
+    const next = definitionLoadout(heroId, result.save)
     resolveEquipmentModifiers(next, equipmentDefinitions)
-    saveEquipmentAndRefresh(window.localStorage, battleBridge, heroId, next)
     setEquipment(next)
   }
 
   const handleUnequipRequest = (heroId: string, slot: EquipmentSlot) => {
-    const next = slot === 'weapon' ? { ...equipment, weaponId: undefined } : { ...equipment, gemId: undefined }
-    saveEquipmentAndRefresh(window.localStorage, battleBridge, heroId, next)
-    setEquipment(next)
+    const save = equipmentRuntime.getSnapshot()
+    const nowMs = Date.now()
+    const result = equipmentRuntime.transact({ type: 'unequip', heroId, slot }, save.revision, `ui/equipment/unequip/${heroId}/${slot}/${nowMs}`, nowMs)
+    setMetaSave(result.save)
+    setEquipment(definitionLoadout(heroId, result.save))
+  }
+
+  const handleInventoryOperation = (operation: Parameters<typeof equipmentRuntime.transact>[0]) => {
+    const save = equipmentRuntime.getSnapshot()
+    const nowMs = Date.now()
+    const result = equipmentRuntime.transact(operation, save.revision, `ui/equipment/${operation.type}/${crypto.randomUUID()}`, nowMs)
+    setMetaSave(result.save)
+    setEquipment(definitionLoadout(hudData.selectedHeroId, result.save))
   }
 
   return (
@@ -135,6 +160,21 @@ export function App() {
               : `Chọn ô hợp lệ để đặt ${selectedHeroName}. Đã triển khai ${snapshot.placedHeroes.length}/${deploymentCapacity.effectiveLimit} Hero.`}
       </p>
       {placementMessage && <p className="placement-feedback" role="status">{placementMessage}</p>}
+
+      <nav className="meta-tabs" aria-label="Điều hướng Đội Hình và Hành Trang">
+        <button type="button" className={activeMetaTab === 'roster' ? 'active' : ''} onClick={() => setActiveMetaTab('roster')}>ĐỘI HÌNH</button>
+        <button type="button" className={activeMetaTab === 'inventory' ? 'active' : ''} onClick={() => setActiveMetaTab('inventory')}>HÀNH TRANG</button>
+      </nav>
+      {activeMetaTab === 'inventory' && (
+        <EquipmentInventoryPanel
+          save={metaSave}
+          selectedHeroId={hudData.selectedHeroId}
+          definitions={equipmentRuntime.getDefinitions()}
+          onEquip={(instanceId) => handleInventoryOperation({ type: 'equip', heroId: hudData.selectedHeroId, instanceId })}
+          onUnequip={(slot) => handleInventoryOperation({ type: 'unequip', heroId: hudData.selectedHeroId, slot })}
+          onMerge={(ingredientInstanceIds) => handleInventoryOperation({ type: 'merge', ingredientInstanceIds, resultInstanceId: `equipment:${crypto.randomUUID()}` })}
+        />
+      )}
 
       {/* Battle Canvas */}
       <section className="game-frame" ref={gameHostRef} aria-label="Battle Scene" />

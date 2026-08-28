@@ -4,7 +4,7 @@
 
 **DONE — waiting Integration Audit.**
 
-Balance V1 is centralized in `src/data/economy/balanceV1.ts`; the simulation is deterministic, mathematical, non-UI, and never writes browser storage. Scenarios are model assumptions (30/60/120 minutes per day), not historical analytics.
+Balance V1 is centralized in `src/data/economy/balanceV1.ts`; the simulation is deterministic, seeded, mathematical, non-UI, and never writes browser storage. Scenarios are model assumptions (30/60/120 minutes per day), not historical analytics.
 
 ## Locked Balance V1
 
@@ -25,6 +25,16 @@ Balance V1 is centralized in `src/data/economy/balanceV1.ts`; the simulation is 
 - Wallet remains exactly Gold + KNB; no DEF, no Hero rarity, no 6★.
 - No x3 multiplier is present in the simulation; Command Energy and Active Play use real-time model constants.
 - Open: Player EXP curve, level-based Energy/Deployment formulas, maximum Lệnh Hiệu Triệu, individual Legendary passive content.
+
+## Simulation snapshot (Balance Model Assumptions)
+
+| Scenario / days | Gold earned / spent / remaining | KNB earned / spent / remaining | Waves | Gacha / Recruitment pulls |
+|---|---:|---:|---:|---:|
+| Casual 1 / 7 / 30d | 150/100/50 · 1,450/1,200/250 · 6,450/5,400/1,050 | 30/30/0 · 210/210/0 · 900/900/0 | 15 · 105 · 450 | 1/3 · 12/21 · 64/90 |
+| Regular 1 / 7 / 30d | 360/300/60 · 2,520/2,500/20 · 10,080/10,000/80 | 60/60/0 · 420/420/0 · 1,800/1,800/0 | 30 · 210 · 900 | 3/6 · 25/42 · 100/180 |
+| Active 1 / 7 / 30d | 720/700/20 · 5,040/5,000/40 · 20,160/20,100/60 | 120/120/0 · 840/840/0 · 3,600/3,600/0 | 60 · 420 · 1,800 | 7/12 · 50/84 · 201/360 |
+
+Values are generated from the deterministic model; stochastic gacha/recruitment outcomes affect equipment, duplicate shards and star progress for the supplied seed.
 
 ## Simulation
 

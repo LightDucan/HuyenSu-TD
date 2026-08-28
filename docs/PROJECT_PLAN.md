@@ -9,16 +9,16 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 ## WorkTree
 
 - Repository: `HuyenSu-TD`
-- Branch hiện tại: `codex/fast-meta-v5-cutover`
+- Branch hiện tại: `codex/fast-p18-final-balance`
 - Worktree Codex hiện tại: `C:\Users\PC\Documents\Codex\2026-08-23\referenced-chatgpt-conversation-this-is-an\work\m10-c01-main`
 - Quy tắc worker Antigravity: [ANTIGRAVITY_RULES.md](ANTIGRAVITY_RULES.md)
 
 ## Trạng thái hiện tại
 
-- Current Phase: **17 — Hero Recruitment & Ascension**
-- Current Codex task: **FAST-05A DONE — waiting FINAL audit** — branch `codex/fast-meta-v5-cutover`.
+- Current Phase: **18 — Economy Simulation & Balance**
+- Current Codex task: **FAST-06 DONE — waiting FINAL Integration Audit** — branch `codex/fast-p18-final-balance`.
 - Current Antigravity task: **VS-NDPL-00 — 939–1009 Research — IN PROGRESS** — branch `antigravity/vs-ndpl-00-939-1009-research` @ `5686d7f`.
-- Lần kiểm tra gần nhất: FAST-05A Meta V5 cutover — 23 files/164 tests, production build, preview HTTP 200 và diff-check PASS. Không merge FAST branches vào main.
+- Lần kiểm tra gần nhất: FAST-06 Final Balance V1 — 23 files/167 tests, production build, preview HTTP 200 và diff-check PASS. Không merge FAST branches vào main.
 
 ## Phases và checkpoint
 
@@ -52,8 +52,8 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 | P12-C02 | Wave Energy Gate & Auto Wave | DONE — merged — PASS | Codex | Explicit waiting/running/won lifecycle, manual/auto shared spend, double-spend guard, Hero gate, real-time refresh, minimal HUD và 10-Wave regression | `meta/command-energy-auto-wave-v1` |
 | P13-C01 | Deployment Capacity Domain & Placement Gate | DONE / merged / PASS | Codex | Base 7, level bonus 0, Summon Order +1, effective map cap, guarded new placement, unrestricted reposition và read-only HUD projection | `meta/deployment-capacity-v1` |
 | P13-C02 | Lệnh Hiệu Triệu Entitlement Transaction | FOLDED INTO PHASE 16 | Codex | Inventory consume + permanent entitlement vẫn là requirement; thực hiện cùng item/shop transactions trong FAST-02 | `codex/fast-p15-p16-economy` |
-| FAST-01 | Phase 14 Inventory & Equipment V2 | DONE — merged / PASS | Codex | Meta V4 migration, legacy import idempotent, unique instances, atomic equip/unequip/merge, placed-Hero refresh, minimal Inventory UI | `codex/fast-p14-equipment-v2` |
-| FAST-02 | Phase 15–16 Gold Gacha, KNB Shop & Consumables | DONE — merged / PASS | Codex | Deterministic/config Gacha; atomic 1x/10x; shared Energy regen+grant transaction; live Wallet snapshot for rewards/shop/gacha | `main` @ `195653e` |
+| FAST-01 | Phase 14 Inventory & Equipment V2 | PASS — waiting merge | Codex | Meta V4 migration, legacy import idempotent, unique instances, atomic equip/unequip/merge, placed-Hero refresh, minimal Inventory UI | `codex/fast-p14-equipment-v2` |
+| FAST-02 | Phase 15–16 Gold Gacha, KNB Shop & Consumables | DONE — waiting final audit after integration fix | Codex | Deterministic/config Gacha; atomic 1x/10x; shared Energy regen+grant transaction; live Wallet snapshot for rewards/shop/gacha | `codex/fast-p15-p16-economy-fix` |
 
 ## Roadmap Phase 10–18
 
@@ -66,8 +66,8 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 | 14 — Inventory & Equipment V2 | P14 | Equipment instances, Level 1–10, merge 3 và migration V1 | PASS — waiting merge | Phase 10–11 + save contract + OD-06 | Codex + Antigravity UI | Migration/rollback, merge atomicity, signature weapon policy, shared stats — PASS | `codex/fast-p14-equipment-v2` | Mất/nhân đôi item khi migration |
 | 15 — Gacha Gold | P15 | Gold pull transaction và reward pool đã khóa | DONE — waiting final audit after integration fix | Phase 11 + Phase 14 + OD-05/OD-07 | Codex + Antigravity data/UI | Weighted pool, Gold spend, inventory grant, live Wallet, deterministic 1x/10x — internal PASS | `codex/fast-p15-p16-economy-fix` | Rate sai, inflation và duplicate grant |
 | 16 — Kim Nguyên Bảo Shop & Cooldown | P16 | Premium earning/shop, Lệnh Hiệu Triệu, item đặc thù và cooldown shortening | DONE — waiting final audit after integration fix | Phase 11–15 + OD-04/OD-08 | Codex + Antigravity UI | Atomic KNB purchase/item use, shared Energy regen+grant, live Wallet, capacity refresh — internal PASS | `codex/fast-p15-p16-economy-fix` | Premium economy hoặc timer bị khai thác |
-| 17 — Hero Recruitment & Ascension | P17 | Chiêu Hiền Lệnh item; Hero trùng → Mảnh Danh Tướng; Sao 1–5; Anh Hồn chung; sau Normal tiến hóa Trùng Sinh → Tái Sinh → Huyền Sử | DONE — waiting FINAL audit | Phase 11 + Phase 14 + Phase 16 + HERO-A00 | Codex + Antigravity UI/data | FAST-05A canonical V5 repository, runtime/UI cutover, migration-only legacy, paid evolution, shared stars/passive — internal PASS | `codex/fast-meta-v5-cutover` | Duplicate reward, mất mảnh hoặc tạo Hero-specific progression/combat |
-| 18 — Economy Simulation & Balance | P18 | Simulation deterministic và khóa Balance V1 cho economy hiện tại | WAITING CORRECTION | Phase 11–17 | Codex | FAST-05A không sửa Phase 18; cần audit/correction riêng sau Phase 17 final audit | `codex/fast-final-meta-hardening` | Balance assumptions không phản ánh gameplay thật |
+| 17 — Hero Recruitment & Ascension | P17 | Chiêu Hiền Lệnh item; Hero trùng → Mảnh Danh Tướng; Sao 1–5; Anh Hồn chung; sau Normal tiến hóa Trùng Sinh → Tái Sinh → Huyền Sử | DONE / FINAL AUDIT PASS | Phase 11 + Phase 14 + Phase 16 + HERO-A00 | Codex + Antigravity UI/data | FAST-05A canonical V5 repository, runtime/UI cutover, migration-only legacy, paid evolution, shared stars/passive — PASS | `c4605cf` / `codex/fast-meta-v5-cutover` | Duplicate reward, mất mảnh hoặc tạo Hero-specific progression/combat |
+| 18 — Economy Simulation & Balance | P18 | Simulation deterministic và khóa Balance V1 cho economy hiện tại | DONE — waiting FINAL Integration Audit | Phase 11–17 | Codex | FAST-06 seeded weighted simulation, actual accounting, runtime-derived Balance V1, 9-row matrix — PASS pending final integration audit | `codex/fast-p18-final-balance` | Balance assumptions không phản ánh gameplay thật |
 
 ## Phase 9 task tracker
 

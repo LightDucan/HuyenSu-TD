@@ -1,5 +1,6 @@
 import type { HeroBaseStats } from '../progression/StatCalculator'
 import type { HeroStage } from '../progression/ProgressionSystem'
+import { balanceV1 } from '../../data/economy/balanceV1'
 
 export type HeroStar = 1 | 2 | 3 | 4 | 5
 export type HeroCollectionEntry = Readonly<{
@@ -47,18 +48,12 @@ export type RecruitmentConfig = Readonly<{
 
 export const prototypeHeroRecruitmentConfig: RecruitmentConfig = {
   pool: [
-    { heroId: 'quan-vu', weight: 20 }, { heroId: 'trieu-van', weight: 20 },
-    { heroId: 'truong-phi', weight: 20 }, { heroId: 'hoang-trung', weight: 20 }, { heroId: 'gia-cat-luong', weight: 20 },
+    ...Object.entries(balanceV1.recruitment.weights).map(([heroId, weight]) => ({ heroId, weight })),
   ],
-  duplicateShardQuantity: DUPLICATE_SHARD_QUANTITY,
-  starShardCosts: { 2: 10, 3: 25, 4: 50, 5: 100 },
-  starGrowth: {
-    1: {}, 2: { hp: 100, atk: 10, range: 1, attackSpeed: 1, crit: 1, critDamage: 5 },
-    3: { hp: 250, atk: 25, range: 2, attackSpeed: 2, crit: 2, critDamage: 10 },
-    4: { hp: 500, atk: 50, range: 3, attackSpeed: 3, crit: 3, critDamage: 20 },
-    5: { hp: 900, atk: 90, range: 4, attackSpeed: 4, crit: 5, critDamage: 35 },
-  },
-  evolutionCosts: { rebirth: 100, reincarnation: 250, legendary: 500 },
+  duplicateShardQuantity: balanceV1.recruitment.duplicateShards,
+  starShardCosts: balanceV1.stars.shardCosts,
+  starGrowth: balanceV1.stars.flatGrowth,
+  evolutionCosts: balanceV1.evolution.anhHonCosts,
   passiveByHero: {},
 }
 

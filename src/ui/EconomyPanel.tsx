@@ -71,7 +71,7 @@ export function EconomyPanel({ save, lastResult, onGacha, onBuy, onUse, selected
         </article>
       </div>
       {lastResult && <p className="economy-result" role="status">{lastResult}</p>}
-      <small>Toàn bộ cost/rate/price hiện là PROTOTYPE / NON-FINAL; Phase 18 khóa balance.</small>
+      <small>Balance V1 đã khóa; các công thức Player EXP, cap theo Level và pity/rate lịch sử vẫn đang mở.</small>
     </section>
   )
 }

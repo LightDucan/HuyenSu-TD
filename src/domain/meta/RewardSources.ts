@@ -7,7 +7,7 @@ export type EnemyKillRewardConfig = Readonly<{
   goldByEnemyId: Readonly<Record<string, number>>
 }>
 
-export type StageClearReward = Readonly<{ gold: number; knb: number }>
+export type StageClearReward = Readonly<{ gold: number; knb: number; anhHon?: number }>
 export type StageClearRewardConfig = Readonly<{
   rewardByStageId: Readonly<Record<string, StageClearReward>>
 }>
@@ -47,6 +47,12 @@ function currencyOperations(reward: Readonly<{ gold?: number; knb?: number }>): 
   return operations
 }
 
+function rewardOperations(reward: StageClearReward): RewardOperation[] {
+  const operations = currencyOperations(reward)
+  if (reward.anhHon !== undefined && reward.anhHon > 0) operations.push({ type: 'grant-consumable', itemId: 'anh-hon', quantity: reward.anhHon })
+  return operations
+}
+
 export function calculateEligibleWallClockMs(policy: HiddenTabPolicy, visibleMs: number, hiddenMs: number): number {
   assertNonNegativeSafeInteger(visibleMs, 'Visible wall-clock duration')
   assertNonNegativeSafeInteger(hiddenMs, 'Hidden wall-clock duration')
@@ -72,7 +78,8 @@ export class RewardSourceService {
       assertId(stageId, 'Stage ID')
       assertNonNegativeSafeInteger(reward.gold, `Stage clear Gold for ${stageId}`)
       assertNonNegativeSafeInteger(reward.knb, `Stage clear KNB for ${stageId}`)
-      if (reward.gold === 0 && reward.knb === 0) throw new Error(`Stage clear reward for ${stageId} must not be empty`)
+      if (reward.anhHon !== undefined) assertNonNegativeSafeInteger(reward.anhHon, `Stage clear Anh Hồn for ${stageId}`)
+      if (reward.gold === 0 && reward.knb === 0 && (reward.anhHon ?? 0) === 0) throw new Error(`Stage clear reward for ${stageId} must not be empty`)
     }
     assertPositiveSafeInteger(config.activePlayTime.knbPerInterval, 'Active play-time KNB per interval')
     assertPositiveSafeInteger(config.activePlayTime.intervalMs, 'Active play-time interval')
@@ -93,7 +100,7 @@ export class RewardSourceService {
     const rewardKey = `reward/stage-clear/${input.runId}`
     const reward = this.config.stageClear.rewardByStageId[input.stageId]
     if (reward === undefined) return { status: 'not-eligible', source: 'stage-clear', rewardKey }
-    return commit(this.repository, 'stage-clear', rewardKey, currencyOperations(reward), input.committedAtMs)
+    return commit(this.repository, 'stage-clear', rewardKey, rewardOperations(reward), input.committedAtMs)
   }
 
   activePlayTime(input: Readonly<{ sessionId: string; claimId: string; cumulativeVisibleMs: number; cumulativeHiddenMs: number; committedAtMs: number }>): RewardSourceResult {

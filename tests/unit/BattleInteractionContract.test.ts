@@ -8,7 +8,8 @@ import {
   placementIntentForHero,
   shouldShowHeroRange,
 } from '../../src/game/bridge/BattleInteractionContract'
-import { selectMetaTab } from '../../src/ui/MetaTabState'
+import { canApplyEquipmentOperation, isEquipmentInteractionLocked, selectMetaTab } from '../../src/ui/MetaTabState'
+import { createInitialMetaState, META_SAVE_SCHEMA_VERSION } from '../../src/domain/meta/MetaState'
 
 describe('battle interaction safety contract', () => {
   it('starts placement only for a Hero that is not deployed', () => {
@@ -43,15 +44,53 @@ describe('battle interaction safety contract', () => {
     expect(bridge.isRangeVisibilityEnabled()).toBe(false)
     bridge.setRangeVisibilityEnabled(true)
     expect(bridge.isRangeVisibilityEnabled()).toBe(true)
-    expect(shouldShowHeroRange(false, { mode: 'neutral' }, 'trung-trac')).toBe(false)
-    expect(shouldShowHeroRange(true, { mode: 'neutral' }, 'trung-trac')).toBe(true)
-    expect(shouldShowHeroRange(false, { mode: 'move', heroId: 'trung-trac' }, 'trung-trac')).toBe(true)
-    expect(shouldShowHeroRange(false, { mode: 'move', heroId: 'trung-trac' }, 'trung-nhi')).toBe(false)
+    expect(shouldShowHeroRange(false, { mode: 'neutral' }, 'trung-trac', 'trung-trac')).toBe(false)
+    expect(shouldShowHeroRange(true, { mode: 'neutral' }, 'trung-trac', 'trung-trac')).toBe(true)
+    expect(shouldShowHeroRange(true, { mode: 'neutral' }, 'trung-trac', 'trung-nhi')).toBe(false)
+    expect(shouldShowHeroRange(false, { mode: 'move', heroId: 'trung-trac' }, 'trung-trac', 'trung-trac')).toBe(true)
+    expect(shouldShowHeroRange(false, { mode: 'move', heroId: 'trung-trac' }, 'trung-trac', 'trung-nhi')).toBe(false)
   })
 
   it('switches between roster and inventory as one contextual content region', () => {
     expect(selectMetaTab('roster', 'inventory')).toBe('inventory')
     expect(selectMetaTab('inventory', 'roster')).toBe('roster')
+  })
+
+  it('locks Equip and Unequip only while a Wave is running', () => {
+    expect(isEquipmentInteractionLocked('waiting')).toBe(false)
+    expect(isEquipmentInteractionLocked('running')).toBe(true)
+    expect(isEquipmentInteractionLocked('won')).toBe(false)
+    expect(canApplyEquipmentOperation('running', 'equip')).toBe(false)
+    expect(canApplyEquipmentOperation('running', 'unequip')).toBe(false)
+    expect(canApplyEquipmentOperation('running', 'merge')).toBe(true)
+  })
+
+  it('keeps bridge-owned battle state intact across presentation tab changes', () => {
+    const bridge = new BattleBridge()
+    bridge.setSelectedHeroId('le-chan')
+    bridge.setSpeed(3)
+    bridge.setAutoWaveEnabled(true)
+    bridge.emitCommandEnergySnapshot({ current: 47, cap: 60 })
+    bridge.emitSnapshot({
+      runId: 'tab-preservation-run', speed: 3, enemiesSpawned: 2, enemiesEscaped: 0, enemiesDefeated: 1,
+      placedHeroes: [{ heroId: 'le-chan', slotId: 'slot-1' }], selectedHeroId: 'le-chan', wave: 4,
+      totalWaves: 10, waveStatus: 'waiting', cityHp: 10, battleStatus: 'running',
+      remainingByCategory: { sword: 1, archer: 0, other: 0 },
+    })
+    bridge.emitMetaSnapshot({
+      schemaVersion: META_SAVE_SCHEMA_VERSION,
+      revision: 3,
+      updatedAtMs: 100,
+      data: { ...createInitialMetaState('tab-player', 0), wallet: { balances: { gold: 120, knb: 7 } } },
+    })
+    const tab = selectMetaTab('roster', 'inventory')
+    expect(tab).toBe('inventory')
+    expect(bridge.getSelectedHeroId()).toBe('le-chan')
+    expect(bridge.getSpeed()).toBe(3)
+    expect(bridge.isAutoWaveEnabled()).toBe(true)
+    expect(bridge.getCommandEnergySnapshot()).toEqual({ current: 47, cap: 60 })
+    expect(bridge.getLatestSnapshot()).toMatchObject({ wave: 4, placedHeroes: [{ heroId: 'le-chan', slotId: 'slot-1' }] })
+    expect(bridge.getMetaSnapshot()?.data.wallet.balances).toEqual({ gold: 120, knb: 7 })
   })
 
   it('keeps the playable roster limited to the three active Hai Ba Trung Heroes', () => {

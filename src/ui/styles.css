@@ -1558,7 +1558,7 @@ body,
   height: 100dvh;
   padding: clamp(6px, 1vh, 12px);
   display: grid;
-  grid-template-rows: auto auto minmax(0, 1fr) auto minmax(0, auto);
+  grid-template-rows: auto auto minmax(0, 1fr) minmax(0, auto);
   gap: clamp(4px, 0.65vh, 8px);
   overflow: hidden;
 }
@@ -1614,6 +1614,30 @@ body,
   display: flex;
   flex-direction: column;
   gap: 5px;
+  padding: 5px;
+  border: 1px solid #334155;
+  border-radius: 10px;
+  background: #111827;
+}
+
+.meta-content-region .meta-tabs {
+  flex: 0 0 auto;
+}
+
+.meta-content-region .bottom-player-hud {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.equipment-combat-lock {
+  margin: 4px 0 8px;
+  padding: 6px 9px;
+  border: 1px solid #b45309;
+  border-radius: 6px;
+  background: #451a03;
+  color: #fde68a;
+  font-size: 0.8rem;
 }
 
 .inventory-scroll-region {

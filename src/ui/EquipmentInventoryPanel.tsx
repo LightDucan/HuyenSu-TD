@@ -9,6 +9,7 @@ export interface EquipmentInventoryPanelProps {
   onEquip: (instanceId: string) => void
   onUnequip: (slot: EquipmentSlot) => void
   onMerge: (ingredientInstanceIds: readonly string[]) => void
+  interactionLocked?: boolean
 }
 
 function modifierText(modifiers: ReturnType<typeof resolveEquipmentInstanceModifiers>): string {
@@ -26,6 +27,7 @@ export function EquipmentInventoryPanel({
   onEquip,
   onUnequip,
   onMerge,
+  interactionLocked = false,
 }: EquipmentInventoryPanelProps) {
   const instances = Object.values(save.data.inventory.equipmentInstances)
   const ownerByInstance = new Map<string, string>()
@@ -53,6 +55,9 @@ export function EquipmentInventoryPanel({
         </div>
         <span>Meta V5 · {instances.length} trang bị</span>
       </div>
+      {interactionLocked && (
+        <p className="equipment-combat-lock" role="status">Wave đang diễn ra — có thể xem Hành Trang, nhưng Lắp/Gỡ tạm khóa.</p>
+      )}
       {instances.length === 0 ? (
         <p className="equipment-v2-empty">Chưa có Equipment instance. Trang bị legacy hợp lệ sẽ được import tự động.</p>
       ) : (
@@ -74,9 +79,9 @@ export function EquipmentInventoryPanel({
                 </div>
                 <div className="equipment-v2-actions">
                   {equippedBySelected ? (
-                    <button type="button" onClick={() => onUnequip(instance.slot)}>Gỡ</button>
+                    <button type="button" disabled={interactionLocked} title={interactionLocked ? 'Không thể gỡ khi Wave đang diễn ra' : undefined} onClick={() => onUnequip(instance.slot)}>Gỡ</button>
                   ) : (
-                    <button type="button" disabled={Boolean(owner)} onClick={() => onEquip(instance.instanceId)}>Lắp</button>
+                    <button type="button" disabled={interactionLocked || Boolean(owner)} title={interactionLocked ? 'Không thể lắp khi Wave đang diễn ra' : undefined} onClick={() => onEquip(instance.instanceId)}>Lắp</button>
                   )}
                   {isMergeLeader && <button type="button" onClick={() => onMerge(mergeIds)}>Ghép 3 → Lv{instance.level + 1}</button>}
                 </div>

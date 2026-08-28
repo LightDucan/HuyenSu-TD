@@ -16,7 +16,13 @@ export function completePlacementIntent(_intent: PlacementIntent): PlacementInte
   return NEUTRAL_PLACEMENT_INTENT
 }
 
-export function shouldShowHeroRange(rangeEnabled: boolean, intent: PlacementIntent, heroId: string): boolean {
+export function shouldShowHeroRange(
+  rangeEnabled: boolean,
+  intent: PlacementIntent,
+  selectedHeroId: string,
+  heroId: string,
+): boolean {
+  if (heroId !== selectedHeroId) return false
   return rangeEnabled || (intent.mode === 'move' && intent.heroId === heroId)
 }
 

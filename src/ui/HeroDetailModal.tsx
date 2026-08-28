@@ -33,6 +33,7 @@ export interface HeroDetailModalProps {
   onAdvanceStageRequest?: (heroId: string) => void
   onEquipRequest?: (heroId: string, slot: EquipmentSlot, itemId: string) => void
   onUnequipRequest?: (heroId: string, slot: EquipmentSlot) => void
+  equipmentInteractionLocked?: boolean
 }
 
 const STAGE_LABELS: Record<HeroStage, { name: string; title: string; order: number }> = {
@@ -59,6 +60,7 @@ export function HeroDetailModal({
   onAdvanceStageRequest,
   onEquipRequest,
   onUnequipRequest,
+  equipmentInteractionLocked = false,
 }: HeroDetailModalProps) {
   const [localEquipment, setLocalEquipment] = useState<HeroEquipment>(() =>
     readSavedEquipment(heroId),
@@ -83,6 +85,10 @@ export function HeroDetailModal({
     const interval = window.setInterval(() => setCurrentTimeMs(Date.now()), 100)
     return () => window.clearInterval(interval)
   }, [activeProgression.upgradeReadyAt])
+
+  useEffect(() => {
+    if (equipmentInteractionLocked) setPickingSlot(null)
+  }, [equipmentInteractionLocked])
 
   if (!isOpen) return null
 
@@ -130,11 +136,13 @@ export function HeroDetailModal({
   }
 
   const handleEquipItem = (item: EquipmentDefinition) => {
+    if (equipmentInteractionLocked) return
     onEquipRequest?.(heroId, item.slot, item.id)
     setPickingSlot(null)
   }
 
   const handleUnequipItem = (slot: EquipmentSlot) => {
+    if (equipmentInteractionLocked) return
     onUnequipRequest?.(heroId, slot)
   }
 
@@ -188,6 +196,7 @@ export function HeroDetailModal({
             {/* Equipment Section (Exactly 2 slots: Weapon & Gem) */}
             <div className="equipment-section">
               <h4 className="sub-heading">Trang Bị (Equipment)</h4>
+              {equipmentInteractionLocked && <p className="equipment-combat-lock">Wave đang diễn ra — Lắp/Gỡ tạm khóa.</p>}
               <div className="equipment-grid">
                 {/* ⚔ Weapon Slot */}
                 <div className={`equipment-card ${weaponItem ? 'equipped' : 'empty'}`}>
@@ -198,6 +207,7 @@ export function HeroDetailModal({
                         <button
                           type="button"
                           className="btn-tiny"
+                          disabled={equipmentInteractionLocked}
                           onClick={() => setPickingSlot('weapon')}
                         >
                           Thay
@@ -205,6 +215,7 @@ export function HeroDetailModal({
                         <button
                           type="button"
                           className="btn-tiny btn-danger"
+                          disabled={equipmentInteractionLocked}
                           onClick={() => handleUnequipItem('weapon')}
                         >
                           Gỡ
@@ -234,6 +245,7 @@ export function HeroDetailModal({
                     <button
                       type="button"
                       className="empty-slot-btn"
+                      disabled={equipmentInteractionLocked}
                       onClick={() => setPickingSlot('weapon')}
                     >
                       + Lắp trang bị
@@ -250,6 +262,7 @@ export function HeroDetailModal({
                         <button
                           type="button"
                           className="btn-tiny"
+                          disabled={equipmentInteractionLocked}
                           onClick={() => setPickingSlot('gem')}
                         >
                           Thay
@@ -257,6 +270,7 @@ export function HeroDetailModal({
                         <button
                           type="button"
                           className="btn-tiny btn-danger"
+                          disabled={equipmentInteractionLocked}
                           onClick={() => handleUnequipItem('gem')}
                         >
                           Gỡ
@@ -286,6 +300,7 @@ export function HeroDetailModal({
                     <button
                       type="button"
                       className="empty-slot-btn"
+                      disabled={equipmentInteractionLocked}
                       onClick={() => setPickingSlot('gem')}
                     >
                       + Lắp trang bị
@@ -497,6 +512,7 @@ export function HeroDetailModal({
                         type="button"
                         key={item.id}
                         className={`picker-item-btn ${isCurrentlyEquipped ? 'selected' : ''}`}
+                        disabled={equipmentInteractionLocked}
                         onClick={() => handleEquipItem(item)}
                       >
                         <div className="picker-item-main">

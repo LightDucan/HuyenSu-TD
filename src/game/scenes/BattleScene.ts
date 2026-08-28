@@ -82,10 +82,12 @@ export class BattleScene extends Phaser.Scene {
       haiBaTrungMap.placementTiles.map((tile) => this.placementSlotId(tile.column, tile.row)),
     )
     this.createPlacementTiles()
+    this.refreshPlacementMarkers()
     this.gameClock.setSpeed(battleBridge.getSpeed())
     this.removeSpeedListener = battleBridge.onSpeedChange((speed) => { this.gameClock.setSpeed(speed); this.emitSnapshot() })
     this.removeHeroSelectionListener = battleBridge.onHeroSelectionChange(() => {
       this.refreshPlacementMarkers()
+      this.refreshRangeVisibility()
       this.emitSnapshot()
     })
     this.removePlacementIntentListener = battleBridge.onPlacementIntentChange(() => {
@@ -290,7 +292,7 @@ export class BattleScene extends Phaser.Scene {
     const equipmentState = getBrowserEquipmentV2Runtime().getSnapshot().data
     const progression = equipmentState.heroCollection[definition.id]?.progression ?? { stage: 'normal', level: 1 }
     const stats = calculateHeroLoadoutStatsV2(definition.baseStats, progression, equipmentState, definition.id, haiBaTrungEquipmentV2Definitions)
-    const rangeVisual = this.add.circle(position.x, position.y, stats.range, 0x38bdf8, 0.035).setStrokeStyle(2, 0x7dd3fc, 0.24)
+    const rangeVisual = this.add.circle(position.x, position.y, stats.range, 0x38bdf8, 0.055).setStrokeStyle(2, 0x7dd3fc, 0.38)
     const visualAsset = resolveHaiBaTrungHeroVisual(definition.id)
     const sprite = visualAsset?.idleUrl && this.textures.exists(visualAsset.idleTextureKey)
       ? this.add.image(0, 0, visualAsset.idleTextureKey).setOrigin(0.5, 112 / 128).setDisplaySize(HERO_RUNTIME_VISUAL_SIZE, HERO_RUNTIME_VISUAL_SIZE)
@@ -354,6 +356,7 @@ export class BattleScene extends Phaser.Scene {
       const occupantId = this.placementRegistry.getHeroAt(tile.id)
       const isSelectedHero = intent.mode !== 'neutral' && occupantId === intent.heroId
       tile.marker
+        .setVisible(intent.mode !== 'neutral')
         .setFillStyle(isSelectedHero ? 0xfbbf24 : occupantId ? 0x10b981 : 0x38bdf8, occupantId ? 0.28 : 0.16)
         .setStrokeStyle(2, isSelectedHero ? 0xfde047 : occupantId ? 0x6ee7b7 : 0x7dd3fc, 0.7)
     })
@@ -367,7 +370,12 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private shouldShowRange(heroId: string): boolean {
-    return shouldShowHeroRange(battleBridge.isRangeVisibilityEnabled(), battleBridge.getPlacementIntent(), heroId)
+    return shouldShowHeroRange(
+      battleBridge.isRangeVisibilityEnabled(),
+      battleBridge.getPlacementIntent(),
+      battleBridge.getSelectedHeroId(),
+      heroId,
+    )
   }
 
   private refreshRangeVisibility(): void {

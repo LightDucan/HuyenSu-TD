@@ -25,7 +25,7 @@ import { CONSUMABLE_ITEM_IDS } from '../data/items/definitions'
 import { getBrowserHeroMetaRuntime } from '../runtime/HeroMetaRuntime'
 import { selectPlayableOwnedHeroIds } from '../domain/meta/HeroRecruitment'
 import { battleInstruction, moveIntentForHero, placementIntentForHero } from '../game/bridge/BattleInteractionContract'
-import { selectMetaTab, type MetaTab } from './MetaTabState'
+import { canApplyEquipmentOperation, isEquipmentInteractionLocked, selectMetaTab, type MetaTab } from './MetaTabState'
 
 const initialSnapshot: BattleSnapshot = {
   runId: 'initial',
@@ -71,6 +71,7 @@ export function App() {
     .map((heroId) => ({ id: heroId, name: heroDefinitions[heroId].name, portraitUrl: resolveHaiBaTrungHeroVisual(heroId)?.portraitUrl }))
   const progression: HeroProgression = metaSave.data.heroCollection[hudData.selectedHeroId]?.progression ?? { stage: 'normal', level: 1 }
   const selectedHeroName = heroDefinitions[hudData.selectedHeroId]?.name ?? 'Hero'
+  const equipmentInteractionLocked = isEquipmentInteractionLocked(hudData.waveStatus)
 
   useEffect(() => {
     if (!gameHostRef.current) return
@@ -140,6 +141,10 @@ export function App() {
   }
 
   const handleEquipRequest = (heroId: string, slot: EquipmentSlot, itemId: string) => {
+    if (equipmentInteractionLocked) {
+      setEconomyResult('Wave đang diễn ra — Lắp/Gỡ Equipment đã khóa.')
+      return
+    }
     const item = equipmentDefinitions[itemId]
     if (!item || item.slot !== slot) return
     const save = equipmentRuntime.getSnapshot()
@@ -154,12 +159,20 @@ export function App() {
   }
 
   const handleUnequipRequest = (heroId: string, slot: EquipmentSlot) => {
+    if (equipmentInteractionLocked) {
+      setEconomyResult('Wave đang diễn ra — Lắp/Gỡ Equipment đã khóa.')
+      return
+    }
     const save = equipmentRuntime.getSnapshot()
     const nowMs = Date.now()
     const result = equipmentRuntime.transact({ type: 'unequip', heroId, slot }, save.revision, `ui/equipment/unequip/${heroId}/${slot}/${nowMs}`, nowMs)
   }
 
   const handleInventoryOperation = (operation: Parameters<typeof equipmentRuntime.transact>[0]) => {
+    if (!canApplyEquipmentOperation(hudData.waveStatus, operation.type)) {
+      setEconomyResult('Wave đang diễn ra — Lắp/Gỡ Equipment đã khóa.')
+      return
+    }
     const save = equipmentRuntime.getSnapshot()
     const nowMs = Date.now()
     const result = equipmentRuntime.transact(operation, save.revision, `ui/equipment/${operation.type}/${crypto.randomUUID()}`, nowMs)
@@ -230,12 +243,11 @@ export function App() {
       {/* Battle Canvas */}
       <section className="game-frame" ref={gameHostRef} aria-label="Battle Scene" />
 
-      <nav className="meta-tabs" aria-label="Điều hướng Đội Hình và Hành Trang">
-        <button type="button" className={activeMetaTab === 'roster' ? 'active' : ''} onClick={() => setActiveMetaTab((current) => selectMetaTab(current, 'roster'))}>ĐỘI HÌNH</button>
-        <button type="button" className={activeMetaTab === 'inventory' ? 'active' : ''} onClick={() => setActiveMetaTab((current) => selectMetaTab(current, 'inventory'))}>HÀNH TRANG</button>
-      </nav>
-
-      <section className={`meta-content-region ${activeMetaTab}`} aria-live="polite">
+      <section className={`meta-content-region ${activeMetaTab}`} aria-label="Combat HUD" aria-live="polite">
+        <nav className="meta-tabs" aria-label="Điều hướng Đội Hình và Hành Trang">
+          <button type="button" className={activeMetaTab === 'roster' ? 'active' : ''} onClick={() => setActiveMetaTab((current) => selectMetaTab(current, 'roster'))}>ĐỘI HÌNH</button>
+          <button type="button" className={activeMetaTab === 'inventory' ? 'active' : ''} onClick={() => setActiveMetaTab((current) => selectMetaTab(current, 'inventory'))}>HÀNH TRANG</button>
+        </nav>
         {activeMetaTab === 'inventory' && (
           <div className="inventory-scroll-region">
           <EquipmentInventoryPanel
@@ -245,6 +257,7 @@ export function App() {
             onEquip={(instanceId) => handleInventoryOperation({ type: 'equip', heroId: hudData.selectedHeroId, instanceId })}
             onUnequip={(slot) => handleInventoryOperation({ type: 'unequip', heroId: hudData.selectedHeroId, slot })}
             onMerge={(ingredientInstanceIds) => handleInventoryOperation({ type: 'merge', ingredientInstanceIds, resultInstanceId: `equipment:${crypto.randomUUID()}` })}
+            interactionLocked={equipmentInteractionLocked}
           />
           <EconomyPanel save={metaSave} lastResult={economyResult} onGacha={handleGacha} onBuy={handleShopBuy} onUse={handleConsumableUse} selectedHeroId={hudData.selectedHeroId} onRecruit={handleRecruit} onAscendStar={handleAscendStar} />
           </div>
@@ -279,6 +292,7 @@ export function App() {
         onAdvanceStageRequest={handleAdvanceStageRequest}
         onEquipRequest={handleEquipRequest}
         onUnequipRequest={handleUnequipRequest}
+        equipmentInteractionLocked={equipmentInteractionLocked}
       />
     </main>
   )

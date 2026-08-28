@@ -1,6 +1,6 @@
 export type PathPoint = Readonly<{ x: number; y: number }>
 
-export const prototypeMap = {
+export const haiBaTrungMap = {
   id: 'map-lang-bac-marsh',
   title: 'Chương I — Huyết Chiến Lãng Bạc',
   theme: 'lang-bac-marsh',
@@ -26,3 +26,5 @@ export const prototypeMap = {
     { column: 8, row: 4 },
   ],
 } as const
+
+export const prototypeMap = haiBaTrungMap

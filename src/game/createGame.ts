@@ -1,13 +1,13 @@
 import Phaser from 'phaser'
-import { prototypeMap } from '../data/maps/prototypeMap'
+import { haiBaTrungMap } from '../data/maps/prototypeMap'
 import { BattleScene } from './scenes/BattleScene'
 
 export function createGame(parent: HTMLElement): Phaser.Game {
   return new Phaser.Game({
     type: Phaser.AUTO,
     parent,
-    width: prototypeMap.width,
-    height: prototypeMap.height,
+    width: haiBaTrungMap.width,
+    height: haiBaTrungMap.height,
     backgroundColor: '#1f3b2d',
     scene: [BattleScene],
     render: {

@@ -1,5 +1,5 @@
-import { prototypeGoldGachaConfig, prototypeKnbShopConfig } from '../data/economy/prototypeEconomyConfig'
-import { prototypeEquipmentV2Definitions } from '../data/equipment/definitions'
+import { haiBaTrungGoldGachaConfig, prototypeKnbShopConfig } from '../data/economy/prototypeEconomyConfig'
+import { haiBaTrungEquipmentV2Definitions } from '../data/equipment/definitions'
 import { commandEnergyItemValues, CONSUMABLE_ITEM_IDS } from '../data/items/definitions'
 import { selectCommandEnergyCap } from '../domain/meta/CommandEnergy'
 import { GoldGachaService } from '../domain/meta/GoldGacha'
@@ -35,7 +35,7 @@ export class ConsumableUseService {
         { type: 'consume-consumable', itemId, quantity },
         { type: 'grant-command-energy', amount: energyAmount },
       ],
-    }, prototypeEquipmentV2Definitions, expectedRevision, nowMs)
+    }, haiBaTrungEquipmentV2Definitions, expectedRevision, nowMs)
     this.bridge.emitCommandEnergySnapshot({
       current: result.save.data.commandEnergy.current,
       cap: selectCommandEnergyCap(result.save.data.profile.playerLevel),
@@ -55,7 +55,7 @@ export class ConsumableUseService {
         { type: 'consume-consumable', itemId: CONSUMABLE_ITEM_IDS.summonOrder, quantity },
         { type: 'increment-summon-orders', quantity },
       ],
-    }, prototypeEquipmentV2Definitions, expectedRevision, nowMs)
+    }, haiBaTrungEquipmentV2Definitions, expectedRevision, nowMs)
     this.capacityRuntime.refresh()
     return result
   }
@@ -82,15 +82,15 @@ export function initializeBrowserEconomyRuntime(
   let sequence = 0
   const gacha = new GoldGachaService(
     repository,
-    prototypeEquipmentV2Definitions,
-    prototypeGoldGachaConfig,
+    haiBaTrungEquipmentV2Definitions,
+    haiBaTrungGoldGachaConfig,
     Math.random,
     () => `gacha-equipment:${Date.now()}:${sequence += 1}:${crypto.randomUUID()}`,
   )
   browserEconomyRuntime = {
     repository,
     gacha,
-    shop: new KnbShopService(repository, prototypeEquipmentV2Definitions, prototypeKnbShopConfig),
+    shop: new KnbShopService(repository, haiBaTrungEquipmentV2Definitions, prototypeKnbShopConfig),
     consumables: new ConsumableUseService(repository, bridge, capacityRuntime),
   }
   return browserEconomyRuntime

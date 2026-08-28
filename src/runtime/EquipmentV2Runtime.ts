@@ -1,4 +1,4 @@
-import { prototypeEquipmentV2Definitions } from '../data/equipment/definitions'
+import { haiBaTrungEquipmentV2Definitions } from '../data/equipment/definitions'
 import { resolveHeroEquipmentV2, type EquipmentV2Operation } from '../domain/equipment/EquipmentV2'
 import type { EquipmentV2Definition } from '../domain/equipment/EquipmentSystem'
 import { EQUIPMENT_STORAGE_KEY, type EquipmentSave } from '../domain/equipment/EquipmentStorage'
@@ -59,7 +59,7 @@ export class EquipmentV2RuntimeController {
   constructor(
     private readonly repository: LocalMetaRepository,
     private readonly bridge: BattleBridge,
-    private readonly definitions: Readonly<Record<string, EquipmentV2Definition>> = prototypeEquipmentV2Definitions,
+    private readonly definitions: Readonly<Record<string, EquipmentV2Definition>> = haiBaTrungEquipmentV2Definitions,
   ) {}
 
   getSnapshot(): MetaSave {

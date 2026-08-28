@@ -23,7 +23,7 @@ export const metaV5PreHaiBaTrung: MetaSave = {
         'anh-hon': 120,
       },
       equipmentInstances: {
-        'legacy-blade-1': { instanceId: 'legacy-blade-1', definitionId: 'weapon-test-atk', slot: 'weapon', level: 3 },
+        'legacy-blade-1': { instanceId: 'legacy-blade-1', definitionId: 'green-dragon-blade', slot: 'weapon', level: 3 },
       },
       equippedByHero: {
         'quan-vu': { weaponInstanceId: 'legacy-blade-1' },

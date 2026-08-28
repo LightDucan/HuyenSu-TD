@@ -1,8 +1,8 @@
 import Phaser from 'phaser'
 import { enemyDefinitions, type EnemyCategory } from '../../data/enemies/definitions'
 import { heroDefinitions, trungTrac, type HeroDefinition } from '../../data/heroes/definitions'
-import { prototypeMap } from '../../data/maps/prototypeMap'
-import { prototypeWaves } from '../../data/waves/prototypeWaves'
+import { haiBaTrungMap } from '../../data/maps/prototypeMap'
+import { haiBaTrungWaves } from '../../data/waves/prototypeWaves'
 import { prototypeHeroVisuals, resolvePrototypeHeroVisual, scaleVisualDuration } from '../../data/assets/prototypeVisualAssets'
 import { GameClock } from '../../domain/clock/GameClock'
 import { CombatController } from '../../domain/combat/CombatController'
@@ -16,7 +16,7 @@ import { battleBridge } from '../bridge/BattleBridge'
 import { createBattleRunId } from '../runtime/BattleRunIdentity'
 import { refreshPlacedHeroRuntimeStats } from '../runtime/PlacedHeroRuntimeStats'
 import { getBrowserEquipmentV2Runtime } from '../../runtime/EquipmentV2Runtime'
-import { prototypeEquipmentV2Definitions } from '../../data/equipment/definitions'
+import { haiBaTrungEquipmentV2Definitions } from '../../data/equipment/definitions'
 import { isActiveHeroOwned } from '../../domain/meta/HeroRecruitment'
 
 type EnemyVisual = { state: CombatEnemy; definitionId: string; body: Phaser.GameObjects.Arc; hpBar: Phaser.GameObjects.Rectangle }
@@ -32,11 +32,11 @@ type PlacedHeroRuntime = {
   slotId: string
 }
 const INITIAL_CITY_HP = 10
-const PROTOTYPE_STAGE_ID = 'prototype-stage-01'
+const HAI_BA_TRUNG_STAGE_ID = 'hbt-lang-bac-stage-01'
 
 export class BattleScene extends Phaser.Scene {
   private readonly gameClock = new GameClock()
-  private readonly waveManager = new WaveManager(prototypeWaves)
+  private readonly waveManager = new WaveManager(haiBaTrungWaves)
   private path!: Phaser.Curves.Path
   private pathLength = 0
   private readonly enemies: EnemyVisual[] = []
@@ -75,7 +75,7 @@ export class BattleScene extends Phaser.Scene {
     this.path = this.createFixedPath()
     this.pathLength = this.path.getLength()
     this.placementRegistry = new HeroPlacementRegistry(
-      prototypeMap.placementTiles.map((tile) => this.placementSlotId(tile.column, tile.row)),
+      haiBaTrungMap.placementTiles.map((tile) => this.placementSlotId(tile.column, tile.row)),
     )
     this.createPlacementTiles()
     this.gameClock.setSpeed(battleBridge.getSpeed())
@@ -115,7 +115,7 @@ export class BattleScene extends Phaser.Scene {
     if (this.battleStatus === 'running' && this.waveManager.completeWhenNoEnemiesRemain(this.enemies.length)) {
       if (this.waveManager.getStatus() === 'won') {
         this.battleStatus = 'won'
-        battleBridge.reportStageVictory({ runId: this.runId, stageId: PROTOTYPE_STAGE_ID, occurredAtMs: Date.now() })
+        battleBridge.reportStageVictory({ runId: this.runId, stageId: HAI_BA_TRUNG_STAGE_ID, occurredAtMs: Date.now() })
       }
       this.emitSnapshot()
     }
@@ -223,9 +223,9 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private createPlacementTiles(): void {
-    const cellWidth = prototypeMap.width / prototypeMap.grid.columns
-    const cellHeight = prototypeMap.height / prototypeMap.grid.rows
-    prototypeMap.placementTiles.forEach((tile) => {
+    const cellWidth = haiBaTrungMap.width / haiBaTrungMap.grid.columns
+    const cellHeight = haiBaTrungMap.height / haiBaTrungMap.grid.rows
+    haiBaTrungMap.placementTiles.forEach((tile) => {
       const id = this.placementSlotId(tile.column, tile.row)
       const center = { x: (tile.column + 0.5) * cellWidth, y: (tile.row + 0.5) * cellHeight }
       const marker = this.add.rectangle(center.x, center.y, cellWidth - 10, cellHeight - 10, 0x38bdf8, 0.16).setStrokeStyle(2, 0x7dd3fc, 0.55).setInteractive({ useHandCursor: true })
@@ -272,7 +272,7 @@ export class BattleScene extends Phaser.Scene {
   private createHeroRuntime(definition: HeroDefinition, position: Vector2, slotId: string): PlacedHeroRuntime {
     const equipmentState = getBrowserEquipmentV2Runtime().getSnapshot().data
     const progression = equipmentState.heroCollection[definition.id]?.progression ?? { stage: 'normal', level: 1 }
-    const stats = calculateHeroLoadoutStatsV2(definition.baseStats, progression, equipmentState, definition.id, prototypeEquipmentV2Definitions)
+    const stats = calculateHeroLoadoutStatsV2(definition.baseStats, progression, equipmentState, definition.id, haiBaTrungEquipmentV2Definitions)
     const rangeVisual = this.add.circle(position.x, position.y, stats.range, 0x38bdf8, 0.08).setStrokeStyle(2, 0x7dd3fc, 0.5)
     const visualAsset = resolvePrototypeHeroVisual(definition.id)
     const sprite = visualAsset?.idleUrl && this.textures.exists(visualAsset.idleTextureKey)
@@ -306,7 +306,7 @@ export class BattleScene extends Phaser.Scene {
     const refreshed = refreshPlacedHeroRuntimeStats(this.placedHeroes.get(heroId), (hero) => {
       const equipmentState = getBrowserEquipmentV2Runtime().getSnapshot().data
       const progression = equipmentState.heroCollection[heroId]?.progression ?? { stage: 'normal', level: 1 }
-      return calculateHeroLoadoutStatsV2(hero.definition.baseStats, progression, equipmentState, heroId, prototypeEquipmentV2Definitions)
+      return calculateHeroLoadoutStatsV2(hero.definition.baseStats, progression, equipmentState, heroId, haiBaTrungEquipmentV2Definitions)
     })
     if (refreshed) this.emitSnapshot()
   }
@@ -331,7 +331,7 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private createFixedPath(): Phaser.Curves.Path {
-    const [first, ...rest] = prototypeMap.fixedPath
+    const [first, ...rest] = haiBaTrungMap.fixedPath
     const path = new Phaser.Curves.Path(first.x, first.y)
     rest.forEach((point) => path.lineTo(point.x, point.y))
     const graphics = this.add.graphics()
@@ -342,10 +342,10 @@ export class BattleScene extends Phaser.Scene {
 
   private drawGrid(): void {
     const graphics = this.add.graphics().lineStyle(1, 0xffffff, 0.08)
-    const cellWidth = prototypeMap.width / prototypeMap.grid.columns
-    const cellHeight = prototypeMap.height / prototypeMap.grid.rows
-    for (let column = 0; column <= prototypeMap.grid.columns; column += 1) graphics.lineBetween(column * cellWidth, 0, column * cellWidth, prototypeMap.height)
-    for (let row = 0; row <= prototypeMap.grid.rows; row += 1) graphics.lineBetween(0, row * cellHeight, prototypeMap.width, row * cellHeight)
+    const cellWidth = haiBaTrungMap.width / haiBaTrungMap.grid.columns
+    const cellHeight = haiBaTrungMap.height / haiBaTrungMap.grid.rows
+    for (let column = 0; column <= haiBaTrungMap.grid.columns; column += 1) graphics.lineBetween(column * cellWidth, 0, column * cellWidth, haiBaTrungMap.height)
+    for (let row = 0; row <= haiBaTrungMap.grid.rows; row += 1) graphics.lineBetween(0, row * cellHeight, haiBaTrungMap.width, row * cellHeight)
   }
 
   private remainingByCategory(): Record<EnemyCategory, number> {

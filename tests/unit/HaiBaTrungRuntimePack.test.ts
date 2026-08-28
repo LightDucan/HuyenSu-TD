@@ -2,6 +2,10 @@ import { describe, expect, it } from 'vitest'
 import { balanceV1 } from '../../src/data/economy/balanceV1'
 import { enemyDefinitions } from '../../src/data/enemies/definitions'
 import { ACTIVE_HERO_IDS, heroDefinitions } from '../../src/data/heroes/definitions'
+import { ACTIVE_HBT_EQUIPMENT_IDS, equipmentDefinitions, haiBaTrungEquipmentV2Definitions } from '../../src/data/equipment/definitions'
+import { haiBaTrungGoldGachaConfig } from '../../src/data/economy/prototypeEconomyConfig'
+import { haiBaTrungRewardBalance } from '../../src/data/rewards/prototypeRewardConfig'
+import { resolveEquipmentInstanceModifiers } from '../../src/domain/equipment/EquipmentV2'
 import { skillDefinitions } from '../../src/data/skills/definitions'
 import { prototypeWaves } from '../../src/data/waves/prototypeWaves'
 import { ACTIVE_PRODUCTION_HERO_IDS, createPrototypeHeroCollection, isActiveHeroOwned, resolveRecruitmentBatch, selectPlayableOwnedHeroIds } from '../../src/domain/meta/HeroRecruitment'
@@ -27,6 +31,33 @@ describe('VS-HBT-C01 runtime content pack', () => {
     expect(ACTIVE_PRODUCTION_HERO_IDS).toEqual(ACTIVE_HERO_IDS)
     expect(Object.keys(createPrototypeHeroCollection())).toEqual(ACTIVE_HERO_IDS)
     expect(selectPlayableOwnedHeroIds(createInitialMetaState('fresh', 0).heroCollection, ACTIVE_HERO_IDS)).toEqual(ACTIVE_HERO_IDS)
+  })
+
+  it('uses canonical HBT equipment identity while retaining legacy power and compatibility aliases', () => {
+    expect(ACTIVE_HBT_EQUIPMENT_IDS).toEqual(['lac-viet-bronze-sword', 'lac-viet-swift-jade'])
+    expect(haiBaTrungEquipmentV2Definitions[ACTIVE_HBT_EQUIPMENT_IDS[0]].levelModifiers).toEqual(
+      haiBaTrungEquipmentV2Definitions['green-dragon-blade'].levelModifiers,
+    )
+    expect(haiBaTrungEquipmentV2Definitions[ACTIVE_HBT_EQUIPMENT_IDS[1]].levelModifiers).toEqual(
+      haiBaTrungEquipmentV2Definitions['swift-jade'].levelModifiers,
+    )
+    expect(haiBaTrungGoldGachaConfig.rewards.filter((reward) => reward.type === 'equipment').map((reward) => reward.definitionId))
+      .toEqual(['lac-viet-bronze-sword', 'lac-viet-swift-jade'])
+    expect(equipmentDefinitions['lac-viet-bronze-sword'].name).toBe('Gươm Đồng Lạc Việt')
+    expect(Object.values(equipmentDefinitions).filter(({ id }) => ACTIVE_HBT_EQUIPMENT_IDS.includes(id as typeof ACTIVE_HBT_EQUIPMENT_IDS[number]))).toHaveLength(2)
+  })
+
+  it('keeps legacy equipment IDs loadable with the original Lv3 modifiers', () => {
+    const legacy = metaV5PreHaiBaTrung.data.inventory.equipmentInstances['legacy-blade-1']
+    expect(legacy.definitionId).toBe('green-dragon-blade')
+    expect(resolveEquipmentInstanceModifiers(legacy, haiBaTrungEquipmentV2Definitions)).toEqual({ atk: 18, range: 10 })
+  })
+
+  it('keeps active content identity out of legacy names and uses canonical stage reward', () => {
+    expect(Object.values(haiBaTrungEquipmentV2Definitions).filter(({ id }) => ACTIVE_HBT_EQUIPMENT_IDS.includes(id as typeof ACTIVE_HBT_EQUIPMENT_IDS[number]))
+      .some(({ name }) => name.includes('Thanh Long'))).toBe(false)
+    expect(Object.keys(haiBaTrungRewardBalance.stageClear)).toEqual(['hbt-lang-bac-stage-01'])
+    expect(haiBaTrungRewardBalance.stageClear['hbt-lang-bac-stage-01']).toEqual({ gold: 20, knb: 1, anhHon: 10 })
   })
 
   it('preserves legacy Tam Quốc entries while keeping them inactive', () => {

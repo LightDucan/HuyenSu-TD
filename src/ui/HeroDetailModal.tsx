@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { equipmentDefinitions } from '../data/equipment/definitions'
+import { ACTIVE_HBT_EQUIPMENT_IDS, equipmentDefinitions } from '../data/equipment/definitions'
 import { heroDefinitions, trungTrac } from '../data/heroes/definitions'
 import { heroPassives, type PassiveDefinition } from '../data/passives/definitions'
 import { skillDefinitions } from '../data/skills/definitions'
@@ -139,7 +139,10 @@ export function HeroDetailModal({
   }
 
   const candidateItems = Object.values(equipmentDefinitions).filter(
-    (item) => pickingSlot && item.slot === pickingSlot,
+    (item) => pickingSlot && item.slot === pickingSlot
+      && (ACTIVE_HBT_EQUIPMENT_IDS.includes(item.id as typeof ACTIVE_HBT_EQUIPMENT_IDS[number])
+        || item.id === activeEquipment.weaponId
+        || item.id === activeEquipment.gemId),
   )
 
   const formatBonus = (val?: number) => (val && val > 0 ? `+${val}` : null)

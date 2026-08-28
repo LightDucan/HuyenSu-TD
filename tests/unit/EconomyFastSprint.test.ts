@@ -61,8 +61,8 @@ describe('FAST-02 Gold Gacha', () => {
     const result = gacha(repository, [0.5]).pull(1, 1, 'gacha/weapon', 2_000)
     expect(result.rewards.map((reward) => reward.id)).toEqual(['weapon-lv1'])
     expect(result.transaction.save.data.wallet.balances.gold).toBe(400)
-    expect(result.transaction.save.data.inventory.equipmentInstances['gacha-test:0:green-dragon-blade']).toMatchObject({
-      definitionId: 'green-dragon-blade', level: 1, slot: 'weapon',
+    expect(result.transaction.save.data.inventory.equipmentInstances['gacha-test:0:lac-viet-bronze-sword']).toMatchObject({
+      definitionId: 'lac-viet-bronze-sword', level: 1, slot: 'weapon',
     })
   })
 

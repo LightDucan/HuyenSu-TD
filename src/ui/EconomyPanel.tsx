@@ -1,4 +1,4 @@
-import { prototypeGoldGachaConfig, prototypeKnbShopConfig } from '../data/economy/prototypeEconomyConfig'
+import { haiBaTrungGoldGachaConfig, prototypeKnbShopConfig } from '../data/economy/prototypeEconomyConfig'
 import { commandEnergyItemValues, CONSUMABLE_ITEM_IDS } from '../data/items/definitions'
 import type { MetaSave } from '../domain/meta/MetaState'
 
@@ -34,7 +34,7 @@ export function EconomyPanel({ save, lastResult, onGacha, onBuy, onUse, selected
       <div className="economy-columns">
         <article>
           <h3>Gold Gacha</h3>
-          <p>Prototype cost: {prototypeGoldGachaConfig.pullCostGold} Gold/lượt · Pity OFF · 10x không có bảo đảm ẩn.</p>
+          <p>Gacha cost: {haiBaTrungGoldGachaConfig.pullCostGold} Gold/lượt · Pity OFF · 10x không có bảo đảm ẩn.</p>
           <button type="button" onClick={() => onGacha(1)}>Rút 1x</button>
           <button type="button" onClick={() => onGacha(10)}>Rút 10x</button>
         </article>

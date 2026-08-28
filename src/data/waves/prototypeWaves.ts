@@ -6,7 +6,7 @@ const archer = (count: number, startDelayMs: number): WaveGroup => ({ enemyId: '
 const armored = (count: number, startDelayMs: number): WaveGroup => ({ enemyId: 'han-armored-guard', count, startDelayMs, spawnIntervalMs: 1400 })
 const boss = (): WaveGroup => ({ enemyId: 'boss-ma-vien', count: 1, startDelayMs: 0, spawnIntervalMs: 1500 })
 
-export const prototypeWaves: readonly WaveDefinition[] = [
+export const haiBaTrungWaves: readonly WaveDefinition[] = [
   { id: 'wave-01', groups: [sword(2)] },
   { id: 'wave-02', groups: [sword(2), archer(1, 900)] },
   { id: 'wave-03', groups: [sword(3), archer(1, 1200)] },
@@ -18,3 +18,5 @@ export const prototypeWaves: readonly WaveDefinition[] = [
   { id: 'wave-09', groups: [sword(5), archer(4, 900), armored(2, 1800)] },
   { id: 'wave-10', groups: [boss(), armored(2, 1200), archer(3, 2200)] },
 ]
+
+export const prototypeWaves = haiBaTrungWaves

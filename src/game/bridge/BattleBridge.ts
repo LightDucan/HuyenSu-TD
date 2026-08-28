@@ -4,6 +4,7 @@ import type { HeroPlacement } from '../../domain/placement/HeroPlacementRegistry
 import type { WaveStatus } from '../../domain/waves/WaveManager'
 import type { DeploymentCapacityProjection } from '../../domain/meta/DeploymentCapacity'
 import { BASE_DEPLOYMENT_CAPACITY, type MetaSave } from '../../domain/meta/MetaState'
+import { NEUTRAL_PLACEMENT_INTENT, type PlacementIntent } from './BattleInteractionContract'
 
 export type BattleSnapshot = Readonly<{
   runId: string
@@ -44,6 +45,8 @@ export class BattleBridge {
   private speed: GameSpeed = 1
   private selectedHeroId = 'trung-trac'
   private autoWaveEnabled = false
+  private placementIntent: PlacementIntent = NEUTRAL_PLACEMENT_INTENT
+  private rangeVisibilityEnabled = false
   private latestSnapshot?: BattleSnapshot
   private commandEnergySnapshot: CommandEnergySnapshot = { current: 0, cap: 60 }
   private deploymentCapacitySnapshot: DeploymentCapacitySnapshot = {
@@ -68,6 +71,8 @@ export class BattleBridge {
   private deploymentCapacityListeners = new Set<(snapshot: DeploymentCapacitySnapshot) => void>()
   private placementFeedbackListeners = new Set<(feedback: PlacementFeedback) => void>()
   private metaSnapshotListeners = new Set<(snapshot: MetaSnapshot) => void>()
+  private placementIntentListeners = new Set<(intent: PlacementIntent) => void>()
+  private rangeVisibilityListeners = new Set<(enabled: boolean) => void>()
 
   setSpeed(speed: GameSpeed): void {
     if (this.speed === speed) return
@@ -97,6 +102,35 @@ export class BattleBridge {
   onHeroSelectionChange(listener: (heroId: string) => void): () => void {
     this.heroSelectionListeners.add(listener)
     return () => this.heroSelectionListeners.delete(listener)
+  }
+
+  setPlacementIntent(intent: PlacementIntent): void {
+    if (this.placementIntent.mode === intent.mode
+      && (intent.mode === 'neutral' || (this.placementIntent.mode !== 'neutral' && this.placementIntent.heroId === intent.heroId))) return
+    this.placementIntent = intent
+    this.placementIntentListeners.forEach((listener) => listener(intent))
+  }
+
+  clearPlacementIntent(): void { this.setPlacementIntent(NEUTRAL_PLACEMENT_INTENT) }
+
+  getPlacementIntent(): PlacementIntent { return this.placementIntent }
+
+  onPlacementIntentChange(listener: (intent: PlacementIntent) => void): () => void {
+    this.placementIntentListeners.add(listener)
+    return () => this.placementIntentListeners.delete(listener)
+  }
+
+  setRangeVisibilityEnabled(enabled: boolean): void {
+    if (this.rangeVisibilityEnabled === enabled) return
+    this.rangeVisibilityEnabled = enabled
+    this.rangeVisibilityListeners.forEach((listener) => listener(enabled))
+  }
+
+  isRangeVisibilityEnabled(): boolean { return this.rangeVisibilityEnabled }
+
+  onRangeVisibilityChange(listener: (enabled: boolean) => void): () => void {
+    this.rangeVisibilityListeners.add(listener)
+    return () => this.rangeVisibilityListeners.delete(listener)
   }
 
   refreshPlacedHeroStats(heroId: string): void {

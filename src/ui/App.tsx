@@ -24,6 +24,8 @@ import { getBrowserEconomyRuntime } from '../runtime/EconomyRuntime'
 import { CONSUMABLE_ITEM_IDS } from '../data/items/definitions'
 import { getBrowserHeroMetaRuntime } from '../runtime/HeroMetaRuntime'
 import { selectPlayableOwnedHeroIds } from '../domain/meta/HeroRecruitment'
+import { battleInstruction, moveIntentForHero, placementIntentForHero } from '../game/bridge/BattleInteractionContract'
+import { selectMetaTab, type MetaTab } from './MetaTabState'
 
 const initialSnapshot: BattleSnapshot = {
   runId: 'initial',
@@ -52,7 +54,9 @@ export function App() {
   const [deploymentCapacity, setDeploymentCapacity] = useState<DeploymentCapacitySnapshot>(() => battleBridge.getDeploymentCapacitySnapshot())
   const [placementMessage, setPlacementMessage] = useState<string | null>(null)
   const [isHeroDetailOpen, setIsHeroDetailOpen] = useState(false)
-  const [activeMetaTab, setActiveMetaTab] = useState<'roster' | 'inventory'>('roster')
+  const [activeMetaTab, setActiveMetaTab] = useState<MetaTab>('roster')
+  const [placementIntent, setPlacementIntent] = useState(() => battleBridge.getPlacementIntent())
+  const [rangeEnabled, setRangeEnabled] = useState(() => battleBridge.isRangeVisibilityEnabled())
   const [metaSave, setMetaSave] = useState<MetaSave>(() => battleBridge.getMetaSnapshot() ?? equipmentRuntime.getSnapshot())
   const [economyResult, setEconomyResult] = useState<string>()
   const definitionLoadout = (heroId: string, save: MetaSave = equipmentRuntime.getSnapshot()): HeroEquipment => {
@@ -67,7 +71,6 @@ export function App() {
     .map((heroId) => ({ id: heroId, name: heroDefinitions[heroId].name, portraitUrl: resolveHaiBaTrungHeroVisual(heroId)?.portraitUrl }))
   const progression: HeroProgression = metaSave.data.heroCollection[hudData.selectedHeroId]?.progression ?? { stage: 'normal', level: 1 }
   const selectedHeroName = heroDefinitions[hudData.selectedHeroId]?.name ?? 'Hero'
-  const selectedPlacement = hudData.placedHeroes.find(({ heroId }) => heroId === hudData.selectedHeroId)
 
   useEffect(() => {
     if (!gameHostRef.current) return
@@ -82,6 +85,8 @@ export function App() {
         ? `Đã đạt giới hạn triển khai ${feedback.effectiveLimit} Hero trên bản đồ này.`
         : null)
     })
+    const unsubscribeIntent = battleBridge.onPlacementIntentChange(setPlacementIntent)
+    const unsubscribeRange = battleBridge.onRangeVisibilityChange(setRangeEnabled)
     const unsubscribeMeta = battleBridge.onMetaSnapshot((save) => {
       setMetaSave(save)
       setEquipment(definitionLoadout(battleBridge.getSelectedHeroId(), save))
@@ -93,6 +98,8 @@ export function App() {
       unsubscribeAuto()
       unsubscribeCapacity()
       unsubscribePlacement()
+      unsubscribeIntent()
+      unsubscribeRange()
       unsubscribeMeta()
       game.destroy(true)
     }
@@ -103,7 +110,18 @@ export function App() {
   const handleHeroSelect = (heroId: string) => {
     if (!heroDefinitions[heroId] || !metaSave.data.heroCollection[heroId]) return
     battleBridge.setSelectedHeroId(heroId)
+    battleBridge.setPlacementIntent(placementIntentForHero(heroId, snapshot.placedHeroes.some((placement) => placement.heroId === heroId)))
     setEquipment(definitionLoadout(heroId, metaSave))
+  }
+
+  const handleMoveHero = (heroId: string) => {
+    if (!snapshot.placedHeroes.some((placement) => placement.heroId === heroId)) return
+    if (placementIntent.mode === 'move' && placementIntent.heroId === heroId) {
+      battleBridge.clearPlacementIntent()
+      return
+    }
+    battleBridge.setSelectedHeroId(heroId)
+    battleBridge.setPlacementIntent(moveIntentForHero(heroId))
   }
 
   const handleUpgradeRequest = (heroId: string) => {
@@ -198,23 +216,28 @@ export function App() {
       {/* Top City Bar */}
       <TopCityBar data={hudData} wallet={metaSave.data.wallet.balances} />
 
-      <p className="hint">
+      <div className="interaction-copy">
+        <p className="hint">
         {snapshot.battleStatus === 'won'
           ? 'Chiến thắng! Đã hoàn thành 10 wave.'
           : snapshot.battleStatus === 'lost'
             ? 'Thất bại: Thành đã bị phá.'
-            : selectedPlacement
-              ? `Chọn ô hợp lệ để di chuyển ${selectedHeroName}. Đã triển khai ${snapshot.placedHeroes.length}/${deploymentCapacity.effectiveLimit} Hero.`
-              : `Chọn ô hợp lệ để đặt ${selectedHeroName}. Đã triển khai ${snapshot.placedHeroes.length}/${deploymentCapacity.effectiveLimit} Hero.`}
-      </p>
-      {placementMessage && <p className="placement-feedback" role="status">{placementMessage}</p>}
+            : battleInstruction(placementIntent, selectedHeroName, snapshot.placedHeroes.length, deploymentCapacity.effectiveLimit)}
+        </p>
+        {placementMessage && <p className="placement-feedback" role="status">{placementMessage}</p>}
+      </div>
+
+      {/* Battle Canvas */}
+      <section className="game-frame" ref={gameHostRef} aria-label="Battle Scene" />
 
       <nav className="meta-tabs" aria-label="Điều hướng Đội Hình và Hành Trang">
-        <button type="button" className={activeMetaTab === 'roster' ? 'active' : ''} onClick={() => setActiveMetaTab('roster')}>ĐỘI HÌNH</button>
-        <button type="button" className={activeMetaTab === 'inventory' ? 'active' : ''} onClick={() => setActiveMetaTab('inventory')}>HÀNH TRANG</button>
+        <button type="button" className={activeMetaTab === 'roster' ? 'active' : ''} onClick={() => setActiveMetaTab((current) => selectMetaTab(current, 'roster'))}>ĐỘI HÌNH</button>
+        <button type="button" className={activeMetaTab === 'inventory' ? 'active' : ''} onClick={() => setActiveMetaTab((current) => selectMetaTab(current, 'inventory'))}>HÀNH TRANG</button>
       </nav>
-      {activeMetaTab === 'inventory' && (
-        <>
+
+      <section className={`meta-content-region ${activeMetaTab}`} aria-live="polite">
+        {activeMetaTab === 'inventory' && (
+          <div className="inventory-scroll-region">
           <EquipmentInventoryPanel
             save={metaSave}
             selectedHeroId={hudData.selectedHeroId}
@@ -224,18 +247,19 @@ export function App() {
             onMerge={(ingredientInstanceIds) => handleInventoryOperation({ type: 'merge', ingredientInstanceIds, resultInstanceId: `equipment:${crypto.randomUUID()}` })}
           />
           <EconomyPanel save={metaSave} lastResult={economyResult} onGacha={handleGacha} onBuy={handleShopBuy} onUse={handleConsumableUse} selectedHeroId={hudData.selectedHeroId} onRecruit={handleRecruit} onAscendStar={handleAscendStar} />
-        </>
-      )}
+          </div>
+        )}
 
-      {/* Battle Canvas */}
-      <section className="game-frame" ref={gameHostRef} aria-label="Battle Scene" />
-
-      {/* Bottom Player HUD */}
       <BottomPlayerHUD
         data={hudData}
         heroes={heroOptions}
+        showRoster={activeMetaTab === 'roster'}
+        placementIntent={placementIntent}
+        rangeEnabled={rangeEnabled}
         onSpeedChange={setSpeed}
         onHeroSelect={handleHeroSelect}
+        onMoveHero={handleMoveHero}
+        onRangeChange={(enabled) => battleBridge.setRangeVisibilityEnabled(enabled)}
         onOpenHeroDetail={() => setIsHeroDetailOpen(true)}
         commandEnergy={commandEnergy}
         deploymentCapacity={deploymentCapacity}
@@ -243,6 +267,7 @@ export function App() {
         onStartWave={() => battleBridge.requestWaveStart('manual')}
         onAutoWaveChange={(enabled) => battleBridge.setAutoWaveEnabled(enabled)}
       />
+      </section>
 
       <HeroDetailModal
         isOpen={isHeroDetailOpen}

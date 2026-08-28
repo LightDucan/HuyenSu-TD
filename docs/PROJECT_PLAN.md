@@ -9,17 +9,20 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 ## WorkTree
 
 - Repository: `HuyenSu-TD`
-- Branch hiện tại: `codex/vs-hbt-c02-production-identity`
+- Branch hiện tại: `codex/vis-hud-01-playable-polish`
 - Worktree Codex hiện tại: `C:\Users\PC\Documents\Codex\2026-08-23\referenced-chatgpt-conversation-this-is-an\work\m10-c01-main`
 - Quy tắc worker Antigravity: [ANTIGRAVITY_RULES.md](ANTIGRAVITY_RULES.md)
 
 ## Trạng thái hiện tại
 
-- Current Phase: **VIETNAM CONTENT INTEGRATION**
-- Current Codex task: **VS-HBT-V02B DONE — waiting audit** — branch `codex/vs-hbt-v02b-real-assets`.
+- Current Phase: **VIETNAM CONTENT INTEGRATION — PLAYABLE UI POLISH**
+- Current Codex task: **VIS-HUD-01 DONE — waiting audit** — branch `codex/vis-hud-01-playable-polish`.
 - Current Antigravity task: **VS-NDPL-00 — 939–1009 Research — IN PROGRESS** — branch `antigravity/vs-ndpl-00-939-1009-research` @ `5686d7f`.
 - QA-C01A: **ENVIRONMENT-BLOCKED interactive portion**; automated regression PASS; manual QA debt retained.
-- Lần kiểm tra gần nhất: VS-HBT-V02B — 26 test files/191 tests PASS, production build PASS, preview HTTP 200 và diff-check PASS; real HBT asset production 12/12 integrated.
+- VS-HBT-V02B: **CODE/BINARY AUDIT PASS; MANUAL VISUAL QA PASS ENOUGH TO CONTINUE**; real HBT Hero assets 12/12 integrated.
+- VIS-HUD-01: **DONE — waiting audit**; desktop one-viewport HUD, contextual tabs, range toggle và placement/move safety verified interactively.
+- Known debt: **Equipment Runtime/UI Effect Integration** — equipping Weapon/Gem may not visibly change Hero stats/effects; explicitly out of scope for VIS-HUD-01.
+- Lần kiểm tra gần nhất: VIS-HUD-01 — 27 test files/199 tests PASS, production build PASS, interactive preview checked at 1920×1080, 1600×900 and 1366×768 with no document scroll; diff-check PASS.
 
 ## Phases và checkpoint
 

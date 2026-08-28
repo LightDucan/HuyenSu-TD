@@ -7,7 +7,7 @@ Tài liệu đặc tả Prompt đồ họa và thông số kỹ thuật chuẩn 
 ## Quy chuẩn kỹ thuật thống nhất
 * **Canvas Size**: 128 × 128 px
 * **Format**: 32-bit RGBA PNG, transparent background
-* **Góc nhìn (Perspective)**: Front View (chính diện / isometric 2D chuẩn Tower Defense)
+* **Góc nhìn (Perspective)**: Front View (chính diện) — quy tắc production; không dùng isometric.
 * **Baseline chân nhân vật**: Y = 112 px (tọa độ tiếp đất đồng nhất cho toàn bộ hệ thống Hero)
 * **Quy tắc**: Không gắn UI/khung máu vào sprite; VFX hiệu ứng kỹ năng tách rời thành file độc lập.
 

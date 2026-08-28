@@ -18,6 +18,7 @@ import { refreshPlacedHeroRuntimeStats } from '../runtime/PlacedHeroRuntimeStats
 import { getBrowserEquipmentV2Runtime } from '../../runtime/EquipmentV2Runtime'
 import { haiBaTrungEquipmentV2Definitions } from '../../data/equipment/definitions'
 import { isActiveHeroOwned } from '../../domain/meta/HeroRecruitment'
+import { shouldShowHeroRange } from '../bridge/BattleInteractionContract'
 
 type EnemyVisual = { state: CombatEnemy; definitionId: string; body: Phaser.GameObjects.Arc; hpBar: Phaser.GameObjects.Rectangle }
 type PlacementTileRuntime = { id: string; center: Vector2; marker: Phaser.GameObjects.Rectangle }
@@ -33,6 +34,7 @@ type PlacedHeroRuntime = {
 }
 const INITIAL_CITY_HP = 10
 const HAI_BA_TRUNG_STAGE_ID = 'hbt-lang-bac-stage-01'
+const HERO_RUNTIME_VISUAL_SIZE = 90
 
 export class BattleScene extends Phaser.Scene {
   private readonly gameClock = new GameClock()
@@ -54,6 +56,8 @@ export class BattleScene extends Phaser.Scene {
   private removeHeroSelectionListener?: () => void
   private removeHeroStatsRefreshListener?: () => void
   private removeWaveStartDecisionListener?: () => void
+  private removePlacementIntentListener?: () => void
+  private removeRangeVisibilityListener?: () => void
 
   constructor() { super('battle') }
 
@@ -84,6 +88,12 @@ export class BattleScene extends Phaser.Scene {
       this.refreshPlacementMarkers()
       this.emitSnapshot()
     })
+    this.removePlacementIntentListener = battleBridge.onPlacementIntentChange(() => {
+      this.refreshPlacementMarkers()
+      this.refreshRangeVisibility()
+    })
+    this.removeRangeVisibilityListener = battleBridge.onRangeVisibilityChange(() => this.refreshRangeVisibility())
+    this.input.on(Phaser.Input.Events.POINTER_DOWN, this.handleScenePointerDown, this)
     this.removeHeroStatsRefreshListener = battleBridge.onPlacedHeroStatsRefresh((heroId) => {
       this.refreshHeroRuntimeStats(heroId)
     })
@@ -97,6 +107,9 @@ export class BattleScene extends Phaser.Scene {
       this.removeHeroSelectionListener?.()
       this.removeHeroStatsRefreshListener?.()
       this.removeWaveStartDecisionListener?.()
+      this.removePlacementIntentListener?.()
+      this.removeRangeVisibilityListener?.()
+      this.input.off(Phaser.Input.Events.POINTER_DOWN, this.handleScenePointerDown, this)
     })
     this.emitSnapshot()
   }
@@ -239,12 +252,16 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private placeOrMoveSelectedHero(slotId: string): void {
-    const selectedHeroId = battleBridge.getSelectedHeroId()
+    const intent = battleBridge.getPlacementIntent()
+    if (intent.mode === 'neutral') return
+    const selectedHeroId = intent.heroId
     const metaState = getBrowserEquipmentV2Runtime().getSnapshot().data
     if (!isActiveHeroOwned(metaState.heroCollection, selectedHeroId)) return
     const definition = heroDefinitions[selectedHeroId] ?? trungTrac
     const tile = this.placementTiles.get(slotId)
     if (!tile) return
+    const existing = this.placedHeroes.get(definition.id)
+    if ((intent.mode === 'place' && existing) || (intent.mode === 'move' && !existing)) return
 
     const capacity = battleBridge.getDeploymentCapacitySnapshot()
     const placement = this.placementRegistry.placeWithinCapacity(definition.id, slotId, capacity.effectiveLimit)
@@ -260,10 +277,10 @@ export class BattleScene extends Phaser.Scene {
     const result = placement.result
     if (result.recalledHeroId) this.recallHero(result.recalledHeroId)
 
-    const existing = this.placedHeroes.get(definition.id)
     if (existing) this.repositionHero(existing, tile.center, slotId)
     else this.placedHeroes.set(definition.id, this.createHeroRuntime(definition, tile.center, slotId))
 
+    battleBridge.clearPlacementIntent()
     this.refreshPlacementMarkers()
     battleBridge.reportPlacementFeedback({ status: 'placed', heroId: definition.id })
     this.emitSnapshot()
@@ -273,16 +290,26 @@ export class BattleScene extends Phaser.Scene {
     const equipmentState = getBrowserEquipmentV2Runtime().getSnapshot().data
     const progression = equipmentState.heroCollection[definition.id]?.progression ?? { stage: 'normal', level: 1 }
     const stats = calculateHeroLoadoutStatsV2(definition.baseStats, progression, equipmentState, definition.id, haiBaTrungEquipmentV2Definitions)
-    const rangeVisual = this.add.circle(position.x, position.y, stats.range, 0x38bdf8, 0.08).setStrokeStyle(2, 0x7dd3fc, 0.5)
+    const rangeVisual = this.add.circle(position.x, position.y, stats.range, 0x38bdf8, 0.035).setStrokeStyle(2, 0x7dd3fc, 0.24)
     const visualAsset = resolveHaiBaTrungHeroVisual(definition.id)
     const sprite = visualAsset?.idleUrl && this.textures.exists(visualAsset.idleTextureKey)
-      ? this.add.image(0, 0, visualAsset.idleTextureKey).setOrigin(0.5, 112 / 128).setDisplaySize(72, 72)
+      ? this.add.image(0, 0, visualAsset.idleTextureKey).setOrigin(0.5, 112 / 128).setDisplaySize(HERO_RUNTIME_VISUAL_SIZE, HERO_RUNTIME_VISUAL_SIZE)
       : undefined
     const fallbackBody = sprite ? undefined : this.add.circle(0, 0, 24, 0x2563eb).setStrokeStyle(3, 0xdbeafe)
     const fallbackLabel = sprite ? undefined : this.add.text(0, 0, definition.name.split(' ').map((part) => part[0]).join('').slice(-2).toUpperCase(), { color: '#ffffff', fontSize: '14px', fontStyle: 'bold' }).setOrigin(0.5)
     const visualChildren: Phaser.GameObjects.GameObject[] = sprite ? [sprite] : [fallbackBody!, fallbackLabel!]
-    const visual = this.add.container(position.x, position.y, visualChildren).setDepth(6)
-    return {
+    const visual = this.add.container(position.x, position.y, visualChildren)
+      .setDepth(6)
+      .setSize(HERO_RUNTIME_VISUAL_SIZE, HERO_RUNTIME_VISUAL_SIZE)
+      .setInteractive({ useHandCursor: true })
+    visual.on('pointerdown', () => {
+      battleBridge.setSelectedHeroId(definition.id)
+      battleBridge.clearPlacementIntent()
+      this.refreshPlacementMarkers()
+      this.refreshRangeVisibility()
+      this.emitSnapshot()
+    })
+    const runtime = {
       definition,
       stats,
       combatController: new CombatController(position, stats, Math.random, definition.skillTriggerHits),
@@ -292,6 +319,8 @@ export class BattleScene extends Phaser.Scene {
       position,
       slotId,
     }
+    rangeVisual.setVisible(this.shouldShowRange(definition.id))
+    return runtime
   }
 
   private repositionHero(hero: PlacedHeroRuntime, position: Vector2, slotId: string): void {
@@ -320,14 +349,29 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private refreshPlacementMarkers(): void {
-    const selectedHeroId = battleBridge.getSelectedHeroId()
+    const intent = battleBridge.getPlacementIntent()
     this.placementTiles.forEach((tile) => {
       const occupantId = this.placementRegistry.getHeroAt(tile.id)
-      const isSelectedHero = occupantId === selectedHeroId
+      const isSelectedHero = intent.mode !== 'neutral' && occupantId === intent.heroId
       tile.marker
         .setFillStyle(isSelectedHero ? 0xfbbf24 : occupantId ? 0x10b981 : 0x38bdf8, occupantId ? 0.28 : 0.16)
         .setStrokeStyle(2, isSelectedHero ? 0xfde047 : occupantId ? 0x6ee7b7 : 0x7dd3fc, 0.7)
     })
+  }
+
+  private handleScenePointerDown(_pointer: Phaser.Input.Pointer, currentlyOver: Phaser.GameObjects.GameObject[]): void {
+    if (currentlyOver.length > 0) return
+    battleBridge.clearPlacementIntent()
+    this.refreshPlacementMarkers()
+    this.refreshRangeVisibility()
+  }
+
+  private shouldShowRange(heroId: string): boolean {
+    return shouldShowHeroRange(battleBridge.isRangeVisibilityEnabled(), battleBridge.getPlacementIntent(), heroId)
+  }
+
+  private refreshRangeVisibility(): void {
+    this.placedHeroes.forEach((hero, heroId) => hero.rangeVisual.setVisible(this.shouldShowRange(heroId)))
   }
 
   private createFixedPath(): Phaser.Curves.Path {

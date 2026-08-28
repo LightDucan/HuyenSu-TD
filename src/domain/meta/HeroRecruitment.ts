@@ -28,6 +28,18 @@ export function createPrototypeHeroCollection(): HeroCollection {
   }]))
 }
 
+export function ensureActiveStarterHeroes(heroCollection: HeroCollection): HeroCollection {
+  let next = heroCollection
+  ACTIVE_PRODUCTION_HERO_IDS.forEach((heroId) => {
+    if (next[heroId]) return
+    next = {
+      ...next,
+      [heroId]: { heroId, stars: 1, progression: { stage: 'normal', level: 1 } },
+    }
+  })
+  return next
+}
+
 export function selectPlayableOwnedHeroIds(heroCollection: HeroCollection, availableHeroIds: readonly string[]): readonly string[] {
   const available = new Set(availableHeroIds)
   return Object.keys(heroCollection).filter((heroId) => available.has(heroId))
@@ -35,6 +47,11 @@ export function selectPlayableOwnedHeroIds(heroCollection: HeroCollection, avail
 
 export function isHeroOwned(heroCollection: HeroCollection, heroId: string): boolean {
   return heroCollection[heroId] !== undefined
+}
+
+export function isActiveHeroOwned(heroCollection: HeroCollection, heroId: string): boolean {
+  return ACTIVE_PRODUCTION_HERO_IDS.includes(heroId as typeof ACTIVE_PRODUCTION_HERO_IDS[number])
+    && isHeroOwned(heroCollection, heroId)
 }
 
 export type RecruitmentPoolEntry = Readonly<{ heroId: string; weight: number }>

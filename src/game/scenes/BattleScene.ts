@@ -1,6 +1,6 @@
 import Phaser from 'phaser'
 import { enemyDefinitions, type EnemyCategory } from '../../data/enemies/definitions'
-import { ACTIVE_HERO_IDS, heroDefinitions, trungTrac, type HeroDefinition } from '../../data/heroes/definitions'
+import { heroDefinitions, trungTrac, type HeroDefinition } from '../../data/heroes/definitions'
 import { prototypeMap } from '../../data/maps/prototypeMap'
 import { prototypeWaves } from '../../data/waves/prototypeWaves'
 import { prototypeHeroVisuals, resolvePrototypeHeroVisual, scaleVisualDuration } from '../../data/assets/prototypeVisualAssets'
@@ -17,7 +17,7 @@ import { createBattleRunId } from '../runtime/BattleRunIdentity'
 import { refreshPlacedHeroRuntimeStats } from '../runtime/PlacedHeroRuntimeStats'
 import { getBrowserEquipmentV2Runtime } from '../../runtime/EquipmentV2Runtime'
 import { prototypeEquipmentV2Definitions } from '../../data/equipment/definitions'
-import { isHeroOwned } from '../../domain/meta/HeroRecruitment'
+import { isActiveHeroOwned } from '../../domain/meta/HeroRecruitment'
 
 type EnemyVisual = { state: CombatEnemy; definitionId: string; body: Phaser.GameObjects.Arc; hpBar: Phaser.GameObjects.Rectangle }
 type PlacementTileRuntime = { id: string; center: Vector2; marker: Phaser.GameObjects.Rectangle }
@@ -241,8 +241,7 @@ export class BattleScene extends Phaser.Scene {
   private placeOrMoveSelectedHero(slotId: string): void {
     const selectedHeroId = battleBridge.getSelectedHeroId()
     const metaState = getBrowserEquipmentV2Runtime().getSnapshot().data
-    if (!ACTIVE_HERO_IDS.includes(selectedHeroId as typeof ACTIVE_HERO_IDS[number])) return
-    if (!isHeroOwned(metaState.heroCollection, selectedHeroId)) return
+    if (!isActiveHeroOwned(metaState.heroCollection, selectedHeroId)) return
     const definition = heroDefinitions[selectedHeroId] ?? trungTrac
     const tile = this.placementTiles.get(slotId)
     if (!tile) return

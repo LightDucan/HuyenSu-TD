@@ -3,6 +3,7 @@ import { LocalMetaRepository } from '../domain/meta/MetaRepository'
 import { RewardSourceService, type RewardSourceConfig } from '../domain/meta/RewardSources'
 import type { StorageLike } from '../domain/progression/ProgressionStorage'
 import type { BattleBridge } from '../game/bridge/BattleBridge'
+import { ensureActiveStarterHeroes } from '../domain/meta/HeroRecruitment'
 
 export function createRuntimeMetaRepository(storage: StorageLike, bridge: BattleBridge): LocalMetaRepository {
   return new LocalMetaRepository(storage, (save) => bridge.emitMetaSnapshot(save))
@@ -16,14 +17,35 @@ export function publishCurrentMetaSnapshot(repository: LocalMetaRepository, brid
 
 export function ensureMetaRepositoryReady(repository: LocalMetaRepository, playerId: string, nowMs: number): void {
   const current = repository.load()
-  if (current.status === 'empty') { repository.save(createInitialMetaState(playerId, nowMs), 0, nowMs); return }
-  if (current.status === 'loaded') return
+  if (current.status === 'empty') {
+    repository.save(createInitialMetaState(playerId, nowMs), 0, nowMs)
+    return
+  }
+  if (current.status === 'loaded') {
+    ensureRuntimeHeroContent(repository, current.save.revision, current.save.updatedAtMs, current.save.data, nowMs)
+    return
+  }
   if (current.status === 'invalid') throw new Error(`Invalid Meta save: ${current.issues.join('; ')}`)
-  if (current.sourceVersion === 1) { repository.migrateV1(JSON.parse(current.raw).revision); return }
-  if (current.sourceVersion === 2) { repository.migrateV2(JSON.parse(current.raw).revision); return }
-  if (current.sourceVersion === 3) { repository.migrateV3(JSON.parse(current.raw).revision); return }
-  if (current.sourceVersion === 4) { repository.migrateV4(JSON.parse(current.raw).revision); return }
-  throw new Error(`Unsupported Meta save version: ${current.sourceVersion}`)
+  const expectedRevision = JSON.parse(current.raw).revision
+  const migrated = current.sourceVersion === 1 ? repository.migrateV1(expectedRevision)
+    : current.sourceVersion === 2 ? repository.migrateV2(expectedRevision)
+      : current.sourceVersion === 3 ? repository.migrateV3(expectedRevision)
+        : current.sourceVersion === 4 ? repository.migrateV4(expectedRevision)
+          : undefined
+  if (!migrated) throw new Error(`Unsupported Meta save version: ${current.sourceVersion}`)
+  ensureRuntimeHeroContent(repository, migrated.revision, migrated.updatedAtMs, migrated.data, nowMs)
+}
+
+function ensureRuntimeHeroContent(
+  repository: LocalMetaRepository,
+  revision: number,
+  updatedAtMs: number,
+  state: ReturnType<typeof createInitialMetaState>,
+  nowMs: number,
+): void {
+  const heroCollection = ensureActiveStarterHeroes(state.heroCollection)
+  if (heroCollection === state.heroCollection) return
+  repository.save({ ...state, heroCollection }, revision, Math.max(updatedAtMs, nowMs))
 }
 
 export class RewardRuntimeController {

@@ -2,7 +2,7 @@
 
 ## Status
 
-**DONE — waiting audit.** Đây là content integration; Combat Core, Meta V5 schema, fixed-path geometry và Balance V1 toàn cục không được thiết kế lại.
+**DONE — waiting FINAL audit after save compatibility fix.** Đây là content integration; Combat Core, Meta V5 schema, fixed-path geometry và Balance V1 toàn cục không được thiết kế lại.
 
 ## Active production roster
 
@@ -54,13 +54,19 @@ Map content ID `map-lang-bac-marsh`, title **Chương I — Huyết Chiến Lãn
 - Reward map dùng bốn HBT enemy IDs; Wallet vẫn chỉ Gold và KNB, Anh Hồn vẫn là consumable.
 - Không schema bump, không xóa hoặc rewrite progression legacy.
 
+### Existing V5 compatibility: PASS
+
+Fixture hồi quy là một save Meta V5 literal từ trước VS-HBT-C01, chỉ chứa năm Hero Tam Quốc và không gọi bootstrap hiện hành để dựng dữ liệu. Tại runtime startup sau load/migration, content bootstrap bổ sung starter `trung-trac`, `trung-nhi`, `le-chan` còn thiếu ở 1★ / Normal / Lv1 và persist đúng một revision.
+
+Mọi Hero entry legacy được giữ byte-equivalent ở cấp entry; profile, Wallet, Inventory/equipment, shard consumables, Command Energy, reward receipts và active-play progress không đổi. Timestamp commit dùng giá trị lớn hơn giữa wall clock và `updatedAtMs`, nên không thể lùi. Startup kế tiếp là no-op, không tăng revision hay tạo duplicate. Save vẫn là schema V5; năm Hero Tam Quốc tiếp tục được lưu nhưng inactive, còn selector, placement gate và Recruitment chỉ dùng đúng ba Hero HBT.
+
 ## Assets
 
 Chưa có real HBT art. Runtime sử dụng neutral missing-asset fallback/initials; không map sang portrait Tam Quốc và không có Hero-specific visual code.
 
 ## Verification
 
-- `npm test`: 24 files, 178 tests PASS.
+- `npm test`: 24 files, 180 tests PASS.
 - `npm run build`: PASS (chỉ còn bundle-size warning đã biết).
 - `npm run preview`: HTTP 200.
 - `git diff --check`: PASS.

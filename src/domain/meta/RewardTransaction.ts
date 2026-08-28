@@ -1,4 +1,4 @@
-import type { ActivePlayTimeProgress, CurrencyId, MetaStateV4 } from './MetaState'
+import type { ActivePlayTimeProgress, CurrencyId, MetaState } from './MetaState'
 
 export type RewardOperation =
   | Readonly<{ type: 'grant-currency'; currency: CurrencyId; amount: number }>
@@ -13,8 +13,8 @@ export type RewardTransactionRequest = Readonly<{
 }>
 
 export type RewardTransactionResult =
-  | Readonly<{ status: 'applied'; state: MetaStateV4 }>
-  | Readonly<{ status: 'already-applied'; state: MetaStateV4 }>
+  | Readonly<{ status: 'applied'; state: MetaState }>
+  | Readonly<{ status: 'already-applied'; state: MetaState }>
 
 function assertPositiveSafeInteger(value: number, label: string): void {
   if (!Number.isSafeInteger(value) || value <= 0) throw new Error(`${label} must be a positive safe integer`)
@@ -34,7 +34,7 @@ function fingerprint(operations: readonly RewardOperation[]): string {
   return JSON.stringify(operations)
 }
 
-export function applyRewardTransaction(state: MetaStateV4, request: RewardTransactionRequest, committedAtMs: number): RewardTransactionResult {
+export function applyRewardTransaction(state: MetaState, request: RewardTransactionRequest, committedAtMs: number): RewardTransactionResult {
   if (request.idempotencyKey.trim().length === 0) throw new Error('Idempotency key must not be empty')
   if (!Number.isSafeInteger(committedAtMs) || committedAtMs < 0) throw new Error('Commit timestamp must be a non-negative safe integer')
   if (request.operations.length === 0) throw new Error('Reward transaction must contain at least one operation')

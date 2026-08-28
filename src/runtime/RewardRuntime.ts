@@ -10,7 +10,7 @@ export function createRuntimeMetaRepository(storage: StorageLike, bridge: Battle
 
 export function publishCurrentMetaSnapshot(repository: LocalMetaRepository, bridge: BattleBridge): void {
   const current = repository.load()
-  if (current.status !== 'loaded') throw new Error('Meta snapshot publication requires a current Meta V4 save')
+  if (current.status !== 'loaded') throw new Error('Meta snapshot publication requires a current Meta V5 save')
   bridge.emitMetaSnapshot(current.save)
 }
 
@@ -22,6 +22,7 @@ export function ensureMetaRepositoryReady(repository: LocalMetaRepository, playe
   if (current.sourceVersion === 1) { repository.migrateV1(JSON.parse(current.raw).revision); return }
   if (current.sourceVersion === 2) { repository.migrateV2(JSON.parse(current.raw).revision); return }
   if (current.sourceVersion === 3) { repository.migrateV3(JSON.parse(current.raw).revision); return }
+  if (current.sourceVersion === 4) { repository.migrateV4(JSON.parse(current.raw).revision); return }
   throw new Error(`Unsupported Meta save version: ${current.sourceVersion}`)
 }
 
@@ -59,7 +60,7 @@ export class ActivePlayTimeTracker {
 
   constructor(private readonly source: RewardSourceService, initialWallClockMs: number, initialVisible: boolean, repository: LocalMetaRepository) {
     const current = repository.load()
-    if (current.status !== 'loaded') throw new Error('Active play tracker requires a current Meta V4 save')
+    if (current.status !== 'loaded') throw new Error('Active play tracker requires a current Meta V5 save')
     this.lastWallClockMs = initialWallClockMs
     this.visible = initialVisible
     this.cumulativeVisibleMs = current.save.data.activePlayTime.observedVisibleMs

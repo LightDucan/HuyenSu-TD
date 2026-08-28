@@ -2,12 +2,10 @@ import { useEffect, useRef, useState } from 'react'
 import { equipmentDefinitions } from '../data/equipment/definitions'
 import { resolvePrototypeHeroVisual } from '../data/assets/prototypeVisualAssets'
 import { heroDefinitions } from '../data/heroes/definitions'
-import { featureFlags } from '../config/features'
 import type { GameSpeed } from '../domain/clock/GameClock'
 import { resolveEquipmentModifiers, type EquipmentSlot, type HeroEquipment } from '../domain/equipment/EquipmentSystem'
-import type { MetaSaveV4 } from '../domain/meta/MetaState'
-import { advanceStage, canAdvanceStage, canUpgrade, type HeroProgression, upgradeLevel } from '../domain/progression/ProgressionSystem'
-import { loadProgression } from '../domain/progression/ProgressionStorage'
+import type { MetaSave } from '../domain/meta/MetaState'
+import type { HeroProgression } from '../domain/progression/ProgressionSystem'
 import {
   battleBridge,
   type BattleSnapshot,
@@ -24,6 +22,8 @@ import { EquipmentInventoryPanel } from './EquipmentInventoryPanel'
 import { EconomyPanel } from './EconomyPanel'
 import { getBrowserEconomyRuntime } from '../runtime/EconomyRuntime'
 import { CONSUMABLE_ITEM_IDS } from '../data/items/definitions'
+import { getBrowserHeroMetaRuntime } from '../runtime/HeroMetaRuntime'
+import { selectPlayableOwnedHeroIds } from '../domain/meta/HeroRecruitment'
 
 const initialSnapshot: BattleSnapshot = {
   runId: 'initial',
@@ -44,7 +44,7 @@ const initialSnapshot: BattleSnapshot = {
 export function App() {
   const equipmentRuntime = getBrowserEquipmentV2Runtime()
   const economyRuntime = getBrowserEconomyRuntime()
-  const initialHeroId = battleBridge.getSelectedHeroId()
+  const heroMetaRuntime = getBrowserHeroMetaRuntime()
   const gameHostRef = useRef<HTMLDivElement>(null)
   const [snapshot, setSnapshot] = useState(initialSnapshot)
   const [commandEnergy, setCommandEnergy] = useState<CommandEnergySnapshot>(() => battleBridge.getCommandEnergySnapshot())
@@ -53,20 +53,19 @@ export function App() {
   const [placementMessage, setPlacementMessage] = useState<string | null>(null)
   const [isHeroDetailOpen, setIsHeroDetailOpen] = useState(false)
   const [activeMetaTab, setActiveMetaTab] = useState<'roster' | 'inventory'>('roster')
-  const [metaSave, setMetaSave] = useState<MetaSaveV4>(() => battleBridge.getMetaSnapshot() ?? equipmentRuntime.getSnapshot())
+  const [metaSave, setMetaSave] = useState<MetaSave>(() => battleBridge.getMetaSnapshot() ?? equipmentRuntime.getSnapshot())
   const [economyResult, setEconomyResult] = useState<string>()
-  const [progression, setProgression] = useState<HeroProgression>(() =>
-    loadProgression(window.localStorage).heroes[initialHeroId] ?? { stage: 'normal', level: 1 },
-  )
-  const definitionLoadout = (heroId: string, save: MetaSaveV4 = equipmentRuntime.getSnapshot()): HeroEquipment => {
+  const definitionLoadout = (heroId: string, save: MetaSave = equipmentRuntime.getSnapshot()): HeroEquipment => {
     const loadout = save.data.inventory.equippedByHero[heroId] ?? {}
     const weapon = loadout.weaponInstanceId ? save.data.inventory.equipmentInstances[loadout.weaponInstanceId] : undefined
     const gem = loadout.gemInstanceId ? save.data.inventory.equipmentInstances[loadout.gemInstanceId] : undefined
     return { ...(weapon ? { weaponId: weapon.definitionId } : {}), ...(gem ? { gemId: gem.definitionId } : {}) }
   }
-  const [equipment, setEquipment] = useState<HeroEquipment>(() => definitionLoadout(initialHeroId, metaSave))
+  const [equipment, setEquipment] = useState<HeroEquipment>(() => definitionLoadout(battleBridge.getSelectedHeroId(), metaSave))
   const hudData = toBattleHudData(snapshot)
-  const heroOptions = Object.values(heroDefinitions).map(({ id, name }) => ({ id, name, portraitUrl: resolvePrototypeHeroVisual(id)?.portraitUrl }))
+  const heroOptions = selectPlayableOwnedHeroIds(metaSave.data.heroCollection, Object.keys(heroDefinitions))
+    .map((heroId) => ({ id: heroId, name: heroDefinitions[heroId].name, portraitUrl: resolvePrototypeHeroVisual(heroId)?.portraitUrl }))
+  const progression: HeroProgression = metaSave.data.heroCollection[hudData.selectedHeroId]?.progression ?? { stage: 'normal', level: 1 }
   const selectedHeroName = heroDefinitions[hudData.selectedHeroId]?.name ?? 'Hero'
   const selectedPlacement = hudData.placedHeroes.find(({ heroId }) => heroId === hudData.selectedHeroId)
 
@@ -102,25 +101,24 @@ export function App() {
   const setSpeed = (speed: GameSpeed) => battleBridge.setSpeed(speed)
 
   const handleHeroSelect = (heroId: string) => {
-    if (!heroDefinitions[heroId]) return
+    if (!heroDefinitions[heroId] || !metaSave.data.heroCollection[heroId]) return
     battleBridge.setSelectedHeroId(heroId)
-    setProgression(loadProgression(window.localStorage).heroes[heroId] ?? { stage: 'normal', level: 1 })
-    setEquipment(definitionLoadout(heroId))
+    setEquipment(definitionLoadout(heroId, metaSave))
   }
 
   const handleUpgradeRequest = (heroId: string) => {
     const nowMs = Date.now()
-    if (!canUpgrade(progression, nowMs, featureFlags.upgradeCooldownEnabled)) return
-    const next = upgradeLevel(progression, nowMs, 3000, featureFlags.upgradeCooldownEnabled)
-    battleBridge.refreshPlacedHeroStats(heroId)
-    setProgression(next)
+    const current = heroMetaRuntime.getSnapshot()
+    try {
+      heroMetaRuntime.upgradeLevel(heroId, { expectedRevision: current.revision, idempotencyKey: `ui/hero/upgrade/${heroId}/${crypto.randomUUID()}`, committedAtMs: nowMs })
+    } catch (error) { setEconomyResult(error instanceof Error ? error.message : 'Nâng cấp thất bại') }
   }
 
   const handleAdvanceStageRequest = (heroId: string) => {
-    if (!canAdvanceStage(progression)) return
-    const next = advanceStage(progression)
-    battleBridge.refreshPlacedHeroStats(heroId)
-    setProgression(next)
+    const current = heroMetaRuntime.getSnapshot()
+    try {
+      heroMetaRuntime.evolve(heroId, { expectedRevision: current.revision, idempotencyKey: `ui/hero/evolve/${heroId}/${crypto.randomUUID()}`, committedAtMs: Date.now() })
+    } catch (error) { setEconomyResult(error instanceof Error ? error.message : 'Tiến hóa thất bại') }
   }
 
   const handleEquipRequest = (heroId: string, slot: EquipmentSlot, itemId: string) => {
@@ -179,6 +177,22 @@ export function App() {
     } catch (error) { setEconomyResult(error instanceof Error ? error.message : 'Dùng vật phẩm thất bại') }
   }
 
+  const handleRecruit = (count: 1 | 10) => {
+    const current = heroMetaRuntime.getSnapshot()
+    try {
+      const result = heroMetaRuntime.recruit(count, Math.random, { expectedRevision: current.revision, idempotencyKey: `ui/hero/recruit/${crypto.randomUUID()}`, committedAtMs: Date.now() })
+      setEconomyResult(`Chiêu mộ ${count}x: ${result.results.map(({ heroId, outcome }) => `${heroId} (${outcome})`).join(', ')}`)
+    } catch (error) { setEconomyResult(error instanceof Error ? error.message : 'Chiêu mộ thất bại') }
+  }
+
+  const handleAscendStar = (heroId: string) => {
+    const current = heroMetaRuntime.getSnapshot()
+    try {
+      heroMetaRuntime.ascendStar(heroId, { expectedRevision: current.revision, idempotencyKey: `ui/hero/star/${heroId}/${crypto.randomUUID()}`, committedAtMs: Date.now() })
+      setEconomyResult(`Đã tăng Sao cho ${heroDefinitions[heroId]?.name ?? heroId}.`)
+    } catch (error) { setEconomyResult(error instanceof Error ? error.message : 'Tăng Sao thất bại') }
+  }
+
   return (
     <main className="app-shell">
       {/* Top City Bar */}
@@ -209,7 +223,7 @@ export function App() {
             onUnequip={(slot) => handleInventoryOperation({ type: 'unequip', heroId: hudData.selectedHeroId, slot })}
             onMerge={(ingredientInstanceIds) => handleInventoryOperation({ type: 'merge', ingredientInstanceIds, resultInstanceId: `equipment:${crypto.randomUUID()}` })}
           />
-          <EconomyPanel save={metaSave} lastResult={economyResult} onGacha={handleGacha} onBuy={handleShopBuy} onUse={handleConsumableUse} />
+          <EconomyPanel save={metaSave} lastResult={economyResult} onGacha={handleGacha} onBuy={handleShopBuy} onUse={handleConsumableUse} selectedHeroId={hudData.selectedHeroId} onRecruit={handleRecruit} onAscendStar={handleAscendStar} />
         </>
       )}
 

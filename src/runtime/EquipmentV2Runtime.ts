@@ -3,7 +3,7 @@ import { resolveHeroEquipmentV2, type EquipmentV2Operation } from '../domain/equ
 import type { EquipmentV2Definition } from '../domain/equipment/EquipmentSystem'
 import { EQUIPMENT_STORAGE_KEY, type EquipmentSave } from '../domain/equipment/EquipmentStorage'
 import { LocalMetaRepository, type EquipmentV2TransactionCommit } from '../domain/meta/MetaRepository'
-import type { EquipmentInstance, HeroEquipmentLoadoutV2, MetaSaveV4 } from '../domain/meta/MetaState'
+import type { EquipmentInstance, HeroEquipmentLoadoutV2, MetaSave } from '../domain/meta/MetaState'
 import type { StorageLike } from '../domain/progression/ProgressionStorage'
 import type { BattleBridge } from '../game/bridge/BattleBridge'
 import { createRuntimeMetaRepository, ensureMetaRepositoryReady, publishCurrentMetaSnapshot } from './RewardRuntime'
@@ -62,9 +62,9 @@ export class EquipmentV2RuntimeController {
     private readonly definitions: Readonly<Record<string, EquipmentV2Definition>> = prototypeEquipmentV2Definitions,
   ) {}
 
-  getSnapshot(): MetaSaveV4 {
+  getSnapshot(): MetaSave {
     const current = this.repository.load()
-    if (current.status !== 'loaded') throw new Error('Equipment V2 runtime requires a current Meta V4 save')
+    if (current.status !== 'loaded') throw new Error('Equipment V2 runtime requires a current Meta V5 save')
     return current.save
   }
 

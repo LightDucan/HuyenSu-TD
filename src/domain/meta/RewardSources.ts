@@ -57,7 +57,7 @@ function commit(repository: LocalMetaRepository, source: RewardSourceResult['sou
   if (operations.length === 0) return { status: 'not-eligible', source, rewardKey }
   assertNonNegativeSafeInteger(committedAtMs, 'Reward commit timestamp')
   const current = repository.load()
-  if (current.status !== 'loaded') throw new Error('Reward source requires a current Meta V4 save')
+  if (current.status !== 'loaded') throw new Error('Reward source requires a current Meta V5 save')
   const result = repository.transactReward({ idempotencyKey: rewardKey, operations, receiptPolicy }, current.save.revision, committedAtMs)
   return { ...result, source, rewardKey }
 }
@@ -102,7 +102,7 @@ export class RewardSourceService {
     assertNonNegativeSafeInteger(input.cumulativeVisibleMs, 'Cumulative visible wall-clock duration')
     assertNonNegativeSafeInteger(input.cumulativeHiddenMs, 'Cumulative hidden wall-clock duration')
     const current = this.repository.load()
-    if (current.status !== 'loaded') throw new Error('Active play-time reward requires a current Meta V4 save')
+    if (current.status !== 'loaded') throw new Error('Active play-time reward requires a current Meta V5 save')
     const progress = current.save.data.activePlayTime
     if (input.cumulativeVisibleMs < progress.observedVisibleMs || input.cumulativeHiddenMs < progress.observedHiddenMs) {
       throw new Error('Active play-time cumulative duration cannot go backward')

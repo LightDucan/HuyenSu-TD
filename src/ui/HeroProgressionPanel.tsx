@@ -1,15 +1,12 @@
 import { useEffect, useState } from 'react'
 import { heroPassives, type PassiveDefinition } from '../data/passives/definitions'
 import {
-  advanceStage,
   canAdvanceStage,
   canUpgrade,
   MAX_HERO_LEVEL,
   type HeroProgression,
   type HeroStage,
-  upgradeLevel,
 } from '../domain/progression/ProgressionSystem'
-import { loadProgression } from '../domain/progression/ProgressionStorage'
 import { featureFlags } from '../config/features'
 
 export type UpgradeButtonState = 'ready' | 'cooldown' | 'max_level'
@@ -34,12 +31,6 @@ const STAGE_LABELS: Record<HeroStage, { name: string; title: string; order: numb
 const STAGES: readonly HeroStage[] = ['normal', 'rebirth', 'reincarnation', 'legendary']
 const UPGRADE_COOLDOWN_MS = 3000
 
-function initialProgression(heroId: string, stage: HeroStage, level: number, cooldownMs: number): HeroProgression {
-  const saved = typeof window === 'undefined' ? undefined : loadProgression(window.localStorage).heroes[heroId]
-  if (saved) return saved
-  return { stage, level, ...(featureFlags.upgradeCooldownEnabled && cooldownMs > 0 ? { upgradeReadyAt: Date.now() + cooldownMs } : {}) }
-}
-
 export function HeroProgressionPanel({
   heroId = 'quan-vu',
   heroName = 'Quan Vũ',
@@ -49,9 +40,7 @@ export function HeroProgressionPanel({
   onUpgrade,
   onAdvanceStage,
 }: HeroProgressionPanelProps) {
-  const [progression, setProgression] = useState<HeroProgression>(() =>
-    initialProgression(heroId, initialStage, initialLevel, initialCooldownMs),
-  )
+  const progression: HeroProgression = { stage: initialStage, level: initialLevel, ...(featureFlags.upgradeCooldownEnabled && initialCooldownMs > 0 ? { upgradeReadyAt: Date.now() + initialCooldownMs } : {}) }
   const [currentTimeMs, setCurrentTimeMs] = useState(() => Date.now())
 
   const passive: PassiveDefinition = heroPassives[heroId] ?? {
@@ -81,17 +70,14 @@ export function HeroProgressionPanel({
   const handleUpgradeClick = () => {
     const nowMs = Date.now()
     if (!canUpgrade(progression, nowMs, featureFlags.upgradeCooldownEnabled)) return
-    const next = upgradeLevel(progression, nowMs, UPGRADE_COOLDOWN_MS, featureFlags.upgradeCooldownEnabled)
-    setProgression(next)
     setCurrentTimeMs(nowMs)
-    onUpgrade?.(next.level)
+    onUpgrade?.(progression.level + 1)
   }
 
   const handleAdvanceStage = () => {
     if (!canAdvanceStage(progression)) return
-    const next = advanceStage(progression)
-    setProgression(next)
-    onAdvanceStage?.(next.stage)
+    const nextStage = progression.stage === 'normal' ? 'rebirth' : progression.stage === 'rebirth' ? 'reincarnation' : 'legendary'
+    onAdvanceStage?.(nextStage)
   }
 
   const cooldownSeconds = (cooldownRemainingMs / 1000).toFixed(1)

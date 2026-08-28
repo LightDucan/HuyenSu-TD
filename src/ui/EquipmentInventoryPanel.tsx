@@ -1,9 +1,9 @@
 import { EQUIPMENT_MAX_LEVEL, resolveEquipmentInstanceModifiers } from '../domain/equipment/EquipmentV2'
 import type { EquipmentSlot, EquipmentV2Definition } from '../domain/equipment/EquipmentSystem'
-import type { MetaSaveV4 } from '../domain/meta/MetaState'
+import type { MetaSave } from '../domain/meta/MetaState'
 
 export interface EquipmentInventoryPanelProps {
-  save: MetaSaveV4
+  save: MetaSave
   selectedHeroId: string
   definitions: Readonly<Record<string, EquipmentV2Definition>>
   onEquip: (instanceId: string) => void
@@ -51,7 +51,7 @@ export function EquipmentInventoryPanel({
           <h2>Hành Trang</h2>
           <p>Hero đang chọn: {selectedHeroId}. Mỗi Hero dùng tối đa 1 Vũ Khí và 1 Ngọc.</p>
         </div>
-        <span>Meta V4 · {instances.length} trang bị</span>
+        <span>Meta V5 · {instances.length} trang bị</span>
       </div>
       {instances.length === 0 ? (
         <p className="equipment-v2-empty">Chưa có Equipment instance. Trang bị legacy hợp lệ sẽ được import tự động.</p>

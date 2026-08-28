@@ -1,4 +1,4 @@
-import type { EquipmentInstance, HeroEquipmentLoadoutV2, MetaStateV4 } from '../meta/MetaState'
+import type { EquipmentInstance, HeroEquipmentLoadoutV2, MetaState } from '../meta/MetaState'
 import type { StatModifier } from '../progression/StatCalculator'
 import type { EquipmentSlot, EquipmentV2Definition } from './EquipmentSystem'
 
@@ -22,8 +22,8 @@ export type EquipmentV2TransactionRequest = Readonly<{
 }>
 
 export type EquipmentV2TransactionResult =
-  | Readonly<{ status: 'applied'; state: MetaStateV4; affectedHeroIds: readonly string[] }>
-  | Readonly<{ status: 'already-applied'; state: MetaStateV4; affectedHeroIds: readonly string[] }>
+  | Readonly<{ status: 'applied'; state: MetaState; affectedHeroIds: readonly string[] }>
+  | Readonly<{ status: 'already-applied'; state: MetaState; affectedHeroIds: readonly string[] }>
 
 function assertId(value: string, label: string): void {
   if (value.trim().length === 0) throw new Error(`${label} must not be empty`)
@@ -89,7 +89,7 @@ export function resolveEquipmentInstanceModifiers(
 }
 
 export function resolveHeroEquipmentV2(
-  state: MetaStateV4,
+  state: MetaState,
   heroId: string,
   definitions: Readonly<Record<string, EquipmentV2Definition>>,
 ): Readonly<{ loadout: HeroEquipmentLoadoutV2; weapon: StatModifier; gem: StatModifier }> {
@@ -116,7 +116,7 @@ function affectedHeroes(operation: EquipmentV2Operation): readonly string[] {
 }
 
 export function applyEquipmentV2Transaction(
-  state: MetaStateV4,
+  state: MetaState,
   request: EquipmentV2TransactionRequest,
   definitions: Readonly<Record<string, EquipmentV2Definition>>,
   committedAtMs: number,

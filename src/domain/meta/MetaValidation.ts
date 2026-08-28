@@ -1,5 +1,6 @@
 import {
   META_SAVE_SCHEMA_VERSION,
+  META_SAVE_SCHEMA_VERSION_V4,
   META_SAVE_SCHEMA_VERSION_V1,
   META_SAVE_SCHEMA_VERSION_V2,
   META_SAVE_SCHEMA_VERSION_V3,
@@ -10,10 +11,12 @@ import {
   type MetaSaveV1,
   type MetaSaveV2,
   type MetaSaveV3,
+  type MetaSave,
   type MetaSaveV4,
   type MetaStateV1,
   type MetaStateV2,
   type MetaStateV3,
+  type MetaState,
   type MetaStateV4,
   type ActivePlayTimeProgress,
   type PlayerProfile,
@@ -177,12 +180,37 @@ export function validateMetaStateV3(value: unknown): ValidationResult<MetaStateV
   return issues.length === 0 ? { ok: true, value: value as MetaStateV3 } : { ok: false, issues }
 }
 
-export function validateMetaState(value: unknown): ValidationResult<MetaStateV4> {
+export function validateMetaStateV4(value: unknown): ValidationResult<MetaStateV4> {
   if (!isRecord(value)) return { ok: false, issues: ['meta state must be an object'] }
   const issues: string[] = []
   validateExactKeys(value, ['profile', 'wallet', 'inventory', 'commandEnergy', 'rewardReceipts', 'activePlayTime'], 'meta state', issues)
   validateProfile(value.profile, issues); validateWallet(value.wallet, issues); validateInventory(value.inventory, issues); validateCommandEnergy(value.commandEnergy, issues); validateRewardReceipts(value.rewardReceipts, issues); validateActivePlayTime(value.activePlayTime, issues)
   return issues.length === 0 ? { ok: true, value: value as MetaStateV4 } : { ok: false, issues }
+}
+
+function validateHeroCollection(value: unknown, issues: string[]): void {
+  if (!isRecord(value)) { issues.push('heroCollection must be an object'); return }
+  Object.entries(value).forEach(([heroId, hero]) => {
+    if (heroId.trim().length === 0 || !isRecord(hero)) { issues.push(`invalid heroCollection entry: ${heroId}`); return }
+    const allowed = ['heroId', 'stars', 'progression']
+    if (Object.keys(hero).some((key) => !allowed.includes(key)) || Object.keys(hero).length !== allowed.length) issues.push(`heroCollection.${heroId} contains unknown or missing fields`)
+    if (hero.heroId !== heroId) issues.push(`heroCollection.${heroId}.heroId must match its key`)
+    if (![1, 2, 3, 4, 5].includes(hero.stars as number)) issues.push(`heroCollection.${heroId}.stars must be 1..5`)
+    if (!isRecord(hero.progression)) { issues.push(`heroCollection.${heroId}.progression must be an object`); return }
+    const progressionKeys = Object.keys(hero.progression)
+    if (progressionKeys.some((key) => key !== 'stage' && key !== 'level' && key !== 'upgradeReadyAt')) issues.push(`heroCollection.${heroId}.progression contains unknown fields`)
+    if (!['normal', 'rebirth', 'reincarnation', 'legendary'].includes(hero.progression.stage as string)) issues.push(`heroCollection.${heroId}.progression.stage is invalid`)
+    if (!isNonNegativeSafeInteger(hero.progression.level) || hero.progression.level < 1 || hero.progression.level > 100) issues.push(`heroCollection.${heroId}.progression.level must be 1..100`)
+    if (hero.progression.upgradeReadyAt !== undefined && !isNonNegativeSafeInteger(hero.progression.upgradeReadyAt)) issues.push(`heroCollection.${heroId}.progression.upgradeReadyAt is invalid`)
+  })
+}
+
+export function validateMetaState(value: unknown): ValidationResult<MetaState> {
+  if (!isRecord(value)) return { ok: false, issues: ['meta state must be an object'] }
+  const issues: string[] = []
+  validateExactKeys(value, ['profile', 'wallet', 'inventory', 'commandEnergy', 'rewardReceipts', 'activePlayTime', 'heroCollection'], 'meta state', issues)
+  validateProfile(value.profile, issues); validateWallet(value.wallet, issues); validateInventory(value.inventory, issues); validateCommandEnergy(value.commandEnergy, issues); validateRewardReceipts(value.rewardReceipts, issues); validateActivePlayTime(value.activePlayTime, issues); validateHeroCollection(value.heroCollection, issues)
+  return issues.length === 0 ? { ok: true, value: value as MetaState } : { ok: false, issues }
 }
 
 function validateEnvelope(value: unknown, version: number, issues: string[]): value is UnknownRecord {
@@ -218,12 +246,20 @@ export function validateMetaSaveV3(value: unknown): ValidationResult<MetaSaveV3>
   return issues.length === 0 ? { ok: true, value: value as MetaSaveV3 } : { ok: false, issues }
 }
 
-export function validateMetaSave(value: unknown): ValidationResult<MetaSaveV4> {
+export function validateMetaSaveV4(value: unknown): ValidationResult<MetaSaveV4> {
+  const issues: string[] = []
+  if (!validateEnvelope(value, META_SAVE_SCHEMA_VERSION_V4, issues)) return { ok: false, issues }
+  const state = validateMetaStateV4(value.data)
+  if (!state.ok) issues.push(...state.issues)
+  return issues.length === 0 ? { ok: true, value: value as MetaSaveV4 } : { ok: false, issues }
+}
+
+export function validateMetaSave(value: unknown): ValidationResult<MetaSave> {
   const issues: string[] = []
   if (!validateEnvelope(value, META_SAVE_SCHEMA_VERSION, issues)) return { ok: false, issues }
   const state = validateMetaState(value.data)
   if (!state.ok) issues.push(...state.issues)
-  return issues.length === 0 ? { ok: true, value: value as MetaSaveV4 } : { ok: false, issues }
+  return issues.length === 0 ? { ok: true, value: value as MetaSave } : { ok: false, issues }
 }
 
 export function readSchemaVersion(value: unknown): number | undefined {

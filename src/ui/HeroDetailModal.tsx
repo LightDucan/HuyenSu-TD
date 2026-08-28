@@ -14,7 +14,6 @@ import {
   type HeroEquipment,
 } from '../domain/equipment/EquipmentSystem'
 import { calculateHeroLoadoutStats } from '../domain/equipment/HeroLoadout'
-import { loadProgression } from '../domain/progression/ProgressionStorage'
 import {
   canAdvanceStage,
   canUpgrade,
@@ -45,11 +44,6 @@ const STAGE_LABELS: Record<HeroStage, { name: string; title: string; order: numb
 
 const STAGES: readonly HeroStage[] = ['normal', 'rebirth', 'reincarnation', 'legendary']
 
-function readSavedProgression(heroId: string): HeroProgression {
-  if (typeof window === 'undefined') return { stage: 'normal', level: 1 }
-  return loadProgression(window.localStorage).heroes[heroId] ?? { stage: 'normal', level: 1 }
-}
-
 function readSavedEquipment(heroId: string): HeroEquipment {
   if (typeof window === 'undefined') return {}
   return loadEquipment(window.localStorage).heroes[heroId] ?? {}
@@ -66,27 +60,21 @@ export function HeroDetailModal({
   onEquipRequest,
   onUnequipRequest,
 }: HeroDetailModalProps) {
-  const [localProgression, setLocalProgression] = useState<HeroProgression>(() =>
-    readSavedProgression(heroId),
-  )
   const [localEquipment, setLocalEquipment] = useState<HeroEquipment>(() =>
     readSavedEquipment(heroId),
   )
   const [currentTimeMs, setCurrentTimeMs] = useState(() => Date.now())
   const [pickingSlot, setPickingSlot] = useState<EquipmentSlot | null>(null)
 
-  // Re-read storage snapshots when modal opens if not provided via props
+  // Equipment has a legacy display fallback; progression is always supplied by Meta V5 in production.
   useEffect(() => {
     if (!isOpen) return
-    if (!propProgression) {
-      setLocalProgression(readSavedProgression(heroId))
-    }
     if (!propEquipment) {
       setLocalEquipment(readSavedEquipment(heroId))
     }
-  }, [isOpen, heroId, propProgression, propEquipment])
+  }, [isOpen, heroId, propEquipment])
 
-  const activeProgression = propProgression ?? localProgression
+  const activeProgression = propProgression ?? { stage: 'normal', level: 1 }
   const activeEquipment = propEquipment ?? localEquipment
 
   // Timer for cooldown display

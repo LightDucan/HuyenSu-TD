@@ -16,6 +16,24 @@ export type HeroRecruitmentState = Readonly<{
 export const CHIEU_HIEN_LENH_ID = 'item_chieu_hien_lenh' as const
 export const ANH_HON_ID = 'anh-hon' as const
 export const DUPLICATE_SHARD_QUANTITY = 10 as const
+export const PROTOTYPE_OWNED_HERO_IDS = ['quan-vu', 'trieu-van', 'truong-phi', 'hoang-trung', 'gia-cat-luong'] as const
+
+export function createPrototypeHeroCollection(): HeroCollection {
+  return Object.fromEntries(PROTOTYPE_OWNED_HERO_IDS.map((heroId) => [heroId, {
+    heroId,
+    stars: 1 as const,
+    progression: { stage: 'normal' as const, level: 1 },
+  }]))
+}
+
+export function selectPlayableOwnedHeroIds(heroCollection: HeroCollection, availableHeroIds: readonly string[]): readonly string[] {
+  const available = new Set(availableHeroIds)
+  return Object.keys(heroCollection).filter((heroId) => available.has(heroId))
+}
+
+export function isHeroOwned(heroCollection: HeroCollection, heroId: string): boolean {
+  return heroCollection[heroId] !== undefined
+}
 
 export type RecruitmentPoolEntry = Readonly<{ heroId: string; weight: number }>
 export type RecruitmentConfig = Readonly<{

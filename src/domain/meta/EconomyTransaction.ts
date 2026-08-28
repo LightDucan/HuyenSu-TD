@@ -2,7 +2,7 @@ import { validateEquipmentInstance } from '../equipment/EquipmentV2'
 import type { EquipmentV2Definition } from '../equipment/EquipmentSystem'
 import { selectDeploymentCapacity } from './DeploymentCapacity'
 import { grantCommandEnergy } from './CommandEnergy'
-import type { CurrencyId, EquipmentInstance, MetaStateV4 } from './MetaState'
+import type { CurrencyId, EquipmentInstance, MetaState } from './MetaState'
 
 export type EconomyOperation =
   | Readonly<{ type: 'grant-currency'; currency: CurrencyId; amount: number }>
@@ -20,8 +20,8 @@ export type EconomyTransactionRequest = Readonly<{
 }>
 
 export type EconomyTransactionResult =
-  | Readonly<{ status: 'applied'; state: MetaStateV4 }>
-  | Readonly<{ status: 'already-applied'; state: MetaStateV4 }>
+  | Readonly<{ status: 'applied'; state: MetaState }>
+  | Readonly<{ status: 'already-applied'; state: MetaState }>
 
 function assertPositiveSafeInteger(value: number, label: string): void {
   if (!Number.isSafeInteger(value) || value <= 0) throw new Error(`${label} must be a positive safe integer`)
@@ -34,7 +34,7 @@ function addSafe(current: number, delta: number, label: string): number {
 }
 
 export function applyEconomyTransaction(
-  state: MetaStateV4,
+  state: MetaState,
   request: EconomyTransactionRequest,
   definitions: Readonly<Record<string, EquipmentV2Definition>>,
   committedAtMs: number,

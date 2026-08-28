@@ -8,7 +8,6 @@ import { GameClock } from '../../domain/clock/GameClock'
 import { CombatController } from '../../domain/combat/CombatController'
 import type { CombatEnemy, Vector2 } from '../../domain/combat/types'
 import { calculateHeroLoadoutStatsV2 } from '../../domain/equipment/HeroLoadout'
-import { loadProgression } from '../../domain/progression/ProgressionStorage'
 import { WaveManager } from '../../domain/waves/WaveManager'
 import { skillDefinitions } from '../../data/skills/definitions'
 import { resolveSkill } from '../../domain/skills/SkillResolver'
@@ -18,6 +17,7 @@ import { createBattleRunId } from '../runtime/BattleRunIdentity'
 import { refreshPlacedHeroRuntimeStats } from '../runtime/PlacedHeroRuntimeStats'
 import { getBrowserEquipmentV2Runtime } from '../../runtime/EquipmentV2Runtime'
 import { prototypeEquipmentV2Definitions } from '../../data/equipment/definitions'
+import { isHeroOwned } from '../../domain/meta/HeroRecruitment'
 
 type EnemyVisual = { state: CombatEnemy; definitionId: string; body: Phaser.GameObjects.Arc; hpBar: Phaser.GameObjects.Rectangle }
 type PlacementTileRuntime = { id: string; center: Vector2; marker: Phaser.GameObjects.Rectangle }
@@ -239,7 +239,10 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private placeOrMoveSelectedHero(slotId: string): void {
-    const definition = heroDefinitions[battleBridge.getSelectedHeroId()] ?? quanVu
+    const selectedHeroId = battleBridge.getSelectedHeroId()
+    const metaState = getBrowserEquipmentV2Runtime().getSnapshot().data
+    if (!isHeroOwned(metaState.heroCollection, selectedHeroId)) return
+    const definition = heroDefinitions[selectedHeroId] ?? quanVu
     const tile = this.placementTiles.get(slotId)
     if (!tile) return
 
@@ -267,8 +270,8 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private createHeroRuntime(definition: HeroDefinition, position: Vector2, slotId: string): PlacedHeroRuntime {
-    const progression = loadProgression(window.localStorage).heroes[definition.id] ?? { stage: 'normal', level: 1 }
     const equipmentState = getBrowserEquipmentV2Runtime().getSnapshot().data
+    const progression = equipmentState.heroCollection[definition.id]?.progression ?? { stage: 'normal', level: 1 }
     const stats = calculateHeroLoadoutStatsV2(definition.baseStats, progression, equipmentState, definition.id, prototypeEquipmentV2Definitions)
     const rangeVisual = this.add.circle(position.x, position.y, stats.range, 0x38bdf8, 0.08).setStrokeStyle(2, 0x7dd3fc, 0.5)
     const visualAsset = resolvePrototypeHeroVisual(definition.id)
@@ -301,8 +304,8 @@ export class BattleScene extends Phaser.Scene {
 
   private refreshHeroRuntimeStats(heroId: string): void {
     const refreshed = refreshPlacedHeroRuntimeStats(this.placedHeroes.get(heroId), (hero) => {
-      const progression = loadProgression(window.localStorage).heroes[heroId] ?? { stage: 'normal', level: 1 }
       const equipmentState = getBrowserEquipmentV2Runtime().getSnapshot().data
+      const progression = equipmentState.heroCollection[heroId]?.progression ?? { stage: 'normal', level: 1 }
       return calculateHeroLoadoutStatsV2(hero.definition.baseStats, progression, equipmentState, heroId, prototypeEquipmentV2Definitions)
     })
     if (refreshed) this.emitSnapshot()

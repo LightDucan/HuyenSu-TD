@@ -3,7 +3,7 @@ import type { EnemyCategory } from '../../data/enemies/definitions'
 import type { HeroPlacement } from '../../domain/placement/HeroPlacementRegistry'
 import type { WaveStatus } from '../../domain/waves/WaveManager'
 import type { DeploymentCapacityProjection } from '../../domain/meta/DeploymentCapacity'
-import { BASE_DEPLOYMENT_CAPACITY, type MetaSaveV4 } from '../../domain/meta/MetaState'
+import { BASE_DEPLOYMENT_CAPACITY, type MetaSave } from '../../domain/meta/MetaState'
 
 export type BattleSnapshot = Readonly<{
   runId: string
@@ -35,7 +35,7 @@ export type WaveStartDecision = Readonly<{
 }>
 export type CommandEnergySnapshot = Readonly<{ current: number; cap: number }>
 export type DeploymentCapacitySnapshot = DeploymentCapacityProjection
-export type MetaSnapshot = MetaSaveV4
+export type MetaSnapshot = MetaSave
 export type PlacementFeedback =
   | Readonly<{ status: 'placed'; heroId: string }>
   | Readonly<{ status: 'rejected'; heroId: string; reason: 'capacity-reached'; effectiveLimit: number }>

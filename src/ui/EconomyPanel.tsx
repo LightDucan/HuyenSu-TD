@@ -1,13 +1,16 @@
 import { prototypeGoldGachaConfig, prototypeKnbShopConfig } from '../data/economy/prototypeEconomyConfig'
 import { commandEnergyItemValues, CONSUMABLE_ITEM_IDS } from '../data/items/definitions'
-import type { MetaSaveV4 } from '../domain/meta/MetaState'
+import type { MetaSave } from '../domain/meta/MetaState'
 
 export interface EconomyPanelProps {
-  save: MetaSaveV4
+  save: MetaSave
   lastResult?: string
   onGacha: (count: 1 | 10) => void
   onBuy: (itemId: string) => void
   onUse: (itemId: string, quantity: number) => void
+  selectedHeroId: string
+  onRecruit: (count: 1 | 10) => void
+  onAscendStar: (heroId: string) => void
 }
 
 const ITEM_NAMES: Readonly<Record<string, string>> = {
@@ -18,8 +21,9 @@ const ITEM_NAMES: Readonly<Record<string, string>> = {
   [CONSUMABLE_ITEM_IDS.summonOrder]: 'Lệnh Hiệu Triệu (+1 capacity vĩnh viễn)',
 }
 
-export function EconomyPanel({ save, lastResult, onGacha, onBuy, onUse }: EconomyPanelProps) {
+export function EconomyPanel({ save, lastResult, onGacha, onBuy, onUse, selectedHeroId, onRecruit, onAscendStar }: EconomyPanelProps) {
   const consumables = Object.entries(save.data.inventory.consumables).filter(([, quantity]) => quantity > 0)
+  const selectedHero = save.data.heroCollection[selectedHeroId]
   return (
     <section className="economy-panel" aria-label="Gacha Gold, KNB Shop và vật phẩm tiêu hao">
       <div className="economy-wallet">
@@ -55,6 +59,15 @@ export function EconomyPanel({ save, lastResult, onGacha, onBuy, onUse }: Econom
               </div>
             )
           })}
+        </article>
+        <article>
+          <h3>Chiêu Mộ & Sao</h3>
+          <p>Chiêu Hiền Lệnh: {save.data.inventory.consumables[CONSUMABLE_ITEM_IDS.recruitmentDecree] ?? 0}</p>
+          <button type="button" onClick={() => onRecruit(1)}>Chiêu mộ 1</button>
+          <button type="button" onClick={() => onRecruit(10)}>Chiêu mộ 10</button>
+          {selectedHero && <p>{selectedHeroId}: {selectedHero.stars}★ · Mảnh: {save.data.inventory.consumables[`shard_hero_${selectedHeroId}`] ?? 0}</p>}
+          {selectedHero && selectedHero.stars < 5 && <button type="button" onClick={() => onAscendStar(selectedHeroId)}>Tăng Sao</button>}
+          <p>Anh Hồn: {save.data.inventory.consumables['anh-hon'] ?? 0}</p>
         </article>
       </div>
       {lastResult && <p className="economy-result" role="status">{lastResult}</p>}

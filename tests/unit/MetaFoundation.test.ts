@@ -35,7 +35,7 @@ describe('P11-C01 Reward Transaction Core', () => {
         { type: 'grant-consumable', itemId: 'tieu-binh-phu', quantity: 2 },
       ],
     }, 1, 2_000)
-    expect(result).toMatchObject({ status: 'applied', save: { schemaVersion: 4, revision: 2 } })
+    expect(result).toMatchObject({ status: 'applied', save: { schemaVersion: 5, revision: 2 } })
     expect(result.save.data.wallet.balances).toEqual({ gold: 50, knb: 3 })
     expect(result.save.data.inventory.consumables).toEqual({ 'tieu-binh-phu': 2 })
     expect(result.save.data.rewardReceipts['reward/chapter-1']).toMatchObject({ committedAtMs: 2_000 })
@@ -89,8 +89,8 @@ describe('P11-C01 Reward Transaction Core', () => {
     const repository = new LocalMetaRepository(valid.storage)
     expect(repository.load()).toEqual({ status: 'migration-required', raw: validV1, sourceVersion: 1 })
     const migrated = repository.migrateV1(4)
-    expect(migrated).toMatchObject({ schemaVersion: 4, revision: 4, updatedAtMs: 1_000, data: { inventory: { unresolvedLegacyEquipmentInstanceIds: ['legacy-placeholder'] }, rewardReceipts: {}, activePlayTime: { observedVisibleMs: 0, observedHiddenMs: 0, remainderEligibleMs: 0 } } })
-    expect(repository.load()).toMatchObject({ status: 'loaded', save: { schemaVersion: 4, revision: 4 } })
+    expect(migrated).toMatchObject({ schemaVersion: 5, revision: 4, updatedAtMs: 1_000, data: { inventory: { unresolvedLegacyEquipmentInstanceIds: ['legacy-placeholder'] }, rewardReceipts: {}, activePlayTime: { observedVisibleMs: 0, observedHiddenMs: 0, remainderEligibleMs: 0 }, heroCollection: expect.any(Object) } })
+    expect(repository.load()).toMatchObject({ status: 'loaded', save: { schemaVersion: 5, revision: 4 } })
 
     const invalidV1 = JSON.stringify({ schemaVersion: 1, revision: 1, updatedAtMs: 1_000, data: { wallet: { balances: { gold: 0, knb: 0 } } } })
     const invalid = memoryStorage(invalidV1)
@@ -106,7 +106,7 @@ describe('P11-C01 Reward Transaction Core', () => {
     const validV2 = JSON.stringify({ schemaVersion: 2, revision: 7, updatedAtMs: 2_000, data: v2Data })
     const valid = memoryStorage(validV2)
     const migrated = new LocalMetaRepository(valid.storage).migrateV2(7)
-    expect(migrated).toMatchObject({ schemaVersion: 4, revision: 7, updatedAtMs: 2_000, data: { inventory: { equipmentInstances: {}, equippedByHero: {} }, activePlayTime: { observedVisibleMs: 0, observedHiddenMs: 0, remainderEligibleMs: 0 } } })
+    expect(migrated).toMatchObject({ schemaVersion: 5, revision: 7, updatedAtMs: 2_000, data: { inventory: { equipmentInstances: {}, equippedByHero: {} }, activePlayTime: { observedVisibleMs: 0, observedHiddenMs: 0, remainderEligibleMs: 0 }, heroCollection: expect.any(Object) } })
 
     const invalidV2 = JSON.stringify({ schemaVersion: 2, revision: 7, updatedAtMs: 2_000, data: { ...v2Data, rewardReceipts: null } })
     const invalid = memoryStorage(invalidV2)
@@ -127,7 +127,7 @@ describe('P11-C01 Reward Transaction Core', () => {
     const validV3 = JSON.stringify({ schemaVersion: 3, revision: 8, updatedAtMs: 2_000, data: v3Data })
     const valid = memoryStorage(validV3)
     expect(new LocalMetaRepository(valid.storage).migrateV3(8)).toMatchObject({
-      schemaVersion: 4,
+      schemaVersion: 5,
       revision: 8,
       data: { inventory: { unresolvedLegacyEquipmentInstanceIds: ['unresolved-existing-id'] } },
     })

@@ -13,7 +13,7 @@ export class DeploymentCapacityRuntimeController {
 
   refresh(): DeploymentCapacityProjection {
     const current = this.repository.load()
-    if (current.status !== 'loaded') throw new Error('Deployment Capacity runtime requires a current Meta V4 save')
+    if (current.status !== 'loaded') throw new Error('Deployment Capacity runtime requires a current Meta V5 save')
     const projection = selectEffectiveDeploymentCapacity(current.save.data.profile, this.mapTileCount)
     this.bridge.emitDeploymentCapacitySnapshot(projection)
     return projection

@@ -51,7 +51,7 @@ export class GoldGachaService {
   pull(count: 1 | 10, expectedRevision: number, idempotencyKey: string, nowMs: number): GoldGachaPullResult {
     if (count !== 1 && count !== 10) throw new Error('Gacha pull count must be 1 or 10')
     const current = this.repository.load()
-    if (current.status !== 'loaded') throw new Error('Gold Gacha requires a current Meta V4 save')
+    if (current.status !== 'loaded') throw new Error('Gold Gacha requires a current Meta V5 save')
     if (current.save.revision !== expectedRevision) throw new Error(`Meta save revision conflict: expected ${expectedRevision}, actual ${current.save.revision}`)
     const receiptFingerprint = JSON.stringify({ type: 'gold-gacha', count })
     const priorReceipt = current.save.data.rewardReceipts[idempotencyKey]

@@ -16,9 +16,9 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 ## Trạng thái hiện tại
 
 - Current Phase: **POST-MERGE PLAYABLE QA**
-- Current Codex task: **QA-C01 DONE — waiting audit** — branch `codex/qa-c01-post-merge-playable`.
+- Current Codex task: **QA-C01A DONE — waiting audit** — branch `codex/qa-c01-post-merge-playable`.
 - Current Antigravity task: **VS-NDPL-00 — 939–1009 Research — IN PROGRESS** — branch `antigravity/vs-ndpl-00-939-1009-research` @ `5686d7f`.
-- Lần kiểm tra gần nhất: QA-C01 — 23 test files/173 tests, production build, preview HTTP 200 và diff-check PASS. Không mở P19/Vietnam migration.
+- Lần kiểm tra gần nhất: QA-C01A — 23 test files/173 tests, production build, preview HTTP 200, interactive smoke recorded, diff-check PASS. Không mở P19/Vietnam migration.
 
 ## Phases và checkpoint
 

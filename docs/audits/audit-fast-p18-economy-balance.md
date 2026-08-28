@@ -21,17 +21,17 @@ Casual/Regular/Active use 30/60/120 minutes per day. Wave timing is derived from
 
 ## Actual seeded matrix (seed 1)
 
-| Scenario | Gold E/S/R | KNB E/S/R | Waves | Gacha / Recruit | Weapon/Gem max | Anh Hồn E/S |
+| Scenario | Gold E/S/R | KNB E/S/R | Waves planned/started/blocked | Gacha / Recruit | Weapon/Gem max | Anh Hồn E/S |
 |---|---:|---:|---:|---:|---:|---:|
-| Casual 1d | 260/200/60 | 31/30/1 | 15 | 2/3 | 0/0 | 10/0 |
-| Casual 7d | 1740/1600/140 | 220/220/0 | 105 | 16/22 | 2/2 | 103/0 |
-| Casual 30d | 7560/6900/660 | 945/940/5 | 450 | 69/94 | 3/3 | 465/300 |
-| Regular 1d | 500/400/100 | 63/60/3 | 30 | 4/6 | 1/1 | 31/0 |
-| Regular 7d | 3540/3200/340 | 441/440/1 | 210 | 32/44 | 2/2 | 217/0 |
-| Regular 30d | 14860/13800/1060 | 1890/1890/0 | 900 | 138/189 | 4/4 | 930/300 |
-| Active 1d | 1020/900/120 | 126/120/6 | 60 | 9/12 | 1/1 | 62/0 |
-| Active 7d | 7060/6400/660 | 882/880/2 | 420 | 64/88 | 3/3 | 434/0 |
-| Active 30d | 29820/27600/2220 | 3780/3780/0 | 1800 | 276/378 | 5/4 | 1860/300 |
+| Casual 1d | 255/200/55 | 31/30/1 | 15/15/0 | 2/2 | 0/0 | 10/0 |
+| Casual 7d | 1705/1700/5 | 220/220/0 | 105/105/0 | 17/17 | 2/2 | 100/0 |
+| Casual 30d | 7430/7400/30 | 945/940/5 | 450/450/0 | 74/74 | 3/3 | 450/100 |
+| Regular 1d | 490/400/90 | 63/60/3 | 30/30/0 | 4/4 | 1/1 | 30/0 |
+| Regular 7d | 3490/3400/90 | 441/440/1 | 210/210/0 | 34/34 | 2/2 | 210/0 |
+| Regular 30d | 14620/14600/20 | 1890/1890/0 | 900/900/0 | 146/146 | 4/4 | 900/100 |
+| Active 1d | 1000/1000/0 | 126/120/6 | 60/60/0 | 10/10 | 2/1 | 60/0 |
+| Active 7d | 6960/6900/60 | 882/880/2 | 420/420/0 | 69/69 | 3/3 | 420/0 |
+| Active 30d | 29300/29300/0 | 3780/3780/0 | 1800/1800/0 | 293/293 | 5/4 | 1800/100 |
 
 E/S/R = earned / spent / remaining. Weapon/Gem max is the highest merged level. All balances are non-negative; wallet contains only Gold and KNB.
 

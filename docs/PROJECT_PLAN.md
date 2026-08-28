@@ -18,7 +18,7 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 - Current Phase: **18 — Economy Simulation & Balance**
 - Current Codex task: **FAST-06 DONE — waiting FINAL Integration Audit** — branch `codex/fast-p18-final-balance`.
 - Current Antigravity task: **VS-NDPL-00 — 939–1009 Research — IN PROGRESS** — branch `antigravity/vs-ndpl-00-939-1009-research` @ `5686d7f`.
-- Lần kiểm tra gần nhất: FAST-06B Final Simulation Ordering — 23 files/171 tests, production build, preview HTTP 200 và diff-check PASS. Không merge FAST branches vào main.
+- Lần kiểm tra gần nhất: FAST-06C Final Audit Artifact Sync — 23 files/173 tests, production build, preview HTTP 200 và diff-check PASS. Không merge FAST branches vào main.
 
 ## Phases và checkpoint
 

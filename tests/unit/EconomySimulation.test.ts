@@ -79,4 +79,16 @@ describe('Phase 18 Balance V1 simulation', () => {
     expect(result.wavesStarted).toBeGreaterThan(0)
     expect(result.goldEarnedFromGameplay).toBeLessThan(result.waves * 10 + result.waves * config.rewardSources.stageClear.prototypeStage.gold)
   })
+  it('limits default 30-day readiness to one evolution transition', () => {
+    const result = simulateEconomy('active', 30, 1)
+    expect(balanceV1.simulation.level100Readiness.daysPerStage).toBe(30)
+    expect(result.anhHonSpent).toBe(100)
+    expect(result.evolutionProgress).toBe('stage-1')
+  })
+  it('allows exactly three sequential transitions with five-day readiness', () => {
+    const config = { ...balanceV1, simulation: { ...balanceV1.simulation, level100Readiness: { daysPerStage: 5 } }, rewardSources: { ...balanceV1.rewardSources, stageClear: { prototypeStage: { ...balanceV1.rewardSources.stageClear.prototypeStage, anhHon: 1000 } } } }
+    const result = simulateEconomy('active', 30, 1, config)
+    expect(result.anhHonSpent).toBe(850)
+    expect(result.evolutionProgress).toBe('stage-3')
+  })
 })

@@ -24,7 +24,7 @@ export const balanceV1 = {
       'swift-jade': { slot: 'gem', levels: { 1: { attackSpeed: 0.15 }, 2: { attackSpeed: 0.18 }, 3: { attackSpeed: 0.21 }, 4: { attackSpeed: 0.24 }, 5: { attackSpeed: 0.27 }, 6: { attackSpeed: 0.3 }, 7: { attackSpeed: 0.33 }, 8: { attackSpeed: 0.36 }, 9: { attackSpeed: 0.39 }, 10: { attackSpeed: 0.45 } } },
     },
   },
-  simulation: { minutesPerDay: { casual: 30, regular: 60, active: 120 }, enemiesPerWave: 10, wavesPerHour: 30, startingHeroIds: [] as readonly string[] },
+  simulation: { minutesPerDay: { casual: 30, regular: 60, active: 120 }, wavesPerHour: 30, enemiesPerWave: 10, level100Readiness: { daysPerStage: 30 }, startingHeroIds: [] as readonly string[] },
   items: { chieuHienLenh: CONSUMABLE_ITEM_IDS.recruitmentDecree },
 } as const
 

@@ -28,7 +28,7 @@ describe('Phase 18 Balance V1 simulation', () => {
     expect({ ...x1, speed: undefined }).toEqual({ ...x3, speed: undefined })
   })
   it('responds to centralized balance configuration changes', () => {
-    const changed = { ...balanceV1, gold: { ...balanceV1.gold, killReward: 9 } }
+    const changed = { ...balanceV1, rewardSources: { ...balanceV1.rewardSources, enemyKillGold: { 'yellow-turban-sword': 9, 'yellow-turban-archer': 9, 'yellow-turban-brute': 9 } } }
     expect(simulateEconomy('regular', 1, 4, changed).goldEarned).toBeGreaterThan(simulateEconomy('regular', 1, 4).goldEarned)
   })
   it('uses weighted gacha and recruitment configuration rather than fixed ratios', () => {
@@ -51,5 +51,25 @@ describe('Phase 18 Balance V1 simulation', () => {
     expect(result.highestWeaponLevel).toBeLessThanOrEqual(10)
     expect(result.highestGemLevel).toBeLessThanOrEqual(10)
     expect(result.equipmentInstancesRemaining).toBeGreaterThanOrEqual(0)
+  })
+  it('uses stage Anh Hồn only and spends sequential evolution costs', () => {
+    const result = simulateEconomy('casual', 1, 1)
+    expect(result.anhHonEarned).toBe(10)
+    expect(result.anhHonSpent).toBe(0)
+    const staged = { ...balanceV1, rewardSources: { ...balanceV1.rewardSources, stageClear: { prototypeStage: { ...balanceV1.rewardSources.stageClear.prototypeStage, anhHon: 1000 } } } }
+    const evolved = simulateEconomy('active', 30, 1, staged)
+    expect(evolved.anhHonSpent).toBe(850)
+    expect(evolved.evolutionProgress).toBe('stage-3')
+  })
+  it('allows Gold return to fund another pull and stops below pull cost', () => {
+    const config = { ...balanceV1, rewardSources: { ...balanceV1.rewardSources, enemyKillGold: { 'yellow-turban-sword': 9, 'yellow-turban-archer': 9, 'yellow-turban-brute': 9 } }, gacha: { ...balanceV1.gacha, weights: { gold: 1, weapon: 0, gem: 0, smallBinhPhu: 0, mediumBinhPhu: 0, largeBinhPhu: 0 } } }
+    const result = simulateEconomy('regular', 1, 1, config)
+    expect(result.gachaPulls).toBeGreaterThan(0)
+    expect(result.goldRemaining).toBeLessThan(config.gold.gachaPullCost)
+  })
+  it('uses configured wave timing and keeps x1/x3 parity', () => {
+    const config = { ...balanceV1, simulation: { ...balanceV1.simulation, wavesPerHour: 60 }, gacha: { ...balanceV1.gacha, weights: { smallBinhPhu: 1, gold: 0, weapon: 0, gem: 0, mediumBinhPhu: 0, largeBinhPhu: 0 } } }
+    const x1 = simulateEconomy('active', 1, 2, config, 1); const x3 = simulateEconomy('active', 1, 2, config, 3)
+    expect(x1.waves).toBe(120); expect({ ...x1, speed: undefined }).toEqual({ ...x3, speed: undefined })
   })
 })

@@ -17,7 +17,7 @@
 
 ## Model assumptions
 
-Casual/Regular/Active use 30/60/120 minutes per day. The simulation starts with the explicit configurable starter set (currently empty), buys Chiêu Hiền Lệnh from earned KNB before recruitment, and uses a deterministic Hero-level readiness assumption for evolution only; this is not a production progression rule. Real elapsed time is independent of x1/x3.
+Casual/Regular/Active use 30/60/120 minutes per day. Wave timing is derived from configurable `wavesPerHour` (30 by default). The simulation starts with the explicit configurable starter set (currently empty), buys Chiêu Hiền Lệnh from earned KNB before recruitment, and uses `level100Readiness.daysPerStage` as a deterministic Hero-level readiness assumption only; this is not a production progression rule. Anh Hồn comes only from stage-clear rewards (no hourly phantom source). Real elapsed time is independent of x1/x3. Evolution consumes sequentially 100, then 250, then 500.
 
 ## Actual seeded matrix (seed 1)
 
@@ -37,4 +37,4 @@ E/S/R = earned / spent / remaining. Weapon/Gem max is the highest merged level. 
 
 ## Safety and open decisions
 
-Gold Gacha expected return is `20 × 40 / 120 = 6.67`, below the 100 Gold pull cost; Binh Phù categories remain rarest. Same seed produces the same matrix and changing seed/config changes outcomes. Open decisions remain Player EXP curve, Energy cap-by-Level, Deployment Level formula, maximum Lệnh Hiệu Triệu and individual historical Legendary Passive values.
+Gold Gacha expected return is `20 × 40 / 100 = 8`, below the 100 Gold pull cost; Binh Phù categories remain rarest. The denominator is the actual weight sum (100). Gold-return pulls are applied in a wallet loop until Gold is below pull cost. Same seed produces the same matrix and changing seed/config changes outcomes. Open decisions remain Player EXP curve, Energy cap-by-Level, Deployment Level formula, maximum Lệnh Hiệu Triệu and individual historical Legendary Passive values.

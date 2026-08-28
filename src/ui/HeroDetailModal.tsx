@@ -3,7 +3,7 @@ import { ACTIVE_HBT_EQUIPMENT_IDS, equipmentDefinitions } from '../data/equipmen
 import { heroDefinitions, trungTrac } from '../data/heroes/definitions'
 import { heroPassives, type PassiveDefinition } from '../data/passives/definitions'
 import { skillDefinitions } from '../data/skills/definitions'
-import { resolvePrototypeHeroVisual } from '../data/assets/prototypeVisualAssets'
+import { resolveHaiBaTrungHeroVisual } from '../data/assets/prototypeVisualAssets'
 import { HeroPortrait } from './HeroPortrait'
 import { featureFlags } from '../config/features'
 import { loadEquipment } from '../domain/equipment/EquipmentStorage'
@@ -177,7 +177,7 @@ export function HeroDetailModal({
             {/* Hero Card */}
             <div className="hero-portrait-card">
               <div className="hero-avatar">
-                <HeroPortrait className="hero-portrait-image" name={hero.name} src={resolvePrototypeHeroVisual(hero.id)?.portraitUrl} />
+                <HeroPortrait className="hero-portrait-image" name={hero.name} src={resolveHaiBaTrungHeroVisual(hero.id)?.portraitUrl} />
               </div>
               <div className="hero-meta">
                 <h3 className="hero-name">{hero.name}</h3>

@@ -16,10 +16,10 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 ## Trạng thái hiện tại
 
 - Current Phase: **VIETNAM CONTENT INTEGRATION**
-- Current Codex task: **VS-HBT-C02 DONE — waiting audit** — branch `codex/vs-hbt-c02-production-identity`.
+- Current Codex task: **VS-HBT-V01 DONE — waiting audit** — branch `codex/vs-hbt-v01-visual-asset-gate`.
 - Current Antigravity task: **VS-NDPL-00 — 939–1009 Research — IN PROGRESS** — branch `antigravity/vs-ndpl-00-939-1009-research` @ `5686d7f`.
 - QA-C01A: **ENVIRONMENT-BLOCKED interactive portion**; automated regression PASS; manual QA debt retained.
-- Lần kiểm tra gần nhất: VS-HBT-C02A — 24 test files/187 tests PASS, production build PASS, preview HTTP 200 và diff-check PASS; real HBT art vẫn deferred.
+- Lần kiểm tra gần nhất: VS-HBT-V01 — 26 test files/190 tests PASS, production build PASS, preview HTTP 200 và diff-check PASS; real HBT asset production IN PROGRESS, binaries pending.
 
 ## Phases và checkpoint
 

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { equipmentDefinitions } from '../data/equipment/definitions'
-import { resolvePrototypeHeroVisual } from '../data/assets/prototypeVisualAssets'
+import { resolveHaiBaTrungHeroVisual } from '../data/assets/prototypeVisualAssets'
 import { ACTIVE_HERO_IDS, heroDefinitions } from '../data/heroes/definitions'
 import type { GameSpeed } from '../domain/clock/GameClock'
 import { resolveEquipmentModifiers, type EquipmentSlot, type HeroEquipment } from '../domain/equipment/EquipmentSystem'
@@ -64,7 +64,7 @@ export function App() {
   const [equipment, setEquipment] = useState<HeroEquipment>(() => definitionLoadout(battleBridge.getSelectedHeroId(), metaSave))
   const hudData = toBattleHudData(snapshot)
   const heroOptions = selectPlayableOwnedHeroIds(metaSave.data.heroCollection, ACTIVE_HERO_IDS)
-    .map((heroId) => ({ id: heroId, name: heroDefinitions[heroId].name, portraitUrl: resolvePrototypeHeroVisual(heroId)?.portraitUrl }))
+    .map((heroId) => ({ id: heroId, name: heroDefinitions[heroId].name, portraitUrl: resolveHaiBaTrungHeroVisual(heroId)?.portraitUrl }))
   const progression: HeroProgression = metaSave.data.heroCollection[hudData.selectedHeroId]?.progression ?? { stage: 'normal', level: 1 }
   const selectedHeroName = heroDefinitions[hudData.selectedHeroId]?.name ?? 'Hero'
   const selectedPlacement = hudData.placedHeroes.find(({ heroId }) => heroId === hudData.selectedHeroId)

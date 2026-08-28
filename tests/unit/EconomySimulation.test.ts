@@ -56,7 +56,7 @@ describe('Phase 18 Balance V1 simulation', () => {
     const result = simulateEconomy('casual', 1, 1)
     expect(result.anhHonEarned).toBe(10)
     expect(result.anhHonSpent).toBe(0)
-    const staged = { ...balanceV1, rewardSources: { ...balanceV1.rewardSources, stageClear: { prototypeStage: { ...balanceV1.rewardSources.stageClear.prototypeStage, anhHon: 1000 } } } }
+    const staged = { ...balanceV1, simulation: { ...balanceV1.simulation, level100Readiness: { daysPerStage: 5 } }, rewardSources: { ...balanceV1.rewardSources, stageClear: { prototypeStage: { ...balanceV1.rewardSources.stageClear.prototypeStage, anhHon: 1000 } } } }
     const evolved = simulateEconomy('active', 30, 1, staged)
     expect(evolved.anhHonSpent).toBe(850)
     expect(evolved.evolutionProgress).toBe('stage-3')
@@ -71,5 +71,12 @@ describe('Phase 18 Balance V1 simulation', () => {
     const config = { ...balanceV1, simulation: { ...balanceV1.simulation, wavesPerHour: 60 }, gacha: { ...balanceV1.gacha, weights: { smallBinhPhu: 1, gold: 0, weapon: 0, gem: 0, mediumBinhPhu: 0, largeBinhPhu: 0 } } }
     const x1 = simulateEconomy('active', 1, 2, config, 1); const x3 = simulateEconomy('active', 1, 2, config, 3)
     expect(x1.waves).toBe(120); expect({ ...x1, speed: undefined }).toEqual({ ...x3, speed: undefined })
+  })
+  it('continues after blocked scheduled waves and awards only started-wave Gold', () => {
+    const config = { ...balanceV1, simulation: { ...balanceV1.simulation, wavesPerHour: 120 }, gacha: { ...balanceV1.gacha, weights: { gold: 0, weapon: 1, gem: 0, smallBinhPhu: 0, mediumBinhPhu: 0, largeBinhPhu: 0 } } }
+    const result = simulateEconomy('active', 1, 1, config)
+    expect(result.wavesBlockedByEnergy).toBeGreaterThan(0)
+    expect(result.wavesStarted).toBeGreaterThan(0)
+    expect(result.goldEarnedFromGameplay).toBeLessThan(result.waves * 10 + result.waves * config.rewardSources.stageClear.prototypeStage.gold)
   })
 })

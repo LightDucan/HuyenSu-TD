@@ -1,5 +1,7 @@
 # Visual Prompts & Asset Technical Specifications (VS-HBT-01)
 
+> Production identity note (V02B): the approved runtime files are stylized 2D chibi/anime game art with a Dong Son-inspired bronze visual language, transparent RGBA PNGs. The pixel-art prompts below are retained as historical pre-production prompt material and are not a claim about the integrated final binaries.
+
 Tài liệu đặc tả Prompt đồ họa và thông số kỹ thuật chuẩn bị cho giai đoạn tạo asset bộ Hero Thời Hai Bà Trưng.
 
 ## Quy chuẩn kỹ thuật thống nhất

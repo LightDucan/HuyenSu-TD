@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+const bundledPngs = import.meta.glob('../../src/assets/{heroes,portraits,vfx}/**/*.png', { eager: true, query: '?url', import: 'default' }) as Record<string, string>
 import { ACTIVE_HERO_IDS } from '../../src/data/heroes/definitions'
 import { getHeroVisualAvailability, haiBaTrungHeroVisuals, resolveHaiBaTrungHeroVisual, validatePngAsset } from '../../src/data/assets/prototypeVisualAssets'
 
@@ -8,8 +9,26 @@ describe('VS-HBT-V01 production visual asset gate', () => {
     expect(ACTIVE_HERO_IDS.map((id) => haiBaTrungHeroVisuals[id].skillId)).toEqual([
       'trong-dong-lenh-vuong', 'lien-hoan-lac-tien', 'song-trao-hai-tan',
     ])
-    expect(haiBaTrungHeroVisuals['trung-trac']).toMatchObject({
-      portraitUrl: undefined, idleUrl: undefined, attackUrl: undefined, vfxUrl: undefined,
+    expect(haiBaTrungHeroVisuals['trung-trac'].portraitUrl).toBeTruthy()
+    expect(haiBaTrungHeroVisuals['trung-trac'].idleUrl).toBeTruthy()
+    expect(haiBaTrungHeroVisuals['trung-trac'].attackUrl).toBeTruthy()
+    expect(haiBaTrungHeroVisuals['trung-trac'].vfxUrl).toBeTruthy()
+  })
+
+  it('scans all 12 actual production binaries and validates their PNG contract', () => {
+    const paths = ACTIVE_HERO_IDS.flatMap((heroId) => [
+      `src/assets/portraits/${heroId}.png`,
+      `src/assets/heroes/${heroId}/idle.png`,
+      `src/assets/heroes/${heroId}/attack.png`,
+    ]).concat([
+      'src/assets/vfx/trong-dong-lenh-vuong.png',
+      'src/assets/vfx/lien-hoan-lac-tien.png',
+      'src/assets/vfx/song-trao-hai-tan.png',
+    ])
+    expect(paths).toHaveLength(12)
+    paths.forEach((assetPath) => {
+      const globPath = `../../src/assets/${assetPath.slice('src/assets/'.length)}`
+      expect(bundledPngs[globPath], assetPath).toBeTruthy()
     })
   })
 

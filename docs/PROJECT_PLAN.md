@@ -9,14 +9,14 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 ## WorkTree
 
 - Repository: `HuyenSu-TD`
-- Branch hiện tại: `codex/fast-p15-p16-economy-fix`
+- Branch hiện tại: `codex/fast-p17-hero-recruitment-ascension`
 - Worktree Codex hiện tại: `C:\Users\PC\Documents\Codex\2026-08-23\referenced-chatgpt-conversation-this-is-an\work\m10-c01-main`
 - Quy tắc worker Antigravity: [ANTIGRAVITY_RULES.md](ANTIGRAVITY_RULES.md)
 
 ## Trạng thái hiện tại
 
-- Current Phase: **16 — Kim Nguyên Bảo Shop & Consumables**
-- Current Codex task: **FAST-02A DONE — waiting final audit after integration fix** — branch `codex/fast-p15-p16-economy-fix`.
+- Current Phase: **17 — Hero Recruitment & Ascension**
+- Current Codex task: **FAST-03 IN PROGRESS** — branch `codex/fast-p17-hero-recruitment-ascension`.
 - Current Antigravity task: **VS-NDPL-00 — 939–1009 Research — IN PROGRESS** — branch `antigravity/vs-ndpl-00-939-1009-research` @ `5686d7f`.
 - Lần kiểm tra gần nhất: FAST-02A PASS — 20 files/144 tests, production build, preview HTTP 200 và diff-check PASS. Không merge FAST branches vào main.
 
@@ -52,8 +52,8 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 | P12-C02 | Wave Energy Gate & Auto Wave | DONE — merged — PASS | Codex | Explicit waiting/running/won lifecycle, manual/auto shared spend, double-spend guard, Hero gate, real-time refresh, minimal HUD và 10-Wave regression | `meta/command-energy-auto-wave-v1` |
 | P13-C01 | Deployment Capacity Domain & Placement Gate | DONE / merged / PASS | Codex | Base 7, level bonus 0, Summon Order +1, effective map cap, guarded new placement, unrestricted reposition và read-only HUD projection | `meta/deployment-capacity-v1` |
 | P13-C02 | Lệnh Hiệu Triệu Entitlement Transaction | FOLDED INTO PHASE 16 | Codex | Inventory consume + permanent entitlement vẫn là requirement; thực hiện cùng item/shop transactions trong FAST-02 | `codex/fast-p15-p16-economy` |
-| FAST-01 | Phase 14 Inventory & Equipment V2 | PASS — waiting merge | Codex | Meta V4 migration, legacy import idempotent, unique instances, atomic equip/unequip/merge, placed-Hero refresh, minimal Inventory UI | `codex/fast-p14-equipment-v2` |
-| FAST-02 | Phase 15–16 Gold Gacha, KNB Shop & Consumables | DONE — waiting final audit after integration fix | Codex | Deterministic/config Gacha; atomic 1x/10x; shared Energy regen+grant transaction; live Wallet snapshot for rewards/shop/gacha | `codex/fast-p15-p16-economy-fix` |
+| FAST-01 | Phase 14 Inventory & Equipment V2 | DONE — merged / PASS | Codex | Meta V4 migration, legacy import idempotent, unique instances, atomic equip/unequip/merge, placed-Hero refresh, minimal Inventory UI | `codex/fast-p14-equipment-v2` |
+| FAST-02 | Phase 15–16 Gold Gacha, KNB Shop & Consumables | DONE — merged / PASS | Codex | Deterministic/config Gacha; atomic 1x/10x; shared Energy regen+grant transaction; live Wallet snapshot for rewards/shop/gacha | `main` @ `195653e` |
 
 ## Roadmap Phase 10–18
 
@@ -66,7 +66,7 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 | 14 — Inventory & Equipment V2 | P14 | Equipment instances, Level 1–10, merge 3 và migration V1 | PASS — waiting merge | Phase 10–11 + save contract + OD-06 | Codex + Antigravity UI | Migration/rollback, merge atomicity, signature weapon policy, shared stats — PASS | `codex/fast-p14-equipment-v2` | Mất/nhân đôi item khi migration |
 | 15 — Gacha Gold | P15 | Gold pull transaction và reward pool đã khóa | DONE — waiting final audit after integration fix | Phase 11 + Phase 14 + OD-05/OD-07 | Codex + Antigravity data/UI | Weighted pool, Gold spend, inventory grant, live Wallet, deterministic 1x/10x — internal PASS | `codex/fast-p15-p16-economy-fix` | Rate sai, inflation và duplicate grant |
 | 16 — Kim Nguyên Bảo Shop & Cooldown | P16 | Premium earning/shop, Lệnh Hiệu Triệu, item đặc thù và cooldown shortening | DONE — waiting final audit after integration fix | Phase 11–15 + OD-04/OD-08 | Codex + Antigravity UI | Atomic KNB purchase/item use, shared Energy regen+grant, live Wallet, capacity refresh — internal PASS | `codex/fast-p15-p16-economy-fix` | Premium economy hoặc timer bị khai thác |
-| 17 — Hero Recruitment & Ascension | P17 | Chiêu Hiền Lệnh item; Hero trùng → Mảnh Danh Tướng; Sao 1–5; Anh Hồn chung; sau Normal tiến hóa Trùng Sinh → Tái Sinh → Huyền Sử | TODO | Phase 11 + Phase 14 + Phase 16 + HERO-A00 | Codex + Antigravity UI/data | Atomic item spend, duplicate conversion, shard/star boundary, shared evolution/passive, save migration | `meta/hero-recruitment-ascension-v1` | Duplicate reward, mất mảnh hoặc tạo Hero-specific progression/combat |
+| 17 — Hero Recruitment & Ascension | P17 | Chiêu Hiền Lệnh item; Hero trùng → Mảnh Danh Tướng; Sao 1–5; Anh Hồn chung; sau Normal tiến hóa Trùng Sinh → Tái Sinh → Huyền Sử | IN PROGRESS | Phase 11 + Phase 14 + Phase 16 + HERO-A00 | Codex + Antigravity UI/data | Recruitment, star/evolution transactions, V4→V5 migration, shared passive — targeted PASS; full audit pending | `codex/fast-p17-hero-recruitment-ascension` | Duplicate reward, mất mảnh hoặc tạo Hero-specific progression/combat |
 | 18 — Economy Simulation & Balance | P18 | Simulation toàn nền kinh tế và khóa balance table, gồm Recruitment/Ascension | TODO | Phase 11–17 + toàn bộ open decisions liên quan | Codex | Deterministic simulations, sink/source curves, recruitment/evolution economy, regression thresholds | `meta/economy-balance-v1` | Balance assumptions không phản ánh gameplay thật |
 
 ## Phase 9 task tracker

@@ -9,7 +9,7 @@ import {
   type HeroStage,
   upgradeLevel,
 } from '../domain/progression/ProgressionSystem'
-import { loadProgression, saveHeroProgression } from '../domain/progression/ProgressionStorage'
+import { loadProgression } from '../domain/progression/ProgressionStorage'
 import { featureFlags } from '../config/features'
 
 export type UpgradeButtonState = 'ready' | 'cooldown' | 'max_level'
@@ -84,7 +84,6 @@ export function HeroProgressionPanel({
     const next = upgradeLevel(progression, nowMs, UPGRADE_COOLDOWN_MS, featureFlags.upgradeCooldownEnabled)
     setProgression(next)
     setCurrentTimeMs(nowMs)
-    saveHeroProgression(window.localStorage, heroId, next)
     onUpgrade?.(next.level)
   }
 
@@ -92,7 +91,6 @@ export function HeroProgressionPanel({
     if (!canAdvanceStage(progression)) return
     const next = advanceStage(progression)
     setProgression(next)
-    saveHeroProgression(window.localStorage, heroId, next)
     onAdvanceStage?.(next.stage)
   }
 

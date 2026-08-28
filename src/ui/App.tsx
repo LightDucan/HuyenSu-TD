@@ -18,7 +18,6 @@ import { toBattleHudData } from '../game/bridge/BattleHudContract'
 import { createGame } from '../game/createGame'
 import { BottomPlayerHUD } from './BottomPlayerHUD'
 import { HeroDetailModal } from './HeroDetailModal'
-import { saveProgressionAndRefresh } from './HeroRuntimeRefreshActions'
 import { TopCityBar } from './TopCityBar'
 import { getBrowserEquipmentV2Runtime } from '../runtime/EquipmentV2Runtime'
 import { EquipmentInventoryPanel } from './EquipmentInventoryPanel'
@@ -113,14 +112,14 @@ export function App() {
     const nowMs = Date.now()
     if (!canUpgrade(progression, nowMs, featureFlags.upgradeCooldownEnabled)) return
     const next = upgradeLevel(progression, nowMs, 3000, featureFlags.upgradeCooldownEnabled)
-    saveProgressionAndRefresh(window.localStorage, battleBridge, heroId, next)
+    battleBridge.refreshPlacedHeroStats(heroId)
     setProgression(next)
   }
 
   const handleAdvanceStageRequest = (heroId: string) => {
     if (!canAdvanceStage(progression)) return
     const next = advanceStage(progression)
-    saveProgressionAndRefresh(window.localStorage, battleBridge, heroId, next)
+    battleBridge.refreshPlacedHeroStats(heroId)
     setProgression(next)
   }
 

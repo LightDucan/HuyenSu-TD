@@ -6,6 +6,9 @@ export type PassiveDefinition = Readonly<{
 }>
 
 export const heroPassives: Record<string, PassiveDefinition> = {
+  'trung-trac': { id: 'trung-vuong-linh-nam', name: 'Trưng Vương Lĩnh Nam', description: 'Khái niệm Huyền Sử đang hoãn: AoE Skill và điều kiện thành trì chưa được shared passive system hỗ trợ.', requiredStage: 'legendary' },
+  'trung-nhi': { id: 'tien-phong-lac-tien', name: 'Tiên Phong Lạc Tiễn', description: 'Khái niệm Huyền Sử đang hoãn: Range, AttackSpeed và mũi tên phụ khi Crit chưa được shared passive system hỗ trợ.', requiredStage: 'legendary' },
+  'le-chan': { id: 'nu-tuong-an-bien', name: 'Nữ Tướng An Biên', description: 'Khái niệm Huyền Sử đang hoãn: Root bonus damage và Crit/CritDamage chưa được shared passive system hỗ trợ.', requiredStage: 'legendary' },
   'quan-vu': {
     id: 'uy-chan-hoa-ha',
     name: 'Uy Chấn Hoa Hạ',

@@ -17,7 +17,8 @@ export type HeroRecruitmentState = Readonly<{
 export const CHIEU_HIEN_LENH_ID = 'item_chieu_hien_lenh' as const
 export const ANH_HON_ID = 'anh-hon' as const
 export const DUPLICATE_SHARD_QUANTITY = 10 as const
-export const PROTOTYPE_OWNED_HERO_IDS = ['quan-vu', 'trieu-van', 'truong-phi', 'hoang-trung', 'gia-cat-luong'] as const
+export const ACTIVE_PRODUCTION_HERO_IDS = ['trung-trac', 'trung-nhi', 'le-chan'] as const
+export const PROTOTYPE_OWNED_HERO_IDS = ACTIVE_PRODUCTION_HERO_IDS
 
 export function createPrototypeHeroCollection(): HeroCollection {
   return Object.fromEntries(PROTOTYPE_OWNED_HERO_IDS.map((heroId) => [heroId, {

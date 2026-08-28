@@ -1,7 +1,9 @@
 export type PathPoint = Readonly<{ x: number; y: number }>
 
 export const prototypeMap = {
-  id: 'prototype-city-gate',
+  id: 'map-lang-bac-marsh',
+  title: 'Chương I — Huyết Chiến Lãng Bạc',
+  theme: 'lang-bac-marsh',
   width: 1024,
   height: 768,
   grid: { columns: 12, rows: 10 },

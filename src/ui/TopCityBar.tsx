@@ -15,7 +15,7 @@ export function TopCityBar({ data, wallet }: TopCityBarProps) {
       <div className="city-info-group">
         <div className="city-name-row">
           <span className="city-icon" aria-hidden="true">🏯</span>
-          <h2 className="city-name">Thành trì</h2>
+          <h2 className="city-name">Huyết Chiến Lãng Bạc</h2>
         </div>
         {wallet && <div className="wallet-hud" aria-label="Ví tài nguyên"><span>Vàng: {wallet.gold}</span><span>KNB: {wallet.knb}</span></div>}
         <div className="city-hp-bar-container">
@@ -41,22 +41,22 @@ export function TopCityBar({ data, wallet }: TopCityBarProps) {
       <div className="enemy-counters-box" aria-label="Số lượng quái còn lại theo loại">
         <span className="enemy-box-label">Quái còn lại:</span>
         <div className="enemy-category-chips">
-          <div className="enemy-chip chip-sword" title="Lính Kiếm">
+          <div className="enemy-chip chip-sword" title="Đông Hán Bộ Binh">
             <span className="chip-icon">⚔</span>
-            <span className="chip-name">Kiếm</span>
+            <span className="chip-name">Bộ Binh</span>
             <span className="chip-count">×{swordCount}</span>
           </div>
 
-          <div className="enemy-chip chip-archer" title="Lính Cung">
+          <div className="enemy-chip chip-archer" title="Đông Hán Nỏ Thủ">
             <span className="chip-icon">🏹</span>
-            <span className="chip-name">Cung</span>
+            <span className="chip-name">Nỏ Thủ</span>
             <span className="chip-count">×{archerCount}</span>
           </div>
 
           {otherCount > 0 && (
-            <div className="enemy-chip chip-other" title="Lính Khác">
+            <div className="enemy-chip chip-other" title="Thiết Giáp / Mã Viện">
               <span className="chip-icon">👾</span>
-              <span className="chip-name">Khác</span>
+              <span className="chip-name">Thiết Giáp</span>
               <span className="chip-count">×{otherCount}</span>
             </div>
           )}

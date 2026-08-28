@@ -37,6 +37,9 @@ function defineHeroVisual(heroId: string, skillId: string, lookup: VisualAssetLo
 }
 
 const visualDefinitions: Readonly<Record<string, string>> = {
+  'trung-trac': 'trong-dong-lenh-vuong',
+  'trung-nhi': 'lien-hoan-lac-tien',
+  'le-chan': 'song-trao-hai-tan',
   'quan-vu': 'thanh-long-tram',
   'truong-phi': 'ba-xa-gam-vang',
   'trieu-van': 'that-tien-that-xuat',

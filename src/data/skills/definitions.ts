@@ -1,6 +1,9 @@
 import type { SkillDefinition } from '../../domain/skills/SkillResolver'
 
 export const skillDefinitions: Record<string, SkillDefinition> = {
+  'trong-dong-lenh-vuong': { id: 'trong-dong-lenh-vuong', name: 'Trống Đồng Lệnh Vương', effects: [{ type: 'aoe', radius: 170, maxTargets: 4 }, { type: 'damage', atkMultiplier: 2.2 }, { type: 'stun', durationMs: 800 }] },
+  'lien-hoan-lac-tien': { id: 'lien-hoan-lac-tien', name: 'Liên Hoàn Lạc Tiễn', effects: [{ type: 'multiHit', hits: 3, intervalMs: 140 }, { type: 'damage', atkMultiplier: 1.1 }, { type: 'slow', ratio: 0.35, durationMs: 2000 }] },
+  'song-trao-hai-tan': { id: 'song-trao-hai-tan', name: 'Sóng Trào Hải Tần', effects: [{ type: 'aoe', radius: 160, maxTargets: 3 }, { type: 'damage', atkMultiplier: 2.0 }, { type: 'root', durationMs: 1500 }] },
   'thanh-long-tram': {
     id: 'thanh-long-tram',
     name: 'Thanh Long Trảm',

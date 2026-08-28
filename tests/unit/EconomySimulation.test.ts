@@ -28,19 +28,19 @@ describe('Phase 18 Balance V1 simulation', () => {
     expect({ ...x1, speed: undefined }).toEqual({ ...x3, speed: undefined })
   })
   it('responds to centralized balance configuration changes', () => {
-    const changed = { ...balanceV1, rewardSources: { ...balanceV1.rewardSources, enemyKillGold: { 'yellow-turban-sword': 9, 'yellow-turban-archer': 9, 'yellow-turban-brute': 9 } } }
+    const changed = { ...balanceV1, rewardSources: { ...balanceV1.rewardSources, enemyKillGold: { 'han-sword-infantry': 9, 'han-crossbow-soldier': 9, 'han-armored-guard': 9, 'boss-ma-vien': 9 } } }
     expect(simulateEconomy('regular', 1, 4, changed).goldEarned).toBeGreaterThan(simulateEconomy('regular', 1, 4).goldEarned)
   })
   it('uses weighted gacha and recruitment configuration rather than fixed ratios', () => {
     const gachaOnlyGold = { ...balanceV1, gacha: { ...balanceV1.gacha, weights: { gold: 1, weapon: 0, gem: 0, smallBinhPhu: 0, mediumBinhPhu: 0, largeBinhPhu: 0 } } }
     expect(simulateEconomy('active', 1, 2, gachaOnlyGold).goldGachaOutcomes.gold).toBeGreaterThan(0)
-    const recruitmentOnlyTrieu = { ...balanceV1, recruitment: { ...balanceV1.recruitment, weights: { 'quan-vu': 0, 'trieu-van': 1, 'truong-phi': 0, 'hoang-trung': 0, 'gia-cat-luong': 0 } } }
+    const recruitmentOnlyTrieu = { ...balanceV1, recruitment: { ...balanceV1.recruitment, weights: { 'trung-trac': 0, 'trung-nhi': 1, 'le-chan': 0 } } }
     expect(simulateEconomy('active', 1, 2, recruitmentOnlyTrieu).ownedHeroCount).toBe(1)
   })
   it('keeps Hero shards separate, stars sequential, and evolution independent of stars', () => {
-    const config = { ...balanceV1, simulation: { ...balanceV1.simulation, startingHeroIds: ['quan-vu'] as readonly string[] }, recruitment: { ...balanceV1.recruitment, weights: { 'quan-vu': 1, 'trieu-van': 0, 'truong-phi': 0, 'hoang-trung': 0, 'gia-cat-luong': 0 } } }
+    const config = { ...balanceV1, simulation: { ...balanceV1.simulation, startingHeroIds: ['trung-trac'] as readonly string[] }, recruitment: { ...balanceV1.recruitment, weights: { 'trung-trac': 1, 'trung-nhi': 0, 'le-chan': 0 } } }
     const result = simulateEconomy('active', 30, 3, config)
-    expect(result.remainingHeroShards).toHaveProperty('shard_hero_quan-vu')
+    expect(result.remainingHeroShards).toHaveProperty('shard_hero_trung-trac')
     expect(result.remainingHeroShards).not.toHaveProperty('hero-shards')
     expect(result.evolutionProgress).toMatch(/stage-|normal/)
     expect(result.fiveStarHeroes).toBeGreaterThanOrEqual(0)
@@ -62,7 +62,7 @@ describe('Phase 18 Balance V1 simulation', () => {
     expect(evolved.evolutionProgress).toBe('stage-3')
   })
   it('allows Gold return to fund another pull and stops below pull cost', () => {
-    const config = { ...balanceV1, rewardSources: { ...balanceV1.rewardSources, enemyKillGold: { 'yellow-turban-sword': 9, 'yellow-turban-archer': 9, 'yellow-turban-brute': 9 } }, gacha: { ...balanceV1.gacha, weights: { gold: 1, weapon: 0, gem: 0, smallBinhPhu: 0, mediumBinhPhu: 0, largeBinhPhu: 0 } } }
+    const config = { ...balanceV1, rewardSources: { ...balanceV1.rewardSources, enemyKillGold: { 'han-sword-infantry': 9, 'han-crossbow-soldier': 9, 'han-armored-guard': 9, 'boss-ma-vien': 9 } }, gacha: { ...balanceV1.gacha, weights: { gold: 1, weapon: 0, gem: 0, smallBinhPhu: 0, mediumBinhPhu: 0, largeBinhPhu: 0 } } }
     const result = simulateEconomy('regular', 1, 1, config)
     expect(result.gachaPulls).toBeGreaterThan(0)
     expect(result.goldRemaining).toBeLessThan(config.gold.gachaPullCost)

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { equipmentDefinitions } from '../data/equipment/definitions'
-import { heroDefinitions, quanVu } from '../data/heroes/definitions'
+import { heroDefinitions, trungTrac } from '../data/heroes/definitions'
 import { heroPassives, type PassiveDefinition } from '../data/passives/definitions'
 import { skillDefinitions } from '../data/skills/definitions'
 import { resolvePrototypeHeroVisual } from '../data/assets/prototypeVisualAssets'
@@ -52,7 +52,7 @@ function readSavedEquipment(heroId: string): HeroEquipment {
 export function HeroDetailModal({
   isOpen,
   onClose,
-  heroId = quanVu.id,
+  heroId = trungTrac.id,
   progression: propProgression,
   equipment: propEquipment,
   onUpgradeRequest,
@@ -86,7 +86,7 @@ export function HeroDetailModal({
 
   if (!isOpen) return null
 
-  const hero = heroDefinitions[heroId] ?? quanVu
+  const hero = heroDefinitions[heroId] ?? trungTrac
 
   // Pure display calculations via Core domain helpers
   const baseScaledStats = calculateHeroStats(hero.baseStats, activeProgression)

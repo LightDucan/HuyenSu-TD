@@ -4,7 +4,7 @@ export const balanceV1 = {
   commandEnergy: { cap: 60, regenIntervalMs: 120_000, waveCost: 1, binhPhu: { small: 1, medium: 5, large: 10 } },
   gold: { gachaPullCost: 100 },
   rewardSources: {
-    enemyKillGold: { 'yellow-turban-sword': 1, 'yellow-turban-archer': 1, 'yellow-turban-brute': 2 },
+    enemyKillGold: { 'han-sword-infantry': 1, 'han-crossbow-soldier': 1, 'han-armored-guard': 2, 'boss-ma-vien': 2 },
     stageClear: { prototypeStage: { gold: 20, knb: 1, anhHon: 10 } },
   },
   gacha: {
@@ -12,7 +12,7 @@ export const balanceV1 = {
     goldReturn: 20, pityEnabled: false as const,
   },
   knbShop: { chieuHienLenh: 10, summonOrder: 25 },
-  recruitment: { weights: { 'quan-vu': 20, 'trieu-van': 20, 'truong-phi': 20, 'hoang-trung': 20, 'gia-cat-luong': 20 }, duplicateShards: 10, pulls: { one: 1, ten: 10 } },
+  recruitment: { weights: { 'trung-trac': 1, 'trung-nhi': 1, 'le-chan': 1 }, duplicateShards: 10, pulls: { one: 1, ten: 10 } },
   stars: { shardCosts: { 2: 10, 3: 25, 4: 50, 5: 100 }, max: 5, flatGrowth: { 1: {}, 2: { hp: 100, atk: 10, range: 1, attackSpeed: 1, crit: 1, critDamage: 5 }, 3: { hp: 250, atk: 25, range: 2, attackSpeed: 2, crit: 2, critDamage: 10 }, 4: { hp: 500, atk: 50, range: 3, attackSpeed: 3, crit: 3, critDamage: 20 }, 5: { hp: 900, atk: 90, range: 4, attackSpeed: 4, crit: 5, critDamage: 35 } } },
   evolution: { anhHonCosts: { rebirth: 100, reincarnation: 250, legendary: 500 }, materialId: 'anh-hon' },
   activePlay: { knbPerInterval: 1, intervalMs: 60_000 },

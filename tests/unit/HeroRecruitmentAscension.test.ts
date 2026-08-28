@@ -9,14 +9,14 @@ describe('Phase 17 recruitment and ascension domain', () => {
   it('consumes exactly one decree and unlocks a new hero', () => {
     const result = resolveRecruitmentBatch({ heroCollection: {}, consumables: { item_chieu_hien_lenh: 1 } }, 1, () => 0)
     expect(result.state.consumables.item_chieu_hien_lenh).toBe(0)
-    expect(result.results[0]).toMatchObject({ outcome: 'new', heroId: 'quan-vu' })
-    expect(result.state.heroCollection['quan-vu']).toMatchObject({ stars: 1, progression: { stage: 'normal', level: 1 } })
+    expect(result.results[0]).toMatchObject({ outcome: 'new', heroId: 'trung-trac' })
+    expect(result.state.heroCollection['trung-trac']).toMatchObject({ stars: 1, progression: { stage: 'normal', level: 1 } })
   })
   it('processes 10x sequentially so the second same hero is duplicate', () => {
     const result = resolveRecruitmentBatch({ heroCollection: {}, consumables: { item_chieu_hien_lenh: 10 } }, 10, () => 0)
     expect(result.results[0].outcome).toBe('new')
     expect(result.results[1].outcome).toBe('duplicate')
-    expect(result.state.consumables['shard_hero_quan-vu']).toBe(90)
+    expect(result.state.consumables['shard_hero_trung-trac']).toBe(90)
   })
   it('rejects insufficient decrees atomically and direct KNB is impossible', () => {
     const state = { heroCollection: {}, consumables: { gold: 100, knb: 100 } }

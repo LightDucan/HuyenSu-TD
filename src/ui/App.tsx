@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { equipmentDefinitions } from '../data/equipment/definitions'
 import { resolvePrototypeHeroVisual } from '../data/assets/prototypeVisualAssets'
-import { heroDefinitions } from '../data/heroes/definitions'
+import { ACTIVE_HERO_IDS, heroDefinitions } from '../data/heroes/definitions'
 import type { GameSpeed } from '../domain/clock/GameClock'
 import { resolveEquipmentModifiers, type EquipmentSlot, type HeroEquipment } from '../domain/equipment/EquipmentSystem'
 import type { MetaSave } from '../domain/meta/MetaState'
@@ -32,7 +32,7 @@ const initialSnapshot: BattleSnapshot = {
   enemiesEscaped: 0,
   enemiesDefeated: 0,
   placedHeroes: [],
-  selectedHeroId: 'quan-vu',
+  selectedHeroId: 'trung-trac',
   wave: 1,
   totalWaves: 10,
   waveStatus: 'waiting',
@@ -63,7 +63,7 @@ export function App() {
   }
   const [equipment, setEquipment] = useState<HeroEquipment>(() => definitionLoadout(battleBridge.getSelectedHeroId(), metaSave))
   const hudData = toBattleHudData(snapshot)
-  const heroOptions = selectPlayableOwnedHeroIds(metaSave.data.heroCollection, Object.keys(heroDefinitions))
+  const heroOptions = selectPlayableOwnedHeroIds(metaSave.data.heroCollection, ACTIVE_HERO_IDS)
     .map((heroId) => ({ id: heroId, name: heroDefinitions[heroId].name, portraitUrl: resolvePrototypeHeroVisual(heroId)?.portraitUrl }))
   const progression: HeroProgression = metaSave.data.heroCollection[hudData.selectedHeroId]?.progression ?? { stage: 'normal', level: 1 }
   const selectedHeroName = heroDefinitions[hudData.selectedHeroId]?.name ?? 'Hero'

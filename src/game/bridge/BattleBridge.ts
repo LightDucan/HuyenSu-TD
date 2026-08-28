@@ -42,7 +42,7 @@ export type PlacementFeedback =
 
 export class BattleBridge {
   private speed: GameSpeed = 1
-  private selectedHeroId = 'quan-vu'
+  private selectedHeroId = 'trung-trac'
   private autoWaveEnabled = false
   private latestSnapshot?: BattleSnapshot
   private commandEnergySnapshot: CommandEnergySnapshot = { current: 0, cap: 60 }

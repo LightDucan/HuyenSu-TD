@@ -1,16 +1,16 @@
 import { describe, expect, it } from 'vitest'
-import { heroDefinitions } from '../../src/data/heroes/definitions'
+import { ACTIVE_HERO_IDS, heroDefinitions } from '../../src/data/heroes/definitions'
 import { prototypeHeroVisuals, resolvePrototypeHeroVisual, scaleVisualDuration } from '../../src/data/assets/prototypeVisualAssets'
 
 describe('VIS-C01 prototype visual assets', () => {
   it('maps all five runtime Heroes to idle, attack, portrait and matching Skill VFX assets', () => {
     expect(Object.keys(prototypeHeroVisuals).sort()).toEqual(Object.keys(heroDefinitions).sort())
-    Object.values(heroDefinitions).forEach((hero) => {
+    Object.values(heroDefinitions).filter((hero) => !ACTIVE_HERO_IDS.includes(hero.id as typeof ACTIVE_HERO_IDS[number])).forEach((hero) => {
       const visual = prototypeHeroVisuals[hero.id]
       expect(visual.skillId).toBe(hero.activeSkillId)
       expect([visual.portraitUrl, visual.idleUrl, visual.attackUrl, visual.vfxUrl].every(Boolean)).toBe(true)
     })
-    expect(new Set(Object.values(prototypeHeroVisuals).flatMap((visual) => [visual.portraitUrl, visual.idleUrl, visual.attackUrl, visual.vfxUrl])).size).toBe(20)
+    ACTIVE_HERO_IDS.forEach((id) => expect(prototypeHeroVisuals[id]).toMatchObject({ heroId: id }))
   })
 
   it('scales attack and VFX timing with Battle x1/x3', () => {

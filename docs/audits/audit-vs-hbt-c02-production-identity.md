@@ -29,3 +29,8 @@ Production imports now prefer `haiBaTrungMap`, `haiBaTrungWaves`, `createHaiBaTr
 
 Tam Quốc Heroes, skills and legacy equipment remain stored compatibility content. They are excluded from the active HBT roster, Recruitment, HBT waves, fresh Gacha equipment rewards and fresh visible equipment candidates.
 
+## VS-HBT-C02A final verification
+
+PASS — Balance V1 now exposes one shared weapon table and one shared gem table, with active HBT keys and legacy aliases pointing to the same data. Simulation merge/accounting resolves active IDs normally; no numeric balance changed. Active equipment merge, Lv10 cap, legacy Lv3 modifiers and fresh Gacha ID boundaries are covered by regression tests.
+
+Verification: `npm test` 24 files / 187 tests PASS; `npm run build` PASS; `npm run preview` HTTP 200; `git diff --check` PASS. Branch remains unmerged to `main`.

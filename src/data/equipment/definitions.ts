@@ -1,24 +1,25 @@
 import type { EquipmentDefinition, EquipmentV2Definition } from '../../domain/equipment/EquipmentSystem'
 import { balanceV1 } from '../economy/balanceV1'
 
+const equipmentTable = balanceV1.equipment.tables
+
 export const equipmentDefinitions: Record<string, EquipmentDefinition> = {
-  'lac-viet-bronze-sword': { id: 'lac-viet-bronze-sword', slot: 'weapon', name: 'Gươm Đồng Lạc Việt', modifiers: { atk: 12, range: 8 } },
-  'lac-viet-swift-jade': { id: 'lac-viet-swift-jade', slot: 'gem', name: 'Ngọc Tốc Chiến', modifiers: { attackSpeed: 0.15 } },
+  'lac-viet-bronze-sword': { id: 'lac-viet-bronze-sword', slot: 'weapon', name: 'Gươm Đồng Lạc Việt', modifiers: equipmentTable['lac-viet-bronze-sword'].levels[1] },
+  'lac-viet-swift-jade': { id: 'lac-viet-swift-jade', slot: 'gem', name: 'Ngọc Tốc Chiến', modifiers: equipmentTable['lac-viet-swift-jade'].levels[1] },
   'green-dragon-blade': {
     id: 'green-dragon-blade',
     slot: 'weapon',
     name: 'Thanh Long Yển Nguyệt Đao',
-    modifiers: { atk: 12, range: 8 },
+    modifiers: equipmentTable['green-dragon-blade'].levels[1],
   },
   'swift-jade': {
     id: 'swift-jade',
     slot: 'gem',
     name: 'Ngọc Tốc Chiến',
-    modifiers: { attackSpeed: 0.15 },
+    modifiers: equipmentTable['swift-jade'].levels[1],
   },
 }
 
-const equipmentTable = balanceV1.equipment.tables
 export const haiBaTrungEquipmentV2Definitions: Readonly<Record<string, EquipmentV2Definition>> = {
   'lac-viet-bronze-sword': { id: 'lac-viet-bronze-sword', slot: 'weapon', name: 'Gươm Đồng Lạc Việt', mergeable: true, levelModifiers: equipmentTable['green-dragon-blade'].levels },
   'lac-viet-swift-jade': { id: 'lac-viet-swift-jade', slot: 'gem', name: 'Ngọc Tốc Chiến', mergeable: true, levelModifiers: equipmentTable['swift-jade'].levels },
@@ -27,14 +28,14 @@ export const haiBaTrungEquipmentV2Definitions: Readonly<Record<string, Equipment
     slot: 'weapon',
     name: 'Thanh Long Yển Nguyệt Đao',
     mergeable: true,
-    levelModifiers: equipmentTable['green-dragon-blade'].levels,
+    levelModifiers: equipmentTable['lac-viet-bronze-sword'].levels,
   },
   'swift-jade': {
     id: 'swift-jade',
     slot: 'gem',
     name: 'Ngọc Tốc Chiến',
     mergeable: true,
-    levelModifiers: equipmentTable['swift-jade'].levels,
+    levelModifiers: equipmentTable['lac-viet-swift-jade'].levels,
   },
 }
 

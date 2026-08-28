@@ -1,5 +1,10 @@
 import { CONSUMABLE_ITEM_IDS } from '../items/definitions'
 
+const sharedWeaponLevels = { 1: { atk: 12, range: 8 }, 2: { atk: 15, range: 9 }, 3: { atk: 18, range: 10 }, 4: { atk: 21, range: 11 }, 5: { atk: 24, range: 12 }, 6: { atk: 27, range: 13 }, 7: { atk: 30, range: 14 }, 8: { atk: 33, range: 15 }, 9: { atk: 36, range: 16 }, 10: { atk: 40, range: 18 } } as const
+const sharedGemLevels = { 1: { attackSpeed: 0.15 }, 2: { attackSpeed: 0.18 }, 3: { attackSpeed: 0.21 }, 4: { attackSpeed: 0.24 }, 5: { attackSpeed: 0.27 }, 6: { attackSpeed: 0.3 }, 7: { attackSpeed: 0.33 }, 8: { attackSpeed: 0.36 }, 9: { attackSpeed: 0.39 }, 10: { attackSpeed: 0.45 } } as const
+const sharedWeaponTable = { slot: 'weapon' as const, levels: sharedWeaponLevels }
+const sharedGemTable = { slot: 'gem' as const, levels: sharedGemLevels }
+
 export const balanceV1 = {
   commandEnergy: { cap: 60, regenIntervalMs: 120_000, waveCost: 1, binhPhu: { small: 1, medium: 5, large: 10 } },
   gold: { gachaPullCost: 100 },
@@ -20,8 +25,10 @@ export const balanceV1 = {
     levelCount: 10,
     mergeInputs: 3,
     tables: {
-      'green-dragon-blade': { slot: 'weapon', levels: { 1: { atk: 12, range: 8 }, 2: { atk: 15, range: 9 }, 3: { atk: 18, range: 10 }, 4: { atk: 21, range: 11 }, 5: { atk: 24, range: 12 }, 6: { atk: 27, range: 13 }, 7: { atk: 30, range: 14 }, 8: { atk: 33, range: 15 }, 9: { atk: 36, range: 16 }, 10: { atk: 40, range: 18 } } },
-      'swift-jade': { slot: 'gem', levels: { 1: { attackSpeed: 0.15 }, 2: { attackSpeed: 0.18 }, 3: { attackSpeed: 0.21 }, 4: { attackSpeed: 0.24 }, 5: { attackSpeed: 0.27 }, 6: { attackSpeed: 0.3 }, 7: { attackSpeed: 0.33 }, 8: { attackSpeed: 0.36 }, 9: { attackSpeed: 0.39 }, 10: { attackSpeed: 0.45 } } },
+      'lac-viet-bronze-sword': sharedWeaponTable,
+      'green-dragon-blade': sharedWeaponTable,
+      'lac-viet-swift-jade': sharedGemTable,
+      'swift-jade': sharedGemTable,
     },
   },
   simulation: { minutesPerDay: { casual: 30, regular: 60, active: 120 }, wavesPerHour: 30, enemiesPerWave: 10, level100Readiness: { daysPerStage: 30 }, startingHeroIds: [] as readonly string[] },

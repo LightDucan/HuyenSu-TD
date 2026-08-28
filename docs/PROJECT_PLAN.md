@@ -9,7 +9,7 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 ## WorkTree
 
 - Repository: `HuyenSu-TD`
-- Branch hiện tại: `codex/vs-hbt-c01-runtime-pack`
+- Branch hiện tại: `codex/vs-hbt-c02-production-identity`
 - Worktree Codex hiện tại: `C:\Users\PC\Documents\Codex\2026-08-23\referenced-chatgpt-conversation-this-is-an\work\m10-c01-main`
 - Quy tắc worker Antigravity: [ANTIGRAVITY_RULES.md](ANTIGRAVITY_RULES.md)
 
@@ -19,7 +19,7 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 - Current Codex task: **VS-HBT-C02 DONE — waiting audit** — branch `codex/vs-hbt-c02-production-identity`.
 - Current Antigravity task: **VS-NDPL-00 — 939–1009 Research — IN PROGRESS** — branch `antigravity/vs-ndpl-00-939-1009-research` @ `5686d7f`.
 - QA-C01A: **ENVIRONMENT-BLOCKED interactive portion**; automated regression PASS; manual QA debt retained.
-- Lần kiểm tra gần nhất: VS-HBT-C02 — 24 test files/183 tests PASS, production build PASS, preview HTTP 200 và diff-check PASS; real HBT art vẫn deferred.
+- Lần kiểm tra gần nhất: VS-HBT-C02A — 24 test files/187 tests PASS, production build PASS, preview HTTP 200 và diff-check PASS; real HBT art vẫn deferred.
 
 ## Phases và checkpoint
 

@@ -243,7 +243,7 @@ export class BattleScene extends Phaser.Scene {
     haiBaTrungMap.placementTiles.forEach((tile) => {
       const id = this.placementSlotId(tile.column, tile.row)
       const center = { x: (tile.column + 0.5) * cellWidth, y: (tile.row + 0.5) * cellHeight }
-      const marker = this.add.rectangle(center.x, center.y, cellWidth - 10, cellHeight - 10, 0x38bdf8, 0.16).setStrokeStyle(2, 0x7dd3fc, 0.55).setInteractive({ useHandCursor: true })
+      const marker = this.add.rectangle(center.x, center.y, cellWidth - 10, cellHeight - 10, 0xf59e0b, 0.12).setStrokeStyle(2, 0xfbbf24, 0.65).setInteractive({ useHandCursor: true })
       marker.on('pointerdown', () => this.placeOrMoveSelectedHero(id))
       this.placementTiles.set(id, { id, center, marker })
     })
@@ -292,7 +292,7 @@ export class BattleScene extends Phaser.Scene {
     const equipmentState = getBrowserEquipmentV2Runtime().getSnapshot().data
     const progression = equipmentState.heroCollection[definition.id]?.progression ?? { stage: 'normal', level: 1 }
     const stats = calculateHeroLoadoutStatsV2(definition.baseStats, progression, equipmentState, definition.id, haiBaTrungEquipmentV2Definitions)
-    const rangeVisual = this.add.circle(position.x, position.y, stats.range, 0x38bdf8, 0.055).setStrokeStyle(2, 0x7dd3fc, 0.38)
+    const rangeVisual = this.add.circle(position.x, position.y, stats.range, 0x38bdf8, 0.04).setStrokeStyle(1.5, 0x7dd3fc, 0.35)
     const visualAsset = resolveHaiBaTrungHeroVisual(definition.id)
     const sprite = visualAsset?.idleUrl && this.textures.exists(visualAsset.idleTextureKey)
       ? this.add.image(0, 0, visualAsset.idleTextureKey).setOrigin(0.5, 112 / 128).setDisplaySize(HERO_RUNTIME_VISUAL_SIZE, HERO_RUNTIME_VISUAL_SIZE)
@@ -357,8 +357,8 @@ export class BattleScene extends Phaser.Scene {
       const isSelectedHero = intent.mode !== 'neutral' && occupantId === intent.heroId
       tile.marker
         .setVisible(intent.mode !== 'neutral')
-        .setFillStyle(isSelectedHero ? 0xfbbf24 : occupantId ? 0x10b981 : 0x38bdf8, occupantId ? 0.28 : 0.16)
-        .setStrokeStyle(2, isSelectedHero ? 0xfde047 : occupantId ? 0x6ee7b7 : 0x7dd3fc, 0.7)
+        .setFillStyle(isSelectedHero ? 0xf59e0b : occupantId ? 0x10b981 : 0xf59e0b, isSelectedHero ? 0.34 : occupantId ? 0.2 : 0.12)
+        .setStrokeStyle(isSelectedHero ? 3 : 2, isSelectedHero ? 0xfde68a : occupantId ? 0x6ee7b7 : 0xfbbf24, isSelectedHero ? 0.95 : 0.65)
     })
   }
 

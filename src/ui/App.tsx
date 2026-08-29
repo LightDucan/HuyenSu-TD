@@ -19,9 +19,6 @@ import { HeroDetailModal } from './HeroDetailModal'
 import { TopCityBar } from './TopCityBar'
 import { getBrowserEquipmentV2Runtime } from '../runtime/EquipmentV2Runtime'
 import { EquipmentInventoryPanel } from './EquipmentInventoryPanel'
-import { EconomyPanel } from './EconomyPanel'
-import { getBrowserEconomyRuntime } from '../runtime/EconomyRuntime'
-import { CONSUMABLE_ITEM_IDS } from '../data/items/definitions'
 import { getBrowserHeroMetaRuntime } from '../runtime/HeroMetaRuntime'
 import { selectPlayableOwnedHeroIds } from '../domain/meta/HeroRecruitment'
 import { battleInstruction, moveIntentForHero, placementIntentForHero } from '../game/bridge/BattleInteractionContract'
@@ -45,7 +42,6 @@ const initialSnapshot: BattleSnapshot = {
 
 export function App() {
   const equipmentRuntime = getBrowserEquipmentV2Runtime()
-  const economyRuntime = getBrowserEconomyRuntime()
   const heroMetaRuntime = getBrowserHeroMetaRuntime()
   const gameHostRef = useRef<HTMLDivElement>(null)
   const [snapshot, setSnapshot] = useState(initialSnapshot)
@@ -58,7 +54,7 @@ export function App() {
   const [placementIntent, setPlacementIntent] = useState(() => battleBridge.getPlacementIntent())
   const [rangeEnabled, setRangeEnabled] = useState(() => battleBridge.isRangeVisibilityEnabled())
   const [metaSave, setMetaSave] = useState<MetaSave>(() => battleBridge.getMetaSnapshot() ?? equipmentRuntime.getSnapshot())
-  const [economyResult, setEconomyResult] = useState<string>()
+  const [, setEconomyResult] = useState<string>()
   const definitionLoadout = (heroId: string, save: MetaSave = equipmentRuntime.getSnapshot()): HeroEquipment => {
     const loadout = save.data.inventory.equippedByHero[heroId] ?? {}
     const weapon = loadout.weaponInstanceId ? save.data.inventory.equipmentInstances[loadout.weaponInstanceId] : undefined
@@ -178,52 +174,6 @@ export function App() {
     const result = equipmentRuntime.transact(operation, save.revision, `ui/equipment/${operation.type}/${crypto.randomUUID()}`, nowMs)
   }
 
-  const handleGacha = (count: 1 | 10) => {
-    const save = economyRuntime.repository.load()
-    if (save.status !== 'loaded') return
-    const nowMs = Date.now()
-    try {
-      const result = economyRuntime.gacha.pull(count, save.save.revision, `ui/gacha/${crypto.randomUUID()}`, nowMs)
-      setEconomyResult(`Gacha ${count}x: ${result.rewards.map((reward) => reward.id).join(', ')}`)
-    } catch (error) { setEconomyResult(error instanceof Error ? error.message : 'Gacha thất bại') }
-  }
-
-  const handleShopBuy = (itemId: string) => {
-    const save = economyRuntime.repository.load()
-    if (save.status !== 'loaded') return
-    try {
-      const result = economyRuntime.shop.buy(itemId, 1, save.save.revision, `ui/shop/${crypto.randomUUID()}`, Date.now())
-      setEconomyResult(`Đã mua ${itemId}.`)
-    } catch (error) { setEconomyResult(error instanceof Error ? error.message : 'Mua thất bại') }
-  }
-
-  const handleConsumableUse = (itemId: string, quantity: number) => {
-    const save = economyRuntime.repository.load()
-    if (save.status !== 'loaded') return
-    try {
-      const result = itemId === CONSUMABLE_ITEM_IDS.summonOrder
-        ? economyRuntime.consumables.useSummonOrder(quantity, save.save.revision, `ui/use-summon/${crypto.randomUUID()}`, Date.now())
-        : economyRuntime.consumables.useCommandEnergyItem(itemId, quantity, save.save.revision, `ui/use-energy/${crypto.randomUUID()}`, Date.now())
-      setEconomyResult(`Đã dùng ${quantity} × ${itemId}.`)
-    } catch (error) { setEconomyResult(error instanceof Error ? error.message : 'Dùng vật phẩm thất bại') }
-  }
-
-  const handleRecruit = (count: 1 | 10) => {
-    const current = heroMetaRuntime.getSnapshot()
-    try {
-      const result = heroMetaRuntime.recruit(count, Math.random, { expectedRevision: current.revision, idempotencyKey: `ui/hero/recruit/${crypto.randomUUID()}`, committedAtMs: Date.now() })
-      setEconomyResult(`Chiêu mộ ${count}x: ${result.results.map(({ heroId, outcome }) => `${heroId} (${outcome})`).join(', ')}`)
-    } catch (error) { setEconomyResult(error instanceof Error ? error.message : 'Chiêu mộ thất bại') }
-  }
-
-  const handleAscendStar = (heroId: string) => {
-    const current = heroMetaRuntime.getSnapshot()
-    try {
-      heroMetaRuntime.ascendStar(heroId, { expectedRevision: current.revision, idempotencyKey: `ui/hero/star/${heroId}/${crypto.randomUUID()}`, committedAtMs: Date.now() })
-      setEconomyResult(`Đã tăng Sao cho ${heroDefinitions[heroId]?.name ?? heroId}.`)
-    } catch (error) { setEconomyResult(error instanceof Error ? error.message : 'Tăng Sao thất bại') }
-  }
-
   return (
     <main className="app-shell">
       {/* Top City Bar */}
@@ -259,7 +209,6 @@ export function App() {
             onMerge={(ingredientInstanceIds) => handleInventoryOperation({ type: 'merge', ingredientInstanceIds, resultInstanceId: `equipment:${crypto.randomUUID()}` })}
             interactionLocked={equipmentInteractionLocked}
           />
-          <EconomyPanel save={metaSave} lastResult={economyResult} onGacha={handleGacha} onBuy={handleShopBuy} onUse={handleConsumableUse} selectedHeroId={hudData.selectedHeroId} onRecruit={handleRecruit} onAscendStar={handleAscendStar} />
           </div>
         )}
 

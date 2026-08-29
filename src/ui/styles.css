@@ -1564,9 +1564,33 @@ body,
 }
 
 .top-city-bar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(10px, 2vw, 28px);
   min-height: 0;
   margin: 0;
   padding: clamp(6px, 0.8vh, 10px) clamp(10px, 1.2vw, 18px);
+}
+
+.top-hud-left {
+  justify-self: start;
+}
+
+.wave-counter-box {
+  justify-self: center;
+}
+
+.top-hud-right {
+  justify-self: end;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.top-hud-right .wallet-hud {
+  justify-content: flex-end;
 }
 
 .hint,
@@ -1622,6 +1646,26 @@ body,
 
 .meta-content-region .meta-tabs {
   flex: 0 0 auto;
+  gap: 0;
+  padding: 0 8px;
+  border-bottom: 1px solid #475569;
+  background: #0b1220;
+}
+
+.meta-content-region .meta-tabs button {
+  margin-bottom: -1px;
+  border-radius: 8px 8px 0 0;
+  border-color: transparent;
+  border-bottom-color: #475569;
+  background: transparent;
+  color: #94a3b8;
+}
+
+.meta-content-region .meta-tabs button.active {
+  border-color: #d97706 #d97706 #111827;
+  background: #111827;
+  color: #fbbf24;
+  box-shadow: inset 0 2px 0 #f59e0b;
 }
 
 .meta-content-region .bottom-player-hud {

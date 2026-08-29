@@ -58,15 +58,13 @@
   <path d="M 16 288 Q 240 288 320 180 T 640 180 T 800 380 T 1264 380" fill="none" stroke="#785330" stroke-width="64" stroke-linecap="round"/>
   <path d="M 16 288 Q 240 288 320 180 T 640 180 T 800 380 T 1264 380" fill="none" stroke="#a07142" stroke-width="56" stroke-linecap="round"/>
 
-  <!-- Placement Tiles & Heroes -->
-  <!-- Tile 1: Placed Hero (Trung Trac) -->
+  <!-- Placement Tiles & Heroes (Default Range = OFF: No persistent overlay circles) -->
+  <!-- Tile 1: Placed Hero (Trưng Trắc) -->
   <rect x="420" y="260" width="76" height="76" rx="6" fill="#10b981" fill-opacity="0.25" stroke="#10b981" stroke-width="2"/>
   <circle cx="458" cy="298" r="32" fill="#1d4ed8" stroke="#60a5fa" stroke-width="2"/>
   <text x="458" y="303" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">Trưng Trắc</text>
-  <!-- Range Circle (Subtle Overlay) -->
-  <circle cx="458" cy="298" r="110" fill="#38bdf8" fill-opacity="0.03" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.35" stroke-dasharray="6,4"/>
 
-  <!-- Tile 2: Placed Hero (Trung Nhi - Selected) -->
+  <!-- Tile 2: Placed Hero (Trưng Nhị - HeroFocused) -->
   <rect x="700" y="100" width="76" height="76" rx="6" fill="#ca8a04" fill-opacity="0.25" stroke="#fbbf24" stroke-width="2.5"/>
   <circle cx="738" cy="138" r="32" fill="#7c2d12" stroke="#fb923c" stroke-width="2"/>
   <text x="738" y="143" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">Trưng Nhị</text>
@@ -81,7 +79,7 @@
 
   <!-- 3. HINT / INSTRUCTION BAR (Height: 24px) -->
   <rect x="16" y="514" width="1248" height="24" rx="4" fill="#0f172a" stroke="#1e293b" stroke-width="1"/>
-  <text x="28" y="530" fill="#93c5fd" font-size="12">💬 <tspan font-weight="bold" fill="#fde047">Hướng dẫn:</tspan> Đã chọn Trưng Nhị (Ô 2-4). Nhấn 'Di chuyển' để dời vị trí. (Click cỏ trống để hủy lệnh di chuyển, giữ nguyên chọn tướng)</text>
+  <text x="28" y="530" fill="#93c5fd" font-size="12">💬 <tspan font-weight="bold" fill="#fde047">Hướng dẫn:</tspan> Đã chọn Trưng Nhị (Ô 2-4). Nhấn 'Di chuyển' để dời vị trí. (Click cỏ trống: PlacementIntent về neutral, giữ nguyên chọn tướng)</text>
 
   <!-- 4. BOTTOM CONTAINER & TAB HEADER (Height: 166px) -->
   <!-- Tab Header Buttons (Seamlessly connected to panel) -->
@@ -101,7 +99,7 @@
 
   <!-- LEFT REGION: 3 HERO CARDS (When ĐỘI HÌNH Tab is active) -->
   <g transform="translate(32, 586)">
-    <!-- Hero Card 1: Trung Trac (Deployed) -->
+    <!-- Hero Card 1: Trưng Trắc (Deployed) -->
     <rect x="0" y="0" width="280" height="110" rx="8" fill="url(#cardGrad)" stroke="#10b981" stroke-width="1.5"/>
     <rect x="10" y="10" width="70" height="90" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
     <text x="45" y="60" fill="#38bdf8" font-size="18" text-anchor="middle">👸</text>
@@ -112,7 +110,7 @@
     <rect x="92" y="86" width="76" height="18" rx="3" fill="#1e293b" stroke="#3b82f6" stroke-width="1"/>
     <text x="130" y="99" fill="#93c5fd" font-size="10" font-weight="bold" text-anchor="middle">Di Chuyển</text>
 
-    <!-- Hero Card 2: Trung Nhi (Selected & Move Pending) -->
+    <!-- Hero Card 2: Trưng Nhị (HeroFocused & MovePending) -->
     <rect x="294" y="0" width="280" height="110" rx="8" fill="url(#activeCardGrad)" stroke="#fbbf24" stroke-width="2"/>
     <rect x="304" y="10" width="70" height="90" rx="6" fill="#1e293b" stroke="#fbbf24" stroke-width="1.5"/>
     <text x="339" y="60" fill="#fbbf24" font-size="18" text-anchor="middle">🏹</text>
@@ -123,14 +121,14 @@
     <rect x="386" y="86" width="76" height="18" rx="3" fill="#7f1d1d" stroke="#ef4444" stroke-width="1"/>
     <text x="424" y="99" fill="#fca5a5" font-size="10" font-weight="bold" text-anchor="middle">Hủy Dời</text>
 
-    <!-- Hero Card 3: Le Chan (Available in Deck) -->
+    <!-- Hero Card 3: Lê Chân (Available in Deck) -->
     <rect x="588" y="0" width="280" height="110" rx="8" fill="url(#cardGrad)" stroke="#475569" stroke-width="1.5"/>
     <rect x="598" y="10" width="70" height="90" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
     <text x="633" y="60" fill="#f87171" font-size="18" text-anchor="middle">⚔</text>
     <text x="680" y="32" fill="#ffffff" font-size="15" font-weight="bold">Lê Chân</text>
     <rect x="680" y="42" width="76" height="20" rx="4" fill="#1e293b" stroke="#475569" stroke-width="1"/>
     <text x="686" y="56" fill="#94a3b8" font-size="11" font-weight="bold">● Trong Deck</text>
-    <text x="680" y="78" fill="#94a3b8" font-size="11">Chưa triển khai</text>
+    <text x="680" y="78" fill="#94a3b8" font-size="11">Chưa trang bị / Chưa đặt</text>
     <rect x="680" y="86" width="76" height="18" rx="3" fill="#1d4ed8" stroke="#60a5fa" stroke-width="1"/>
     <text x="718" y="99" fill="#ffffff" font-size="10" font-weight="bold" text-anchor="middle">Triển Khai</text>
   </g>
@@ -159,9 +157,9 @@
     <rect x="54" y="74" width="36" height="28" rx="4" fill="#eab308" stroke="#fde047" stroke-width="1"/>
     <text x="72" y="92" fill="#0f172a" font-size="12" font-weight="bold" text-anchor="middle">x3</text>
 
-    <!-- Range Overlay Toggle -->
-    <rect x="96" y="74" width="94" height="28" rx="4" fill="#1e3a8a" stroke="#3b82f6" stroke-width="1"/>
-    <text x="143" y="92" fill="#bfdbfe" font-size="11" font-weight="bold" text-anchor="middle">🎯 Tầm: Bật</text>
+    <!-- Range Overlay Toggle (CONTRACT 1: DEFAULT RANGE = OFF) -->
+    <rect x="96" y="74" width="94" height="28" rx="4" fill="#334155" stroke="#64748b" stroke-width="1"/>
+    <text x="143" y="92" fill="#cbd5e1" font-size="11" font-weight="bold" text-anchor="middle">🎯 Tầm: Tắt</text>
 
     <!-- Hero Detail Modal Trigger -->
     <rect x="196" y="74" width="108" height="28" rx="4" fill="#1e293b" stroke="#60a5fa" stroke-width="1"/>

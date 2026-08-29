@@ -119,6 +119,7 @@ export const khangTongSkills: Record<string, SkillDefinition> = {
     id: 'le-hoan-tra-hang-tram-tuong',
     name: 'Trá Hàng Trảm Tướng',
     effects: [
+      { type: 'aoe', radius: 80, maxTargets: 1 },
       { type: 'damage', atkMultiplier: 3.5 },
       { type: 'root', durationMs: 1500 },
     ],

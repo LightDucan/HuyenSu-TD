@@ -64,10 +64,11 @@
   - **Mã kỹ năng (`activeSkillId`)**: `le-hoan-tra-hang-tram-tuong`
   - **Tên kỹ năng**: *Trá Hàng Trảm Tướng* `[GAMEPLAY ADAPTATION]`
   - **Số đòn đánh kích hoạt (`skillTriggerHits`)**: $5$ đòn đánh thường.
-  - **Mô hình tác động**: Tấn công trực tiếp mục tiêu đang giao chiến hiện tại (`current target`), dồn sát thương bộc phá cực mạnh và trói chân mục tiêu.
+  - **Mô hình tác động**: Tấn công mục tiêu dẫn đầu trong phạm vi tầm đánh ($R=80\text{ px}$, `maxTargets: 1`), dồn sát thương bộc phá cực mạnh và trói chân mục tiêu mà không yêu cầu mở rộng runtime.
   - **Cấu trúc hiệu ứng (`effects`)**:
     ```ts
     effects: [
+      { type: 'aoe', radius: 80, maxTargets: 1 },
       { type: 'damage', atkMultiplier: 3.5 },
       { type: 'root', durationMs: 1500 },
     ]

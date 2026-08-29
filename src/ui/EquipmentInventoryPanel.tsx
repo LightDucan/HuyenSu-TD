@@ -1,4 +1,5 @@
 import { EQUIPMENT_MAX_LEVEL, resolveEquipmentInstanceModifiers } from '../domain/equipment/EquipmentV2'
+import { heroDefinitions } from '../data/heroes/definitions'
 import type { EquipmentSlot, EquipmentV2Definition } from '../domain/equipment/EquipmentSystem'
 import type { MetaSave } from '../domain/meta/MetaState'
 
@@ -18,6 +19,10 @@ function modifierText(modifiers: ReturnType<typeof resolveEquipmentInstanceModif
     modifiers.range ? `Range +${modifiers.range}` : '',
     modifiers.attackSpeed ? `AttackSpeed +${modifiers.attackSpeed}` : '',
   ].filter(Boolean).join(' · ')
+}
+
+function heroDisplayName(heroId: string): string {
+  return heroDefinitions[heroId]?.name ?? 'Tướng đang chọn'
 }
 
 export function EquipmentInventoryPanel({
@@ -47,19 +52,19 @@ export function EquipmentInventoryPanel({
   })
 
   return (
-    <section className="equipment-v2-panel" aria-label="Hành Trang Equipment V2">
+    <section className="equipment-v2-panel" aria-label="Hành Trang trang bị">
       <div className="equipment-v2-heading">
         <div>
           <h2>Hành Trang</h2>
-          <p>Hero đang chọn: {selectedHeroId}. Mỗi Hero dùng tối đa 1 Vũ Khí và 1 Ngọc.</p>
+          <p>Tướng đang chọn: {heroDisplayName(selectedHeroId)}. Mỗi tướng dùng tối đa 1 Vũ Khí và 1 Ngọc.</p>
         </div>
-        <span>Meta V5 · {instances.length} trang bị</span>
+        <span>{instances.length} trang bị</span>
       </div>
       {interactionLocked && (
         <p className="equipment-combat-lock" role="status">Wave đang diễn ra — có thể xem Hành Trang, nhưng Lắp/Gỡ tạm khóa.</p>
       )}
       {instances.length === 0 ? (
-        <p className="equipment-v2-empty">Chưa có Equipment instance. Trang bị legacy hợp lệ sẽ được import tự động.</p>
+        <p className="equipment-v2-empty">Chưa có trang bị nào. Các trang bị hợp lệ sẽ xuất hiện tại đây.</p>
       ) : (
         <div className="equipment-v2-list">
           {instances.map((instance) => {
@@ -75,7 +80,7 @@ export function EquipmentInventoryPanel({
                   <strong>{definition.name}</strong>
                   <span>Lv{instance.level} · {instance.slot === 'weapon' ? 'Vũ Khí' : 'Ngọc'}</span>
                   <small>{modifierText(resolveEquipmentInstanceModifiers(instance, definitions))}</small>
-                  <small>{owner ? `Đang trang bị: ${owner}` : 'Chưa trang bị'}</small>
+                  <small>{owner ? `Đang trang bị: ${heroDisplayName(owner)}` : 'Chưa trang bị'}</small>
                 </div>
                 <div className="equipment-v2-actions">
                   {equippedBySelected ? (
@@ -91,8 +96,8 @@ export function EquipmentInventoryPanel({
         </div>
       )}
       <div className="equipment-v2-equipped">
-        <span>Weapon: {selectedLoadout.weaponInstanceId ?? 'NONE'}</span>
-        <span>Gem: {selectedLoadout.gemInstanceId ?? 'NONE'}</span>
+        <span>Vũ Khí: {selectedLoadout.weaponInstanceId ? 'Đã trang bị' : 'Chưa trang bị'}</span>
+        <span>Ngọc: {selectedLoadout.gemInstanceId ? 'Đã trang bị' : 'Chưa trang bị'}</span>
       </div>
     </section>
   )

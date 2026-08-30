@@ -19,6 +19,7 @@ describe('campaign progression', () => {
     expect(validateMetaSave(v5).ok).toBe(false)
     expect(validateMetaSaveV5(v5).ok).toBe(true)
     expect(validateMetaSave({ schemaVersion: 6, revision: 1, updatedAtMs: 0, data: { ...initial, campaignProgress: { completedStages: { bad: { firstCompletedAtMs: -1 } } } } }).ok).toBe(false)
+    expect(validateMetaSave({ schemaVersion: 6, revision: 1, updatedAtMs: 0, data: { ...initial, campaignProgress: { completedStages: {}, unexpected: true } } }).ok).toBe(false)
   })
   it('derives unlocks and chapter completion from ordered completions', () => {
     let progress = { completedStages: {} }

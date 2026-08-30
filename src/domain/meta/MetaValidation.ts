@@ -213,12 +213,16 @@ export function validateMetaState(value: unknown): ValidationResult<MetaState> {
   const issues: string[] = []
   validateExactKeys(value, ['profile', 'wallet', 'inventory', 'commandEnergy', 'rewardReceipts', 'activePlayTime', 'heroCollection', 'campaignProgress'], 'meta state', issues)
   validateProfile(value.profile, issues); validateWallet(value.wallet, issues); validateInventory(value.inventory, issues); validateCommandEnergy(value.commandEnergy, issues); validateRewardReceipts(value.rewardReceipts, issues); validateActivePlayTime(value.activePlayTime, issues); validateHeroCollection(value.heroCollection, issues)
-  if (!isRecord(value.campaignProgress) || !isRecord(value.campaignProgress.completedStages)) issues.push('campaignProgress must contain completedStages')
-  else Object.entries(value.campaignProgress.completedStages).forEach(([stageId, entry]) => {
-    if (stageId.trim().length === 0 || !isRecord(entry)) { issues.push(`campaignProgress.completedStages.${stageId} is invalid`); return }
-    validateExactKeys(entry, ['firstCompletedAtMs'], `campaignProgress.completedStages.${stageId}`, issues)
-    if (!isNonNegativeSafeInteger(entry.firstCompletedAtMs)) issues.push(`campaignProgress.completedStages.${stageId}.firstCompletedAtMs must be a non-negative safe integer`)
-  })
+  if (!isRecord(value.campaignProgress) || !isRecord(value.campaignProgress.completedStages)) {
+    issues.push('campaignProgress must contain completedStages')
+  } else {
+    validateExactKeys(value.campaignProgress, ['completedStages'], 'campaignProgress', issues)
+    Object.entries(value.campaignProgress.completedStages).forEach(([stageId, entry]) => {
+      if (stageId.trim().length === 0 || !isRecord(entry)) { issues.push(`campaignProgress.completedStages.${stageId} is invalid`); return }
+      validateExactKeys(entry, ['firstCompletedAtMs'], `campaignProgress.completedStages.${stageId}`, issues)
+      if (!isNonNegativeSafeInteger(entry.firstCompletedAtMs)) issues.push(`campaignProgress.completedStages.${stageId}.firstCompletedAtMs must be a non-negative safe integer`)
+    })
+  }
   return issues.length === 0 ? { ok: true, value: value as MetaState } : { ok: false, issues }
 }
 

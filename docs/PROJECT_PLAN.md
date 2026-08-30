@@ -9,14 +9,14 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 ## WorkTree
 
 - Repository: `HuyenSu-TD`
-- Branch hiện tại: `codex/game-c01-player-journey-shell`
+- Branch hiện tại: `codex/game-c04-multi-chapter-catalog`
 - Worktree Codex hiện tại: `C:\Users\PC\Documents\Codex\2026-08-23\referenced-chatgpt-conversation-this-is-an\work\m10-c01-main`
 - Quy tắc worker Antigravity: [ANTIGRAVITY_RULES.md](ANTIGRAVITY_RULES.md)
 
 ## Trạng thái hiện tại
 
-- Current Phase: **CAMPAIGN PROGRESSION FOUNDATION**
-- Current Codex task: **GAME-C03 — Campaign Progression Foundation / Stage Unlock** — branch `codex/game-c03-campaign-progression`.
+- Current Phase: **MULTI-CHAPTER CAMPAIGN CATALOG**
+- Current Codex task: **GAME-C04 — Multi-Chapter Campaign Catalog & Navigation** — branch `codex/game-c04-multi-chapter-catalog`.
 - Current Antigravity task: **NONE — awaiting an explicitly assigned task**.
 - QA-C01A: **ENVIRONMENT-BLOCKED interactive portion**; automated regression PASS; manual QA debt retained.
 - VS-HBT-V02B: **CODE/BINARY AUDIT PASS; MANUAL VISUAL QA PASS ENOUGH TO CONTINUE**; real HBT Hero assets 12/12 integrated.
@@ -28,7 +28,8 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 - GAME-C02: **DONE — waiting audit**; stage-aware Battle runtime, fresh run snapshot, generic map contract và capacity gate đã hoàn tất.
 - GAME-C03: **DONE — waiting audit**; Meta V6 campaign progress, ordered stage unlock, idempotent victory completion và guarded Campaign UI đã hoàn tất.
 - Known debt: **Equipment Runtime/UI Effect Integration** — equipping Weapon/Gem may not visibly change Hero stats/effects; explicitly out of scope for VIS-HUD-01.
-- Lần kiểm tra gần nhất: GAME-C03-FIX1 — 31 test files/209 tests PASS, production build PASS, diff-check PASS.
+- GAME-C04: **DONE — waiting audit**; generic catalog registry, safe chapter/stage selection, strict Meta V6 campaignProgress boundary, production HBT catalog only.
+- Lần kiểm tra gần nhất: GAME-C04 — 32 test files/213 tests PASS, production build PASS, preview served, diff-check PASS.
 
 ## Phases và checkpoint
 
@@ -89,6 +90,12 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 | P9-02 | Audit toàn bộ MVP Vertical Slice và xác nhận playable checkpoint | DONE | Codex | Full Audit #5: 5 Hero, 10 Wave, x1/x3, HUD, architecture, test/build | `v0.1.0-playable` |
 | P9-C02 | Multi-Hero Placement, runtime reposition và cấu hình upgrade cooldown | DONE | Codex | 5 Hero/reposition/skill/x1-x3/10 Wave/cooldown/test/build/preview — PASS | `5f72f4d`, merge `ab76e86` |
 | P9-C03 | Refresh chỉ số runtime của Hero đang đặt sau Progression/Equipment save | DONE | Codex | ATK/Range/ASPD, giữ cooldown/skill charge, no-op unplaced, UI save commands, reposition/x1-x3/10 Wave/test/build/preview — PASS | `16f33f0`, merge `680854e` |
+
+## GAME-C04 task tracker
+
+| Task ID | Nội dung | Trạng thái | Worker chính | Audit checkpoint | Commit checkpoint |
+|---|---|---|---|---|---|
+| GAME-C04 | Multi-Chapter Campaign Catalog & Navigation; production catalog giữ duy nhất chapter Hai Bà Trưng, fixture 2 chapter chỉ dùng test | DONE — waiting audit | Codex | Catalog ID validation, safe selection fallback, strict Meta V6, runtime integration — PASS; manual browser smoke debt retained | pending |
 
 ## Quy tắc cập nhật
 

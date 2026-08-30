@@ -19,7 +19,10 @@ export function selectSafeStage(chapters: readonly CampaignChapterDefinition[], 
   const playable = ({ chapter, stage }: { chapter: CampaignChapterDefinition; stage: BattleStageDefinition }) => selectStageProgress(chapter, progress, stage.id) !== 'locked' && stage.allowedHeroIds.some((heroId) => ownedHeroIds.includes(heroId))
   const selected = all.find(({ stage }) => stage.id === selectedStageId)
   if (selected && playable(selected)) return selected.stage
-  return all.find(playable)?.stage ?? all.find(({ chapter, stage }) => selectStageProgress(chapter, progress, stage.id) === 'completed')?.stage
+  const available = all.find(({ chapter, stage }) => selectStageProgress(chapter, progress, stage.id) === 'available' && playable({ chapter, stage }))
+  if (available) return available.stage
+  const completed = all.find(({ chapter, stage }) => selectStageProgress(chapter, progress, stage.id) === 'completed' && playable({ chapter, stage }))
+  return completed?.stage
 }
 
 export function completeStage(chapter: CampaignChapterDefinition, progress: CampaignProgressState, stageId: string, completedAtMs: number): CampaignProgressState {

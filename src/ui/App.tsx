@@ -23,7 +23,8 @@ import { getBrowserEconomyRuntime } from '../runtime/EconomyRuntime'
 import { CONSUMABLE_ITEM_IDS } from '../data/items/definitions'
 import { getBrowserHeroMetaRuntime } from '../runtime/HeroMetaRuntime'
 import { selectPlayableOwnedHeroIds } from '../domain/meta/HeroRecruitment'
-import { defaultCampaignChapter, defaultBattleStage } from '../data/campaign/haiBaTrungCampaign'
+import { defaultBattleStage } from '../data/campaign/haiBaTrungCampaign'
+import { productionCampaignCatalog } from '../data/campaign/catalog'
 import { createInitialBattleSnapshot } from '../game/bridge/BattleSnapshot'
 import { getBrowserDeploymentCapacityRuntime } from '../runtime/DeploymentCapacityRuntime'
 import { battleInstruction, moveIntentForHero, placementIntentForHero } from '../game/bridge/BattleInteractionContract'
@@ -36,6 +37,7 @@ export function App() {
   const economyRuntime = getBrowserEconomyRuntime()
   const heroMetaRuntime = getBrowserHeroMetaRuntime()
   const gameHostRef = useRef<HTMLDivElement>(null)
+  const [selectedChapterId, setSelectedChapterId] = useState(productionCampaignCatalog.chapters[0].id)
   const [selectedStageId, setSelectedStageId] = useState(defaultBattleStage.id)
   const [screen, setScreen] = useState<PlayerJourneyScreen>('city')
   const [commandEnergy, setCommandEnergy] = useState<CommandEnergySnapshot>(() => battleBridge.getCommandEnergySnapshot())
@@ -47,7 +49,8 @@ export function App() {
   const [placementIntent, setPlacementIntent] = useState(() => battleBridge.getPlacementIntent())
   const [rangeEnabled, setRangeEnabled] = useState(() => battleBridge.isRangeVisibilityEnabled())
   const [metaSave, setMetaSave] = useState<MetaSave>(() => battleBridge.getMetaSnapshot() ?? equipmentRuntime.getSnapshot())
-  const selectedStage = selectSafeStage([defaultCampaignChapter], selectedStageId, metaSave.data.campaignProgress, selectPlayableOwnedHeroIds(metaSave.data.heroCollection, ACTIVE_HERO_IDS)) ?? defaultBattleStage
+  const selectedChapter = productionCampaignCatalog.chapters.find((chapter) => chapter.id === selectedChapterId) ?? productionCampaignCatalog.chapters[0]
+  const selectedStage = selectSafeStage([selectedChapter], selectedStageId, metaSave.data.campaignProgress, selectPlayableOwnedHeroIds(metaSave.data.heroCollection, ACTIVE_HERO_IDS)) ?? defaultBattleStage
   const playableIds = selectPlayableOwnedHeroIds(metaSave.data.heroCollection, selectedStage.allowedHeroIds)
   const [snapshot, setSnapshot] = useState(() => createInitialBattleSnapshot(selectedStage, playableIds, battleBridge.getSelectedHeroId()))
   const [economyResult, setEconomyResult] = useState<string>()
@@ -231,7 +234,7 @@ export function App() {
   }
 
   const handleEnterBattle = () => {
-    if (selectStageProgress(defaultCampaignChapter, metaSave.data.campaignProgress, selectedStage.id) === 'locked' || playableIds.length === 0) return
+    if (selectStageProgress(selectedChapter, metaSave.data.campaignProgress, selectedStage.id) === 'locked' || playableIds.length === 0) return
     battleBridge.clearPlacementIntent()
     const preferredHeroId = new Set(playableIds).has(battleBridge.getSelectedHeroId()) ? battleBridge.getSelectedHeroId() : playableIds[0]
     if (preferredHeroId) battleBridge.setSelectedHeroId(preferredHeroId)
@@ -278,8 +281,8 @@ export function App() {
 
   if (screen === 'campaign') return (
     <main className="app-shell journey-shell campaign-screen">
-      <header className="journey-header"><div><span className="eyebrow">CHINH CHIẾN</span><h1>{defaultCampaignChapter.displayName}</h1><p>Chọn một màn để bắt đầu hành trình.</p></div><button type="button" className="btn-secondary" onClick={() => setScreen('city')}>VỀ ĐẠI DOANH</button></header>
-      <section className="campaign-card"><span className="eyebrow">{defaultCampaignChapter.displayName}</span><h2>{selectedStage.displayName}</h2><p>{selectedStage.waves.length} Wave · {selectedStage.allowedHeroIds.length} tướng khả dụng</p><div className="stage-options" aria-label="Chọn màn">{defaultCampaignChapter.stages.map((stage) => { const status = selectStageProgress(defaultCampaignChapter, metaSave.data.campaignProgress, stage.id); return <button key={stage.id} type="button" className={stage.id === selectedStage.id ? 'selected' : ''} disabled={status === 'locked'} onClick={() => setSelectedStageId(stage.id)}>{stage.displayName} — {status === 'completed' ? 'Đã hoàn thành' : status === 'locked' ? 'Chưa mở' : 'Sẵn sàng'}</button> })}</div><button type="button" className="btn-primary" disabled={playableIds.length === 0} onClick={handleEnterBattle}>VÀO TRẬN</button>{playableIds.length === 0 && <p role="status">Màn này chưa có tướng khả dụng.</p>}</section>
+      <header className="journey-header"><div><span className="eyebrow">CHINH CHIẾN</span><h1>{selectedChapter.displayName}</h1><p>Chọn một màn để bắt đầu hành trình.</p></div><button type="button" className="btn-secondary" onClick={() => setScreen('city')}>VỀ ĐẠI DOANH</button></header>
+      <section className="campaign-card"><span className="eyebrow">{selectedChapter.displayName}</span><h2>{selectedStage.displayName}</h2><p>{selectedStage.waves.length} Wave · {selectedStage.allowedHeroIds.length} tướng khả dụng</p><div className="stage-options" aria-label="Chọn màn">{selectedChapter.stages.map((stage) => { const status = selectStageProgress(selectedChapter, metaSave.data.campaignProgress, stage.id); return <button key={stage.id} type="button" className={stage.id === selectedStage.id ? 'selected' : ''} disabled={status === 'locked'} onClick={() => setSelectedStageId(stage.id)}>{stage.displayName} — {status === 'completed' ? 'Đã hoàn thành' : status === 'locked' ? 'Chưa mở' : 'Sẵn sàng'}</button> })}</div><button type="button" className="btn-primary" disabled={playableIds.length === 0} onClick={handleEnterBattle}>VÀO TRẬN</button>{playableIds.length === 0 && <p role="status">Màn này chưa có tướng khả dụng.</p>}</section>
     </main>
   )
 

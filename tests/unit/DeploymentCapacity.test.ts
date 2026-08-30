@@ -76,7 +76,7 @@ describe('P13-C01 Deployment Capacity domain', () => {
     })
     expect(bridge.getDeploymentCapacitySnapshot()).toEqual(projection)
     expect(after).toEqual(before)
-    expect(META_SAVE_SCHEMA_VERSION).toBe(5)
+    expect(META_SAVE_SCHEMA_VERSION).toBe(6)
   })
 })
 

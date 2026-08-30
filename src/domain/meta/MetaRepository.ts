@@ -1,6 +1,6 @@
 import type { StorageLike } from '../progression/ProgressionStorage'
-import { migrateMetaSaveV1ToV2, migrateMetaSaveV2ToV3, migrateMetaSaveV3ToV4, migrateMetaSaveV4ToV5 } from './MetaMigration'
-import { META_SAVE_SCHEMA_VERSION, META_SAVE_SCHEMA_VERSION_V1, META_SAVE_SCHEMA_VERSION_V2, META_SAVE_SCHEMA_VERSION_V3, META_SAVE_SCHEMA_VERSION_V4, type MetaSave, type MetaState } from './MetaState'
+import { migrateMetaSaveV1ToV2, migrateMetaSaveV2ToV3, migrateMetaSaveV3ToV4, migrateMetaSaveV4ToV5, migrateMetaSaveV5ToV6 } from './MetaMigration'
+import { META_SAVE_SCHEMA_VERSION, META_SAVE_SCHEMA_VERSION_V1, META_SAVE_SCHEMA_VERSION_V2, META_SAVE_SCHEMA_VERSION_V3, META_SAVE_SCHEMA_VERSION_V4, META_SAVE_SCHEMA_VERSION_V5, type MetaSave, type MetaState } from './MetaState'
 import { readSchemaVersion, validateMetaSave, validateMetaState } from './MetaValidation'
 import { applyRewardTransaction, type RewardTransactionRequest } from './RewardTransaction'
 import { grantCommandEnergy, resolveCommandEnergyRegen, spendCommandEnergy } from './CommandEnergy'
@@ -63,7 +63,8 @@ export class LocalMetaRepository {
     if (!v3.ok) throw new Error(`Invalid intermediate Meta V2 save: ${v3.issues.join('; ')}`)
     const v4 = migrateMetaSaveV3ToV4(v3.value)
     if (!v4.ok) throw new Error(`Invalid intermediate Meta V3 save: ${v4.issues.join('; ')}`)
-    const migrated = migrateMetaSaveV4ToV5(v4.value, this.storage)
+    const migratedV5 = migrateMetaSaveV4ToV5(v4.value, this.storage)
+    const migrated = migratedV5.ok ? migrateMetaSaveV5ToV6(migratedV5.value) : migratedV5
     if (!migrated.ok) throw new Error(`Invalid Meta V4 or legacy progression save: ${migrated.issues.join('; ')}`)
     if (migrated.value.revision !== expectedRevision) throw new Error(`Meta save revision conflict: expected ${expectedRevision}, actual ${migrated.value.revision}`)
     this.persist(migrated.value)
@@ -80,7 +81,8 @@ export class LocalMetaRepository {
     if (!v3.ok) throw new Error(`Invalid Meta V2 save: ${v3.issues.join('; ')}`)
     const v4 = migrateMetaSaveV3ToV4(v3.value)
     if (!v4.ok) throw new Error(`Invalid intermediate Meta V3 save: ${v4.issues.join('; ')}`)
-    const migrated = migrateMetaSaveV4ToV5(v4.value, this.storage)
+    const migratedV5 = migrateMetaSaveV4ToV5(v4.value, this.storage)
+    const migrated = migratedV5.ok ? migrateMetaSaveV5ToV6(migratedV5.value) : migratedV5
     if (!migrated.ok) throw new Error(`Invalid Meta V4 or legacy progression save: ${migrated.issues.join('; ')}`)
     if (migrated.value.revision !== expectedRevision) throw new Error(`Meta save revision conflict: expected ${expectedRevision}, actual ${migrated.value.revision}`)
     this.persist(migrated.value)
@@ -95,7 +97,8 @@ export class LocalMetaRepository {
     try { parsed = JSON.parse(current.raw) } catch { throw new Error('Meta V3 save is not valid JSON') }
     const v4 = migrateMetaSaveV3ToV4(parsed)
     if (!v4.ok) throw new Error(`Invalid Meta V3 save: ${v4.issues.join('; ')}`)
-    const migrated = migrateMetaSaveV4ToV5(v4.value, this.storage)
+    const migratedV5 = migrateMetaSaveV4ToV5(v4.value, this.storage)
+    const migrated = migratedV5.ok ? migrateMetaSaveV5ToV6(migratedV5.value) : migratedV5
     if (!migrated.ok) throw new Error(`Invalid Meta V4 or legacy progression save: ${migrated.issues.join('; ')}`)
     if (migrated.value.revision !== expectedRevision) throw new Error(`Meta save revision conflict: expected ${expectedRevision}, actual ${migrated.value.revision}`)
     this.persist(migrated.value)
@@ -108,8 +111,19 @@ export class LocalMetaRepository {
     if (current.status !== 'migration-required' || current.sourceVersion !== META_SAVE_SCHEMA_VERSION_V4) throw new Error('Meta save does not require V4 migration')
     let parsed: unknown
     try { parsed = JSON.parse(current.raw) } catch { throw new Error('Meta V4 save is not valid JSON') }
-    const migrated = migrateMetaSaveV4ToV5(parsed, this.storage)
+    const migratedV5 = migrateMetaSaveV4ToV5(parsed, this.storage)
+    const migrated = migratedV5.ok ? migrateMetaSaveV5ToV6(migratedV5.value) : migratedV5
     if (!migrated.ok) throw new Error(`Invalid Meta V4 or legacy progression save: ${migrated.issues.join('; ')}`)
+    if (migrated.value.revision !== expectedRevision) throw new Error(`Meta save revision conflict: expected ${expectedRevision}, actual ${migrated.value.revision}`)
+    this.persist(migrated.value)
+    return migrated.value
+  }
+
+  migrateV5(expectedRevision: number): MetaSave {
+    const current = this.load()
+    if (current.status !== 'migration-required' || current.sourceVersion !== META_SAVE_SCHEMA_VERSION_V5) throw new Error('Meta save does not require V5 migration')
+    const migrated = migrateMetaSaveV5ToV6(JSON.parse(current.raw))
+    if (!migrated.ok) throw new Error(`Invalid Meta V5 save: ${migrated.issues.join('; ')}`)
     if (migrated.value.revision !== expectedRevision) throw new Error(`Meta save revision conflict: expected ${expectedRevision}, actual ${migrated.value.revision}`)
     this.persist(migrated.value)
     return migrated.value

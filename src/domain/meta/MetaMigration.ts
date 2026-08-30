@@ -3,12 +3,15 @@ import {
   META_SAVE_SCHEMA_VERSION,
   META_SAVE_SCHEMA_VERSION_V2,
   META_SAVE_SCHEMA_VERSION_V3,
+  META_SAVE_SCHEMA_VERSION_V5,
+  type MetaSaveV5,
+  type MetaSaveV6,
   type MetaSaveV2,
   type MetaSaveV3,
   type MetaSaveV4,
   type MetaSave,
 } from './MetaState'
-import { type ValidationResult, validateMetaSaveV1, validateMetaSaveV2, validateMetaSaveV3, validateMetaSaveV4 } from './MetaValidation'
+import { type ValidationResult, validateMetaSaveV1, validateMetaSaveV2, validateMetaSaveV3, validateMetaSaveV4, validateMetaSaveV5 } from './MetaValidation'
 import { PROGRESSION_STORAGE_KEY, type StorageLike } from '../progression/ProgressionStorage'
 import { createPrototypeHeroCollection, type HeroCollection } from './HeroRecruitment'
 import type { HeroProgression } from '../progression/ProgressionSystem'
@@ -90,18 +93,25 @@ function readLegacyHeroCollection(storage?: StorageLike): ValidationResult<HeroC
   } catch { return { ok: false, issues: ['legacy progression save is not valid JSON'] } }
 }
 
-export function migrateMetaSaveV4ToV5(value: unknown, storage?: StorageLike): ValidationResult<MetaSave> {
-  const v4 = validateMetaSaveV4(value)
+export function migrateMetaSaveV4ToV5(value: unknown, storage?: StorageLike): ValidationResult<MetaSaveV5> {
+  const candidate = value && typeof value === 'object' ? { ...(value as Record<string, unknown>), data: value && typeof (value as Record<string, unknown>).data === 'object' ? (() => { const { campaignProgress: _ignored, ...rest } = (value as Record<string, unknown>).data as Record<string, unknown>; return rest })() : (value as Record<string, unknown>).data } : value
+  const v4 = validateMetaSaveV4(candidate)
   if (!v4.ok) return v4
   const collection = readLegacyHeroCollection(storage)
   if (!collection.ok) return collection
   return {
     ok: true,
     value: {
-      schemaVersion: META_SAVE_SCHEMA_VERSION,
+      schemaVersion: META_SAVE_SCHEMA_VERSION_V5,
       revision: v4.value.revision,
       updatedAtMs: v4.value.updatedAtMs,
       data: { ...v4.value.data, heroCollection: collection.value },
     },
   }
+}
+
+export function migrateMetaSaveV5ToV6(value: unknown): ValidationResult<MetaSaveV6> {
+  const v5 = validateMetaSaveV5(value)
+  if (!v5.ok) return v5
+  return { ok: true, value: { schemaVersion: 6, revision: v5.value.revision, updatedAtMs: v5.value.updatedAtMs, data: { ...v5.value.data, campaignProgress: { completedStages: {} } } } }
 }

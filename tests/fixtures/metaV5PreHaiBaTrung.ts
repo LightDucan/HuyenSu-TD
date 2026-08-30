@@ -1,7 +1,7 @@
-import type { MetaSave } from '../../src/domain/meta/MetaState'
+import type { MetaSaveV5 } from '../../src/domain/meta/MetaState'
 
 /** Literal save captured at the pre-HBT V5 content boundary. Never derive this from current bootstrap code. */
-export const metaV5PreHaiBaTrung: MetaSave = {
+export const metaV5PreHaiBaTrung: MetaSaveV5 = {
   schemaVersion: 5,
   revision: 17,
   updatedAtMs: 9_000,

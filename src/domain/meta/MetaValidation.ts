@@ -1,6 +1,7 @@
 import {
   META_SAVE_SCHEMA_VERSION,
   META_SAVE_SCHEMA_VERSION_V4,
+  META_SAVE_SCHEMA_VERSION_V5,
   META_SAVE_SCHEMA_VERSION_V1,
   META_SAVE_SCHEMA_VERSION_V2,
   META_SAVE_SCHEMA_VERSION_V3,
@@ -13,11 +14,13 @@ import {
   type MetaSaveV3,
   type MetaSave,
   type MetaSaveV4,
+  type MetaSaveV5,
   type MetaStateV1,
   type MetaStateV2,
   type MetaStateV3,
   type MetaState,
   type MetaStateV4,
+  type MetaStateV5,
   type ActivePlayTimeProgress,
   type PlayerProfile,
   type RewardReceipt,
@@ -208,8 +211,9 @@ function validateHeroCollection(value: unknown, issues: string[]): void {
 export function validateMetaState(value: unknown): ValidationResult<MetaState> {
   if (!isRecord(value)) return { ok: false, issues: ['meta state must be an object'] }
   const issues: string[] = []
-  validateExactKeys(value, ['profile', 'wallet', 'inventory', 'commandEnergy', 'rewardReceipts', 'activePlayTime', 'heroCollection'], 'meta state', issues)
+  validateExactKeys(value, ['profile', 'wallet', 'inventory', 'commandEnergy', 'rewardReceipts', 'activePlayTime', 'heroCollection', 'campaignProgress'], 'meta state', issues)
   validateProfile(value.profile, issues); validateWallet(value.wallet, issues); validateInventory(value.inventory, issues); validateCommandEnergy(value.commandEnergy, issues); validateRewardReceipts(value.rewardReceipts, issues); validateActivePlayTime(value.activePlayTime, issues); validateHeroCollection(value.heroCollection, issues)
+  if (!isRecord(value.campaignProgress) || !isRecord(value.campaignProgress.completedStages)) issues.push('campaignProgress must contain completedStages')
   return issues.length === 0 ? { ok: true, value: value as MetaState } : { ok: false, issues }
 }
 
@@ -254,7 +258,24 @@ export function validateMetaSaveV4(value: unknown): ValidationResult<MetaSaveV4>
   return issues.length === 0 ? { ok: true, value: value as MetaSaveV4 } : { ok: false, issues }
 }
 
+export function validateMetaSaveV5(value: unknown): ValidationResult<MetaSaveV5> {
+  const issues: string[] = []
+  if (!validateEnvelope(value, META_SAVE_SCHEMA_VERSION_V5, issues)) return { ok: false, issues }
+  const state = validateMetaStateV5(value.data)
+  if (!state.ok) issues.push(...state.issues)
+  return issues.length === 0 ? { ok: true, value: value as MetaSaveV5 } : { ok: false, issues }
+}
+
+function validateMetaStateV5(value: unknown): ValidationResult<MetaStateV5> {
+  if (!isRecord(value)) return { ok: false, issues: ['meta state must be an object'] }
+  const issues: string[] = []
+  validateExactKeys(value, ['profile', 'wallet', 'inventory', 'commandEnergy', 'rewardReceipts', 'activePlayTime', 'heroCollection'], 'meta state', issues)
+  validateProfile(value.profile, issues); validateWallet(value.wallet, issues); validateInventory(value.inventory, issues); validateCommandEnergy(value.commandEnergy, issues); validateRewardReceipts(value.rewardReceipts, issues); validateActivePlayTime(value.activePlayTime, issues); validateHeroCollection(value.heroCollection, issues)
+  return issues.length === 0 ? { ok: true, value: value as MetaStateV5 } : { ok: false, issues }
+}
+
 export function validateMetaSave(value: unknown): ValidationResult<MetaSave> {
+  if (readSchemaVersion(value) === META_SAVE_SCHEMA_VERSION_V5) return validateMetaSaveV5(value) as unknown as ValidationResult<MetaSave>
   const issues: string[] = []
   if (!validateEnvelope(value, META_SAVE_SCHEMA_VERSION, issues)) return { ok: false, issues }
   const state = validateMetaState(value.data)

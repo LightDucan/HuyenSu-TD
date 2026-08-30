@@ -15,8 +15,8 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 
 ## Trạng thái hiện tại
 
-- Current Phase: **STAGE RUNTIME FOUNDATION**
-- Current Codex task: **GAME-C02 — Stage Runtime Foundation & Journey Hardening** — branch `codex/game-c02-stage-runtime-foundation`.
+- Current Phase: **CAMPAIGN PROGRESSION FOUNDATION**
+- Current Codex task: **GAME-C03 — Campaign Progression Foundation / Stage Unlock** — branch `codex/game-c03-campaign-progression`.
 - Current Antigravity task: **NONE — awaiting an explicitly assigned task**.
 - QA-C01A: **ENVIRONMENT-BLOCKED interactive portion**; automated regression PASS; manual QA debt retained.
 - VS-HBT-V02B: **CODE/BINARY AUDIT PASS; MANUAL VISUAL QA PASS ENOUGH TO CONTINUE**; real HBT Hero assets 12/12 integrated.
@@ -26,8 +26,9 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 - HUD-C03: **DONE — copy lock PASS**; combat Inventory dùng display name Việt hóa, không lộ technical/dev terminology.
 - GAME-C01: **DONE — AUDIT CONDITIONAL PASS**; City → Campaign → Battle → Result shell đã tích hợp, các blocker re-entry/stage coupling được xử lý trong GAME-C02.
 - GAME-C02: **DONE — waiting audit**; stage-aware Battle runtime, fresh run snapshot, generic map contract và capacity gate đã hoàn tất.
+- GAME-C03: **DONE — waiting audit**; Meta V6 campaign progress, ordered stage unlock, idempotent victory completion và guarded Campaign UI đã hoàn tất.
 - Known debt: **Equipment Runtime/UI Effect Integration** — equipping Weapon/Gem may not visibly change Hero stats/effects; explicitly out of scope for VIS-HUD-01.
-- Lần kiểm tra gần nhất: GAME-C02 — 29 test files/204 tests PASS, production build PASS, diff-check PASS.
+- Lần kiểm tra gần nhất: GAME-C03 — 31 test files/208 tests PASS, production build PASS, diff-check PASS.
 
 ## Phases và checkpoint
 

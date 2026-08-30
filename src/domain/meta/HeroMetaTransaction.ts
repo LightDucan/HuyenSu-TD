@@ -1,5 +1,5 @@
 import { ascendHeroStar, evolveHero, grantHero, resolveRecruitmentBatch, type HeroRecruitmentState, type RecruitmentConfig, type RecruitmentResult } from './HeroRecruitment'
-import type { MetaSaveV5 } from './MetaV5'
+import type { MetaSave } from './MetaState'
 import { canUpgrade, upgradeLevel } from '../progression/ProgressionSystem'
 
 export type HeroMetaOperation =
@@ -9,9 +9,9 @@ export type HeroMetaOperation =
   | Readonly<{ type: 'ascend-star'; heroId: string }>
   | Readonly<{ type: 'evolve'; heroId: string }>
 
-export type HeroMetaCommit = Readonly<{ save: MetaSaveV5; results: readonly RecruitmentResult[] }>
+export type HeroMetaCommit = Readonly<{ save: MetaSave; results: readonly RecruitmentResult[] }>
 
-export function applyHeroMetaOperation(save: MetaSaveV5, operation: HeroMetaOperation, config?: RecruitmentConfig, committedAtMs = save.updatedAtMs): HeroMetaCommit {
+export function applyHeroMetaOperation(save: MetaSave, operation: HeroMetaOperation, config?: RecruitmentConfig, committedAtMs = save.updatedAtMs): HeroMetaCommit {
   const base: HeroRecruitmentState = { heroCollection: save.data.heroCollection, consumables: save.data.inventory.consumables }
   let next = base
   let results: readonly RecruitmentResult[] = []
@@ -39,7 +39,7 @@ export function applyHeroMetaOperation(save: MetaSaveV5, operation: HeroMetaOper
   return { save: { ...save, revision: save.revision + 1, updatedAtMs: committedAtMs, data: { ...save.data, heroCollection: next.heroCollection, inventory: { ...save.data.inventory, consumables: next.consumables } } }, results }
 }
 
-export function applyHeroMetaTransaction(save: MetaSaveV5, idempotencyKey: string, operation: HeroMetaOperation, config?: RecruitmentConfig, committedAtMs = save.updatedAtMs): HeroMetaCommit {
+export function applyHeroMetaTransaction(save: MetaSave, idempotencyKey: string, operation: HeroMetaOperation, config?: RecruitmentConfig, committedAtMs = save.updatedAtMs): HeroMetaCommit {
   if (idempotencyKey.trim().length === 0) throw new Error('Hero transaction idempotency key must not be empty')
   if (!Number.isSafeInteger(committedAtMs) || committedAtMs < 0 || committedAtMs < save.updatedAtMs) throw new Error('committedAtMs must be a monotonic non-negative safe integer')
   const prior = save.data.rewardReceipts[idempotencyKey]

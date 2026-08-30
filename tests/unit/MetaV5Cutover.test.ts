@@ -29,7 +29,7 @@ describe('FAST-05A canonical Meta V5 repository', () => {
   it('loads and saves V5 with a validated heroCollection', () => {
     const { repository } = ready()
     const loaded = repository.load()
-    expect(loaded).toMatchObject({ status: 'loaded', save: { schemaVersion: 5, revision: 1 } })
+    expect(loaded).toMatchObject({ status: 'loaded', save: { schemaVersion: 6, revision: 1 } })
     if (loaded.status === 'loaded') expect(validateMetaSave(loaded.save).ok).toBe(true)
     const malformed = loaded.status === 'loaded' ? { ...loaded.save, data: { ...loaded.save.data, heroCollection: { bad: { heroId: 'other', stars: 7, progression: { stage: 'normal', level: 0 } } } } } : undefined
     expect(validateMetaSave(malformed).ok).toBe(false)
@@ -43,7 +43,7 @@ describe('FAST-05A canonical Meta V5 repository', () => {
     const valid = memoryStorage({ [META_STORAGE_KEY]: rawV4, [PROGRESSION_STORAGE_KEY]: legacy })
     const repository = new LocalMetaRepository(valid.storage)
     const migrated = repository.migrateV4(3)
-    expect(migrated).toMatchObject({ schemaVersion: 5, revision: 3, data: { heroCollection: { 'quan-vu': { progression: { stage: 'rebirth', level: 8 } } } } })
+    expect(migrated).toMatchObject({ schemaVersion: 6, revision: 3, data: { heroCollection: { 'quan-vu': { progression: { stage: 'rebirth', level: 8 } } } } })
     expect(repository.load()).toMatchObject({ status: 'loaded', save: { revision: 3 } })
 
     const invalidLegacy = '{bad-json'
@@ -63,7 +63,7 @@ describe('FAST-05A canonical Meta V5 repository', () => {
     const energy = repository.spendCommandEnergy(1, reward.save.revision, 2)
     const equipment = repository.transactEquipment({ idempotencyKey: 'post-migration/equipment', operation: { type: 'grant-instance', instance: { instanceId: 'post-migration-weapon', definitionId: 'green-dragon-blade', slot: 'weapon', level: 1 } } }, prototypeEquipmentV2Definitions, energy.save.revision, 3)
     const economy = repository.transactEconomy({ idempotencyKey: 'post-migration/economy', operations: [{ type: 'grant-currency', currency: 'knb', amount: 1 }] }, prototypeEquipmentV2Definitions, equipment.save.revision, 4)
-    expect(economy.save).toMatchObject({ schemaVersion: 5, revision: 5, data: { wallet: { balances: { gold: 10, knb: 1 } }, commandEnergy: { current: 59 }, inventory: { equipmentInstances: { 'post-migration-weapon': expect.any(Object) } } } })
+    expect(economy.save).toMatchObject({ schemaVersion: 6, revision: 5, data: { wallet: { balances: { gold: 10, knb: 1 } }, commandEnergy: { current: 59 }, inventory: { equipmentInstances: { 'post-migration-weapon': expect.any(Object) } } } })
   })
 })
 

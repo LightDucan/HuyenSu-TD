@@ -29,6 +29,7 @@ import { getBrowserDeploymentCapacityRuntime } from '../runtime/DeploymentCapaci
 import { battleInstruction, moveIntentForHero, placementIntentForHero } from '../game/bridge/BattleInteractionContract'
 import { canApplyEquipmentOperationForScreen, isEquipmentInteractionLocked, selectMetaTab, type MetaTab } from './MetaTabState'
 import { transitionPlayerJourney, type PlayerJourneyScreen } from './PlayerJourneyState'
+import { selectStageProgress } from '../domain/campaign/CampaignProgression'
 
 export function App() {
   const equipmentRuntime = getBrowserEquipmentV2Runtime()
@@ -231,6 +232,7 @@ export function App() {
   }
 
   const handleEnterBattle = () => {
+    if (selectStageProgress(defaultCampaignChapter, metaSave.data.campaignProgress, selectedStage.id) === 'locked' || playableIds.length === 0) return
     battleBridge.clearPlacementIntent()
     const preferredHeroId = new Set(playableIds).has(battleBridge.getSelectedHeroId()) ? battleBridge.getSelectedHeroId() : playableIds[0]
     if (preferredHeroId) battleBridge.setSelectedHeroId(preferredHeroId)
@@ -278,7 +280,7 @@ export function App() {
   if (screen === 'campaign') return (
     <main className="app-shell journey-shell campaign-screen">
       <header className="journey-header"><div><span className="eyebrow">CHINH CHIẾN</span><h1>{defaultCampaignChapter.displayName}</h1><p>Chọn một màn để bắt đầu hành trình.</p></div><button type="button" className="btn-secondary" onClick={() => setScreen('city')}>VỀ ĐẠI DOANH</button></header>
-      <section className="campaign-card"><span className="eyebrow">{defaultCampaignChapter.displayName}</span><h2>{selectedStage.displayName}</h2><p>{selectedStage.waves.length} Wave · {selectedStage.allowedHeroIds.length} tướng khả dụng</p><div className="stage-options" aria-label="Chọn màn">{defaultCampaignChapter.stages.map((stage) => <button key={stage.id} type="button" className={stage.id === selectedStage.id ? 'selected' : ''} onClick={() => setSelectedStageId(stage.id)}>{stage.displayName}</button>)}</div><button type="button" className="btn-primary" onClick={handleEnterBattle}>VÀO TRẬN</button></section>
+      <section className="campaign-card"><span className="eyebrow">{defaultCampaignChapter.displayName}</span><h2>{selectedStage.displayName}</h2><p>{selectedStage.waves.length} Wave · {selectedStage.allowedHeroIds.length} tướng khả dụng</p><div className="stage-options" aria-label="Chọn màn">{defaultCampaignChapter.stages.map((stage) => { const status = selectStageProgress(defaultCampaignChapter, metaSave.data.campaignProgress, stage.id); return <button key={stage.id} type="button" className={stage.id === selectedStage.id ? 'selected' : ''} disabled={status === 'locked'} onClick={() => setSelectedStageId(stage.id)}>{stage.displayName} — {status === 'completed' ? 'Đã hoàn thành' : status === 'locked' ? 'Chưa mở' : 'Sẵn sàng'}</button> })}</div><button type="button" className="btn-primary" disabled={playableIds.length === 0} onClick={handleEnterBattle}>VÀO TRẬN</button>{playableIds.length === 0 && <p role="status">Màn này chưa có tướng khả dụng.</p>}</section>
     </main>
   )
 

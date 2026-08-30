@@ -30,7 +30,8 @@ export function ensureMetaRepositoryReady(repository: LocalMetaRepository, playe
   const migrated = current.sourceVersion === 1 ? repository.migrateV1(expectedRevision)
     : current.sourceVersion === 2 ? repository.migrateV2(expectedRevision)
       : current.sourceVersion === 3 ? repository.migrateV3(expectedRevision)
-        : current.sourceVersion === 4 ? repository.migrateV4(expectedRevision)
+      : current.sourceVersion === 4 ? repository.migrateV4(expectedRevision)
+        : current.sourceVersion === 5 ? repository.migrateV5(expectedRevision)
           : undefined
   if (!migrated) throw new Error(`Unsupported Meta save version: ${current.sourceVersion}`)
   ensureRuntimeHeroContent(repository, migrated.revision, migrated.updatedAtMs, migrated.data, nowMs)

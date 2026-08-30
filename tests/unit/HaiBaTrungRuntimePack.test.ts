@@ -70,7 +70,7 @@ describe('VS-HBT-C01 runtime content pack', () => {
   })
 
   it('validates a literal pre-HBT Meta V5 save and bootstraps missing starters once', () => {
-    expect(META_SAVE_SCHEMA_VERSION).toBe(5)
+    expect(META_SAVE_SCHEMA_VERSION).toBe(6)
     expect(validateMetaSave(metaV5PreHaiBaTrung)).toEqual({ ok: true, value: metaV5PreHaiBaTrung })
     const oldHeroBytes = Object.fromEntries(Object.entries(metaV5PreHaiBaTrung.data.heroCollection)
       .map(([heroId, entry]) => [heroId, JSON.stringify(entry)]))
@@ -90,10 +90,10 @@ describe('VS-HBT-C01 runtime content pack', () => {
     const first = repository.load()
     expect(first.status).toBe('loaded')
     if (first.status !== 'loaded') throw new Error('Expected bootstrapped V5 save')
-    expect(first.save.schemaVersion).toBe(5)
+    expect(first.save.schemaVersion).toBe(6)
     expect(first.save.revision).toBe(metaV5PreHaiBaTrung.revision + 1)
     expect(first.save.updatedAtMs).toBe(metaV5PreHaiBaTrung.updatedAtMs)
-    expect(persistCount).toBe(1)
+    expect(persistCount).toBe(2)
     expect(Object.keys(first.save.data.heroCollection)).toEqual([
       'quan-vu', 'trieu-van', 'truong-phi', 'hoang-trung', 'gia-cat-luong',
       'trung-trac', 'trung-nhi', 'le-chan',
@@ -118,7 +118,7 @@ describe('VS-HBT-C01 runtime content pack', () => {
     ensureMetaRepositoryReady(repository, 'ignored-for-existing-save', 20_000)
     const second = repository.load()
     expect(second).toEqual(first)
-    expect(persistCount).toBe(1)
+    expect(persistCount).toBe(2)
   })
 
   it('uses the active ownership gate for battle placement without reactivating legacy Heroes', () => {

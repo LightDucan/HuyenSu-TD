@@ -4,7 +4,8 @@ export const META_SAVE_SCHEMA_VERSION_V3 = 3 as const
 import { createPrototypeHeroCollection, type HeroCollection } from './HeroRecruitment'
 
 export const META_SAVE_SCHEMA_VERSION_V4 = 4 as const
-export const META_SAVE_SCHEMA_VERSION = 5 as const
+export const META_SAVE_SCHEMA_VERSION_V5 = 5 as const
+export const META_SAVE_SCHEMA_VERSION = 6 as const
 export const PLAYER_PROFILE_SCHEMA_VERSION = 1 as const
 export const COMMAND_ENERGY_BASE_CAP = 60 as const
 export const BASE_DEPLOYMENT_CAPACITY = 7 as const
@@ -94,9 +95,12 @@ export type MetaStateV4 = Readonly<Omit<MetaStateV3, 'inventory'> & {
 export type MetaStateV5 = Readonly<MetaStateV4 & {
   heroCollection: HeroCollection
 }>
+export type CampaignStageProgress = Readonly<{ firstCompletedAtMs: number }>
+export type CampaignProgressState = Readonly<{ completedStages: Readonly<Record<string, CampaignStageProgress>> }>
+export type MetaStateV6 = Readonly<MetaStateV5 & { campaignProgress: CampaignProgressState }>
 
 /** Canonical production Meta state. Older names are migration-input types only. */
-export type MetaState = MetaStateV5
+export type MetaState = MetaStateV6
 
 export type MetaSaveV1 = Readonly<{
   schemaVersion: typeof META_SAVE_SCHEMA_VERSION_V1
@@ -127,14 +131,15 @@ export type MetaSaveV4 = Readonly<{
 }>
 
 export type MetaSaveV5 = Readonly<{
-  schemaVersion: typeof META_SAVE_SCHEMA_VERSION
+  schemaVersion: typeof META_SAVE_SCHEMA_VERSION_V5
   revision: number
   updatedAtMs: number
   data: MetaStateV5
 }>
+export type MetaSaveV6 = Readonly<{ schemaVersion: typeof META_SAVE_SCHEMA_VERSION; revision: number; updatedAtMs: number; data: MetaStateV6 }>
 
 /** Canonical production Meta envelope. */
-export type MetaSave = MetaSaveV5
+export type MetaSave = MetaSaveV6
 
 export function createInitialMetaState(playerId: string, nowMs: number): MetaState {
   if (playerId.trim().length === 0) throw new Error('Player ID must not be empty')
@@ -161,6 +166,7 @@ export function createInitialMetaState(playerId: string, nowMs: number): MetaSta
     rewardReceipts: {},
     activePlayTime: { observedVisibleMs: 0, observedHiddenMs: 0, remainderEligibleMs: 0 },
     heroCollection: createPrototypeHeroCollection(),
+    campaignProgress: { completedStages: {} },
   }
 }
 

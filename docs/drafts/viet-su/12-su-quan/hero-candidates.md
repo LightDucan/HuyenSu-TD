@@ -23,10 +23,10 @@
 | **Hạng 1** | **Đinh Bộ Lĩnh** | Vạn Thắng Vương $\rightarrow$ Hoàng đế | **T1 + T2 + T4** *(Cực kỳ chắc chắn)* | Thủ lĩnh tối cao, linh hồn của toàn bộ công cuộc dẹp loạn, thu phục nhân tâm và thống nhất giang sơn. | **Ứng viên Bắt Buộc (Core Leader)** — Trung tâm quyền lực và biểu tượng thống nhất non sông. |
 | **Hạng 2** | **Đinh Liễn** | Nam Việt Vương / Tiết độ sứ | **T1 + T2 + T4** *(Văn khắc T1 xác thực)* | Con trưởng, dũng tướng trực tiếp theo cha xông pha trận mạc trong các chiến dịch dẹp loạn. | **Ứng viên Ưu Tiên Số 1 (Vanguard Commander)** — Đại diện cho thế hệ tướng trẻ xông xáo nơi tiền tuyến. |
 | **Hạng 3** | **Nguyễn Bặc** | Định Quốc Công (Tể tướng) | **T2 + T3** *(Chính sử Toàn Thư)* | Bạn thân thiết từ thuở hàn vi, dũng tướng số một giúp dẹp yên các sứ quân hung hãn, đứng đầu triều thần. | **Ứng viên Ưu Tiên Số 2 (Top Field General)** — Đại diện cho hàng ngũ tướng soái trung kiên trụ cột. |
-| **Hạng 4** | **Đinh Điền** | Ngoại triều Nội thư Sủng hạnh | **T2 + T3** *(Chính sử Toàn Thư)* | Thân tướng đồng hương Hoa Lư, cùng Nguyễn Bặc hợp thành đôi cánh quân sự đắc lực của Đinh Bộ Lĩnh. | **Ứng viên Dự Bị Mạnh** — Có thể xuất hiện như tướng đồng hành hoặc mở khóa ở bản mở rộng. |
+| **Hạng 4** | **Đinh Điền** | Ngoại triều Nội thư Sủng hạnh | **T2 + T3** *(Chính sử Toàn Thư)* | Thân tướng đồng hương Hoa Lư, cùng Nguyễn Bặc gánh vác trọng trách quân sự tiền phương. | **Ứng viên Dự Bị Mạnh** — Có thể xuất hiện như tướng đồng hành hoặc mở khóa ở bản mở rộng. |
 | **Hạng 5** | **Lưu Cơ** | Đô hộ phủ Sĩ sư | **T2 + T3** *(Chính sử Toàn Thư)* | Một trong Tứ trụ triều Đinh, phụ trách quân chính trị an, sau được giao trọng trách Trấn thủ thành Đại La. | **Ứng viên Dự Bị** — Vai trò thiên về quản trị hành chính và an ninh hậu phương hơn trực tiếp tiền tuyến. |
 | **Hạng 6** | **Trần Lãm** | Trần Minh Công (Sứ quân Bố Hải Khẩu) | **T2 + T3** *(Chính sử Toàn Thư)* | Hào trưởng duyên hải giàu mạnh, cha nuôi bảo trợ và trao lại cơ nghiệp Bố Hải Khẩu cho Đinh Bộ Lĩnh. | **Nhân vật Cốt Truyện / Hỗ Trợ** — Phù hợp làm nhân vật Narrative trọng tâm hoặc tướng hỗ trợ mở rộng. |
-| **Hạng 7** | **Phạm Bạch Hổ** | Thân vệ Đại tướng quân | **T2 + T3** *(Chính sử Toàn Thư)* | Sứ quân Đằng Châu quy phục Đinh Bộ Lĩnh, tướng lĩnh kỳ cựu tài ba thời Ngô – Đinh. | **Ứng viên Mở Rộng Chiêu Mộ** — Biểu tượng của chính sách quy phục hòa bình, thích hợp làm tướng mở khóa. |
+| **Hạng 7** | **Phạm Bạch Hổ** | Thân vệ Đại tướng quân | **T2 + T3** *(Chính sử Toàn Thư)* | Sứ quân Đằng Châu đem quân về hàng, tướng lĩnh kỳ cựu tài ba thời Ngô – Đinh. | **Ứng viên Mở Rộng Chiêu Mộ** — Biểu tượng của việc hàng phục và trọng dụng nhân tài (*Toàn Thư* T2). |
 
 ---
 
@@ -55,7 +55,7 @@
 ---
 
 ### 2.3. Ứng Viên 3: Nguyễn Bặc (Định Quốc Công)
-* **Thân thế & Vai trò lịch sử**: Bạn thân thiết từ thời niên thiếu tại Hoa Lư, đại tướng quân dũng liệt hàng đầu giúp Đinh Bộ Lĩnh dẹp yên các sứ quân kháng cự kiên cố nhất; khi vương triều thành lập được phong làm Định Quốc Công (Tể tướng đứng đầu triều đình Đại Cồ Việt).
+* **Thân thế & Vai trò lịch sử**: Bạn thân thiết từ thời niên thiếu tại Hoa Lư, đại tướng quân dũng liệt hàng đầu giúp Đinh Bộ Lĩnh bình định các thế lực kháng cự; khi vương triều thành lập được phong làm Định Quốc Công (Tể tướng đứng đầu triều đình Đại Cồ Việt).
 * **Chứng cứ nguồn sử liệu**: **T2 (*Toàn Thư*, *Cương Mục*) + T3 (Đền thờ Tứ Trụ Hoa Lư)**.
 * **Tính thích hợp cho Hero**: Hình mẫu tiêu biểu của vị tướng soái xông pha trận mạc, vừa có uy tín ba quân, vừa là biểu tượng của lòng trung nghĩa tuyệt đối với triều Đinh.
 * **Lưu ý học thuật**: Các chi tiết cụ thể về việc Nguyễn Bặc trực tiếp giao chiến tại từng đồn lũy (Tây Phù Liệt, Đỗ Động) phần lớn được bảo lưu trong thần tích dân gian T3, cần được xử lý an toàn học thuật trong kịch bản.
@@ -85,9 +85,9 @@
 ---
 
 ### 2.7. Ứng Viên 7: Phạm Bạch Hổ (Phạm Phòng Át / Thân vệ Đại tướng quân)
-* **Thân thế & Vai trò lịch sử**: Tướng cũ tài danh thời Ngô Quyền, chiếm giữ Đằng Châu; sau nhận rõ đại cục bèn đem toàn bộ lực lượng quy phục Đinh Bộ Lĩnh, được phong làm Thân vệ Đại tướng quân.
+* **Thân thế & Vai trò lịch sử**: Tướng cũ tài danh thời Ngô Quyền, chiếm giữ Đằng Châu; sau đem toàn bộ lực lượng về hàng Đinh Bộ Lĩnh (*Toàn Thư* T2), được phong làm Thân vệ Đại tướng quân.
 * **Chứng cứ nguồn sử liệu**: **T2 (*Toàn Thư*) + T3 (Đền Mây, Hưng Yên)**.
-* **Tính thích hợp cho Hero**: Là biểu tượng của chính sách quy phục và trọng dụng nhân tài hòa bình; cực kỳ thích hợp làm Tướng Mở Khóa Chiêu Mộ (Recruited Hero).
+* **Tính thích hợp cho Hero**: Là biểu tượng của việc quy phục và trọng dụng nhân tài (*Toàn Thư* chép: *Phạm Phòng Át đem quân về hàng, phong làm Thân vệ Đại tướng quân*); cực kỳ thích hợp làm Tướng Mở Khóa Chiêu Mộ (Recruited Hero).
 
 ---
 

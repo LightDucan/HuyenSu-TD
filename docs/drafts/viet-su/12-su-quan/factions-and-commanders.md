@@ -2,7 +2,7 @@
 
 **Tài liệu**: `docs/drafts/viet-su/12-su-quan/factions-and-commanders.md`
 **Chương Lịch Sử**: `ARC-12SQ-01: Vạn Thắng Hoa Lư — Dẹp Loạn Sứ Quân`
-**Trạng thái**: Production Faction Index & Historical Profiles (Re-Audited)
+**Trạng thái**: Production Faction Index & Historical Profiles (Final Source Attribution Lock)
 
 ---
 
@@ -15,7 +15,7 @@ Nhằm chuẩn bị cấu trúc dữ liệu cho hệ thống Chiến dịch củ
 │                    PHÂN LOẠI CÁC THẾ LỰC THỜI KỲ 965–968 SCN                │
 ├──────────────────────────┬──────────────────────────┬───────────────────────┤
 │ 1. ALLY / INTEGRATED     │ 2. RIVAL                 │ 3. CỔ LOA / UNCERTAIN │
-│ (Đồng Minh & Dung Nạp)   │ (Đối Kháng Quân Sự)      │ (Biến Loạn Cung Đình) │
+│ (Đồng Minh & Quy Phục)   │ (Đối Kháng Quân Sự)      │ (Biến Loạn Cung Đình) │
 │ • Trần Lãm (Bố Hải Khẩu) │ • Đỗ Cảnh Thạc (Đỗ Động) │ • Lã/Lý Xử Bình (Cổ   │
 │ • Phạm Bạch Hổ (Đằng     │ • Nguyễn Siêu (Tây Phù)  │   Loa 965 - Không thuộc│
 │   Châu)                  │ • Kiều Công Hãn (Phong C)│   12 sứ quân)        │
@@ -29,17 +29,17 @@ Nhằm chuẩn bị cấu trúc dữ liệu cho hệ thống Chiến dịch củ
 
 ---
 
-## 2. Nhóm 1: Đồng Minh & Dung Nạp Hòa Bình (ALLY / INTEGRATED)
+## 2. Nhóm 1: Đồng Minh, Hàng Phục & Quy Phục (ALLY / INTEGRATED)
 
-Các thế lực này có mối quan hệ liên kết chiến lược hoặc quy phục hòa bình với Đinh Bộ Lĩnh; **tuyệt đối không thiết kế thành mục tiêu quân sự phải tiêu diệt**:
+Các thế lực này có mối quan hệ liên kết chiến lược hoặc quy phục với Đinh Bộ Lĩnh; **tuyệt đối không thiết kế thành mục tiêu quân sự phải tiêu diệt**:
 
 ---
 
 ### 2.1. Trần Lãm (Trần Minh Công — Sứ Quân Bố Hải Khẩu)
 * **Tên chính thức**: **Trần Lãm** (Trần Minh Công).
 * **Căn cứ lịch sử**: **Bố Hải Khẩu** (Vùng Kỳ Bố, thị xã Thái Bình ngày nay).
-* **Vị thế & Thực lực**: Hào trưởng duyên hải giàu mạnh bậc nhất, sở hữu hạm đội thuyền buôn và nguồn tài chính dồi dào từ kinh tế biển.
-* **Mối quan hệ với Đinh Bộ Lĩnh**: **Đồng minh chiến lược số một & Cha nuôi**. *Toàn Thư* (T2) ghi rõ: Trần Lãm nhận thấy Đinh Bộ Lĩnh có khí phách anh hùng bèn nhận làm con nuôi và giao cho coi việc quân. *(Lưu ý: Chi tiết gả con gái thuộc tầng dã sử/thần phả T3)*.
+* **Vị thế & Thực lực**: Hào trưởng duyên hải giàu mạnh, sở hữu hạm đội thuyền buôn và nguồn tài chính dồi dào từ kinh tế biển.
+* **Mối quan hệ với Đinh Bộ Lĩnh**: **Đồng minh chiến lược số một & Cha nuôi**. *Toàn Thư* (T2) ghi rõ: Trần Lãm nhận thấy Đinh Bộ Lĩnh có khí phách anh hùng bèn nhận làm con nuôi và giao cho coi việc quân. *(Lưu ý: Chi tiết gả con gái Trần Nương thuộc tầng dã sử/thần phả T3)*.
 * **Kết cục lịch sử**: Qua đời vì tuổi cao sức yếu vào khoảng năm 967; quyền chỉ huy và cơ nghiệp Bố Hải Khẩu được Đinh Bộ Lĩnh tiếp quản trọn vẹn.
 * **Phân tầng nguồn**: **T2 (*Toàn Thư*, *Cương Mục*) — CONFIRMED / STRONG**.
 
@@ -49,7 +49,7 @@ Các thế lực này có mối quan hệ liên kết chiến lược hoặc quy
 * **Tên chính thức**: **Phạm Bạch Hổ** (Tự xưng Phạm Phòng Át).
 * **Căn cứ lịch sử**: **Đằng Châu** (Vùng Đằng Châu / Kim Động, tỉnh Hưng Yên ngày nay).
 * **Vị thế & Thực lực**: Tướng lĩnh kỳ cựu tài ba thời Ngô Quyền, có uy tín lớn trong giới hào trưởng vùng bãi bồi châu thổ sông Hồng.
-* **Mối quan hệ với Đinh Bộ Lĩnh**: Nhận rõ đại cục và xu thế thống nhất của nghĩa quân Hoa Lư, Phạm Bạch Hổ chủ động đem toàn bộ lực lượng Đằng Châu về **hàng phục quy thuận** (*Toàn Thư* T2).
+* **Mối quan hệ với Đinh Bộ Lĩnh**: Nhận rõ đại cục và xu thế của nghĩa quân Hoa Lư, Phạm Bạch Hổ chủ động **đem toàn bộ lực lượng Đằng Châu về hàng** (*Toàn Thư* T2).
 * **Kết cục lịch sử**: Được Đinh Bộ Lĩnh trọng dụng, phong chức **Thân vệ Đại tướng quân**, tiếp tục phò tá triều Đinh cho đến khi qua đời.
 * **Phân tầng nguồn**: **T2 (*Toàn Thư*) — CONFIRMED / STRONG**.
 
@@ -59,7 +59,7 @@ Các thế lực này có mối quan hệ liên kết chiến lược hoặc quy
 * **Tên chính thức**: **Ngô Xương Xí** (Tự xưng Ngô Sứ Quân).
 * **Căn cứ lịch sử**: **Bình Kiều** (Vùng Triệu Sơn / Nông Cống, tỉnh Thanh Hóa ngày nay).
 * **Vị thế & Thực lực**: Con trai trưởng của Thiên Sách Vương Ngô Xương Ngập, mang dòng dõi chính thống hoàng gia họ Ngô.
-* **Mối quan hệ với Đinh Bộ Lĩnh**: Trước thanh thế áp đảo của quân Hoa Lư và truyền thống gắn bó lâu đời giữa dòng họ Đinh với họ Ngô, Ngô Xương Xí **quy thuận hòa bình**.
+* **Mối quan hệ với Đinh Bộ Lĩnh**: Trước thanh thế và áp lực quân sự của quân Hoa Lư kết hợp truyền thống gắn bó lâu đời giữa hai họ Đinh – Ngô, Ngô Xương Xí **hàng phục / quy phục**.
 * **Kết cục lịch sử**: Được bảo toàn tính mạng và tôn trọng dòng dõi quý tộc trong trật tự vương triều mới.
 * **Phân tầng nguồn**: **T2 (*Toàn Thư*, *Việt Sử Lược*) — CONFIRMED / STRONG**.
 
@@ -77,79 +77,87 @@ Các thế lực này có mối quan hệ liên kết chiến lược hoặc quy
 
 ## 3. Nhóm 2: Thế Lực Đối Kháng Quân Sự Trực Tiếp (RIVAL)
 
-Các sứ quân kiên quyết kháng cự bằng quân sự và bị đại quân Hoa Lư liên tiếp đánh dẹp trong các chiến dịch 966–968 SCN:
+*Toàn Thư (T2) ghi nhận danh tính, tước hiệu và căn cứ trong danh sách 12 sứ quân (966), và câu văn khái quát "dẹp yên 12 sứ quân" (968), không chép chi tiết trận đánh cụ thể của từng người. Các mục dưới đây tách bạch 3 cấp độ thông tin:*
 
 ---
 
 ### 3.1. Đỗ Cảnh Thạc (Đỗ Cảnh Công — Sứ Quân Đỗ Động Giang)
 * **Tên chính thức**: **Đỗ Cảnh Thạc** (Tự xưng Đỗ Cảnh Công).
 * **Căn cứ lịch sử**: **Đỗ Động Giang** (Vùng Thanh Oai, Quốc Oai, Hà Nội ngày nay).
-* **Vị thế & Thực lực**: Tướng cũ của Dương Đình Nghệ và Ngô Quyền; là thế lực quân sự mạnh nhất, có thành lũy kiên cố và đội giáp binh tinh nhuệ bậc nhất trong 12 sứ quân.
-* **Kết cục lịch sử (Safe Outcome)**: **Bị quân Hoa Lư đánh bại, căn cứ Đỗ Động tan rã** (*Toàn Thư* T2). Chi tiết trúng tên tử trận tại Quán Gái thuộc tầng dã sử/thần phả T3.
-* **Phân tầng nguồn**: **T2 (*Toàn Thư*) — CONFIRMED; T3 (Tử trận Quán Gái) — TRADITIONAL / PLAUSIBLE**.
+* **A. T2 Xác nhận**: Ghi danh trong 12 sứ quân năm Bính Dần 966 (*Toàn Thư*).
+* **B. Hệ quả đại cục (T2 Inference)**: Bị dẹp yên trong tiến trình thống nhất năm 968, căn cứ Đỗ Động bị giải tỏa.
+* **C. Dã sử / Thần phả (T3 Tradition)**: Trúng tên tử trận tại Quán Gái (Quốc Oai).
+* **Ngôn từ an toàn trong game**: **Đánh dẹp / Căn cứ tan rã (Defeated & Dispersed)**.
 
 ---
 
 ### 3.2. Nguyễn Siêu (Nguyễn Hữu Công — Sứ Quân Tây Phù Liệt)
 * **Tên chính thức**: **Nguyễn Siêu** (Tự xưng Nguyễn Hữu Công).
 * **Căn cứ lịch sử**: **Tây Phù Liệt** (Huyện Thanh Trì, Hà Nội ngày nay).
-* **Vị thế & Thực lực**: Chiếm giữ bến sông Hồng huyết mạch cửa ngõ phía Nam thành Đại La, có lực lượng thủy bộ phối hợp thiện chiến.
-* **Kết cục lịch sử (Safe Outcome)**: **Bị quân Hoa Lư đánh tan, căn cứ bị triệt hạ** (*Toàn Thư* T2). Chi tiết tử trận do đắm thuyền khi vượt sông thuộc tầng dã sử T3.
-* **Phân tầng nguồn**: **T2 (*Toàn Thư*) — CONFIRMED; T3 (Đắm thuyền tử trận) — TRADITIONAL / PLAUSIBLE**.
+* **A. T2 Xác nhận**: Ghi danh trong 12 sứ quân năm Bính Dần 966 (*Toàn Thư*).
+* **B. Hệ quả đại cục (T2 Inference)**: Bị dẹp yên trong tiến trình thống nhất năm 968, căn cứ Tây Phù Liệt bị triệt hạ.
+* **C. Dã sử / Thần phả (T3 Tradition)**: Đắm thuyền tử trận trên sông Hồng khi vượt sông chi viện (làng Tự Khoát).
+* **Ngôn từ an toàn trong game**: **Đánh tan / Lực lượng bị triệt hạ (Defeated & Cleared)**.
 
 ---
 
 ### 3.3. Kiều Công Hãn (Kiều Tam Chế — Sứ Quân Phong Châu)
 * **Tên chính thức**: **Kiều Công Hãn** (Tự xưng Kiều Tam Chế; dị bản *Việt Sử Lược* chép Kiều Tri Hựu).
 * **Căn cứ lịch sử**: **Phong Châu** (Vùng Bạch Hạc, tỉnh Phú Thọ ngày nay).
-* **Vị thế & Thực lực**: Cháu nội Kiều Công Tiễn, thế gia vọng tộc lâu đời án ngữ ngã ba sông ngòi cửa ngõ trung du Tây Bắc.
-* **Kết cục lịch sử (Safe Outcome)**: **Bị quân Hoa Lư đánh bại, tháo chạy và bị tiêu diệt**.
-* **Phân tầng nguồn**: **T2 (*Toàn Thư*, *Việt Sử Lược*) — CONFIRMED / STRONG**.
+* **A. T2 Xác nhận**: Ghi danh trong 12 sứ quân năm Bính Dần 966 (*Toàn Thư*).
+* **B. Hệ quả đại cục (T2 Inference)**: Bị dẹp yên trong tiến trình thống nhất năm 968.
+* **C. Dã sử / Thần phả (T3 Tradition)**: Bị phục kích và giết khi tháo chạy tại bến Cu Bông (Phong Châu).
+* **Ngôn từ an toàn trong game**: **Đánh bại / Tháo chạy tan rã (Defeated & Routed)**.
 
 ---
 
 ### 3.4. Kiều Thuận (Kiều Lệnh Công — Sứ Quân Hồi Hồ)
 * **Tên chính thức**: **Kiều Thuận** (Tự xưng Kiều Lệnh Công).
 * **Căn cứ lịch sử**: **Hồi Hồ** (Vùng Cẩm Khê / Tam Nông, tỉnh Phú Thọ ngày nay).
-* **Vị thế & Thực lực**: Em trai Kiều Công Hãn, củng cố đồn lũy vững chắc tại vùng núi đồi Hồi Hồ.
-* **Kết cục lịch sử (Safe Outcome)**: **Căn cứ Hồi Hồ bị quân Hoa Lư san phẳng, thế lực bị đánh dẹp** (*Toàn Thư* T2).
-* **Phân tầng nguồn**: **T2 (*Toàn Thư*) — CONFIRMED; T3 (Tử trận Ma Lôi) — TRADITIONAL**.
+* **A. T2 Xác nhận**: Ghi danh trong 12 sứ quân năm Bính Dần 966 (*Toàn Thư*).
+* **B. Hệ quả đại cục (T2 Inference)**: Bị dẹp yên trong tiến trình thống nhất năm 968, đồn lũy Hồi Hồ bị giải tỏa.
+* **C. Dã sử / Thần phả (T3 Tradition)**: Tử trận tại căn cứ Ma Lôi (Cẩm Khê).
+* **Ngôn từ an toàn trong game**: **Đánh dẹp / Đồn lũy bị san phẳng (Defeated & Cleared)**.
 
 ---
 
 ### 3.5. Nguyễn Khoan (Nguyễn Thái Bình — Sứ Quân Tam Đái)
 * **Tên chính thức**: **Nguyễn Khoan** (Tự xưng Nguyễn Thái Bình).
 * **Căn cứ lịch sử**: **Tam Đái** (Vùng Vĩnh Tường / Yên Lạc, tỉnh Vĩnh Phúc ngày nay).
-* **Vị thế & Thực lực**: Hào trưởng cát cứ vùng đồng bằng trung lưu tả ngạn sông Hồng.
-* **Kết cục lịch sử (Safe Outcome)**: **Bị quân Hoa Lư đánh tan, lực lượng giải thể** (*Toàn Thư* T2). Chi tiết tự vẫn thuộc tầng dã sử T3.
-* **Phân tầng nguồn**: **T2 (*Toàn Thư*) — CONFIRMED; T3 (Tự vẫn) — TRADITIONAL**.
+* **A. T2 Xác nhận**: Ghi danh trong 12 sứ quân năm Bính Dần 966 (*Toàn Thư*).
+* **B. Hệ quả đại cục (T2 Inference)**: Bị dẹp yên trong tiến trình thống nhất năm 968.
+* **C. Dã sử / Thần phả (T3 Tradition)**: Tự vẫn tại chùa Vĩnh Khánh (Vĩnh Phúc).
+* **Ngôn từ an toàn trong game**: **Đánh tan / Lực lượng giải thể (Defeated & Dispersed)**.
 
 ---
 
 ### 3.6. Nguyễn Thủ Tiệp (Nguyễn Lệnh Công — Sứ Quân Tiên Du)
 * **Tên chính thức**: **Nguyễn Thủ Tiệp** (Tự xưng Nguyễn Lệnh Công, Vũ Ninh Vương).
 * **Căn cứ lịch sử**: **Tiên Du** (Huyện Tiên Du, tỉnh Bắc Ninh ngày nay).
-* **Vị thế & Thực lực**: Anh em với Nguyễn Khoan và Nguyễn Siêu, chiếm cứ vùng núi đồi Tiên Du hiểm trở.
-* **Kết cục lịch sử (Safe Outcome)**: **Bị quân Hoa Lư đánh dẹp hoàn toàn** (*Toàn Thư* T2).
-* **Phân tầng nguồn**: **T2 (*Toàn Thư*) — CONFIRMED / STRONG**.
+* **A. T2 Xác nhận**: Ghi danh trong 12 sứ quân năm Bính Dần 966 (*Toàn Thư*).
+* **B. Hệ quả đại cục (T2 Inference)**: Bị dẹp yên trong tiến trình thống nhất năm 968.
+* **C. Dã sử / Thần phả (T3 Tradition)**: Tháo chạy vào Ái Châu và tử trận tại Cần Hải.
+* **Ngôn từ an toàn trong game**: **Đánh dẹp / Đánh bại (Defeated)**.
 
 ---
 
 ### 3.7. Lý Khuê (Lý Lãng Công — Sứ Quân Siêu Loại)
 * **Tên chính thức**: **Lý Khuê** (Tự xưng Lý Lãng Công).
 * **Căn cứ lịch sử**: **Siêu Loại** (Huyện Thuận Thành, tỉnh Bắc Ninh ngày nay).
-* **Vị thế & Thực lực**: Thế lực hào tộc bản địa vùng Kinh Bắc dồi dào lúa gạo và nhân lực.
-* **Kết cục lịch sử (Safe Outcome)**: **Bị quân Hoa Lư đánh dẹp, căn cứ Siêu Loại bị giải thể** (*Toàn Thư* T2).
-* **Phân tầng nguồn**: **T2 (*Toàn Thư*) — CONFIRMED / STRONG**.
+* **A. T2 Xác nhận**: Ghi danh trong 12 sứ quân năm Bính Dần 966 (*Toàn Thư*).
+* **B. Hệ quả đại cục (T2 Inference)**: Bị dẹp yên trong tiến trình thống nhất năm 968, căn cứ Siêu Loại bị giải thể.
+* **C. Dã sử / Thần phả (T3 Tradition)**: Bị tướng Lưu Cơ đánh bại tại bãi Á Lữ.
+* **Ngôn từ an toàn trong game**: **Đánh dẹp / Phân tán (Defeated & Dispersed)**.
 
 ---
 
 ### 3.8. Lã Đường (Lã Tá Công — Sứ Quân Tế Giang)
 * **Tên chính thức**: **Lã Đường** (Tự xưng Lã Tá Công).
 * **Căn cứ lịch sử**: **Tế Giang** (Huyện Văn Giang, tỉnh Hưng Yên ngày nay).
-* **Vị thế & Thực lực**: Hào trưởng vùng bãi bồi phù sa trũng sông Hồng.
-* **Kết cục lịch sử (Safe Outcome)**: **Bị quân Hoa Lư đánh dẹp** (*Toàn Thư* T2).
-* **Phân tầng nguồn**: **T2 (*Toàn Thư*) — CONFIRMED / STRONG**.
+* **A. T2 Xác nhận**: Ghi danh trong 12 sứ quân năm Bính Dần 966 (*Toàn Thư*).
+* **B. Hệ quả đại cục (T2 Inference)**: Bị dẹp yên trong tiến trình thống nhất năm 968.
+* **C. Dã sử / Thần phả (T3 Tradition)**: Bị chém tại gò Bãi Sậy (Văn Giang).
+* **Ngôn từ an toàn trong game**: **Đánh dẹp / Bị tiêu diệt (Defeated)**.
 
 ---
 

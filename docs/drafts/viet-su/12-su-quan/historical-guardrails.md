@@ -3,7 +3,7 @@
 **Tài liệu**: `docs/drafts/viet-su/12-su-quan/historical-guardrails.md`
 **Chương Lịch Sử**: `ARC-12SQ-01: Vạn Thắng Hoa Lư — Dẹp Loạn Sứ Quân`
 **Đối tượng áp dụng**: Đội ngũ Biên Kịch Narrative, Kỹ sư Lập trình Codex, và Pipeline Tạo Asset / Visual Prompt
-**Trạng thái**: Mandatory Production Guidelines & Guardrails (Re-Audited)
+**Trạng thái**: Mandatory Production Guidelines & Guardrails (Final Source Attribution Lock)
 
 ---
 
@@ -63,17 +63,19 @@
 ### 2.1. Không Đơn Giản Hóa Chiến Dịch Thành "Chém Giết Lần Lượt 12 Kẻ Thù"
 * Chiến dịch dẹp loạn của Đinh Bộ Lĩnh là sự kết hợp tài tình giữa **Quân sự + Ngoại giao + Liên minh chính trị + Hôn nhân vương triều**:
   - **Liên minh kế thừa**: Trần Lãm (Bố Hải Khẩu).
-  - **Quy phục hòa bình & Trọng dụng**: Phạm Bạch Hổ (Đằng Châu), Ngô Xương Xí (Bình Kiều).
+  - **Đem quân về hàng & Trọng dụng**: Phạm Bạch Hổ (Đằng Châu).
+  - **Hàng phục / Quy phục**: Ngô Xương Xí (Bình Kiều).
   - **Hôn nhân chính trị kiềm chế**: Ngô Nhật Khánh (Đường Lâm).
-  - **Giao tranh quân sự tiêu diệt**: Đỗ Cảnh Thạc, Nguyễn Siêu, Kiều Công Hãn, Kiều Thuận, Lý Khuê, Nguyễn Khoan, Nguyễn Thủ Tiệp, Lã Đường.
+  - **Giao tranh quân sự đánh dẹp**: Đỗ Cảnh Thạc, Nguyễn Siêu, Kiều Công Hãn, Kiều Thuận, Lý Khuê, Nguyễn Khoan, Nguyễn Thủ Tiệp, Lã Đường.
 
 ---
 
 ### 2.2. Giới Hạn Của Sử Liệu Về Diễn Biến Từng Trận Đánh
-* Chính sử trung đại (*Toàn Thư*, *Việt Sử Lược*) chỉ ghi khái quát sự kiện đánh dẹp (*"Vạn Thắng Vương đánh đâu được đấy, dẹp yên 12 sứ quân"*).
-* Các diễn biến chiến thuật chi tiết (phục kích, hỏa công, trận địa cụ thể) phần lớn xuất phát từ **Thần phả địa phương (T3)** hoặc **Phục dựng sử học hiện đại (T4)**.
+* Chính sử trung đại (*Toàn Thư*, *Việt Sử Lược*) chỉ ghi danh sách 12 sứ quân (966) và câu văn khái quát sự kiện đánh dẹp (*"Vạn Thắng Vương đánh đâu được đấy, dẹp yên 12 sứ quân"* năm 968).
+* Chính sử **không chép diễn biến chiến sự từng trận riêng lẻ** cho các sứ quân.
+* Mọi diễn biến chiến thuật chi tiết (phục kích, hỏa công, trận địa cụ thể, trúng tên, đắm thuyền, tự vẫn) đều xuất phát từ **Thần phả địa phương (T3)** hoặc **Phục dựng kịch bản (`COMPOSITE RECONSTRUCTION`)**.
 * > [!NOTE]
-  > **NGUYÊN TẮC THIẾT KẾ**: Khi xây dựng các Stage mô phỏng trận đánh, phải gắn nhãn rõ là **COMPOSITE GAMEPLAY RECONSTRUCTION**. Tuyệt đối không biến suy diễn chiến thuật thành "sự thật lịch sử tuyệt đối".
+  > **NGUYÊN TẮC THIẾT KẾ**: Khi xây dựng các Stage mô phỏng trận đánh, phải gắn nhãn rõ là **COMPOSITE GAMEPLAY RECONSTRUCTION**. Tuyệt đối không biến suy diễn chiến thuật hay truyền thuyết T3 thành "sự thật lịch sử T2".
 
 ---
 
@@ -89,8 +91,8 @@
 
 ### 3.2. Không Tự Ý Sáng Tác Cái Chết Của Nhân Vật Lịch Sử
 * Tuân thủ nghiêm ngặt nguyên tắc **Ngôn Từ Kết Cục An Toàn (Historically Safe Battle Outcomes)**:
-  - Chỉ dùng "tử trận / bị chém" khi nguồn T1/T2 ghi nhận rõ.
-  - Với các sứ quân bị đánh tan, dùng các thuật ngữ: *"đánh dẹp"*, *"đánh tan"*, *"căn cứ tan rã"*, *"tháo chạy"*, *"lực lượng giải thể"*.
+  - Phân định rõ giữa danh tính/căn cứ (T2 xác thực), việc dẹp yên trong đại cục (T2 inference), và chi tiết cái chết cụ thể (dã sử T3).
+  - Sử dụng các thuật ngữ an toàn: *"đánh dẹp"*, *"đánh tan"*, *"căn cứ tan rã"*, *"tháo chạy"*, *"lực lượng giải thể"*.
 
 ---
 

@@ -31,6 +31,7 @@ import { battleInstruction, moveIntentForHero, placementIntentForHero } from '..
 import { canApplyEquipmentOperationForScreen, isEquipmentInteractionLocked, selectMetaTab, type MetaTab } from './MetaTabState'
 import { transitionPlayerJourney, type PlayerJourneyScreen } from './PlayerJourneyState'
 import { selectSafeStage, selectStageProgress } from '../domain/campaign/CampaignProgression'
+import { selectChapterStatus } from '../data/campaign/catalog'
 
 export function App() {
   const equipmentRuntime = getBrowserEquipmentV2Runtime()
@@ -285,7 +286,7 @@ export function App() {
 
   if (screen === 'campaign') return (
     <main className="app-shell journey-shell campaign-screen">
-      <header className="journey-header"><div><span className="eyebrow">CHINH CHIẾN</span><h1>{selectedChapter.displayName}</h1><p>Chọn một màn để bắt đầu hành trình.</p></div><button type="button" className="btn-secondary" onClick={() => setScreen('city')}>VỀ ĐẠI DOANH</button></header>
+      <header className="journey-header"><div><span className="eyebrow">CHINH CHIẾN</span><h1>{selectedChapter.displayName}</h1><p>Trạng thái chương: {selectChapterStatus(selectedChapter, metaSave.data.campaignProgress)}</p><p>Chọn một màn để bắt đầu hành trình.</p></div><button type="button" className="btn-secondary" onClick={() => setScreen('city')}>VỀ ĐẠI DOANH</button></header>
       <section className="campaign-card"><div className="chapter-options" aria-label="Chọn chương">{productionCampaignCatalog.chapters.map((chapter) => <button key={chapter.id} type="button" className={chapter.id === selectedChapter.id ? 'selected' : ''} onClick={() => { setSelectedChapterId(chapter.id); const safe = selectSafeStage([chapter], '', metaSave.data.campaignProgress, selectPlayableOwnedHeroIds(metaSave.data.heroCollection, ACTIVE_HERO_IDS)); setSelectedStageId(safe?.id ?? '') }}>{chapter.displayName}</button>)}</div><span className="eyebrow">{selectedChapter.displayName}</span>{selectedStage ? <><h2>{selectedStage.displayName}</h2><p>{selectedStage.waves.length} Wave · {selectedStage.allowedHeroIds.length} tướng khả dụng</p></> : <p role="status">Chương này chưa có màn chơi phù hợp với đội hình hiện tại.</p>}<div className="stage-options" aria-label="Chọn màn">{selectedChapter.stages.map((stage) => { const status = selectStageProgress(selectedChapter, metaSave.data.campaignProgress, stage.id); return <button key={stage.id} type="button" className={stage.id === selectedStage?.id ? 'selected' : ''} disabled={status === 'locked'} onClick={() => setSelectedStageId(stage.id)}>{stage.displayName} — {status === 'completed' ? 'Đã hoàn thành' : status === 'locked' ? 'Chưa mở' : 'Sẵn sàng'}</button> })}</div><button type="button" className="btn-primary" disabled={!selectedStage || playableIds.length === 0} onClick={handleEnterBattle}>VÀO TRẬN</button>{selectedStage && playableIds.length === 0 && <p role="status">Màn này chưa có tướng khả dụng.</p>}</section>
     </main>
   )

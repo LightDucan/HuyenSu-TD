@@ -29,7 +29,7 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 - GAME-C03: **DONE — waiting audit**; Meta V6 campaign progress, ordered stage unlock, idempotent victory completion và guarded Campaign UI đã hoàn tất.
 - Known debt: **Equipment Runtime/UI Effect Integration** — equipping Weapon/Gem may not visibly change Hero stats/effects; explicitly out of scope for VIS-HUD-01.
 - GAME-C04: **DONE — waiting audit**; generic catalog registry, safe chapter/stage selection, strict Meta V6 campaignProgress boundary, production HBT catalog only.
-- Lần kiểm tra gần nhất: GAME-C04 — 32 test files/213 tests PASS, production build PASS, preview served, diff-check PASS.
+- Lần kiểm tra gần nhất: GAME-C04-FIX1 — 32 test files/214 tests PASS, production build PASS, diff-check PASS.
 
 ## Phases và checkpoint
 
@@ -95,7 +95,7 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 
 | Task ID | Nội dung | Trạng thái | Worker chính | Audit checkpoint | Commit checkpoint |
 |---|---|---|---|---|---|
-| GAME-C04 | Multi-Chapter Campaign Catalog & Navigation; production catalog giữ duy nhất chapter Hai Bà Trưng, fixture 2 chapter chỉ dùng test | DONE — waiting audit | Codex | Catalog ID validation, safe selection fallback, strict Meta V6, runtime integration — PASS; manual browser smoke debt retained | pending |
+| GAME-C04 | Multi-Chapter Campaign Catalog & Navigation; production catalog giữ duy nhất chapter Hai Bà Trưng, fixture 2 chapter chỉ dùng test | DONE — waiting audit | Codex | Catalog ID validation, safe selection fallback, strict Meta V6, chapter navigation, Reward + Campaign bridge integration — PASS; manual browser smoke debt retained | pending |
 
 ## Quy tắc cập nhật
 

@@ -5,6 +5,7 @@ import { LocalMetaRepository, META_STORAGE_KEY } from '../../src/domain/meta/Met
 import { CampaignProgressionRuntime } from '../../src/runtime/CampaignProgressionRuntime'
 import { BattleBridge } from '../../src/game/bridge/BattleBridge'
 import { validateMetaSave, validateMetaSaveV5 } from '../../src/domain/meta/MetaValidation'
+import { ensureMetaRepositoryReady, RewardRuntimeController } from '../../src/runtime/RewardRuntime'
 
 const storage = (raw?: string) => { const values = new Map<string, string>(); if (raw) values.set(META_STORAGE_KEY, raw); return { values, getItem: (key: string) => values.get(key) ?? null, setItem: (key: string, value: string) => values.set(key, value) } }
 const map = { id: 'm', title: 'm', theme: 'm', width: 100, height: 100, grid: { columns: 2, rows: 2 }, fixedPath: [{ x: 0, y: 50 }, { x: 100, y: 50 }], placementTiles: [{ column: 0, row: 0 }] } as const
@@ -48,5 +49,22 @@ describe('campaign progression', () => {
     runtime.handleStageVictory({ runId: 'r2', stageId: 'a', occurredAtMs: 200 })
     const after = repo.load()
     expect(after.status === 'loaded' && after.save.data.campaignProgress.completedStages.a.firstCompletedAtMs).toBe(100)
+  })
+
+  it('integrates campaign completion and reward idempotency on one bridge', () => {
+    const integrationStorage = storage()
+    const repository = new LocalMetaRepository(integrationStorage)
+    ensureMetaRepositoryReady(repository, 'integration', 0)
+    const bridge = new BattleBridge()
+    const rewards = new RewardRuntimeController(repository, bridge, { enemyKill: { goldByEnemyId: {} }, stageClear: { rewardByStageId: { a: { gold: 10, knb: 2 } } }, activePlayTime: { intervalMs: 60_000, knbPerInterval: 1, hiddenTabPolicy: 'visible-only' } })
+    const campaign = new CampaignProgressionRuntime(integrationStorage, bridge, [chapter]); bridge.onStageVictory((event) => campaign.handleStageVictory(event)); rewards.start()
+    bridge.reportStageVictory({ runId: 'same-run', stageId: 'a', occurredAtMs: 100 })
+    bridge.reportStageVictory({ runId: 'same-run', stageId: 'a', occurredAtMs: 200 })
+    bridge.reportStageVictory({ runId: 'replay-run', stageId: 'a', occurredAtMs: 300 })
+    const after = repository.load()
+    expect(after.status === 'loaded' && after.save.data.wallet.balances).toEqual({ gold: 20, knb: 4 })
+    expect(after.status === 'loaded' && after.save.data.campaignProgress.completedStages.a.firstCompletedAtMs).toBe(100)
+    expect(() => bridge.reportStageVictory({ runId: 'unknown-run', stageId: 'unknown', occurredAtMs: 400 })).not.toThrow()
+    rewards.stop()
   })
 })

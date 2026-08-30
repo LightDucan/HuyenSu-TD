@@ -11,7 +11,7 @@ import { initializeBrowserEquipmentV2Runtime } from './runtime/EquipmentV2Runtim
 import { initializeBrowserEconomyRuntime } from './runtime/EconomyRuntime'
 import { initializeBrowserHeroMetaRuntime } from './runtime/HeroMetaRuntime'
 import { initializeBrowserCampaignProgressionRuntime } from './runtime/CampaignProgressionRuntime'
-import { defaultCampaignChapter } from './data/campaign/haiBaTrungCampaign'
+import { productionCampaignCatalog } from './data/campaign/catalog'
 import './ui/styles.css'
 
 const configuredHiddenPolicy = import.meta.env.VITE_ACTIVE_PLAY_HIDDEN_POLICY
@@ -23,7 +23,7 @@ const deploymentCapacityRuntime = startBrowserDeploymentCapacityRuntime(window.l
 setBrowserDeploymentCapacityRuntime(deploymentCapacityRuntime)
 initializeBrowserEconomyRuntime(window.localStorage, battleBridge, 0, deploymentCapacityRuntime)
 initializeBrowserHeroMetaRuntime(window.localStorage, battleBridge)
-initializeBrowserCampaignProgressionRuntime(window.localStorage, battleBridge, [defaultCampaignChapter])
+initializeBrowserCampaignProgressionRuntime(window.localStorage, battleBridge, productionCampaignCatalog.chapters)
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

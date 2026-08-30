@@ -2,7 +2,7 @@
 
 **Tài liệu**: `docs/drafts/viet-su/12-su-quan/factions-and-commanders.md`
 **Chương Lịch Sử**: `ARC-12SQ-01: Vạn Thắng Hoa Lư — Dẹp Loạn Sứ Quân`
-**Trạng thái**: Production Faction Index & Historical Profiles
+**Trạng thái**: Production Faction Index & Historical Profiles (Re-Audited)
 
 ---
 
@@ -39,9 +39,9 @@ Các thế lực này có mối quan hệ liên kết chiến lược hoặc quy
 * **Tên chính thức**: **Trần Lãm** (Trần Minh Công).
 * **Căn cứ lịch sử**: **Bố Hải Khẩu** (Vùng Kỳ Bố, thị xã Thái Bình ngày nay).
 * **Vị thế & Thực lực**: Hào trưởng duyên hải giàu mạnh bậc nhất, sở hữu hạm đội thuyền buôn và nguồn tài chính dồi dào từ kinh tế biển.
-* **Mối quan hệ với Đinh Bộ Lĩnh**: **Đồng minh chiến lược số một & Cha nuôi**. Trần Lãm nhận thấy Đinh Bộ Lĩnh có khí phách anh hùng bèn nhận làm con nuôi, gả con gái và trao lại toàn bộ cơ nghiệp quân sự Bố Hải Khẩu làm bàn đạp thống nhất giang sơn.
-* **Kết cục lịch sử**: Qua đời vì tuổi cao sức yếu vào khoảng năm 967; cơ nghiệp được Đinh Bộ Lĩnh tiếp quản trọn vẹn.
-* **Phân tầng nguồn**: **T2 (*Toàn Thư*, *Cương Mục*) + T3 (Đền thờ Kỳ Bố) — CONFIRMED / STRONG**.
+* **Mối quan hệ với Đinh Bộ Lĩnh**: **Đồng minh chiến lược số một & Cha nuôi**. *Toàn Thư* (T2) ghi rõ: Trần Lãm nhận thấy Đinh Bộ Lĩnh có khí phách anh hùng bèn nhận làm con nuôi và giao cho coi việc quân. *(Lưu ý: Chi tiết gả con gái thuộc tầng dã sử/thần phả T3)*.
+* **Kết cục lịch sử**: Qua đời vì tuổi cao sức yếu vào khoảng năm 967; quyền chỉ huy và cơ nghiệp Bố Hải Khẩu được Đinh Bộ Lĩnh tiếp quản trọn vẹn.
+* **Phân tầng nguồn**: **T2 (*Toàn Thư*, *Cương Mục*) — CONFIRMED / STRONG**.
 
 ---
 
@@ -49,9 +49,9 @@ Các thế lực này có mối quan hệ liên kết chiến lược hoặc quy
 * **Tên chính thức**: **Phạm Bạch Hổ** (Tự xưng Phạm Phòng Át).
 * **Căn cứ lịch sử**: **Đằng Châu** (Vùng Đằng Châu / Kim Động, tỉnh Hưng Yên ngày nay).
 * **Vị thế & Thực lực**: Tướng lĩnh kỳ cựu tài ba thời Ngô Quyền, có uy tín lớn trong giới hào trưởng vùng bãi bồi châu thổ sông Hồng.
-* **Mối quan hệ với Đinh Bộ Lĩnh**: Nhận rõ đại cục và xu thế thống nhất của nghĩa quân Hoa Lư, Phạm Bạch Hổ chủ động đem toàn bộ lực lượng Đằng Châu về **hàng phục quy thuận**.
+* **Mối quan hệ với Đinh Bộ Lĩnh**: Nhận rõ đại cục và xu thế thống nhất của nghĩa quân Hoa Lư, Phạm Bạch Hổ chủ động đem toàn bộ lực lượng Đằng Châu về **hàng phục quy thuận** (*Toàn Thư* T2).
 * **Kết cục lịch sử**: Được Đinh Bộ Lĩnh trọng dụng, phong chức **Thân vệ Đại tướng quân**, tiếp tục phò tá triều Đinh cho đến khi qua đời.
-* **Phân tầng nguồn**: **T2 (*Toàn Thư*) + T3 (Đền Mây, Hưng Yên) — CONFIRMED / STRONG**.
+* **Phân tầng nguồn**: **T2 (*Toàn Thư*) — CONFIRMED / STRONG**.
 
 ---
 
@@ -59,7 +59,7 @@ Các thế lực này có mối quan hệ liên kết chiến lược hoặc quy
 * **Tên chính thức**: **Ngô Xương Xí** (Tự xưng Ngô Sứ Quân).
 * **Căn cứ lịch sử**: **Bình Kiều** (Vùng Triệu Sơn / Nông Cống, tỉnh Thanh Hóa ngày nay).
 * **Vị thế & Thực lực**: Con trai trưởng của Thiên Sách Vương Ngô Xương Ngập, mang dòng dõi chính thống hoàng gia họ Ngô.
-* **Mối quan hệ với Đinh Bộ Lĩnh**: Trước thanh thế áp đảo của quân Hoa Lư và truyền thống gắn bó lâu đời giữa dòng họ Đinh (Đinh Công Trứ là nha tướng của Ngô Quyền) với họ Ngô, Ngô Xương Xí **quy thuận hòa bình**.
+* **Mối quan hệ với Đinh Bộ Lĩnh**: Trước thanh thế áp đảo của quân Hoa Lư và truyền thống gắn bó lâu đời giữa dòng họ Đinh với họ Ngô, Ngô Xương Xí **quy thuận hòa bình**.
 * **Kết cục lịch sử**: Được bảo toàn tính mạng và tôn trọng dòng dõi quý tộc trong trật tự vương triều mới.
 * **Phân tầng nguồn**: **T2 (*Toàn Thư*, *Việt Sử Lược*) — CONFIRMED / STRONG**.
 
@@ -69,8 +69,8 @@ Các thế lực này có mối quan hệ liên kết chiến lược hoặc quy
 * **Tên chính thức**: **Ngô Nhật Khánh** (Tự xưng Ngô Lãm Công).
 * **Căn cứ lịch sử**: **Đường Lâm** (Vùng Ba Vì / Sơn Tây, Hà Nội ngày nay).
 * **Vị thế & Thực lực**: Hoàng thân hào tộc họ Ngô chiếm giữ đất phát tích của Tiền Ngô Vương.
-* **Mối quan hệ với Đinh Bộ Lĩnh**: Đinh Bộ Lĩnh áp dụng **chính sách hôn nhân chính trị (Dynastic Marriage Alliance)**: cưới mẹ/em gái của Nhật Khánh, gả con gái (Công chúa Phất Kim) cho Nhật Khánh để kiềm chế và hòa hợp quyền lực.
-* **Kết cục lịch sử**: Ngô Nhật Khánh quy phục trên danh nghĩa, nhưng trong lòng luôn mưu đồ khôi phục ngai vàng họ Ngô. Năm 979 bỏ trốn sang Chiêm Thành, dẫn hạm đội Chiêm tiến đánh Hoa Lư nhưng bị bão biển đánh chìm chết đuối (T1/T2).
+* **Mối quan hệ với Đinh Bộ Lĩnh**: Đinh Bộ Lĩnh áp dụng **chính sách hôn nhân chính trị (Dynastic Marriage Alliance)**: cưới mẹ/em gái của Nhật Khánh, gả con gái (Công chúa Phất Kim) cho Nhật Khánh để kiềm chế và hòa hợp quyền lực (*Toàn Thư* T2).
+* **Kết cục lịch sử**: Ngô Nhật Khánh quy phục trên danh nghĩa; năm 979 bỏ trốn sang Chiêm Thành, dẫn hạm đội Chiêm tiến đánh Hoa Lư nhưng bị bão biển đánh chìm chết đuối (T1/T2).
 * **Phân tầng nguồn**: **T1 (*Tống Sử*) + T2 (*Toàn Thư*) — CONFIRMED / STRONG**.
 
 ---
@@ -85,8 +85,8 @@ Các sứ quân kiên quyết kháng cự bằng quân sự và bị đại quâ
 * **Tên chính thức**: **Đỗ Cảnh Thạc** (Tự xưng Đỗ Cảnh Công).
 * **Căn cứ lịch sử**: **Đỗ Động Giang** (Vùng Thanh Oai, Quốc Oai, Hà Nội ngày nay).
 * **Vị thế & Thực lực**: Tướng cũ của Dương Đình Nghệ và Ngô Quyền; là thế lực quân sự mạnh nhất, có thành lũy kiên cố và đội giáp binh tinh nhuệ bậc nhất trong 12 sứ quân.
-* **Kết cục lịch sử (Safe Outcome)**: **Bị quân Hoa Lư đánh bại, căn cứ Đỗ Động tan rã hoàn toàn** (dã sử T3 ghi Đỗ Cảnh Thạc trúng tên tử trận tại Quán Gái).
-* **Phân tầng nguồn**: **T2 (*Toàn Thư*) + T3 — PLAUSIBLE / STRONG**.
+* **Kết cục lịch sử (Safe Outcome)**: **Bị quân Hoa Lư đánh bại, căn cứ Đỗ Động tan rã** (*Toàn Thư* T2). Chi tiết trúng tên tử trận tại Quán Gái thuộc tầng dã sử/thần phả T3.
+* **Phân tầng nguồn**: **T2 (*Toàn Thư*) — CONFIRMED; T3 (Tử trận Quán Gái) — TRADITIONAL / PLAUSIBLE**.
 
 ---
 
@@ -94,8 +94,8 @@ Các sứ quân kiên quyết kháng cự bằng quân sự và bị đại quâ
 * **Tên chính thức**: **Nguyễn Siêu** (Tự xưng Nguyễn Hữu Công).
 * **Căn cứ lịch sử**: **Tây Phù Liệt** (Huyện Thanh Trì, Hà Nội ngày nay).
 * **Vị thế & Thực lực**: Chiếm giữ bến sông Hồng huyết mạch cửa ngõ phía Nam thành Đại La, có lực lượng thủy bộ phối hợp thiện chiến.
-* **Kết cục lịch sử (Safe Outcome)**: **Bị quân Hoa Lư đánh tan, căn cứ bị triệt hạ** (dã sử T3 ghi Nguyễn Siêu tử trận do đắm thuyền khi vượt sông).
-* **Phân tầng nguồn**: **T2 (*Toàn Thư*) + T3 — PLAUSIBLE / STRONG**.
+* **Kết cục lịch sử (Safe Outcome)**: **Bị quân Hoa Lư đánh tan, căn cứ bị triệt hạ** (*Toàn Thư* T2). Chi tiết tử trận do đắm thuyền khi vượt sông thuộc tầng dã sử T3.
+* **Phân tầng nguồn**: **T2 (*Toàn Thư*) — CONFIRMED; T3 (Đắm thuyền tử trận) — TRADITIONAL / PLAUSIBLE**.
 
 ---
 
@@ -112,8 +112,8 @@ Các sứ quân kiên quyết kháng cự bằng quân sự và bị đại quâ
 * **Tên chính thức**: **Kiều Thuận** (Tự xưng Kiều Lệnh Công).
 * **Căn cứ lịch sử**: **Hồi Hồ** (Vùng Cẩm Khê / Tam Nông, tỉnh Phú Thọ ngày nay).
 * **Vị thế & Thực lực**: Em trai Kiều Công Hãn, củng cố đồn lũy vững chắc tại vùng núi đồi Hồi Hồ.
-* **Kết cục lịch sử (Safe Outcome)**: **Căn cứ Hồi Hồ bị quân Hoa Lư san phẳng, thế lực bị đánh dẹp**.
-* **Phân tầng nguồn**: **T2 (*Toàn Thư*) + T3 — PLAUSIBLE / STRONG**.
+* **Kết cục lịch sử (Safe Outcome)**: **Căn cứ Hồi Hồ bị quân Hoa Lư san phẳng, thế lực bị đánh dẹp** (*Toàn Thư* T2).
+* **Phân tầng nguồn**: **T2 (*Toàn Thư*) — CONFIRMED; T3 (Tử trận Ma Lôi) — TRADITIONAL**.
 
 ---
 
@@ -121,8 +121,8 @@ Các sứ quân kiên quyết kháng cự bằng quân sự và bị đại quâ
 * **Tên chính thức**: **Nguyễn Khoan** (Tự xưng Nguyễn Thái Bình).
 * **Căn cứ lịch sử**: **Tam Đái** (Vùng Vĩnh Tường / Yên Lạc, tỉnh Vĩnh Phúc ngày nay).
 * **Vị thế & Thực lực**: Hào trưởng cát cứ vùng đồng bằng trung lưu tả ngạn sông Hồng.
-* **Kết cục lịch sử (Safe Outcome)**: **Bị quân Hoa Lư đánh tan, lực lượng giải thể** (dã sử T3 chép tự vẫn).
-* **Phân tầng nguồn**: **T2 (*Toàn Thư*) — CONFIRMED / STRONG**.
+* **Kết cục lịch sử (Safe Outcome)**: **Bị quân Hoa Lư đánh tan, lực lượng giải thể** (*Toàn Thư* T2). Chi tiết tự vẫn thuộc tầng dã sử T3.
+* **Phân tầng nguồn**: **T2 (*Toàn Thư*) — CONFIRMED; T3 (Tự vẫn) — TRADITIONAL**.
 
 ---
 
@@ -130,7 +130,7 @@ Các sứ quân kiên quyết kháng cự bằng quân sự và bị đại quâ
 * **Tên chính thức**: **Nguyễn Thủ Tiệp** (Tự xưng Nguyễn Lệnh Công, Vũ Ninh Vương).
 * **Căn cứ lịch sử**: **Tiên Du** (Huyện Tiên Du, tỉnh Bắc Ninh ngày nay).
 * **Vị thế & Thực lực**: Anh em với Nguyễn Khoan và Nguyễn Siêu, chiếm cứ vùng núi đồi Tiên Du hiểm trở.
-* **Kết cục lịch sử (Safe Outcome)**: **Bị quân Hoa Lư đánh dẹp hoàn toàn**.
+* **Kết cục lịch sử (Safe Outcome)**: **Bị quân Hoa Lư đánh dẹp hoàn toàn** (*Toàn Thư* T2).
 * **Phân tầng nguồn**: **T2 (*Toàn Thư*) — CONFIRMED / STRONG**.
 
 ---
@@ -139,7 +139,7 @@ Các sứ quân kiên quyết kháng cự bằng quân sự và bị đại quâ
 * **Tên chính thức**: **Lý Khuê** (Tự xưng Lý Lãng Công).
 * **Căn cứ lịch sử**: **Siêu Loại** (Huyện Thuận Thành, tỉnh Bắc Ninh ngày nay).
 * **Vị thế & Thực lực**: Thế lực hào tộc bản địa vùng Kinh Bắc dồi dào lúa gạo và nhân lực.
-* **Kết cục lịch sử (Safe Outcome)**: **Bị quân Hoa Lư đánh dẹp, căn cứ Siêu Loại bị giải thể**.
+* **Kết cục lịch sử (Safe Outcome)**: **Bị quân Hoa Lư đánh dẹp, căn cứ Siêu Loại bị giải thể** (*Toàn Thư* T2).
 * **Phân tầng nguồn**: **T2 (*Toàn Thư*) — CONFIRMED / STRONG**.
 
 ---
@@ -148,7 +148,7 @@ Các sứ quân kiên quyết kháng cự bằng quân sự và bị đại quâ
 * **Tên chính thức**: **Lã Đường** (Tự xưng Lã Tá Công).
 * **Căn cứ lịch sử**: **Tế Giang** (Huyện Văn Giang, tỉnh Hưng Yên ngày nay).
 * **Vị thế & Thực lực**: Hào trưởng vùng bãi bồi phù sa trũng sông Hồng.
-* **Kết cục lịch sử (Safe Outcome)**: **Bị quân Hoa Lư đánh dẹp**.
+* **Kết cục lịch sử (Safe Outcome)**: **Bị quân Hoa Lư đánh dẹp** (*Toàn Thư* T2).
 * **Phân tầng nguồn**: **T2 (*Toàn Thư*) — CONFIRMED / STRONG**.
 
 ---

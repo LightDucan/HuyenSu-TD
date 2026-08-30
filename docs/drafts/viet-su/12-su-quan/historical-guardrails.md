@@ -3,7 +3,7 @@
 **Tài liệu**: `docs/drafts/viet-su/12-su-quan/historical-guardrails.md`
 **Chương Lịch Sử**: `ARC-12SQ-01: Vạn Thắng Hoa Lư — Dẹp Loạn Sứ Quân`
 **Đối tượng áp dụng**: Đội ngũ Biên Kịch Narrative, Kỹ sư Lập trình Codex, và Pipeline Tạo Asset / Visual Prompt
-**Trạng thái**: Mandatory Production Guidelines & Guardrails
+**Trạng thái**: Mandatory Production Guidelines & Guardrails (Re-Audited)
 
 ---
 
@@ -17,7 +17,16 @@
 
 ---
 
-### 1.2. Danh Sách 12 Sứ Quân Chuẩn Tắc (*Toàn Thư* Canonical)
+### 1.2. Phân Định Biên Niên 968 (Thống Nhất & Khai Quốc) vs 970 (Niên Hiệu Thái Bình)
+* **Năm 968 (Mậu Thìn)**: Đinh Bộ Lĩnh hoàn tất công cuộc đánh dẹp và thu phục 12 sứ quân, lên ngôi Hoàng đế (Đinh Tiên Hoàng), đặt quốc hiệu **Đại Cồ Việt**, định đô tại **Hoa Lư**.
+* **Năm 970 (Canh Ngọ)**: Đinh Tiên Hoàng chính thức đặt niên hiệu **Thái Bình** (*Toàn Thư* chép: *"Canh Ngọ, [Thái Bình] năm thứ 1... Đặt niên hiệu là Thái Bình"*).
+* **Về tiền đồng *Thái Bình Hưng Bảo***:
+  - Khảo cứu tiền tệ học xác nhận tiền đồng *Thái Bình Hưng Bảo* gắn liền với **niên hiệu Thái Bình (từ khoảng năm 970 trở đi)**.
+  - Tuyệt đối không khẳng định niên hiệu Thái Bình hay tiền đúc được ban hành ngay từ năm 968.
+
+---
+
+### 1.3. Danh Sách 12 Sứ Quân Chuẩn Tắc (*Toàn Thư* Canonical)
 * Danh sách 12 sứ quân chuẩn tắc của *Toàn Thư* gồm:
   1. Ngô Xương Xí (Bình Kiều)
   2. Đỗ Cảnh Thạc (Đỗ Động Giang)
@@ -34,15 +43,15 @@
 
 ---
 
-### 1.3. Rào Chắn Về Nhân Vật Trần Lãm (Bố Hải Khẩu)
+### 1.4. Rào Chắn Về Nhân Vật Trần Lãm (Bố Hải Khẩu)
 * **Vị thế**: Trần Lãm **BẮT BUỘC** phải được giữ nguyên là một trong 12 sứ quân chuẩn tắc của *Toàn Thư*.
-* **Quan hệ với Đinh Bộ Lĩnh**: Là **Đồng minh chiến lược & Cha nuôi** bảo trợ.
+* **Quan hệ với Đinh Bộ Lĩnh**: Là **Đồng minh chiến lược & Cha nuôi** bảo trợ (*Toàn Thư* T2). Chi tiết về hôn nhân ("gả con gái") thuộc tầng dã sử/thần phả địa phương (T3).
 * > [!WARNING]
   > **TUYỆT ĐỐI CẤM**: Không được xây dựng màn chơi hay cốt truyện mô tả Đinh Bộ Lĩnh tiến quân "tiêu diệt" hoặc "đánh bại" Trần Lãm. Trần Lãm tự nguyện liên hiệp và truyền lại cơ nghiệp Kỳ Bố cho Đinh Bộ Lĩnh.
 
 ---
 
-### 1.4. Rào Chắn Về Nhân Vật Lý Xử Bình / Lã Xử Bình
+### 1.5. Rào Chắn Về Nhân Vật Lý Xử Bình / Lã Xử Bình
 * Lý Xử Bình (hoặc Lã Xử Bình) là tướng lĩnh gây biến loạn nội bộ cung đình Cổ Loa năm 965 sau cái chết của Ngô Xương Văn.
 * > [!CAUTION]
   > **TUYỆT ĐỐI CẤM**: Không được chèn Lý Xử Bình / Lã Xử Bình vào danh sách 12 sứ quân để thay thế Trần Lãm. Đây là lỗi sai phổ biến của một số tài liệu đại chúng thời sau.
@@ -85,16 +94,13 @@
 
 ---
 
-## 4. Rào Chắn Mỹ Thuật & Bản Sắc Văn Hóa (Visual Guardrails)
+## 4. Rào Chắn Mỹ Thuật & Văn Hóa Cấp Cao (High-Level Visual Guardrails)
 
-Dành riêng cho Pipeline tạo hình ảnh / LightX2V / Asset Sheets sau này:
+*Nghiên cứu mỹ thuật chi tiết nằm ngoài phạm vi của task này. Dưới đây là các rào chắn cấp cao bắt buộc nhằm tránh các sai lệch nghiêm trọng:*
 
-1. **Bản Sắc Thế Kỷ X Khởi Nguyên**:
-   - Tái hiện trang phục, giáp trụ thời kỳ Đinh – Tiền Lê: giáp phiến đồng/sắt đính bạt da, áo chẽn ngắn nâu sẫm, quấn xà cạp vải, thắt khăn đầu, búi tóc củ hành truyền thống.
-   - Vũ khí đặc trưng: trường kiếm thép chuôi đúc đồng hoa văn Đông Sơn muộn, đại trảm đao cán gỗ, đoản đao cong, cung nỏ gỗ dã chiến, khiên liễu gai đan tròn.
-2. **Cảnh Quan Địa Hình Đặc Trưng**:
-   - Địa hình thung lũng đá vôi ngập nước karst (Hoa Lư), bãi bồi cửa biển phù sa (Kỳ Bố), rừng lau sậy rậm rạp và bến sông Hồng trũng nước.
-3. **TUYỆT ĐỐI TRÁNH CÁC KHUÔN MẪU SAI LỆCH**:
-   - Không sao chép giáp trụ nguy nga của thời Minh/Thanh Trung Quốc.
-   - Không sử dụng nón chóp tròn có đuôi sam kiểu Mãn Thanh.
-   - Không dùng tường thành gạch cao chọc trời kiểu phim kiếm hiệp; thành quách thế kỷ X chủ yếu là thành đất nện kết hợp lũy đá tự nhiên và hàng rào cọc gỗ.
+1. **Tuyệt đối tránh định kiến trang phục Minh/Thanh**:
+   - Không sử dụng giáp trụ nguy nga, áo bào rộng phủ đất thời Minh/Thanh Trung Quốc.
+   - Tuyệt đối không sử dụng nón chóp tròn có đuôi sam kiểu Mãn Thanh.
+   - Không mô tả tường thành gạch cao chọc trời kiểu phim kiếm hiệp giả tưởng.
+2. **Nguyên tắc không khóa cứng chi tiết khi chưa có khảo cứu chuyên sâu**:
+   - Không tự ý khóa cứng kiểu đan giáp, kiểu búi tóc, hay hình dáng vũ khí/khiên cụ thể của thế kỷ X cho đến khi có chuyên đề nghiên cứu khảo cổ học chuyên biệt (Visual/Archaeological Research Task).

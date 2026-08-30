@@ -3,9 +3,10 @@ import type { BattleHudData } from '../game/bridge/BattleHudContract'
 export interface TopCityBarProps {
   data: BattleHudData
   wallet?: Readonly<{ gold: number; knb: number }>
+  stageDisplayName?: string
 }
 
-export function TopCityBar({ data, wallet }: TopCityBarProps) {
+export function TopCityBar({ data, wallet, stageDisplayName = 'Huyết Chiến Lãng Bạc' }: TopCityBarProps) {
   const swordCount = data.remainingByCategory.sword ?? 0
   const archerCount = data.remainingByCategory.archer ?? 0
   const otherCount = data.remainingByCategory.other ?? 0
@@ -15,7 +16,7 @@ export function TopCityBar({ data, wallet }: TopCityBarProps) {
       <div className="city-info-group top-hud-left">
         <div className="city-name-row">
           <span className="city-icon" aria-hidden="true">🏯</span>
-          <h2 className="city-name">Huyết Chiến Lãng Bạc</h2>
+          <h2 className="city-name">{stageDisplayName}</h2>
         </div>
         <div className="city-hp-bar-container">
           <span className="hp-label">Thành trì HP:</span>

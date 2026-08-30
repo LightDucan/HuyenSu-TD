@@ -15,18 +15,19 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 
 ## Trạng thái hiện tại
 
-- Current Phase: **PLAYER JOURNEY SHELL / META HUB INTEGRATION**
-- Current Codex task: **GAME-C01 — Player Journey Shell / Meta Hub Integration** — branch `codex/game-c01-player-journey-shell`.
-- Current Antigravity task: **VS-NDPL-00 — 939–1009 Research — IN PROGRESS** — branch `antigravity/vs-ndpl-00-939-1009-research` @ `5686d7f`.
+- Current Phase: **STAGE RUNTIME FOUNDATION**
+- Current Codex task: **GAME-C02 — Stage Runtime Foundation & Journey Hardening** — branch `codex/game-c02-stage-runtime-foundation`.
+- Current Antigravity task: **NONE — awaiting an explicitly assigned task**.
 - QA-C01A: **ENVIRONMENT-BLOCKED interactive portion**; automated regression PASS; manual QA debt retained.
 - VS-HBT-V02B: **CODE/BINARY AUDIT PASS; MANUAL VISUAL QA PASS ENOUGH TO CONTINUE**; real HBT Hero assets 12/12 integrated.
 - VIS-HUD-01: **DONE — waiting audit**; desktop one-viewport HUD, contextual tabs, range toggle và placement/move safety verified interactively.
 - HUD-C01: **DONE — waiting audit**; two-tab bottom Combat HUD, persistent controls, Battle state preservation, selected-only range và Wave Equipment lock verified.
 - HUD-C02: **DONE — waiting final audit**; Economy tách khỏi Hành Trang combat, top HUD ba vùng, range/placement/tab visual polish và responsive no-scroll verified.
 - HUD-C03: **DONE — copy lock PASS**; combat Inventory dùng display name Việt hóa, không lộ technical/dev terminology.
-- GAME-C01: **IN PROGRESS**; City → Campaign → Battle → Result shell đang được tích hợp, giữ nguyên Combat HUD và runtime ownership.
+- GAME-C01: **DONE — AUDIT CONDITIONAL PASS**; City → Campaign → Battle → Result shell đã tích hợp, các blocker re-entry/stage coupling được xử lý trong GAME-C02.
+- GAME-C02: **DONE — waiting audit**; stage-aware Battle runtime, fresh run snapshot, generic map contract và capacity gate đã hoàn tất.
 - Known debt: **Equipment Runtime/UI Effect Integration** — equipping Weapon/Gem may not visibly change Hero stats/effects; explicitly out of scope for VIS-HUD-01.
-- Lần kiểm tra gần nhất: GAME-C01 baseline — 27 test files/201 tests PASS, production build PASS, diff-check PASS.
+- Lần kiểm tra gần nhất: GAME-C02 — 29 test files/204 tests PASS, production build PASS, diff-check PASS.
 
 ## Phases và checkpoint
 

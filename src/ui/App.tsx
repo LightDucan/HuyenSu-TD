@@ -8,7 +8,6 @@ import type { MetaSave } from '../domain/meta/MetaState'
 import type { HeroProgression } from '../domain/progression/ProgressionSystem'
 import {
   battleBridge,
-  type BattleSnapshot,
   type CommandEnergySnapshot,
   type DeploymentCapacitySnapshot,
 } from '../game/bridge/BattleBridge'
@@ -25,32 +24,20 @@ import { CONSUMABLE_ITEM_IDS } from '../data/items/definitions'
 import { getBrowserHeroMetaRuntime } from '../runtime/HeroMetaRuntime'
 import { selectPlayableOwnedHeroIds } from '../domain/meta/HeroRecruitment'
 import { defaultCampaignChapter, defaultBattleStage } from '../data/campaign/haiBaTrungCampaign'
+import { createInitialBattleSnapshot } from '../game/bridge/BattleSnapshot'
+import { getBrowserDeploymentCapacityRuntime } from '../runtime/DeploymentCapacityRuntime'
 import { battleInstruction, moveIntentForHero, placementIntentForHero } from '../game/bridge/BattleInteractionContract'
 import { canApplyEquipmentOperation, isEquipmentInteractionLocked, selectMetaTab, type MetaTab } from './MetaTabState'
 import { transitionPlayerJourney, type PlayerJourneyScreen } from './PlayerJourneyState'
-
-const initialSnapshot: BattleSnapshot = {
-  runId: 'initial',
-  speed: 1,
-  enemiesSpawned: 0,
-  enemiesEscaped: 0,
-  enemiesDefeated: 0,
-  placedHeroes: [],
-  selectedHeroId: 'trung-trac',
-  wave: 1,
-  totalWaves: 10,
-  waveStatus: 'waiting',
-  cityHp: 10,
-  battleStatus: 'running',
-  remainingByCategory: { sword: 0, archer: 0, other: 0 },
-}
 
 export function App() {
   const equipmentRuntime = getBrowserEquipmentV2Runtime()
   const economyRuntime = getBrowserEconomyRuntime()
   const heroMetaRuntime = getBrowserHeroMetaRuntime()
   const gameHostRef = useRef<HTMLDivElement>(null)
-  const [snapshot, setSnapshot] = useState(initialSnapshot)
+  const [selectedStageId, setSelectedStageId] = useState(defaultBattleStage.id)
+  const selectedStage = defaultCampaignChapter.stages.find((stage) => stage.id === selectedStageId) ?? defaultBattleStage
+  const [snapshot, setSnapshot] = useState(() => createInitialBattleSnapshot(selectedStage))
   const [screen, setScreen] = useState<PlayerJourneyScreen>('city')
   const [commandEnergy, setCommandEnergy] = useState<CommandEnergySnapshot>(() => battleBridge.getCommandEnergySnapshot())
   const [autoWaveEnabled, setAutoWaveEnabled] = useState(() => battleBridge.isAutoWaveEnabled())
@@ -70,7 +57,9 @@ export function App() {
   }
   const [equipment, setEquipment] = useState<HeroEquipment>(() => definitionLoadout(battleBridge.getSelectedHeroId(), metaSave))
   const hudData = toBattleHudData(snapshot)
-  const heroOptions = selectPlayableOwnedHeroIds(metaSave.data.heroCollection, ACTIVE_HERO_IDS)
+  const cityHeroOptions = selectPlayableOwnedHeroIds(metaSave.data.heroCollection, ACTIVE_HERO_IDS)
+    .map((heroId) => ({ id: heroId, name: heroDefinitions[heroId].name, portraitUrl: resolveHaiBaTrungHeroVisual(heroId)?.portraitUrl }))
+  const heroOptions = selectPlayableOwnedHeroIds(metaSave.data.heroCollection, selectedStage.allowedHeroIds)
     .map((heroId) => ({ id: heroId, name: heroDefinitions[heroId].name, portraitUrl: resolveHaiBaTrungHeroVisual(heroId)?.portraitUrl }))
   const progression: HeroProgression = metaSave.data.heroCollection[hudData.selectedHeroId]?.progression ?? { stage: 'normal', level: 1 }
   const selectedHeroName = heroDefinitions[hudData.selectedHeroId]?.name ?? 'Hero'
@@ -87,7 +76,10 @@ export function App() {
   useEffect(() => {
     if (screen !== 'battle' || !gameHostRef.current) return
 
-    const game = createGame(gameHostRef.current)
+    const capacityProjection = getBrowserDeploymentCapacityRuntime().setMapTileCount(selectedStage.map.placementTiles.length)
+    economyRuntime.setMapTileCount(selectedStage.map.placementTiles.length)
+    setDeploymentCapacity(capacityProjection)
+    const game = createGame(gameHostRef.current, selectedStage)
     const unsubscribe = battleBridge.onSnapshot(setSnapshot)
     const unsubscribeEnergy = battleBridge.onCommandEnergySnapshot(setCommandEnergy)
     const unsubscribeAuto = battleBridge.onAutoWaveChange(setAutoWaveEnabled)
@@ -109,16 +101,16 @@ export function App() {
       unsubscribeRange()
       game.destroy(true)
     }
-  }, [screen])
+  }, [screen, selectedStage, economyRuntime])
 
   useEffect(() => {
-    if (screen === 'battle' && snapshot.battleStatus !== 'running') setScreen((current) => transitionPlayerJourney(current, 'battle-complete'))
+    if (screen === 'battle' && snapshot.battleStatus !== 'running' && !snapshot.runId.startsWith('pending-')) setScreen((current) => transitionPlayerJourney(current, 'battle-complete'))
   }, [screen, snapshot.battleStatus])
 
   const setSpeed = (speed: GameSpeed) => battleBridge.setSpeed(speed)
 
   const handleHeroSelect = (heroId: string) => {
-    if (!heroDefinitions[heroId] || !metaSave.data.heroCollection[heroId]) return
+    if (!heroDefinitions[heroId] || !metaSave.data.heroCollection[heroId] || (screen === 'battle' && !new Set<string>(selectedStage.allowedHeroIds).has(heroId))) return
     battleBridge.setSelectedHeroId(heroId)
     battleBridge.setPlacementIntent(placementIntentForHero(heroId, snapshot.placedHeroes.some((placement) => placement.heroId === heroId)))
     setEquipment(definitionLoadout(heroId, metaSave))
@@ -232,13 +224,14 @@ export function App() {
   }
 
   const handleMetaHeroSelect = (heroId: string) => {
-    if (!heroDefinitions[heroId] || !metaSave.data.heroCollection[heroId]) return
+    if (!heroDefinitions[heroId] || !metaSave.data.heroCollection[heroId] || (screen === 'battle' && !new Set<string>(selectedStage.allowedHeroIds).has(heroId))) return
     battleBridge.setSelectedHeroId(heroId)
     setEquipment(definitionLoadout(heroId, metaSave))
   }
 
   const handleEnterBattle = () => {
     battleBridge.clearPlacementIntent()
+    setSnapshot(createInitialBattleSnapshot(selectedStage))
     setScreen((current) => transitionPlayerJourney(current, 'enter-battle'))
   }
 
@@ -249,7 +242,7 @@ export function App() {
 
   const handleRetryBattle = () => {
     battleBridge.clearPlacementIntent()
-    setSnapshot(initialSnapshot)
+    setSnapshot(createInitialBattleSnapshot(selectedStage))
     setScreen((current) => transitionPlayerJourney(current, 'retry-battle'))
   }
 
@@ -269,9 +262,9 @@ export function App() {
   if (screen === 'city') return (
     <main className="app-shell journey-shell city-screen">
       <header className="journey-header"><div><span className="eyebrow">Huyền Sử TD</span><h1>ĐẠI DOANH</h1><p>Quản lý đội hình, trang bị và tài nguyên.</p></div><button type="button" className="btn-primary" onClick={() => setScreen((current) => transitionPlayerJourney(current, 'open-campaign'))}>CHINH CHIẾN</button></header>
-      <section className="city-summary" aria-label="Tổng quan Đại Doanh"><strong>Vàng: {metaSave.data.wallet.balances.gold}</strong><strong>KNB: {metaSave.data.wallet.balances.knb}</strong><strong>Quân Lệnh: {metaSave.data.commandEnergy.current}</strong><span>Đội hình sở hữu: {heroOptions.length}</span></section>
+      <section className="city-summary" aria-label="Tổng quan Đại Doanh"><strong>Vàng: {metaSave.data.wallet.balances.gold}</strong><strong>KNB: {metaSave.data.wallet.balances.knb}</strong><strong>Quân Lệnh: {metaSave.data.commandEnergy.current}</strong><span>Đội hình sở hữu: {cityHeroOptions.length}</span></section>
       <div className="city-meta-grid">
-        <section className="city-roster-panel"><h2>Đội hình</h2><div className="city-hero-list">{heroOptions.map((hero) => <button key={hero.id} type="button" className={hero.id === hudData.selectedHeroId ? 'selected' : ''} onClick={() => handleMetaHeroSelect(hero.id)}>{hero.name}</button>)}</div><button type="button" className="btn-secondary" onClick={() => setIsHeroDetailOpen(true)}>Chi Tiết Tướng</button></section>
+        <section className="city-roster-panel"><h2>Đội hình</h2><div className="city-hero-list">{cityHeroOptions.map((hero) => <button key={hero.id} type="button" className={hero.id === hudData.selectedHeroId ? 'selected' : ''} onClick={() => handleMetaHeroSelect(hero.id)}>{hero.name}</button>)}</div><button type="button" className="btn-secondary" onClick={() => setIsHeroDetailOpen(true)}>Chi Tiết Tướng</button></section>
         <EquipmentInventoryPanel save={metaSave} selectedHeroId={hudData.selectedHeroId} definitions={equipmentRuntime.getDefinitions()} onEquip={(instanceId) => handleInventoryOperation({ type: 'equip', heroId: hudData.selectedHeroId, instanceId })} onUnequip={(slot) => handleInventoryOperation({ type: 'unequip', heroId: hudData.selectedHeroId, slot })} onMerge={(ingredientInstanceIds) => handleInventoryOperation({ type: 'merge', ingredientInstanceIds, resultInstanceId: `equipment:${crypto.randomUUID()}` })} />
         <EconomyPanel save={metaSave} lastResult={economyResult} onGacha={handleGacha} onBuy={handleShopBuy} onUse={handleConsumableUse} selectedHeroId={hudData.selectedHeroId} onRecruit={handleRecruit} onAscendStar={handleAscendStar} />
       </div>
@@ -282,19 +275,19 @@ export function App() {
   if (screen === 'campaign') return (
     <main className="app-shell journey-shell campaign-screen">
       <header className="journey-header"><div><span className="eyebrow">CHINH CHIẾN</span><h1>{defaultCampaignChapter.displayName}</h1><p>Chọn một màn để bắt đầu hành trình.</p></div><button type="button" className="btn-secondary" onClick={() => setScreen('city')}>VỀ ĐẠI DOANH</button></header>
-      <section className="campaign-card"><span className="eyebrow">{defaultCampaignChapter.displayName}</span><h2>{defaultBattleStage.displayName}</h2><p>{defaultBattleStage.waves.length} Wave · {defaultBattleStage.allowedHeroIds.length} tướng khả dụng</p><button type="button" className="btn-primary" onClick={handleEnterBattle}>VÀO TRẬN</button></section>
+      <section className="campaign-card"><span className="eyebrow">{defaultCampaignChapter.displayName}</span><h2>{selectedStage.displayName}</h2><p>{selectedStage.waves.length} Wave · {selectedStage.allowedHeroIds.length} tướng khả dụng</p><div className="stage-options" aria-label="Chọn màn">{defaultCampaignChapter.stages.map((stage) => <button key={stage.id} type="button" className={stage.id === selectedStage.id ? 'selected' : ''} onClick={() => setSelectedStageId(stage.id)}>{stage.displayName}</button>)}</div><button type="button" className="btn-primary" onClick={handleEnterBattle}>VÀO TRẬN</button></section>
     </main>
   )
 
   if (screen === 'result') return (
     <main className="app-shell journey-shell result-screen">
-      <section className={`result-card ${snapshot.battleStatus}`}><span className="eyebrow">{defaultBattleStage.displayName}</span><h1>{snapshot.battleStatus === 'won' ? 'CHIẾN THẮNG' : 'THẤT BẠI'}</h1><p>Đạt đến Wave {snapshot.wave} / {snapshot.totalWaves}</p><div className="result-stats"><span>Quái đã hạ: {snapshot.enemiesDefeated}</span><span>Quái đã thoát: {snapshot.enemiesEscaped}</span><span>Vàng: {metaSave.data.wallet.balances.gold}</span><span>KNB: {metaSave.data.wallet.balances.knb}</span></div><div className="result-actions"><button type="button" className="btn-secondary" onClick={handleReturnToCity}>VỀ ĐẠI DOANH</button><button type="button" className="btn-primary" onClick={handleRetryBattle}>CHƠI LẠI</button></div></section>
+      <section className={`result-card ${snapshot.battleStatus}`}><span className="eyebrow">{selectedStage.displayName}</span><h1>{snapshot.battleStatus === 'won' ? 'CHIẾN THẮNG' : 'THẤT BẠI'}</h1><p>Đạt đến Wave {snapshot.wave} / {snapshot.totalWaves}</p><div className="result-stats"><span>Quái đã hạ: {snapshot.enemiesDefeated}</span><span>Quái đã thoát: {snapshot.enemiesEscaped}</span><span>Vàng: {metaSave.data.wallet.balances.gold}</span><span>KNB: {metaSave.data.wallet.balances.knb}</span></div><div className="result-actions"><button type="button" className="btn-secondary" onClick={handleReturnToCity}>VỀ ĐẠI DOANH</button><button type="button" className="btn-primary" onClick={handleRetryBattle}>CHƠI LẠI</button></div></section>
     </main>
   )
 
   return (
     <main className="app-shell battle-screen">
-      <TopCityBar data={hudData} wallet={metaSave.data.wallet.balances} />
+      <TopCityBar data={hudData} wallet={metaSave.data.wallet.balances} stageDisplayName={selectedStage.displayName} />
       <div className="interaction-copy"><p className="hint">{battleInstruction(placementIntent, selectedHeroName, snapshot.placedHeroes.length, deploymentCapacity.effectiveLimit)}</p>{placementMessage && <p className="placement-feedback" role="status">{placementMessage}</p>}</div>
       <section className="game-frame" ref={gameHostRef} aria-label="Battle Scene" />
       <section className={`meta-content-region ${activeMetaTab}`} aria-label="Combat HUD" aria-live="polite">

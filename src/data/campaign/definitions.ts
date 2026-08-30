@@ -1,11 +1,11 @@
 import type { HeroDefinition } from '../heroes/definitions'
 import type { WaveDefinition } from '../waves/prototypeWaves'
-import type { haiBaTrungMap } from '../maps/prototypeMap'
+import type { BattleMapDefinition } from '../maps/MapDefinition'
 
 export type BattleStageDefinition = Readonly<{
   id: string
   displayName: string
-  map: typeof haiBaTrungMap
+  map: BattleMapDefinition
   waves: readonly WaveDefinition[]
   allowedHeroIds: readonly HeroDefinition['id'][]
   enemyDefinitionIds: readonly string[]

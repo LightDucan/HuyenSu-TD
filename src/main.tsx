@@ -6,8 +6,7 @@ import type { HiddenTabPolicy } from './domain/meta/RewardSources'
 import { battleBridge } from './game/bridge/BattleBridge'
 import { startBrowserRewardRuntime } from './runtime/RewardRuntime'
 import { startBrowserCommandEnergyRuntime } from './runtime/CommandEnergyRuntime'
-import { startBrowserDeploymentCapacityRuntime } from './runtime/DeploymentCapacityRuntime'
-import { haiBaTrungMap } from './data/maps/prototypeMap'
+import { startBrowserDeploymentCapacityRuntime, setBrowserDeploymentCapacityRuntime } from './runtime/DeploymentCapacityRuntime'
 import { initializeBrowserEquipmentV2Runtime } from './runtime/EquipmentV2Runtime'
 import { initializeBrowserEconomyRuntime } from './runtime/EconomyRuntime'
 import { initializeBrowserHeroMetaRuntime } from './runtime/HeroMetaRuntime'
@@ -18,9 +17,9 @@ const hiddenTabPolicy: HiddenTabPolicy = configuredHiddenPolicy === 'count-hidde
 startBrowserRewardRuntime(window.localStorage, battleBridge, createHaiBaTrungRewardConfig(hiddenTabPolicy))
 startBrowserCommandEnergyRuntime(window.localStorage, battleBridge)
 initializeBrowserEquipmentV2Runtime(window.localStorage, battleBridge)
-initializeBrowserEconomyRuntime(window.localStorage, battleBridge, haiBaTrungMap.placementTiles.length)
+initializeBrowserEconomyRuntime(window.localStorage, battleBridge, 0)
 initializeBrowserHeroMetaRuntime(window.localStorage, battleBridge)
-startBrowserDeploymentCapacityRuntime(window.localStorage, battleBridge, haiBaTrungMap.placementTiles.length)
+setBrowserDeploymentCapacityRuntime(startBrowserDeploymentCapacityRuntime(window.localStorage, battleBridge, 0))
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

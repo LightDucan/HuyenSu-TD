@@ -1,4 +1,5 @@
-export type PathPoint = Readonly<{ x: number; y: number }>
+import type { BattleMapDefinition, PathPoint } from './MapDefinition'
+export type { PathPoint } from './MapDefinition'
 
 export const haiBaTrungMap = {
   id: 'map-lang-bac-marsh',
@@ -25,6 +26,6 @@ export const haiBaTrungMap = {
     { column: 7, row: 5 },
     { column: 8, row: 4 },
   ],
-} as const
+} as const satisfies BattleMapDefinition
 
 export const prototypeMap = haiBaTrungMap

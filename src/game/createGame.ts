@@ -1,15 +1,15 @@
 import Phaser from 'phaser'
-import { haiBaTrungMap } from '../data/maps/prototypeMap'
 import { BattleScene } from './scenes/BattleScene'
+import type { BattleStageDefinition } from '../data/campaign/definitions'
 
-export function createGame(parent: HTMLElement): Phaser.Game {
+export function createGame(parent: HTMLElement, stage: BattleStageDefinition): Phaser.Game {
   return new Phaser.Game({
     type: Phaser.AUTO,
     parent,
-    width: haiBaTrungMap.width,
-    height: haiBaTrungMap.height,
+    width: stage.map.width,
+    height: stage.map.height,
     backgroundColor: '#1f3b2d',
-    scene: [BattleScene],
+    scene: [new BattleScene(stage)],
     render: {
       antialias: true,
       pixelArt: false,

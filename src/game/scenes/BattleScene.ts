@@ -1,8 +1,6 @@
 import Phaser from 'phaser'
 import { enemyDefinitions, type EnemyCategory } from '../../data/enemies/definitions'
 import { heroDefinitions, trungTrac, type HeroDefinition } from '../../data/heroes/definitions'
-import { haiBaTrungMap } from '../../data/maps/prototypeMap'
-import { haiBaTrungWaves } from '../../data/waves/prototypeWaves'
 import { haiBaTrungHeroVisuals, resolveHaiBaTrungHeroVisual, scaleVisualDuration } from '../../data/assets/prototypeVisualAssets'
 import { GameClock } from '../../domain/clock/GameClock'
 import { CombatController } from '../../domain/combat/CombatController'
@@ -19,7 +17,7 @@ import { getBrowserEquipmentV2Runtime } from '../../runtime/EquipmentV2Runtime'
 import { haiBaTrungEquipmentV2Definitions } from '../../data/equipment/definitions'
 import { isActiveHeroOwned } from '../../domain/meta/HeroRecruitment'
 import { shouldShowHeroRange } from '../bridge/BattleInteractionContract'
-import { HAI_BA_TRUNG_STAGE_ID } from '../../data/campaign/haiBaTrungCampaign'
+import type { BattleStageDefinition } from '../../data/campaign/definitions'
 
 type EnemyVisual = { state: CombatEnemy; definitionId: string; body: Phaser.GameObjects.Arc; hpBar: Phaser.GameObjects.Rectangle }
 type PlacementTileRuntime = { id: string; center: Vector2; marker: Phaser.GameObjects.Rectangle }
@@ -38,7 +36,8 @@ const HERO_RUNTIME_VISUAL_SIZE = 90
 
 export class BattleScene extends Phaser.Scene {
   private readonly gameClock = new GameClock()
-  private readonly waveManager = new WaveManager(haiBaTrungWaves)
+  private readonly stage: BattleStageDefinition
+  private readonly waveManager: WaveManager
   private path!: Phaser.Curves.Path
   private pathLength = 0
   private readonly enemies: EnemyVisual[] = []
@@ -59,7 +58,7 @@ export class BattleScene extends Phaser.Scene {
   private removePlacementIntentListener?: () => void
   private removeRangeVisibilityListener?: () => void
 
-  constructor() { super('battle') }
+  constructor(stage: BattleStageDefinition) { super('battle'); this.stage = stage; this.waveManager = new WaveManager(stage.waves) }
 
   preload(): void {
     Object.values(haiBaTrungHeroVisuals).forEach((visual) => {
@@ -79,7 +78,7 @@ export class BattleScene extends Phaser.Scene {
     this.path = this.createFixedPath()
     this.pathLength = this.path.getLength()
     this.placementRegistry = new HeroPlacementRegistry(
-      haiBaTrungMap.placementTiles.map((tile) => this.placementSlotId(tile.column, tile.row)),
+      this.stage.map.placementTiles.map((tile) => this.placementSlotId(tile.column, tile.row)),
     )
     this.createPlacementTiles()
     this.refreshPlacementMarkers()
@@ -130,7 +129,7 @@ export class BattleScene extends Phaser.Scene {
     if (this.battleStatus === 'running' && this.waveManager.completeWhenNoEnemiesRemain(this.enemies.length)) {
       if (this.waveManager.getStatus() === 'won') {
         this.battleStatus = 'won'
-        battleBridge.reportStageVictory({ runId: this.runId, stageId: HAI_BA_TRUNG_STAGE_ID, occurredAtMs: Date.now() })
+        battleBridge.reportStageVictory({ runId: this.runId, stageId: this.stage.id, occurredAtMs: Date.now() })
       }
       this.emitSnapshot()
     }
@@ -238,9 +237,9 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private createPlacementTiles(): void {
-    const cellWidth = haiBaTrungMap.width / haiBaTrungMap.grid.columns
-    const cellHeight = haiBaTrungMap.height / haiBaTrungMap.grid.rows
-    haiBaTrungMap.placementTiles.forEach((tile) => {
+    const cellWidth = this.stage.map.width / this.stage.map.grid.columns
+    const cellHeight = this.stage.map.height / this.stage.map.grid.rows
+    this.stage.map.placementTiles.forEach((tile) => {
       const id = this.placementSlotId(tile.column, tile.row)
       const center = { x: (tile.column + 0.5) * cellWidth, y: (tile.row + 0.5) * cellHeight }
       const marker = this.add.rectangle(center.x, center.y, cellWidth - 10, cellHeight - 10, 0xf59e0b, 0.12).setStrokeStyle(2, 0xfbbf24, 0.65).setInteractive({ useHandCursor: true })
@@ -383,7 +382,7 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private createFixedPath(): Phaser.Curves.Path {
-    const [first, ...rest] = haiBaTrungMap.fixedPath
+    const [first, ...rest] = this.stage.map.fixedPath
     const path = new Phaser.Curves.Path(first.x, first.y)
     rest.forEach((point) => path.lineTo(point.x, point.y))
     const graphics = this.add.graphics()
@@ -394,10 +393,10 @@ export class BattleScene extends Phaser.Scene {
 
   private drawGrid(): void {
     const graphics = this.add.graphics().lineStyle(1, 0xffffff, 0.08)
-    const cellWidth = haiBaTrungMap.width / haiBaTrungMap.grid.columns
-    const cellHeight = haiBaTrungMap.height / haiBaTrungMap.grid.rows
-    for (let column = 0; column <= haiBaTrungMap.grid.columns; column += 1) graphics.lineBetween(column * cellWidth, 0, column * cellWidth, haiBaTrungMap.height)
-    for (let row = 0; row <= haiBaTrungMap.grid.rows; row += 1) graphics.lineBetween(0, row * cellHeight, haiBaTrungMap.width, row * cellHeight)
+    const cellWidth = this.stage.map.width / this.stage.map.grid.columns
+    const cellHeight = this.stage.map.height / this.stage.map.grid.rows
+    for (let column = 0; column <= this.stage.map.grid.columns; column += 1) graphics.lineBetween(column * cellWidth, 0, column * cellWidth, this.stage.map.height)
+    for (let row = 0; row <= this.stage.map.grid.rows; row += 1) graphics.lineBetween(0, row * cellHeight, this.stage.map.width, row * cellHeight)
   }
 
   private remainingByCategory(): Record<EnemyCategory, number> {

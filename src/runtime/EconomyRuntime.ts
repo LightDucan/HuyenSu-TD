@@ -66,6 +66,7 @@ export type BrowserEconomyRuntime = Readonly<{
   gacha: GoldGachaService
   shop: KnbShopService
   consumables: ConsumableUseService
+  setMapTileCount: (count: number) => void
 }>
 
 let browserEconomyRuntime: BrowserEconomyRuntime | undefined
@@ -92,6 +93,7 @@ export function initializeBrowserEconomyRuntime(
     gacha,
     shop: new KnbShopService(repository, haiBaTrungEquipmentV2Definitions, prototypeKnbShopConfig),
     consumables: new ConsumableUseService(repository, bridge, capacityRuntime),
+    setMapTileCount: (count: number) => capacityRuntime.setMapTileCount(count),
   }
   return browserEconomyRuntime
 }

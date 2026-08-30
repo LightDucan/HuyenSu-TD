@@ -1553,6 +1553,35 @@ body,
   overflow: hidden;
 }
 
+/* Player journey shell: non-combat screens keep runtime ownership in App/runtimes. */
+.journey-shell { min-height: 100vh; overflow: auto; padding: clamp(20px, 4vw, 56px); background: radial-gradient(circle at top, #1e293b 0%, #0f172a 62%); color: #e2e8f0; }
+.journey-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; max-width: 1320px; margin: 0 auto 28px; }
+.journey-header h1, .result-card h1 { margin: 4px 0 8px; color: #fbbf24; letter-spacing: .06em; }
+.journey-header p { margin: 0; color: #94a3b8; }
+.eyebrow { color: #f59e0b; font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+.btn-primary, .btn-secondary { border: 1px solid #d97706; border-radius: 8px; padding: 10px 16px; font-weight: 800; cursor: pointer; }
+.btn-primary { background: #d97706; color: #111827; }
+.btn-secondary { background: #1e293b; color: #fbbf24; border-color: #64748b; }
+.city-summary { display: flex; flex-wrap: wrap; gap: 12px 24px; max-width: 1320px; margin: 0 auto 24px; padding: 14px 18px; border: 1px solid #334155; border-radius: 10px; background: #111827; }
+.city-summary strong { color: #fbbf24; }
+.city-summary span { color: #94a3b8; }
+.city-meta-grid { display: grid; grid-template-columns: minmax(180px, .7fr) minmax(300px, 1.2fr) minmax(420px, 2fr); gap: 16px; max-width: 1320px; margin: 0 auto; align-items: start; }
+.city-roster-panel, .campaign-card, .result-card { border: 1px solid #334155; border-radius: 12px; background: rgba(15, 23, 42, .9); padding: 18px; }
+.city-roster-panel h2 { margin-top: 0; color: #f8fafc; }
+.city-hero-list { display: grid; gap: 8px; margin-bottom: 16px; }
+.city-hero-list button { padding: 10px; border: 1px solid #475569; border-radius: 7px; background: #1e293b; color: #cbd5e1; text-align: left; cursor: pointer; }
+.city-hero-list button.selected { border-color: #f59e0b; color: #fbbf24; }
+.campaign-card, .result-card { max-width: 760px; margin: 80px auto; text-align: center; }
+.campaign-card h2 { color: #f8fafc; font-size: clamp(24px, 4vw, 40px); }
+.campaign-card p { color: #94a3b8; margin-bottom: 24px; }
+.result-card.won { border-color: #f59e0b; }
+.result-card.lost { border-color: #ef4444; }
+.result-card p { color: #cbd5e1; }
+.result-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 22px 0; }
+.result-stats span { padding: 10px; border-radius: 7px; background: #1e293b; color: #cbd5e1; }
+.result-actions { display: flex; justify-content: center; gap: 10px; }
+@media (max-width: 1000px) { .city-meta-grid { grid-template-columns: 1fr; } .journey-header { flex-direction: column; } }
+
 .app-shell {
   width: min(100%, 1600px);
   height: 100dvh;

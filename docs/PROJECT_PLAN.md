@@ -9,22 +9,24 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 ## WorkTree
 
 - Repository: `HuyenSu-TD`
-- Branch hiện tại: `codex/hud-c02-final-polish`
+- Branch hiện tại: `codex/game-c01-player-journey-shell`
 - Worktree Codex hiện tại: `C:\Users\PC\Documents\Codex\2026-08-23\referenced-chatgpt-conversation-this-is-an\work\m10-c01-main`
 - Quy tắc worker Antigravity: [ANTIGRAVITY_RULES.md](ANTIGRAVITY_RULES.md)
 
 ## Trạng thái hiện tại
 
-- Current Phase: **VIETNAM CONTENT INTEGRATION — COMBAT HUD V1 FINAL**
-- Current Codex task: **HUD-C02 DONE — waiting final audit** — branch `codex/hud-c02-final-polish`.
+- Current Phase: **PLAYER JOURNEY SHELL / META HUB INTEGRATION**
+- Current Codex task: **GAME-C01 — Player Journey Shell / Meta Hub Integration** — branch `codex/game-c01-player-journey-shell`.
 - Current Antigravity task: **VS-NDPL-00 — 939–1009 Research — IN PROGRESS** — branch `antigravity/vs-ndpl-00-939-1009-research` @ `5686d7f`.
 - QA-C01A: **ENVIRONMENT-BLOCKED interactive portion**; automated regression PASS; manual QA debt retained.
 - VS-HBT-V02B: **CODE/BINARY AUDIT PASS; MANUAL VISUAL QA PASS ENOUGH TO CONTINUE**; real HBT Hero assets 12/12 integrated.
 - VIS-HUD-01: **DONE — waiting audit**; desktop one-viewport HUD, contextual tabs, range toggle và placement/move safety verified interactively.
 - HUD-C01: **DONE — waiting audit**; two-tab bottom Combat HUD, persistent controls, Battle state preservation, selected-only range và Wave Equipment lock verified.
 - HUD-C02: **DONE — waiting final audit**; Economy tách khỏi Hành Trang combat, top HUD ba vùng, range/placement/tab visual polish và responsive no-scroll verified.
+- HUD-C03: **DONE — copy lock PASS**; combat Inventory dùng display name Việt hóa, không lộ technical/dev terminology.
+- GAME-C01: **IN PROGRESS**; City → Campaign → Battle → Result shell đang được tích hợp, giữ nguyên Combat HUD và runtime ownership.
 - Known debt: **Equipment Runtime/UI Effect Integration** — equipping Weapon/Gem may not visibly change Hero stats/effects; explicitly out of scope for VIS-HUD-01.
-- Lần kiểm tra gần nhất: HUD-C02 — 27 test files/201 tests PASS, production build/preview PASS, interactive Đội Hình/Hành Trang waiting/running PASS, 1920×1080 / 1600×900 / 1366×768 no-scroll PASS; diff-check PASS.
+- Lần kiểm tra gần nhất: GAME-C01 baseline — 27 test files/201 tests PASS, production build PASS, diff-check PASS.
 
 ## Phases và checkpoint
 

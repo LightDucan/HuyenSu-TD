@@ -1,10 +1,16 @@
-# Huyền Sử TD
+# Huyền Sử TD — Tower Defense Việt Sử
 
-Huyền Sử TD là game tower defense chủ đề Tam Quốc. Mỗi Hero là một trụ đứng yên có hình dáng tướng; sự đa dạng đến từ chỉ số, kỹ năng ghép từ hiệu ứng dùng chung, tiến hóa và Passive Huyền Sử.
+Huyền Sử TD là game tower defense Việt Sử. Vertical slice hiện tại dùng nội dung Hai Bà Trưng để kiểm thử hành trình người chơi; roster Tam Quốc cũ chỉ là prototype test và sẽ được migrate theo roadmap.
 
 ## Trạng thái
 
-Dự án đã hoàn thành **Phase 4 — Hero Skill**. Hero dùng skill theo số đòn; Skill Effects có thể ghép lại từ Damage, AoE, Slow, Stun, Root và MultiHit.
+Dự án đã hoàn thành Phase 0–18, gồm vertical slice chiến đấu, Meta Foundation, Reward Economy, Quân Lệnh, Deployment, Equipment V2, Gacha/Shop, Hero Recruitment và Economy Simulation. Mốc hiện tại là **GAME-C01 — Player Journey Shell / Meta Hub Integration**.
+
+Player journey V1:
+
+`ĐẠI DOANH → CHINH CHIẾN → CHƯƠNG I — HUYẾT CHIẾN LÃNG BẠC → BATTLE → KẾT QUẢ`
+
+Đại Doanh là nơi truy cập Wallet, Quân Lệnh, Hero, Equipment, Gacha, Shop, vật phẩm tiêu hao, Chiêu Mộ và Tăng Sao. Battle vẫn giữ Combat HUD V1 đã khóa.
 
 ## Luật cốt lõi
 
@@ -29,6 +35,7 @@ Chi tiết đầy đủ: [Game Rules](docs/game-rules.md).
 - [Audit #2](docs/audits/audit-02-technical-prototype.md)
 - [Audit #3](docs/audits/audit-03-tower-defense-core.md)
 - [Wave Audit](docs/audits/audit-04-wave.md)
+- [Project Plan](docs/PROJECT_PLAN.md)
 
 ## Checkpoint
 
@@ -39,7 +46,9 @@ Chi tiết đầy đủ: [Game Rules](docs/game-rules.md).
 | 2 | Hero đặt được, tự đánh và giết enemy | Audit #3 | `core/tower-defense-loop-v1` |
 | 4 | Attack Counter + Skill Effects dùng chung | Audit #4 | `core/skill-system-v1` |
 | 9 | Vertical slice chơi được | Full Audit #5 | tag `v0.1.0-playable` |
+| 10–18 | Meta Foundation, Reward Economy, Quân Lệnh, Deployment, Equipment, Gacha, Recruitment, Balance | Integration audits | các checkpoint `meta/*` và `main` |
+| GAME-C01 | Player Journey Shell, Đại Doanh, Chinh Chiến, Kết Quả | Player Journey audit | `codex/game-c01-player-journey-shell` |
 
 ## Bước tiếp theo
 
-Tiếp theo là Phase 4: Attack Counter và Skill Effects ghép được để Hero tự dùng skill sau số đòn đã định.
+Tiếp theo là audit GAME-C01; sau đó mới mở rộng chapter/stage content Việt Sử. Không bắt đầu content 12 Sứ Quân trong task này.

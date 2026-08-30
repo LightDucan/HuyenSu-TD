@@ -19,6 +19,7 @@ import { getBrowserEquipmentV2Runtime } from '../../runtime/EquipmentV2Runtime'
 import { haiBaTrungEquipmentV2Definitions } from '../../data/equipment/definitions'
 import { isActiveHeroOwned } from '../../domain/meta/HeroRecruitment'
 import { shouldShowHeroRange } from '../bridge/BattleInteractionContract'
+import { HAI_BA_TRUNG_STAGE_ID } from '../../data/campaign/haiBaTrungCampaign'
 
 type EnemyVisual = { state: CombatEnemy; definitionId: string; body: Phaser.GameObjects.Arc; hpBar: Phaser.GameObjects.Rectangle }
 type PlacementTileRuntime = { id: string; center: Vector2; marker: Phaser.GameObjects.Rectangle }
@@ -33,7 +34,6 @@ type PlacedHeroRuntime = {
   slotId: string
 }
 const INITIAL_CITY_HP = 10
-const HAI_BA_TRUNG_STAGE_ID = 'hbt-lang-bac-stage-01'
 const HERO_RUNTIME_VISUAL_SIZE = 90
 
 export class BattleScene extends Phaser.Scene {

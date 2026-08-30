@@ -28,7 +28,7 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 - GAME-C02: **DONE — waiting audit**; stage-aware Battle runtime, fresh run snapshot, generic map contract và capacity gate đã hoàn tất.
 - GAME-C03: **DONE — waiting audit**; Meta V6 campaign progress, ordered stage unlock, idempotent victory completion và guarded Campaign UI đã hoàn tất.
 - Known debt: **Equipment Runtime/UI Effect Integration** — equipping Weapon/Gem may not visibly change Hero stats/effects; explicitly out of scope for VIS-HUD-01.
-- Lần kiểm tra gần nhất: GAME-C03 — 31 test files/208 tests PASS, production build PASS, diff-check PASS.
+- Lần kiểm tra gần nhất: GAME-C03-FIX1 — 31 test files/209 tests PASS, production build PASS, diff-check PASS.
 
 ## Phases và checkpoint
 

@@ -29,7 +29,7 @@ import { getBrowserDeploymentCapacityRuntime } from '../runtime/DeploymentCapaci
 import { battleInstruction, moveIntentForHero, placementIntentForHero } from '../game/bridge/BattleInteractionContract'
 import { canApplyEquipmentOperationForScreen, isEquipmentInteractionLocked, selectMetaTab, type MetaTab } from './MetaTabState'
 import { transitionPlayerJourney, type PlayerJourneyScreen } from './PlayerJourneyState'
-import { selectStageProgress } from '../domain/campaign/CampaignProgression'
+import { selectSafeStage, selectStageProgress } from '../domain/campaign/CampaignProgression'
 
 export function App() {
   const equipmentRuntime = getBrowserEquipmentV2Runtime()
@@ -37,7 +37,6 @@ export function App() {
   const heroMetaRuntime = getBrowserHeroMetaRuntime()
   const gameHostRef = useRef<HTMLDivElement>(null)
   const [selectedStageId, setSelectedStageId] = useState(defaultBattleStage.id)
-  const selectedStage = defaultCampaignChapter.stages.find((stage) => stage.id === selectedStageId) ?? defaultBattleStage
   const [screen, setScreen] = useState<PlayerJourneyScreen>('city')
   const [commandEnergy, setCommandEnergy] = useState<CommandEnergySnapshot>(() => battleBridge.getCommandEnergySnapshot())
   const [autoWaveEnabled, setAutoWaveEnabled] = useState(() => battleBridge.isAutoWaveEnabled())
@@ -48,6 +47,7 @@ export function App() {
   const [placementIntent, setPlacementIntent] = useState(() => battleBridge.getPlacementIntent())
   const [rangeEnabled, setRangeEnabled] = useState(() => battleBridge.isRangeVisibilityEnabled())
   const [metaSave, setMetaSave] = useState<MetaSave>(() => battleBridge.getMetaSnapshot() ?? equipmentRuntime.getSnapshot())
+  const selectedStage = selectSafeStage([defaultCampaignChapter], selectedStageId, metaSave.data.campaignProgress, selectPlayableOwnedHeroIds(metaSave.data.heroCollection, ACTIVE_HERO_IDS)) ?? defaultBattleStage
   const playableIds = selectPlayableOwnedHeroIds(metaSave.data.heroCollection, selectedStage.allowedHeroIds)
   const [snapshot, setSnapshot] = useState(() => createInitialBattleSnapshot(selectedStage, playableIds, battleBridge.getSelectedHeroId()))
   const [economyResult, setEconomyResult] = useState<string>()
@@ -79,7 +79,6 @@ export function App() {
     if (screen !== 'battle' || !gameHostRef.current) return
 
     const capacityProjection = getBrowserDeploymentCapacityRuntime().setMapTileCount(selectedStage.map.placementTiles.length)
-    economyRuntime.setMapTileCount(selectedStage.map.placementTiles.length)
     setDeploymentCapacity(capacityProjection)
     const game = createGame(gameHostRef.current, selectedStage)
     const unsubscribe = battleBridge.onSnapshot(setSnapshot)

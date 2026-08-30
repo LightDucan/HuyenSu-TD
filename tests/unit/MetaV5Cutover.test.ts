@@ -37,7 +37,7 @@ describe('FAST-05A canonical Meta V5 repository', () => {
 
   it('migrates V4 through the repository once and preserves invalid legacy input', () => {
     const canonical = createInitialMetaState('player', 0)
-    const { heroCollection: _heroes, ...v4State } = canonical
+    const { heroCollection: _heroes, campaignProgress: _progress, ...v4State } = canonical
     const rawV4 = JSON.stringify({ schemaVersion: 4, revision: 3, updatedAtMs: 0, data: v4State })
     const legacy = JSON.stringify({ version: 1, heroes: { 'quan-vu': { stage: 'rebirth', level: 8 } } })
     const valid = memoryStorage({ [META_STORAGE_KEY]: rawV4, [PROGRESSION_STORAGE_KEY]: legacy })
@@ -55,7 +55,7 @@ describe('FAST-05A canonical Meta V5 repository', () => {
 
   it('keeps Reward, Command Energy, Equipment and Economy transactions operational after V4→V5 migration', () => {
     const canonical = createInitialMetaState('player', 0)
-    const { heroCollection: _heroes, ...v4State } = canonical
+    const { heroCollection: _heroes, campaignProgress: _progress, ...v4State } = canonical
     const memory = memoryStorage({ [META_STORAGE_KEY]: JSON.stringify({ schemaVersion: 4, revision: 1, updatedAtMs: 0, data: v4State }) })
     const repository = new LocalMetaRepository(memory.storage)
     const migrated = repository.migrateV4(1)

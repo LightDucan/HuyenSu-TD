@@ -94,8 +94,7 @@ function readLegacyHeroCollection(storage?: StorageLike): ValidationResult<HeroC
 }
 
 export function migrateMetaSaveV4ToV5(value: unknown, storage?: StorageLike): ValidationResult<MetaSaveV5> {
-  const candidate = value && typeof value === 'object' ? { ...(value as Record<string, unknown>), data: value && typeof (value as Record<string, unknown>).data === 'object' ? (() => { const { campaignProgress: _ignored, ...rest } = (value as Record<string, unknown>).data as Record<string, unknown>; return rest })() : (value as Record<string, unknown>).data } : value
-  const v4 = validateMetaSaveV4(candidate)
+  const v4 = validateMetaSaveV4(value)
   if (!v4.ok) return v4
   const collection = readLegacyHeroCollection(storage)
   if (!collection.ok) return collection

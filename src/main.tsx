@@ -23,7 +23,7 @@ const deploymentCapacityRuntime = startBrowserDeploymentCapacityRuntime(window.l
 setBrowserDeploymentCapacityRuntime(deploymentCapacityRuntime)
 initializeBrowserEconomyRuntime(window.localStorage, battleBridge, 0, deploymentCapacityRuntime)
 initializeBrowserHeroMetaRuntime(window.localStorage, battleBridge)
-initializeBrowserCampaignProgressionRuntime(window.localStorage, battleBridge, defaultCampaignChapter)
+initializeBrowserCampaignProgressionRuntime(window.localStorage, battleBridge, [defaultCampaignChapter])
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

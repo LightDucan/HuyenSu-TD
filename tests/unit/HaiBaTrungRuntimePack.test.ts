@@ -11,7 +11,7 @@ import { prototypeWaves } from '../../src/data/waves/prototypeWaves'
 import { ACTIVE_PRODUCTION_HERO_IDS, createPrototypeHeroCollection, isActiveHeroOwned, resolveRecruitmentBatch, selectPlayableOwnedHeroIds } from '../../src/domain/meta/HeroRecruitment'
 import { LocalMetaRepository, META_STORAGE_KEY } from '../../src/domain/meta/MetaRepository'
 import { createInitialMetaState, META_SAVE_SCHEMA_VERSION } from '../../src/domain/meta/MetaState'
-import { validateMetaSave, validateMetaState } from '../../src/domain/meta/MetaValidation'
+import { validateMetaSave, validateMetaSaveV5, validateMetaState } from '../../src/domain/meta/MetaValidation'
 import type { StorageLike } from '../../src/domain/progression/ProgressionStorage'
 import { ensureMetaRepositoryReady } from '../../src/runtime/RewardRuntime'
 import { metaV5PreHaiBaTrung } from '../fixtures/metaV5PreHaiBaTrung'
@@ -71,7 +71,7 @@ describe('VS-HBT-C01 runtime content pack', () => {
 
   it('validates a literal pre-HBT Meta V5 save and bootstraps missing starters once', () => {
     expect(META_SAVE_SCHEMA_VERSION).toBe(6)
-    expect(validateMetaSave(metaV5PreHaiBaTrung)).toEqual({ ok: true, value: metaV5PreHaiBaTrung })
+    expect(validateMetaSaveV5(metaV5PreHaiBaTrung)).toEqual({ ok: true, value: metaV5PreHaiBaTrung })
     const oldHeroBytes = Object.fromEntries(Object.entries(metaV5PreHaiBaTrung.data.heroCollection)
       .map(([heroId, entry]) => [heroId, JSON.stringify(entry)]))
     const oldNonHeroData = {

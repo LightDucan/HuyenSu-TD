@@ -50,7 +50,7 @@ describe('Phase 17 config invariants', () => {
     expect(Object.values(prototypeHeroRecruitmentConfig.starGrowth).some((growth) => 'def' in growth)).toBe(false)
   })
   it('imports legacy progression deterministically into Meta V5 without writing legacy data', () => {
-    const { heroCollection: _canonicalCollection, ...initial } = createInitialMetaState('migration-test', 0)
+    const { heroCollection: _canonicalCollection, campaignProgress: _campaignProgress, ...initial } = createInitialMetaState('migration-test', 0)
     const legacy = { version: 1, heroes: { 'trieu-van': { stage: 'rebirth', level: 4 }, 'quan-vu': { stage: 'normal', level: 9 } } }
     const storage = { getItem: (key: string) => key === 'huyen-su-td/progression-v1' ? JSON.stringify(legacy) : null, setItem: () => undefined }
     const result = migrateMetaV4ToV5({ schemaVersion: 4, revision: 1, updatedAtMs: 0, data: initial }, storage)

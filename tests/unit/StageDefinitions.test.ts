@@ -11,5 +11,7 @@ describe('generic battle stage contract', () => {
     expect(stage.map).toBe(map)
     expect(createInitialBattleSnapshot(stage).totalWaves).toBe(stage.waves.length)
     expect(createInitialBattleSnapshot(stage).battleStatus).toBe('running')
+    const restricted = { ...stage, allowedHeroIds: ['le-chan'] as const }
+    expect(createInitialBattleSnapshot(restricted, restricted.allowedHeroIds, 'trung-trac').selectedHeroId).toBe('le-chan')
   })
 })

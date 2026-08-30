@@ -27,7 +27,7 @@ import { defaultCampaignChapter, defaultBattleStage } from '../data/campaign/hai
 import { createInitialBattleSnapshot } from '../game/bridge/BattleSnapshot'
 import { getBrowserDeploymentCapacityRuntime } from '../runtime/DeploymentCapacityRuntime'
 import { battleInstruction, moveIntentForHero, placementIntentForHero } from '../game/bridge/BattleInteractionContract'
-import { canApplyEquipmentOperation, isEquipmentInteractionLocked, selectMetaTab, type MetaTab } from './MetaTabState'
+import { canApplyEquipmentOperationForScreen, isEquipmentInteractionLocked, selectMetaTab, type MetaTab } from './MetaTabState'
 import { transitionPlayerJourney, type PlayerJourneyScreen } from './PlayerJourneyState'
 
 export function App() {
@@ -37,7 +37,6 @@ export function App() {
   const gameHostRef = useRef<HTMLDivElement>(null)
   const [selectedStageId, setSelectedStageId] = useState(defaultBattleStage.id)
   const selectedStage = defaultCampaignChapter.stages.find((stage) => stage.id === selectedStageId) ?? defaultBattleStage
-  const [snapshot, setSnapshot] = useState(() => createInitialBattleSnapshot(selectedStage))
   const [screen, setScreen] = useState<PlayerJourneyScreen>('city')
   const [commandEnergy, setCommandEnergy] = useState<CommandEnergySnapshot>(() => battleBridge.getCommandEnergySnapshot())
   const [autoWaveEnabled, setAutoWaveEnabled] = useState(() => battleBridge.isAutoWaveEnabled())
@@ -48,6 +47,8 @@ export function App() {
   const [placementIntent, setPlacementIntent] = useState(() => battleBridge.getPlacementIntent())
   const [rangeEnabled, setRangeEnabled] = useState(() => battleBridge.isRangeVisibilityEnabled())
   const [metaSave, setMetaSave] = useState<MetaSave>(() => battleBridge.getMetaSnapshot() ?? equipmentRuntime.getSnapshot())
+  const playableIds = selectPlayableOwnedHeroIds(metaSave.data.heroCollection, selectedStage.allowedHeroIds)
+  const [snapshot, setSnapshot] = useState(() => createInitialBattleSnapshot(selectedStage, playableIds, battleBridge.getSelectedHeroId()))
   const [economyResult, setEconomyResult] = useState<string>()
   const definitionLoadout = (heroId: string, save: MetaSave = equipmentRuntime.getSnapshot()): HeroEquipment => {
     const loadout = save.data.inventory.equippedByHero[heroId] ?? {}
@@ -170,7 +171,7 @@ export function App() {
   }
 
   const handleInventoryOperation = (operation: Parameters<typeof equipmentRuntime.transact>[0]) => {
-    if (!canApplyEquipmentOperation(hudData.waveStatus, operation.type)) {
+    if (!canApplyEquipmentOperationForScreen(screen, hudData.waveStatus, operation.type)) {
       setEconomyResult('Wave đang diễn ra — Lắp/Gỡ Equipment đã khóa.')
       return
     }
@@ -231,7 +232,9 @@ export function App() {
 
   const handleEnterBattle = () => {
     battleBridge.clearPlacementIntent()
-    setSnapshot(createInitialBattleSnapshot(selectedStage))
+    const preferredHeroId = new Set(playableIds).has(battleBridge.getSelectedHeroId()) ? battleBridge.getSelectedHeroId() : playableIds[0]
+    if (preferredHeroId) battleBridge.setSelectedHeroId(preferredHeroId)
+    setSnapshot(createInitialBattleSnapshot(selectedStage, playableIds, preferredHeroId))
     setScreen((current) => transitionPlayerJourney(current, 'enter-battle'))
   }
 
@@ -242,7 +245,7 @@ export function App() {
 
   const handleRetryBattle = () => {
     battleBridge.clearPlacementIntent()
-    setSnapshot(createInitialBattleSnapshot(selectedStage))
+    setSnapshot(createInitialBattleSnapshot(selectedStage, playableIds, battleBridge.getSelectedHeroId()))
     setScreen((current) => transitionPlayerJourney(current, 'retry-battle'))
   }
 

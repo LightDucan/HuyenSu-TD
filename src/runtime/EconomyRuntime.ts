@@ -75,11 +75,12 @@ export function initializeBrowserEconomyRuntime(
   storage: StorageLike,
   bridge: BattleBridge,
   mapTileCount: number,
+  capacityRuntime?: DeploymentCapacityRuntimeController,
 ): BrowserEconomyRuntime {
   const repository = createRuntimeMetaRepository(storage, bridge)
   ensureMetaRepositoryReady(repository, 'local-player', Date.now())
   publishCurrentMetaSnapshot(repository, bridge)
-  const capacityRuntime = new DeploymentCapacityRuntimeController(repository, bridge, mapTileCount)
+  const sharedCapacityRuntime = capacityRuntime ?? new DeploymentCapacityRuntimeController(repository, bridge, mapTileCount)
   let sequence = 0
   const gacha = new GoldGachaService(
     repository,
@@ -92,8 +93,8 @@ export function initializeBrowserEconomyRuntime(
     repository,
     gacha,
     shop: new KnbShopService(repository, haiBaTrungEquipmentV2Definitions, prototypeKnbShopConfig),
-    consumables: new ConsumableUseService(repository, bridge, capacityRuntime),
-    setMapTileCount: (count: number) => capacityRuntime.setMapTileCount(count),
+    consumables: new ConsumableUseService(repository, bridge, sharedCapacityRuntime),
+    setMapTileCount: (count: number) => sharedCapacityRuntime.setMapTileCount(count),
   }
   return browserEconomyRuntime
 }

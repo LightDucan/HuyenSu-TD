@@ -15,3 +15,11 @@ export function canApplyEquipmentOperation(
 ): boolean {
   return operation === 'merge' || !isEquipmentInteractionLocked(waveStatus)
 }
+
+export function canApplyEquipmentOperationForScreen(
+  screen: 'city' | 'campaign' | 'battle' | 'result',
+  waveStatus: 'waiting' | 'running' | 'won',
+  operation: EquipmentCombatOperation,
+): boolean {
+  return screen !== 'battle' || canApplyEquipmentOperation(waveStatus, operation)
+}

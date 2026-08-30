@@ -17,9 +17,10 @@ const hiddenTabPolicy: HiddenTabPolicy = configuredHiddenPolicy === 'count-hidde
 startBrowserRewardRuntime(window.localStorage, battleBridge, createHaiBaTrungRewardConfig(hiddenTabPolicy))
 startBrowserCommandEnergyRuntime(window.localStorage, battleBridge)
 initializeBrowserEquipmentV2Runtime(window.localStorage, battleBridge)
-initializeBrowserEconomyRuntime(window.localStorage, battleBridge, 0)
+const deploymentCapacityRuntime = startBrowserDeploymentCapacityRuntime(window.localStorage, battleBridge, 0)
+setBrowserDeploymentCapacityRuntime(deploymentCapacityRuntime)
+initializeBrowserEconomyRuntime(window.localStorage, battleBridge, 0, deploymentCapacityRuntime)
 initializeBrowserHeroMetaRuntime(window.localStorage, battleBridge)
-setBrowserDeploymentCapacityRuntime(startBrowserDeploymentCapacityRuntime(window.localStorage, battleBridge, 0))
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

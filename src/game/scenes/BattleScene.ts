@@ -89,7 +89,7 @@ export class BattleScene extends Phaser.Scene {
     this.createPlacementTiles()
     this.refreshPlacementMarkers()
     this.gameClock.setSpeed(battleBridge.getSpeed())
-    this.removeSpeedListener = battleBridge.onSpeedChange((speed) => { this.gameClock.setSpeed(speed); this.emitSnapshot() })
+    this.removeSpeedListener = battleBridge.onSpeedChange((speed) => { this.gameClock.setSpeed(speed); this.enemies.forEach((enemy) => { if (enemy.sprite) enemy.sprite.anims.timeScale = speed }); this.emitSnapshot() })
     this.removeHeroSelectionListener = battleBridge.onHeroSelectionChange(() => {
       this.refreshPlacementMarkers()
       this.refreshRangeVisibility()
@@ -151,7 +151,7 @@ export class BattleScene extends Phaser.Scene {
     const hasSprite = Boolean(visualDef?.walkUrl && this.textures.exists(visualDef.walkTextureKey))
     visual.body.setFillStyle(definition.color).setVisible(!hasSprite).setAlpha(1)
     if (hasSprite && !visual.sprite) visual.sprite = this.add.sprite(0, 0, visualDef!.walkTextureKey)
-    visual.sprite?.setVisible(hasSprite).setAlpha(1).setFlipX(false)
+    visual.sprite?.stop().setVisible(hasSprite).setAlpha(1).setFlipX(false); if (visual.sprite) visual.sprite.anims.timeScale = this.gameClock.getSpeed()
     if (hasSprite && visual.sprite) visual.sprite.setTexture(visualDef!.walkTextureKey).play(visualDef!.animationKey)
     visual.hpBar.displayWidth = 36; visual.hpBar.setVisible(true)
     this.positionEnemy(visual, 0)
@@ -191,7 +191,7 @@ export class BattleScene extends Phaser.Scene {
     const point = this.path.getPoint(progress)
     visual.body.setPosition(point.x, point.y)
     visual.sprite?.setPosition(point.x, point.y)
-    if (visual.sprite && progress !== previous) visual.sprite.setFlipX(progress < previous)
+    if (visual.sprite && progress !== previous) { const next = this.path.getPoint(progress); const prev = this.path.getPoint(previous); if (next.x !== prev.x) visual.sprite.setFlipX(next.x < prev.x) }
     visual.hpBar.setPosition(point.x - 18, point.y - 24)
     visual.state.position = { x: point.x, y: point.y }
     visual.state.pathProgress = progress
@@ -236,7 +236,7 @@ export class BattleScene extends Phaser.Scene {
 
   private removeEnemy(index: number, reason: 'defeated' | 'escaped'): void {
     const [enemy] = this.enemies.splice(index, 1)
-    enemy.body.setVisible(false); enemy.hpBar.setVisible(false); enemy.state.alive = false
+    enemy.body.setVisible(false); enemy.sprite?.stop().setVisible(false).setAlpha(1); enemy.hpBar.setVisible(false); enemy.state.alive = false
     this.enemyPool.push(enemy)
     if (reason === 'defeated') {
       this.enemiesDefeated += 1

@@ -18,8 +18,9 @@ import { haiBaTrungEquipmentV2Definitions } from '../../data/equipment/definitio
 import { isActiveHeroOwned } from '../../domain/meta/HeroRecruitment'
 import { shouldShowHeroRange } from '../bridge/BattleInteractionContract'
 import type { BattleStageDefinition } from '../../data/campaign/definitions'
+import { hbtEnemyVisualManifest } from '../../data/assets/enemyVisualAssets'
 
-type EnemyVisual = { state: CombatEnemy; definitionId: string; body: Phaser.GameObjects.Arc; hpBar: Phaser.GameObjects.Rectangle }
+type EnemyVisual = { state: CombatEnemy; definitionId: string; body: Phaser.GameObjects.Arc; sprite?: Phaser.GameObjects.Sprite; hpBar: Phaser.GameObjects.Rectangle }
 type PlacementTileRuntime = { id: string; center: Vector2; marker: Phaser.GameObjects.Rectangle }
 type PlacedHeroRuntime = {
   definition: HeroDefinition
@@ -66,6 +67,7 @@ export class BattleScene extends Phaser.Scene {
       if (visual.attackUrl) this.load.image(visual.attackTextureKey, visual.attackUrl)
       if (visual.vfxUrl) this.load.image(visual.vfxTextureKey, visual.vfxUrl)
     })
+    Object.values(hbtEnemyVisualManifest).forEach((visual) => { if (visual.walkUrl) this.load.spritesheet(visual.walkTextureKey, visual.walkUrl, { frameWidth: visual.frameWidth, frameHeight: visual.frameHeight }) })
   }
 
   init(): void {
@@ -74,6 +76,9 @@ export class BattleScene extends Phaser.Scene {
 
   create(): void {
     this.cameras.main.setBackgroundColor('#1f3b2d')
+    Object.values(hbtEnemyVisualManifest).forEach((visual) => {
+      if (visual.walkUrl && this.textures.exists(visual.walkTextureKey) && !this.anims.exists(visual.animationKey)) this.anims.create({ key: visual.animationKey, frames: this.anims.generateFrameNumbers(visual.walkTextureKey, { start: 0, end: visual.frameCount - 1 }), frameRate: 10, repeat: -1 })
+    })
     this.drawTerrain()
     this.drawGrid()
     this.path = this.createFixedPath()
@@ -142,7 +147,12 @@ export class BattleScene extends Phaser.Scene {
     visual.definitionId = definition.id
     visual.state = { id: `${this.runId}-enemy-${this.enemySpawnSequence}`, position: { x: 0, y: 0 }, pathProgress: 0, hp: definition.maxHp, maxHp: definition.maxHp, alive: true }
     this.enemySpawnSequence += 1
-    visual.body.setFillStyle(definition.color).setVisible(true).setAlpha(1)
+    const visualDef = hbtEnemyVisualManifest[definition.id]
+    const hasSprite = Boolean(visualDef?.walkUrl && this.textures.exists(visualDef.walkTextureKey))
+    visual.body.setFillStyle(definition.color).setVisible(!hasSprite).setAlpha(1)
+    if (hasSprite && !visual.sprite) visual.sprite = this.add.sprite(0, 0, visualDef!.walkTextureKey)
+    visual.sprite?.setVisible(hasSprite).setAlpha(1).setFlipX(false)
+    if (hasSprite && visual.sprite) visual.sprite.setTexture(visualDef!.walkTextureKey).play(visualDef!.animationKey)
     visual.hpBar.displayWidth = 36; visual.hpBar.setVisible(true)
     this.positionEnemy(visual, 0)
     this.enemies.push(visual)
@@ -177,8 +187,11 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private positionEnemy(visual: EnemyVisual, progress: number): void {
+    const previous = visual.state.pathProgress
     const point = this.path.getPoint(progress)
     visual.body.setPosition(point.x, point.y)
+    visual.sprite?.setPosition(point.x, point.y)
+    if (visual.sprite && progress !== previous) visual.sprite.setFlipX(progress < previous)
     visual.hpBar.setPosition(point.x - 18, point.y - 24)
     visual.state.position = { x: point.x, y: point.y }
     visual.state.pathProgress = progress

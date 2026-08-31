@@ -298,7 +298,7 @@ export function App() {
 
   if (screen === 'result') return (
     <main className="app-shell journey-shell result-screen">
-      <section className={`result-card ${snapshot.battleStatus}`}><span className="eyebrow">{stateStage.displayName}</span><h1>{snapshot.battleStatus === 'won' ? 'CHIẾN THẮNG' : 'THẤT BẠI'}</h1><p>Đạt đến Wave {snapshot.wave} / {snapshot.totalWaves}</p><div className="result-stats"><span>Quái đã hạ: {snapshot.enemiesDefeated}</span><span>Quái đã thoát: {snapshot.enemiesEscaped}</span><span>Vàng: {metaSave.data.wallet.balances.gold}</span><span>KNB: {metaSave.data.wallet.balances.knb}</span></div><div className="result-actions"><button type="button" className="btn-secondary" onClick={handleReturnToCity}>VỀ ĐẠI DOANH</button><button type="button" className="btn-primary" onClick={handleRetryBattle}>CHƠI LẠI</button></div></section>
+      <section className={`result-card ${snapshot.battleStatus}`}><span className="eyebrow">{stateStage.displayName}</span><h1>{snapshot.battleStatus === 'won' ? 'CHIẾN THẮNG' : 'THẤT BẠI'}</h1><p>{snapshot.battleStatus === 'won' ? stateStage.narrative?.victory : stateStage.narrative?.defeat}</p><p>Đạt đến Wave {snapshot.wave} / {snapshot.totalWaves}</p><div className="result-stats"><span>Quái đã hạ: {snapshot.enemiesDefeated}</span><span>Quái đã thoát: {snapshot.enemiesEscaped}</span><span>Vàng: {metaSave.data.wallet.balances.gold}</span><span>KNB: {metaSave.data.wallet.balances.knb}</span></div><div className="result-actions"><button type="button" className="btn-secondary" onClick={handleReturnToCity}>VỀ ĐẠI DOANH</button><button type="button" className="btn-primary" onClick={handleRetryBattle}>CHƠI LẠI</button></div></section>
     </main>
   )
 

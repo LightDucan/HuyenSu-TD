@@ -1,18 +1,20 @@
 # Đề Xuất Quy Mô & Kiến Trúc Chương Sản Xuất: Mai Thúc Loan 722 (Chapter Scope Proposal)
 
 **Tài liệu**: `docs/drafts/viet-su/mai-thuc-loan-722/chapter-scope-proposal.md`
-**Giai đoạn Lịch sử**: Năm 722 SCN
-**Trạng thái**: Production Scope Architecture & Viability Analysis (Recommendation Only)
+**Giai đoạn Lịch sử**: Thời kỳ Khai Nguyên đời Đường Huyền Tông (Năm 722 SCN)
+**Trạng thái**: Production Scope Architecture & Viability Analysis (Re-Evaluated)
 
 ---
 
-## 1. Đặt Vấn Đề & Đánh Giá Tầm Vóc Lịch Sử (Scope Analysis)
+## 1. Đặt Vấn Đề & Tiêu Chí Đánh Giá Quy Mô Thực Chứng (Evaluation Criteria)
 
-Cuộc khởi nghĩa của Mai Thúc Loan (Mai Hắc Đế) vào năm Khai Nguyên thứ 10 (722 SCN) là một mốc son chói lọi trong phong trào chống ách đô hộ của nhà Đường vào thế kỷ VIII. Phong trào có những đặc điểm nổi bật:
-1. **Lãnh tụ kiệt xuất**: Mai Thúc Loan tự xưng Hắc Đế, khẳng định ý chí độc lập tự chủ ngang hàng với Hoàng đế nhà Đường.
-2. **Căn cứ địa vững chắc**: Xây dựng đại bản doanh thành Vạn An (Sa Nam, Nam Đàn, Nghệ An) tựa núi nhìn sông Lam hiểm trở.
-3. **Tầm ảnh hưởng quốc tế**: Thiết lập quan hệ ngoại giao liên kết với Lâm Ấp, Chân Lạp, Kim Lân và làm chấn động 32 châu Lĩnh Nam.
-4. **Đối thủ xứng tầm**: Triều đình nhà Đường phải huy động viên tướng thiện chiến, tàn bạo bậc nhất là Phiêu kỵ Đại tướng quân Dương Tư Húc cùng Đô hộ Quang Sở Khách tiến hành chiến dịch phản kích thần tốc.
+Việc xác định quy mô sản xuất cho cuộc khởi nghĩa Mai Thúc Loan không dựa trên sự suy diễn tầm vóc cảm tính mà phải căn cứ trên **mật độ sử liệu thực chứng** và **các điểm tựa chiến trận lịch sử có ghi chép thư tịch**:
+
+### Các Điểm Tựa Quân Sự Có Căn Cứ Thư Tịch / Khảo Cổ Thực Chứng:
+1. **Khởi binh tại Hoan Châu**: Dấy cờ tại thung lũng sông Lam (Sa Nam / Hùng Sơn), lập căn cứ đại bản doanh (*Cựu Đường Thư*, *Toàn Thư*, *Cương Mục*, khảo sát thực địa Sa Nam).
+2. **Tiến đánh công hãm An Nam phủ**: Ghi chép trực tiếp trong *Cựu Đường Thư* Q184 (`hãm An Nam phủ`) và *Tân Đường Thư* Q207 (`cử tam thập nhị châu chi chúng`).
+3. **Quân Đường xuất kích bất ngờ theo đường cũ Phục Ba**: Ghi chép trong *Cựu Đường Thư* Q184 (`Phục Ba cố đạo`) và *Tân Đường Thư* Q207 (`Mã Viện cố đạo`).
+4. **Trận quyết chiến tại đại bản doanh & Hồi kết đàn áp**: Ghi chép về trận đánh úp bất ngờ, thủ lĩnh bị chém, quân Đường đắp kinh quan năm 722 (*Cựu Đường Thư*, *Tân Đường Thư*, *Toàn Thư*).
 
 ---
 
@@ -20,50 +22,51 @@ Cuộc khởi nghĩa của Mai Thúc Loan (Mai Hắc Đế) vào năm Khai Nguy�
 
 ---
 
-### 2.1. Phương Án A: Một Chapter Độc Lập Trọn Vẹn (4–5 Màn Chơi — KHUYẾN NGHỊ)
+### 2.1. Phương Án A: Chapter Đầy Đủ Kéo Dài (Full Chapter 5–6 Màn Chơi)
+* **Cấu trúc**: Cố gắng bôi vẽ thêm các màn chơi phụ như thủy chiến quy mô lớn trên sông Lam, trận đánh cọc ngầm, hoặc các trận giao tranh hư cấu không có nguồn.
+* **Nhược điểm nghiêm trọng**:
+  - Gánh nặng phục dựng hư cấu (`COMPOSITE FICTION`) quá lớn.
+  - Phải bịa đặt thêm các tướng lĩnh phụ trợ và các trận đánh không có trong bất kỳ thư tịch T1/T2 nào.
+
+---
+
+### 2.2. Phương Án B: Mini-Chapter Tinh Gọn (3–4 Màn Chơi Chuẩn Tắc — KHUYẾN NGHỊ)
 * **Mã Chapter đề xuất**: `ARC-MTL-01: Mai Hắc Đế — Quật Khởi Hoan Châu (722 SCN)`.
-* **Cấu trúc màn chơi (5 Stages)**:
-  1. *Stage 1*: Rú Đụn Khởi Nghĩa — Dấy Cờ Hoan Châu
-  2. *Stage 2*: Đại Bản Doanh Vạn An — Dựng Lũy Sông Lam
-  3. *Stage 3*: Chấn Động Ba Mươi Hai Châu — Phá Đồn Biên Ải
-  4. *Stage 4*: Sóng Gió Sông Lam — Chặn Đạo Quân Mã Viện
-  5. *Stage 5*: Hùng Sơn Quyết Chiến — Hào Khí Vạn An
-* **Ưu điểm**:
-  - Tôn vinh trọn vẹn tầm vóc của cuộc khởi nghĩa Mai Hắc Đế.
-  - Nhịp độ kịch bản mạch lạc: Khởi binh $\rightarrow$ Dựng căn cứ $\rightarrow$ Mở rộng thanh thế $\rightarrow$ Chặn đường viện binh $\rightarrow$ Đại quyết chiến bi tráng.
-  - Địa bàn địa lý đồng nhất và đặc sắc: Không gian sông Lam và núi Hùng Sơn (Nghệ An).
+* **Cấu trúc 4 màn chơi tinh gọn (4 Stages)**:
+  1. *Stage 1*: `Khởi Binh Hoan Châu — Dấy Nghĩa Sa Nam` (Dấy cờ tại thung lũng sông Lam, lập căn cứ Hùng Sơn).
+  2. *Stage 2*: `Công Phá An Nam Phủ — Uy Hiếp Đô Hộ` (Tiến đánh công hãm An Nam phủ trị theo *Cựu Đường Thư* Q184).
+  3. *Stage 3*: `Đường Cũ Phục Ba — Đạo Quân Tập Kích` (Giao tranh phòng ngự chặn đạo quân hơn 10 vạn của Dương Tư Húc tiến theo đường cũ Mã Viện).
+  4. *Stage 4*: `Thành Lũy Vạn An — Khúc Bi Ca Hùng Sơn` (Trận quyết chiến bi tráng bảo vệ đại bản doanh Vạn An năm 722).
+* **Ưu điểm vượt trội**:
+  - Mỗi màn chơi đều gắn liền trực tiếp với một mốc văn bản sử liệu T1/T2 chắc chắn.
+  - Giữ vững tính trung thực học thuật, không bôi vẽ hư cấu quá đà.
+  - Tập trung tối đa vào hình tượng Hero lõi **Mai Thúc Loan (Mai Hắc Đế)**.
 
 ---
 
-### 2.2. Phương Án B: Mini-Chapter Rút Gọn (3 Màn Chơi)
-* **Cấu trúc (3 Stages)**: 1. Khởi nghĩa Hoan Châu $\rightarrow$ 2. Cố thủ thành Vạn An $\rightarrow$ 3. Quyết chiến Dương Tư Húc.
-* **Nhược điểm**: Bỏ qua giai đoạn mở rộng thanh thế và trận thủy chiến sông Lam, làm hẫng nhịp độ phát triển của Hero và trải nghiệm chiến dịch.
+### 2.3. Phương Án C: Màn Chơi Cờ Đầu Đơn Lẻ (Single Flagship Stage)
+* Chỉ xây dựng 1 màn chơi quyết chiến tại Vạn An kèm dẫn truyện.
+* **Nhược điểm**: Quá ngắn, không thể hiện được bước tiến công hãm An Nam phủ và tầm ảnh hưởng chấn động của phong trào.
 
 ---
 
-### 2.3. Phương Án C: Một Màn Chơi Cờ Đầu (Single Flagship Stage)
-* Chỉ xây dựng 1 màn chơi quyết chiến tại thành Vạn An đi kèm phần dẫn truyện narrative.
-* **Nhược điểm**: Không xứng tầm với một phong trào giải phóng dân tộc lớn đã xưng Đế và chấn động 32 châu; lãng phí tiềm năng xây dựng Hero Mai Hắc Đế.
+## 3. Ma Trận So Sánh Đa Tiêu Chí Các Phương Án
 
----
-
-## 3. Ma Trận So Sánh Đa Tiêu Chí Các Phương Án Quy Mô
-
-| Tiêu Chí Đánh Giá | Phương Án A (Full Chapter 4–5 Stages — KHUYẾN NGHỊ) | Phương Án B (Mini-Chapter 3 Stages) | Phương Án C (Single Flagship Stage) |
+| Tiêu Chí Đánh Giá | Phương Án A (Full Chapter 5–6 Stages) | Phương Án B (Mini-Chapter 3–4 Stages — KHUYẾN NGHỊ) | Phương Án C (Single Flagship Stage) |
 |---|:---:|:---:|:---:|
-| **1. Mật Độ Sử Liệu Khảo Cứu** | Rất cao (*Đường Thư*, *Toàn Thư*, *Cương Mục*) | Cao | Cao |
-| **2. Độ Rõ Nét Của Nhân Vật Chính** | Tuyệt đối rõ nét (Mai Hắc Đế) | Tuyệt đối rõ nét | Rõ nét |
-| **3. Độ Xứng Tầm Của Kẻ Thù** | Rất cao (Dương Tư Húc & Quang Sở Khách) | Cao | Trung bình |
-| **4. Tính Đặc Sắc Của Bản Đồ** | Rất cao (Thung lũng sông Lam, rú Đụn, thành đất Vạn An) | Trung bình | Thấp |
-| **5. Chi Phí Phục Dựng Dã Sử (T3)** | Cân bằng (Chủ yếu bám chắc T1/T2) | Thấp | Rất thấp |
-| **6. Tính Mạch Lạc Của Cốt Truyện** | Hoàn hảo (Đủ các giai đoạn phát triển) | Hơi gấp gáp | Quá ngắn |
-| **7. Giá Trị Sản Xuất (Production Value)** | **Tối ưu nhất cho một Campaign độc lập** | Vừa phải | Thấp |
+| **1. Mật Độ Điểm Tựa Quân Sự Có Sử Liệu** | Thấp (Bị loãng do phải thêm màn hư cấu) | **Rất cao (Bám sát 4 mốc ghi chép của T1/T2)** | Cao (Chỉ lấy 1 mốc) |
+| **2. Độ Rõ Nét Của Nhân Vật Chính** | Bị phân tán vào các tướng hư cấu | **Tuyệt đối tập trung (Mai Hắc Đế)** | Tập trung |
+| **3. Độ Xứng Tầm Của Kẻ Thù** | Kéo dài lê thê | **Rất cao (Dương Tư Húc & Quang Sở Khách)** | Vừa phải |
+| **4. Độ Chắc Chắn Về Địa Lý** | Thấp ở các màn bôi vẽ | **Cao (Hoan Châu, An Nam phủ, Phục Ba cố đạo, Sa Nam)** | Cao |
+| **5. Gánh Nặng Phục Dựng Hư Cấu (Fiction Burden)** | Rất cao | **Thấp / Kiểm soát hoàn hảo** | Rất thấp |
+| **6. Tính Mạch Lạc Của Kịch Bản** | Rời rạc | **Hoàn hảo (Khởi binh $\rightarrow$ Hãm phủ $\rightarrow$ Đón giặc $\rightarrow$ Quyết chiến)** | Quá ngắn |
+| **7. Giá Trị Sản Xuất Thực Tế (Production Value)** | Lãng phí tài nguyên | **Tối ưu, chặt chẽ, chất lượng cao nhất** | Thấp |
 
 ---
 
-## 4. Kết Luận & Đề Xuất Quy Mô Sản Xuất
+## 4. Kết Luận & Đề Xuất Quy Mô Chính Thức
 
-1. **Khuyến Nghị Chính Thức**: Chọn **Phương Án A: Chapter Độc Lập Trọn Vẹn (`ARC-MTL-01: Mai Hắc Đế — Quật Khởi Hoan Châu (722 SCN)`)** với cấu trúc **5 màn chơi ứng viên**.
-2. **Quy Chuẩn Hero Roster**:
-   - **Hero Lõi Duy Nhất (Core Hero)**: **Mai Thúc Loan (Mai Hắc Đế)**.
-   - Các nhân vật dã sử hỗ trợ (Mai Thiếu Đế, Thuyền trưởng Sông Lam, Mai Kỳ Sơn) được xếp ở hàng nhân vật điều kiện T3 (`Conditional / Traditional Candidates`).
+1. **Khuyến Nghị Chính Thức**: Lựa chọn **Phương Án B: Mini-Chapter Tinh Gọn (`ARC-MTL-01: Mai Hắc Đế — Quật Khởi Hoan Châu (722 SCN)`)** với cấu trúc **4 màn chơi ứng viên**.
+2. **Quy Chuẩn Hero**:
+   - **Hero Lõi Lịch Sử Duy Nhất (Core 1)**: **Mai Thúc Loan (Mai Hắc Đế)**.
+   - Các nhân vật dã sử phụ trợ (Mai Thiếu Đế) chỉ mang tính chất điều kiện T3 (`Conditional Candidate`).

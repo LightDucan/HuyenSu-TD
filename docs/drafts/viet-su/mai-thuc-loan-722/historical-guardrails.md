@@ -3,7 +3,7 @@
 **Tài liệu**: `docs/drafts/viet-su/mai-thuc-loan-722/historical-guardrails.md`
 **Giai đoạn Lịch sử**: Thời kỳ Khai Nguyên đời Đường Huyền Tông (Năm 722 SCN)
 **Đối tượng áp dụng**: Đội ngũ Biên Kịch Narrative, Kỹ sư Lập trình Codex, và Pipeline Tạo Asset / Visual Prompt
-**Trạng thái**: Mandatory Production Guidelines & Historical Guardrails (Re-Audited)
+**Trạng thái**: Mandatory Production Guidelines & Historical Guardrails (Re-Audited & Synchronized)
 
 ---
 
@@ -39,19 +39,20 @@
 ### 1.5. Loại Bỏ Thuật Ngữ "Vạn Xuân" Trong Bối Cảnh Năm 722
 * Thời kỳ Nước Vạn Xuân tồn tại từ năm 544 đến năm 602 (Nhà Tiền Lý). Đến năm 722 là thời Bắc thuộc lần 3 dưới ách đô hộ của nhà Đường (An Nam Đô Hộ Phủ).
 * > [!CAUTION]
-  > **CẤM SỬ DỤNG ANACRONISM**: Tuyệt đối **KHÔNG** dùng cụm từ "Nghĩa quân Vạn Xuân" trong bối cảnh năm 722. Sử dụng: **Nghĩa quân Hoan Châu / Nghĩa binh Mai Hắc Đế / Nghĩa quân Vạn An**.
+  > **CẤM SỬ DỤNG ANACRONISM**: Tuyệt đối **KHÔNG** dùng cụm từ "Nghĩa quân Vạn Xuân" trong bối cảnh năm 722. Sử dụng: **Nghĩa quân Hoan Châu / Nghĩa binh Mai Hắc Đế / Nghĩa binh Sa Nam**.
 
 ---
 
 ## 2. Rào Chắn Về Phe Đối Kháng & Kết Cục Chiến Dịch (Antagonist Guardrails)
 
 ### 2.1. Dương Tư Húc (Yang Sixu) & Quang Sở Khách
-* Dương Tư Húc là Giám môn vệ tướng quân dũng mãnh, tàn bạo của Đường Huyền Tông; sau chiến dịch năm 722, ông sống sót trở về triều Đường và tiếp tục cầm quân dẹp các cuộc nổi dậy khác ở phương Nam cho đến khi qua đời năm 740.
+* Dương Tư Húc là danh tướng dũng mãnh, tàn bạo của Đường Huyền Tông; sau chiến dịch năm 722, ông sống sót trở về triều Đường và tiếp tục cầm quân dẹp các cuộc nổi dậy khác ở phương Nam cho đến khi qua đời năm 740.
 * > [!CAUTION]
   > **TUYỆT ĐỐI CẤM (WHAT MUST NOT BE DEPICTED)**:
   > - **CẤM**: Tuyệt đối không miêu tả người chơi "giết chết Dương Tư Húc" hay "tiêu diệt hoàn toàn quân đội nhà Đường".
   > - **CẤM**: Không bóp méo kết cục lịch sử của năm 722. Cuộc khởi nghĩa bị đàn áp, thủ lĩnh hy sinh.
-  > - Chiến thắng gameplay trong màn chơi cuối cùng mang ý nghĩa **Bảo vệ đại bản doanh đến hơi thở cuối cùng / Che chở cho dân chúng sơ tán an toàn**.
+  > - **CẤM**: Không tuyên bố "lịch sử xác nhận ông tử trận khi cố thủ Vạn An đến người cuối cùng".
+  > - Chiến thắng gameplay trong màn chơi cuối cùng mang ý nghĩa **Bảo vệ đại bản doanh / Che chở cho dân chúng sơ tán an toàn**.
 
 ---
 
@@ -70,6 +71,6 @@
    - Không sao chép trang phục võ hiệp giả tưởng (wuxia fantasy) hay cosplay Tam Quốc.
    - Không áp đặt áo dài/áo tía thời Nguyễn vào thế kỷ VIII.
 2. **Bản Sắc Thời Kỳ Đầu Thế Kỷ VIII (Thời Thịnh Đường — Hoan Châu Sông Lam)**:
-   - Tái hiện chân thực không gian địa lý: thung lũng sông Lam ngập tràn lau sậy và bãi bồi, dải núi đá vôi Hùng Sơn, công sự thành đất nện Sa Nam, và các đội thuyền gỗ sông nước miền Trung.
+   - Tái hiện chân thực không gian địa lý: thung lũng sông Lam ngập tràn lau sậy và bãi bồi, dải núi đá vôi Hùng Sơn, công sự thành đất nện, và các đội thuyền gỗ sông nước miền Trung.
 3. **Nguyên Tắc Không Khóa Cứng Khảo Cổ**:
    - Không tự ý khóa cứng kiểu đan giáp, kiểu búi tóc, kiểu khố/quần dã chiến, hay hoa văn đúc giáo kiếm cụ thể khi chưa có chuyên đề nghiên cứu khảo cổ học chuyên biệt (Visual/Archaeological Research Task).

@@ -23,6 +23,7 @@ export function createProductionRewardConfig(hiddenTabPolicy: HiddenTabPolicy): 
   return {
     enemyKill: { goldByEnemyId: productionRewardBalance.enemyKillGold },
     stageClear: { rewardByStageId: productionRewardBalance.stageClear },
+    firstClearByStageId: { 'hbt-lang-bac-stage-01': { gold: 100, knb: 50, anhHon: 100 } },
     activePlayTime: { ...productionRewardBalance.activePlayTime, hiddenTabPolicy },
   }
 }

@@ -22,6 +22,7 @@ export type RewardSourceConfig = Readonly<{
   enemyKill: EnemyKillRewardConfig
   stageClear: StageClearRewardConfig
   activePlayTime: ActivePlayTimeRewardConfig
+  firstClearByStageId?: Readonly<Record<string, StageClearReward>>
 }>
 
 export type RewardSourceResult =
@@ -99,6 +100,14 @@ export class RewardSourceService {
     assertId(input.stageId, 'Stage ID')
     const rewardKey = `reward/stage-clear/${input.runId}`
     const reward = this.config.stageClear.rewardByStageId[input.stageId]
+    if (reward === undefined) return { status: 'not-eligible', source: 'stage-clear', rewardKey }
+    return commit(this.repository, 'stage-clear', rewardKey, rewardOperations(reward), input.committedAtMs)
+  }
+
+  firstClear(input: Readonly<{ stageId: string; committedAtMs: number }>): RewardSourceResult {
+    assertId(input.stageId, 'Stage ID')
+    const rewardKey = `reward/stage-first-clear/${input.stageId}`
+    const reward = this.config.firstClearByStageId?.[input.stageId]
     if (reward === undefined) return { status: 'not-eligible', source: 'stage-clear', rewardKey }
     return commit(this.repository, 'stage-clear', rewardKey, rewardOperations(reward), input.committedAtMs)
   }

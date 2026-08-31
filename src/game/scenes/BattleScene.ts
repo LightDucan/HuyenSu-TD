@@ -74,6 +74,7 @@ export class BattleScene extends Phaser.Scene {
 
   create(): void {
     this.cameras.main.setBackgroundColor('#1f3b2d')
+    this.drawTerrain()
     this.drawGrid()
     this.path = this.createFixedPath()
     this.pathLength = this.path.getLength()
@@ -397,6 +398,13 @@ export class BattleScene extends Phaser.Scene {
     const cellHeight = this.stage.map.height / this.stage.map.grid.rows
     for (let column = 0; column <= this.stage.map.grid.columns; column += 1) graphics.lineBetween(column * cellWidth, 0, column * cellWidth, this.stage.map.height)
     for (let row = 0; row <= this.stage.map.grid.rows; row += 1) graphics.lineBetween(0, row * cellHeight, this.stage.map.width, row * cellHeight)
+  }
+
+  private drawTerrain(): void {
+    const colors: Record<string, number> = { marsh: 0x315a3d, 'shallow-water': 0x245b68, mud: 0x6b5140, reed: 0x3f6f48, earth: 0x806344, settlement: 0x7a654b }
+    for (const zone of this.stage.map.terrainDecorations ?? []) {
+      this.add.rectangle(zone.x + zone.width / 2, zone.y + zone.height / 2, zone.width, zone.height, colors[zone.kind] ?? 0x315a3d, 0.45).setDepth(-3)
+    }
   }
 
   private remainingByCategory(): Record<EnemyCategory, number> {

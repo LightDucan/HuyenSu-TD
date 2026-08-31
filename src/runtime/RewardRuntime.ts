@@ -65,6 +65,7 @@ export class RewardRuntimeController {
     })
     this.unsubscribeVictory = this.bridge.onStageVictory((event) => {
       this.source.stageClear({ runId: event.runId, stageId: event.stageId, committedAtMs: event.occurredAtMs })
+      this.source.firstClear({ stageId: event.stageId, committedAtMs: event.occurredAtMs })
     })
   }
 

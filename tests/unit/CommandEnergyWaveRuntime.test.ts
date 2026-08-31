@@ -186,7 +186,7 @@ describe('P12-C02 Wave Energy Gate & Auto Wave', () => {
     expect(atSpeed(3)).toBe(59)
   })
 
-  it('completes ten Waves for exactly ten energy and keeps victory reward idempotent', () => {
+  it('completes all HBT Waves for one energy per wave and keeps victory reward idempotent', () => {
     const { repository, bridge, runtime } = setup()
     const rewardRuntime = new RewardRuntimeController(repository, bridge, {
       enemyKill: { goldByEnemyId: {} },
@@ -209,7 +209,7 @@ describe('P12-C02 Wave Energy Gate & Auto Wave', () => {
     const current = repository.load()
     expect(current).toMatchObject({
       status: 'loaded',
-      save: { data: { commandEnergy: { current: 50 }, wallet: { balances: { gold: 10, knb: 3 } } } },
+      save: { data: { commandEnergy: { current: 36 }, wallet: { balances: { gold: 10, knb: 3 } } } },
     })
     scene.stop(); rewardRuntime.stop(); runtime.stop()
   })

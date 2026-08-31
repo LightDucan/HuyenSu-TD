@@ -72,7 +72,7 @@ export function App() {
   const progression: HeroProgression = metaSave.data.heroCollection[hudData.selectedHeroId]?.progression ?? { stage: 'normal', level: 1 }
   const selectedHeroName = heroDefinitions[hudData.selectedHeroId]?.name ?? 'Hero'
   const equipmentInteractionLocked = screen === 'battle' && isEquipmentInteractionLocked(hudData.waveStatus)
-  const onboardingHint = selectStageOnboardingHint({ incomplete: !metaSave.data.campaignProgress.completedStages[stateStage.id], waveStatus: hudData.waveStatus, wave: hudData.wave, placedHeroCount: hudData.placedHeroes.length, rangeEnabled, speed: hudData.speed, autoWave: autoWaveEnabled, deployed: deploymentCapacity.deployed, effectiveLimit: deploymentCapacity.effectiveLimit, equipmentLocked: equipmentInteractionLocked })
+  const onboardingHint = selectStageOnboardingHint({ incomplete: !metaSave.data.campaignProgress.completedStages[stateStage.id], waveStatus: hudData.waveStatus, wave: hudData.wave, placedHeroCount: hudData.placedHeroes.length, rangeEnabled, speed: hudData.speed, autoWave: autoWaveEnabled, deployed: hudData.placedHeroes.length, effectiveLimit: deploymentCapacity.effectiveLimit, equipmentLocked: equipmentInteractionLocked })
 
   useEffect(() => {
     const unsubscribeMeta = battleBridge.onMetaSnapshot((save) => {

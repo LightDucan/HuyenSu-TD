@@ -18,7 +18,7 @@ import { haiBaTrungEquipmentV2Definitions } from '../../data/equipment/definitio
 import { isActiveHeroOwned } from '../../domain/meta/HeroRecruitment'
 import { shouldShowHeroRange } from '../bridge/BattleInteractionContract'
 import type { BattleStageDefinition } from '../../data/campaign/definitions'
-import { hbtEnemyVisualManifest } from '../../data/assets/enemyVisualAssets'
+import { resolveEnemyVisual } from '../../data/assets/enemyVisualAssets'
 
 type EnemyVisual = { state: CombatEnemy; definitionId: string; body: Phaser.GameObjects.Arc; sprite?: Phaser.GameObjects.Sprite; hpBar: Phaser.GameObjects.Rectangle }
 type PlacementTileRuntime = { id: string; center: Vector2; marker: Phaser.GameObjects.Rectangle }
@@ -67,7 +67,7 @@ export class BattleScene extends Phaser.Scene {
       if (visual.attackUrl) this.load.image(visual.attackTextureKey, visual.attackUrl)
       if (visual.vfxUrl) this.load.image(visual.vfxTextureKey, visual.vfxUrl)
     })
-    Object.values(hbtEnemyVisualManifest).forEach((visual) => { if (visual.walkUrl) this.load.spritesheet(visual.walkTextureKey, visual.walkUrl, { frameWidth: visual.frameWidth, frameHeight: visual.frameHeight }) })
+    this.stage.enemyDefinitionIds.forEach((id) => { const visual = resolveEnemyVisual(id); if (visual?.walkUrl) this.load.spritesheet(visual.walkTextureKey, visual.walkUrl, { frameWidth: visual.frameWidth, frameHeight: visual.frameHeight }) })
   }
 
   init(): void {
@@ -76,7 +76,7 @@ export class BattleScene extends Phaser.Scene {
 
   create(): void {
     this.cameras.main.setBackgroundColor('#1f3b2d')
-    Object.values(hbtEnemyVisualManifest).forEach((visual) => {
+    this.stage.enemyDefinitionIds.forEach((id) => { const visual = resolveEnemyVisual(id); if (!visual) return
       if (visual.walkUrl && this.textures.exists(visual.walkTextureKey) && !this.anims.exists(visual.animationKey)) this.anims.create({ key: visual.animationKey, frames: this.anims.generateFrameNumbers(visual.walkTextureKey, { start: 0, end: visual.frameCount - 1 }), frameRate: 10, repeat: -1 })
     })
     this.drawTerrain()
@@ -147,7 +147,7 @@ export class BattleScene extends Phaser.Scene {
     visual.definitionId = definition.id
     visual.state = { id: `${this.runId}-enemy-${this.enemySpawnSequence}`, position: { x: 0, y: 0 }, pathProgress: 0, hp: definition.maxHp, maxHp: definition.maxHp, alive: true }
     this.enemySpawnSequence += 1
-    const visualDef = hbtEnemyVisualManifest[definition.id]
+    const visualDef = resolveEnemyVisual(definition.id)
     const hasSprite = Boolean(visualDef?.walkUrl && this.textures.exists(visualDef.walkTextureKey))
     visual.body.setFillStyle(definition.color).setVisible(!hasSprite).setAlpha(1)
     if (hasSprite && !visual.sprite) visual.sprite = this.add.sprite(0, 0, visualDef!.walkTextureKey)

@@ -5,6 +5,7 @@ import { haiBaTrungWaves } from '../waves/prototypeWaves'
 import type { CampaignChapterDefinition } from './definitions'
 
 export const HAI_BA_TRUNG_STAGE_ID = 'hbt-lang-bac-stage-01'
+export const HBT_STAGE01_FIRST_CLEAR_REWARD = { gold: 100, knb: 50, anhHon: 100 } as const
 const enemyDefinitionIds = [...new Set(haiBaTrungWaves.flatMap((wave) => wave.groups.map((group) => group.enemyId)))]
 
 export const haiBaTrungChapter = {
@@ -23,7 +24,7 @@ export const haiBaTrungChapter = {
       victory: 'Đợt tiến công tại Lãng Bạc đã bị chặn lại. Quân ta giữ được chiến địa trong lúc này, nhưng chiến dịch của Mã Viện vẫn chưa kết thúc.',
       defeat: 'Phòng tuyến Lãng Bạc đã vỡ. Điều chỉnh vị trí tướng và chuẩn bị lại đội hình.',
     },
-    firstClearReward: { gold: 100, knb: 50, anhHon: 100 },
+    firstClearReward: HBT_STAGE01_FIRST_CLEAR_REWARD,
   }],
 } satisfies CampaignChapterDefinition
 

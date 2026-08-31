@@ -1,5 +1,6 @@
 import type { HiddenTabPolicy, RewardSourceConfig } from '../../domain/meta/RewardSources'
 import { balanceV1 } from '../economy/balanceV1'
+import { HBT_STAGE01_FIRST_CLEAR_REWARD } from '../campaign/haiBaTrungCampaign'
 
 export type RewardBalanceDraft = Readonly<{
   enemyKillGold: Readonly<Record<string, number>>
@@ -23,7 +24,7 @@ export function createProductionRewardConfig(hiddenTabPolicy: HiddenTabPolicy): 
   return {
     enemyKill: { goldByEnemyId: productionRewardBalance.enemyKillGold },
     stageClear: { rewardByStageId: productionRewardBalance.stageClear },
-    firstClearByStageId: { 'hbt-lang-bac-stage-01': { gold: 100, knb: 50, anhHon: 100 } },
+    firstClearByStageId: { 'hbt-lang-bac-stage-01': HBT_STAGE01_FIRST_CLEAR_REWARD },
     activePlayTime: { ...productionRewardBalance.activePlayTime, hiddenTabPolicy },
   }
 }

@@ -29,6 +29,7 @@ import { createInitialBattleSnapshot } from '../game/bridge/BattleSnapshot'
 import { getBrowserDeploymentCapacityRuntime } from '../runtime/DeploymentCapacityRuntime'
 import { battleInstruction, moveIntentForHero, placementIntentForHero } from '../game/bridge/BattleInteractionContract'
 import { canApplyEquipmentOperationForScreen, isEquipmentInteractionLocked, selectMetaTab, type MetaTab } from './MetaTabState'
+import { selectStageOnboardingHint } from './StageOnboarding'
 import { transitionPlayerJourney, type PlayerJourneyScreen } from './PlayerJourneyState'
 import { selectSafeStage, selectStageProgress } from '../domain/campaign/CampaignProgression'
 
@@ -71,6 +72,7 @@ export function App() {
   const progression: HeroProgression = metaSave.data.heroCollection[hudData.selectedHeroId]?.progression ?? { stage: 'normal', level: 1 }
   const selectedHeroName = heroDefinitions[hudData.selectedHeroId]?.name ?? 'Hero'
   const equipmentInteractionLocked = screen === 'battle' && isEquipmentInteractionLocked(hudData.waveStatus)
+  const onboardingHint = selectStageOnboardingHint({ incomplete: !metaSave.data.campaignProgress.completedStages[stateStage.id], waveStatus: hudData.waveStatus, wave: hudData.wave, placedHeroCount: hudData.placedHeroes.length, rangeEnabled, speed: hudData.speed, autoWave: autoWaveEnabled, deployed: deploymentCapacity.deployed, effectiveLimit: deploymentCapacity.effectiveLimit, equipmentLocked: equipmentInteractionLocked })
 
   useEffect(() => {
     const unsubscribeMeta = battleBridge.onMetaSnapshot((save) => {
@@ -307,6 +309,7 @@ export function App() {
       <TopCityBar data={hudData} wallet={metaSave.data.wallet.balances} stageDisplayName={stateStage.displayName} />
       <div className="interaction-copy"><p className="hint">{battleInstruction(placementIntent, selectedHeroName, snapshot.placedHeroes.length, deploymentCapacity.effectiveLimit)}</p>{placementMessage && <p className="placement-feedback" role="status">{placementMessage}</p>}</div>
       <section className="game-frame" ref={gameHostRef} aria-label="Battle Scene" />
+      {onboardingHint && <div className="onboarding-hint" aria-live="polite">{onboardingHint}</div>}
       <section className={`meta-content-region ${activeMetaTab}`} aria-label="Combat HUD" aria-live="polite">
         <nav className="meta-tabs" aria-label="Điều hướng Đội Hình và Hành Trang"><button type="button" className={activeMetaTab === 'roster' ? 'active' : ''} onClick={() => setActiveMetaTab((current) => selectMetaTab(current, 'roster'))}>ĐỘI HÌNH</button><button type="button" className={activeMetaTab === 'inventory' ? 'active' : ''} onClick={() => setActiveMetaTab((current) => selectMetaTab(current, 'inventory'))}>HÀNH TRANG</button></nav>
         {activeMetaTab === 'inventory' && <div className="inventory-scroll-region"><EquipmentInventoryPanel save={metaSave} selectedHeroId={hudData.selectedHeroId} definitions={equipmentRuntime.getDefinitions()} onEquip={(instanceId) => handleInventoryOperation({ type: 'equip', heroId: hudData.selectedHeroId, instanceId })} onUnequip={(slot) => handleInventoryOperation({ type: 'unequip', heroId: hudData.selectedHeroId, slot })} onMerge={(ingredientInstanceIds) => handleInventoryOperation({ type: 'merge', ingredientInstanceIds, resultInstanceId: `equipment:${crypto.randomUUID()}` })} interactionLocked={equipmentInteractionLocked} /></div>}

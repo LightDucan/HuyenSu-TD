@@ -253,7 +253,8 @@ export function App() {
 
   const handleEnterBattle = () => {
     if (!selectedStage || selectStageProgress(selectedChapter, metaSave.data.campaignProgress, selectedStage.id) === 'locked' || playableIds.length === 0) return
-    if (shouldShowPreBattleNarrative(!metaSave.data.campaignProgress.completedStages[selectedStage.id], selectedStage.narrative)) { setPreBattlePending(true); return }
+    const completed = Boolean(metaSave.data.campaignProgress.completedStages[selectedStage.id])
+    if (shouldShowPreBattleNarrative(completed, selectedStage.narrative)) { setPreBattlePending(true); return }
     prepareBattleEntry()
   }
 

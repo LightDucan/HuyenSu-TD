@@ -50,6 +50,15 @@ describe('P11-C02 Reward Sources', () => {
     expect(() => new RewardSourceService(repo, { ...config('visible-only'), firstClearByStageId: { bad: { gold: 0, knb: 0, anhHon: 0 } } })).toThrow()
   })
 
+  it('repeats ordinary rewards on a new run but never repeats first-clear or grants it to Bà Triệu', () => {
+    const repo = repository(); const service = new RewardSourceService(repo, { ...config('visible-only'), stageClear: { rewardByStageId: { chapter1: { gold: 20, knb: 1, anhHon: 10 }, 'ba-trieu-01': { gold: 30, knb: 2 } } }, firstClearByStageId: { chapter1: { gold: 100, knb: 50, anhHon: 100 } } })
+    service.stageClear({ runId: 'r1', stageId: 'chapter1', committedAtMs: 2_000 }); service.firstClear({ stageId: 'chapter1', committedAtMs: 2_001 })
+    service.stageClear({ runId: 'r2', stageId: 'chapter1', committedAtMs: 2_002 })
+    expect(service.firstClear({ stageId: 'chapter1', committedAtMs: 2_003 }).status).toBe('already-applied')
+    expect(service.firstClear({ stageId: 'ba-trieu-01', committedAtMs: 2_004 }).status).toBe('not-eligible')
+    expect(repo.load()).toMatchObject({ status: 'loaded', save: { data: { wallet: { balances: { gold: 140, knb: 52 } } } } })
+  })
+
   it('uses real wall-clock duration and is independent of Battle GameClock speed', () => {
     const repo = repository(); const service = new RewardSourceService(repo, config('visible-only'))
     service.activePlayTime({ sessionId: 'session-1', claimId: 'window-1', cumulativeVisibleMs: 360_000, cumulativeHiddenMs: 0, committedAtMs: 2_000 })

@@ -31,7 +31,7 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 - GAME-C04: **DONE — waiting audit**; generic catalog registry, safe chapter/stage selection, strict Meta V6 campaignProgress boundary, production HBT catalog only.
 - GAME-C05: **DONE — waiting audit**; production catalog có Hai Bà Trưng → Bà Triệu 248, prerequisite stage tổng quát, 6 stage Bà Triệu structurally playable và Vietnamese Chapter status.
 - GAME-C06: **DONE — waiting audit**; roster Bà Triệu tách khỏi HBT, recruitable qua hệ hiện có, production reward config, generic visual fallback và prerequisite hardening.
-- Lần kiểm tra gần nhất: GAME-C07-FIX1 — 35 test files/232 tests PASS, build PASS; asset/manual gates pending.
+- Lần kiểm tra gần nhất: GAME-C07-CLOSEOUT-AMEND — 37 test files/240 tests PASS, build PASS; asset/manual gates pending.
 
 ## Phases và checkpoint
 
@@ -101,7 +101,7 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 | GAME-C05 | Bà Triệu 248 production Chapter, 6 stage và chronological prerequisite sau stage cuối Hai Bà Trưng | DONE — waiting audit | Codex | Catalog order/unique IDs, prerequisite, replay, zero-playable, Vietnamese status, full regression — PASS | pending |
 | GAME-C06 | Hoàn thiện production roster/recruitment/reward/visual identity cho Bà Triệu và harden corrupted prerequisite state | DONE — waiting audit | Codex | Starter-vs-production, recruit determinism, chapter Hero boundaries, Wu/Stage rewards, idempotency, fallback và prerequisite restore — PASS | pending |
 | GAME-C07 | Hai Bà Trưng Stage 01 full production: story, terrain map, 24-wave onboarding, reward brief và enemy walk contract | IN PROGRESS — waiting audit | Codex | 24-wave/map/terrain/narrative/enemy visual contract; manual 24-wave browser smoke required; asset gate pending | pending |
-| GAME-C07-FIX1 | Runtime closure: generic terrain, enemy walk resolver, narrative/first-clear runtime và clean verification | DONE — waiting audit | Codex | 37 test files/238 tests, build PASS; asset gate pending; manual browser gate pending | `2c73f6d` |
+| GAME-C07-FIX1 | Runtime closure: generic terrain, enemy walk resolver, narrative/first-clear runtime và clean verification | DONE — waiting audit | Codex | 37 test files/240 tests, build PASS; asset gate pending; manual browser gate pending | `2b8c7f1` |
 
 ## Quy tắc cập nhật
 

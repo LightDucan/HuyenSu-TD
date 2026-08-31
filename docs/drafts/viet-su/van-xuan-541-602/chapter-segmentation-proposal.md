@@ -2,7 +2,7 @@
 
 **Tài liệu**: `docs/drafts/viet-su/van-xuan-541-602/chapter-segmentation-proposal.md`
 **Giai đoạn Lịch sử**: 541/542 – 602 SCN (60 năm lịch sử)
-**Trạng thái**: Production Chapter Architecture & Segmentation Analysis (Recommendation Only)
+**Trạng thái**: Production Chapter Architecture & Segmentation Analysis (Re-Audited)
 
 ---
 
@@ -14,7 +14,7 @@ Thời kỳ từ khi Lý Bí khởi nghĩa (541/542) đến khi nhà Tùy đánh
 3. **Thời kỳ Hậu Lý Nam Đế & Đối Đầu Nhà Tùy (571–602)**: Nhân vật chính là Lý Phật Tử; đối thủ là Đại quân viễn chinh của tướng Tùy Lưu Phương.
 
 > [!IMPORTANT]
-> **NGUYÊN TẮC THIẾT KẾ TRÒ CHƠI**: Tuyệt đối không gộp toàn bộ 60 năm lịch sử này thành một "Chapter" đơn lẻ. Việc gộp chung sẽ làm loãng nhân vật chính, phá vỡ cấu trúc cây kỹ năng Hero, gây xung đột bối cảnh kẻ thù (quân Lương vs quân Tùy cách nhau nửa thế kỷ), và làm mất nhịp độ cốt truyện.
+> **NGUYÊN TẮC THIẾT KẾ TRÒ CHƠI**: Tuyệt đối không gộp toàn bộ 60 năm lịch sử này thành một "Chapter" đơn lẻ. Việc gộp chung sẽ làm loãng nhân vật chính, phá vỡ cấu trúc cây kỹ năng Hero, gây xung đột bối cảnh kẻ thù (quân Lương thế kỷ VI vs quân Tùy thế kỷ VII), và làm mất nhịp độ cốt truyện.
 
 ---
 
@@ -25,7 +25,6 @@ Thời kỳ từ khi Lý Bí khởi nghĩa (541/542) đến khi nhà Tùy đánh
 ### 2.1. Phương Án A: Phân Kỳ 2 Chương (Two-Chapter Structure)
 * **Chapter A1 (541/542–548)**: `Lý Nam Đế — Dựng Nước Vạn Xuân` (Khởi nghĩa $\rightarrow$ Lập nước $\rightarrow$ Đánh Lương $\rightarrow$ Khuất Lão).
 * **Chapter A2 (548–602)**: `Vạn Xuân — Kháng Lương Đến Kháng Tùy` (Dạ Trạch $\rightarrow$ Triệu Việt Vương $\rightarrow$ Hậu Lý $\rightarrow$ Lưu Phương 602).
-* **Ưu điểm**: Giảm số lượng Chapter tổng thể của dự án.
 * **Nhược điểm nghiêm trọng**:
   - Chapter A2 kéo dài tới 54 năm, ôm đồm hai nhân vật chính xung đột nhau (Triệu Quang Phục và Lý Phật Tử) và hai đế chế xâm lược khác nhau (nhà Lương thế kỷ VI vs nhà Tùy thế kỷ VII).
   - Nhân vật phản diện bị xé lẻ, không có cao trào xuyên suốt.
@@ -47,14 +46,22 @@ Thời kỳ từ khi Lý Bí khởi nghĩa (541/542) đến khi nhà Tùy đánh
 │   Triệu Túc              │   Phục)                  │   Quyền, Lý Phổ Đỉnh  │
 │ • Đối kháng: Tiêu Tư,    │ • Đối kháng: Trần Bá     │ • Đối kháng: Tướng Tùy│
 │   Trần Bá Tiên (Lương)   │   Tiên, Dương Sàn (Lương)│   Lưu Phương (Tùy)    │
+│ • Mật độ sử liệu: MẠNH   │ • Mật độ sử liệu: YẾU    │ • Mật độ sử liệu: MẠNH│
+│   (T1 Lương/Trần Thư)    │   (Dã sử & Truyền thuyết)│   (T1 Tùy Thư Q53)    │
 │ • Trọng tâm: Khởi nghĩa, │ • Trọng tâm: Du kích đầm │ • Trọng tâm: 30 năm trị│
 │   lập nước, đối đầu Trần │   lầy Dạ Trạch, khôi phục│   vì, giữ 3 thành cổ, │
 │   Bá Tiên                │   Long Biên, biến cố 571 │   đối đầu đại quân Tùy│
 │ • Kết cục: Rút về Khuất  │ • Kết cục: Thống nhất độc│ • Kết cục: Đầu hàng   │
-│   Lão, trao quyền kháng  │   lập (550), kết cục bi  │   Lưu Phương bảo toàn │
-│   chiến                  │   tráng tại Đại Nha (571)│   dân chúng (602)     │
+│   Lão, trao quyền kháng  │   lập (550), kết cục bi  │   Lưu Phương năm 602  │
+│   chiến                  │   tráng tại Đại Nha (571)│                       │
 └──────────────────────────┴──────────────────────────┴───────────────────────┘
 ```
+
+> [!WARNING]
+> **ĐÁNH GIÁ MẬT ĐỘ SỬ LIỆU GIỮA CÁC CHƯƠNG**:
+> - **`ARC-VX-01`**: Mật độ sử liệu T1/T2 rất cao nhờ có *Lương Thư*, *Trần Thư* (*Cao Tổ bản kỷ*) và *Toàn Thư*.
+> - **`ARC-VX-02`**: Mật độ sử liệu sơ cấp T1 yếu hơn hẳn; phụ thuộc chủ yếu vào *Toàn Thư* (vốn thừa nhận lấy từ dã sử T3). Cần minh định rõ tính chất `TRADITIONAL RECONSTRUCTION` trong toàn bộ kịch bản.
+> - **`ARC-VX-03`**: Mật độ sử liệu T1 rất mạnh ở hồi kết năm 602 nhờ có *Tùy Thư* Q53 ghi chép tường tận về chiến dịch Lưu Phương và thế trận của Lý Phật Tử.
 
 ---
 
@@ -89,9 +96,9 @@ Thời kỳ từ khi Lý Bí khởi nghĩa (541/542) đến khi nhà Tùy đánh
 * **Nhân vật chính diện tiêu biểu**: **Lý Nam Đế (Lý Bí)**, **Phạm Tu**, **Tinh Thiều**, **Triệu Túc**.
 * **Phe đối kháng chính**: Thứ sử Tiêu Tư, tướng Lương Lư Tử Hùng, Giao Châu thứ sử Dương Phiêu, Tư mã **Trần Bá Tiên (Chen Baxian)**.
 * **Chủ đề gameplay**:
-  - Giai đoạn đầu: Đánh đuổi quan lại đô hộ, công phá thành Long Biên, phòng ngự chống viện binh Lương và đánh dẹp quân Lâm Ấp tại Cửu Đức.
+  - Giai đoạn đầu: Đánh đuổi quan lại đô hộ, giải phóng Long Biên, đánh dẹp quân Lâm Ấp tại Cửu Đức (tháng 4 âm/543).
   - Giai đoạn sau: Đối đầu với cuộc phản kích quy mô lớn của Trần Bá Tiên tại Chu Diên, thành Tô Lịch, thành Gia Ninh và hồ Điển Triệt.
-* **Kết cục an toàn kịch bản**: Triều đình rút về căn cứ hiểm trở động Khuất Lão (Phú Thọ); Lý Nam Đế lâm bệnh nặng trao quyền bính và trao kiếm báu cho Tướng quân Triệu Quang Phục tiếp tục lãnh đạo cuộc kháng chiến.
+* **Kết cục an toàn kịch bản**: Triều đình rút về căn cứ hiểm trở động Khuất Lão (Phú Thọ); ghi nhận cái chết của Lý Nam Đế năm 548; chuyển giao quyền kháng chiến cho Triệu Quang Phục.
 
 ---
 
@@ -101,10 +108,10 @@ Thời kỳ từ khi Lý Bí khởi nghĩa (541/542) đến khi nhà Tùy đánh
 * **Nhân vật chính diện tiêu biểu**: **Triệu Việt Vương (Triệu Quang Phục)**. *(Bộ tướng dã sử hỗ trợ: Tướng giữ đầm lầy Dạ Trạch)*.
 * **Phe đối kháng chính**: Tướng Lương **Trần Bá Tiên** (giai đoạn đầu), Thứ sử Lương **Dương Sàn** (Yang Chan), và thế lực tranh chấp nội bộ **Lý Phật Tử**.
 * **Chủ đề gameplay**:
-  - Chiến tranh du kích đầm lầy độc đáo tại Đầm Dạ Trạch (Hưng Yên): phòng thủ mê cung lau sậy, dùng thuyền độc mộc xuất kích ban đêm cướp lương phá trại giặc.
-  - Chớp thời cơ Trần Bá Tiên bị triệu về Bắc, nghĩa quân tổng phản công giết chết Dương Sàn, khôi phục kinh đô Long Biên năm 550.
-  - Phân chia quyền lực tại Bãi Quân và biến cố năm 571.
-* **Kết cục an toàn kịch bản**: Khôi phục trọn vẹn chủ quyền đất nước năm 550; sau biến cố bị đánh úp năm 571, Triệu Việt Vương rút về cửa biển Đại Nha tuẫn tiết, để lại bài học lịch sử sâu sắc về tinh thần cảnh giác.
+  - Chiến tranh du kích đầm lầy độc đáo tại Đầm Dạ Trạch (Hưng Yên): phòng thủ mê cung lau sậy, dùng thuyền độc mộc xuất kích ban đêm cướp lương phá trại giặc (`TRADITIONAL RECONSTRUCTION`).
+  - Chớp thời cơ Trần Bá Tiên bị triệu về Bắc, nghĩa quân phản công diệt Dương Sàn, khôi phục kinh đô Long Biên năm 550.
+  - Phân chia quyền lực tại Bãi Quân (557) và biến cố năm 571.
+* **Kết cục an toàn kịch bản**: Khôi phục chủ quyền đất nước năm 550; sau biến cố bị đánh úp năm 571, Triệu Việt Vương rút về cửa biển Đại Nha tuẫn tiết (T3).
 
 ---
 
@@ -112,11 +119,11 @@ Thời kỳ từ khi Lý Bí khởi nghĩa (541/542) đến khi nhà Tùy đánh
 * **Tên gọi chính thức**: `Hậu Lý Nam Đế — Cố Thành Kháng Tùy`
 * **Thời gian lịch sử**: 571 – 602 SCN (khoảng 31 năm).
 * **Nhân vật chính diện tiêu biểu**: **Hậu Lý Nam Đế (Lý Phật Tử)**, tướng **Đại Quyền** (giữ Long Biên), tướng **Lý Phổ Đỉnh** (giữ thành Ô Diên).
-* **Phe đối kháng chính**: Tổng quản hành quân nhà Tùy **Lưu Phương (Liu Fang)** cùng 27 doanh bộ kỵ viễn chinh.
+* **Phe đối kháng chính**: Tổng quản hành quân nhà Tùy **Lưu Phương (Liu Fang)** cùng 27 doanh quân Tùy viễn chinh.
 * **Chủ đề gameplay**:
-  - Phòng thủ hệ thống ba tòa thành cổ liên hoàn: Cố thành Phong Châu (Việt Vương cố thành), thành Long Biên và thành Ô Diên.
-  - Trận kịch chiến chặn địch tại quan ải hiểm trở Đỗ Long (Đô Long).
-* **Kết cục an toàn kịch bản**: Trước sức ép quân sự áp đảo và tối hậu thư của Lưu Phương, Lý Phật Tử chấp nhận đầu hàng để tránh nạn binh đao thảm sát cho muôn dân, khép lại 60 năm lịch sử của Nước Vạn Xuân.
+  - Phòng thủ hệ thống ba tòa thành cổ liên hoàn: Cố thành Việt Vương (Phong Châu), thành Long Biên và thành Ô Diên.
+  - Trận kịch chiến chặn địch tại quan ải Đỗ Long (Dulong Ridge).
+* **Kết cục an toàn kịch bản**: Trước sức ép quân sự áp đảo và thư răn đe của Lưu Phương, Lý Phật Tử sợ hãi đầu hàng, bị giải về Trường An năm 602, khép lại 60 năm lịch sử của Nước Vạn Xuân.
 
 ---
 
@@ -124,4 +131,4 @@ Thời kỳ từ khi Lý Bí khởi nghĩa (541/542) đến khi nhà Tùy đánh
 
 1. **Khuyến Nghị Kiến Trúc**: Lựa chọn **Phương Án B (3 Chương)** làm cấu trúc chuẩn mực cho toàn bộ thời kỳ Vạn Xuân (541/542–602 SCN).
 2. **Chương Khởi Đầu Sản Xuất Đề Xuất (First Production Chapter after Bà Triệu)**:
-   - **`ARC-VX-01: Lý Nam Đế — Khai Sáng Vạn Xuân (541/542–548 SCN)`** là chương lịch sử tiếp theo có đầy đủ độ vững chắc về nguồn sử liệu T1/T2, nhân vật trung tâm kiệt xuất, kẻ thù lịch sử có tầm vóc (Trần Bá Tiên), và không gian màn chơi đa dạng nhất.
+   - **`ARC-VX-01: Lý Nam Đế — Khai Sáng Vạn Xuân (541/542–548 SCN)`** là chương lịch sử có độ vững chắc về nguồn sử liệu T1/T2 cao nhất, nhân vật trung tâm kiệt xuất, kẻ thù lịch sử có tầm vóc (Trần Bá Tiên), và không gian màn chơi đa dạng nhất.

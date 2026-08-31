@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { balanceV1 } from '../../src/data/economy/balanceV1'
 import { enemyDefinitions } from '../../src/data/enemies/definitions'
-import { ACTIVE_HERO_IDS, heroDefinitions } from '../../src/data/heroes/definitions'
+import { ACTIVE_HERO_IDS, HAI_BA_TRUNG_HERO_IDS, heroDefinitions } from '../../src/data/heroes/definitions'
 import { ACTIVE_HBT_EQUIPMENT_IDS, equipmentDefinitions, haiBaTrungEquipmentV2Definitions } from '../../src/data/equipment/definitions'
 import { haiBaTrungGoldGachaConfig } from '../../src/data/economy/prototypeEconomyConfig'
 import { haiBaTrungRewardBalance } from '../../src/data/rewards/prototypeRewardConfig'
@@ -27,10 +27,10 @@ function legacyStorage() {
 
 describe('VS-HBT-C01 runtime content pack', () => {
   it('uses exactly the three active Vietnam Heroes for fresh bootstrap and selection', () => {
-    expect(ACTIVE_HERO_IDS).toEqual(['trung-trac', 'trung-nhi', 'le-chan'])
+    expect(HAI_BA_TRUNG_HERO_IDS).toEqual(['trung-trac', 'trung-nhi', 'le-chan'])
     expect(ACTIVE_PRODUCTION_HERO_IDS).toEqual(ACTIVE_HERO_IDS)
-    expect(Object.keys(createPrototypeHeroCollection())).toEqual(ACTIVE_HERO_IDS)
-    expect(selectPlayableOwnedHeroIds(createInitialMetaState('fresh', 0).heroCollection, ACTIVE_HERO_IDS)).toEqual(ACTIVE_HERO_IDS)
+    expect(Object.keys(createPrototypeHeroCollection())).toEqual(HAI_BA_TRUNG_HERO_IDS)
+    expect(selectPlayableOwnedHeroIds(createInitialMetaState('fresh', 0).heroCollection, ACTIVE_HERO_IDS)).toEqual(HAI_BA_TRUNG_HERO_IDS)
   })
 
   it('uses canonical HBT equipment identity while retaining legacy power and compatibility aliases', () => {
@@ -66,7 +66,7 @@ describe('VS-HBT-C01 runtime content pack', () => {
     const withLegacy = { ...state, heroCollection: { ...state.heroCollection, 'quan-vu': legacy } }
     expect(validateMetaState(withLegacy).ok).toBe(true)
     expect(withLegacy.heroCollection['quan-vu']).toEqual(legacy)
-    expect(selectPlayableOwnedHeroIds(withLegacy.heroCollection, ACTIVE_HERO_IDS)).toEqual(ACTIVE_HERO_IDS)
+    expect(selectPlayableOwnedHeroIds(withLegacy.heroCollection, ACTIVE_HERO_IDS)).toEqual(HAI_BA_TRUNG_HERO_IDS)
   })
 
   it('validates a literal pre-HBT Meta V5 save and bootstraps missing starters once', () => {
@@ -98,7 +98,7 @@ describe('VS-HBT-C01 runtime content pack', () => {
       'quan-vu', 'trieu-van', 'truong-phi', 'hoang-trung', 'gia-cat-luong',
       'trung-trac', 'trung-nhi', 'le-chan',
     ])
-    ACTIVE_HERO_IDS.forEach((heroId) => expect(first.save.data.heroCollection[heroId]).toEqual({
+    HAI_BA_TRUNG_HERO_IDS.forEach((heroId) => expect(first.save.data.heroCollection[heroId]).toEqual({
       heroId,
       stars: 1,
       progression: { stage: 'normal', level: 1 },
@@ -128,7 +128,7 @@ describe('VS-HBT-C01 runtime content pack', () => {
     }
     expect(isActiveHeroOwned(collection, 'quan-vu')).toBe(false)
     expect(isActiveHeroOwned(collection, 'trung-trac')).toBe(true)
-    expect(selectPlayableOwnedHeroIds(collection, ACTIVE_HERO_IDS)).toEqual(ACTIVE_HERO_IDS)
+    expect(selectPlayableOwnedHeroIds(collection, ACTIVE_HERO_IDS)).toEqual(HAI_BA_TRUNG_HERO_IDS)
   })
 
   it('recruits only active Heroes and creates Hero-specific duplicate shards', () => {
@@ -139,15 +139,15 @@ describe('VS-HBT-C01 runtime content pack', () => {
   })
 
   it('defines exact shared skill triggers and effects without DEF', () => {
-    expect(ACTIVE_HERO_IDS.map((id) => heroDefinitions[id].skillTriggerHits)).toEqual([5, 7, 5])
+    expect(HAI_BA_TRUNG_HERO_IDS.map((id) => heroDefinitions[id].skillTriggerHits)).toEqual([5, 7, 5])
     expect(skillDefinitions['trong-dong-lenh-vuong'].effects).toEqual([{ type: 'aoe', radius: 170, maxTargets: 4 }, { type: 'damage', atkMultiplier: 2.2 }, { type: 'stun', durationMs: 800 }])
     expect(skillDefinitions['lien-hoan-lac-tien'].effects).toEqual([{ type: 'multiHit', hits: 3, intervalMs: 140 }, { type: 'damage', atkMultiplier: 1.1 }, { type: 'slow', ratio: 0.35, durationMs: 2000 }])
     expect(skillDefinitions['song-trao-hai-tan'].effects).toEqual([{ type: 'aoe', radius: 160, maxTargets: 3 }, { type: 'damage', atkMultiplier: 2 }, { type: 'root', durationMs: 1500 }])
-    ACTIVE_HERO_IDS.forEach((id) => expect('def' in heroDefinitions[id].baseStats).toBe(false))
+    HAI_BA_TRUNG_HERO_IDS.forEach((id) => expect('def' in heroDefinitions[id].baseStats).toBe(false))
   })
 
   it('defines four data-only HBT enemies and a single Boss in Wave 10', () => {
-    const ids = ['han-sword-infantry', 'han-crossbow-soldier', 'han-armored-guard', 'boss-ma-vien']
+    const ids = ['han-sword-infantry', 'han-crossbow-soldier', 'han-armored-guard', 'boss-ma-vien'] as const
     expect(ids.map((id) => enemyDefinitions[id])).toMatchObject([
       { maxHp: 80, moveSpeed: 50, cityDamage: 1 }, { maxHp: 55, moveSpeed: 64, cityDamage: 1 },
       { maxHp: 145, moveSpeed: 36, cityDamage: 2 }, { maxHp: 1200, moveSpeed: 38, cityDamage: 10 },
@@ -156,6 +156,6 @@ describe('VS-HBT-C01 runtime content pack', () => {
     expect(prototypeWaves).toHaveLength(10)
     prototypeWaves.flatMap((wave) => wave.groups).forEach((group) => expect(enemyDefinitions[group.enemyId]).toBeDefined())
     expect(prototypeWaves[9].groups.filter(({ enemyId }) => enemyId === 'boss-ma-vien')).toEqual([expect.objectContaining({ count: 1 })])
-    expect(Object.keys(balanceV1.rewardSources.enemyKillGold).sort()).toEqual(ids.sort())
+    expect(ids.map((id) => balanceV1.rewardSources.enemyKillGold[id])).toEqual([1, 1, 2, 2])
   })
 })

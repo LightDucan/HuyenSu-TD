@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { App } from './ui/App'
-import { createHaiBaTrungRewardConfig } from './data/rewards/prototypeRewardConfig'
+import { createProductionRewardConfig } from './data/rewards/prototypeRewardConfig'
 import type { HiddenTabPolicy } from './domain/meta/RewardSources'
 import { battleBridge } from './game/bridge/BattleBridge'
 import { startBrowserRewardRuntime } from './runtime/RewardRuntime'
@@ -16,7 +16,7 @@ import './ui/styles.css'
 
 const configuredHiddenPolicy = import.meta.env.VITE_ACTIVE_PLAY_HIDDEN_POLICY
 const hiddenTabPolicy: HiddenTabPolicy = configuredHiddenPolicy === 'count-hidden' ? 'count-hidden' : 'visible-only'
-startBrowserRewardRuntime(window.localStorage, battleBridge, createHaiBaTrungRewardConfig(hiddenTabPolicy))
+startBrowserRewardRuntime(window.localStorage, battleBridge, createProductionRewardConfig(hiddenTabPolicy))
 startBrowserCommandEnergyRuntime(window.localStorage, battleBridge)
 initializeBrowserEquipmentV2Runtime(window.localStorage, battleBridge)
 const deploymentCapacityRuntime = startBrowserDeploymentCapacityRuntime(window.localStorage, battleBridge, 0)

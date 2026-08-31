@@ -1,13 +1,13 @@
 import { describe, expect, it } from 'vitest'
 import { enemyDefinitions } from '../../src/data/enemies/definitions'
-import { ACTIVE_HERO_IDS, heroDefinitions } from '../../src/data/heroes/definitions'
+import { HAI_BA_TRUNG_HERO_IDS, heroDefinitions } from '../../src/data/heroes/definitions'
 import { heroPassives } from '../../src/data/passives/definitions'
 import { skillDefinitions } from '../../src/data/skills/definitions'
 import { prototypeWaves } from '../../src/data/waves/prototypeWaves'
 
 describe('MVP content', () => {
   it('contains exactly three active Vietnam Heroes linked to shared skills', () => {
-    const heroes = ACTIVE_HERO_IDS.map((id) => heroDefinitions[id])
+    const heroes = HAI_BA_TRUNG_HERO_IDS.map((id) => heroDefinitions[id])
     expect(heroes).toHaveLength(3)
     heroes.forEach((hero) => {
       expect(Object.keys(hero.baseStats).sort()).toEqual(

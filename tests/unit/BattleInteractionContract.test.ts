@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { ACTIVE_HERO_IDS } from '../../src/data/heroes/definitions'
+import { HAI_BA_TRUNG_HERO_IDS } from '../../src/data/heroes/definitions'
 import { BattleBridge } from '../../src/game/bridge/BattleBridge'
 import {
   battleInstruction,
@@ -94,6 +94,6 @@ describe('battle interaction safety contract', () => {
   })
 
   it('keeps the playable roster limited to the three active Hai Ba Trung Heroes', () => {
-    expect(ACTIVE_HERO_IDS).toEqual(['trung-trac', 'trung-nhi', 'le-chan'])
+    expect(HAI_BA_TRUNG_HERO_IDS).toEqual(['trung-trac', 'trung-nhi', 'le-chan'])
   })
 })

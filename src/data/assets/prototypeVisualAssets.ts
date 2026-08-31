@@ -1,5 +1,5 @@
 import type { GameSpeed } from '../../domain/clock/GameClock'
-import { ACTIVE_HERO_IDS } from '../heroes/definitions'
+import { HAI_BA_TRUNG_HERO_IDS, PRODUCTION_HERO_IDS } from '../heroes/definitions'
 
 const assetUrls = import.meta.glob('../../assets/{heroes,portraits,vfx}/**/*.png', {
   eager: true,
@@ -43,6 +43,9 @@ const visualDefinitions: Readonly<Record<string, string>> = {
   'trung-trac': 'trong-dong-lenh-vuong',
   'trung-nhi': 'lien-hoan-lac-tien',
   'le-chan': 'song-trao-hai-tan',
+  'ba-trieu': 'gio-manh-nui-nua',
+  'trieu-quoc-dat': 'hieu-trieu-quan-yen',
+  'dinh-boi': 'giu-luy-bo-dien',
   'quan-vu': 'thanh-long-tram',
   'truong-phi': 'ba-xa-gam-vang',
   'trieu-van': 'that-tien-that-xuat',
@@ -56,15 +59,22 @@ export function resolvePrototypeHeroVisual(heroId: string, lookup: VisualAssetLo
 }
 
 export function resolveHaiBaTrungHeroVisual(heroId: string, lookup: VisualAssetLookup = bundledAssetLookup): HeroVisualAsset | undefined {
-  return ACTIVE_HERO_IDS.includes(heroId as typeof ACTIVE_HERO_IDS[number]) ? resolvePrototypeHeroVisual(heroId, lookup) : undefined
+  return HAI_BA_TRUNG_HERO_IDS.includes(heroId as typeof HAI_BA_TRUNG_HERO_IDS[number]) ? resolvePrototypeHeroVisual(heroId, lookup) : undefined
+}
+
+export function resolveProductionHeroVisual(heroId: string, lookup: VisualAssetLookup = bundledAssetLookup): HeroVisualAsset | undefined {
+  return PRODUCTION_HERO_IDS.includes(heroId as typeof PRODUCTION_HERO_IDS[number]) ? resolvePrototypeHeroVisual(heroId, lookup) : undefined
 }
 
 export const haiBaTrungHeroVisuals: Readonly<Record<string, HeroVisualAsset>> = Object.fromEntries(
-  ACTIVE_HERO_IDS.map((heroId) => [heroId, resolveHaiBaTrungHeroVisual(heroId, bundledAssetLookup)!]),
+  HAI_BA_TRUNG_HERO_IDS.map((heroId) => [heroId, resolveHaiBaTrungHeroVisual(heroId, bundledAssetLookup)!]),
+)
+export const productionHeroVisuals: Readonly<Record<string, HeroVisualAsset>> = Object.fromEntries(
+  PRODUCTION_HERO_IDS.map((heroId) => [heroId, resolveProductionHeroVisual(heroId, bundledAssetLookup)!]),
 )
 
 export function getHeroVisualAvailability(heroId: string, lookup: VisualAssetLookup = bundledAssetLookup): HeroVisualAvailability {
-  const visual = resolveHaiBaTrungHeroVisual(heroId, lookup)
+  const visual = resolveProductionHeroVisual(heroId, lookup)
   return { portrait: Boolean(visual?.portraitUrl), idle: Boolean(visual?.idleUrl), attack: Boolean(visual?.attackUrl), vfx: Boolean(visual?.vfxUrl) }
 }
 

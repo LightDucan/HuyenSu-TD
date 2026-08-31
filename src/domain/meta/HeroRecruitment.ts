@@ -1,6 +1,7 @@
 import type { HeroBaseStats } from '../progression/StatCalculator'
 import type { HeroStage } from '../progression/ProgressionSystem'
 import { balanceV1 } from '../../data/economy/balanceV1'
+import { HAI_BA_TRUNG_HERO_IDS, PRODUCTION_HERO_IDS } from '../../data/heroes/definitions'
 
 export type HeroStar = 1 | 2 | 3 | 4 | 5
 export type HeroCollectionEntry = Readonly<{
@@ -17,8 +18,9 @@ export type HeroRecruitmentState = Readonly<{
 export const CHIEU_HIEN_LENH_ID = 'item_chieu_hien_lenh' as const
 export const ANH_HON_ID = 'anh-hon' as const
 export const DUPLICATE_SHARD_QUANTITY = 10 as const
-export const ACTIVE_PRODUCTION_HERO_IDS = ['trung-trac', 'trung-nhi', 'le-chan'] as const
-export const PROTOTYPE_OWNED_HERO_IDS = ACTIVE_PRODUCTION_HERO_IDS
+export const ACTIVE_PRODUCTION_HERO_IDS = PRODUCTION_HERO_IDS
+export const STARTER_HERO_IDS = HAI_BA_TRUNG_HERO_IDS
+export const PROTOTYPE_OWNED_HERO_IDS = STARTER_HERO_IDS
 
 export function createPrototypeHeroCollection(): HeroCollection {
   return Object.fromEntries(PROTOTYPE_OWNED_HERO_IDS.map((heroId) => [heroId, {
@@ -30,7 +32,7 @@ export function createPrototypeHeroCollection(): HeroCollection {
 
 export function ensureActiveStarterHeroes(heroCollection: HeroCollection): HeroCollection {
   let next = heroCollection
-  ACTIVE_PRODUCTION_HERO_IDS.forEach((heroId) => {
+  STARTER_HERO_IDS.forEach((heroId) => {
     if (next[heroId]) return
     next = {
       ...next,

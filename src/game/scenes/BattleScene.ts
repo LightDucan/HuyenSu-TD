@@ -1,7 +1,7 @@
 import Phaser from 'phaser'
 import { enemyDefinitions, type EnemyCategory } from '../../data/enemies/definitions'
 import { heroDefinitions, trungTrac, type HeroDefinition } from '../../data/heroes/definitions'
-import { haiBaTrungHeroVisuals, resolveHaiBaTrungHeroVisual, scaleVisualDuration } from '../../data/assets/prototypeVisualAssets'
+import { productionHeroVisuals, resolveProductionHeroVisual, scaleVisualDuration } from '../../data/assets/prototypeVisualAssets'
 import { GameClock } from '../../domain/clock/GameClock'
 import { CombatController } from '../../domain/combat/CombatController'
 import type { CombatEnemy, Vector2 } from '../../domain/combat/types'
@@ -61,7 +61,7 @@ export class BattleScene extends Phaser.Scene {
   constructor(stage: BattleStageDefinition) { super('battle'); this.stage = stage; this.waveManager = new WaveManager(stage.waves) }
 
   preload(): void {
-    Object.values(haiBaTrungHeroVisuals).forEach((visual) => {
+    Object.values(productionHeroVisuals).forEach((visual) => {
       if (visual.idleUrl) this.load.image(visual.idleTextureKey, visual.idleUrl)
       if (visual.attackUrl) this.load.image(visual.attackTextureKey, visual.attackUrl)
       if (visual.vfxUrl) this.load.image(visual.vfxTextureKey, visual.vfxUrl)
@@ -187,7 +187,7 @@ export class BattleScene extends Phaser.Scene {
     const index = this.enemies.findIndex((enemy) => enemy.state.id === targetId)
     if (index < 0) return
     const enemy = this.enemies[index]
-    const visualAsset = resolveHaiBaTrungHeroVisual(hero.definition.id)
+    const visualAsset = resolveProductionHeroVisual(hero.definition.id)
     if (hero.sprite && visualAsset?.attackUrl && this.textures.exists(visualAsset.attackTextureKey)) {
       hero.sprite.setTexture(visualAsset.attackTextureKey)
       this.time.delayedCall(scaleVisualDuration(180, this.gameClock.getSpeed()), () => {
@@ -205,7 +205,7 @@ export class BattleScene extends Phaser.Scene {
 
   private onSkill(hero: PlacedHeroRuntime): void {
     const result = resolveSkill(skillDefinitions[hero.definition.activeSkillId], hero.position, hero.stats, this.enemies.map((enemy) => enemy.state))
-    const visualAsset = resolveHaiBaTrungHeroVisual(hero.definition.id)
+    const visualAsset = resolveProductionHeroVisual(hero.definition.id)
     if (visualAsset?.vfxUrl && this.textures.exists(visualAsset.vfxTextureKey)) {
       const vfx = this.add.image(hero.position.x, hero.position.y - 28, visualAsset.vfxTextureKey)
         .setDisplaySize(96, 96)
@@ -292,7 +292,7 @@ export class BattleScene extends Phaser.Scene {
     const progression = equipmentState.heroCollection[definition.id]?.progression ?? { stage: 'normal', level: 1 }
     const stats = calculateHeroLoadoutStatsV2(definition.baseStats, progression, equipmentState, definition.id, haiBaTrungEquipmentV2Definitions)
     const rangeVisual = this.add.circle(position.x, position.y, stats.range, 0x38bdf8, 0.04).setStrokeStyle(1.5, 0x7dd3fc, 0.35)
-    const visualAsset = resolveHaiBaTrungHeroVisual(definition.id)
+    const visualAsset = resolveProductionHeroVisual(definition.id)
     const sprite = visualAsset?.idleUrl && this.textures.exists(visualAsset.idleTextureKey)
       ? this.add.image(0, 0, visualAsset.idleTextureKey).setOrigin(0.5, 112 / 128).setDisplaySize(HERO_RUNTIME_VISUAL_SIZE, HERO_RUNTIME_VISUAL_SIZE)
       : undefined

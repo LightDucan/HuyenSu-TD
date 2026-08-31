@@ -1,6 +1,10 @@
 import type { SkillDefinition } from '../../domain/skills/SkillResolver'
 
 export const skillDefinitions: Record<string, SkillDefinition> = {
+  // GAMEPLAY FICTION: provisional shared-effect compositions, not historical claims.
+  'gio-manh-nui-nua': { id: 'gio-manh-nui-nua', name: 'Gió Mạnh Núi Nưa', effects: [{ type: 'aoe', radius: 170, maxTargets: 4 }, { type: 'damage', atkMultiplier: 2.1 }, { type: 'stun', durationMs: 700 }] },
+  'hieu-trieu-quan-yen': { id: 'hieu-trieu-quan-yen', name: 'Hiệu Triệu Quan Yên', effects: [{ type: 'damage', atkMultiplier: 2.4 }, { type: 'slow', ratio: 0.3, durationMs: 1800 }] },
+  'giu-luy-bo-dien': { id: 'giu-luy-bo-dien', name: 'Giữ Lũy Bồ Điền', effects: [{ type: 'multiHit', hits: 3, intervalMs: 140 }, { type: 'damage', atkMultiplier: 1.05 }, { type: 'root', durationMs: 1000 }] },
   'trong-dong-lenh-vuong': { id: 'trong-dong-lenh-vuong', name: 'Trống Đồng Lệnh Vương', effects: [{ type: 'aoe', radius: 170, maxTargets: 4 }, { type: 'damage', atkMultiplier: 2.2 }, { type: 'stun', durationMs: 800 }] },
   'lien-hoan-lac-tien': { id: 'lien-hoan-lac-tien', name: 'Liên Hoàn Lạc Tiễn', effects: [{ type: 'multiHit', hits: 3, intervalMs: 140 }, { type: 'damage', atkMultiplier: 1.1 }, { type: 'slow', ratio: 0.35, durationMs: 2000 }] },
   'song-trao-hai-tan': { id: 'song-trao-hai-tan', name: 'Sóng Trào Hải Tần', effects: [{ type: 'aoe', radius: 160, maxTargets: 3 }, { type: 'damage', atkMultiplier: 2.0 }, { type: 'root', durationMs: 1500 }] },

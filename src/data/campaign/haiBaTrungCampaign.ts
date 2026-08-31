@@ -1,4 +1,4 @@
-import { ACTIVE_HERO_IDS } from '../heroes/definitions'
+import { HAI_BA_TRUNG_HERO_IDS } from '../heroes/definitions'
 import { enemyDefinitions } from '../enemies/definitions'
 import { haiBaTrungMap } from '../maps/prototypeMap'
 import { haiBaTrungWaves } from '../waves/prototypeWaves'
@@ -15,7 +15,7 @@ export const haiBaTrungChapter = {
     displayName: 'Huyết Chiến Lãng Bạc',
     map: haiBaTrungMap,
     waves: haiBaTrungWaves,
-    allowedHeroIds: ACTIVE_HERO_IDS,
+    allowedHeroIds: HAI_BA_TRUNG_HERO_IDS,
     enemyDefinitionIds,
   }],
 } satisfies CampaignChapterDefinition

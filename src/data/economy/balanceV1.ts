@@ -9,15 +9,25 @@ export const balanceV1 = {
   commandEnergy: { cap: 60, regenIntervalMs: 120_000, waveCost: 1, binhPhu: { small: 1, medium: 5, large: 10 } },
   gold: { gachaPullCost: 100 },
   rewardSources: {
-    enemyKillGold: { 'han-sword-infantry': 1, 'han-crossbow-soldier': 1, 'han-armored-guard': 2, 'boss-ma-vien': 2 },
-    stageClear: { prototypeStage: { gold: 20, knb: 1, anhHon: 10 } },
+    enemyKillGold: { 'han-sword-infantry': 1, 'han-crossbow-soldier': 1, 'han-armored-guard': 2, 'boss-ma-vien': 2, 'wu-sword-infantry': 1, 'wu-crossbow-soldier': 1, 'wu-armored-guard': 2, 'wu-field-commander': 2 },
+    stageClear: {
+      prototypeStage: { gold: 20, knb: 1, anhHon: 10 },
+      baTrieu: {
+        'bt-01-tu-nghia-nui-nua': { gold: 20, knb: 1, anhHon: 10 },
+        'bt-02-cong-pha-thanh-ap': { gold: 22, knb: 1, anhHon: 10 },
+        'bt-03-ben-song-ma': { gold: 24, knb: 1, anhHon: 10 },
+        'bt-04-lap-luy-bo-dien': { gold: 26, knb: 1, anhHon: 12 },
+        'bt-05-dai-chien-bo-dien': { gold: 30, knb: 2, anhHon: 15 },
+        'bt-06-khuc-ca-nui-tung': { gold: 35, knb: 2, anhHon: 20 },
+      },
+    },
   },
   gacha: {
     weights: { gold: 40, weapon: 28, gem: 24, smallBinhPhu: 4, mediumBinhPhu: 2.5, largeBinhPhu: 1.5 },
     goldReturn: 20, pityEnabled: false as const,
   },
   knbShop: { chieuHienLenh: 10, summonOrder: 25 },
-  recruitment: { weights: { 'trung-trac': 1, 'trung-nhi': 1, 'le-chan': 1 }, duplicateShards: 10, pulls: { one: 1, ten: 10 } },
+  recruitment: { weights: { 'trung-trac': 1, 'trung-nhi': 1, 'le-chan': 1, 'ba-trieu': 1, 'trieu-quoc-dat': 1, 'dinh-boi': 1 }, duplicateShards: 10, pulls: { one: 1, ten: 10 } },
   stars: { shardCosts: { 2: 10, 3: 25, 4: 50, 5: 100 }, max: 5, flatGrowth: { 1: {}, 2: { hp: 100, atk: 10, range: 1, attackSpeed: 1, crit: 1, critDamage: 5 }, 3: { hp: 250, atk: 25, range: 2, attackSpeed: 2, crit: 2, critDamage: 10 }, 4: { hp: 500, atk: 50, range: 3, attackSpeed: 3, crit: 3, critDamage: 20 }, 5: { hp: 900, atk: 90, range: 4, attackSpeed: 4, crit: 5, critDamage: 35 } } },
   evolution: { anhHonCosts: { rebirth: 100, reincarnation: 250, legendary: 500 }, materialId: 'anh-hon' },
   activePlay: { knbPerInterval: 1, intervalMs: 60_000 },
@@ -36,4 +46,12 @@ export const balanceV1 = {
 } as const
 
 type Widen<T> = T extends number ? number : T extends boolean ? boolean : T extends readonly unknown[] ? T : { [K in keyof T]: Widen<T[K]> }
-export type BalanceV1 = Widen<typeof balanceV1>
+type BalanceV1Shape = Widen<typeof balanceV1>
+export type BalanceV1 = Omit<BalanceV1Shape, 'rewardSources' | 'recruitment' | 'gacha'> & {
+  rewardSources: {
+    enemyKillGold: Readonly<Record<string, number>>
+    stageClear: { prototypeStage: { gold: number; knb: number; anhHon: number }; baTrieu?: Readonly<Record<string, { gold: number; knb: number; anhHon?: number }>> }
+  }
+  recruitment: Omit<BalanceV1Shape['recruitment'], 'weights'> & { weights: Readonly<Record<string, number>> }
+  gacha: Omit<BalanceV1Shape['gacha'], 'weights'> & { weights: Readonly<Record<string, number>> }
+}

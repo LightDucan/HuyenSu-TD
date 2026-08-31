@@ -9,6 +9,7 @@ export function isStageUnlocked(chapter: CampaignChapterDefinition, progress: Ca
   return isChapterUnlocked(chapter, progress) && index >= 0 && (index === 0 || isStageCompleted(progress, chapter.stages[index - 1].id))
 }
 export function selectStageProgress(chapter: CampaignChapterDefinition, progress: CampaignProgressState, stageId: string): StageAvailability {
+  if (!isChapterUnlocked(chapter, progress)) return 'locked'
   if (isStageCompleted(progress, stageId)) return 'completed'
   return isStageUnlocked(chapter, progress, stageId) ? 'available' : 'locked'
 }

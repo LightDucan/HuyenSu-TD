@@ -9,14 +9,14 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 ## WorkTree
 
 - Repository: `HuyenSu-TD`
-- Branch hiện tại: `codex/game-c05-ba-trieu-production`
+- Branch hiện tại: `codex/game-c06-ba-trieu-roster-rewards`
 - Worktree Codex hiện tại: `C:\Users\PC\Documents\Codex\2026-08-23\referenced-chatgpt-conversation-this-is-an\work\m10-c01-main`
 - Quy tắc worker Antigravity: [ANTIGRAVITY_RULES.md](ANTIGRAVITY_RULES.md)
 
 ## Trạng thái hiện tại
 
-- Current Phase: **BÀ TRIỆU PRODUCTION CHAPTER FOUNDATION**
-- Current Codex task: **GAME-C05 — Bà Triệu Production Chapter Foundation** — branch `codex/game-c05-ba-trieu-production`.
+- Current Phase: **BÀ TRIỆU PRODUCTION IDENTITY COMPLETION**
+- Current Codex task: **GAME-C06 — Bà Triệu Roster, Reward & Production Identity Completion** — branch `codex/game-c06-ba-trieu-roster-rewards`.
 - Current Antigravity task: **NONE — awaiting an explicitly assigned task**.
 - QA-C01A: **ENVIRONMENT-BLOCKED interactive portion**; automated regression PASS; manual QA debt retained.
 - VS-HBT-V02B: **CODE/BINARY AUDIT PASS; MANUAL VISUAL QA PASS ENOUGH TO CONTINUE**; real HBT Hero assets 12/12 integrated.
@@ -30,7 +30,8 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 - Known debt: **Equipment Runtime/UI Effect Integration** — equipping Weapon/Gem may not visibly change Hero stats/effects; explicitly out of scope for VIS-HUD-01.
 - GAME-C04: **DONE — waiting audit**; generic catalog registry, safe chapter/stage selection, strict Meta V6 campaignProgress boundary, production HBT catalog only.
 - GAME-C05: **DONE — waiting audit**; production catalog có Hai Bà Trưng → Bà Triệu 248, prerequisite stage tổng quát, 6 stage Bà Triệu structurally playable và Vietnamese Chapter status.
-- Lần kiểm tra gần nhất: GAME-C05 — 33 test files/219 tests PASS, production build PASS, diff-check PASS.
+- GAME-C06: **DONE — waiting audit**; roster Bà Triệu tách khỏi HBT, recruitable qua hệ hiện có, production reward config, generic visual fallback và prerequisite hardening.
+- Lần kiểm tra gần nhất: GAME-C06 — 34 test files/227 tests PASS, production build PASS, diff-check PASS.
 
 ## Phases và checkpoint
 
@@ -98,6 +99,7 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 |---|---|---|---|---|---|
 | GAME-C04 | Multi-Chapter Campaign Catalog & Navigation; production catalog giữ duy nhất chapter Hai Bà Trưng, fixture 2 chapter chỉ dùng test | DONE — waiting audit | Codex | Catalog ID validation, safe selection fallback, strict Meta V6, chapter navigation, Reward + Campaign bridge integration — PASS; manual browser smoke debt retained | pending |
 | GAME-C05 | Bà Triệu 248 production Chapter, 6 stage và chronological prerequisite sau stage cuối Hai Bà Trưng | DONE — waiting audit | Codex | Catalog order/unique IDs, prerequisite, replay, zero-playable, Vietnamese status, full regression — PASS | pending |
+| GAME-C06 | Hoàn thiện production roster/recruitment/reward/visual identity cho Bà Triệu và harden corrupted prerequisite state | DONE — waiting audit | Codex | Starter-vs-production, recruit determinism, chapter Hero boundaries, Wu/Stage rewards, idempotency, fallback và prerequisite restore — PASS | pending |
 
 ## Quy tắc cập nhật
 

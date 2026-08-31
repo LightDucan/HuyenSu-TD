@@ -2,7 +2,7 @@ import { enemyDefinitions } from '../enemies/definitions'
 import { baTrieuMaps } from '../maps/baTrieuMaps'
 import { baTrieuStageWaves } from '../waves/baTrieuWaves'
 import { HAI_BA_TRUNG_STAGE_ID } from './haiBaTrungCampaign'
-import { ACTIVE_HERO_IDS } from '../heroes/definitions'
+import { BA_TRIEU_HERO_IDS } from '../heroes/definitions'
 import type { BattleStageDefinition, CampaignChapterDefinition } from './definitions'
 
 export const BA_TRIEU_CHAPTER_ID = 'chapter-ba-trieu-248'
@@ -12,8 +12,7 @@ export const BA_TRIEU_HERO_PROVENANCE = {
   'Triệu Quốc Đạt': 'CONDITIONAL — later/local historiographical tradition (T3)',
   'Đinh Bôi': 'CONDITIONAL — local Đinh tradition at Bồ Điền (T3)',
 } as const
-/** Temporary playable placeholders until the Bà Triệu roster and art receive their own audited production task. */
-export const BA_TRIEU_HERO_IDS = ACTIVE_HERO_IDS
+export { BA_TRIEU_HERO_IDS }
 const enemyDefinitionIds = ['wu-sword-infantry', 'wu-crossbow-soldier', 'wu-armored-guard', 'wu-field-commander'] as const
 const stageNames = ['Tụ Nghĩa Núi Nưa', 'Công Phá Thành Ấp', 'Bến Sông Mã', 'Lập Lũy Bồ Điền', 'Đại Chiến Bồ Điền', 'Khúc Ca Núi Tùng'] as const
 const confidence = ['LOCAL TRADITION / RECONSTRUCTION', 'GENERAL CITY ATTACK SUPPORTED; SPECIFIC TƯ PHỐ BATTLE RECONSTRUCTED', 'COMPOSITE RECONSTRUCTION', 'LOCAL TRADITION / RECONSTRUCTION', 'COMPOSITE RECONSTRUCTION', 'LOCAL TRADITION / RECONSTRUCTION'] as const

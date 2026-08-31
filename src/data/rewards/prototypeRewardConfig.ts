@@ -8,9 +8,23 @@ export type RewardBalanceDraft = Readonly<{
 }>
 
 export const haiBaTrungRewardBalance: RewardBalanceDraft = {
-  enemyKillGold: balanceV1.rewardSources.enemyKillGold,
+  enemyKillGold: Object.fromEntries(Object.entries(balanceV1.rewardSources.enemyKillGold).filter(([id]) => id.startsWith('han-') || id === 'boss-ma-vien')),
   stageClear: { 'hbt-lang-bac-stage-01': balanceV1.rewardSources.stageClear.prototypeStage },
   activePlayTime: { intervalMs: balanceV1.activePlay.intervalMs, knbPerInterval: balanceV1.activePlay.knbPerInterval },
+}
+
+export const productionRewardBalance: RewardBalanceDraft = {
+  enemyKillGold: balanceV1.rewardSources.enemyKillGold,
+  stageClear: { ...haiBaTrungRewardBalance.stageClear, ...balanceV1.rewardSources.stageClear.baTrieu },
+  activePlayTime: haiBaTrungRewardBalance.activePlayTime,
+}
+
+export function createProductionRewardConfig(hiddenTabPolicy: HiddenTabPolicy): RewardSourceConfig {
+  return {
+    enemyKill: { goldByEnemyId: productionRewardBalance.enemyKillGold },
+    stageClear: { rewardByStageId: productionRewardBalance.stageClear },
+    activePlayTime: { ...productionRewardBalance.activePlayTime, hiddenTabPolicy },
+  }
 }
 
 export function createHaiBaTrungRewardConfig(hiddenTabPolicy: HiddenTabPolicy): RewardSourceConfig {
@@ -22,5 +36,5 @@ export function createHaiBaTrungRewardConfig(hiddenTabPolicy: HiddenTabPolicy): 
 }
 
 export const prototypeRewardBalance = haiBaTrungRewardBalance
-export const createPrototypeRewardConfig = createHaiBaTrungRewardConfig
+export const createPrototypeRewardConfig = createProductionRewardConfig
 export const haiBaTrungRewardConfig = createHaiBaTrungRewardConfig

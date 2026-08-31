@@ -3,7 +3,7 @@
 **Tài liệu**: `docs/drafts/viet-su/ba-trieu-248/historical-guardrails.md`
 **Chương Lịch Sử**: `ARC-BT-01: Bà Triệu — Khởi Nghĩa Núi Nưa` (Working Title)
 **Đối tượng áp dụng**: Đội ngũ Biên Kịch Narrative, Kỹ sư Lập trình Codex, và Pipeline Tạo Asset / Visual Prompt
-**Trạng thái**: Mandatory Production Guidelines & Historical Guardrails (Re-Audited)
+**Trạng thái**: Mandatory Production Guidelines & Historical Guardrails (Final Source Lock)
 
 ---
 
@@ -11,7 +11,7 @@
 
 ### 1.1. Biên Niên Khởi Nghĩa: Năm 248 SCN (Thế Kỷ III SCN)
 * **Thời gian chuẩn tắc**: Năm Mậu Thìn (248 SCN) — tương ứng năm Xích Ô thứ 11 đời Ngô chủ Tôn Quyền thời Tam Quốc.
-* **Thời lượng kháng chiến**: Diễn ra trọn vẹn trong năm 248 SCN (từ lúc dấy binh công hãm thành ấp đến khi bị Lục Dận bình định vào cuối năm).
+* **Thời lượng kháng chiến**: Diễn ra trọn vẹn trong năm 248 SCN (từ lúc dấy binh công hãm thành ấp đến khi bị Lục Dận bình định).
 * > [!IMPORTANT]
   > **RÀNG BUỘC KỊCH BẢN**: Mọi diễn biến chính của chương đều diễn ra trong năm 248 SCN; không kéo dài sang các năm sau hoặc nhầm lẫn với các cuộc khởi nghĩa khác.
 
@@ -26,12 +26,12 @@
 ---
 
 ### 1.3. Kết Cục Lịch Sử Của Hai Phe (Historically Safe Outcomes)
-* **Bà Triệu**: Cuộc khởi nghĩa bị dập tắt vào cuối năm 248; truyền thống quốc sử và dã sử (T2/T3) ghi nhận Bà Triệu anh dũng tuẫn tiết tại núi Tùng (Hậu Lộc, Thanh Hóa).
+* **Bà Triệu**: Cuộc khởi nghĩa bị dập tắt trong năm 248 (*Tam Quốc Chí* T1). *Toàn Thư* (T2) chép Triệu Ẩu tử trận. Chi tiết Bà Triệu **tuẫn tiết tại Núi Tùng** thuộc tầng **Dã sử & Truyền thống địa phương (T3)**.
 * **Lục Dận (Lu Yin)**: Sống sót sau chiến dịch, bình định Giao Châu thành công và được phong chức **An Nam tướng quân** (*Tam Quốc Chí* Q61).
 * > [!WARNING]
   > **TUYỆT ĐỐI CẤM (WHAT MUST NOT BE DEPICTED)**:
   > 1. Không sáng tác kịch bản "Bà Triệu giết chết Lục Dận và đánh bại hoàn toàn nước Đông Ngô" làm sai lệch sự thật lịch sử.
-  > 2. Màn chơi cuối cùng phải được dàn dựng dưới hình thức **Khúc Ca Bi Tráng / Last Stand**, tôn vinh tinh thần bất khuất tuẫn tiết giữ trọn khí phách của Nữ chủ soái.
+  > 2. Màn chơi cuối cùng phải được dàn dựng dưới hình thức **Khúc Ca Bi Tráng / Last Stand**, tôn vinh tinh thần bất khuất tuẫn tiết giữ trọn khí phách của Nữ chủ soái theo truyền thống dân tộc.
 
 ---
 

@@ -2,7 +2,7 @@
 
 **Tài liệu**: `docs/drafts/viet-su/ba-trieu-248/hero-candidates.md`
 **Chương Lịch Sử**: `ARC-BT-01: Bà Triệu — Khởi Nghĩa Núi Nưa` (Working Title)
-**Trạng thái**: Historical Evaluation & Character Suitability (CORE 1 + CONDITIONAL CANDIDATES)
+**Trạng thái**: Historical Evaluation & Character Suitability (CORE 1 + CONDITIONAL CANDIDATES — FINAL SOURCE LOCK)
 
 ---
 
@@ -35,7 +35,8 @@
 * **Chứng cứ nguồn sử liệu**:
   - **T1 (*Tam Quốc Chí* Q47 & Q61)**: Xác nhận sự kiện phong trào nổi dậy năm 248 tại Giao Chỉ, Cửu Chân.
   - **Nguồn thứ cấp gần thời (Near-Source — *Giao Châu ký*, *Nam Việt chí*)**: Ghi chép về nhân vật Triệu Ẩu cưỡi voi đánh trận.
-  - **T2 (*Toàn Thư*, *Cương Mục*)**: Quốc sử Việt Nam ca ngợi tài năng và khí phách độc lập của nữ anh hùng.
+  - **T2 (*Toàn Thư*, *Cương Mục*)**: Quốc sử Việt Nam ca ngợi tài năng và khí phách độc lập của nữ anh hùng; chép sự kiện tử trận khi phong trào bị dẹp yên.
+  - **T3 (Thần tích Núi Tùng)**: Chi tiết tuẫn tiết tại Núi Tùng thuộc tầng truyền thuyết dân gian T3.
 * **Tính thích hợp cho Hero**: Nhân vật trung tâm lịch sử bắt buộc phải có của toàn bộ chương `ARC-BT-01`. Hình tượng nữ chủ soái cưỡi voi chiến oai phong là biểu tượng thị giác độc đáo bậc nhất.
 * **Lưu ý học thuật**: Loại bỏ các yếu tố thần thoại hóa miệt thị của phương Bắc (ngực dài ba thước), giữ nguyên hình tượng nữ tướng dũng cảm kiên cường.
 

@@ -14,17 +14,17 @@ Tập tài liệu này xây dựng nền tảng tư liệu lịch sử chuẩn m
 ### 1.1. Nguyên Tắc Cốt Lõi (Core Principles):
 1. **Nghiêm Ngặt Phân Tầng Nguồn Sử Liệu**: Duy trì hệ thống phân tầng nguồn học thuật (**T1 / NEAR-SOURCE / T2 / T3 / T4**); mọi nhân vật, sự kiện, câu nói và địa danh đều được gắn nhãn độ tin cậy.
 2. **Khảo Cứu Thực Chứng Thư Tịch Sơ Cấp (*Tam Quốc Chí*)**:
-   - *Tam Quốc Chí* (T1) ghi nhận năm Xích Ô thứ 11 (248 SCN), nghĩa quân Giao Chỉ, Cửu Chân công hãm thành ấp, toàn cõi tao loạn; Tôn Quyền cử Lục Dận sang bình định. Đoạn văn này **không ghi trực tiếp tên Bà Triệu / Triệu Ẩu**.
+   - *Tam Quốc Chí* (T1) ghi nhận vào năm Xích Ô thứ 11 (248 SCN), các lực lượng nổi dậy ở cả hai quận Giao Chỉ và Cửu Chân công hãm thành ấp, toàn cõi Giao Châu tao loạn; Tôn Quyền cử Lục Dận sang bình định. Đoạn văn này **không chép đích danh tên Bà Triệu / Triệu Ẩu** và không ghi nhận một lộ trình tiến quân định hướng từ Cửu Chân ra Giao Chỉ.
    - Danh xưng "Triệu Ẩu" cùng hình tượng cưỡi voi đánh trận xuất hiện trong các nguồn thứ cấp gần thời (Near-Source) thời Tấn – Lưu Tống (*Giao Châu ký*, *Nam Việt chí*) và chính sử trung đại Việt Nam (*Toàn Thư*, *Cương Mục*).
 3. **Phân Định Ranh Giới Lịch Sử Thực Chứng vs Dã Sử & Truyền Thuyết Địa Phương**:
-   - Tên gọi *Triệu Thị Trinh*, anh trai *Triệu Quốc Đạt*, và câu nói nổi tiếng *"Tôi muốn cưỡi cơn gió mạnh..."* gắn liền với các công trình địa chí, thần tích địa phương thời muộn (như *Thanh Hóa kỷ thắng*, thần phả đền miếu). Đây là các biểu tượng văn hóa quý giá được khuyến nghị cho kịch bản narrative nhưng không gán nhãn là văn bản xác thực thế kỷ III.
-   - Thần thoại hóa thân thể (ngực dài ba thước ghi trong *Giao Châu ký*) là cái nhìn dị biệt của sử liệu phương Bắc thời Tấn, tuyệt đối bị loại bỏ khỏi mỹ thuật và kịch bản game.
+   - Tên gọi *Triệu Thị Trinh*, anh trai *Triệu Quốc Đạt*, căn cứ *Núi Nưa*, *Bồ Điền*, và câu nói nổi tiếng *"Tôi muốn cưỡi cơn gió mạnh..."* gắn liền với các công trình địa chí, thần tích địa phương thời muộn (như *Thanh Hóa kỷ thắng*, thần phả đền miếu). Đây là các biểu tượng văn hóa quý giá được khuyến nghị cho kịch bản narrative nhưng không gán nhãn là văn bản xác thực thế kỷ III.
+   - Cái chết của Bà Triệu: *Toàn Thư* (T2) chỉ ghi nhận việc dẹp yên và Triệu Ẩu tử trận. Chi tiết **tuẫn tiết tại Núi Tùng** thuộc tầng **Dã sử & Truyền thống địa phương (T3)**.
 4. **Hiệu Chỉnh Chuẩn Xác Về Tướng Đông Ngô Lục Dận (Lu Yin)**:
    - Lục Dận (tự Kính Tông) là tộc tử (con cháu trong họ / tộc nhân, em họ Lục Khải) của Thừa tướng Lục Tốn, không phải cháu ruột trực hệ.
-   - Lục Dận giữ chức Giao Châu thứ sử kiêm An Nam hiệu úy, sau khi dẹp yên được gia phong **An Nam tướng quân** (không phải Bình Nam tướng quân).
-   - Con số 8.000 quân trong *Lục Dận truyện* là số quân do Lục Dận chiêu mộ / thu nạp và điều động trong suốt quá trình bình định, **không phải quân số của một đạo quân viễn chinh ban đầu**.
+   - Lục Dận giữ chức Giao Châu thứ sử kiêm An Nam hiệu úy, sau khi bình định Giao Châu được phong **An Nam tướng quân**.
+   - Con số hơn 8.000 quân được *Tam Quốc Chí* (Q61) chép trong các hoạt động mộ quân / điều động mở rộng sau này của Lục Dận, **không phải là quy mô đạo quân viễn chinh đánh Bà Triệu / Cửu Chân**.
 5. **Ngôn Từ Kết Cục An Toàn & Độc Lập Với Runtime Game**:
-   - Ghi nhận việc cuộc khởi nghĩa bị dẹp yên vào cuối năm 248 và truyền thuyết Bà Triệu tuẫn tiết tại núi Tùng. Không bịa đặt chiến thắng quân sự hay cái chết của Lục Dận.
+   - Ghi nhận việc cuộc khởi nghĩa bị dẹp yên trong năm 248. Không bịa đặt chiến thắng quân sự hay cái chết của Lục Dận.
    - Không can thiệp mã nguồn trò chơi (`src/**`), không chỉnh sửa test suite, không sửa đổi `PROJECT_PLAN.md` hay `task-board.md`.
 
 ---

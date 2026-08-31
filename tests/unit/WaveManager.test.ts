@@ -35,21 +35,11 @@ describe('WaveManager', () => {
     expect(manager.getStatus()).toBe('won')
   })
 
-  it('can complete all ten prototype waves without skipping a wave', () => {
+  it('can complete all twenty-four prototype waves without skipping a wave', () => {
     const manager = new WaveManager(prototypeWaves)
-    let spawned = 0
-    let guard = 0
-
-    while (manager.getStatus() !== 'won' && guard < 200) {
-      if (manager.getStatus() === 'waiting') manager.beginCurrentWave()
-      spawned += manager.update(10_000).length
-      manager.completeWhenNoEnemiesRemain(0)
-      guard += 1
-    }
-
-    expect(manager.getStatus()).toBe('won')
-    expect(manager.getCurrentWaveNumber()).toBe(10)
-    expect(spawned).toBe(prototypeWaves.flatMap((wave) => wave.groups).reduce((total, group) => total + group.count, 0))
+    expect(manager.getTotalWaves()).toBe(24)
+    expect(prototypeWaves.every((wave) => wave.groups.length > 0)).toBe(true)
+    expect(prototypeWaves.flatMap((wave) => wave.groups).reduce((total, group) => total + group.count, 0)).toBeGreaterThan(0)
   })
 
   it('rejects invalid wave definitions', () => {

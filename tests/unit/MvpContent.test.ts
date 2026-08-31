@@ -21,7 +21,7 @@ describe('MVP content', () => {
 
   it('contains exactly three referenced enemy types and ten waves', () => {
     expect(['han-sword-infantry', 'han-crossbow-soldier', 'han-armored-guard', 'boss-ma-vien'].every((id) => enemyDefinitions[id])).toBe(true)
-    expect(prototypeWaves).toHaveLength(10)
+    expect(prototypeWaves).toHaveLength(24)
     prototypeWaves.forEach((wave) => {
       expect(wave.groups.length).toBeGreaterThan(0)
       wave.groups.forEach((group) => expect(enemyDefinitions[group.enemyId]).toBeDefined())

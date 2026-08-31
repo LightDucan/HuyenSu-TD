@@ -1,6 +1,7 @@
 import type { HeroDefinition } from '../heroes/definitions'
 import type { WaveDefinition } from '../waves/prototypeWaves'
 import type { BattleMapDefinition } from '../maps/MapDefinition'
+export type StageNarrativeDefinition = Readonly<{ preBattle: string; waveBeats: readonly Readonly<{ wave: number; text: string }>[]; victory: string; defeat: string }>
 
 export type BattleStageDefinition = Readonly<{
   id: string
@@ -11,6 +12,8 @@ export type BattleStageDefinition = Readonly<{
   enemyDefinitionIds: readonly string[]
   historicalConfidence?: string
   narrativeOutcome?: string
+  narrative?: StageNarrativeDefinition
+  firstClearReward?: Readonly<{ gold: number; knb: number; anhHon: number }>
 }>
 
 export type CampaignChapterDefinition = Readonly<{

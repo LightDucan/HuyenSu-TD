@@ -153,9 +153,9 @@ describe('VS-HBT-C01 runtime content pack', () => {
       { maxHp: 145, moveSpeed: 36, cityDamage: 2 }, { maxHp: 1200, moveSpeed: 38, cityDamage: 10 },
     ])
     ids.forEach((id) => expect('def' in enemyDefinitions[id]).toBe(false))
-    expect(prototypeWaves).toHaveLength(10)
+    expect(prototypeWaves).toHaveLength(24)
     prototypeWaves.flatMap((wave) => wave.groups).forEach((group) => expect(enemyDefinitions[group.enemyId]).toBeDefined())
-    expect(prototypeWaves[9].groups.filter(({ enemyId }) => enemyId === 'boss-ma-vien')).toEqual([expect.objectContaining({ count: 1 })])
+    expect(prototypeWaves[23].groups.filter(({ enemyId }) => enemyId === 'boss-ma-vien')).toEqual([expect.objectContaining({ count: 1 })])
     expect(ids.map((id) => balanceV1.rewardSources.enemyKillGold[id])).toEqual([1, 1, 2, 2])
   })
 })

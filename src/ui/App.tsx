@@ -30,6 +30,7 @@ import { getBrowserDeploymentCapacityRuntime } from '../runtime/DeploymentCapaci
 import { battleInstruction, moveIntentForHero, placementIntentForHero } from '../game/bridge/BattleInteractionContract'
 import { canApplyEquipmentOperationForScreen, isEquipmentInteractionLocked, selectMetaTab, type MetaTab } from './MetaTabState'
 import { selectStageOnboardingHint } from './StageOnboarding'
+import { shouldShowPreBattleNarrative } from './StageNarrative'
 import { transitionPlayerJourney, type PlayerJourneyScreen } from './PlayerJourneyState'
 import { selectSafeStage, selectStageProgress } from '../domain/campaign/CampaignProgression'
 
@@ -41,6 +42,7 @@ export function App() {
   const [selectedChapterId, setSelectedChapterId] = useState(productionCampaignCatalog.chapters[0].id)
   const [selectedStageId, setSelectedStageId] = useState(defaultBattleStage.id)
   const [screen, setScreen] = useState<PlayerJourneyScreen>('city')
+  const [preBattlePending, setPreBattlePending] = useState(false)
   const [commandEnergy, setCommandEnergy] = useState<CommandEnergySnapshot>(() => battleBridge.getCommandEnergySnapshot())
   const [autoWaveEnabled, setAutoWaveEnabled] = useState(() => battleBridge.isAutoWaveEnabled())
   const [deploymentCapacity, setDeploymentCapacity] = useState<DeploymentCapacitySnapshot>(() => battleBridge.getDeploymentCapacitySnapshot())
@@ -240,6 +242,12 @@ export function App() {
 
   const handleEnterBattle = () => {
     if (!selectedStage || selectStageProgress(selectedChapter, metaSave.data.campaignProgress, selectedStage.id) === 'locked' || playableIds.length === 0) return
+    if (shouldShowPreBattleNarrative(!metaSave.data.campaignProgress.completedStages[selectedStage.id], selectedStage.narrative)) { setPreBattlePending(true); return }
+    prepareBattleEntry()
+  }
+
+  const prepareBattleEntry = () => {
+    if (!selectedStage) return
     battleBridge.clearPlacementIntent()
     const preferredHeroId = new Set(playableIds).has(battleBridge.getSelectedHeroId()) ? battleBridge.getSelectedHeroId() : playableIds[0]
     if (preferredHeroId) battleBridge.setSelectedHeroId(preferredHeroId)
@@ -293,7 +301,7 @@ export function App() {
         <span className="eyebrow">{selectedChapter.displayName}</span>
         {selectedStage ? <><h2>{selectedStage.displayName}</h2><p>{selectedStage.waves.length} Wave · {selectedStage.allowedHeroIds.length} tướng khả dụng</p></> : <p role="status">Chương này chưa mở hoặc chưa có màn chơi phù hợp với đội hình hiện tại.</p>}
         <div className="stage-options" aria-label="Chọn màn">{selectedChapter.stages.map((stage) => { const status = selectStageProgress(selectedChapter, metaSave.data.campaignProgress, stage.id); return <button key={stage.id} type="button" className={stage.id === selectedStage?.id ? 'selected' : ''} disabled={status === 'locked'} onClick={() => setSelectedStageId(stage.id)}>{stage.displayName} — {status === 'completed' ? 'Đã hoàn thành' : status === 'locked' ? 'Chưa mở' : 'Sẵn sàng'}</button> })}</div>
-        <button type="button" className="btn-primary" disabled={!selectedStage || playableIds.length === 0} onClick={handleEnterBattle}>VÀO TRẬN</button>{selectedStage && playableIds.length === 0 && <p role="status">Màn này chưa có tướng khả dụng.</p>}
+        {preBattlePending && selectedStage?.narrative ? <div className="pre-battle-card"><p>{selectedStage.narrative.preBattle}</p><button type="button" className="btn-primary" onClick={() => { setPreBattlePending(false); prepareBattleEntry() }}>BẮT ĐẦU TRẬN</button></div> : <button type="button" className="btn-primary" disabled={!selectedStage || playableIds.length === 0} onClick={handleEnterBattle}>VÀO TRẬN</button>}{selectedStage && playableIds.length === 0 && <p role="status">Màn này chưa có tướng khả dụng.</p>}
       </section>
     </main>
   )

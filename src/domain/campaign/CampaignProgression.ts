@@ -3,9 +3,10 @@ import type { CampaignProgressState } from '../meta/MetaState'
 
 export type StageAvailability = 'locked' | 'available' | 'completed'
 export function isStageCompleted(progress: CampaignProgressState, stageId: string): boolean { return Boolean(progress.completedStages[stageId]) }
+export function isChapterUnlocked(chapter: CampaignChapterDefinition, progress: CampaignProgressState): boolean { return !chapter.prerequisiteStageId || isStageCompleted(progress, chapter.prerequisiteStageId) }
 export function isStageUnlocked(chapter: CampaignChapterDefinition, progress: CampaignProgressState, stageId: string): boolean {
   const index = chapter.stages.findIndex((stage) => stage.id === stageId)
-  return index >= 0 && (index === 0 || isStageCompleted(progress, chapter.stages[index - 1].id))
+  return isChapterUnlocked(chapter, progress) && index >= 0 && (index === 0 || isStageCompleted(progress, chapter.stages[index - 1].id))
 }
 export function selectStageProgress(chapter: CampaignChapterDefinition, progress: CampaignProgressState, stageId: string): StageAvailability {
   if (isStageCompleted(progress, stageId)) return 'completed'

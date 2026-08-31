@@ -9,10 +9,16 @@ export type BattleStageDefinition = Readonly<{
   waves: readonly WaveDefinition[]
   allowedHeroIds: readonly HeroDefinition['id'][]
   enemyDefinitionIds: readonly string[]
+  historicalConfidence?: string
+  narrativeOutcome?: string
 }>
 
 export type CampaignChapterDefinition = Readonly<{
   id: string
   displayName: string
+  historicalArcId?: string
+  periodLabel?: string
+  enemyFaction?: string
+  prerequisiteStageId?: string
   stages: readonly BattleStageDefinition[]
 }>

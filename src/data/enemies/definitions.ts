@@ -24,4 +24,8 @@ export const enemyDefinitions: Record<string, EnemyDefinition> = {
   'yellow-turban-brute': {
     id: 'yellow-turban-brute', name: 'Khăn Vàng Lực Sĩ', category: 'other', maxHp: 130, moveSpeed: 38, cityDamage: 2, color: 0xf97316,
   },
+  'wu-sword-infantry': { id: 'wu-sword-infantry', name: 'Đông Ngô Đao Binh', category: 'sword', maxHp: 92, moveSpeed: 49, cityDamage: 1, color: 0xb45309 },
+  'wu-crossbow-soldier': { id: 'wu-crossbow-soldier', name: 'Đông Ngô Nỏ Thủ', category: 'archer', maxHp: 66, moveSpeed: 61, cityDamage: 1, color: 0x7c2d12 },
+  'wu-armored-guard': { id: 'wu-armored-guard', name: 'Đông Ngô Giáp Binh', category: 'other', maxHp: 165, moveSpeed: 35, cityDamage: 2, color: 0x57534e },
+  'wu-field-commander': { id: 'wu-field-commander', name: 'Đông Ngô Đốc Chiến Quan', category: 'other', maxHp: 950, moveSpeed: 37, cityDamage: 8, color: 0x78350f },
 }

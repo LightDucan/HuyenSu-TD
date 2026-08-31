@@ -30,7 +30,7 @@ import { getBrowserDeploymentCapacityRuntime } from '../runtime/DeploymentCapaci
 import { battleInstruction, moveIntentForHero, placementIntentForHero } from '../game/bridge/BattleInteractionContract'
 import { canApplyEquipmentOperationForScreen, isEquipmentInteractionLocked, selectMetaTab, type MetaTab } from './MetaTabState'
 import { selectStageOnboardingHint } from './StageOnboarding'
-import { shouldShowPreBattleNarrative } from './StageNarrative'
+import { createWaveBeatGate, shouldShowPreBattleNarrative } from './StageNarrative'
 import { transitionPlayerJourney, type PlayerJourneyScreen } from './PlayerJourneyState'
 import { selectSafeStage, selectStageProgress } from '../domain/campaign/CampaignProgression'
 
@@ -43,6 +43,8 @@ export function App() {
   const [selectedStageId, setSelectedStageId] = useState(defaultBattleStage.id)
   const [screen, setScreen] = useState<PlayerJourneyScreen>('city')
   const [preBattlePending, setPreBattlePending] = useState(false)
+  const [waveBeat, setWaveBeat] = useState<string>()
+  const waveBeatGate = useRef(createWaveBeatGate())
   const [commandEnergy, setCommandEnergy] = useState<CommandEnergySnapshot>(() => battleBridge.getCommandEnergySnapshot())
   const [autoWaveEnabled, setAutoWaveEnabled] = useState(() => battleBridge.isAutoWaveEnabled())
   const [deploymentCapacity, setDeploymentCapacity] = useState<DeploymentCapacitySnapshot>(() => battleBridge.getDeploymentCapacitySnapshot())
@@ -117,6 +119,15 @@ export function App() {
   useEffect(() => {
     if (screen === 'battle' && snapshot.battleStatus !== 'running' && !snapshot.runId.startsWith('pending-')) setScreen((current) => transitionPlayerJourney(current, 'battle-complete'))
   }, [screen, snapshot.battleStatus])
+
+  useEffect(() => {
+    if (snapshot.waveStatus !== 'running' || !stateStage.narrative) return
+    const beat = waveBeatGate.current(snapshot.runId, snapshot.wave, snapshot.waveStatus, stateStage.narrative)
+    if (!beat) return
+    setWaveBeat(beat)
+    const timer = window.setTimeout(() => setWaveBeat(undefined), 3000)
+    return () => window.clearTimeout(timer)
+  }, [snapshot.runId, snapshot.wave, snapshot.waveStatus, stateStage])
 
   const setSpeed = (speed: GameSpeed) => battleBridge.setSpeed(speed)
 
@@ -263,6 +274,8 @@ export function App() {
   const handleRetryBattle = () => {
     if (!selectedStage) return
     battleBridge.clearPlacementIntent()
+    waveBeatGate.current = createWaveBeatGate()
+    setWaveBeat(undefined)
     setSnapshot(createInitialBattleSnapshot(selectedStage, playableIds, battleBridge.getSelectedHeroId()))
     setScreen((current) => transitionPlayerJourney(current, 'retry-battle'))
   }
@@ -317,6 +330,7 @@ export function App() {
       <TopCityBar data={hudData} wallet={metaSave.data.wallet.balances} stageDisplayName={stateStage.displayName} />
       <div className="interaction-copy"><p className="hint">{battleInstruction(placementIntent, selectedHeroName, snapshot.placedHeroes.length, deploymentCapacity.effectiveLimit)}</p>{placementMessage && <p className="placement-feedback" role="status">{placementMessage}</p>}</div>
       <section className="game-frame" ref={gameHostRef} aria-label="Battle Scene" />
+      {waveBeat && <div className="wave-beat-overlay" style={{ pointerEvents: 'none' }} role="status">{waveBeat}</div>}
       {onboardingHint && <div className="onboarding-hint" aria-live="polite">{onboardingHint}</div>}
       <section className={`meta-content-region ${activeMetaTab}`} aria-label="Combat HUD" aria-live="polite">
         <nav className="meta-tabs" aria-label="Điều hướng Đội Hình và Hành Trang"><button type="button" className={activeMetaTab === 'roster' ? 'active' : ''} onClick={() => setActiveMetaTab((current) => selectMetaTab(current, 'roster'))}>ĐỘI HÌNH</button><button type="button" className={activeMetaTab === 'inventory' ? 'active' : ''} onClick={() => setActiveMetaTab((current) => selectMetaTab(current, 'inventory'))}>HÀNH TRANG</button></nav>

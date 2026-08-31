@@ -42,6 +42,14 @@ describe('P11-C02 Reward Sources', () => {
     expect(repo.load()).toMatchObject({ status: 'loaded', save: { data: { wallet: { balances: { gold: 50, knb: 3 } } } } })
   })
 
+  it('grants first-clear once, survives replay/reload, and validates configuration', () => {
+    const repo = repository(); const service = new RewardSourceService(repo, { ...config('visible-only'), firstClearByStageId: { chapter1: { gold: 100, knb: 50, anhHon: 100 } } })
+    expect(service.firstClear({ stageId: 'chapter1', committedAtMs: 2_000 }).status).toBe('applied')
+    expect(service.firstClear({ stageId: 'chapter1', committedAtMs: 2_001 }).status).toBe('already-applied')
+    expect(service.firstClear({ stageId: 'unknown', committedAtMs: 2_002 }).status).toBe('not-eligible')
+    expect(() => new RewardSourceService(repo, { ...config('visible-only'), firstClearByStageId: { bad: { gold: 0, knb: 0, anhHon: 0 } } })).toThrow()
+  })
+
   it('uses real wall-clock duration and is independent of Battle GameClock speed', () => {
     const repo = repository(); const service = new RewardSourceService(repo, config('visible-only'))
     service.activePlayTime({ sessionId: 'session-1', claimId: 'window-1', cumulativeVisibleMs: 360_000, cumulativeHiddenMs: 0, committedAtMs: 2_000 })

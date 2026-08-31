@@ -14,7 +14,9 @@ PENDING. No approved binary enemy walk sheets are bundled; runtime must use the 
 
 ## Test gate
 
-PASS — 35 test files, 232 tests.
+PASS — 37 test files, 238 tests.
+
+Closeout patch: pre-battle confirmation, run/wave beat gating and first-clear validation are covered by runtime helpers and regression tests.
 
 ## Manual gate
 

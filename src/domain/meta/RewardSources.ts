@@ -53,6 +53,13 @@ function rewardOperations(reward: StageClearReward): RewardOperation[] {
   if (reward.anhHon !== undefined && reward.anhHon > 0) operations.push({ type: 'grant-consumable', itemId: 'anh-hon', quantity: reward.anhHon })
   return operations
 }
+function validateReward(stageId: string, reward: StageClearReward, label: string): void {
+  assertId(stageId, 'Stage ID')
+  assertNonNegativeSafeInteger(reward.gold, `${label} Gold for ${stageId}`)
+  assertNonNegativeSafeInteger(reward.knb, `${label} KNB for ${stageId}`)
+  if (reward.anhHon !== undefined) assertNonNegativeSafeInteger(reward.anhHon, `${label} Anh Hồn for ${stageId}`)
+  if (reward.gold === 0 && reward.knb === 0 && (reward.anhHon ?? 0) === 0) throw new Error(`${label} for ${stageId} must not be empty`)
+}
 
 export function calculateEligibleWallClockMs(policy: HiddenTabPolicy, visibleMs: number, hiddenMs: number): number {
   assertNonNegativeSafeInteger(visibleMs, 'Visible wall-clock duration')
@@ -76,12 +83,9 @@ export class RewardSourceService {
       assertPositiveSafeInteger(amount, `Enemy kill Gold for ${enemyId}`)
     }
     for (const [stageId, reward] of Object.entries(config.stageClear.rewardByStageId)) {
-      assertId(stageId, 'Stage ID')
-      assertNonNegativeSafeInteger(reward.gold, `Stage clear Gold for ${stageId}`)
-      assertNonNegativeSafeInteger(reward.knb, `Stage clear KNB for ${stageId}`)
-      if (reward.anhHon !== undefined) assertNonNegativeSafeInteger(reward.anhHon, `Stage clear Anh Hồn for ${stageId}`)
-      if (reward.gold === 0 && reward.knb === 0 && (reward.anhHon ?? 0) === 0) throw new Error(`Stage clear reward for ${stageId} must not be empty`)
+      validateReward(stageId, reward, 'Stage clear reward')
     }
+    for (const [stageId, reward] of Object.entries(config.firstClearByStageId ?? {})) validateReward(stageId, reward, 'First-clear reward')
     assertPositiveSafeInteger(config.activePlayTime.knbPerInterval, 'Active play-time KNB per interval')
     assertPositiveSafeInteger(config.activePlayTime.intervalMs, 'Active play-time interval')
   }

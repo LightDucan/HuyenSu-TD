@@ -46,8 +46,15 @@ describe('GAME-C06 Bà Triệu roster and rewards', () => {
     expect(selectSafeStage([baTrieuChapter], BA_TRIEU_STAGE_IDS[0], unlocked, ['ba-trieu'])?.id).toBe(BA_TRIEU_STAGE_IDS[0])
   })
 
-  it('resolves safe no-art production visuals without borrowing HBT assets', () => {
-    BA_TRIEU_HERO_IDS.forEach((heroId) => expect(resolveProductionHeroVisual(heroId)).toMatchObject({ heroId, portraitUrl: undefined, idleUrl: undefined, attackUrl: undefined, vfxUrl: undefined }))
+  it('resolves production visuals for all three Bà Triệu heroes', () => {
+    BA_TRIEU_HERO_IDS.forEach((heroId) => {
+      const visual = resolveProductionHeroVisual(heroId)
+      expect(visual).toBeDefined()
+      expect(visual?.portraitUrl).toBeTruthy()
+      expect(visual?.idleUrl).toBeTruthy()
+      expect(visual?.attackUrl).toBeTruthy()
+      expect(visual?.vfxUrl).toBeTruthy()
+    })
   })
 
   it('covers all Wu enemies and Bà Triệu stages in the production reward config', () => {

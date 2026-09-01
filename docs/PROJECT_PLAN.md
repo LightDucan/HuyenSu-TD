@@ -31,7 +31,7 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 - GAME-C04: **DONE — waiting audit**; generic catalog registry, safe chapter/stage selection, strict Meta V6 campaignProgress boundary, production HBT catalog only.
 - GAME-C05: **DONE — waiting audit**; production catalog có Hai Bà Trưng → Bà Triệu 248, prerequisite stage tổng quát, 6 stage Bà Triệu structurally playable và Vietnamese Chapter status.
 - GAME-C06: **DONE — waiting audit**; roster Bà Triệu tách khỏi HBT, recruitable qua hệ hiện có, production reward config, generic visual fallback và prerequisite hardening.
-- Lần kiểm tra gần nhất: GAME-C09 — 38 test files/249 tests PASS, build/diff-check PASS; Stage 02 contract PASS; manual partial/pending; Hero/Wu art gates pending.
+- Lần kiểm tra gần nhất: GAME-C09-FIX1 — 39 test files/258 tests PASS, build/diff-check PASS; C08 timing/test isolation restored; manual partial/pending; Hero/Wu art gates pending.
 
 ## Phases và checkpoint
 
@@ -103,7 +103,7 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 | GAME-C07 | Hai Bà Trưng Stage 01 full production: story, terrain map, 24-wave onboarding, reward brief và enemy walk contract | **FULL PRODUCTION PASS / LOCKED** | Codex | Code/runtime PASS; 37 files/240 tests PASS; asset PASS; manual PASS | Code `d96ab451`; asset `01b7dd23`; manual `62d75e18` |
 | GAME-C07-FIX1 | Runtime closure: generic terrain, enemy walk resolver, narrative/first-clear runtime và clean verification | DONE — included in locked C07 production gate | Codex | Covered by final C07 code/runtime and manual evidence gates | `d96ab451` |
 | GAME-C08 | Bà Triệu Stage 01 full production: 18 waves, dedicated Núi Nưa map, reconstruction-safe narrative, reward/progression preservation và Wu visual fallback contract | CONDITIONAL PASS — READY_FOR_AUDIT | Codex | CODE/RUNTIME PASS; 38 files/249 tests; build/diff PASS; minimum manual smoke PASS; Hero/Wu assets PENDING | `codex/game-c08-ba-trieu-stage01-full-production` |
-| GAME-C09 | Bà Triệu Stage 02 full production: 20 waves, dedicated Thành Ấp map, reconstruction-safe narrative, reward/progression preservation và Wu visual fallback contract | CONDITIONAL PASS — READY_FOR_AUDIT | Codex | CODE/RUNTIME PASS; 38 files/249 tests; build/diff PASS; manual partial/pending; Hero/Wu assets PENDING | `codex/game-c09-ba-trieu-stage02-full-production` |
+| GAME-C09 | Bà Triệu Stage 02 full production: 20 waves, dedicated Thành Ấp map, reconstruction-safe narrative, reward/progression preservation và Wu visual fallback contract | CONDITIONAL PASS — READY_FOR_AUDIT | Codex | CODE/RUNTIME PASS; 39 files/258 tests; build/diff PASS; C08 timing/test isolation restored; manual partial/pending; Hero/Wu assets PENDING | `codex/game-c09-ba-trieu-stage02-full-production` |
 
 ## Quy tắc cập nhật
 

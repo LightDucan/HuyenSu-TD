@@ -22,11 +22,11 @@
 - Ordinary reward 22 Gold / 1 KNB / 10 Anh Hồn; no new first-clear package: PASS.
 - HBT completion → Stage 01 → Stage 02 → Stage 03 progression: PASS.
 - Wu visual fallback resolver and all HBT visual assets: PASS.
-- C08 Stage 01 18-wave/map/narrative/reward regression: PASS.
+- C08 Stage 01 18-wave/map/narrative/reward and locked first-group timing regression: PASS.
 
 ## Automated verification
 
-- `npm test`: PASS — 38 files / 249 tests.
+- `npm test`: PASS — 39 files / 258 tests.
 - `npm run build`: PASS.
 - `git diff --check`: PASS.
 
@@ -42,7 +42,7 @@ Classification: **PARTIAL / PENDING**. The preview loaded cleanly and the Bà Tr
 ## Final classification
 
 - CODE/RUNTIME: PASS
-- TEST: PASS — 38 files / 249 tests
+- TEST: PASS — 39 files / 258 tests
 - HISTORICAL: PASS
 - HERO ASSET: PENDING
 - WU ENEMY ASSET: PENDING

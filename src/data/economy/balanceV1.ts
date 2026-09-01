@@ -16,7 +16,7 @@ export const balanceV1 = {
         'bt-01-tu-nghia-nui-nua': { gold: 20, knb: 1, anhHon: 10 },
         'bt-02-cong-pha-thanh-ap': { gold: 22, knb: 1, anhHon: 10 },
         'bt-03-ben-song-ma': { gold: 24, knb: 1, anhHon: 10 },
-        'bt-04-lap-luy-bo-dien': { gold: 26, knb: 1, anhHon: 12 },
+        'bt-04-lap-luy-bo-dien': { gold: 26, knb: 1, anhHon: 10 },
         'bt-05-dai-chien-bo-dien': { gold: 30, knb: 2, anhHon: 15 },
         'bt-06-khuc-ca-nui-tung': { gold: 35, knb: 2, anhHon: 20 },
       },

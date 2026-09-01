@@ -1,4 +1,4 @@
-# GAME-C07 audit
+# GAME-C07 — Hai Bà Trưng Stage 01 Final Production Audit
 
 ## Structural data gate
 
@@ -10,7 +10,7 @@ PASS: terrain rendering is generic and visual-only; first-clear rewards are stag
 
 ## Asset gate
 
-PENDING. No approved binary enemy walk sheets are bundled; runtime must use the safe primitive fallback until supplied.
+PASS — approved enemy walk sheets are present on the validated asset checkpoint and resolve through the safe visual boundary.
 
 ## Test gate
 
@@ -20,4 +20,19 @@ Closeout patch: pre-battle confirmation, run/wave beat gating and first-clear va
 
 ## Manual gate
 
-BLOCKED pending a real browser run through all 24 waves. No manual PASS is claimed here.
+PASS — combined real-browser and prior interactive evidence covers City entry, HBT roster, pre-battle, placement, terrain/path, x3/Auto, full 24-wave completion, victory, persistence/reload and completed replay entry. Final evidence checkpoint: `62d75e18`.
+
+## Final gate
+
+CODE/RUNTIME: PASS
+TEST: PASS — 37 files / 240 tests
+ASSET: PASS
+MANUAL: PASS — combined browser + automated/prior interactive evidence
+
+GAME-C07: **FULL PRODUCTION PASS / LOCKED**
+
+Checkpoints:
+
+- Code/runtime: `d96ab451`
+- Asset: `01b7dd23`
+- Final manual evidence: `62d75e18`

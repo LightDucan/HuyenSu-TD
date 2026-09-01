@@ -23,9 +23,23 @@ const outcomes = [
   'Last Stand: giữ gìn di sản kháng chiến; cuộc khởi nghĩa bị dập tắt năm 248. Núi Tùng/tuẫn tiết là truyền thống địa phương.',
 ] as const
 
+export const BA_TRIEU_STAGE01_HISTORICAL_CONFIDENCE = 'LOCAL TRADITION / RECONSTRUCTION' as const
+const stage01Narrative = {
+  preBattle: 'Production Reconstruction — Theo truyền thống địa phương về Núi Nưa, nghĩa quân đang tụ hội tại vùng Cửu Chân. Quân Đông Ngô gây sức ép tới gần; hãy giữ vị trí tập hợp để cuộc khởi nghĩa có thể lan rộng.',
+  waveBeats: [
+    { wave: 1, text: 'Tiếp xúc đầu tiên — nghĩa quân giữ vững đội hình!' },
+    { wave: 6, text: 'Nỏ thủ và giáp binh đang ép vào các điểm yếu.' },
+    { wave: 12, text: 'Sức ép Đông Ngô tăng mạnh — giữ chặt tuyến giữa!' },
+    { wave: 18, text: 'Đội trấn áp cuối cùng cùng đốc chiến quan đang tiến vào!' },
+  ],
+  victory: 'Đợt trấn áp trước mắt đã bị đẩy lùi. Nghĩa quân có thêm thời gian mở rộng lực lượng, nhưng cuộc kháng chiến chống Đông Ngô vẫn tiếp diễn.',
+  defeat: 'Vị trí tập hợp đã mất và đội hình bị phá vỡ. Hãy bố trí lại lực lượng để giành lại căn cứ.',
+} as const
+
 const stages: readonly BattleStageDefinition[] = BA_TRIEU_STAGE_IDS.map((id, index) => ({
   id, displayName: stageNames[index], map: baTrieuMaps[index], waves: baTrieuStageWaves[index],
   allowedHeroIds: BA_TRIEU_HERO_IDS, enemyDefinitionIds, historicalConfidence: confidence[index], narrativeOutcome: outcomes[index],
+  ...(index === 0 ? { narrative: stage01Narrative } : {}),
 }))
 
 export const baTrieuChapter = {

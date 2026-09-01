@@ -23,7 +23,7 @@ import { getBrowserEconomyRuntime } from '../runtime/EconomyRuntime'
 import { CONSUMABLE_ITEM_IDS } from '../data/items/definitions'
 import { getBrowserHeroMetaRuntime } from '../runtime/HeroMetaRuntime'
 import { selectPlayableOwnedHeroIds } from '../domain/meta/HeroRecruitment'
-import { defaultBattleStage } from '../data/campaign/haiBaTrungCampaign'
+import { defaultBattleStage, HAI_BA_TRUNG_STAGE_ID } from '../data/campaign/haiBaTrungCampaign'
 import { formatChapterStatusVi, productionCampaignCatalog, selectChapterStatus } from '../data/campaign/catalog'
 import { createInitialBattleSnapshot } from '../game/bridge/BattleSnapshot'
 import { getBrowserDeploymentCapacityRuntime } from '../runtime/DeploymentCapacityRuntime'
@@ -76,7 +76,9 @@ export function App() {
   const progression: HeroProgression = metaSave.data.heroCollection[hudData.selectedHeroId]?.progression ?? { stage: 'normal', level: 1 }
   const selectedHeroName = heroDefinitions[hudData.selectedHeroId]?.name ?? 'Hero'
   const equipmentInteractionLocked = screen === 'battle' && isEquipmentInteractionLocked(hudData.waveStatus)
-  const onboardingHint = selectStageOnboardingHint({ incomplete: !metaSave.data.campaignProgress.completedStages[stateStage.id], waveStatus: hudData.waveStatus, wave: hudData.wave, placedHeroCount: hudData.placedHeroes.length, rangeEnabled, speed: hudData.speed, autoWave: autoWaveEnabled, deployed: hudData.placedHeroes.length, effectiveLimit: deploymentCapacity.effectiveLimit, equipmentLocked: equipmentInteractionLocked })
+  const onboardingHint = stateStage.id === HAI_BA_TRUNG_STAGE_ID
+    ? selectStageOnboardingHint({ incomplete: !metaSave.data.campaignProgress.completedStages[stateStage.id], waveStatus: hudData.waveStatus, wave: hudData.wave, placedHeroCount: hudData.placedHeroes.length, rangeEnabled, speed: hudData.speed, autoWave: autoWaveEnabled, deployed: hudData.placedHeroes.length, effectiveLimit: deploymentCapacity.effectiveLimit, equipmentLocked: equipmentInteractionLocked })
+    : undefined
 
   useEffect(() => {
     const unsubscribeMeta = battleBridge.onMetaSnapshot((save) => {
@@ -328,7 +330,7 @@ export function App() {
 
   return (
     <main className="app-shell battle-screen">
-      <TopCityBar data={hudData} wallet={metaSave.data.wallet.balances} stageDisplayName={stateStage.displayName} />
+      <TopCityBar data={hudData} wallet={metaSave.data.wallet.balances} stageDisplayName={stateStage.displayName} enemyFaction={selectedChapter.enemyFaction ?? (stateStage.id === HAI_BA_TRUNG_STAGE_ID ? 'Đông Hán' : 'Địch')} />
       <div className="interaction-copy"><p className="hint">{battleInstruction(placementIntent, selectedHeroName, snapshot.placedHeroes.length, deploymentCapacity.effectiveLimit)}</p>{placementMessage && <p className="placement-feedback" role="status">{placementMessage}</p>}</div>
       <section className="game-frame" ref={gameHostRef} aria-label="Battle Scene" />
       {waveBeat && <div className="wave-beat-overlay" style={{ pointerEvents: 'none' }} role="status">{waveBeat}</div>}

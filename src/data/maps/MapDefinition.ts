@@ -1,5 +1,5 @@
 export type PathPoint = Readonly<{ x: number; y: number }>
-export type TerrainDecoration = Readonly<{ kind: 'marsh' | 'shallow-water' | 'reed' | 'mud' | 'earth' | 'settlement'; x: number; y: number; width: number; height: number }>
+export type TerrainDecoration = Readonly<{ kind: 'marsh' | 'shallow-water' | 'reed' | 'mud' | 'earth' | 'settlement' | 'forest' | 'hill' | 'camp' | 'barrier' | 'rock'; x: number; y: number; width: number; height: number }>
 
 export type BattleMapDefinition = Readonly<{
   id: string

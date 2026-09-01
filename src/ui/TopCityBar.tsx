@@ -4,9 +4,14 @@ export interface TopCityBarProps {
   data: BattleHudData
   wallet?: Readonly<{ gold: number; knb: number }>
   stageDisplayName?: string
+  enemyFaction?: string
 }
 
-export function TopCityBar({ data, wallet, stageDisplayName = 'Huyết Chiến Lãng Bạc' }: TopCityBarProps) {
+export function formatEnemyCategoryTitle(enemyFaction: string, category: 'sword' | 'archer' | 'other'): string {
+  return `${enemyFaction} ${category === 'sword' ? 'Bộ Binh' : category === 'archer' ? 'Nỏ Thủ' : 'Giáp Binh / Chỉ huy'}`
+}
+
+export function TopCityBar({ data, wallet, stageDisplayName = 'Huyết Chiến Lãng Bạc', enemyFaction = 'Địch' }: TopCityBarProps) {
   const swordCount = data.remainingByCategory.sword ?? 0
   const archerCount = data.remainingByCategory.archer ?? 0
   const otherCount = data.remainingByCategory.other ?? 0
@@ -43,22 +48,22 @@ export function TopCityBar({ data, wallet, stageDisplayName = 'Huyết Chiến L
         <div className="enemy-counters-box" aria-label="Số lượng quái còn lại theo loại">
         <span className="enemy-box-label">Quái còn lại:</span>
         <div className="enemy-category-chips">
-          <div className="enemy-chip chip-sword" title="Đông Hán Bộ Binh">
+          <div className="enemy-chip chip-sword" title={formatEnemyCategoryTitle(enemyFaction, 'sword')}>
             <span className="chip-icon">⚔</span>
             <span className="chip-name">Bộ Binh</span>
             <span className="chip-count">×{swordCount}</span>
           </div>
 
-          <div className="enemy-chip chip-archer" title="Đông Hán Nỏ Thủ">
+          <div className="enemy-chip chip-archer" title={formatEnemyCategoryTitle(enemyFaction, 'archer')}>
             <span className="chip-icon">🏹</span>
             <span className="chip-name">Nỏ Thủ</span>
             <span className="chip-count">×{archerCount}</span>
           </div>
 
           {otherCount > 0 && (
-            <div className="enemy-chip chip-other" title="Thiết Giáp / Mã Viện">
+            <div className="enemy-chip chip-other" title={formatEnemyCategoryTitle(enemyFaction, 'other')}>
               <span className="chip-icon">👾</span>
-              <span className="chip-name">Thiết Giáp</span>
+              <span className="chip-name">Giáp/Chỉ huy</span>
               <span className="chip-count">×{otherCount}</span>
             </div>
           )}

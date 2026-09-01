@@ -414,7 +414,7 @@ export class BattleScene extends Phaser.Scene {
   }
 
   private drawTerrain(): void {
-    const colors: Record<string, number> = { marsh: 0x315a3d, 'shallow-water': 0x245b68, mud: 0x6b5140, reed: 0x3f6f48, earth: 0x806344, settlement: 0x7a654b }
+    const colors: Record<string, number> = { marsh: 0x315a3d, 'shallow-water': 0x245b68, mud: 0x6b5140, reed: 0x3f6f48, earth: 0x806344, settlement: 0x7a654b, forest: 0x244a32, hill: 0x596442, camp: 0x7a5837, barrier: 0x5c432d, rock: 0x5b625c }
     for (const zone of this.stage.map.terrainDecorations ?? []) {
       this.add.rectangle(zone.x + zone.width / 2, zone.y + zone.height / 2, zone.width, zone.height, colors[zone.kind] ?? 0x315a3d, 0.45).setDepth(-3)
     }

@@ -46,9 +46,41 @@ export const baTrieuStage01Map = {
   ],
 } as const satisfies BattleMapDefinition
 
+export const baTrieuStage02Map = {
+  id: 'map-bt-thanh-ap',
+  title: 'Công Phá Thành Ấp',
+  theme: 'cuu-chan-settlement',
+  width: 1024,
+  height: 768,
+  grid: { columns: 12, rows: 10 },
+  fixedPath: [
+    { x: 0, y: 180 }, { x: 120, y: 180 }, { x: 120, y: 520 },
+    { x: 300, y: 520 }, { x: 300, y: 320 }, { x: 500, y: 320 },
+    { x: 500, y: 560 }, { x: 760, y: 560 }, { x: 760, y: 260 },
+    { x: 900, y: 260 }, { x: 1024, y: 260 },
+  ],
+  placementTiles: [
+    { column: 0, row: 5 }, { column: 2, row: 7 },
+    { column: 4, row: 8 }, { column: 8, row: 7 },
+    { column: 4, row: 2 }, { column: 6, row: 3 },
+    { column: 2, row: 3 }, { column: 9, row: 3 },
+    { column: 11, row: 0 }, { column: 0, row: 9 },
+  ],
+  terrainDecorations: [
+    { kind: 'settlement', x: 350, y: 30, width: 260, height: 150 },
+    { kind: 'earth', x: 230, y: 220, width: 110, height: 260 },
+    { kind: 'barrier', x: 70, y: 460, width: 125, height: 65 },
+    { kind: 'barrier', x: 680, y: 465, width: 180, height: 70 },
+    { kind: 'camp', x: 390, y: 585, width: 170, height: 120 },
+    { kind: 'forest', x: 0, y: 0, width: 105, height: 145 },
+    { kind: 'forest', x: 865, y: 390, width: 150, height: 150 },
+    { kind: 'rock', x: 40, y: 620, width: 150, height: 100 },
+  ],
+} as const satisfies BattleMapDefinition
+
 export const baTrieuMaps = [
   baTrieuStage01Map,
-  map('map-bt-thanh-ap', 'Công Phá Thành Ấp', 'cuu-chan-settlement'),
+  baTrieuStage02Map,
   map('map-bt-song-ma', 'Bến Sông Mã', 'song-ma-riverbank'),
   map('map-bt-bo-dien-luy', 'Lập Lũy Bồ Điền', 'bo-dien-fort'),
   map('map-bt-bo-dien-battle', 'Đại Chiến Bồ Điền', 'bo-dien-field'),

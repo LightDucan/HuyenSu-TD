@@ -35,11 +35,22 @@ const stage01Narrative = {
   victory: 'Đợt trấn áp trước mắt đã bị đẩy lùi. Nghĩa quân có thêm thời gian mở rộng lực lượng, nhưng cuộc kháng chiến chống Đông Ngô vẫn tiếp diễn.',
   defeat: 'Vị trí tập hợp đã mất và đội hình bị phá vỡ. Hãy bố trí lại lực lượng để giành lại căn cứ.',
 } as const
+const stage02Narrative = {
+  preBattle: 'Năm 248, sử liệu ghi nhận nghĩa quân công hãm thành ấp tại Cửu Chân. Trận địa cụ thể này là phục dựng gameplay: cửa tuyến ngoài đã mở — giữ hành lang đột phá trước quân giữ đồn phản kích.',
+  waveBeats: [
+    { wave: 1, text: 'Quân giữ đồn phản kích từ tuyến ngoài!' },
+    { wave: 7, text: 'Giáp binh đang dồn ép cửa đột phá.' },
+    { wave: 14, text: 'Lực lượng trong thành ấp đang tổ chức lại đội hình.' },
+    { wave: 20, text: 'Đốc chiến quan tung lực lượng dự bị cuối cùng!' },
+  ],
+  victory: 'Sức kháng cự của đồn trị địa phương đã bị bẻ gãy. Nghĩa quân giữ được vị trí thành ấp và mở thêm đà tiến trong Cửu Chân.',
+  defeat: 'Đầu cầu đột phá đã sụp đổ. Đội quân công kích phải lui lại và tập hợp trước khi thử lại.',
+} as const
 
 const stages: readonly BattleStageDefinition[] = BA_TRIEU_STAGE_IDS.map((id, index) => ({
   id, displayName: stageNames[index], map: baTrieuMaps[index], waves: baTrieuStageWaves[index],
   allowedHeroIds: BA_TRIEU_HERO_IDS, enemyDefinitionIds, historicalConfidence: confidence[index], narrativeOutcome: outcomes[index],
-  ...(index === 0 ? { narrative: stage01Narrative } : {}),
+  ...(index === 0 ? { narrative: stage01Narrative } : index === 1 ? { narrative: stage02Narrative } : {}),
 }))
 
 export const baTrieuChapter = {

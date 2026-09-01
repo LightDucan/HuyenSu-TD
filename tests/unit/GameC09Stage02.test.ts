@@ -106,7 +106,7 @@ describe('GAME-C09 Bà Triệu Stage 02 production contract', () => {
     expect(stage01.waves).toHaveLength(18)
     expect(stage01.map.id).toBe('map-bt-nui-nua')
     expect(stage01.narrative?.waveBeats.map(({ wave }) => wave)).toEqual([1, 6, 12, 18])
-    expect(baTrieuChapter.stages.slice(2).map(({ waves }) => waves.length)).toEqual([3, 3, 3, 3])
+    expect(baTrieuChapter.stages.slice(3).map(({ waves }) => waves.length)).toEqual([3, 3, 3])
   })
 
   it('uses the active chapter faction in player-facing enemy counter labels', () => {

@@ -15,6 +15,10 @@ const stage02Sword = (count: number, startDelayMs = 600) => group('wu-sword-infa
 const stage02Crossbow = (count: number, startDelayMs = 600) => group('wu-crossbow-soldier', count, startDelayMs, 1000)
 const stage02Armored = (count: number, startDelayMs = 600) => group('wu-armored-guard', count, startDelayMs, 1300)
 const stage02Commander = (startDelayMs = 600) => group('wu-field-commander', 1, startDelayMs, 1600)
+const stage03Sword = (count: number, startDelayMs = 600) => group('wu-sword-infantry', count, startDelayMs, 825)
+const stage03Crossbow = (count: number, startDelayMs = 600) => group('wu-crossbow-soldier', count, startDelayMs, 950)
+const stage03Armored = (count: number, startDelayMs = 600) => group('wu-armored-guard', count, startDelayMs, 1250)
+const stage03Commander = (startDelayMs = 600) => group('wu-field-commander', 1, startDelayMs, 1600)
 
 export const baTrieuStage01Waves: readonly WaveDefinition[] = [
   { id: 'bt-01-wave-01', groups: [sword(4)] },
@@ -60,4 +64,29 @@ export const baTrieuStage02Waves: readonly WaveDefinition[] = [
   { id: 'bt-02-wave-20', groups: [stage02Commander(), stage02Armored(7, 1200), stage02Crossbow(9, 1800), stage02Sword(10, 2400)] },
 ]
 
-export const baTrieuStageWaves = [baTrieuStage01Waves, baTrieuStage02Waves, prototypeStage(3), prototypeStage(4), prototypeStage(5), prototypeStage(6, true)] as const
+export const baTrieuStage03Waves: readonly WaveDefinition[] = [
+  { id: 'bt-03-wave-01', groups: [stage03Sword(6)] },
+  { id: 'bt-03-wave-02', groups: [stage03Sword(5), stage03Crossbow(3, 1100)] },
+  { id: 'bt-03-wave-03', groups: [stage03Armored(2), stage03Sword(6, 1100)] },
+  { id: 'bt-03-wave-04', groups: [stage03Crossbow(5), stage03Sword(6, 1100)] },
+  { id: 'bt-03-wave-05', groups: [stage03Armored(2), stage03Crossbow(4, 1100), stage03Sword(6, 1700)] },
+  { id: 'bt-03-wave-06', groups: [stage03Sword(8), stage03Crossbow(4, 1100)] },
+  { id: 'bt-03-wave-07', groups: [stage03Armored(3), stage03Sword(7, 1100)] },
+  { id: 'bt-03-wave-08', groups: [stage03Armored(3), stage03Crossbow(7, 1100)] },
+  { id: 'bt-03-wave-09', groups: [stage03Armored(4), stage03Sword(8, 1100)] },
+  { id: 'bt-03-wave-10', groups: [stage03Armored(4), stage03Crossbow(6, 1100), stage03Sword(7, 1700)] },
+  { id: 'bt-03-wave-11', groups: [stage03Sword(10), stage03Crossbow(6, 1100)] },
+  { id: 'bt-03-wave-12', groups: [stage03Armored(5), stage03Sword(8, 1100)] },
+  { id: 'bt-03-wave-13', groups: [stage03Armored(5), stage03Crossbow(8, 1100)] },
+  { id: 'bt-03-wave-14', groups: [stage03Armored(5), stage03Crossbow(8, 1100), stage03Sword(8, 1700)] },
+  { id: 'bt-03-wave-15', groups: [stage03Sword(11), stage03Crossbow(8, 1100)] },
+  { id: 'bt-03-wave-16', groups: [stage03Armored(6), stage03Sword(9, 1100)] },
+  { id: 'bt-03-wave-17', groups: [stage03Armored(6), stage03Crossbow(10, 1100)] },
+  { id: 'bt-03-wave-18', groups: [stage03Armored(7), stage03Sword(10, 1100), stage03Crossbow(6, 1700)] },
+  { id: 'bt-03-wave-19', groups: [stage03Armored(8), stage03Crossbow(10, 1100), stage03Sword(9, 1700)] },
+  { id: 'bt-03-wave-20', groups: [stage03Armored(8), stage03Sword(11, 1100), stage03Crossbow(7, 1700)] },
+  { id: 'bt-03-wave-21', groups: [stage03Armored(9), stage03Crossbow(10, 1100), stage03Sword(10, 1700)] },
+  { id: 'bt-03-wave-22', groups: [stage03Commander(), stage03Armored(8, 1100), stage03Crossbow(10, 1700), stage03Sword(12, 2300)] },
+]
+
+export const baTrieuStageWaves = [baTrieuStage01Waves, baTrieuStage02Waves, baTrieuStage03Waves, prototypeStage(4), prototypeStage(5), prototypeStage(6, true)] as const

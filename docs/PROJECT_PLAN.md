@@ -9,15 +9,15 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 ## WorkTree
 
 - Repository: `HuyenSu-TD`
-- Branch hiện tại: `codex/game-c14-ba-trieu-chapter-production-lock`
+- Branch hiện tại: `codex/game-c16-playable-chapter1-gap-audit`
 - Worktree Codex hiện tại: `C:\Users\PC\Documents\Codex\2026-08-23\referenced-chatgpt-conversation-this-is-an\work\game-c07-fix1`
 - Quy tắc worker Antigravity: [ANTIGRAVITY_RULES.md](ANTIGRAVITY_RULES.md)
 
 ## Trạng thái hiện tại
 
-- Current Phase: **BÀ TRIỆU CHAPTER PRODUCTION LOCK**
-- Current Codex task: **GAME-C14 — Bà Triệu Chapter Production Lock** — branch `codex/game-c14-ba-trieu-chapter-production-lock`.
-- Current Antigravity task: **VIS-BT-02-FIX2 — Period-Safe Eastern Wu Hand Crossbow** — branch `antigravity/vis-bt-02-fix2-period-safe-crossbow`.
+- Current Phase: **PLAYABLE CHAPTER 1 COMPLETION AUDIT**
+- Current Codex task: **GAME-C16 — Playable Chapter 1 gap audit and HBT campaign production blueprint** — branch `codex/game-c16-playable-chapter1-gap-audit`.
+- Current Antigravity task: **NONE — Hero Asset Production SUSPENDED**.
 - QA-C01A: **ENVIRONMENT-BLOCKED interactive portion**; automated regression PASS; manual QA debt retained.
 - VS-HBT-V02B: **CODE/BINARY AUDIT PASS; MANUAL VISUAL QA PASS ENOUGH TO CONTINUE**; real HBT Hero assets 12/12 integrated.
 - VIS-HUD-01: **DONE — waiting audit**; desktop one-viewport HUD, contextual tabs, range toggle và placement/move safety verified interactively.
@@ -31,7 +31,7 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 - GAME-C04: **DONE — waiting audit**; generic catalog registry, safe chapter/stage selection, strict Meta V6 campaignProgress boundary, production HBT catalog only.
 - GAME-C05: **DONE — waiting audit**; production catalog có Hai Bà Trưng → Bà Triệu 248, prerequisite stage tổng quát, 6 stage Bà Triệu structurally playable và Vietnamese Chapter status.
 - GAME-C06: **DONE — waiting audit**; roster Bà Triệu tách khỏi HBT, recruitable qua hệ hiện có, production reward config, generic visual fallback và prerequisite hardening.
-- Lần kiểm tra gần nhất: GAME-C14 — 43 test files/291 tests PASS, build/diff-check PASS; all six stages completed in Campaign UI and fresh chapter evidence captured.
+- Lần kiểm tra gần nhất: GAME-C16 — 43 test files/291 tests PASS, build/diff-check PASS; Chapter I current production stage count = 1, real HBT 24-wave clear PASS, fresh Chapter I/runtime evidence captured; Equipment Runtime/UI Effect Integration remains BROKEN (documented gap).
 
 ## Phases và checkpoint
 
@@ -109,6 +109,7 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 | GAME-C12 | Bà Triệu Stage 05 full production: Đại Chiến Bồ Điền, 26 waves/539 enemies, dedicated open-field map, reconstruction-safe narrative and progression | DONE — production PASS | Codex | Included in locked six-stage chapter; stage identity/composition/timing/map/narrative/reward/progression retained | `codex/game-c12-ba-trieu-stage05-full-production` |
 | GAME-C13 | Bà Triệu Stage 06 final chapter: Khúc Ca Núi Tùng, 28 waves/653 enemies, dedicated mountain last-stand map, source-layered ending and chapter completion | DONE — LOCKED @ `07cf346ee47e0d13da1c37fc7b85f5f1f36ae86a` | Codex | Included in locked six-stage chapter; full 28-wave runtime/manual/ending evidence retained | `codex/game-c13-ba-trieu-stage06-full-production` |
 | GAME-C14 | Bà Triệu Chapter production lock: six stages, final regression and chapter-completion evidence | READY_FOR_AUDIT | Codex | 43 files/291 tests, build/diff-check PASS; all six stages completed in Campaign UI; BT06 replay PASS; fresh chapter evidence PASS | `codex/game-c14-ba-trieu-chapter-production-lock` |
+| GAME-C16 | Playable Chapter 1 completion audit, gap matrix and HBT campaign production blueprint | READY_FOR_AUDIT | Codex | 43 files/291 tests; current Chapter I production stage count = 1; HBT 24-wave runtime clear PASS; equipment runtime/UI effect integration BROKEN; screenshots captured | `codex/game-c16-playable-chapter1-gap-audit` |
 
 ## Quy tắc cập nhật
 

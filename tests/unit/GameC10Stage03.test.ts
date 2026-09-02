@@ -96,10 +96,10 @@ describe('GAME-C10 Bà Triệu Stage 03 production contract', () => {
     expect(selectStageProgress(baTrieuChapter, stage03, BA_TRIEU_STAGE_IDS[3])).toBe('available')
   })
 
-  it('regresses Stage 01–03 contracts while leaving Stage 05–06 as prototypes', () => {
+  it('regresses Stage 01–03 contracts while leaving Stage 06 as a prototype', () => {
     expect(baTrieuChapter.stages[0].waves).toHaveLength(18)
     expect(baTrieuChapter.stages[1].waves).toHaveLength(20)
-    expect(baTrieuChapter.stages.slice(4).map(({ waves }) => waves.length)).toEqual([3, 3])
+    expect(baTrieuChapter.stages.slice(5).map(({ waves }) => waves.length)).toEqual([3])
     expect(baTrieuChapter.stages.slice(0, 2).map(({ map }) => map.id)).toEqual(['map-bt-nui-nua', 'map-bt-thanh-ap'])
     expect(baTrieuChapter.stages[0].narrative?.waveBeats.map(({ wave }) => wave)).toEqual([1, 6, 12, 18])
     expect(baTrieuChapter.stages[1].narrative?.waveBeats.map(({ wave }) => wave)).toEqual([1, 7, 14, 20])

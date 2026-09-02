@@ -142,11 +142,43 @@ export const baTrieuStage04Map = {
   ],
 } as const satisfies BattleMapDefinition
 
+export const baTrieuStage05Map = {
+  id: 'map-bt-bo-dien-battle',
+  title: 'Đại Chiến Bồ Điền',
+  theme: 'bo-dien-field',
+  width: 1024,
+  height: 768,
+  grid: { columns: 12, rows: 10 },
+  fixedPath: [
+    { x: 0, y: 560 }, { x: 180, y: 560 }, { x: 180, y: 180 },
+    { x: 420, y: 180 }, { x: 420, y: 460 }, { x: 620, y: 460 },
+    { x: 620, y: 140 }, { x: 840, y: 140 }, { x: 840, y: 560 },
+    { x: 960, y: 560 }, { x: 960, y: 300 }, { x: 1024, y: 300 },
+  ],
+  placementTiles: [
+    { column: 1, row: 1 }, { column: 4, row: 1 },
+    { column: 2, row: 4 }, { column: 5, row: 6 },
+    { column: 7, row: 7 }, { column: 9, row: 7 },
+    { column: 10, row: 1 }, { column: 11, row: 5 },
+    { column: 0, row: 8 }, { column: 6, row: 2 },
+  ],
+  terrainDecorations: [
+    { kind: 'earth', x: 0, y: 0, width: 210, height: 150 },
+    { kind: 'forest', x: 260, y: 20, width: 170, height: 110 },
+    { kind: 'rock', x: 470, y: 35, width: 125, height: 90 },
+    { kind: 'camp', x: 700, y: 20, width: 135, height: 105 },
+    { kind: 'barrier', x: 260, y: 600, width: 180, height: 45 },
+    { kind: 'earth', x: 470, y: 530, width: 170, height: 150 },
+    { kind: 'forest', x: 865, y: 20, width: 145, height: 115 },
+    { kind: 'rock', x: 870, y: 600, width: 120, height: 100 },
+  ],
+} as const satisfies BattleMapDefinition
+
 export const baTrieuMaps = [
   baTrieuStage01Map,
   baTrieuStage02Map,
   baTrieuStage03Map,
   baTrieuStage04Map,
-  map('map-bt-bo-dien-battle', 'Đại Chiến Bồ Điền', 'bo-dien-field'),
+  baTrieuStage05Map,
   map('map-bt-nui-tung', 'Khúc Ca Núi Tùng', 'nui-tung-last-stand'),
 ] as const

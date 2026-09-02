@@ -96,11 +96,11 @@ describe('GAME-C11 Bà Triệu Stage 04 production contract', () => {
     expect(selectStageProgress(baTrieuChapter, throughBt04, BA_TRIEU_STAGE_IDS[4])).toBe('available')
   })
 
-  it('regresses locked Stage 01–03 contracts and keeps Stage 05–06 prototypes', () => {
+  it('regresses locked Stage 01–04 contracts and keeps Stage 06 as a prototype', () => {
     expect(baTrieuChapter.stages[0].waves).toHaveLength(18)
     expect(baTrieuChapter.stages[1].waves).toHaveLength(20)
     expect(baTrieuChapter.stages[2].waves).toHaveLength(22)
-    expect(baTrieuChapter.stages.slice(4).map(({ waves }) => waves.length)).toEqual([3, 3])
+    expect(baTrieuChapter.stages.slice(5).map(({ waves }) => waves.length)).toEqual([3])
     expect(baTrieuChapter.stages[0].waves[0].groups[0].startDelayMs).toBe(0)
     expect(baTrieuChapter.stages[1].waves[0].groups[0].startDelayMs).toBe(600)
     expect(baTrieuChapter.stages[2].waves[0].groups[0].startDelayMs).toBe(600)

@@ -28,8 +28,8 @@
 
 ## Manual and visual gates
 
-- Manual Stage 05 smoke: **PARTIAL PASS** — a local QA save completed HBT and BT01–BT04; BT05 was available and BT06 remained locked. The pre-battle card appeared, Stage 05 loaded, a fallback Bà Triệu was deployed, x3 and Auto Wave were enabled, and the run advanced through Wave 2 with active enemies. A full 26-wave clear was not performed.
-- Visual evidence: **PASS** — genuine runtime PNG captured during the Stage 05 run, showing the Đại Chiến Bồ Điền map, deployed fallback Hero, active enemies, Wave 2, x3 and Auto Wave.
+- Manual Stage 05 smoke: **PARTIAL PASS** — a local QA save completed HBT and BT01–BT04; BT05 was available and BT06 remained locked. The pre-battle card appeared, Stage 05 loaded, a fallback Bà Triệu was deployed, x3 and Auto Wave were enabled, and the run advanced through Wave 3 with active enemies. A full 26-wave clear was not performed.
+- Visual evidence: **PASS** — genuine runtime PNG captured during the Stage 05 run, showing the Đại Chiến Bồ Điền map, deployed fallback Hero, active enemies, Wave 3, x3 and Auto Wave.
 - Evidence: `docs/audits/evidence/game-c12/01-stage05-runtime.png` (PNG signature verified).
 - Hero production art: PENDING.
 - Wu enemy walk art: PENDING; primitive fallback remains authoritative.

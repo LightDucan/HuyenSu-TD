@@ -9,14 +9,14 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 ## WorkTree
 
 - Repository: `HuyenSu-TD`
-- Branch hiện tại: `codex/game-c13-ba-trieu-stage06-full-production`
+- Branch hiện tại: `codex/game-c14-ba-trieu-chapter-production-lock`
 - Worktree Codex hiện tại: `C:\Users\PC\Documents\Codex\2026-08-23\referenced-chatgpt-conversation-this-is-an\work\game-c07-fix1`
 - Quy tắc worker Antigravity: [ANTIGRAVITY_RULES.md](ANTIGRAVITY_RULES.md)
 
 ## Trạng thái hiện tại
 
-- Current Phase: **BÀ TRIỆU STAGE 06 FULL PRODUCTION**
-- Current Codex task: **GAME-C13 — Bà Triệu Stage 06 Full Production** — branch `codex/game-c13-ba-trieu-stage06-full-production`.
+- Current Phase: **BÀ TRIỆU CHAPTER PRODUCTION LOCK**
+- Current Codex task: **GAME-C14 — Bà Triệu Chapter Production Lock** — branch `codex/game-c14-ba-trieu-chapter-production-lock`.
 - Current Antigravity task: **NONE — awaiting an explicitly assigned task**.
 - QA-C01A: **ENVIRONMENT-BLOCKED interactive portion**; automated regression PASS; manual QA debt retained.
 - VS-HBT-V02B: **CODE/BINARY AUDIT PASS; MANUAL VISUAL QA PASS ENOUGH TO CONTINUE**; real HBT Hero assets 12/12 integrated.
@@ -31,7 +31,7 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 - GAME-C04: **DONE — waiting audit**; generic catalog registry, safe chapter/stage selection, strict Meta V6 campaignProgress boundary, production HBT catalog only.
 - GAME-C05: **DONE — waiting audit**; production catalog có Hai Bà Trưng → Bà Triệu 248, prerequisite stage tổng quát, 6 stage Bà Triệu structurally playable và Vietnamese Chapter status.
 - GAME-C06: **DONE — waiting audit**; roster Bà Triệu tách khỏi HBT, recruitable qua hệ hiện có, production reward config, generic visual fallback và prerequisite hardening.
-- Lần kiểm tra gần nhất: GAME-C13 — 43 test files/291 tests PASS, build/diff-check PASS; full 28-wave browser clear and runtime/ending evidence PASS.
+- Lần kiểm tra gần nhất: GAME-C14 — 43 test files/291 tests PASS, build/diff-check PASS; all six stages completed in Campaign UI and fresh chapter evidence captured.
 
 ## Phases và checkpoint
 
@@ -102,12 +102,13 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 | GAME-C06 | Hoàn thiện production roster/recruitment/reward/visual identity cho Bà Triệu và harden corrupted prerequisite state | DONE — waiting audit | Codex | Starter-vs-production, recruit determinism, chapter Hero boundaries, Wu/Stage rewards, idempotency, fallback và prerequisite restore — PASS | pending |
 | GAME-C07 | Hai Bà Trưng Stage 01 full production: story, terrain map, 24-wave onboarding, reward brief và enemy walk contract | **FULL PRODUCTION PASS / LOCKED** | Codex | Code/runtime PASS; 37 files/240 tests PASS; asset PASS; manual PASS | Code `d96ab451`; asset `01b7dd23`; manual `62d75e18` |
 | GAME-C07-FIX1 | Runtime closure: generic terrain, enemy walk resolver, narrative/first-clear runtime và clean verification | DONE — included in locked C07 production gate | Codex | Covered by final C07 code/runtime and manual evidence gates | `d96ab451` |
-| GAME-C08 | Bà Triệu Stage 01 full production: 18 waves, dedicated Núi Nưa map, reconstruction-safe narrative, reward/progression preservation và Wu visual fallback contract | CONDITIONAL PASS — READY_FOR_AUDIT | Codex | CODE/RUNTIME PASS; 38 files/249 tests; build/diff PASS; minimum manual smoke PASS; Hero/Wu assets PENDING | `codex/game-c08-ba-trieu-stage01-full-production` |
-| GAME-C09 | Bà Triệu Stage 02 full production: 20 waves, dedicated Thành Ấp map, reconstruction-safe narrative, reward/progression preservation và Wu visual fallback contract | CONDITIONAL PASS — READY_FOR_AUDIT | Codex | CODE/RUNTIME PASS; 39 files/258 tests; build/diff PASS; C08 timing/test isolation restored; manual partial/pending; Hero/Wu assets PENDING | `codex/game-c09-ba-trieu-stage02-full-production` |
-| GAME-C10 | Bà Triệu Stage 03 full production: Bến Sông Mã, 22 waves/355 enemies, dedicated riverbank map, reconstruction-safe narrative and progression | IN PROGRESS — READY_FOR_AUDIT | Codex | Stage identity/composition/timing/map/narrative/reward/progression tests; 40 files/267 tests, build/preview/diff-check PASS; manual partial/blocked unless Stage 02 is unlocked | `codex/game-c10-ba-trieu-stage03-full-production` |
-| GAME-C11 | Bà Triệu Stage 04 full production: Lập Lũy Bồ Điền, 24 waves/419 enemies, dedicated fort map, reconstruction-safe narrative and progression | IN PROGRESS — READY_FOR_AUDIT | Codex | Stage identity/composition/timing/map/narrative/reward/progression tests; 41 files/276 tests, build/diff-check PASS; manual PASS for W1–W3 smoke; visual evidence PASS | `codex/game-c11-ba-trieu-stage04-full-production` |
-| GAME-C12 | Bà Triệu Stage 05 full production: Đại Chiến Bồ Điền, 26 waves/539 enemies, dedicated open-field map, reconstruction-safe narrative and progression | DONE — READY_FOR_AUDIT | Codex | Stage identity/composition/timing/map/narrative/reward/progression tests; 42 files/284 tests, build/diff-check PASS; manual PARTIAL PASS through Wave 3 with x3/Auto; visual evidence PASS | `codex/game-c12-ba-trieu-stage05-full-production` |
-| GAME-C13 | Bà Triệu Stage 06 final chapter: Khúc Ca Núi Tùng, 28 waves/653 enemies, dedicated mountain last-stand map, source-layered ending and chapter completion | DONE — READY_FOR_AUDIT | Codex | 43 files/291 tests, build/diff-check PASS; full 28-wave manual clear PASS; runtime and ending evidence PASS | `codex/game-c13-ba-trieu-stage06-full-production` |
+| GAME-C08 | Bà Triệu Stage 01 full production: 18 waves, dedicated Núi Nưa map, reconstruction-safe narrative, reward/progression preservation và Wu visual fallback contract | DONE — production PASS | Codex | Included in locked six-stage chapter; 18 waves / 178 enemies; Hero/Wu art tracked separately | `codex/game-c08-ba-trieu-stage01-full-production` |
+| GAME-C09 | Bà Triệu Stage 02 full production: 20 waves, dedicated Thành Ấp map, reconstruction-safe narrative, reward/progression preservation và Wu visual fallback contract | DONE — production PASS | Codex | Included in locked six-stage chapter; 20 waves / 268 enemies; C08 timing/test isolation retained | `codex/game-c09-ba-trieu-stage02-full-production` |
+| GAME-C10 | Bà Triệu Stage 03 full production: Bến Sông Mã, 22 waves/355 enemies, dedicated riverbank map, reconstruction-safe narrative and progression | DONE — production PASS | Codex | Included in locked six-stage chapter; stage identity/composition/timing/map/narrative/reward/progression retained | `codex/game-c10-ba-trieu-stage03-full-production` |
+| GAME-C11 | Bà Triệu Stage 04 full production: Lập Lũy Bồ Điền, 24 waves/419 enemies, dedicated fort map, reconstruction-safe narrative and progression | DONE — production PASS | Codex | Included in locked six-stage chapter; stage identity/composition/timing/map/narrative/reward/progression retained | `codex/game-c11-ba-trieu-stage04-full-production` |
+| GAME-C12 | Bà Triệu Stage 05 full production: Đại Chiến Bồ Điền, 26 waves/539 enemies, dedicated open-field map, reconstruction-safe narrative and progression | DONE — production PASS | Codex | Included in locked six-stage chapter; stage identity/composition/timing/map/narrative/reward/progression retained | `codex/game-c12-ba-trieu-stage05-full-production` |
+| GAME-C13 | Bà Triệu Stage 06 final chapter: Khúc Ca Núi Tùng, 28 waves/653 enemies, dedicated mountain last-stand map, source-layered ending and chapter completion | DONE — LOCKED @ `07cf346ee47e0d13da1c37fc7b85f5f1f36ae86a` | Codex | Included in locked six-stage chapter; full 28-wave runtime/manual/ending evidence retained | `codex/game-c13-ba-trieu-stage06-full-production` |
+| GAME-C14 | Bà Triệu Chapter production lock: six stages, final regression and chapter-completion evidence | READY_FOR_AUDIT | Codex | 43 files/291 tests, build/diff-check PASS; all six stages completed in Campaign UI; BT06 replay PASS; fresh chapter evidence PASS | `codex/game-c14-ba-trieu-chapter-production-lock` |
 
 ## Quy tắc cập nhật
 

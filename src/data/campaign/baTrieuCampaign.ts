@@ -79,11 +79,22 @@ const stage05Narrative = {
   victory: 'Đợt công kích trực diện trước mắt đã bị đẩy lùi. Vị trí Bồ Điền còn nguyên vẹn trong lúc này, nhưng chiến dịch bình định vẫn tiếp diễn.',
   defeat: 'Trận địa đồng bằng đã sụp đổ dưới sức ép. Nghĩa quân rút về khu phòng thủ cuối và có thể thử lại.',
 } as const
+const stage06Narrative = {
+  preBattle: 'Cuộc khởi nghĩa bước vào hồi kết trong năm 248. Theo truyền thống địa phương, phòng tuyến cuối của Bà Triệu gắn với Núi Tùng; trận địa cụ thể này là phục dựng gameplay. Quân Đông Ngô đang siết vòng vây — hãy giữ vững phòng tuyến cuối.',
+  waveBeats: [
+    { wave: 1, text: 'Cột quân trấn áp đầu tiên tiến vào đường núi!' },
+    { wave: 10, text: 'Vòng vây đang siết chặt quanh phòng tuyến.' },
+    { wave: 19, text: 'Hành lang phòng thủ cuối chịu sức ép liên tục!' },
+    { wave: 28, text: 'Đốc chiến quan chiến trường tung cột quân cuối cùng!' },
+  ],
+  victory: 'Phòng tuyến cuối đã giữ đến hồi kết. Chính sử chép cuộc khởi nghĩa bị dẹp trong năm 248 và Bà Triệu tử trận; truyền thống địa phương kể rằng bà tuẫn tiết tại Núi Tùng. Cuộc chiến khép lại, nhưng khí phách bất khuất của Bà Triệu còn lưu truyền.',
+  defeat: 'Phòng tuyến tan vỡ trước khi màn Last Stand hoàn tất. Hãy bố trí lại lực lượng và thử lại.',
+} as const
 
 const stages: readonly BattleStageDefinition[] = BA_TRIEU_STAGE_IDS.map((id, index) => ({
   id, displayName: stageNames[index], map: baTrieuMaps[index], waves: baTrieuStageWaves[index],
   allowedHeroIds: BA_TRIEU_HERO_IDS, enemyDefinitionIds, historicalConfidence: confidence[index], narrativeOutcome: outcomes[index],
-  ...(index === 0 ? { narrative: stage01Narrative } : index === 1 ? { narrative: stage02Narrative } : index === 2 ? { narrative: stage03Narrative } : index === 3 ? { narrative: stage04Narrative } : index === 4 ? { narrative: stage05Narrative } : {}),
+  ...(index === 0 ? { narrative: stage01Narrative } : index === 1 ? { narrative: stage02Narrative } : index === 2 ? { narrative: stage03Narrative } : index === 3 ? { narrative: stage04Narrative } : index === 4 ? { narrative: stage05Narrative } : { narrative: stage06Narrative }),
 }))
 
 export const baTrieuChapter = {

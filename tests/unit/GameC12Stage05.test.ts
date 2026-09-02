@@ -85,14 +85,14 @@ describe('GAME-C12 Bà Triệu Stage 05 production contract', () => {
     expect(stage.firstClearReward).toBeUndefined()
   })
 
-  it('unlocks BT05 after BT04 and BT06 after BT05 while keeping Stage 06 prototype', () => {
+  it('unlocks BT05 after BT04 and BT06 after BT05 while preserving Stage 06 progression', () => {
     const withHbt = { completedStages: { [HAI_BA_TRUNG_STAGE_ID]: { firstCompletedAtMs: 1 } } }
     const throughBt04 = { completedStages: { ...withHbt.completedStages, ...Object.fromEntries(BA_TRIEU_STAGE_IDS.slice(0, 4).map((id, index) => [id, { firstCompletedAtMs: index + 2 }])) } }
     expect(selectStageProgress(baTrieuChapter, withHbt, stage.id)).toBe('locked')
     expect(selectStageProgress(baTrieuChapter, throughBt04, stage.id)).toBe('available')
     expect(selectStageProgress(baTrieuChapter, throughBt04, BA_TRIEU_STAGE_IDS[5])).toBe('locked')
     expect(selectStageProgress(baTrieuChapter, { completedStages: { ...throughBt04.completedStages, [stage.id]: { firstCompletedAtMs: 9 } } }, BA_TRIEU_STAGE_IDS[5])).toBe('available')
-    expect(baTrieuChapter.stages[5].waves).toHaveLength(3)
+    expect(baTrieuChapter.stages[5].waves).toHaveLength(28)
   })
 
   it('keeps C08-C11 production contracts and visual fallback boundaries', () => {

@@ -98,7 +98,7 @@ describe('GAME-C09 Bà Triệu Stage 02 production contract', () => {
     expect(selectStageProgress(baTrieuChapter, stage02Complete, BA_TRIEU_STAGE_IDS[2])).toBe('available')
   })
 
-  it('keeps ordinary Stage 01 rewards and leaves Stage 06 as a three-wave prototype', () => {
+  it('keeps ordinary Stage 01 rewards and preserves the final Stage 06 contract', () => {
     expect(balanceV1.rewardSources.stageClear.baTrieu['bt-01-tu-nghia-nui-nua']).toEqual({ gold: 20, knb: 1, anhHon: 10 })
     expect(balanceV1.rewardSources.stageClear.baTrieu['bt-02-cong-pha-thanh-ap']).toEqual({ gold: 22, knb: 1, anhHon: 10 })
     expect(stage.firstClearReward).toBeUndefined()
@@ -106,7 +106,7 @@ describe('GAME-C09 Bà Triệu Stage 02 production contract', () => {
     expect(stage01.waves).toHaveLength(18)
     expect(stage01.map.id).toBe('map-bt-nui-nua')
     expect(stage01.narrative?.waveBeats.map(({ wave }) => wave)).toEqual([1, 6, 12, 18])
-    expect(baTrieuChapter.stages.slice(5).map(({ waves }) => waves.length)).toEqual([3])
+    expect(baTrieuChapter.stages.slice(5).map(({ waves }) => waves.length)).toEqual([28])
   })
 
   it('uses the active chapter faction in player-facing enemy counter labels', () => {

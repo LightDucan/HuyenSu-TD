@@ -1,128 +1,130 @@
-# Báo Cáo Đóng Cổng Tài Nguyên Mỹ Thuật: VIS-BT-02 (Đông Ngô Enemy Production Walk Asset Pack)
+# Báo Cáo Kiểm Tra & Đóng Cổng Tài Nguyên: VIS-BT-02-FIX1 Distinct Eastern Wu Enemy Walk Assets
 
-**Task ID**: `VIS-BT-02`
-**Giai đoạn**: Khởi nghĩa Bà Triệu 248 CE — Final Enemy Visual Gate
-**Trạng thái Cổng Kẻ Thù**: **WU ENEMY PRODUCTION ASSETS = PASS**
-**Trạng thái Tướng Bà Triệu**: **HERO BÀ TRIỆU PRODUCTION ASSETS = PENDING**
-**Repository**: `LightDucan/HuyenSu-TD`
-**Branch**: `antigravity/vis-bt-02-wu-enemy-walk-assets`
-**Base Commit**: `cc08b397dda0816fd63ca87eac1c31c80a45691f` (`production/ba-trieu-chapter-locked`)
-
----
-
-## 1. Bảng Tổng Hợp 4 Tài Nguyên Kẻ Thù Đông Ngô (Enemy Walk Assets Table)
-
-| Enemy ID | Đường Dẫn Tập Tin (Exact Path) | Kích Thước (Dimensions) | Số Frame (Frames) | Kênh Alpha (Transparency) | Baseline (footY) | Visual QA | Runtime QA |
-|---|---|:---:|:---:|:---:|:---:|:---:|:---:|
-| `wu-sword-infantry` | `src/assets/enemies/wu-sword-infantry/walk.png` | **1024 × 128 px** | **8 frames (128×128)** | **PASS (RGBA)** | **110..111 px (PASS)** | **PASS** | **PASS** |
-| `wu-crossbow-soldier` | `src/assets/enemies/wu-crossbow-soldier/walk.png` | **1024 × 128 px** | **8 frames (128×128)** | **PASS (RGBA)** | **110..111 px (PASS)** | **PASS** | **PASS** |
-| `wu-armored-guard` | `src/assets/enemies/wu-armored-guard/walk.png` | **1024 × 128 px** | **8 frames (128×128)** | **PASS (RGBA)** | **110..111 px (PASS)** | **PASS** | **PASS** |
-| `wu-field-commander` | `src/assets/enemies/wu-field-commander/walk.png` | **1024 × 128 px** | **8 frames (128×128)** | **PASS (RGBA)** | **110..111 px (PASS)** | **PASS** | **PASS** |
+**Task ID**: VIS-BT-02-FIX1
+**Tiêu đề**: Rework & Distinct Visual Identity for 4 Eastern Wu Enemy Walk Sprite Sheets
+**Giai đoạn**: Bà Triệu Chapter II — Final Enemy Walk Asset Production Gate
+**Trạng thái Cổng Kỹ Thuật (Technical PNG Gate)**: **PASS**
+**Trạng thái Độ Độc Bản Thị Giác (Visual Originality Gate)**: **PASS**
+**Repository**: LightDucan/HuyenSu-TD
+**Branch**: ntigravity/vis-bt-02-fix1-distinct-wu-silhouettes
+**Base Commit**: 705c0c5b117b03ace3bebb8afbc7d77b3dbcc49a
 
 ---
 
-## 2. Kết Quả Kiểm Chứng Kỹ Thuật (Programmatic Validation)
+## 1. Danh Mục 4 Tập Tin Sprite Sheet Hoàn Chỉnh (Output Files)
 
-Tất cả 4 sprite sheet đã được xác minh toàn diện bằng script kiểm tra pixel và nhị phân PNG (`validate_wu_enemy_sprites.mjs`):
-
-```
-=== TECHNICAL VALIDATION FOR 4 ĐÔNG NGÔ ENEMY WALK SPRITE SHEETS ===
-
---- Unit: wu-sword-infantry (9317B) ---
-Dimensions: 1024x128 - PASS
-Frame count: 8 - PASS
-  Frame 0: X=43..108 (w=66), Y=20..111 (h=92), footY=111, transparentRatio=0.886 | Baseline=PASS, Bounds=PASS, Alpha=PASS
-  Frame 1: X=45..110 (w=66), Y=21..111 (h=91), footY=111, transparentRatio=0.888 | Baseline=PASS, Bounds=PASS, Alpha=PASS
-  Frame 2: X=41..111 (w=71), Y=19..111 (h=93), footY=111, transparentRatio=0.889 | Baseline=PASS, Bounds=PASS, Alpha=PASS
-  Frame 3: X=44..113 (w=70), Y=17..111 (h=95), footY=110, transparentRatio=0.886 | Baseline=PASS, Bounds=PASS, Alpha=PASS
-  Frame 4: X=43..114 (w=72), Y=20..111 (h=92), footY=111, transparentRatio=0.886 | Baseline=PASS, Bounds=PASS, Alpha=PASS
-  Frame 5: X=45..113 (w=69), Y=21..111 (h=91), footY=111, transparentRatio=0.889 | Baseline=PASS, Bounds=PASS, Alpha=PASS
-  Frame 6: X=41..111 (w=71), Y=19..111 (h=93), footY=111, transparentRatio=0.890 | Baseline=PASS, Bounds=PASS, Alpha=PASS
-  Frame 7: X=44..110 (w=67), Y=17..111 (h=95), footY=110, transparentRatio=0.884 | Baseline=PASS, Bounds=PASS, Alpha=PASS
-Unit Result: PASS
-
---- Unit: wu-crossbow-soldier (6589B) ---
-Dimensions: 1024x128 - PASS
-Frame count: 8 - PASS
-  Frame 0: X=42..92 (w=51), Y=21..111 (h=91), footY=111, transparentRatio=0.878 | Baseline=PASS, Bounds=PASS, Alpha=PASS
-  Frame 1: X=44..92 (w=49), Y=22..111 (h=90), footY=111, transparentRatio=0.880 | Baseline=PASS, Bounds=PASS, Alpha=PASS
-  Frame 2: X=40..92 (w=53), Y=20..111 (h=92), footY=111, transparentRatio=0.881 | Baseline=PASS, Bounds=PASS, Alpha=PASS
-  Frame 3: X=43..92 (w=50), Y=18..111 (h=94), footY=110, transparentRatio=0.879 | Baseline=PASS, Bounds=PASS, Alpha=PASS
-  Frame 4: X=42..92 (w=51), Y=21..111 (h=91), footY=111, transparentRatio=0.880 | Baseline=PASS, Bounds=PASS, Alpha=PASS
-  Frame 5: X=44..92 (w=49), Y=22..111 (h=90), footY=111, transparentRatio=0.883 | Baseline=PASS, Bounds=PASS, Alpha=PASS
-  Frame 6: X=40..92 (w=53), Y=20..111 (h=92), footY=111, transparentRatio=0.882 | Baseline=PASS, Bounds=PASS, Alpha=PASS
-  Frame 7: X=43..92 (w=50), Y=18..111 (h=94), footY=110, transparentRatio=0.875 | Baseline=PASS, Bounds=PASS, Alpha=PASS
-Unit Result: PASS
-
---- Unit: wu-armored-guard (12803B) ---
-Dimensions: 1024x128 - PASS
-Frame count: 8 - PASS
-  Frame 0: X=38..93 (w=56), Y=13..111 (h=99), footY=111, transparentRatio=0.838 | Baseline=PASS, Bounds=PASS, Alpha=PASS
-  Frame 1: X=40..93 (w=54), Y=14..111 (h=98), footY=111, transparentRatio=0.838 | Baseline=PASS, Bounds=PASS, Alpha=PASS
-  Frame 2: X=36..95 (w=60), Y=12..111 (h=100), footY=111, transparentRatio=0.837 | Baseline=PASS, Bounds=PASS, Alpha=PASS
-  Frame 3: X=39..96 (w=58), Y=10..111 (h=102), footY=111, transparentRatio=0.834 | Baseline=PASS, Bounds=PASS, Alpha=PASS
-  Frame 4: X=38..96 (w=59), Y=13..111 (h=99), footY=111, transparentRatio=0.834 | Baseline=PASS, Bounds=PASS, Alpha=PASS
-  Frame 5: X=40..96 (w=57), Y=14..111 (h=98), footY=111, transparentRatio=0.837 | Baseline=PASS, Bounds=PASS, Alpha=PASS
-  Frame 6: X=36..95 (w=60), Y=12..111 (h=100), footY=111, transparentRatio=0.838 | Baseline=PASS, Bounds=PASS, Alpha=PASS
-  Frame 7: X=39..93 (w=55), Y=10..111 (h=102), footY=111, transparentRatio=0.832 | Baseline=PASS, Bounds=PASS, Alpha=PASS
-Unit Result: PASS
-
---- Unit: wu-field-commander (12147B) ---
-Dimensions: 1024x128 - PASS
-Frame count: 8 - PASS
-  Frame 0: X=28..120 (w=93), Y=12..111 (h=100), footY=111, transparentRatio=0.809 | Baseline=PASS, Bounds=PASS, Alpha=PASS
-  Frame 1: X=30..120 (w=91), Y=13..111 (h=99), footY=111, transparentRatio=0.815 | Baseline=PASS, Bounds=PASS, Alpha=PASS
-  Frame 2: X=31..119 (w=89), Y=11..111 (h=101), footY=111, transparentRatio=0.818 | Baseline=PASS, Bounds=PASS, Alpha=PASS
-  Frame 3: X=30..118 (w=89), Y=9..111 (h=103), footY=111, transparentRatio=0.813 | Baseline=PASS, Bounds=PASS, Alpha=PASS
-  Frame 4: X=28..118 (w=91), Y=12..111 (h=100), footY=111, transparentRatio=0.810 | Baseline=PASS, Bounds=PASS, Alpha=PASS
-  Frame 5: X=25..118 (w=94), Y=13..111 (h=99), footY=111, transparentRatio=0.810 | Baseline=PASS, Bounds=PASS, Alpha=PASS
-  Frame 6: X=24..119 (w=96), Y=11..111 (h=101), footY=111, transparentRatio=0.805 | Baseline=PASS, Bounds=PASS, Alpha=PASS
-  Frame 7: X=25..120 (w=96), Y=9..111 (h=103), footY=111, transparentRatio=0.801 | Baseline=PASS, Bounds=PASS, Alpha=PASS
-Unit Result: PASS
-
-OVERALL VALIDATION: ALL PASS
-```
+| STT | Enemy ID | Đường Dẫn Tập Tin (Exact Path) | Kích Thước | Số Frame | Kênh Alpha | Foot Baseline | Visual Originality |
+|:---:|---|---|:---:|:---:|:---:|:---:|:---:|
+| 1 | wu-sword-infantry | src/assets/enemies/wu-sword-infantry/walk.png | **1024 × 128 px** | **8 frames (128×128)** | **PASS (RGBA)** | **111 px (PASS)** | **PASS (>10% Alpha Diff)** |
+| 2 | wu-crossbow-soldier | src/assets/enemies/wu-crossbow-soldier/walk.png | **1024 × 128 px** | **8 frames (128×128)** | **PASS (RGBA)** | **111 px (PASS)** | **PASS (>11% Alpha Diff)** |
+| 3 | wu-armored-guard | src/assets/enemies/wu-armored-guard/walk.png | **1024 × 128 px** | **8 frames (128×128)** | **PASS (RGBA)** | **111 px (PASS)** | **PASS (>11% Alpha Diff)** |
+| 4 | wu-field-commander | src/assets/enemies/wu-field-commander/walk.png | **1024 × 128 px** | **8 frames (128×128)** | **PASS (RGBA)** | **111 px (PASS)** | **PASS (>11% Alpha Diff)** |
 
 ---
 
-## 3. Đặc Tả Mỹ Thuật & Độ Nhận Diện Từng Đơn Vị Đông Ngô (Visual Hierarchy)
+## 2. Kết Quả Kiểm Chứng Độ Độc Bản So Với Quân Hán (Visual Originality Metrics)
 
-1. **`wu-sword-infantry` (Bộ Binh Đông Ngô)**:
-   - *Phân cấp thị giác*: Đơn vị cơ bản nhẹ nhàng, cơ động.
-   - *Trang phục*: Áo chiến màu lam sẫm (Đông Ngô teal/navy), giáp ngực da nẹp đồng, đai thắt lưng đỏ thẫm.
-   - *Vũ khí*: Đao lệnh hoàn thủ Đông Ngô một lưỡi vung nhịp nhàng theo bước chân.
-2. **`wu-crossbow-soldier` (Nỏ Thủ Đông Ngô)**:
-   - *Phân cấp thị giác*: Đơn vị tầm xa, nhận diện nỏ rõ rệt.
-   - *Trang phục*: Áo chẽn lam viền chàm, đai chéo giữ ống tên đồng sau lưng.
-   - *Vũ khí*: Nỏ gỗ Đông Ngô chuẩn mực với cơ đồng và mũi tên đồng đặt sẵn trên rãnh, ôm ngang ngực hướng phải.
-3. **`wu-armored-guard` (Hộ Vệ Giáp Sắt Đông Ngô)**:
-   - *Phân cấp thị giác*: Đơn vị giáp nặng kiên cố, vóc dáng đầm chắc.
-   - *Trang phục*: Toàn thân khoác giáp vảy cá/ngư lân giáp nhiều tầng thắt dây đồng thau, nón sắt tròn che gáy.
-   - *Vũ khí*: Đại kích Đông Ngô (trường kích) hai lưỡi nhọn và ngọn kích phụ sắc bén gắn túm lông xanh ngọc.
-4. **`wu-field-commander` (Tướng Lĩnh Dã Chiến Đông Ngô)**:
-   - *Phân cấp thị giác*: Tướng soái dã chiến uy nghiêm (generic commander, không phải Lục Dận, không dùng chân dung lịch sử cụ thể).
-   - *Trang phục*: Kim lân giáp nẹp vàng, đai hổ phù hoàng kim, áo choàng tím chàm viền vàng bay nhẹ theo bước hành quân.
-   - *Vũ khí*: Bảo kiếm chỉ huy chuôi nạm vàng sắc bén.
+Đã đo đạc và tính toán chính xác sai khác pixel và silhouette (mặt nạ alpha) giữa 4 đơn vị Đông Ngô và các đơn vị quân Hán tương ứng:
+
+### 1. han-sword-infantry vs wu-sword-infantry (Bộ Binh Đông Ngô)
+* **Khác biệt Silhouette & Trang bị**:
+  - Nón chiến chóp nan tre sơn then Đông Ngô (*conical lacquered war hat*) với vành rộng vát nghiêng và chóp đồng nhọn (thay thế búi tóc nhỏ của quân Hán).
+  - Giáp mây đan (*rattan cuirass*) phối đai thắt lưng đỏ thẫm và dải tua rủ.
+  - Khiên mây tròn (*rattan buckler*) cầm bên tay trái sau lưng tạo khối silhouette rộng về phía sau.
+  - Hoàn thủ đao (*Wu ring-pommel sabre*) cầm chúc xuống phía trước trong tư thế chém lướt linh hoạt.
+* **Đo lường từng frame**:
+  - Frame 0: Alpha diff: **1916 px (11.69%)** | RGB diff: **3043 px (18.57%)** | H_bounds: (43..107, 20..111) vs W_bounds: (30..116, 16..111)
+  - Frame 1: Alpha diff: **1902 px (11.61%)** | RGB diff: **3037 px (18.54%)** | H_bounds: (45..108, 21..111) vs W_bounds: (29..114, 14..111)
+  - Frame 2: Alpha diff: **2052 px (12.52%)** | RGB diff: **3104 px (18.95%)** | H_bounds: (41..110, 19..111) vs W_bounds: (28..112, 16..111)
+  - Frame 3: Alpha diff: **1932 px (11.79%)** | RGB diff: **3065 px (18.71%)** | H_bounds: (44..112, 17..111) vs W_bounds: (27..110, 14..111)
+  - Frame 4: Alpha diff: **1910 px (11.66%)** | RGB diff: **3028 px (18.48%)** | H_bounds: (43..113, 20..111) vs W_bounds: (26..108, 16..111)
+  - Frame 5: Alpha diff: **1769 px (10.80%)** | RGB diff: **2880 px (17.58%)** | H_bounds: (45..112, 21..111) vs W_bounds: (27..110, 14..111)
+  - Frame 6: Alpha diff: **1760 px (10.74%)** | RGB diff: **2912 px (17.77%)** | H_bounds: (41..110, 19..111) vs W_bounds: (28..112, 16..111)
+  - Frame 7: Alpha diff: **1743 px (10.64%)** | RGB diff: **2937 px (17.93%)** | H_bounds: (44..108, 17..111) vs W_bounds: (29..114, 14..111)
+* **Kết luận Sword Originality**: **PASS**
+
+### 2. han-crossbow-soldier vs wu-crossbow-soldier (Nỏ Thủ Đông Ngô — TRỌNG TÂM FIX)
+* **Khác biệt Silhouette & Trang bị**:
+  - Phá bỏ hoàn toàn 100% mặt nạ alpha cũ (trước đây trùng khớp 0 px).
+  - Tư thế trinh sát khom người (*scout crouched stance*) dồn trọng tâm về trước.
+  - Khăn quấn đầu trinh sát thắt dải đuôi dài sau gáy cùng lông vũ trinh sát cắm nghiêng.
+  - Ống tên lớn đeo chéo lưng với các đuôi tên lông vũ trắng nhô cao về sau gáy.
+  - Nỏ liên châu / nỏ gá bàn đạp Đông Ngô cầm ngang thắt lưng với hộp tiếp tiễn phía trên và cánh nỏ vòm mở rộng theo phương thẳng đứng/chéo phía trước.
+* **Đo lường từng frame**:
+  - Frame 0: Alpha diff: **2257 px (13.78%)** | RGB diff: **3493 px (21.32%)** | H_bounds: (42..92, 21..111) vs W_bounds: (23..110, 22..111)
+  - Frame 1: Alpha diff: **2161 px (13.19%)** | RGB diff: **3361 px (20.51%)** | H_bounds: (44..92, 22..111) vs W_bounds: (23..110, 20..111)
+  - Frame 2: Alpha diff: **2337 px (14.26%)** | RGB diff: **3508 px (21.41%)** | H_bounds: (40..92, 20..111) vs W_bounds: (23..110, 22..111)
+  - Frame 3: Alpha diff: **2200 px (13.43%)** | RGB diff: **3462 px (21.13%)** | H_bounds: (43..92, 18..111) vs W_bounds: (23..110, 20..111)
+  - Frame 4: Alpha diff: **2159 px (13.18%)** | RGB diff: **3418 px (20.86%)** | H_bounds: (42..92, 21..111) vs W_bounds: (23..110, 22..111)
+  - Frame 5: Alpha diff: **1978 px (12.07%)** | RGB diff: **3246 px (19.81%)** | H_bounds: (44..92, 22..111) vs W_bounds: (23..110, 20..111)
+  - Frame 6: Alpha diff: **1985 px (12.12%)** | RGB diff: **3283 px (20.04%)** | H_bounds: (40..92, 20..111) vs W_bounds: (23..110, 22..111)
+  - Frame 7: Alpha diff: **1935 px (11.81%)** | RGB diff: **3274 px (19.98%)** | H_bounds: (43..92, 18..111) vs W_bounds: (23..110, 20..111)
+* **Kết luận Crossbow Originality**: **PASS**
+
+### 3. han-armored-guard vs wu-armored-guard (Hộ Vệ Giáp Sắt Đông Ngô)
+* **Khác biệt Silhouette & Trang bị**:
+  - Giáp vai đầu hổ (*tiger pauldrons*) mở rộng bề ngang tạo khối thân hình hộ pháp lực lưỡng (W=89 px vs Hán W=55 px).
+  - Nón sắt vòm che gáy với chỏm nhọn cao cắm túm lông ngọc bích (*emerald plume*) bay ngược chiều di chuyển.
+  - Giáp vảy cá nhiều tầng kết hợp giáp che đùi (*thigh flaps*) phân đoạn dày dặn.
+  - Đại kích Nguyệt Nha Đông Ngô (*crescent polearm*) lưỡi bán nguyệt lớn sắc bén vươn cao với túm lụa đỏ/ngọc bích.
+* **Đo lường từng frame**:
+  - Frame 0: Alpha diff: **2032 px (12.40%)** | RGB diff: **4016 px (24.51%)** | H_bounds: (38..93, 13..111) vs W_bounds: (30..118, 8..111)
+  - Frame 1: Alpha diff: **1989 px (12.14%)** | RGB diff: **3970 px (24.23%)** | H_bounds: (40..93, 14..111) vs W_bounds: (30..118, 6..111)
+  - Frame 2: Alpha diff: **2260 px (13.79%)** | RGB diff: **4171 px (25.46%)** | H_bounds: (36..95, 12..111) vs W_bounds: (30..118, 8..111)
+  - Frame 3: Alpha diff: **2290 px (13.98%)** | RGB diff: **4154 px (25.35%)** | H_bounds: (39..96, 10..111) vs W_bounds: (30..118, 6..111)
+  - Frame 4: Alpha diff: **2172 px (13.26%)** | RGB diff: **4076 px (24.88%)** | H_bounds: (38..96, 13..111) vs W_bounds: (30..118, 8..111)
+  - Frame 5: Alpha diff: **2070 px (12.63%)** | RGB diff: **3948 px (24.10%)** | H_bounds: (40..96, 14..111) vs W_bounds: (30..118, 6..111)
+  - Frame 6: Alpha diff: **1978 px (12.07%)** | RGB diff: **3920 px (23.93%)** | H_bounds: (36..95, 12..111) vs W_bounds: (30..118, 8..111)
+  - Frame 7: Alpha diff: **1939 px (11.83%)** | RGB diff: **3927 px (23.97%)** | H_bounds: (39..93, 10..111) vs W_bounds: (30..118, 6..111)
+* **Kết luận Armored Originality**: **PASS**
+
+### 4. oss-ma-vien vs wu-field-commander (Tướng Lĩnh Dã Chiến Đông Ngô)
+* **Khác biệt Silhouette & Nhân vật**:
+  - Hoàn toàn loại bỏ danh tính Mã Viện (không dùng chân dung lão tướng râu bạc, không dùng giáp đại tướng quân Hán).
+  - Tướng lĩnh Đông Ngô trung niên tuấn kiệt với ria mép đen gọn gàng, khuôn mặt kiên nghị.
+  - Khôi giáp Phượng Dực (*phoenix-wing helmet*) nạm vàng rực rỡ với chùm lông chỉ huy đỏ thẫm.
+  - Tâm kính giáp thếp vàng (*mirror plate armor*) và đai lưng phù điêu rồng vàng.
+  - Áo choàng tím chàm hoàng gia xẻ vạt viền vàng bay lượn sau lưng khi hành quân (đỉnh vạt áo Y=86..96, giữ chân Y=111 không bị che khuất).
+  - Tay phải cầm Bảo Kiếm Lệnh vung chỉ huy về phía trước góc 45 độ, tay trái nắm chặt bao kiếm nạm ngọc bên hông.
+* **Đo lường từng frame**:
+  - Frame 0: Alpha diff: **1972 px (12.04%)** | RGB diff: **3941 px (24.05%)** | H_bounds: (28..120, 12..111) vs W_bounds: (18..118, 9..111)
+  - Frame 1: Alpha diff: **1832 px (11.18%)** | RGB diff: **3815 px (23.28%)** | H_bounds: (30..119, 13..111) vs W_bounds: (23..118, 7..111)
+  - Frame 2: Alpha diff: **1896 px (11.57%)** | RGB diff: **3772 px (23.02%)** | H_bounds: (31..119, 11..111) vs W_bounds: (28..118, 9..111)
+  - Frame 3: Alpha diff: **1901 px (11.60%)** | RGB diff: **3803 px (23.21%)** | H_bounds: (30..118, 9..111) vs W_bounds: (28..118, 7..111)
+  - Frame 4: Alpha diff: **1874 px (11.44%)** | RGB diff: **3801 px (23.20%)** | H_bounds: (28..117, 12..111) vs W_bounds: (28..118, 9..111)
+  - Frame 5: Alpha diff: **1832 px (11.18%)** | RGB diff: **3774 px (23.03%)** | H_bounds: (25..118, 13..111) vs W_bounds: (25..118, 7..111)
+  - Frame 6: Alpha diff: **1869 px (11.41%)** | RGB diff: **3889 px (23.74%)** | H_bounds: (24..119, 11..111) vs W_bounds: (20..118, 9..111)
+  - Frame 7: Alpha diff: **1936 px (11.82%)** | RGB diff: **3922 px (23.94%)** | H_bounds: (25..119, 9..111) vs W_bounds: (17..118, 7..111)
+* **Kết luận Commander Originality**: **PASS**
 
 ---
 
-## 4. Minh Chứng Thị Giác (Visual Evidence Artifacts)
+## 3. Minh Chứng Thị Giác Đầy Đủ (Visual Evidence Artifacts)
 
-- **EVIDENCE 1 (Contact Sheet)**: `docs/audits/evidence/vis-bt-02/01-wu-enemy-walk-pack.png` (1060 × 580 px, hiển thị đầy đủ 4 bộ sprite sheet 8 frame trên nền caro minh bạch).
-- **EVIDENCE 2 (Runtime Gameplay)**: `docs/audits/evidence/vis-bt-02/02-wu-runtime.png` (1024 × 768 px, hiển thị thực tế chiến trường Bà Triệu Núi Nưa với các đơn vị quân Ngô di chuyển trên đường mòn, thanh HUD, x3 speed và Auto Wave).
-
----
-
-## 5. Kết Quả Kiểm Thử & Đóng Gói Hệ Thống (Build & Test Verification)
-
-* **Vitest Suite**: `120 test files passed (654/654 unit tests passed 100%)`.
-* **Vite Production Build**: `tsc -b && vite build` $\rightarrow$ **PASS** (141 modules transformed, 4 walk assets được bundle tự động vào `dist/assets/`).
-* **Git Diff Check**: `git diff --check` $\rightarrow$ **PASS (0 whitespace / lint error)**.
-* **Gameplay Code Isolation**: **ZERO CODE CHANGES** trong `src/domain/**` hay `src/game/**`.
-* **Resolver & Fallback Integrity**: `resolveEnemyVisual(id).walkUrl` trả về đường dẫn hợp lệ; cơ chế an toàn `fallback: 'primitive'` được bảo toàn nguyên vẹn.
+- **EVIDENCE 1 (HBT vs Wu Comparison)**: docs/audits/evidence/vis-bt-02-fix1/01-hbt-vs-wu-comparison.png (1200 × 760 px, so sánh trực quan từng cặp đơn vị 4 frame trên nền caro minh bạch).
+- **EVIDENCE 2 (Wu Pack Contact Sheet)**: docs/audits/evidence/vis-bt-02-fix1/02-wu-pack.png (1100 × 680 px, hiển thị đầy đủ 4 sprite sheet 1024x128 8 frame).
+- **EVIDENCE 3 (Fresh Runtime Gameplay)**: docs/audits/evidence/vis-bt-02-fix1/03-wu-runtime.png (1248 × 720 px, chụp thực tế màn chơi Bà Triệu Núi Nưa Stage 06 với các đơn vị quân Ngô di chuyển, Hero deployed, HUD, x3 speed và Auto Wave).
 
 ---
 
-## 6. Kết Luận (Final Verdict)
+## 4. Kết Quả Kiểm Thử & Đóng Gói Hệ Thống (Build & Test Verification)
 
-* **VIS-BT-02**: **PASS** (Hoàn tất 4 sprite sheet kẻ thù Đông Ngô, đóng Cổng Kẻ Thù thành công).
+* **Git Tracked Test Baseline**:
+  - Số tập tin kiểm thử được theo dõi trong Git (git ls-files tests/unit/*.test.ts): **43 files**
+  - Số bài kiểm thử chính thức chạy qua Vitest (	ests/unit/**): **291 tests passed (100% GREEN)**
+  - *Lưu ý về workspace count*: Khi chạy
+pm test mặc định, Vitest quét toàn bộ workspace bao gồm các worktree phụ trong thư mục work/ (chưa commit/untracked), đạt 120 files / 654 tests. Trong phạm vi repository gốc, 43 files / 291 tests đều vượt qua hoàn hảo.
+* **Vite Production Build**:
+pm run build (	sc -b && vite build) $
+ightarrow$ **PASS (141 modules transformed, 0 error)**.
+* **Git Diff Check**: git diff --check $
+ightarrow$ **PASS (0 whitespace error)**.
+* **Gameplay & Narrative Code**: **ZERO CHANGES** trong gameplay, combat, maps, waves, rewards.
+* **Resolver Architecture**: src/data/assets/enemyVisualAssets.ts giữ nguyên 100% hợp đồng phân giải và cơ chế an toàn
+allback: 'primitive'.
+
+---
+
+## 5. Kết Luận (Final Verdict)
+
+* **VIS-BT-02-FIX1**: **READY_FOR_AUDIT / PASS** (Đã giải quyết triệt để rủi ro tái sử dụng mặt nạ alpha / recolor, 4 đơn vị Đông Ngô đạt chuẩn mỹ thuật độc bản).

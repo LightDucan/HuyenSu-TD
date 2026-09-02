@@ -17,7 +17,7 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 
 - Current Phase: **BÀ TRIỆU CHAPTER PRODUCTION LOCK**
 - Current Codex task: **GAME-C14 — Bà Triệu Chapter Production Lock** — branch `codex/game-c14-ba-trieu-chapter-production-lock`.
-- Current Antigravity task: **VIS-BT-02 — Wu Enemy Production Walk Asset Pack** — branch `antigravity/vis-bt-02-wu-enemy-walk-assets`.
+- Current Antigravity task: **VIS-BT-02-FIX1 — Distinct Eastern Wu Visual Identity** — branch ntigravity/vis-bt-02-fix1-distinct-wu-silhouettes.
 - QA-C01A: **ENVIRONMENT-BLOCKED interactive portion**; automated regression PASS; manual QA debt retained.
 - VS-HBT-V02B: **CODE/BINARY AUDIT PASS; MANUAL VISUAL QA PASS ENOUGH TO CONTINUE**; real HBT Hero assets 12/12 integrated.
 - VIS-HUD-01: **DONE — waiting audit**; desktop one-viewport HUD, contextual tabs, range toggle và placement/move safety verified interactively.

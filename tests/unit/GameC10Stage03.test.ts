@@ -109,10 +109,13 @@ describe('GAME-C10 Bà Triệu Stage 03 production contract', () => {
     expect(baTrieuChapter.stages[1].waves[19].groups[0].startDelayMs).toBe(600)
   })
 
-  it('keeps the existing HBT/Wu visual fallback boundary unchanged', () => {
+  it('keeps the existing HBT/Wu visual fallback boundary with production walk assets', () => {
     expect(Object.keys(productionEnemyVisualManifest)).toHaveLength(8)
     ;['han-sword-infantry', 'han-crossbow-soldier', 'han-armored-guard', 'boss-ma-vien'].forEach((id) => expect(resolveEnemyVisual(id)?.walkUrl).toBeTruthy())
     expect(Object.keys(wuEnemyVisualManifest)).toEqual(['wu-sword-infantry', 'wu-crossbow-soldier', 'wu-armored-guard', 'wu-field-commander'])
-    Object.values(wuEnemyVisualManifest).forEach((visual) => expect(visual).toMatchObject({ frameWidth: 128, frameHeight: 128, frameCount: 8, facing: 'right', fallback: 'primitive', walkUrl: undefined }))
+    Object.values(wuEnemyVisualManifest).forEach((visual) => {
+      expect(visual).toMatchObject({ frameWidth: 128, frameHeight: 128, frameCount: 8, facing: 'right', fallback: 'primitive' })
+      expect(visual.walkUrl).toBeTruthy()
+    })
   })
 })

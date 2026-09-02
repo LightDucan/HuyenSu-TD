@@ -78,11 +78,14 @@ describe('GAME-C08 Bà Triệu Stage 01 production contract', () => {
     expect(stage.narrative?.defeat).toBeTruthy()
   })
 
-  it('resolves HBT and Wu visual contracts while absent Wu PNGs remain primitive-safe', () => {
+  it('resolves HBT and Wu visual contracts with production walk assets and primitive fallback', () => {
     expect(Object.keys(productionEnemyVisualManifest)).toHaveLength(8)
     ;['han-sword-infantry', 'han-crossbow-soldier', 'han-armored-guard', 'boss-ma-vien'].forEach((id) => expect(resolveEnemyVisual(id)?.walkUrl).toBeTruthy())
     expect(Object.keys(wuEnemyVisualManifest)).toEqual(['wu-sword-infantry', 'wu-crossbow-soldier', 'wu-armored-guard', 'wu-field-commander'])
-    Object.values(wuEnemyVisualManifest).forEach((visual) => expect(visual).toMatchObject({ frameWidth: 128, frameHeight: 128, frameCount: 8, facing: 'right', fallback: 'primitive', walkUrl: undefined }))
+    Object.values(wuEnemyVisualManifest).forEach((visual) => {
+      expect(visual).toMatchObject({ frameWidth: 128, frameHeight: 128, frameCount: 8, facing: 'right', fallback: 'primitive' })
+      expect(visual.walkUrl).toBeTruthy()
+    })
   })
 
   it('preserves the HBT prerequisite, Bà Triệu roster and Stage 01 boundary', () => {

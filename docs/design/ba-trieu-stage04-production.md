@@ -26,4 +26,4 @@ Stage 04 timing is isolated from the locked Stage 01–03 helpers: first-group d
 
 The pre-battle copy labels the scene as a local-tradition/gameplay reconstruction. Data-driven beats occur at Waves 1, 8, 16 and 24. Victory and defeat remain tactical: the line holds or collapses and the player may retry; no campaign-ending or historical death claim is made.
 
-The ordinary clear reward is **26 Gold / 1 KNB / 10 Anh Hồn**. No first-clear package is introduced. Stage 05 and Stage 06 remain three-wave prototypes.
+The ordinary clear reward is **26 Gold / 1 KNB / 12 Anh Hồn**. No first-clear package is introduced. Stage 05 and Stage 06 remain three-wave prototypes.

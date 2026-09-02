@@ -15,7 +15,7 @@
 - Dedicated 1024×768, 12×10 map, non-intersecting fixed path and ten bounded placements: PASS.
 - Earthwork/fort terrain is presentation-only: PASS.
 - Local-tradition/gameplay-reconstruction framing, beats 1/8/16/24, tactical outcomes: PASS.
-- Ordinary reward 26 Gold / 1 KNB / 10 Anh Hồn; no first-clear package: PASS.
+- Ordinary reward 26 Gold / 1 KNB / 12 Anh Hồn; no first-clear package: PASS.
 - BT03 completion unlocks BT04 and BT04 completion unlocks BT05: PASS.
 - Stage 01–03 production contracts and dedicated tests retained; Stage 05–06 remain prototypes: PASS.
 - Existing HBT/Wu visual fallback boundary unchanged: PASS.
@@ -30,11 +30,12 @@ Final results recorded from the C11 branch:
 
 ## Manual and visual gates
 
-- Manual Stage 04 smoke: **PARTIAL** — preview loaded and Campaign UI visibly showed the Bà Triệu chapter locked in the default save; no BT01–BT03-complete QA save was available, so Stage 04 entry/Wave smoke was not claimed.
-- Visual evidence: **BLOCKED/PENDING** until a real Stage 04 screenshot or short recording is produced under `docs/audits/evidence/game-c11/`.
+- Manual Stage 04 smoke: **PASS (partial run)** — QA save completed HBT/BT01/BT02/BT03; Stage 04 was available, BT05 remained locked, pre-battle copy appeared, a fallback Hero was deployed, Auto Wave and x3 were enabled, and runtime advanced through Wave 3. A full 24-wave clear was not performed.
+- Visual evidence: **PASS** — real runtime screenshot captured at Wave 3 with the Bồ Điền map, deployed Hero, moving enemies and HUD controls.
+- Evidence: `docs/audits/evidence/game-c11/01-stage04-runtime.png`
 - Hero asset: **PENDING**.
 - Wu enemy asset: **PENDING**; existing primitive fallback remains authoritative.
 
 ## Classification
 
-**GAME-C11: READY_FOR_AUDIT** after automated results and any available visual evidence are reported truthfully.
+**GAME-C11-FIX1: READY_FOR_AUDIT** — reward restored and visual evidence captured.

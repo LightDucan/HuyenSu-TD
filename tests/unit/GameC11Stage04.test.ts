@@ -81,7 +81,7 @@ describe('GAME-C11 Bà Triệu Stage 04 production contract', () => {
   })
 
   it('preserves the existing Stage 04 reward without a first-clear package', () => {
-    expect(balanceV1.rewardSources.stageClear.baTrieu?.['bt-04-lap-luy-bo-dien']).toEqual({ gold: 26, knb: 1, anhHon: 10 })
+    expect(balanceV1.rewardSources.stageClear.baTrieu?.['bt-04-lap-luy-bo-dien']).toEqual({ gold: 26, knb: 1, anhHon: 12 })
     expect(stage.firstClearReward).toBeUndefined()
   })
 

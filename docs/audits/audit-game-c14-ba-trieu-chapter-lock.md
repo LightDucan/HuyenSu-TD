@@ -12,7 +12,7 @@ Chapter `chapter-ba-trieu-248` contains exactly six production stages and no pro
 
 | Stage | ID | Waves | Enemies | Reward (Gold / KNB / Anh Hồn) |
 |---|---|---:|---:|---:|
-| 01 | `bt-01-tu-nghia-nui-nua` | 18 | 178 | 20 / 1 / 10 |
+| 01 | `bt-01-tu-nghia-nui-nua` | 18 | 209 | 20 / 1 / 10 |
 | 02 | `bt-02-cong-pha-thanh-ap` | 20 | 268 | 22 / 1 / 10 |
 | 03 | `bt-03-ben-song-ma` | 22 | 355 | 24 / 1 / 10 |
 | 04 | `bt-04-lap-luy-bo-dien` | 24 | 419 | 26 / 1 / 12 |

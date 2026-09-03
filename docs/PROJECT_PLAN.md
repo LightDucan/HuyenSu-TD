@@ -9,14 +9,14 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 ## WorkTree
 
 - Repository: `HuyenSu-TD`
-- Branch hiện tại: `codex/game-c18-hbt-stage02-stage03-full-production`
+- Branch hiện tại: `codex/game-c18-fix2-stage03-playability-closure`
 - Worktree Codex hiện tại: `C:\Users\PC\Documents\Codex\2026-08-23\referenced-chatgpt-conversation-this-is-an\work\game-c07-fix1`
 - Quy tắc worker Antigravity: [ANTIGRAVITY_RULES.md](ANTIGRAVITY_RULES.md)
 
 ## Trạng thái hiện tại
 
 - Current Phase: **GAME-C18 — HAI BÀ TRƯNG STAGE 02 + STAGE 03 FULL PRODUCTION**
-- Current Codex task: **GAME-C18 — Stage 02 + Stage 03 full production** — branch `codex/game-c18-hbt-stage02-stage03-full-production`.
+- Current Codex task: **GAME-C18-FIX2 — Stage 03 real playability closure** — branch `codex/game-c18-fix2-stage03-playability-closure`.
 - Current Antigravity task: **NONE — Hero Asset Production SUSPENDED**.
 - QA-C01A: **ENVIRONMENT-BLOCKED interactive portion**; automated regression PASS; manual QA debt retained.
 - VS-HBT-V02B: **CODE/BINARY AUDIT PASS; MANUAL VISUAL QA PASS ENOUGH TO CONTINUE**; real HBT Hero assets 12/12 integrated.
@@ -31,7 +31,7 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 - GAME-C04: **DONE — waiting audit**; generic catalog registry, safe chapter/stage selection, strict Meta V6 campaignProgress boundary, production HBT catalog only.
 - GAME-C05: **DONE — waiting audit**; production catalog có Hai Bà Trưng → Bà Triệu 248, prerequisite stage tổng quát, 6 stage Bà Triệu structurally playable và Vietnamese Chapter status.
 - GAME-C06: **DONE — waiting audit**; roster Bà Triệu tách khỏi HBT, recruitable qua hệ hiện có, production reward config, generic visual fallback và prerequisite hardening.
-- Lần kiểm tra gần nhất: GAME-C18 đang triển khai Stage 02/03 data-driven trên baseline C17; test/build/evidence sẽ cập nhật sau khi hoàn tất.
+- Lần kiểm tra gần nhất: GAME-C18-FIX2 đã hoàn tất runtime QA thật; Stage 03 đạt Victory Wave 24/24 (385 defeated, 0 escaped), thành còn nguyên HP; evidence mới đã ghi nhận.
 
 ## Phases và checkpoint
 
@@ -112,7 +112,7 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 | GAME-C16 | Playable Chapter 1 completion audit, gap matrix and HBT campaign production blueprint | READY_FOR_AUDIT | Codex | 43 files/291 tests; current Chapter I production stage count = 1; HBT 24-wave runtime clear PASS; equipment runtime/UI effect integration BROKEN; screenshots captured | `codex/game-c16-playable-chapter1-gap-audit` |
 | GAME-C17 | Chapter I historical + stage architecture lock; six-stage Hai Bà Trưng production contract | READY_FOR_AUDIT | Codex | Six stages locked with exact IDs/names/waves/maps/layers; Stage01 unchanged; rewards/progression/Chapter II prerequisite locked; fresh baseline screenshot; no source/test changes | `codex/game-c17-hbt-chapter1-production-architecture-lock` |
 | GAME-C17-FIX2 | Consolidated canonical matrix, Chapter II production ID and fresh baseline evidence | READY_FOR_AUDIT | Codex | Canonical six-stage matrix synchronized; `chapter-ba-trieu-248`; prerequisite `hbt-chapter-closure-stage-06`; fresh browser PNG; no source/test changes | `codex/game-c17-fix2-consolidated-lock` |
-| GAME-C18 | Hai Bà Trưng Stage 02 + Stage 03 full production: maps, waves, narratives, campaign progression và runtime evidence | IN PROGRESS — FIX1 code/tests PASS; Stage03 full-clear pending | Codex | Stage packs, 22/24-wave content, ordered unlock, Chapter II frontier gate, full test/build/manual evidence | `codex/game-c18-fix1-stage03-runtime-closure` |
+| GAME-C18 | Hai Bà Trưng Stage 02 + Stage 03 full production: maps, waves, narratives, campaign progression và runtime evidence | READY FOR AUDIT — runtime QA PASS | Codex | Stage packs, 22/24-wave content, ordered unlock, Chapter II frontier gate, Stage 03 Wave 24 Victory evidence | `codex/game-c18-fix2-stage03-playability-closure` |
 
 ## Quy tắc cập nhật
 

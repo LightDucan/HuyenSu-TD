@@ -22,20 +22,21 @@ Diff check: **PASS**.
 
 ## Manual / visual gate
 
-Status: **PARTIAL**. A fresh browser smoke entered Stage 02 and Stage 03 from the Campaign screen, deployed a Hero, enabled x3/Auto Wave, and observed live enemy movement/HUD updates. Stage 02 reached Wave 22/22 and victory. Stage 03 evidence was captured during Wave 2; a full 24-wave clear was not claimed.
+Status: **PASS**. A fresh browser smoke entered Stage 02 and Stage 03 through the Campaign screen, deployed the complete legitimate HBT formation (Trưng Trắc, Trưng Nhị and Lê Chân), enabled x3 and Auto Wave, and observed live enemy movement, command-energy consumption and HUD updates. Stage 02 reached Wave 22/22 and victory. Stage 03 reached Wave 24/24 and produced the genuine Victory result screen with the city alive.
 
-Recorded runtime counts: Stage 02 = 320 defeated / 4 escaped. Stage 03 attempts reached Wave 16 (193 defeated / 10 escaped) and Wave 9 (70 defeated / 7 escaped) before energy/city-health failure; these are not victory results.
+Recorded runtime counts from the fresh run: Stage 02 = 324 defeated / 0 escaped (324 total). Stage 03 = 385 defeated / 0 escaped (385 total). Both totals reconcile with their scheduled content; the earlier Stage 03 failed attempts are superseded by this successful legitimate run.
 
 Expected evidence:
 
 - `docs/audits/evidence/game-c18/01-chapter1-three-stages.png`
 - `docs/audits/evidence/game-c18/02-stage02-runtime.png`
 - `docs/audits/evidence/game-c18/03-stage03-runtime.png`
+- `docs/audits/evidence/game-c18/04-stage03-victory.png`
 
-Capture method: new real browser screenshots from the running local application; PNGs were converted from the captured screenshot bytes without metadata mutation or reuse of prior evidence.
+Capture method: new real browser screenshot from the running local application on the Stage 03 Victory result state; PNG was written directly from the fresh screenshot bytes without metadata mutation or reuse of prior evidence.
 
 Hero art status remains **SUSPENDED**; existing shared/fallback visuals are used by the runtime.
 
 ## Result
 
-GAME-C18 is **READY FOR AUDIT** with automated verification PASS and manual/visual evidence PARTIAL.
+GAME-C18 is **READY FOR AUDIT** with automated verification PASS and manual/visual evidence PASS. No gameplay, data, balance or source changes were required for this closure.

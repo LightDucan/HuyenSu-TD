@@ -24,7 +24,7 @@ Diff check: **PASS**.
 
 Status: **PASS**. A fresh browser smoke entered Stage 02 and Stage 03 through the Campaign screen, deployed the complete legitimate HBT formation (Trưng Trắc, Trưng Nhị and Lê Chân), enabled x3 and Auto Wave, and observed live enemy movement, command-energy consumption and HUD updates. Stage 02 reached Wave 22/22 and victory. Stage 03 reached Wave 24/24 and produced the genuine Victory result screen with the city alive.
 
-Recorded runtime counts from the fresh run: Stage 02 = 324 defeated / 0 escaped (324 total). Stage 03 = 385 defeated / 0 escaped (385 total). Both totals reconcile with their scheduled content; the earlier Stage 03 failed attempts are superseded by this successful legitimate run.
+Recorded runtime counts from the fresh run: Stage 02 = 324 defeated / 0 escaped (324 total). The codec-closure replay recorded Stage 03 = 379 defeated / 6 escaped (385 total). Both totals reconcile with their scheduled content; the earlier Stage 03 failed attempts are superseded by successful legitimate runs.
 
 Expected evidence:
 
@@ -33,7 +33,7 @@ Expected evidence:
 - `docs/audits/evidence/game-c18/03-stage03-runtime.png`
 - `docs/audits/evidence/game-c18/04-stage03-victory.png`
 
-Capture method: new real browser screenshot from the running local application on the Stage 03 Victory result state; PNG was written directly from the fresh screenshot bytes without metadata mutation or reuse of prior evidence.
+Capture method: new real browser screenshot from the running local application on the Stage 03 Victory result state; the new live capture was encoded as a genuine PNG without converting, mutating or reusing the prior JPEG/JFIF evidence.
 
 Hero art status remains **SUSPENDED**; existing shared/fallback visuals are used by the runtime.
 

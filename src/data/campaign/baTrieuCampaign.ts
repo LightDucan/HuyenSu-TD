@@ -1,7 +1,7 @@
 import { enemyDefinitions } from '../enemies/definitions'
 import { baTrieuMaps } from '../maps/baTrieuMaps'
 import { baTrieuStageWaves } from '../waves/baTrieuWaves'
-import { HAI_BA_TRUNG_STAGE_ID } from './haiBaTrungCampaign'
+import { HAI_BA_TRUNG_STAGE03_ID } from './haiBaTrungCampaign'
 import { BA_TRIEU_HERO_IDS } from '../heroes/definitions'
 import type { BattleStageDefinition, CampaignChapterDefinition } from './definitions'
 
@@ -103,7 +103,7 @@ export const baTrieuChapter = {
   historicalArcId: 'ARC-BT-01',
   periodLabel: '248 CE',
   enemyFaction: 'Đông Ngô',
-  prerequisiteStageId: HAI_BA_TRUNG_STAGE_ID,
+  prerequisiteStageId: HAI_BA_TRUNG_STAGE03_ID,
   stages,
 } satisfies CampaignChapterDefinition
 

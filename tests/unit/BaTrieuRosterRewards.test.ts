@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { BA_TRIEU_STAGE_IDS, baTrieuChapter } from '../../src/data/campaign/baTrieuCampaign'
 import { productionCampaignCatalog, validateCampaignCatalog } from '../../src/data/campaign/catalog'
-import { HAI_BA_TRUNG_STAGE_ID, haiBaTrungChapter } from '../../src/data/campaign/haiBaTrungCampaign'
+import { HAI_BA_TRUNG_STAGE03_ID, haiBaTrungChapter } from '../../src/data/campaign/haiBaTrungCampaign'
 import { balanceV1 } from '../../src/data/economy/balanceV1'
 import { ACTIVE_HERO_IDS, BA_TRIEU_HERO_IDS, HAI_BA_TRUNG_HERO_IDS, heroDefinitions } from '../../src/data/heroes/definitions'
 import { createProductionRewardConfig, productionRewardBalance } from '../../src/data/rewards/prototypeRewardConfig'
@@ -41,7 +41,7 @@ describe('GAME-C06 Bà Triệu roster and rewards', () => {
   it('keeps chapter Hero boundaries and blocks zero-owned Bà Triệu selection', () => {
     expect(haiBaTrungChapter.stages[0].allowedHeroIds).toEqual(HAI_BA_TRUNG_HERO_IDS)
     baTrieuChapter.stages.forEach((stage) => expect(stage.allowedHeroIds).toEqual(BA_TRIEU_HERO_IDS))
-    const unlocked = { completedStages: { [HAI_BA_TRUNG_STAGE_ID]: { firstCompletedAtMs: 1 } } }
+    const unlocked = { completedStages: { [HAI_BA_TRUNG_STAGE03_ID]: { firstCompletedAtMs: 1 } } }
     expect(selectSafeStage([baTrieuChapter], BA_TRIEU_STAGE_IDS[0], unlocked, HAI_BA_TRUNG_HERO_IDS)).toBeUndefined()
     expect(selectSafeStage([baTrieuChapter], BA_TRIEU_STAGE_IDS[0], unlocked, ['ba-trieu'])?.id).toBe(BA_TRIEU_STAGE_IDS[0])
   })
@@ -71,7 +71,7 @@ describe('GAME-C06 Bà Triệu roster and rewards', () => {
     const stale = { completedStages: { [BA_TRIEU_STAGE_IDS[0]]: { firstCompletedAtMs: 5 } } }
     expect(selectStageProgress(baTrieuChapter, stale, BA_TRIEU_STAGE_IDS[0])).toBe('locked')
     expect(selectSafeStage([baTrieuChapter], BA_TRIEU_STAGE_IDS[0], stale, ['ba-trieu'])).toBeUndefined()
-    const restored = { completedStages: { ...stale.completedStages, [HAI_BA_TRUNG_STAGE_ID]: { firstCompletedAtMs: 1 } } }
+    const restored = { completedStages: { ...stale.completedStages, [HAI_BA_TRUNG_STAGE03_ID]: { firstCompletedAtMs: 1 } } }
     expect(selectStageProgress(baTrieuChapter, restored, BA_TRIEU_STAGE_IDS[0])).toBe('completed')
     expect(selectSafeStage([baTrieuChapter], BA_TRIEU_STAGE_IDS[0], restored, ['ba-trieu'])?.id).toBe(BA_TRIEU_STAGE_IDS[0])
     expect(validateCampaignCatalog(productionCampaignCatalog)).toEqual([])

@@ -4,7 +4,7 @@
 
 This consistency pass keeps one canonical six-stage matrix across the C17 contract, blueprint and audit, corrects the production Chapter II ID, and replaces the baseline evidence with a new clean-origin browser capture. No runtime behavior was changed.
 
-Consistency assertions: conflicting Stage02/03 identities = **0**; `chapter-ii-ba-trieu` references in C17 docs = **0**; production Chapter II ID = `chapter-ba-trieu-248`.
+Consistency assertions: conflicting Stage02/03 identities = **0**; legacy Chapter II placeholder references in C17 docs = **0**; production Chapter II ID = `chapter-ba-trieu-248`.
 
 ## Gate and scope
 

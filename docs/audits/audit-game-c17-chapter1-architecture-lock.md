@@ -1,9 +1,15 @@
 # GAME-C17 — Chapter I Historical + Stage Architecture Lock Audit
 
+## GAME-C17-FIX2 closure
+
+This consolidated correction keeps one canonical six-stage matrix across the C17 contract, blueprint and audit, corrects the production Chapter II ID, and captures a new clean-origin browser screenshot. No runtime behavior was changed.
+
+Consistency assertions: conflicting Stage02/03 identities = **0**; legacy Chapter II placeholder references in C17 docs = **0**; production Chapter II ID = `chapter-ba-trieu-248`.
+
 ## Gate and scope
 
-- Branch: `codex/game-c17-hbt-chapter1-production-architecture-lock`
-- Parent: `codex/game-c16-playable-chapter1-gap-audit` @ `4d31091e02218917acf7e5e20db3434fe979962e`
+- Branch: `codex/game-c17-fix2-consolidated-lock`
+- Parent: `codex/game-c17-hbt-chapter1-production-architecture-lock` @ `2c41378329ad99f5939d34ba0facb42cc30417a2`
 - Scope: production contract and audit documentation only; no runtime implementation.
 - Changed source/test/config/assets: **0**.
 
@@ -40,6 +46,7 @@ The six-stage count is locked because it provides a complete playable arc, match
 - Stage 01 first-clear: **100 Gold / 50 KNB / 100 Anh Hồn**, existing idempotent onboarding package.
 - Stage 02–06 first-clear: **0 / 0 / 0, ordinary-only; no first-clear config entry**.
 - Strict progression: 01 → 02 → 03 → 04 → 05 → 06; completed stages replayable; first-clear never repeats.
+- Chapter II production ID: `chapter-ba-trieu-248`.
 - Future Chapter II prerequisite: `hbt-chapter-closure-stage-06`.
 - No cross-chapter fallback: unavailable selected stage resolves `undefined`.
 
@@ -55,7 +62,10 @@ The six-stage count is locked because it provides a complete playable arc, match
 
 - Fresh runtime screenshot: [Chapter I baseline](evidence/game-c17/01-chapter1-baseline.png). It shows the unchanged current runtime with only HBT Stage 01 visible (24 waves; Chapter II locked).
 - Browser console during capture: no error entries observed.
-- The image is a newly captured PNG from a clean origin; it is not reused from C16.
+- The image is a new real browser screenshot from a clean origin; it is not reused from C16, regenerated from the old binary, or modified with ancillary metadata.
+- Evidence capture method: **NEW REAL BROWSER SCREENSHOT**.
+- Evidence PNG SHA-1: `074e02750052a3feb2c575d61fa69d44b43b52f2`.
+- C16 evidence PNG SHA-1: `cae74cdc39db3b0eb3fc6ef915aee7fe2f1397eb` (different; no reuse).
 
 ## Verification
 
@@ -68,6 +78,6 @@ The six-stage count is locked because it provides a complete playable arc, match
 
 ## C17 handoff
 
-`GAME-C17: READY_FOR_AUDIT`
+`GAME-C17-FIX2: READY_FOR_AUDIT`
 
 The contract is locked. C18+ may implement the six stages in order; no further C17 planning or runtime scope is authorized.

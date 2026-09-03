@@ -38,6 +38,7 @@ describe('GAME-C18 Hai Bà Trưng production stage packs', () => {
     }
     expect(stage02.waves[0].groups[0]).toMatchObject({ spawnIntervalMs: 850, startDelayMs: 0 })
     expect(stage03.waves[0].groups[0]).toMatchObject({ spawnIntervalMs: 825, startDelayMs: 0 })
+    expect(stage03.waves[3].groups.map(({ startDelayMs }) => startDelayMs)).toEqual([0, 1050])
     expect(stage03.waves[4].groups.map(({ startDelayMs }) => startDelayMs)).toEqual([0, 1050, 1650])
   })
 
@@ -55,11 +56,19 @@ describe('GAME-C18 Hai Bà Trưng production stage packs', () => {
     expect(selectChapterStatus(baTrieuChapter, progress)).toBe('AVAILABLE')
   })
 
-  it('persists completion, supports replay, and keeps Stage 02/03 reward-free', () => {
-    const progress = completeStage(haiBaTrungChapter, { completedStages: {} }, HAI_BA_TRUNG_STAGE_ID, 10)
+  it('persists completion, supports Stage 02/03 replay, and keeps rewards unchanged', () => {
+    let progress: CampaignProgressState = completeStage(haiBaTrungChapter, { completedStages: {} }, HAI_BA_TRUNG_STAGE_ID, 10)
+    progress = completeStage(haiBaTrungChapter, progress, HAI_BA_TRUNG_STAGE02_ID, 20)
     const reloaded = JSON.parse(JSON.stringify(progress)) as CampaignProgressState
-    expect(reloaded.completedStages[HAI_BA_TRUNG_STAGE_ID].firstCompletedAtMs).toBe(10)
-    expect(completeStage(haiBaTrungChapter, reloaded, HAI_BA_TRUNG_STAGE_ID, 99)).toEqual(reloaded)
+    expect(selectStageProgress(haiBaTrungChapter, reloaded, HAI_BA_TRUNG_STAGE03_ID)).toBe('available')
+    expect(selectStageProgress(haiBaTrungChapter, reloaded, HAI_BA_TRUNG_STAGE02_ID)).toBe('completed')
+    expect(completeStage(haiBaTrungChapter, reloaded, HAI_BA_TRUNG_STAGE02_ID, 99)).toEqual(reloaded)
+    expect(reloaded.completedStages[HAI_BA_TRUNG_STAGE02_ID].firstCompletedAtMs).toBe(20)
+    progress = completeStage(haiBaTrungChapter, reloaded, HAI_BA_TRUNG_STAGE03_ID, 30)
+    const afterStage03Reload = JSON.parse(JSON.stringify(progress)) as CampaignProgressState
+    expect(selectStageProgress(haiBaTrungChapter, afterStage03Reload, HAI_BA_TRUNG_STAGE03_ID)).toBe('completed')
+    expect(selectChapterStatus(baTrieuChapter, afterStage03Reload)).toBe('AVAILABLE')
+    expect(completeStage(haiBaTrungChapter, afterStage03Reload, HAI_BA_TRUNG_STAGE03_ID, 99)).toEqual(afterStage03Reload)
     expect(stage02.firstClearReward).toBeUndefined()
     expect(stage03.firstClearReward).toBeUndefined()
   })

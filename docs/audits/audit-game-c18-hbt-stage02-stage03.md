@@ -10,6 +10,7 @@ Stage 02 (`hbt-lang-bac-stage-02`) and Stage 03 (`hbt-cam-khe-stage-03`) are reg
 - Stage 01: 24 waves / 292 scheduled enemies / Mã Viện on Wave 24.
 - Stage 02: 22 waves / 324 scheduled enemies / Han sword, crossbow and armored roster only.
 - Stage 03: 24 waves / 385 scheduled enemies / Han sword, crossbow and armored roster only.
+- Stage 03 Wave 04 timing: C5 starts at 0ms and S6 starts at 1050ms.
 - Stage 02 and Stage 03 have no first-clear reward and no boss group.
 - Ordered progression is preserved: Stage 01 → Stage 02 → Stage 03.
 - Chapter II temporary C18 frontier is Stage 03 completion; no Stage 04 placeholder was added.
@@ -22,6 +23,8 @@ Diff check: **PASS**.
 ## Manual / visual gate
 
 Status: **PARTIAL**. A fresh browser smoke entered Stage 02 and Stage 03 from the Campaign screen, deployed a Hero, enabled x3/Auto Wave, and observed live enemy movement/HUD updates. Stage 02 reached Wave 22/22 and victory. Stage 03 evidence was captured during Wave 2; a full 24-wave clear was not claimed.
+
+Recorded runtime counts: Stage 02 = 320 defeated / 4 escaped. Stage 03 attempts reached Wave 16 (193 defeated / 10 escaped) and Wave 9 (70 defeated / 7 escaped) before energy/city-health failure; these are not victory results.
 
 Expected evidence:
 

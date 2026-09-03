@@ -24,7 +24,7 @@ export const haiBaTrungStage02Waves: readonly WaveDefinition[] = [
 
 export const haiBaTrungStage03Waves: readonly WaveDefinition[] = [
   { id: 'hbt-03-wave-01', groups: [s03(6)] }, { id: 'hbt-03-wave-02', groups: [s03(5), c03(3)] },
-  { id: 'hbt-03-wave-03', groups: [a03(2), s03(6, 1050)] }, { id: 'hbt-03-wave-04', groups: [c03(5), s03(6, 1050)] },
+  { id: 'hbt-03-wave-03', groups: [a03(2), s03(6, 1050)] }, { id: 'hbt-03-wave-04', groups: [c03(5, 0), s03(6, 1050)] },
   { id: 'hbt-03-wave-05', groups: [a03(2), c03(4), s03(6, 1650)] }, { id: 'hbt-03-wave-06', groups: [s03(8), c03(4)] },
   { id: 'hbt-03-wave-07', groups: [a03(3), s03(7, 1050)] }, { id: 'hbt-03-wave-08', groups: [a03(3), c03(7)] },
   { id: 'hbt-03-wave-09', groups: [a03(4), s03(8, 1050)] }, { id: 'hbt-03-wave-10', groups: [a03(4), c03(6), s03(7, 1650)] },

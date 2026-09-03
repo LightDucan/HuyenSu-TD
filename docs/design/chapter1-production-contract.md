@@ -56,7 +56,7 @@ The zero rows are explicit “ordinary-only” policy, not an omitted decision. 
 
 The order is strict: Stage 01 → Stage 02 → Stage 03 → Stage 04 → Stage 05 → Stage 06. Each next stage unlocks only after its predecessor is completed. Completed stages remain replayable; replay does not relock later stages and first-clear remains idempotent across save/reload.
 
-After Stage 06 completion, Chapter I becomes **Đã hoàn thành** and Chapter II (`chapter-ii-ba-trieu`) becomes **Sẵn sàng**. The future prerequisite is locked as:
+After Stage 06 completion, Chapter I becomes **Đã hoàn thành** and Chapter II (`chapter-ba-trieu-248`) becomes **Sẵn sàng**. The future prerequisite is locked as:
 
 `prerequisiteStageId = hbt-chapter-closure-stage-06`
 
@@ -67,4 +67,3 @@ Victory on a non-final stage shows results, persists completion, unlocks the nex
 - Equipment domain: **PASS**.
 - Equipment Battle runtime stat application: **PASS**.
 - Equipment UI / Hero selection / Meta synchronization: **BROKEN — P1**, carried from C16 and scheduled for GAME-C21/C22.
-

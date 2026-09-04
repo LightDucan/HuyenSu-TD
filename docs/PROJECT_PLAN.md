@@ -9,14 +9,14 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 ## WorkTree
 
 - Repository: `HuyenSu-TD`
-- Branch hiện tại: `codex/game-c19-hbt-stage04-stage05-full-production`
+- Branch hiện tại: `codex/game-c19-fix1-regression-qa-closure`
 - Worktree Codex hiện tại: `C:\Users\PC\Documents\Codex\2026-08-23\referenced-chatgpt-conversation-this-is-an\work\game-c07-fix1`
 - Quy tắc worker Antigravity: [ANTIGRAVITY_RULES.md](ANTIGRAVITY_RULES.md)
 
 ## Trạng thái hiện tại
 
 - Current Phase: **GAME-C19 — HAI BÀ TRƯNG STAGE 04 + STAGE 05 FULL PRODUCTION**
-- Current Codex task: **GAME-C19 — HBT Stage 04 + Stage 05 full production** — branch `codex/game-c19-hbt-stage04-stage05-full-production`.
+- Current Codex task: **GAME-C19-FIX1 — Regression + QA closure** — branch `codex/game-c19-fix1-regression-qa-closure`.
 - Current Antigravity task: **NONE — Hero Asset Production SUSPENDED**.
 - QA-C01A: **ENVIRONMENT-BLOCKED interactive portion**; automated regression PASS; manual QA debt retained.
 - VS-HBT-V02B: **CODE/BINARY AUDIT PASS; MANUAL VISUAL QA PASS ENOUGH TO CONTINUE**; real HBT Hero assets 12/12 integrated.
@@ -114,6 +114,7 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 | GAME-C17-FIX2 | Consolidated canonical matrix, Chapter II production ID and fresh baseline evidence | READY_FOR_AUDIT | Codex | Canonical six-stage matrix synchronized; `chapter-ba-trieu-248`; prerequisite `hbt-chapter-closure-stage-06`; fresh browser PNG; no source/test changes | `codex/game-c17-fix2-consolidated-lock` |
 | GAME-C18 | Hai Bà Trưng Stage 02 + Stage 03 full production: maps, waves, narratives, campaign progression và runtime evidence | PASS / LOCKED | Codex | Stage packs, 22/24-wave content, ordered unlock, Chapter II frontier gate, Stage 03 Victory evidence | `d7fb008` |
 | GAME-C19 | Hai Bà Trưng Stage 04 + Stage 05 full production: maps, waves, narratives, campaign progression và runtime QA | READY FOR AUDIT | Codex | Stage04/05 contract, ordered unlock, save/reload/replay, full-clear browser evidence — PASS | `codex/game-c19-hbt-stage04-stage05-full-production` |
+| GAME-C19-FIX1 | Regression + QA closure for Stage04/05 persistence, replay, timing and runtime controls | READY FOR AUDIT | Codex | Save/reload and replay idempotency tests, exact timing assertions, x1/x3/Auto/Skill runtime evidence; production source unchanged | `codex/game-c19-fix1-regression-qa-closure` |
 
 ## Quy tắc cập nhật
 

@@ -44,10 +44,17 @@ describe('GAME-C19 Hai Bà Trưng production stage packs', () => {
     expect(stage03.waves[4].groups.map(({ startDelayMs }) => startDelayMs)).toEqual([0, 1050, 1650])
     expect(stage04.enemyDefinitionIds).toEqual(['han-sword-infantry', 'han-crossbow-soldier', 'han-armored-guard'])
     expect(stage05.enemyDefinitionIds).toEqual(['han-sword-infantry', 'han-crossbow-soldier', 'han-armored-guard'])
-    expect(stage04.waves.flatMap(({ groups }) => groups).map(({ spawnIntervalMs }) => spawnIntervalMs)).toEqual(expect.arrayContaining([800, 925, 1200]))
-    expect(stage05.waves.flatMap(({ groups }) => groups).map(({ spawnIntervalMs }) => spawnIntervalMs)).toEqual(expect.arrayContaining([775, 900, 1150]))
-    expect(stage04.waves.flatMap(({ groups }) => groups).map(({ startDelayMs }) => startDelayMs)).toEqual(expect.arrayContaining([0, 1000, 1550]))
-    expect(stage05.waves.flatMap(({ groups }) => groups).map(({ startDelayMs }) => startDelayMs)).toEqual(expect.arrayContaining([0, 950, 1500]))
+    const firstInterval = (stage: typeof stage04, enemyId: string) => stage.waves.flatMap(({ groups }) => groups).find((group) => group.enemyId === enemyId)?.spawnIntervalMs
+    expect(firstInterval(stage04, 'han-sword-infantry')).toBe(800)
+    expect(firstInterval(stage04, 'han-crossbow-soldier')).toBe(925)
+    expect(firstInterval(stage04, 'han-armored-guard')).toBe(1200)
+    expect(firstInterval(stage05, 'han-sword-infantry')).toBe(775)
+    expect(firstInterval(stage05, 'han-crossbow-soldier')).toBe(900)
+    expect(firstInterval(stage05, 'han-armored-guard')).toBe(1150)
+    expect(stage04.waves[3].groups.map(({ startDelayMs }) => startDelayMs)).toEqual([0, 1000])
+    expect(stage04.waves[4].groups.map(({ startDelayMs }) => startDelayMs)).toEqual([0, 1000, 1550])
+    expect(stage05.waves[3].groups.map(({ startDelayMs }) => startDelayMs)).toEqual([0, 950])
+    expect(stage05.waves[4].groups.map(({ startDelayMs }) => startDelayMs)).toEqual([0, 950, 1500])
   })
 
   it('unlocks stages in order and gates Chapter II at the temporary C19 frontier', () => {
@@ -70,21 +77,35 @@ describe('GAME-C19 Hai Bà Trưng production stage packs', () => {
     expect(selectChapterStatus(baTrieuChapter, progress)).toBe('AVAILABLE')
   })
 
-  it('persists completion, supports Stage 02/03 replay, and keeps rewards unchanged', () => {
-    let progress: CampaignProgressState = completeStage(haiBaTrungChapter, { completedStages: {} }, HAI_BA_TRUNG_STAGE_ID, 10)
+  it('persists Stage 04 and Stage 05 completion, preserves first-clear timestamps on replay, and gates Chapter II', () => {
+    let progress: CampaignProgressState = { completedStages: {} }
+    progress = completeStage(haiBaTrungChapter, progress, HAI_BA_TRUNG_STAGE_ID, 10)
     progress = completeStage(haiBaTrungChapter, progress, HAI_BA_TRUNG_STAGE02_ID, 20)
-    const reloaded = JSON.parse(JSON.stringify(progress)) as CampaignProgressState
-    expect(selectStageProgress(haiBaTrungChapter, reloaded, HAI_BA_TRUNG_STAGE03_ID)).toBe('available')
-    expect(selectStageProgress(haiBaTrungChapter, reloaded, HAI_BA_TRUNG_STAGE02_ID)).toBe('completed')
-    expect(completeStage(haiBaTrungChapter, reloaded, HAI_BA_TRUNG_STAGE02_ID, 99)).toEqual(reloaded)
-    expect(reloaded.completedStages[HAI_BA_TRUNG_STAGE02_ID].firstCompletedAtMs).toBe(20)
-    progress = completeStage(haiBaTrungChapter, reloaded, HAI_BA_TRUNG_STAGE03_ID, 30)
-    const afterStage03Reload = JSON.parse(JSON.stringify(progress)) as CampaignProgressState
-    expect(selectStageProgress(haiBaTrungChapter, afterStage03Reload, HAI_BA_TRUNG_STAGE03_ID)).toBe('completed')
-    expect(selectStageProgress(haiBaTrungChapter, afterStage03Reload, HAI_BA_TRUNG_STAGE04_ID)).toBe('available')
-    expect(selectChapterStatus(baTrieuChapter, afterStage03Reload)).toBe('LOCKED')
-    expect(completeStage(haiBaTrungChapter, afterStage03Reload, HAI_BA_TRUNG_STAGE03_ID, 99)).toEqual(afterStage03Reload)
+    progress = completeStage(haiBaTrungChapter, progress, HAI_BA_TRUNG_STAGE03_ID, 30)
+    progress = completeStage(haiBaTrungChapter, progress, HAI_BA_TRUNG_STAGE04_ID, 40)
+    const stage04FirstCompletedAtMs = progress.completedStages[HAI_BA_TRUNG_STAGE04_ID].firstCompletedAtMs
+    const reloadedAfterStage04 = JSON.parse(JSON.stringify(progress)) as CampaignProgressState
+    expect(selectStageProgress(haiBaTrungChapter, reloadedAfterStage04, HAI_BA_TRUNG_STAGE04_ID)).toBe('completed')
+    expect(selectStageProgress(haiBaTrungChapter, reloadedAfterStage04, HAI_BA_TRUNG_STAGE05_ID)).toBe('available')
+    expect(selectChapterStatus(baTrieuChapter, reloadedAfterStage04)).toBe('LOCKED')
+    const replayedStage04 = completeStage(haiBaTrungChapter, reloadedAfterStage04, HAI_BA_TRUNG_STAGE04_ID, 400)
+    expect(replayedStage04).toEqual(reloadedAfterStage04)
+    expect(replayedStage04.completedStages[HAI_BA_TRUNG_STAGE04_ID].firstCompletedAtMs).toBe(stage04FirstCompletedAtMs)
+    expect(selectStageProgress(haiBaTrungChapter, replayedStage04, HAI_BA_TRUNG_STAGE05_ID)).toBe('available')
+    expect(selectChapterStatus(baTrieuChapter, replayedStage04)).toBe('LOCKED')
+
+    const completedStage05 = completeStage(haiBaTrungChapter, reloadedAfterStage04, HAI_BA_TRUNG_STAGE05_ID, 50)
+    const stage05FirstCompletedAtMs = completedStage05.completedStages[HAI_BA_TRUNG_STAGE05_ID].firstCompletedAtMs
+    const reloadedAfterStage05 = JSON.parse(JSON.stringify(completedStage05)) as CampaignProgressState
+    expect(selectStageProgress(haiBaTrungChapter, reloadedAfterStage05, HAI_BA_TRUNG_STAGE05_ID)).toBe('completed')
+    expect(selectChapterStatus(baTrieuChapter, reloadedAfterStage05)).toBe('AVAILABLE')
+    const replayedStage05 = completeStage(haiBaTrungChapter, reloadedAfterStage05, HAI_BA_TRUNG_STAGE05_ID, 500)
+    expect(replayedStage05).toEqual(reloadedAfterStage05)
+    expect(replayedStage05.completedStages[HAI_BA_TRUNG_STAGE05_ID].firstCompletedAtMs).toBe(stage05FirstCompletedAtMs)
+    expect(selectChapterStatus(baTrieuChapter, replayedStage05)).toBe('AVAILABLE')
     expect(stage02.firstClearReward).toBeUndefined()
     expect(stage03.firstClearReward).toBeUndefined()
+    expect(stage04.firstClearReward).toBeUndefined()
+    expect(stage05.firstClearReward).toBeUndefined()
   })
 })

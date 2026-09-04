@@ -25,18 +25,15 @@ A disposable copy containing only repository files (excluding `.git`,
 
 ## First-run smoke
 
-The clean preview booted a new-origin save with the starter roster (Trưng
-Trắc, Trưng Nhị, Lê Chân), Gold/KNB and Command Energy visible. The browser
-profile supplied a bootstrap state in which Stage 01 was already marked
-completed; no LocalStorage or debug-save editing was performed. Therefore the
-incomplete-stage pre-battle path was exercised through the first available
-Stage 02 instead.
+The clean preview booted a genuinely fresh origin with the starter roster
+(Trưng Trắc, Trưng Nhị, Lê Chân), zeroed Wallet and Command Energy visible.
+No LocalStorage or debug-save editing was performed.
 
 - App/City rendered: PASS
 - Starter Heroes and Wallet: PASS
 - Command Energy at boot: PASS (60)
-- Campaign and playable stage: PASS
-- Stage 02 pre-battle → BẮT ĐẦU TRẬN: PASS
+- Campaign and Stage 01 selection: PASS
+- Stage 01 pre-battle → BẮT ĐẦU TRẬN: PASS
 - Hero deployment: PASS
 - Wave start: PASS
 - Normal attack presentation and live counters: PASS
@@ -97,8 +94,6 @@ All four files are genuine PNG binaries with signature `89504e470d0a1a0`.
 - P0 blockers: **0 observed**
 - P1 blockers: **0 observed**
 - Non-blocking debt: full campaign clear is not required for this gate; the
-  browser environment provided a pre-completed Stage 01 bootstrap, so Stage 02
-  was used for the clean incomplete-stage pre-battle smoke without editing
-  save state.
+  clean smoke intentionally stopped after the early live waves.
 
 `READY_FOR_RELEASE_GATE_R3`

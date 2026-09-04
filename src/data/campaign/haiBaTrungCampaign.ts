@@ -2,8 +2,8 @@ import { HAI_BA_TRUNG_HERO_IDS } from '../heroes/definitions'
 import { enemyDefinitions } from '../enemies/definitions'
 import { haiBaTrungMap } from '../maps/prototypeMap'
 import { haiBaTrungWaves } from '../waves/prototypeWaves'
-import { haiBaTrungStage02Map, haiBaTrungStage03Map, haiBaTrungStage04Map, haiBaTrungStage05Map } from '../maps/haiBaTrungProductionMaps'
-import { haiBaTrungStage02Waves, haiBaTrungStage03Waves, haiBaTrungStage04Waves, haiBaTrungStage05Waves } from '../waves/haiBaTrungProductionWaves'
+import { haiBaTrungStage02Map, haiBaTrungStage03Map, haiBaTrungStage04Map, haiBaTrungStage05Map, haiBaTrungStage06Map } from '../maps/haiBaTrungProductionMaps'
+import { haiBaTrungStage02Waves, haiBaTrungStage03Waves, haiBaTrungStage04Waves, haiBaTrungStage05Waves, haiBaTrungStage06Waves } from '../waves/haiBaTrungProductionWaves'
 import type { CampaignChapterDefinition } from './definitions'
 
 export const HAI_BA_TRUNG_STAGE_ID = 'hbt-lang-bac-stage-01'
@@ -11,7 +11,8 @@ export const HAI_BA_TRUNG_STAGE02_ID = 'hbt-lang-bac-stage-02'
 export const HAI_BA_TRUNG_STAGE03_ID = 'hbt-cam-khe-stage-03'
 export const HAI_BA_TRUNG_STAGE04_ID = 'hbt-thuy-bo-stage-04'
 export const HAI_BA_TRUNG_STAGE05_ID = 'hbt-cam-khe-stage-05'
-export const HAI_BA_TRUNG_STAGE_IDS = [HAI_BA_TRUNG_STAGE_ID, HAI_BA_TRUNG_STAGE02_ID, HAI_BA_TRUNG_STAGE03_ID, HAI_BA_TRUNG_STAGE04_ID, HAI_BA_TRUNG_STAGE05_ID] as const
+export const HAI_BA_TRUNG_STAGE06_ID = 'hbt-chapter-closure-stage-06'
+export const HAI_BA_TRUNG_STAGE_IDS = [HAI_BA_TRUNG_STAGE_ID, HAI_BA_TRUNG_STAGE02_ID, HAI_BA_TRUNG_STAGE03_ID, HAI_BA_TRUNG_STAGE04_ID, HAI_BA_TRUNG_STAGE05_ID, HAI_BA_TRUNG_STAGE06_ID] as const
 export const HBT_STAGE01_FIRST_CLEAR_REWARD = { gold: 100, knb: 50, anhHon: 100 } as const
 const stage01EnemyDefinitionIds = [...new Set(haiBaTrungWaves.flatMap((wave) => wave.groups.map((group) => group.enemyId)))]
 const nonBossEnemyDefinitionIds = ['han-sword-infantry', 'han-crossbow-soldier', 'han-armored-guard'] as const
@@ -93,6 +94,21 @@ export const haiBaTrungChapter = {
         ],
         victory: 'Tuyến cuối đã giữ đủ lâu để làm chậm đà tiến và bảo toàn một phần lực lượng phía sau. Đây không phải chiến thắng chiến lược; hồi kết lịch sử của chiến dịch vẫn ở phía trước.',
         defeat: 'Phòng tuyến đã bị xuyên thủng trước khi nhiệm vụ trì hoãn hoàn tất. Hãy tổ chức lại đội hình và thử lại.',
+      },
+    },
+    {
+      id: HAI_BA_TRUNG_STAGE06_ID, displayName: 'Giữ Lửa Mê Linh', map: haiBaTrungStage06Map, waves: haiBaTrungStage06Waves,
+      allowedHeroIds: HAI_BA_TRUNG_HERO_IDS, enemyDefinitionIds: nonBossEnemyDefinitionIds,
+      historicalConfidence: 'CLOSURE SYNTHESIS',
+      narrativeOutcome: 'Bảo toàn người sống sót, biểu tượng và đường rút trong một closure synthesis phục dựng cho gameplay; không đảo ngược kết cục lịch sử.',
+      narrative: {
+        preBattle: 'Năm 43, chiến dịch kháng cự bước vào hồi kết. Giữ Lửa Mê Linh là closure synthesis phục dựng cho gameplay: hãy bảo toàn người sống sót, biểu tượng và đường rút khi phòng tuyến cuối chịu sức ép.',
+        waveBeats: [
+          { wave: 1, text: 'Đường rút đang mở — bảo toàn người sống sót!' }, { wave: 10, text: 'Sức ép dồn lên lũy cuối; giữ hành lang an toàn!' },
+          { wave: 19, text: 'Biểu tượng kháng cự vẫn còn — bảo vệ tuyến rút!' }, { wave: 28, text: 'Đợt áp chế cuối cùng tràn tới; hoàn tất mục tiêu closure!' },
+        ],
+        victory: 'Đường rút và những người sống sót đã được bảo toàn đủ lâu để khép lại màn chơi. Đây là hoàn thành mục tiêu closure trong gameplay, không phải chiến thắng chiến lược; kết cục lịch sử của chiến dịch vẫn được giữ nguyên.',
+        defeat: 'Hành lang rút lui đã bị xuyên thủng trước khi mục tiêu closure hoàn tất. Hãy bố trí lại đội hình và thử lại.',
       },
     },
   ],

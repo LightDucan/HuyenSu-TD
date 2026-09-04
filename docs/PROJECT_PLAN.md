@@ -9,14 +9,14 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 ## WorkTree
 
 - Repository: `HuyenSu-TD`
-- Branch hiện tại: `codex/game-c19-fix1-regression-qa-closure`
+- Branch hiện tại: `codex/game-c20-hbt-stage06-chapter1-closure`
 - Worktree Codex hiện tại: `C:\Users\PC\Documents\Codex\2026-08-23\referenced-chatgpt-conversation-this-is-an\work\game-c07-fix1`
 - Quy tắc worker Antigravity: [ANTIGRAVITY_RULES.md](ANTIGRAVITY_RULES.md)
 
 ## Trạng thái hiện tại
 
-- Current Phase: **GAME-C19 — HAI BÀ TRƯNG STAGE 04 + STAGE 05 FULL PRODUCTION**
-- Current Codex task: **GAME-C19-FIX1 — Regression + QA closure** — branch `codex/game-c19-fix1-regression-qa-closure`.
+- Current Phase: **GAME-C20 — HAI BÀ TRƯNG STAGE 06 FULL PRODUCTION + CHAPTER I CLOSURE**
+- Current Codex task: **GAME-C20 — Stage 06 production and Chapter I closure** — branch `codex/game-c20-hbt-stage06-chapter1-closure`.
 - Current Antigravity task: **NONE — Hero Asset Production SUSPENDED**.
 - QA-C01A: **ENVIRONMENT-BLOCKED interactive portion**; automated regression PASS; manual QA debt retained.
 - VS-HBT-V02B: **CODE/BINARY AUDIT PASS; MANUAL VISUAL QA PASS ENOUGH TO CONTINUE**; real HBT Hero assets 12/12 integrated.
@@ -113,8 +113,9 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 | GAME-C17 | Chapter I historical + stage architecture lock; six-stage Hai Bà Trưng production contract | READY_FOR_AUDIT | Codex | Six stages locked with exact IDs/names/waves/maps/layers; Stage01 unchanged; rewards/progression/Chapter II prerequisite locked; fresh baseline screenshot; no source/test changes | `codex/game-c17-hbt-chapter1-production-architecture-lock` |
 | GAME-C17-FIX2 | Consolidated canonical matrix, Chapter II production ID and fresh baseline evidence | READY_FOR_AUDIT | Codex | Canonical six-stage matrix synchronized; `chapter-ba-trieu-248`; prerequisite `hbt-chapter-closure-stage-06`; fresh browser PNG; no source/test changes | `codex/game-c17-fix2-consolidated-lock` |
 | GAME-C18 | Hai Bà Trưng Stage 02 + Stage 03 full production: maps, waves, narratives, campaign progression và runtime evidence | PASS / LOCKED | Codex | Stage packs, 22/24-wave content, ordered unlock, Chapter II frontier gate, Stage 03 Victory evidence | `d7fb008` |
-| GAME-C19 | Hai Bà Trưng Stage 04 + Stage 05 full production: maps, waves, narratives, campaign progression và runtime QA | READY FOR AUDIT | Codex | Stage04/05 contract, ordered unlock, save/reload/replay, full-clear browser evidence — PASS | `codex/game-c19-hbt-stage04-stage05-full-production` |
-| GAME-C19-FIX1 | Regression + QA closure for Stage04/05 persistence, replay, timing and runtime controls | READY FOR AUDIT | Codex | Save/reload and replay idempotency tests, exact timing assertions, x1/x3/Auto/Skill runtime evidence; production source unchanged | `codex/game-c19-fix1-regression-qa-closure` |
+| GAME-C19 | Hai Bà Trưng Stage 04 + Stage 05 full production: maps, waves, narratives, campaign progression và runtime QA | PASS / LOCKED | Codex | Stage04/05 contract, ordered unlock, save/reload/replay, full-clear browser evidence — PASS | `codex/game-c19-hbt-stage04-stage05-full-production` |
+| GAME-C19-FIX1 | Regression + QA closure for Stage04/05 persistence, replay, timing and runtime controls | PASS / LOCKED | Codex | Save/reload and replay idempotency tests, exact timing assertions, x1/x3/Auto/Skill runtime evidence; production source unchanged | `codex/game-c19-fix1-regression-qa-closure` |
+| GAME-C20 | Hai Bà Trưng Stage 06 — Giữ Lửa Mê Linh — 28-wave closure synthesis, Chapter I completion and Chapter II gate | IN PROGRESS — READY FOR AUDIT | Codex | Stage06 identity/map/waves/narrative, Stage05→06→Chapter II progression, persistence/replay, 44 files/296 tests, build and real runtime Victory evidence | `codex/game-c20-hbt-stage06-chapter1-closure` |
 
 ## Quy tắc cập nhật
 

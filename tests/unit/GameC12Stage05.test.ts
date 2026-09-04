@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { BA_TRIEU_HERO_IDS, BA_TRIEU_STAGE_IDS, baTrieuChapter } from '../../src/data/campaign/baTrieuCampaign'
-import { HAI_BA_TRUNG_STAGE05_ID } from '../../src/data/campaign/haiBaTrungCampaign'
+import { HAI_BA_TRUNG_STAGE06_ID } from '../../src/data/campaign/haiBaTrungCampaign'
 import { balanceV1 } from '../../src/data/economy/balanceV1'
 import { selectStageProgress } from '../../src/domain/campaign/CampaignProgression'
 import { productionEnemyVisualManifest, resolveEnemyVisual, wuEnemyVisualManifest } from '../../src/data/assets/enemyVisualAssets'
@@ -86,7 +86,7 @@ describe('GAME-C12 Bà Triệu Stage 05 production contract', () => {
   })
 
   it('unlocks BT05 after BT04 and BT06 after BT05 while preserving Stage 06 progression', () => {
-    const withHbt = { completedStages: { [HAI_BA_TRUNG_STAGE05_ID]: { firstCompletedAtMs: 1 } } }
+    const withHbt = { completedStages: { [HAI_BA_TRUNG_STAGE06_ID]: { firstCompletedAtMs: 1 } } }
     const throughBt04 = { completedStages: { ...withHbt.completedStages, ...Object.fromEntries(BA_TRIEU_STAGE_IDS.slice(0, 4).map((id, index) => [id, { firstCompletedAtMs: index + 2 }])) } }
     expect(selectStageProgress(baTrieuChapter, withHbt, stage.id)).toBe('locked')
     expect(selectStageProgress(baTrieuChapter, throughBt04, stage.id)).toBe('available')

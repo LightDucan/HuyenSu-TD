@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { BA_TRIEU_CHAPTER_ID, BA_TRIEU_HERO_IDS, BA_TRIEU_STAGE_IDS, baTrieuChapter } from '../../src/data/campaign/baTrieuCampaign'
 import { formatChapterStatusVi, productionCampaignCatalog, selectChapterStatus, validateCampaignCatalog } from '../../src/data/campaign/catalog'
-import { HAI_BA_TRUNG_STAGE05_ID, haiBaTrungChapter } from '../../src/data/campaign/haiBaTrungCampaign'
+import { HAI_BA_TRUNG_STAGE06_ID, haiBaTrungChapter } from '../../src/data/campaign/haiBaTrungCampaign'
 import { completeStage, selectSafeStage, selectStageProgress } from '../../src/domain/campaign/CampaignProgression'
 import type { CampaignProgressState } from '../../src/domain/meta/MetaState'
 
@@ -10,7 +10,7 @@ describe('GAME-C05 Bà Triệu production chapter', () => {
     expect(productionCampaignCatalog.chapters.map(({ id }) => id)).toEqual(['chapter-i-hai-ba-trung', BA_TRIEU_CHAPTER_ID])
     expect(baTrieuChapter.stages.map(({ id }) => id)).toEqual(BA_TRIEU_STAGE_IDS)
     expect(baTrieuChapter).toMatchObject({ historicalArcId: 'ARC-BT-01', periodLabel: '248 CE', enemyFaction: 'Đông Ngô' })
-    expect(new Set(productionCampaignCatalog.chapters.flatMap(({ stages }) => stages.map(({ id }) => id))).size).toBe(11)
+    expect(new Set(productionCampaignCatalog.chapters.flatMap(({ stages }) => stages.map(({ id }) => id))).size).toBe(12)
     expect(validateCampaignCatalog(productionCampaignCatalog)).toEqual([])
   })
 
@@ -21,13 +21,13 @@ describe('GAME-C05 Bà Triệu production chapter', () => {
     expect(selectSafeStage([baTrieuChapter], BA_TRIEU_STAGE_IDS[0], fresh, BA_TRIEU_HERO_IDS)).toBeUndefined()
     const unrelated = { completedStages: { 'hbt-non-final-test': { firstCompletedAtMs: 1 } } }
     expect(selectChapterStatus(baTrieuChapter, unrelated)).toBe('LOCKED')
-    const unlocked = { completedStages: { [HAI_BA_TRUNG_STAGE05_ID]: { firstCompletedAtMs: 2 } } }
+    const unlocked = { completedStages: { [HAI_BA_TRUNG_STAGE06_ID]: { firstCompletedAtMs: 2 } } }
     expect(selectChapterStatus(baTrieuChapter, unlocked)).toBe('AVAILABLE')
     expect(selectSafeStage([baTrieuChapter], BA_TRIEU_STAGE_IDS[0], unlocked, BA_TRIEU_HERO_IDS)?.id).toBe(BA_TRIEU_STAGE_IDS[0])
   })
 
   it('preserves ordered progression, completed replay and zero-playable safety', () => {
-    let progress: CampaignProgressState = { completedStages: { [HAI_BA_TRUNG_STAGE05_ID]: { firstCompletedAtMs: 1 } } }
+    let progress: CampaignProgressState = { completedStages: { [HAI_BA_TRUNG_STAGE06_ID]: { firstCompletedAtMs: 1 } } }
     BA_TRIEU_STAGE_IDS.forEach((stageId, index) => { progress = completeStage(baTrieuChapter, progress, stageId, index + 2) })
     expect(selectChapterStatus(baTrieuChapter, progress)).toBe('COMPLETED')
     expect(selectStageProgress(baTrieuChapter, progress, BA_TRIEU_STAGE_IDS[0])).toBe('completed')

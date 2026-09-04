@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { productionEnemyVisualManifest, resolveEnemyVisual, wuEnemyVisualManifest } from '../../src/data/assets/enemyVisualAssets'
 import { BA_TRIEU_HERO_IDS } from '../../src/data/heroes/definitions'
 import { BA_TRIEU_STAGE01_HISTORICAL_CONFIDENCE, BA_TRIEU_STAGE_IDS, baTrieuChapter } from '../../src/data/campaign/baTrieuCampaign'
-import { HAI_BA_TRUNG_STAGE05_ID } from '../../src/data/campaign/haiBaTrungCampaign'
+import { HAI_BA_TRUNG_STAGE06_ID } from '../../src/data/campaign/haiBaTrungCampaign'
 import { selectStageProgress } from '../../src/domain/campaign/CampaignProgression'
 import { balanceV1 } from '../../src/data/economy/balanceV1'
 import { formatEnemyCategoryTitle } from '../../src/ui/TopCityBar'
@@ -89,9 +89,9 @@ describe('GAME-C08 Bà Triệu Stage 01 production contract', () => {
   })
 
   it('preserves the HBT prerequisite, Bà Triệu roster and Stage 01 boundary', () => {
-    expect(baTrieuChapter.prerequisiteStageId).toBe(HAI_BA_TRUNG_STAGE05_ID)
+    expect(baTrieuChapter.prerequisiteStageId).toBe(HAI_BA_TRUNG_STAGE06_ID)
     expect(stage.allowedHeroIds).toEqual(BA_TRIEU_HERO_IDS)
-    const unlocked = { completedStages: { [HAI_BA_TRUNG_STAGE05_ID]: { firstCompletedAtMs: 1 } } }
+    const unlocked = { completedStages: { [HAI_BA_TRUNG_STAGE06_ID]: { firstCompletedAtMs: 1 } } }
     expect(selectStageProgress(baTrieuChapter, unlocked, BA_TRIEU_STAGE_IDS[0])).toBe('available')
     expect(selectStageProgress(baTrieuChapter, unlocked, BA_TRIEU_STAGE_IDS[1])).toBe('locked')
     const stage01Complete = { completedStages: { ...unlocked.completedStages, [BA_TRIEU_STAGE_IDS[0]]: { firstCompletedAtMs: 2 } } }

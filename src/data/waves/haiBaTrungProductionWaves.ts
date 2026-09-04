@@ -74,3 +74,25 @@ export const haiBaTrungStage05Waves: readonly WaveDefinition[] = [
   { id: 'hbt-05-wave-23', groups: [a05(9), c05(11, 950), s05(8, 1500)] }, { id: 'hbt-05-wave-24', groups: [a05(10), s05(11, 950), c05(8, 1500)] },
   { id: 'hbt-05-wave-25', groups: [a05(10), c05(12, 950), s05(8, 1500)] }, { id: 'hbt-05-wave-26', groups: [a05(10), c05(12, 950), s05(9, 1500)] },
 ]
+
+const s06 = (count: number, delay = 600) => group('han-sword-infantry', count, delay, 750)
+const c06 = (count: number, delay = 600) => group('han-crossbow-soldier', count, delay, 875)
+const a06 = (count: number, delay = 600) => group('han-armored-guard', count, delay, 1075)
+
+export const haiBaTrungStage06Waves: readonly WaveDefinition[] = [
+  { id: 'hbt-06-wave-01', groups: [s06(8)] }, { id: 'hbt-06-wave-02', groups: [s06(7), c06(4, 1000)] },
+  { id: 'hbt-06-wave-03', groups: [a06(4), s06(8, 1000)] }, { id: 'hbt-06-wave-04', groups: [a06(5), c06(7, 1000)] },
+  { id: 'hbt-06-wave-05', groups: [a06(5), c06(5, 1000), s06(8, 1550)] }, { id: 'hbt-06-wave-06', groups: [s06(9), c06(7, 1000)] },
+  { id: 'hbt-06-wave-07', groups: [a06(6), s06(9, 1000)] }, { id: 'hbt-06-wave-08', groups: [a06(6), c06(8, 1000)] },
+  { id: 'hbt-06-wave-09', groups: [a06(6), c06(8, 1000), s06(9, 1550)] }, { id: 'hbt-06-wave-10', groups: [a06(7), s06(10, 1000)] },
+  { id: 'hbt-06-wave-11', groups: [a06(7), c06(9, 1000)] }, { id: 'hbt-06-wave-12', groups: [a06(7), c06(9, 1000), s06(10, 1550)] },
+  { id: 'hbt-06-wave-13', groups: [a06(8), s06(11, 1000)] }, { id: 'hbt-06-wave-14', groups: [a06(8), c06(10, 1000)] },
+  { id: 'hbt-06-wave-15', groups: [a06(8), c06(10, 1000), s06(11, 1550)] }, { id: 'hbt-06-wave-16', groups: [a06(9), s06(12, 1000)] },
+  { id: 'hbt-06-wave-17', groups: [a06(9), c06(11, 1000)] }, { id: 'hbt-06-wave-18', groups: [a06(9), c06(11, 1000), s06(12, 1550)] },
+  { id: 'hbt-06-wave-19', groups: [a06(10), s06(13, 1000)] }, { id: 'hbt-06-wave-20', groups: [a06(10), c06(12, 1000)] },
+  { id: 'hbt-06-wave-21', groups: [a06(10), c06(12, 1000), s06(13, 1550)] }, { id: 'hbt-06-wave-22', groups: [a06(11), s06(14, 1000)] },
+  { id: 'hbt-06-wave-23', groups: [a06(11), c06(13, 1000)] }, { id: 'hbt-06-wave-24', groups: [a06(11), c06(13, 1000), s06(14, 1550)] },
+  { id: 'hbt-06-wave-25', groups: [a06(12), s06(15, 1000)] }, { id: 'hbt-06-wave-26', groups: [a06(12), c06(14, 1000), s06(15, 1550)] },
+  { id: 'hbt-06-wave-27', groups: [a06(13), c06(15, 1000), s06(16, 1550)] },
+  { id: 'hbt-06-wave-28', groups: [a06(13), c06(16, 1550), s06(17, 2150)] },
+]

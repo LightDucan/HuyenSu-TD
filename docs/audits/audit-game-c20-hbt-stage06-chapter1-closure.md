@@ -29,6 +29,15 @@ Production preview was exercised through the player-facing Campaign flow using t
 - Browser reload preserved Chapter I completion and Chapter II readiness.
 - Browser console errors/warnings observed during this run: **none**.
 
+### GAME-C20-FIX1 focused controls
+
+- x1 active runtime: **PASS** — Wave 1 was visibly running with deployed HBT Heroes.
+- x1 → x3 transition: **PASS** — speed switched during the active wave and the battle continued.
+- Auto Wave: **PASS** — enabled during combat; subsequent waves continued normally.
+- Existing normal attack presentation: **PASS** — HBT Hero attack/crit presentation and enemy HP updates were visible.
+- Existing HBT Active Skill VFX: **PASS** — a genuine blue HBT skill effect was captured during live x3/Auto combat.
+- Console: **PASS** — no error or warning entries attributable to C20/C20-FIX1.
+
 ## Evidence
 
 Capture method: **NEW REAL BROWSER SCREENSHOT** from the running production preview. All files are genuine PNG binaries with signature `89504e470d0a1a0a`.
@@ -38,7 +47,9 @@ Capture method: **NEW REAL BROWSER SCREENSHOT** from the running production prev
 - `docs/audits/evidence/game-c20/03-stage06-victory.png` — Wave 28/28 Victory, 652 defeated / 0 escaped.
 - `docs/audits/evidence/game-c20/04-chapter1-complete-chapter2-ready.png` — Chapter I complete, Bà Triệu ready.
 - `docs/audits/evidence/game-c20/05-post-reload-persistence.png` — post-reload campaign state retained.
+- `docs/audits/evidence/game-c20/06-fix1-x1-runtime.png` — fresh Wave 1 active at x1 with HBT Heroes and live attack/VFX presentation.
+- `docs/audits/evidence/game-c20/07-fix1-x3-auto-skill.png` — fresh live combat at x3 with Auto Wave ON and visible HBT Active Skill VFX.
 
 ## Result
 
-GAME-C20 is **READY FOR AUDIT**. No Stage 01–05 redesign, reward change, save migration, new boss, or Chapter II implementation was added. Hero Asset Production remains SUSPENDED.
+GAME-C20-FIX1 is **READY FOR AUDIT**. No production source, Stage 06 design, reward, save migration, balance, combat math or asset changes were needed. Hero Asset Production remains SUSPENDED.

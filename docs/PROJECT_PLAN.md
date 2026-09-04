@@ -9,14 +9,14 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 ## WorkTree
 
 - Repository: `HuyenSu-TD`
-- Branch hiện tại: `codex/game-c20-hbt-stage06-chapter1-closure`
+- Branch hiện tại: `codex/game-c20-fix1-runtime-controls-presentation-qa`
 - Worktree Codex hiện tại: `C:\Users\PC\Documents\Codex\2026-08-23\referenced-chatgpt-conversation-this-is-an\work\game-c07-fix1`
 - Quy tắc worker Antigravity: [ANTIGRAVITY_RULES.md](ANTIGRAVITY_RULES.md)
 
 ## Trạng thái hiện tại
 
 - Current Phase: **GAME-C20 — HAI BÀ TRƯNG STAGE 06 FULL PRODUCTION + CHAPTER I CLOSURE**
-- Current Codex task: **GAME-C20 — Stage 06 production and Chapter I closure** — branch `codex/game-c20-hbt-stage06-chapter1-closure`.
+- Current Codex task: **GAME-C20-FIX1 — Runtime controls + HBT presentation QA closure** — branch `codex/game-c20-fix1-runtime-controls-presentation-qa`.
 - Current Antigravity task: **NONE — Hero Asset Production SUSPENDED**.
 - QA-C01A: **ENVIRONMENT-BLOCKED interactive portion**; automated regression PASS; manual QA debt retained.
 - VS-HBT-V02B: **CODE/BINARY AUDIT PASS; MANUAL VISUAL QA PASS ENOUGH TO CONTINUE**; real HBT Hero assets 12/12 integrated.
@@ -116,6 +116,7 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 | GAME-C19 | Hai Bà Trưng Stage 04 + Stage 05 full production: maps, waves, narratives, campaign progression và runtime QA | PASS / LOCKED | Codex | Stage04/05 contract, ordered unlock, save/reload/replay, full-clear browser evidence — PASS | `codex/game-c19-hbt-stage04-stage05-full-production` |
 | GAME-C19-FIX1 | Regression + QA closure for Stage04/05 persistence, replay, timing and runtime controls | PASS / LOCKED | Codex | Save/reload and replay idempotency tests, exact timing assertions, x1/x3/Auto/Skill runtime evidence; production source unchanged | `codex/game-c19-fix1-regression-qa-closure` |
 | GAME-C20 | Hai Bà Trưng Stage 06 — Giữ Lửa Mê Linh — 28-wave closure synthesis, Chapter I completion and Chapter II gate | IN PROGRESS — READY FOR AUDIT | Codex | Stage06 identity/map/waves/narrative, Stage05→06→Chapter II progression, persistence/replay, 44 files/296 tests, build and real runtime Victory evidence | `codex/game-c20-hbt-stage06-chapter1-closure` |
+| GAME-C20-FIX1 | Runtime controls + HBT presentation QA closure: x1/x3, Auto Wave, normal attack and Active Skill VFX evidence | READY FOR AUDIT | Codex | Focused real-browser Stage06 replay; x1→x3 transition, Auto Wave continuation, existing attacks/VFX, console clean; 44 files/296 tests and build pass | `codex/game-c20-fix1-runtime-controls-presentation-qa` |
 
 ## Quy tắc cập nhật
 

@@ -3,8 +3,7 @@
 ## Candidate
 
 - Base SHA: `3da844878ff45ad28178421bdd4866e5521d87de`
-- HEAD: `3da844878ff45ad28178421bdd4866e5521d87de` (preparation changes are
-  uncommitted while this report is written)
+- HEAD: `95a08b8` (release-candidate preparation commit)
 - `origin/main` observed: `b465794d3f78564973df85bf699202cc2b68d2d9`
 - Production source changed: **NO**
 - Version: `0.1.0`

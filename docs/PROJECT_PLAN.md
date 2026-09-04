@@ -9,14 +9,14 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 ## WorkTree
 
 - Repository: `HuyenSu-TD`
-- Branch hiện tại: `codex/game-c20-fix1-runtime-controls-presentation-qa`
+- Branch hiện tại: `codex/rel-c01-release-functional-completion`
 - Worktree Codex hiện tại: `C:\Users\PC\Documents\Codex\2026-08-23\referenced-chatgpt-conversation-this-is-an\work\game-c07-fix1`
 - Quy tắc worker Antigravity: [ANTIGRAVITY_RULES.md](ANTIGRAVITY_RULES.md)
 
 ## Trạng thái hiện tại
 
-- Current Phase: **GAME-C20 — HAI BÀ TRƯNG STAGE 06 FULL PRODUCTION + CHAPTER I CLOSURE**
-- Current Codex task: **GAME-C20-FIX1 — Runtime controls + HBT presentation QA closure** — branch `codex/game-c20-fix1-runtime-controls-presentation-qa`.
+- Current Phase: **Release Acceleration Mode — REL-C01**
+- Current Codex task: **REL-C01 — Release Functional Completion Batch** — branch `codex/rel-c01-release-functional-completion`.
 - Current Antigravity task: **NONE — Hero Asset Production SUSPENDED**.
 - QA-C01A: **ENVIRONMENT-BLOCKED interactive portion**; automated regression PASS; manual QA debt retained.
 - VS-HBT-V02B: **CODE/BINARY AUDIT PASS; MANUAL VISUAL QA PASS ENOUGH TO CONTINUE**; real HBT Hero assets 12/12 integrated.
@@ -27,11 +27,12 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 - GAME-C01: **DONE — AUDIT CONDITIONAL PASS**; City → Campaign → Battle → Result shell đã tích hợp, các blocker re-entry/stage coupling được xử lý trong GAME-C02.
 - GAME-C02: **DONE — waiting audit**; stage-aware Battle runtime, fresh run snapshot, generic map contract và capacity gate đã hoàn tất.
 - GAME-C03: **DONE — waiting audit**; Meta V6 campaign progress, ordered stage unlock, idempotent victory completion và guarded Campaign UI đã hoàn tất.
-- Known debt: **Equipment domain: PASS; Equipment Battle runtime stat application: PASS; Equipment UI / Hero selection / Meta synchronization: BROKEN — P1**.
+- Known debt: **Equipment domain, Battle runtime stat application, Equipment UI, Hero selection and Meta synchronization: PASS in REL-C01 smoke**.
 - GAME-C04: **DONE — waiting audit**; generic catalog registry, safe chapter/stage selection, strict Meta V6 campaignProgress boundary, production HBT catalog only.
 - GAME-C05: **DONE — waiting audit**; production catalog có Hai Bà Trưng → Bà Triệu 248, prerequisite stage tổng quát, 6 stage Bà Triệu structurally playable và Vietnamese Chapter status.
 - GAME-C06: **DONE — waiting audit**; roster Bà Triệu tách khỏi HBT, recruitable qua hệ hiện có, production reward config, generic visual fallback và prerequisite hardening.
 - Lần kiểm tra gần nhất: GAME-C18-FIX2 đã hoàn tất runtime QA thật; Stage 03 đạt Victory Wave 24/24 (385 defeated, 0 escaped), thành còn nguyên HP; evidence mới đã ghi nhận.
+- REL-C01: **READY_FOR_RELEASE_GATE_R1 — consolidated smoke and final verification PASS**.
 
 ## Phases và checkpoint
 
@@ -81,6 +82,7 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 | 16 — Kim Nguyên Bảo Shop & Cooldown | P16 | Premium earning/shop, Lệnh Hiệu Triệu, item đặc thù và cooldown shortening | DONE / FINAL INTEGRATION PASS / merged main | Phase 11–15 + OD-04/OD-08 | Codex + Antigravity UI | Atomic KNB purchase/item use, shared Energy regen+grant, live Wallet, capacity refresh — PASS | `main` | Premium economy hoặc timer bị khai thác |
 | 17 — Hero Recruitment & Ascension | P17 | Chiêu Hiền Lệnh item; Hero trùng → Mảnh Danh Tướng; Sao 1–5; Anh Hồn chung; sau Normal tiến hóa Trùng Sinh → Tái Sinh → Huyền Sử | DONE / FINAL AUDIT PASS | Phase 11 + Phase 14 + Phase 16 + HERO-A00 | Codex + Antigravity UI/data | FAST-05A canonical V5 repository, runtime/UI cutover, migration-only legacy, paid evolution, shared stars/passive — PASS | `c4605cf` / `codex/fast-meta-v5-cutover` | Duplicate reward, mất mảnh hoặc tạo Hero-specific progression/combat |
 | 18 — Economy Simulation & Balance | P18 | Simulation deterministic và khóa Balance V1 cho economy hiện tại | DONE / FINAL INTEGRATION PASS / merged main | Phase 11–17 | Codex | FAST-06 seeded weighted simulation, actual accounting, runtime-derived Balance V1, 9-row matrix — PASS | `main` | Balance assumptions không phản ánh gameplay thật |
+| Release Gate R1 | REL-C01 | Functional completion: Equipment/Hero/Meta synchronization, player journey, persistence và HBT → Bà Triệu boundary | READY_FOR_RELEASE_GATE_R1 | Production checkpoints C07–C20 | Codex | Consolidated player-journey, save/reload, console and meta synchronization smoke — PASS | `rel-c01-release-functional-completion` | Full campaign clear and cosmetic polish remain non-blocking |
 
 ## Phase 9 task tracker
 

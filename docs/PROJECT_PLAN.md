@@ -32,7 +32,8 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 - GAME-C05: **DONE — waiting audit**; production catalog có Hai Bà Trưng → Bà Triệu 248, prerequisite stage tổng quát, 6 stage Bà Triệu structurally playable và Vietnamese Chapter status.
 - GAME-C06: **DONE — waiting audit**; roster Bà Triệu tách khỏi HBT, recruitable qua hệ hiện có, production reward config, generic visual fallback và prerequisite hardening.
 - Lần kiểm tra gần nhất: GAME-C18-FIX2 đã hoàn tất runtime QA thật; Stage 03 đạt Victory Wave 24/24 (385 defeated, 0 escaped), thành còn nguyên HP; evidence mới đã ghi nhận.
-- REL-C01: **READY_FOR_RELEASE_GATE_R1 — consolidated smoke and final verification PASS**.
+- REL-C01: **PASS / LOCKED — consolidated smoke and final verification PASS @ `f55c1bf`**.
+- REL-C02: **IN PROGRESS — READY_FOR_RELEASE_GATE_R2**; merge ancestry, HUD documentation preservation and fresh release-candidate smoke are being verified on `codex/rel-c02-release-integration-r2`.
 - HUD V1: **LOCKED** — HUD-C01/C02/C03 integrated into `main`; combat tabs, persistent controls, inventory boundary, selected-only range and responsive layout locked.
 - Lần kiểm tra gần nhất: REL-C01 — 44 files/296 tests PASS; production build/preview PASS; equipment/Hero/Meta synchronization and player journey smoke PASS.
 
@@ -84,7 +85,8 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 | 16 — Kim Nguyên Bảo Shop & Cooldown | P16 | Premium earning/shop, Lệnh Hiệu Triệu, item đặc thù và cooldown shortening | DONE / FINAL INTEGRATION PASS / merged main | Phase 11–15 + OD-04/OD-08 | Codex + Antigravity UI | Atomic KNB purchase/item use, shared Energy regen+grant, live Wallet, capacity refresh — PASS | `main` | Premium economy hoặc timer bị khai thác |
 | 17 — Hero Recruitment & Ascension | P17 | Chiêu Hiền Lệnh item; Hero trùng → Mảnh Danh Tướng; Sao 1–5; Anh Hồn chung; sau Normal tiến hóa Trùng Sinh → Tái Sinh → Huyền Sử | DONE / FINAL AUDIT PASS | Phase 11 + Phase 14 + Phase 16 + HERO-A00 | Codex + Antigravity UI/data | FAST-05A canonical V5 repository, runtime/UI cutover, migration-only legacy, paid evolution, shared stars/passive — PASS | `c4605cf` / `codex/fast-meta-v5-cutover` | Duplicate reward, mất mảnh hoặc tạo Hero-specific progression/combat |
 | 18 — Economy Simulation & Balance | P18 | Simulation deterministic và khóa Balance V1 cho economy hiện tại | DONE / FINAL INTEGRATION PASS / merged main | Phase 11–17 | Codex | FAST-06 seeded weighted simulation, actual accounting, runtime-derived Balance V1, 9-row matrix — PASS | `main` | Balance assumptions không phản ánh gameplay thật |
-| Release Gate R1 | REL-C01 | Functional completion: Equipment/Hero/Meta synchronization, player journey, persistence và HBT → Bà Triệu boundary | READY_FOR_RELEASE_GATE_R1 | Production checkpoints C07–C20 | Codex | Consolidated player-journey, save/reload, console and meta synchronization smoke — PASS | `rel-c01-release-functional-completion` | Full campaign clear and cosmetic polish remain non-blocking |
+| Release Gate R1 | REL-C01 | Functional completion: Equipment/Hero/Meta synchronization, player journey, persistence và HBT → Bà Triệu boundary | PASS / LOCKED | Production checkpoints C07–C20 | Codex | Consolidated player-journey, save/reload, console and meta synchronization smoke — PASS | `f55c1bf` | Full campaign clear and cosmetic polish remain non-blocking |
+| Release Gate R2 | REL-C02 | Release integration from REL-C01 with current main HUD documentation and candidate runtime smoke | IN PROGRESS — READY_FOR_RELEASE_GATE_R2 | REL-C01 + latest `origin/main` | Codex | Two-parent ancestry, preserved HUD docs, city → campaign → battle, x1/x3 + Auto Wave, save/reload and console smoke | `fefd710` (integration) | No P0/P1 blocker observed; full campaign clear remains non-blocking |
 
 ## Phase 9 task tracker
 

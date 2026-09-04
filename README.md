@@ -4,7 +4,7 @@ Huyền Sử TD là game tower defense Việt Sử. Vertical slice hiện tại 
 
 ## Trạng thái
 
-Dự án đã hoàn thành Phase 0–18, gồm vertical slice chiến đấu, Meta Foundation, Reward Economy, Quân Lệnh, Deployment, Equipment V2, Gacha/Shop, Hero Recruitment và Economy Simulation. Mốc hiện tại là **GAME-C01 — Player Journey Shell / Meta Hub Integration**.
+Dự án đã hoàn thành Phase 0–18, gồm vertical slice chiến đấu, Meta Foundation, Reward Economy, Quân Lệnh, Deployment, Equipment V2, Gacha/Shop, Hero Recruitment và Economy Simulation. Bản hiện tại là **Huyền Sử TD v0.1.0 — Release Candidate**.
 
 Player journey V1:
 
@@ -23,6 +23,24 @@ Player journey V1:
 - MVP dùng local save; chưa có backend, tài khoản, database hoặc leaderboard.
 
 Chi tiết đầy đủ: [Game Rules](docs/game-rules.md).
+
+## Chạy dự án
+
+Yêu cầu: Node.js LTS và pnpm 11+.
+
+```bash
+pnpm install --frozen-lockfile
+pnpm dev
+```
+
+Các lệnh kiểm tra và preview production:
+
+```bash
+pnpm test
+pnpm typecheck
+pnpm build
+pnpm preview
+```
 
 ## Tài liệu dự án
 
@@ -51,4 +69,4 @@ Chi tiết đầy đủ: [Game Rules](docs/game-rules.md).
 
 ## Bước tiếp theo
 
-Tiếp theo là audit GAME-C01; sau đó mới mở rộng chapter/stage content Việt Sử. Không bắt đầu content 12 Sứ Quân trong task này.
+Bản release candidate chờ Release Gate R3. Không cần debug save hoặc chỉnh LocalStorage để chơi.

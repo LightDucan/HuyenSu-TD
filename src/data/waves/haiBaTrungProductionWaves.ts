@@ -36,3 +36,41 @@ export const haiBaTrungStage03Waves: readonly WaveDefinition[] = [
   { id: 'hbt-03-wave-21', groups: [a03(8), c03(8), s03(7, 1650)] }, { id: 'hbt-03-wave-22', groups: [a03(8), s03(9, 1050), c03(7, 1650)] },
   { id: 'hbt-03-wave-23', groups: [a03(9), c03(9), s03(7, 1650)] }, { id: 'hbt-03-wave-24', groups: [a03(9), c03(10), s03(8, 1650)] },
 ]
+
+const s04 = (count: number, delay = 0) => group('han-sword-infantry', count, delay, 800)
+const c04 = (count: number, delay = 0) => group('han-crossbow-soldier', count, delay, 925)
+const a04 = (count: number, delay = 0) => group('han-armored-guard', count, delay, 1200)
+
+export const haiBaTrungStage04Waves: readonly WaveDefinition[] = [
+  { id: 'hbt-04-wave-01', groups: [s04(7)] }, { id: 'hbt-04-wave-02', groups: [s04(6), c04(3, 1000)] },
+  { id: 'hbt-04-wave-03', groups: [a04(2), s04(7, 1000)] }, { id: 'hbt-04-wave-04', groups: [c04(5), s04(7, 1000)] },
+  { id: 'hbt-04-wave-05', groups: [a04(3), c04(4, 1000), s04(7, 1550)] }, { id: 'hbt-04-wave-06', groups: [s04(10), c04(5, 1000)] },
+  { id: 'hbt-04-wave-07', groups: [a04(4), s04(9, 1000)] }, { id: 'hbt-04-wave-08', groups: [a04(4), c04(8, 1000)] },
+  { id: 'hbt-04-wave-09', groups: [a04(4), s04(10, 1000)] }, { id: 'hbt-04-wave-10', groups: [a04(5), c04(7, 1000), s04(8, 1550)] },
+  { id: 'hbt-04-wave-11', groups: [s04(11), c04(7, 1000)] }, { id: 'hbt-04-wave-12', groups: [a04(5), s04(10, 1000)] },
+  { id: 'hbt-04-wave-13', groups: [a04(5), c04(10, 1000)] }, { id: 'hbt-04-wave-14', groups: [a04(6), c04(8, 1000), s04(9, 1550)] },
+  { id: 'hbt-04-wave-15', groups: [s04(12), c04(9, 1000)] }, { id: 'hbt-04-wave-16', groups: [a04(6), s04(11, 1000)] },
+  { id: 'hbt-04-wave-17', groups: [a04(6), c04(11, 1000)] }, { id: 'hbt-04-wave-18', groups: [a04(7), s04(12, 1000), c04(6, 1550)] },
+  { id: 'hbt-04-wave-19', groups: [a04(7), c04(11, 1000), s04(9, 1550)] }, { id: 'hbt-04-wave-20', groups: [a04(8), s04(12, 1000), c04(7, 1550)] },
+  { id: 'hbt-04-wave-21', groups: [a04(9), c04(12, 1000), s04(10, 1550)] }, { id: 'hbt-04-wave-22', groups: [a04(9), c04(13, 1000), s04(12, 1550)] },
+]
+
+const s05 = (count: number, delay = 0) => group('han-sword-infantry', count, delay, 775)
+const c05 = (count: number, delay = 0) => group('han-crossbow-soldier', count, delay, 900)
+const a05 = (count: number, delay = 0) => group('han-armored-guard', count, delay, 1150)
+
+export const haiBaTrungStage05Waves: readonly WaveDefinition[] = [
+  { id: 'hbt-05-wave-01', groups: [s05(7)] }, { id: 'hbt-05-wave-02', groups: [s05(6), c05(3, 950)] },
+  { id: 'hbt-05-wave-03', groups: [a05(2), s05(7, 950)] }, { id: 'hbt-05-wave-04', groups: [c05(5), s05(7, 950)] },
+  { id: 'hbt-05-wave-05', groups: [a05(3), c05(4, 950), s05(7, 1500)] }, { id: 'hbt-05-wave-06', groups: [s05(10), c05(5, 950)] },
+  { id: 'hbt-05-wave-07', groups: [a05(4), s05(9, 950)] }, { id: 'hbt-05-wave-08', groups: [a05(4), c05(8, 950)] },
+  { id: 'hbt-05-wave-09', groups: [a05(4), s05(10, 950)] }, { id: 'hbt-05-wave-10', groups: [a05(5), c05(7, 950), s05(8, 1500)] },
+  { id: 'hbt-05-wave-11', groups: [s05(11), c05(7, 950)] }, { id: 'hbt-05-wave-12', groups: [a05(5), s05(10, 950)] },
+  { id: 'hbt-05-wave-13', groups: [a05(5), c05(10, 950)] }, { id: 'hbt-05-wave-14', groups: [a05(6), c05(8, 950), s05(8, 1500)] },
+  { id: 'hbt-05-wave-15', groups: [s05(11), c05(9, 950)] }, { id: 'hbt-05-wave-16', groups: [a05(6), s05(11, 950)] },
+  { id: 'hbt-05-wave-17', groups: [a05(6), c05(11, 950)] }, { id: 'hbt-05-wave-18', groups: [a05(7), s05(11, 950), c05(6, 1500)] },
+  { id: 'hbt-05-wave-19', groups: [a05(7), c05(10, 950), s05(8, 1500)] }, { id: 'hbt-05-wave-20', groups: [a05(8), s05(10, 950), c05(7, 1500)] },
+  { id: 'hbt-05-wave-21', groups: [a05(8), c05(10, 950), s05(8, 1500)] }, { id: 'hbt-05-wave-22', groups: [a05(9), s05(11, 950), c05(7, 1500)] },
+  { id: 'hbt-05-wave-23', groups: [a05(9), c05(11, 950), s05(8, 1500)] }, { id: 'hbt-05-wave-24', groups: [a05(10), s05(11, 950), c05(8, 1500)] },
+  { id: 'hbt-05-wave-25', groups: [a05(10), c05(12, 950), s05(8, 1500)] }, { id: 'hbt-05-wave-26', groups: [a05(10), c05(12, 950), s05(9, 1500)] },
+]

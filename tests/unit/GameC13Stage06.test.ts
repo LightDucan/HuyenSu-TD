@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { BA_TRIEU_HERO_IDS, BA_TRIEU_STAGE_IDS, baTrieuChapter } from '../../src/data/campaign/baTrieuCampaign'
-import { HAI_BA_TRUNG_STAGE03_ID } from '../../src/data/campaign/haiBaTrungCampaign'
+import { HAI_BA_TRUNG_STAGE05_ID } from '../../src/data/campaign/haiBaTrungCampaign'
 import { balanceV1 } from '../../src/data/economy/balanceV1'
 import { isChapterCompleted, selectStageProgress } from '../../src/domain/campaign/CampaignProgression'
 import { productionEnemyVisualManifest, resolveEnemyVisual, wuEnemyVisualManifest } from '../../src/data/assets/enemyVisualAssets'
@@ -87,7 +87,7 @@ describe('GAME-C13 Bà Triệu Stage 06 final chapter contract', () => {
     expect(balanceV1.rewardSources.stageClear.baTrieu?.['bt-04-lap-luy-bo-dien']).toEqual({ gold: 26, knb: 1, anhHon: 12 })
     expect(balanceV1.rewardSources.stageClear.baTrieu?.['bt-05-dai-chien-bo-dien']).toEqual({ gold: 30, knb: 2, anhHon: 15 })
     expect(stage.firstClearReward).toBeUndefined()
-    const before = { completedStages: { [HAI_BA_TRUNG_STAGE03_ID]: { firstCompletedAtMs: 1 }, ...Object.fromEntries(BA_TRIEU_STAGE_IDS.slice(0, 5).map((id, index) => [id, { firstCompletedAtMs: index + 2 }])) } }
+    const before = { completedStages: { [HAI_BA_TRUNG_STAGE05_ID]: { firstCompletedAtMs: 1 }, ...Object.fromEntries(BA_TRIEU_STAGE_IDS.slice(0, 5).map((id, index) => [id, { firstCompletedAtMs: index + 2 }])) } }
     expect(selectStageProgress(baTrieuChapter, { completedStages: { ...before.completedStages, [BA_TRIEU_STAGE_IDS[4]]: { firstCompletedAtMs: 5 } } }, stage.id)).toBe('available')
     expect(isChapterCompleted(baTrieuChapter, before)).toBe(false)
     const complete = { completedStages: { ...before.completedStages, [stage.id]: { firstCompletedAtMs: 10 } } }

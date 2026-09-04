@@ -41,3 +41,47 @@ export const haiBaTrungStage03Map = {
     { kind: 'forest', x: 820, y: 350, width: 180, height: 150 }, { kind: 'barrier', x: 780, y: 480, width: 150, height: 45 },
   ],
 } as const satisfies BattleMapDefinition
+
+export const haiBaTrungStage04Map = {
+  id: 'map-thuy-bo-crossing', title: 'Hành Lang Thủy Bộ', theme: 'thuy-bo-crossing',
+  width: 1024, height: 768, grid: { columns: 12, rows: 10 },
+  fixedPath: [
+    { x: 0, y: 250 }, { x: 140, y: 250 }, { x: 140, y: 560 }, { x: 300, y: 560 },
+    { x: 300, y: 390 }, { x: 470, y: 390 }, { x: 470, y: 180 }, { x: 650, y: 180 },
+    { x: 650, y: 500 }, { x: 820, y: 500 }, { x: 820, y: 310 }, { x: 1024, y: 310 },
+  ],
+  placementTiles: [
+    { column: 0, row: 5 }, { column: 2, row: 2 }, { column: 3, row: 7 }, { column: 4, row: 4 },
+    { column: 6, row: 1 }, { column: 6, row: 7 }, { column: 8, row: 3 }, { column: 9, row: 7 },
+    { column: 10, row: 2 }, { column: 11, row: 5 },
+  ],
+  terrainDecorations: [
+    { kind: 'shallow-water', x: 0, y: 0, width: 1024, height: 105 }, { kind: 'reed', x: 20, y: 105, width: 170, height: 115 },
+    { kind: 'mud', x: 0, y: 610, width: 220, height: 158 }, { kind: 'earth', x: 220, y: 245, width: 190, height: 95 },
+    { kind: 'barrier', x: 330, y: 475, width: 150, height: 50 }, { kind: 'camp', x: 515, y: 545, width: 135, height: 100 },
+    { kind: 'reed', x: 665, y: 580, width: 145, height: 120 }, { kind: 'forest', x: 835, y: 0, width: 175, height: 165 },
+    { kind: 'barrier', x: 835, y: 410, width: 145, height: 50 },
+  ],
+} as const satisfies BattleMapDefinition
+
+export const haiBaTrungStage05Map = {
+  id: 'map-cam-khe-last-line', title: 'Tuyến Cuối Cẩm Khê', theme: 'cam-khe-last-line',
+  width: 1024, height: 768, grid: { columns: 12, rows: 10 },
+  fixedPath: [
+    { x: 0, y: 110 }, { x: 170, y: 110 }, { x: 170, y: 330 }, { x: 340, y: 330 },
+    { x: 340, y: 610 }, { x: 540, y: 610 }, { x: 540, y: 430 }, { x: 720, y: 430 },
+    { x: 720, y: 180 }, { x: 880, y: 180 }, { x: 880, y: 520 }, { x: 1024, y: 520 },
+  ],
+  placementTiles: [
+    { column: 1, row: 3 }, { column: 2, row: 6 }, { column: 4, row: 2 }, { column: 4, row: 7 },
+    { column: 6, row: 3 }, { column: 7, row: 7 }, { column: 8, row: 1 }, { column: 9, row: 5 },
+    { column: 10, row: 1 }, { column: 11, row: 7 },
+  ],
+  terrainDecorations: [
+    { kind: 'hill', x: 0, y: 430, width: 220, height: 185 }, { kind: 'forest', x: 0, y: 620, width: 245, height: 148 },
+    { kind: 'earth', x: 225, y: 0, width: 210, height: 145 }, { kind: 'barrier', x: 245, y: 435, width: 175, height: 50 },
+    { kind: 'camp', x: 440, y: 175, width: 135, height: 105 }, { kind: 'rock', x: 590, y: 20, width: 130, height: 110 },
+    { kind: 'barrier', x: 620, y: 535, width: 170, height: 50 }, { kind: 'forest', x: 810, y: 575, width: 200, height: 175 },
+    { kind: 'earth', x: 845, y: 250, width: 165, height: 110 },
+  ],
+} as const satisfies BattleMapDefinition

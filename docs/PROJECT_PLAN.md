@@ -9,14 +9,14 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 ## WorkTree
 
 - Repository: `HuyenSu-TD`
-- Branch hiện tại: `codex/rel-c01-release-functional-completion`
+- Branch hiện tại: `codex/rel-c02-release-integration-r2`
 - Worktree Codex hiện tại: `C:\Users\PC\Documents\Codex\2026-08-23\referenced-chatgpt-conversation-this-is-an\work\game-c07-fix1`
 - Quy tắc worker Antigravity: [ANTIGRAVITY_RULES.md](ANTIGRAVITY_RULES.md)
 
 ## Trạng thái hiện tại
 
-- Current Phase: **Release Acceleration Mode — REL-C01**
-- Current Codex task: **REL-C01 — Release Functional Completion Batch** — branch `codex/rel-c01-release-functional-completion`.
+- Current Phase: **Release Acceleration Mode — REL-C02**
+- Current Codex task: **REL-C02 — Release Integration + Release Candidate Gate R2** — branch `codex/rel-c02-release-integration-r2`.
 - Current Antigravity task: **NONE — Hero Asset Production SUSPENDED**.
 - QA-C01A: **ENVIRONMENT-BLOCKED interactive portion**; automated regression PASS; manual QA debt retained.
 - VS-HBT-V02B: **CODE/BINARY AUDIT PASS; MANUAL VISUAL QA PASS ENOUGH TO CONTINUE**; real HBT Hero assets 12/12 integrated.
@@ -33,6 +33,8 @@ Roster Tam Quốc hiện tại chỉ là **prototype test roster** dùng để k
 - GAME-C06: **DONE — waiting audit**; roster Bà Triệu tách khỏi HBT, recruitable qua hệ hiện có, production reward config, generic visual fallback và prerequisite hardening.
 - Lần kiểm tra gần nhất: GAME-C18-FIX2 đã hoàn tất runtime QA thật; Stage 03 đạt Victory Wave 24/24 (385 defeated, 0 escaped), thành còn nguyên HP; evidence mới đã ghi nhận.
 - REL-C01: **READY_FOR_RELEASE_GATE_R1 — consolidated smoke and final verification PASS**.
+- HUD V1: **LOCKED** — HUD-C01/C02/C03 integrated into `main`; combat tabs, persistent controls, inventory boundary, selected-only range and responsive layout locked.
+- Lần kiểm tra gần nhất: REL-C01 — 44 files/296 tests PASS; production build/preview PASS; equipment/Hero/Meta synchronization and player journey smoke PASS.
 
 ## Phases và checkpoint
 
